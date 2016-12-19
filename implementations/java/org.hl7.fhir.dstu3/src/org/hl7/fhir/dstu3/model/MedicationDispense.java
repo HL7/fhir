@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -458,27 +458,27 @@ public class MedicationDispense extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -592113567: // wasSubstituted
           this.wasSubstituted = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -934964668: // reason
           this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1511509392: // responsibleParty
           this.getResponsibleParty().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("wasSubstituted"))
           this.wasSubstituted = castToBoolean(value); // BooleanType
         else if (name.equals("type"))
@@ -488,7 +488,8 @@ public class MedicationDispense extends DomainResource {
         else if (name.equals("responsibleParty"))
           this.getResponsibleParty().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1687,72 +1688,72 @@ public class MedicationDispense extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new MedicationDispenseStatusEnumFactory().fromType(value); // Enumeration<MedicationDispenseStatus>
-          break;
+          return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 241511093: // dispenser
           this.dispenser = castToReference(value); // Reference
-          break;
+          return value;
         case 2036139309: // dispensingOrganization
           this.dispensingOrganization = castToReference(value); // Reference
-          break;
+          return value;
         case -1237557856: // authorizingPrescription
           this.getAuthorizingPrescription().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 197175334: // daysSupply
           this.daysSupply = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -562837097: // whenPrepared
           this.whenPrepared = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -940241380: // whenHandedOver
           this.whenHandedOver = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1429847026: // destination
           this.destination = castToReference(value); // Reference
-          break;
+          return value;
         case -808719889: // receiver
           this.getReceiver().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case -1201373865: // dosageInstruction
           this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
-          break;
+          return value;
         case 826147581: // substitution
           this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
-          break;
+          return value;
         case 1835190426: // eventHistory
           this.getEventHistory().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
@@ -1792,7 +1793,8 @@ public class MedicationDispense extends DomainResource {
         else if (name.equals("eventHistory"))
           this.getEventHistory().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

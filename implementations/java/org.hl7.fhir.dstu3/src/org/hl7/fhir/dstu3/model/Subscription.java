@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -569,27 +569,27 @@ public class Subscription extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new SubscriptionChannelTypeEnumFactory().fromType(value); // Enumeration<SubscriptionChannelType>
-          break;
+          return value;
         case 1741102485: // endpoint
           this.endpoint = castToUri(value); // UriType
-          break;
+          return value;
         case -786701938: // payload
           this.payload = castToString(value); // StringType
-          break;
+          return value;
         case -1221270899: // header
           this.header = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new SubscriptionChannelTypeEnumFactory().fromType(value); // Enumeration<SubscriptionChannelType>
         else if (name.equals("endpoint"))
@@ -599,7 +599,8 @@ public class Subscription extends DomainResource {
         else if (name.equals("header"))
           this.header = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1146,39 +1147,39 @@ public class Subscription extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1952046943: // criteria
           this.criteria = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new SubscriptionStatusEnumFactory().fromType(value); // Enumeration<SubscriptionStatus>
-          break;
+          return value;
         case 96784904: // error
           this.error = castToString(value); // StringType
-          break;
+          return value;
         case 738950403: // channel
           this.channel = (SubscriptionChannelComponent) value; // SubscriptionChannelComponent
-          break;
+          return value;
         case 100571: // end
           this.end = castToInstant(value); // InstantType
-          break;
+          return value;
         case 114586: // tag
           this.getTag().add(castToCoding(value)); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("criteria"))
           this.criteria = castToString(value); // StringType
         else if (name.equals("contact"))
@@ -1196,7 +1197,8 @@ public class Subscription extends DomainResource {
         else if (name.equals("tag"))
           this.getTag().add(castToCoding(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

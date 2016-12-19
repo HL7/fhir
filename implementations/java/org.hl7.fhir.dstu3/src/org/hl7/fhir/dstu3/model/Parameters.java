@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -252,27 +252,27 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-          break;
+          return value;
         case -341064690: // resource
           this.resource = castToResource(value); // Resource
-          break;
+          return value;
         case 3433459: // part
           this.getPart().add((ParametersParameterComponent) value); // ParametersParameterComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value[x]"))
@@ -282,7 +282,8 @@ public class Parameters extends Resource implements IBaseParameters {
         else if (name.equals("part"))
           this.getPart().add((ParametersParameterComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -575,22 +576,23 @@ public class Parameters extends Resource implements IBaseParameters {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1954460585: // parameter
           this.getParameter().add((ParametersParameterComponent) value); // ParametersParameterComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("parameter"))
           this.getParameter().add((ParametersParameterComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

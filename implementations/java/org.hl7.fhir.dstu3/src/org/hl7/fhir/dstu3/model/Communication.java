@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -285,22 +285,23 @@ public class Communication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
           this.content = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
           this.content = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1377,63 +1378,63 @@ public class Communication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -995424086: // parent
           this.getParent().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new CommunicationStatusEnumFactory().fromType(value); // Enumeration<CommunicationStatus>
-          break;
+          return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1078030475: // medium
           this.getMedium().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 110546223: // topic
           this.getTopic().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case 3526552: // sent
           this.sent = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -808719903: // received
           this.received = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -905962955: // sender
           this.sender = castToReference(value); // Reference
-          break;
+          return value;
         case 820081177: // recipient
           this.getRecipient().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -786701938: // payload
           this.getPayload().add((CommunicationPayloadComponent) value); // CommunicationPayloadComponent
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("basedOn"))
@@ -1467,7 +1468,8 @@ public class Communication extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

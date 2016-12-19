@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -230,24 +230,24 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3148996: // form
           this.form = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -206409263: // ingredient
           this.getIngredient().add((MedicationProductIngredientComponent) value); // MedicationProductIngredientComponent
-          break;
+          return value;
         case 93509434: // batch
           this.getBatch().add((MedicationProductBatchComponent) value); // MedicationProductBatchComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("form"))
           this.form = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("ingredient"))
@@ -255,7 +255,8 @@ public class Medication extends DomainResource {
         else if (name.equals("batch"))
           this.getBatch().add((MedicationProductBatchComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -454,27 +455,28 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
           this.item = castToType(value); // Type
-          break;
+          return value;
         case -1413853096: // amount
           this.amount = castToRatio(value); // Ratio
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
           this.item = castToType(value); // Type
         else if (name.equals("amount"))
           this.amount = castToRatio(value); // Ratio
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -684,27 +686,28 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 462547450: // lotNumber
           this.lotNumber = castToString(value); // StringType
-          break;
+          return value;
         case -668811523: // expirationDate
           this.expirationDate = castToDateTime(value); // DateTimeType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("lotNumber"))
           this.lotNumber = castToString(value); // StringType
         else if (name.equals("expirationDate"))
           this.expirationDate = castToDateTime(value); // DateTimeType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -891,27 +894,28 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -410956671: // container
           this.container = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 951530617: // content
           this.getContent().add((MedicationPackageContentComponent) value); // MedicationPackageContentComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("container"))
           this.container = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("content"))
           this.getContent().add((MedicationPackageContentComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1099,27 +1103,28 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
           this.item = castToType(value); // Type
-          break;
+          return value;
         case -1413853096: // amount
           this.amount = castToSimpleQuantity(value); // SimpleQuantity
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
           this.item = castToType(value); // Type
         else if (name.equals("amount"))
           this.amount = castToSimpleQuantity(value); // SimpleQuantity
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1423,30 +1428,30 @@ public class Medication extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 2055403645: // isBrand
           this.isBrand = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
-          break;
+          return value;
         case -309474065: // product
           this.product = (MedicationProductComponent) value; // MedicationProductComponent
-          break;
+          return value;
         case -807062458: // package
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("isBrand"))
@@ -1458,7 +1463,8 @@ public class Medication extends DomainResource {
         else if (name.equals("package"))
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -118,7 +118,7 @@ private Map<String, Object> userData;
 	
 	protected abstract void listChildren(List<Property> result) ;
 	
-	public void setProperty(String name, Base value) throws FHIRException {
+	public Base setProperty(String name, Base value) throws FHIRException {
 	  throw new FHIRException("Attempt to set unknown property "+name);
 	}
 	
@@ -662,7 +662,7 @@ private Map<String, Object> userData;
   	return null; 
 	}
 
-	public void setProperty(int hash, String name, Base value) throws FHIRException {
+	public Base setProperty(int hash, String name, Base value) throws FHIRException {
 		throw new FHIRException("Attempt to write to invalid property '"+name+"' on type "+fhirType());
 	}
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -624,30 +624,30 @@ public class ContactPoint extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -887328209: // system
           this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
+          return value;
         case 116103: // use
           this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
-          break;
+          return value;
         case 3492908: // rank
           this.rank = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
         else if (name.equals("value"))
@@ -659,7 +659,8 @@ public class ContactPoint extends Type implements ICompositeType {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

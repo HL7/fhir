@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -788,51 +788,51 @@ public class Media extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 3575610: // type
           this.type = new DigitalMediaTypeEnumFactory().fromType(value); // Enumeration<DigitalMediaType>
-          break;
+          return value;
         case -1867567750: // subtype
           this.subtype = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3619493: // view
           this.view = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case -500553564: // operator
           this.operator = castToReference(value); // Reference
-          break;
+          return value;
         case 780988929: // deviceName
           this.deviceName = castToString(value); // StringType
-          break;
+          return value;
         case -1221029593: // height
           this.height = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case 113126854: // width
           this.width = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case -1266514778: // frames
           this.frames = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case -1992012396: // duration
           this.duration = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case 951530617: // content
           this.content = castToAttachment(value); // Attachment
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("type"))
@@ -858,7 +858,8 @@ public class Media extends DomainResource {
         else if (name.equals("content"))
           this.content = castToAttachment(value); // Attachment
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

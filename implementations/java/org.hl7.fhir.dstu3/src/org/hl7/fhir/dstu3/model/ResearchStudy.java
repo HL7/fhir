@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -380,24 +380,24 @@ public class ResearchStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("code"))
@@ -405,7 +405,8 @@ public class ResearchStudy extends DomainResource {
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1775,75 +1776,75 @@ public class ResearchStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -989163880: // protocol
           this.getProtocol().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -995410646: // partOf
           this.getPartOf().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new ResearchStudyStatusEnumFactory().fromType(value); // Enumeration<ResearchStudyStatus>
-          break;
+          return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 97604824: // focus
           this.getFocus().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 666807069: // relatedArtifact
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
-          break;
+          return value;
         case -814408215: // keyword
           this.getKeyword().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 116089604: // enrollment
           this.getEnrollment().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case -1998892262: // sponsor
           this.sponsor = castToReference(value); // Reference
-          break;
+          return value;
         case 1437117175: // principalInvestigator
           this.principalInvestigator = castToReference(value); // Reference
-          break;
+          return value;
         case 3530567: // site
           this.getSite().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1181369065: // reasonStopped
           this.reasonStopped = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case 96860: // arm
           this.getArm().add((ResearchStudyArmComponent) value); // ResearchStudyArmComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("title"))
@@ -1885,7 +1886,8 @@ public class ResearchStudy extends DomainResource {
         else if (name.equals("arm"))
           this.getArm().add((ResearchStudyArmComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

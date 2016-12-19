@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -353,24 +353,24 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -887328209: // system
           this.system = castToUri(value); // UriType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3357091: // mode
           this.mode = new SystemVersionProcessingModeEnumFactory().fromType(value); // Enumeration<SystemVersionProcessingMode>
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = castToUri(value); // UriType
         else if (name.equals("version"))
@@ -378,7 +378,8 @@ public class ExpansionProfile extends MetadataResource {
         else if (name.equals("mode"))
           this.mode = new SystemVersionProcessingModeEnumFactory().fromType(value); // Enumeration<SystemVersionProcessingMode>
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -593,27 +594,28 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -887328209: // system
           this.system = castToUri(value); // UriType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("system"))
           this.system = castToUri(value); // UriType
         else if (name.equals("version"))
           this.version = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -767,27 +769,28 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1942574248: // include
           this.include = (DesignationIncludeComponent) value; // DesignationIncludeComponent
-          break;
+          return value;
         case -1321148966: // exclude
           this.exclude = (DesignationExcludeComponent) value; // DesignationExcludeComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("include"))
           this.include = (DesignationIncludeComponent) value; // DesignationIncludeComponent
         else if (name.equals("exclude"))
           this.exclude = (DesignationExcludeComponent) value; // DesignationExcludeComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -939,22 +942,23 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -900931593: // designation
           this.getDesignation().add((DesignationIncludeDesignationComponent) value); // DesignationIncludeDesignationComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("designation"))
           this.getDesignation().add((DesignationIncludeDesignationComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1134,27 +1138,28 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1613589672: // language
           this.language = castToCode(value); // CodeType
-          break;
+          return value;
         case 116103: // use
           this.use = castToCoding(value); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("language"))
           this.language = castToCode(value); // CodeType
         else if (name.equals("use"))
           this.use = castToCoding(value); // Coding
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1305,22 +1310,23 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -900931593: // designation
           this.getDesignation().add((DesignationExcludeDesignationComponent) value); // DesignationExcludeDesignationComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("designation"))
           this.getDesignation().add((DesignationExcludeDesignationComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1500,27 +1506,28 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1613589672: // language
           this.language = castToCode(value); // CodeType
-          break;
+          return value;
         case 116103: // use
           this.use = castToCoding(value); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("language"))
           this.language = castToCode(value); // CodeType
         else if (name.equals("use"))
           this.use = castToCoding(value); // Coding
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2778,84 +2785,84 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 807748292: // fixedVersion
           this.getFixedVersion().add((ExpansionProfileFixedVersionComponent) value); // ExpansionProfileFixedVersionComponent
-          break;
+          return value;
         case 2125282457: // excludedSystem
           this.excludedSystem = (ExpansionProfileExcludedSystemComponent) value; // ExpansionProfileExcludedSystemComponent
-          break;
+          return value;
         case 461507620: // includeDesignations
           this.includeDesignations = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -900931593: // designation
           this.designation = (ExpansionProfileDesignationComponent) value; // ExpansionProfileDesignationComponent
-          break;
+          return value;
         case 127972379: // includeDefinition
           this.includeDefinition = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 2043813842: // activeOnly
           this.activeOnly = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 424992625: // excludeNested
           this.excludeNested = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 667582980: // excludeNotForUI
           this.excludeNotForUI = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 563335154: // excludePostCoordinated
           this.excludePostCoordinated = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1486237242: // displayLanguage
           this.displayLanguage = castToCode(value); // CodeType
-          break;
+          return value;
         case 597771333: // limitedExpansion
           this.limitedExpansion = castToBoolean(value); // BooleanType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -2903,7 +2910,8 @@ public class ExpansionProfile extends MetadataResource {
         else if (name.equals("limitedExpansion"))
           this.limitedExpansion = castToBoolean(value); // BooleanType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

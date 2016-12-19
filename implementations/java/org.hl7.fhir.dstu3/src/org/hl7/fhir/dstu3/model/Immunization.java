@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -288,27 +288,28 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934964668: // reason
           this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 2101123790: // reasonNotGiven
           this.getReasonNotGiven().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("reason"))
           this.getReason().add(castToCodeableConcept(value));
         else if (name.equals("reasonNotGiven"))
           this.getReasonNotGiven().add(castToCodeableConcept(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -575,24 +576,24 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1335224239: // detail
           this.detail = castToReference(value); // Reference
-          break;
+          return value;
         case -427039533: // reported
           this.reported = castToBoolean(value); // BooleanType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("date"))
           this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("detail"))
@@ -600,7 +601,8 @@ public class Immunization extends DomainResource {
         else if (name.equals("reported"))
           this.reported = castToBoolean(value); // BooleanType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1116,39 +1118,39 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 550933246: // doseSequence
           this.doseSequence = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 1475610435: // authority
           this.authority = castToReference(value); // Reference
-          break;
+          return value;
         case -905838985: // series
           this.series = castToString(value); // StringType
-          break;
+          return value;
         case -1936727105: // seriesDoses
           this.seriesDoses = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case -319593813: // targetDisease
           this.getTargetDisease().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -745826705: // doseStatus
           this.doseStatus = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 662783379: // doseStatusReason
           this.doseStatusReason = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("doseSequence"))
           this.doseSequence = castToPositiveInt(value); // PositiveIntType
         else if (name.equals("description"))
@@ -1166,7 +1168,8 @@ public class Immunization extends DomainResource {
         else if (name.equals("doseStatusReason"))
           this.doseStatusReason = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2441,81 +2444,81 @@ public class Immunization extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ImmunizationStatusEnumFactory().fromType(value); // Enumeration<ImmunizationStatus>
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 664556354: // vaccineCode
           this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case -1050911117: // wasNotGiven
           this.wasNotGiven = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -528721731: // primarySource
           this.primarySource = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 486750586: // reportOrigin
           this.reportOrigin = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case 693933948: // requester
           this.requester = castToReference(value); // Reference
-          break;
+          return value;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
-          break;
+          return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
-          break;
+          return value;
         case 1901043637: // location
           this.location = castToReference(value); // Reference
-          break;
+          return value;
         case 462547450: // lotNumber
           this.lotNumber = castToString(value); // StringType
-          break;
+          return value;
         case -668811523: // expirationDate
           this.expirationDate = castToDate(value); // DateType
-          break;
+          return value;
         case 3530567: // site
           this.site = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -2083618872: // doseQuantity
           this.doseQuantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case -1105867239: // explanation
           this.explanation = (ImmunizationExplanationComponent) value; // ImmunizationExplanationComponent
-          break;
+          return value;
         case -867509719: // reaction
           this.getReaction().add((ImmunizationReactionComponent) value); // ImmunizationReactionComponent
-          break;
+          return value;
         case -179633155: // vaccinationProtocol
           this.getVaccinationProtocol().add((ImmunizationVaccinationProtocolComponent) value); // ImmunizationVaccinationProtocolComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -2561,7 +2564,8 @@ public class Immunization extends DomainResource {
         else if (name.equals("vaccinationProtocol"))
           this.getVaccinationProtocol().add((ImmunizationVaccinationProtocolComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

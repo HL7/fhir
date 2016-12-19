@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -645,39 +645,39 @@ public class ResearchSubject extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ResearchSubjectStatusEnumFactory().fromType(value); // Enumeration<ResearchSubjectStatus>
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case 109776329: // study
           this.study = castToReference(value); // Reference
-          break;
+          return value;
         case -46292327: // individual
           this.individual = castToReference(value); // Reference
-          break;
+          return value;
         case 1741912494: // assignedArm
           this.assignedArm = castToString(value); // StringType
-          break;
+          return value;
         case 528827886: // actualArm
           this.actualArm = castToString(value); // StringType
-          break;
+          return value;
         case 951500826: // consent
           this.consent = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
@@ -695,7 +695,8 @@ public class ResearchSubject extends DomainResource {
         else if (name.equals("consent"))
           this.consent = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

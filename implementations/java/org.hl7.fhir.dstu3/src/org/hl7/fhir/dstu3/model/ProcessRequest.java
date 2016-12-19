@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -378,22 +378,23 @@ public class ProcessRequest extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1422298666: // sequenceLinkId
           this.sequenceLinkId = castToInteger(value); // IntegerType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequenceLinkId"))
           this.sequenceLinkId = castToInteger(value); // IntegerType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1339,60 +1340,60 @@ public class ProcessRequest extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
-          break;
+          return value;
         case -1422950858: // action
           this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
-          break;
+          return value;
         case -880905839: // target
           this.target = castToReference(value); // Reference
-          break;
+          return value;
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -987494927: // provider
           this.provider = castToReference(value); // Reference
-          break;
+          return value;
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
-          break;
+          return value;
         case 1095692943: // request
           this.request = castToReference(value); // Reference
-          break;
+          return value;
         case -340323263: // response
           this.response = castToReference(value); // Reference
-          break;
+          return value;
         case -2001137643: // nullify
           this.nullify = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -925155509: // reference
           this.reference = castToString(value); // StringType
-          break;
+          return value;
         case 3242771: // item
           this.getItem().add((ItemsComponent) value); // ItemsComponent
-          break;
+          return value;
         case 1942574248: // include
           this.getInclude().add(castToString(value)); // StringType
-          break;
+          return value;
         case -1321148966: // exclude
           this.getExclude().add(castToString(value)); // StringType
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -1424,7 +1425,8 @@ public class ProcessRequest extends DomainResource {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

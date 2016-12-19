@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -867,27 +867,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 100346066: // index
           this.index = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -309425751: // profile
           this.profile = castToCoding(value); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("index"))
           this.index = castToInteger(value); // IntegerType
         else if (name.equals("profile"))
           this.profile = castToCoding(value); // Coding
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1073,27 +1074,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 100346066: // index
           this.index = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -309425751: // profile
           this.profile = castToCoding(value); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("index"))
           this.index = castToInteger(value); // IntegerType
         else if (name.equals("profile"))
           this.profile = castToCoding(value); // Coding
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1306,27 +1308,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3321850: // link
           this.getLink().add((TestScriptMetadataLinkComponent) value); // TestScriptMetadataLinkComponent
-          break;
+          return value;
         case -783669992: // capability
           this.getCapability().add((TestScriptMetadataCapabilityComponent) value); // TestScriptMetadataCapabilityComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("link"))
           this.getLink().add((TestScriptMetadataLinkComponent) value);
         else if (name.equals("capability"))
           this.getCapability().add((TestScriptMetadataCapabilityComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1542,27 +1545,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2076,36 +2080,36 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -393139297: // required
           this.required = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1109784050: // validated
           this.validated = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1008619738: // origin
           this.getOrigin().add(castToInteger(value)); // IntegerType
-          break;
+          return value;
         case -1429847026: // destination
           this.destination = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 3321850: // link
           this.getLink().add(castToUri(value)); // UriType
-          break;
+          return value;
         case -1487597642: // capabilities
           this.capabilities = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("required"))
           this.required = castToBoolean(value); // BooleanType
         else if (name.equals("validated"))
@@ -2121,7 +2125,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("capabilities"))
           this.capabilities = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2409,24 +2414,24 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 73154411: // autocreate
           this.autocreate = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 89990170: // autodelete
           this.autodelete = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("autocreate"))
           this.autocreate = castToBoolean(value); // BooleanType
         else if (name.equals("autodelete"))
@@ -2434,7 +2439,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2999,39 +3005,39 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -659125328: // defaultValue
           this.defaultValue = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
-          break;
+          return value;
         case 1160732269: // headerField
           this.headerField = castToString(value); // StringType
-          break;
+          return value;
         case 3202695: // hint
           this.hint = castToString(value); // StringType
-          break;
+          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
-          break;
+          return value;
         case 1746327190: // sourceId
           this.sourceId = castToId(value); // IdType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("defaultValue"))
@@ -3049,7 +3055,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("sourceId"))
           this.sourceId = castToId(value); // IdType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3297,27 +3304,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
-          break;
+          return value;
         case 106436749: // param
           this.getParam().add((RuleParamComponent) value); // RuleParamComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("param"))
           this.getParam().add((RuleParamComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3530,27 +3538,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3761,27 +3770,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((RulesetRuleComponent) value); // RulesetRuleComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else if (name.equals("rule"))
           this.getRule().add((RulesetRuleComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3998,27 +4008,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -919875273: // ruleId
           this.ruleId = castToId(value); // IdType
-          break;
+          return value;
         case 106436749: // param
           this.getParam().add((RulesetRuleParamComponent) value); // RulesetRuleParamComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
           this.getParam().add((RulesetRuleParamComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4230,27 +4241,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4400,22 +4412,23 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1422950858: // action
           this.getAction().add((SetupActionComponent) value); // SetupActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("action"))
           this.getAction().add((SetupActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4568,27 +4581,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
+          return value;
         case -1408208058: // assert
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else if (name.equals("assert"))
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5577,63 +5591,63 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCoding(value); // Coding
-          break;
+          return value;
         case -341064690: // resource
           this.resource = castToCode(value); // CodeType
-          break;
+          return value;
         case 102727412: // label
           this.label = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1423461112: // accept
           this.accept = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-          break;
+          return value;
         case -389131437: // contentType
           this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-          break;
+          return value;
         case -1429847026: // destination
           this.destination = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -1760554218: // encodeRequestUrl
           this.encodeRequestUrl = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1008619738: // origin
           this.origin = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -995427962: // params
           this.params = castToString(value); // StringType
-          break;
+          return value;
         case 1074158076: // requestHeader
           this.getRequestHeader().add((SetupActionOperationRequestHeaderComponent) value); // SetupActionOperationRequestHeaderComponent
-          break;
+          return value;
         case 693933066: // requestId
           this.requestId = castToId(value); // IdType
-          break;
+          return value;
         case -633138884: // responseId
           this.responseId = castToId(value); // IdType
-          break;
+          return value;
         case 1746327190: // sourceId
           this.sourceId = castToId(value); // IdType
-          break;
+          return value;
         case -441951604: // targetId
           this.targetId = castToId(value); // IdType
-          break;
+          return value;
         case 116079: // url
           this.url = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("resource"))
@@ -5667,7 +5681,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("url"))
           this.url = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5959,27 +5974,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 97427706: // field
           this.field = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("field"))
           this.field = castToString(value); // StringType
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -7348,84 +7364,84 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 102727412: // label
           this.label = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -962590849: // direction
           this.direction = new AssertionDirectionTypeEnumFactory().fromType(value); // Enumeration<AssertionDirectionType>
-          break;
+          return value;
         case 2081856758: // compareToSourceId
           this.compareToSourceId = castToString(value); // StringType
-          break;
+          return value;
         case -1415702669: // compareToSourceExpression
           this.compareToSourceExpression = castToString(value); // StringType
-          break;
+          return value;
         case -790206144: // compareToSourcePath
           this.compareToSourcePath = castToString(value); // StringType
-          break;
+          return value;
         case -389131437: // contentType
           this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-          break;
+          return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
-          break;
+          return value;
         case 1160732269: // headerField
           this.headerField = castToString(value); // StringType
-          break;
+          return value;
         case 818925001: // minimumId
           this.minimumId = castToString(value); // StringType
-          break;
+          return value;
         case 1001488901: // navigationLinks
           this.navigationLinks = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -500553564: // operator
           this.operator = new AssertionOperatorTypeEnumFactory().fromType(value); // Enumeration<AssertionOperatorType>
-          break;
+          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
-          break;
+          return value;
         case 37099616: // requestURL
           this.requestURL = castToString(value); // StringType
-          break;
+          return value;
         case -341064690: // resource
           this.resource = castToCode(value); // CodeType
-          break;
+          return value;
         case -340323263: // response
           this.response = new AssertionResponseTypesEnumFactory().fromType(value); // Enumeration<AssertionResponseTypes>
-          break;
+          return value;
         case 1438723534: // responseCode
           this.responseCode = castToString(value); // StringType
-          break;
+          return value;
         case 3512060: // rule
           this.rule = (ActionAssertRuleComponent) value; // ActionAssertRuleComponent
-          break;
+          return value;
         case 1548678118: // ruleset
           this.ruleset = (ActionAssertRulesetComponent) value; // ActionAssertRulesetComponent
-          break;
+          return value;
         case 1746327190: // sourceId
           this.sourceId = castToId(value); // IdType
-          break;
+          return value;
         case 1555541038: // validateProfileId
           this.validateProfileId = castToId(value); // IdType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
+          return value;
         case -481159832: // warningOnly
           this.warningOnly = castToBoolean(value); // BooleanType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("label"))
           this.label = castToString(value); // StringType
         else if (name.equals("description"))
@@ -7473,7 +7489,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("warningOnly"))
           this.warningOnly = castToBoolean(value); // BooleanType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -7813,27 +7830,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -919875273: // ruleId
           this.ruleId = castToId(value); // IdType
-          break;
+          return value;
         case 106436749: // param
           this.getParam().add((ActionAssertRuleParamComponent) value); // ActionAssertRuleParamComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
           this.getParam().add((ActionAssertRuleParamComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -8042,27 +8060,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -8274,27 +8293,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -2073977951: // rulesetId
           this.rulesetId = castToId(value); // IdType
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((ActionAssertRulesetRuleComponent) value); // ActionAssertRulesetRuleComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("rulesetId"))
           this.rulesetId = castToId(value); // IdType
         else if (name.equals("rule"))
           this.getRule().add((ActionAssertRulesetRuleComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -8510,27 +8530,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -919875273: // ruleId
           this.ruleId = castToId(value); // IdType
-          break;
+          return value;
         case 106436749: // param
           this.getParam().add((ActionAssertRulesetRuleParamComponent) value); // ActionAssertRulesetRuleParamComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("ruleId"))
           this.ruleId = castToId(value); // IdType
         else if (name.equals("param"))
           this.getParam().add((ActionAssertRulesetRuleParamComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -8739,27 +8760,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value"))
           this.value = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -9025,24 +9047,24 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add((TestActionComponent) value); // TestActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -9050,7 +9072,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("action"))
           this.getAction().add((TestActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -9215,27 +9238,28 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
+          return value;
         case -1408208058: // assert
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else if (name.equals("assert"))
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -9387,22 +9411,23 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1422950858: // action
           this.getAction().add((TeardownActionComponent) value); // TeardownActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("action"))
           this.getAction().add((TeardownActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -9530,22 +9555,23 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -11004,93 +11030,93 @@ public class TestScript extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -1008619738: // origin
           this.getOrigin().add((TestScriptOriginComponent) value); // TestScriptOriginComponent
-          break;
+          return value;
         case -1429847026: // destination
           this.getDestination().add((TestScriptDestinationComponent) value); // TestScriptDestinationComponent
-          break;
+          return value;
         case -450004177: // metadata
           this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
-          break;
+          return value;
         case -843449847: // fixture
           this.getFixture().add((TestScriptFixtureComponent) value); // TestScriptFixtureComponent
-          break;
+          return value;
         case -309425751: // profile
           this.getProfile().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1249586564: // variable
           this.getVariable().add((TestScriptVariableComponent) value); // TestScriptVariableComponent
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((TestScriptRuleComponent) value); // TestScriptRuleComponent
-          break;
+          return value;
         case 1548678118: // ruleset
           this.getRuleset().add((TestScriptRulesetComponent) value); // TestScriptRulesetComponent
-          break;
+          return value;
         case 109329021: // setup
           this.setup = (TestScriptSetupComponent) value; // TestScriptSetupComponent
-          break;
+          return value;
         case 3556498: // test
           this.getTest().add((TestScriptTestComponent) value); // TestScriptTestComponent
-          break;
+          return value;
         case -1663474172: // teardown
           this.teardown = (TestScriptTeardownComponent) value; // TestScriptTeardownComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -11144,7 +11170,8 @@ public class TestScript extends MetadataResource {
         else if (name.equals("teardown"))
           this.teardown = (TestScriptTeardownComponent) value; // TestScriptTeardownComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

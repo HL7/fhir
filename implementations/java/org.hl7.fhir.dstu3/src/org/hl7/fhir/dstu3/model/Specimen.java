@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -407,30 +407,30 @@ public class Specimen extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1883491469: // collector
           this.collector = castToReference(value); // Reference
-          break;
+          return value;
         case 1883491145: // collected
           this.collected = castToType(value); // Type
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("collector"))
           this.collector = castToReference(value); // Reference
         else if (name.equals("collected[x]"))
@@ -442,7 +442,8 @@ public class Specimen extends DomainResource {
         else if (name.equals("bodySite"))
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -791,27 +792,27 @@ public class Specimen extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1095204141: // procedure
           this.procedure = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1226589236: // additive
           this.getAdditive().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3560141: // time
           this.time = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("procedure"))
@@ -821,7 +822,8 @@ public class Specimen extends DomainResource {
         else if (name.equals("time[x]"))
           this.time = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1206,33 +1208,33 @@ public class Specimen extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -67824454: // capacity
           this.capacity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 1485980595: // specimenQuantity
           this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -1226589236: // additive
           this.additive = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("description"))
@@ -1246,7 +1248,8 @@ public class Specimen extends DomainResource {
         else if (name.equals("additive[x]"))
           this.additive = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2059,51 +2062,51 @@ public class Specimen extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 818734061: // accessionIdentifier
           this.accessionIdentifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new SpecimenStatusEnumFactory().fromType(value); // Enumeration<SpecimenStatus>
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case -767961010: // receivedTime
           this.receivedTime = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -995424086: // parent
           this.getParent().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1095692943: // request
           this.getRequest().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1741312354: // collection
           this.collection = (SpecimenCollectionComponent) value; // SpecimenCollectionComponent
-          break;
+          return value;
         case -63342472: // treatment
           this.getTreatment().add((SpecimenTreatmentComponent) value); // SpecimenTreatmentComponent
-          break;
+          return value;
         case -410956671: // container
           this.getContainer().add((SpecimenContainerComponent) value); // SpecimenContainerComponent
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("accessionIdentifier"))
@@ -2129,7 +2132,8 @@ public class Specimen extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

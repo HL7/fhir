@@ -688,7 +688,7 @@ public class VersionTransformMapBuilder {
       b.append("\r\n");
       for (CodeMap cm : translations) {
         if (cm.src.getSystem().equals(urls[0]) && cm.tgt.getSystem().equals(urls[1])) {
-          b.append("  s:"+cm.src.getCode()+" ~ t:"+cm.tgt.getCode()+"\r\n");
+          b.append("  s:"+cm.src.getCode()+" - t:"+cm.tgt.getCode()+"\r\n");
         }
       }
     }
@@ -711,7 +711,7 @@ public class VersionTransformMapBuilder {
   private boolean matches(String code, String label) {
     if (code.equalsIgnoreCase(label))
       return true;
-    if (code.equalsIgnoreCase(code.replace("-", "")))
+    if (code.replace("-", "").equalsIgnoreCase(label))
       return true;
     if (code.equals("<") && label.equals("LESS_THAN"))
       return true;

@@ -28,11 +28,13 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 group ElementDefinition extends Element
+  input srcR : Resource as source
   input src : ElementDefinition as source
   input tgt : ElementDefinitionR2 as target
 
   "ElementDefinition-path" : for src.path as vs make tgt.path as vt then string(vs, vt)
   "ElementDefinition-name" : for src.sliceName as vs make tgt.name as vt then string(vs, vt)
+  "ElementDefinition-representation" : for src.representation as vs where representation = 'xmlAttr' make tgt.representation as vt then code(vs, vt)
   "ElementDefinition-label" : for src.label as vs make tgt.label as vt then string(vs, vt)
   "ElementDefinition-code" : for src.code as vs make tgt.code as vt then Coding(vs,vt)
   "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
@@ -54,7 +56,13 @@ group ElementDefinition extends Element
     "ElementDefinition.base-max" : for vs0.max as vs make vt0.max as vt then string(vs, vt)
   }
   "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then {
-    "ElementDefinition.type-profile" : for vs0.targetProfile as vs make vt0.profile as vt then uri(vs, vt)
+    "ElementDefinition.type-code" : for vs0.code as vs make vt0.code as vt then uriToCode(vs, vt)
+    "ElementDefinition.type-profile1" : for vs0.profile as vs where targetProfile.empty() make vt0.profile as vt then uri(vs, vt)
+    "ElementDefinition.type-profile2" : for vs0.targetProfile as vs make vt0.profile as vt then uri(vs, vt)
+    "ElementDefinition.type-aggregation" : for vs0.aggregation as vs make vt0.aggregation as vt then code(vs, vt)
+  }
+  "ElementDefinition-type-1st" : for src as vs0 where type.empty() make tgt.type as vt0 then {
+    "ElementDefinition.type-code" : for srcR.baseDefinition as base make vt0.code = (base.substring(40))
   }
   "ElementDefinition-defaultValue-base64Binary" : for src.defaultValue  : base64Binary as vs make tgt.defaultValue = create("base64Binary") as vt then base64Binary(vs,vt)
   "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)

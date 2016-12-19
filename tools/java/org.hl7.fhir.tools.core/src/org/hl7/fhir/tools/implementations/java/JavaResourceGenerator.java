@@ -1023,7 +1023,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
   private void generatePropertySetterName(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public void setProperty(String name, Base value) throws FHIRException {\r\n");
+    write(indent+"  public Base setProperty(String name, Base value) throws FHIRException {\r\n");
     boolean first = true;
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e)) { 
@@ -1054,13 +1054,15 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     if (!first)
       write(indent+"    else\r\n");
-    write(indent+"      super.setProperty(name, value);\r\n");
+    write(indent+"      return super.setProperty(name, value);\r\n");
+    if (!first)
+      write(indent+"    return value;\r\n");
     write(indent+"  }\r\n\r\n");  
   }
 
   private void generatePropertySetterId(ElementDefn p, String indent) throws Exception {
     write(indent+"  @Override\r\n");
-    write(indent+"  public void setProperty(int hash, String name, Base value) throws FHIRException {\r\n");
+    write(indent+"  public Base setProperty(int hash, String name, Base value) throws FHIRException {\r\n");
     write(indent+"    switch (hash) {\r\n");
     for (ElementDefn e : p.getElements()) {
       if (doGenerateAccessors(e)) { 
@@ -1082,10 +1084,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         } else {
           write(indent+"      this."+getElementName(name, true)+" = "+cn+"; // "+tn+"\r\n");
         }
-        write(indent+"      break;\r\n");
+        write(indent+"      return value;\r\n");
       }
     }
-    write(indent+"    default: super.setProperty(hash, name, value);\r\n");
+    write(indent+"    default: return super.setProperty(hash, name, value);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
   }

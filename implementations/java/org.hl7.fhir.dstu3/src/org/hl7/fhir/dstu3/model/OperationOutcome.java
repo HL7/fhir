@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1067,33 +1067,33 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1478300413: // severity
           this.severity = new IssueSeverityEnumFactory().fromType(value); // Enumeration<IssueSeverity>
-          break;
+          return value;
         case 3059181: // code
           this.code = new IssueTypeEnumFactory().fromType(value); // Enumeration<IssueType>
-          break;
+          return value;
         case 1557721666: // details
           this.details = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -740386388: // diagnostics
           this.diagnostics = castToString(value); // StringType
-          break;
+          return value;
         case 1901043637: // location
           this.getLocation().add(castToString(value)); // StringType
-          break;
+          return value;
         case -1795452264: // expression
           this.getExpression().add(castToString(value)); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("severity"))
           this.severity = new IssueSeverityEnumFactory().fromType(value); // Enumeration<IssueSeverity>
         else if (name.equals("code"))
@@ -1107,7 +1107,8 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         else if (name.equals("expression"))
           this.getExpression().add(castToString(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1288,22 +1289,23 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 100509913: // issue
           this.getIssue().add((OperationOutcomeIssueComponent) value); // OperationOutcomeIssueComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("issue"))
           this.getIssue().add((OperationOutcomeIssueComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

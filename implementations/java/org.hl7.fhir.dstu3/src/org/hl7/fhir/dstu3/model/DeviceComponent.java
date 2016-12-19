@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -431,24 +431,24 @@ public class DeviceComponent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -2133482091: // specType
           this.specType = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -985933064: // componentId
           this.componentId = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 182147092: // productionSpec
           this.productionSpec = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("specType"))
           this.specType = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("componentId"))
@@ -456,7 +456,8 @@ public class DeviceComponent extends DomainResource {
         else if (name.equals("productionSpec"))
           this.productionSpec = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1047,45 +1048,45 @@ public class DeviceComponent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -2072475531: // lastSystemChange
           this.lastSystemChange = castToInstant(value); // InstantType
-          break;
+          return value;
         case -896505829: // source
           this.source = castToReference(value); // Reference
-          break;
+          return value;
         case -995424086: // parent
           this.parent = castToReference(value); // Reference
-          break;
+          return value;
         case -2103166364: // operationalStatus
           this.getOperationalStatus().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1111110742: // parameterGroup
           this.parameterGroup = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 24324384: // measurementPrinciple
           this.measurementPrinciple = new MeasmntPrincipleEnumFactory().fromType(value); // Enumeration<MeasmntPrinciple>
-          break;
+          return value;
         case -455527222: // productionSpecification
           this.getProductionSpecification().add((DeviceComponentProductionSpecificationComponent) value); // DeviceComponentProductionSpecificationComponent
-          break;
+          return value;
         case -2092349083: // languageCode
           this.languageCode = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("identifier"))
@@ -1107,7 +1108,8 @@ public class DeviceComponent extends DomainResource {
         else if (name.equals("languageCode"))
           this.languageCode = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

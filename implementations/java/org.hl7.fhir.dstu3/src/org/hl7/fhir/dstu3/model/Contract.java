@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -319,27 +319,28 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
-          break;
+          return value;
         case 3506294: // role
           this.getRole().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actor"))
           this.actor = castToReference(value); // Reference
         else if (name.equals("role"))
           this.getRole().add(castToCodeableConcept(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -590,24 +591,24 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCoding(value); // Coding
-          break;
+          return value;
         case 106437350: // party
           this.party = castToReference(value); // Reference
-          break;
+          return value;
         case 1073584312: // signature
           this.getSignature().add(castToSignature(value)); // Signature
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("party"))
@@ -615,7 +616,8 @@ public class Contract extends DomainResource {
         else if (name.equals("signature"))
           this.getSignature().add(castToSignature(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1111,39 +1113,39 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1298275357: // entity
           this.entity = castToType(value); // Type
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -929905388: // effectiveTime
           this.effectiveTime = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
-          break;
+          return value;
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -982754077: // points
           this.points = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 108957: // net
           this.net = castToMoney(value); // Money
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("entity[x]"))
           this.entity = castToType(value); // Type
         else if (name.equals("identifier"))
@@ -1161,7 +1163,8 @@ public class Contract extends DomainResource {
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1931,51 +1934,51 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -1179159893: // issued
           this.issued = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -793235316: // applies
           this.applies = castToPeriod(value); // Period
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1868521062: // subType
           this.subType = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 110546223: // topic
           this.getTopic().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1465121818: // actionReason
           this.getActionReason().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 92750597: // agent
           this.getAgent().add((TermAgentComponent) value); // TermAgentComponent
-          break;
+          return value;
         case 3556653: // text
           this.text = castToString(value); // StringType
-          break;
+          return value;
         case 2046675654: // valuedItem
           this.getValuedItem().add((TermValuedItemComponent) value); // TermValuedItemComponent
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((TermComponent) value); // TermComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("issued"))
@@ -2001,7 +2004,8 @@ public class Contract extends DomainResource {
         else if (name.equals("group"))
           this.getGroup().add((TermComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2297,27 +2301,28 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
-          break;
+          return value;
         case 3506294: // role
           this.getRole().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actor"))
           this.actor = castToReference(value); // Reference
         else if (name.equals("role"))
           this.getRole().add(castToCodeableConcept(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2806,39 +2811,39 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1298275357: // entity
           this.entity = castToType(value); // Type
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -929905388: // effectiveTime
           this.effectiveTime = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -486196699: // unitPrice
           this.unitPrice = castToMoney(value); // Money
-          break;
+          return value;
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -982754077: // points
           this.points = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 108957: // net
           this.net = castToMoney(value); // Money
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("entity[x]"))
           this.entity = castToType(value); // Type
         else if (name.equals("identifier"))
@@ -2856,7 +2861,8 @@ public class Contract extends DomainResource {
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3049,22 +3055,23 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
           this.content = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
           this.content = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3214,22 +3221,23 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
           this.content = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
           this.content = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3379,22 +3387,23 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530617: // content
           this.content = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("content[x]"))
           this.content = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4706,75 +4715,75 @@ public class Contract extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ContractStatusEnumFactory().fromType(value); // Enumeration<ContractStatus>
-          break;
+          return value;
         case -1179159893: // issued
           this.issued = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -793235316: // applies
           this.applies = castToPeriod(value); // Period
-          break;
+          return value;
         case -1867885268: // subject
           this.getSubject().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 110546223: // topic
           this.getTopic().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1475610435: // authority
           this.getAuthority().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1326197564: // domain
           this.getDomain().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1868521062: // subType
           this.getSubType().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1465121818: // actionReason
           this.getActionReason().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 92750597: // agent
           this.getAgent().add((AgentComponent) value); // AgentComponent
-          break;
+          return value;
         case -902467798: // signer
           this.getSigner().add((SignatoryComponent) value); // SignatoryComponent
-          break;
+          return value;
         case 2046675654: // valuedItem
           this.getValuedItem().add((ValuedItemComponent) value); // ValuedItemComponent
-          break;
+          return value;
         case 3556460: // term
           this.getTerm().add((TermComponent) value); // TermComponent
-          break;
+          return value;
         case -108220795: // binding
           this.binding = castToType(value); // Type
-          break;
+          return value;
         case -1423054677: // friendly
           this.getFriendly().add((FriendlyLanguageComponent) value); // FriendlyLanguageComponent
-          break;
+          return value;
         case 102851257: // legal
           this.getLegal().add((LegalLanguageComponent) value); // LegalLanguageComponent
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((ComputableLanguageComponent) value); // ComputableLanguageComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
@@ -4816,7 +4825,8 @@ public class Contract extends DomainResource {
         else if (name.equals("rule"))
           this.getRule().add((ComputableLanguageComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

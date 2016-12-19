@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -457,33 +457,33 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3556653: // text
           this.text = castToString(value); // StringType
-          break;
+          return value;
         case 3530567: // site
           this.site = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3089437: // dose
           this.dose = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 3493088: // rate
           this.rate = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("text"))
           this.text = castToString(value); // StringType
         else if (name.equals("site"))
@@ -497,7 +497,8 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("rate[x]"))
           this.rate = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1686,66 +1687,66 @@ public class MedicationAdministration extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
-          break;
+          return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
-          break;
+          return value;
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 460301338: // prescription
           this.prescription = castToReference(value); // Reference
-          break;
+          return value;
         case 1554065514: // notGiven
           this.notGiven = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 2101123790: // reasonNotGiven
           this.getReasonNotGiven().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 914964377: // reasonGiven
           this.getReasonGiven().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1335157162: // device
           this.getDevice().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case -1326018889: // dosage
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
-          break;
+          return value;
         case 1835190426: // eventHistory
           this.getEventHistory().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -1781,7 +1782,8 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("eventHistory"))
           this.getEventHistory().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

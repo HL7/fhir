@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -395,27 +395,27 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3506294: // role
           this.role = castToCoding(value); // Coding
-          break;
+          return value;
         case 117694: // who
           this.who = castToType(value); // Type
-          break;
+          return value;
         case -14402964: // onBehalfOf
           this.onBehalfOf = castToType(value); // Type
-          break;
+          return value;
         case 1228161012: // relatedAgentType
           this.relatedAgentType = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role"))
           this.role = castToCoding(value); // Coding
         else if (name.equals("who[x]"))
@@ -425,7 +425,8 @@ public class Provenance extends DomainResource {
         else if (name.equals("relatedAgentType"))
           this.relatedAgentType = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -716,24 +717,24 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3506294: // role
           this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
-          break;
+          return value;
         case -925155509: // reference
           this.reference = castToReference(value); // Reference
-          break;
+          return value;
         case 92750597: // agent
           this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role"))
           this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
         else if (name.equals("reference"))
@@ -741,7 +742,8 @@ public class Provenance extends DomainResource {
         else if (name.equals("agent"))
           this.getAgent().add((ProvenanceAgentComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1421,45 +1423,45 @@ public class Provenance extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -880905839: // target
           this.getTarget().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case -799233872: // recorded
           this.recorded = castToInstant(value); // InstantType
-          break;
+          return value;
         case -934964668: // reason
           this.getReason().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -1655966961: // activity
           this.activity = castToCoding(value); // Coding
-          break;
+          return value;
         case 1901043637: // location
           this.location = castToReference(value); // Reference
-          break;
+          return value;
         case -982670030: // policy
           this.getPolicy().add(castToUri(value)); // UriType
-          break;
+          return value;
         case 92750597: // agent
           this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
-          break;
+          return value;
         case -1298275357: // entity
           this.getEntity().add((ProvenanceEntityComponent) value); // ProvenanceEntityComponent
-          break;
+          return value;
         case 1073584312: // signature
           this.getSignature().add(castToSignature(value)); // Signature
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("target"))
           this.getTarget().add(castToReference(value));
         else if (name.equals("period"))
@@ -1481,7 +1483,8 @@ public class Provenance extends DomainResource {
         else if (name.equals("signature"))
           this.getSignature().add(castToSignature(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

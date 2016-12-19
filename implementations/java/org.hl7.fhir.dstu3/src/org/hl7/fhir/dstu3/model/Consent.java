@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -958,42 +958,42 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new ConsentExceptTypeEnumFactory().fromType(value); // Enumeration<ConsentExceptType>
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case 92645877: // actor
           this.getActor().add((ExceptActorComponent) value); // ExceptActorComponent
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -722296940: // securityLabel
           this.getSecurityLabel().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -220463842: // purpose
           this.getPurpose().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case 94742904: // class
           this.getClass_().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case 3059181: // code
           this.getCode().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case 3076010: // data
           this.getData().add((ExceptDataComponent) value); // ExceptDataComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new ConsentExceptTypeEnumFactory().fromType(value); // Enumeration<ConsentExceptType>
         else if (name.equals("period"))
@@ -1013,7 +1013,8 @@ public class Consent extends DomainResource {
         else if (name.equals("data"))
           this.getData().add((ExceptDataComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1265,27 +1266,28 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3506294: // role
           this.role = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -925155509: // reference
           this.reference = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("role"))
           this.role = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("reference"))
           this.reference = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1492,27 +1494,28 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 938160637: // meaning
           this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
-          break;
+          return value;
         case -925155509: // reference
           this.reference = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("meaning"))
           this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
         else if (name.equals("reference"))
           this.reference = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2367,54 +2370,54 @@ public class Consent extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ConsentStatusEnumFactory().fromType(value); // Enumeration<ConsentStatus>
-          break;
+          return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1792749467: // dateTime
           this.dateTime = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case -435736707: // consentor
           this.getConsentor().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
-          break;
+          return value;
         case -896505829: // source
           this.source = castToType(value); // Type
-          break;
+          return value;
         case -982670030: // policy
           this.policy = castToUri(value); // UriType
-          break;
+          return value;
         case 820081177: // recipient
           this.getRecipient().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -220463842: // purpose
           this.getPurpose().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -1289550567: // except
           this.getExcept().add((ExceptComponent) value); // ExceptComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
@@ -2442,7 +2445,8 @@ public class Consent extends DomainResource {
         else if (name.equals("except"))
           this.getExcept().add((ExceptComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

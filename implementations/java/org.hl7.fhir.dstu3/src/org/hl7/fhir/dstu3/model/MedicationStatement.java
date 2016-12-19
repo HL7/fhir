@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1504,66 +1504,66 @@ public class MedicationStatement extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new MedicationStatementStatusEnumFactory().fromType(value); // Enumeration<MedicationStatementStatus>
-          break;
+          return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
-          break;
+          return value;
         case -2123220889: // informationSource
           this.informationSource = castToReference(value); // Reference
-          break;
+          return value;
         case 1077922663: // derivedFrom
           this.getDerivedFrom().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1980855245: // dateAsserted
           this.dateAsserted = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 1565822388: // notTaken
           this.notTaken = new MedicationStatementNotTakenEnumFactory().fromType(value); // Enumeration<MedicationStatementNotTaken>
-          break;
+          return value;
         case 2112880664: // reasonNotTaken
           this.getReasonNotTaken().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 909630431: // reasonForUseCodeableConcept
           this.getReasonForUseCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -370888183: // reasonForUseReference
           this.getReasonForUseReference().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case 50511102: // category
           this.category = new MedicationStatementCategoryEnumFactory().fromType(value); // Enumeration<MedicationStatementCategory>
-          break;
+          return value;
         case -1326018889: // dosage
           this.getDosage().add(castToDosageInstruction(value)); // DosageInstruction
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("basedOn"))
@@ -1599,7 +1599,8 @@ public class MedicationStatement extends DomainResource {
         else if (name.equals("dosage"))
           this.getDosage().add(castToDosageInstruction(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

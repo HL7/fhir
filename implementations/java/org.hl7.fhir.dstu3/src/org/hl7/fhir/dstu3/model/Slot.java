@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -808,48 +808,48 @@ public class Slot extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 1281188563: // serviceCategory
           this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1928370289: // serviceType
           this.getServiceType().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1694759682: // specialty
           this.getSpecialty().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1596426375: // appointmentType
           this.appointmentType = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -697920873: // schedule
           this.schedule = castToReference(value); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
-          break;
+          return value;
         case 109757538: // start
           this.start = castToInstant(value); // InstantType
-          break;
+          return value;
         case 100571: // end
           this.end = castToInstant(value); // InstantType
-          break;
+          return value;
         case 2068545308: // overbooked
           this.overbooked = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 950398559: // comment
           this.comment = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("serviceCategory"))
@@ -873,7 +873,8 @@ public class Slot extends DomainResource {
         else if (name.equals("comment"))
           this.comment = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

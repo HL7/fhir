@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -912,51 +912,51 @@ public class Endpoint extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -2058947787: // managingOrganization
           this.managingOrganization = castToReference(value); // Reference
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case 1270211384: // connectionType
           this.connectionType = castToCoding(value); // Coding
-          break;
+          return value;
         case 909929960: // payloadType
           this.getPayloadType().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1702836932: // payloadMimeType
           this.getPayloadMimeType().add(castToCode(value)); // CodeType
-          break;
+          return value;
         case -1147692044: // address
           this.address = castToUri(value); // UriType
-          break;
+          return value;
         case -1221270899: // header
           this.getHeader().add(castToString(value)); // StringType
-          break;
+          return value;
         case 1446899510: // publicKey
           this.publicKey = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -982,7 +982,8 @@ public class Endpoint extends DomainResource {
         else if (name.equals("publicKey"))
           this.publicKey = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

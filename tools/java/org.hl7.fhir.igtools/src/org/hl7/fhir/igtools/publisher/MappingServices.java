@@ -8,6 +8,7 @@ import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ITransformerServices;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities.TransformContext;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -24,12 +25,12 @@ public class MappingServices implements ITransformerServices {
   }
 
   @Override
-  public Base createResource(TransformContext context, Base res) {
+  public Base createResource(Object appInfo, Base res) {
     if (!(res instanceof Resource))
       return res;
     
-    if (context.getAppInfo() instanceof Bundle && res instanceof Resource) {
-      Bundle bnd = (Bundle) context.getAppInfo();
+    if (appInfo instanceof Bundle && res instanceof Resource) {
+      Bundle bnd = (Bundle) appInfo;
       Resource r = (Resource) res;
       r.setId(getNextId(r.fhirType()));
       bnd.addEntry().setResource(r).setFullUrl(base+"/"+r.fhirType()+"/"+r.getId());
@@ -62,6 +63,11 @@ public class MappingServices implements ITransformerServices {
   @Override
   public void log(String message) {
     System.out.println(message);
+  }
+
+  @Override
+  public Base createType(Object appInfo, String name) throws FHIRException {
+    return ResourceFactory.createResourceOrType(name);
   }
 
 }

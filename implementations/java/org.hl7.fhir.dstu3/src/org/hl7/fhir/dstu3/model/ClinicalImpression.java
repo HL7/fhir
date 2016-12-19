@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -297,27 +297,28 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3242771: // item
           this.getItem().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("item"))
           this.getItem().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -531,27 +532,28 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3242771: // item
           this.item = castToType(value); // Type
-          break;
+          return value;
         case 93508670: // basis
           this.basis = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]"))
           this.item = castToType(value); // Type
         else if (name.equals("basis"))
           this.basis = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1813,72 +1815,72 @@ public class ClinicalImpression extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new ClinicalImpressionStatusEnumFactory().fromType(value); // Enumeration<ClinicalImpressionStatus>
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case -373213113: // assessor
           this.assessor = castToReference(value); // Reference
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case -1273775369: // previous
           this.previous = castToReference(value); // Reference
-          break;
+          return value;
         case -309542241: // problem
           this.getProblem().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 956015362: // investigation
           this.getInvestigation().add((ClinicalImpressionInvestigationComponent) value); // ClinicalImpressionInvestigationComponent
-          break;
+          return value;
         case -989163880: // protocol
           this.getProtocol().add(castToUri(value)); // UriType
-          break;
+          return value;
         case -1857640538: // summary
           this.summary = castToString(value); // StringType
-          break;
+          return value;
         case -853173367: // finding
           this.getFinding().add((ClinicalImpressionFindingComponent) value); // ClinicalImpressionFindingComponent
-          break;
+          return value;
         case -676337953: // prognosisCodeableConcept
           this.getPrognosisCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -587137783: // prognosisReference
           this.getPrognosisReference().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -1918,7 +1920,8 @@ public class ClinicalImpression extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -581,42 +581,42 @@ public class DeviceUseStatement extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1702620169: // bodySite
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 2042879511: // whenUsed
           this.whenUsed = castToPeriod(value); // Period
-          break;
+          return value;
         case -1335157162: // device
           this.device = castToReference(value); // Reference
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -597168804: // indication
           this.getIndication().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 105008833: // notes
           this.getNotes().add(castToString(value)); // StringType
-          break;
+          return value;
         case 735397551: // recordedOn
           this.recordedOn = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case -873664438: // timing
           this.timing = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("bodySite"))
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("whenUsed"))
@@ -636,7 +636,8 @@ public class DeviceUseStatement extends DomainResource {
         else if (name.equals("timing[x]"))
           this.timing = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

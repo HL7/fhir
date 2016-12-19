@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2466,87 +2466,87 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -889046145: // actionIdentifier
           this.actionIdentifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 102727412: // label
           this.label = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -900391049: // textEquivalent
           this.textEquivalent = castToString(value); // StringType
-          break;
+          return value;
         case 3059181: // code
           this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 1587405498: // documentation
           this.getDocumentation().add(castToRelatedArtifact(value)); // RelatedArtifact
-          break;
+          return value;
         case 1126736171: // triggerDefinition
           this.getTriggerDefinition().add(castToTriggerDefinition(value)); // TriggerDefinition
-          break;
+          return value;
         case -861311717: // condition
           this.getCondition().add((PlanDefinitionActionDefinitionConditionComponent) value); // PlanDefinitionActionDefinitionConditionComponent
-          break;
+          return value;
         case 100358090: // input
           this.getInput().add(castToDataRequirement(value)); // DataRequirement
-          break;
+          return value;
         case -1005512447: // output
           this.getOutput().add(castToDataRequirement(value)); // DataRequirement
-          break;
+          return value;
         case -384107967: // relatedAction
           this.getRelatedAction().add((PlanDefinitionActionDefinitionRelatedActionComponent) value); // PlanDefinitionActionDefinitionRelatedActionComponent
-          break;
+          return value;
         case -873664438: // timing
           this.timing = castToType(value); // Type
-          break;
+          return value;
         case 841294093: // participantType
           this.getParticipantType().add(new PlanActionParticipantTypeEnumFactory().fromType(value)); // Enumeration<PlanActionParticipantType>
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCoding(value); // Coding
-          break;
+          return value;
         case 586678389: // groupingBehavior
           this.groupingBehavior = new PlanActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<PlanActionGroupingBehavior>
-          break;
+          return value;
         case 168639486: // selectionBehavior
           this.selectionBehavior = new PlanActionSelectionBehaviorEnumFactory().fromType(value); // Enumeration<PlanActionSelectionBehavior>
-          break;
+          return value;
         case -1163906287: // requiredBehavior
           this.requiredBehavior = new PlanActionRequiredBehaviorEnumFactory().fromType(value); // Enumeration<PlanActionRequiredBehavior>
-          break;
+          return value;
         case -1174249033: // precheckBehavior
           this.precheckBehavior = new PlanActionPrecheckBehaviorEnumFactory().fromType(value); // Enumeration<PlanActionPrecheckBehavior>
-          break;
+          return value;
         case -922577408: // cardinalityBehavior
           this.cardinalityBehavior = new PlanActionCardinalityBehaviorEnumFactory().fromType(value); // Enumeration<PlanActionCardinalityBehavior>
-          break;
+          return value;
         case -990265918: // activityDefinition
           this.activityDefinition = castToReference(value); // Reference
-          break;
+          return value;
         case 1052666732: // transform
           this.transform = castToReference(value); // Reference
-          break;
+          return value;
         case 572625010: // dynamicValue
           this.getDynamicValue().add((PlanDefinitionActionDefinitionDynamicValueComponent) value); // PlanDefinitionActionDefinitionDynamicValueComponent
-          break;
+          return value;
         case -285031383: // actionDefinition
           this.getActionDefinition().add((PlanDefinitionActionDefinitionComponent) value); // PlanDefinitionActionDefinitionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
         else if (name.equals("label"))
@@ -2596,7 +2596,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("actionDefinition"))
           this.getActionDefinition().add((PlanDefinitionActionDefinitionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3109,27 +3110,27 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3292052: // kind
           this.kind = new PlanActionConditionKindEnumFactory().fromType(value); // Enumeration<PlanActionConditionKind>
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1613589672: // language
           this.language = castToString(value); // StringType
-          break;
+          return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("kind"))
           this.kind = new PlanActionConditionKindEnumFactory().fromType(value); // Enumeration<PlanActionConditionKind>
         else if (name.equals("description"))
@@ -3139,7 +3140,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("expression"))
           this.expression = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3391,24 +3393,24 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -889046145: // actionIdentifier
           this.actionIdentifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -261851592: // relationship
           this.relationship = new PlanActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<PlanActionRelationshipType>
-          break;
+          return value;
         case -1019779949: // offset
           this.offset = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
         else if (name.equals("relationship"))
@@ -3416,7 +3418,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("offset[x]"))
           this.offset = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3749,27 +3752,27 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
-          break;
+          return value;
         case -1613589672: // language
           this.language = castToString(value); // StringType
-          break;
+          return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("path"))
@@ -3779,7 +3782,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("expression"))
           this.expression = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5258,90 +5262,90 @@ public class PlanDefinition extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 111574433: // usage
           this.usage = castToString(value); // StringType
-          break;
+          return value;
         case 223539345: // approvalDate
           this.approvalDate = castToDate(value); // DateType
-          break;
+          return value;
         case -1687512484: // lastReviewDate
           this.lastReviewDate = castToDate(value); // DateType
-          break;
+          return value;
         case -403934648: // effectivePeriod
           this.effectivePeriod = castToPeriod(value); // Period
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 110546223: // topic
           this.getTopic().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1895276325: // contributor
           this.getContributor().add(castToContributor(value)); // Contributor
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 666807069: // relatedArtifact
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
-          break;
+          return value;
         case 166208699: // library
           this.getLibrary().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -285031383: // actionDefinition
           this.getActionDefinition().add((PlanDefinitionActionDefinitionComponent) value); // PlanDefinitionActionDefinitionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -5393,7 +5397,8 @@ public class PlanDefinition extends MetadataResource {
         else if (name.equals("actionDefinition"))
           this.getActionDefinition().add((PlanDefinitionActionDefinitionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

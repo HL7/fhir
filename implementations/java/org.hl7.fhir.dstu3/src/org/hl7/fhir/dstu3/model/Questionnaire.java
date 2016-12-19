@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1585,60 +1585,60 @@ Any information provided in these elements overrides the information from the de
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1102667083: // linkId
           this.linkId = castToString(value); // StringType
-          break;
+          return value;
         case -1014418093: // definition
           this.definition = castToUri(value); // UriType
-          break;
+          return value;
         case 951024232: // concept
           this.getConcept().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -980110702: // prefix
           this.prefix = castToString(value); // StringType
-          break;
+          return value;
         case 3556653: // text
           this.text = castToString(value); // StringType
-          break;
+          return value;
         case 3575610: // type
           this.type = new QuestionnaireItemTypeEnumFactory().fromType(value); // Enumeration<QuestionnaireItemType>
-          break;
+          return value;
         case 1893321565: // enableWhen
           this.getEnableWhen().add((QuestionnaireItemEnableWhenComponent) value); // QuestionnaireItemEnableWhenComponent
-          break;
+          return value;
         case -393139297: // required
           this.required = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1094288952: // repeats
           this.repeats = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -867683742: // readOnly
           this.readOnly = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -791400086: // maxLength
           this.maxLength = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -1249474914: // options
           this.options = castToReference(value); // Reference
-          break;
+          return value;
         case -1010136971: // option
           this.getOption().add((QuestionnaireItemOptionComponent) value); // QuestionnaireItemOptionComponent
-          break;
+          return value;
         case 1948342084: // initial
           this.initial = castToType(value); // Type
-          break;
+          return value;
         case 3242771: // item
           this.getItem().add((QuestionnaireItemComponent) value); // QuestionnaireItemComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("linkId"))
           this.linkId = castToString(value); // StringType
         else if (name.equals("definition"))
@@ -1670,7 +1670,8 @@ Any information provided in these elements overrides the information from the de
         else if (name.equals("item"))
           this.getItem().add((QuestionnaireItemComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2212,24 +2213,24 @@ Any information provided in these elements overrides the information from the de
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1165870106: // question
           this.question = castToString(value); // StringType
-          break;
+          return value;
         case -793058568: // hasAnswer
           this.hasAnswer = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1412808770: // answer
           this.answer = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("question"))
           this.question = castToString(value); // StringType
         else if (name.equals("hasAnswer"))
@@ -2237,7 +2238,8 @@ Any information provided in these elements overrides the information from the de
         else if (name.equals("answer[x]"))
           this.answer = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2483,22 +2485,23 @@ Any information provided in these elements overrides the information from the de
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
           this.value = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
           this.value = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3332,51 +3335,51 @@ Any information provided in these elements overrides the information from the de
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new QuestionnaireStatusEnumFactory().fromType(value); // Enumeration<QuestionnaireStatus>
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case -1429363305: // telecom
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case 951024232: // concept
           this.getConcept().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -603200890: // subjectType
           this.getSubjectType().add(castToCode(value)); // CodeType
-          break;
+          return value;
         case 3242771: // item
           this.getItem().add((QuestionnaireItemComponent) value); // QuestionnaireItemComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -3402,7 +3405,8 @@ Any information provided in these elements overrides the information from the de
         else if (name.equals("item"))
           this.getItem().add((QuestionnaireItemComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -65,18 +65,11 @@ public class Element extends Base {
 
   public Element(Element other) {
     super();
-    if (other.comments != null)
-      comments = new ArrayList<String>(other.comments);
     name = other.name;
     type = other.type;
-    value = other.value;
-    index = other.index;
-    if (other.children != null)
-      children = new ArrayList<Element>(other.children);
     property = other.property;
     elementProperty = other.elementProperty;
     special = other.special;
-    xhtml = other.xhtml;
   }
   
   public Element(String name, Property property) {
@@ -279,49 +272,70 @@ public class Element extends Base {
 	}
 	
   @Override
-  public void setProperty(int hash, String name, Base value) throws FHIRException {
+  public Base setProperty(int hash, String name, Base value) throws FHIRException {
     if (isPrimitive() && (hash == "value".hashCode())) {
       this.value = castToString(value).asStringValue();
-      return;
+      return this;
     }
     if ("xhtml".equals(getType()) && (hash == "value".hashCode())) {
       this.xhtml = castToXhtml(value);
       this.value =  castToXhtmlString(value);
-      return;
+      return this;
     }
     
-    if (!value.isPrimitive())
-      throw new FHIRException("Cannot set property "+name+" on "+this.name+" - value is not a primitive type ("+value.fhirType()+")");
+    if (!value.isPrimitive() && !(value instanceof Element))
+      throw new FHIRException("Cannot set property "+name+" on "+this.name+" - value is not a primitive type ("+value.fhirType()+") or an ElementModel type");
     
     if (children == null)
       children = new ArrayList<Element>();
+    Element childForValue = null;
     
     // look through existing children
     for (Element child : children) {
       if (child.getName().equals(name)) {
         if (!child.isList()) {
-          child.setValue(value.primitiveValue());
-          return;
+          childForValue = child;
+          break;
         } else {
           Element ne = new Element(this);
-          ne.setValue(value.primitiveValue());
           children.add(ne);
           numberChildren();
-          return;
+          childForValue = ne;
+          break;
         }
       }
     }
 
-    for (Property p : property.getChildProperties(this.name, type)) {
-      if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
-        Element ne = new Element(name, p);
-        children.add(ne);
-        ne.setValue(value.primitiveValue());
-        return;
+    if (childForValue == null)
+      for (Property p : property.getChildProperties(this.name, type)) {
+        if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
+          Element ne = new Element(name, p);
+          children.add(ne);
+          childForValue = ne;
+          break;
+        }
+      }
+    
+    if (childForValue == null)
+      throw new Error("Cannot set property "+name+" on "+this.name);
+    else if (value.isPrimitive()) {
+      if (childForValue.property.getName().endsWith("[x]"))
+        childForValue.name = name+Utilities.capitalize(value.fhirType());
+      childForValue.setValue(value.primitiveValue());
+    } else {
+      Element ve = (Element) value;
+      childForValue.type = ve.getType();
+      if (childForValue.property.getName().endsWith("[x]"))
+        childForValue.name = name+Utilities.capitalize(childForValue.type);
+      if (ve.children != null) {
+        if (childForValue.children == null)
+          childForValue.children = new ArrayList<Element>();
+        else 
+          childForValue.children.clear();
+        childForValue.children.addAll(ve.children);
       }
     }
-      
-    throw new Error("Cannot set property "+name+" on "+this.name); 
+    return childForValue;
   }
 
   @Override
@@ -339,7 +353,7 @@ public class Element extends Base {
         if (!child.isList()) {
           return child;
         } else {
-          Element ne = new Element(this);
+          Element ne = new Element(child);
           children.add(ne);
           numberChildren();
           return ne;

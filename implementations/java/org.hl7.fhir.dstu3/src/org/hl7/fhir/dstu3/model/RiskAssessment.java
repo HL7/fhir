@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -540,30 +540,30 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1106507950: // outcome
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1290561483: // probability
           this.probability = castToType(value); // Type
-          break;
+          return value;
         case -70741061: // relativeRisk
           this.relativeRisk = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 3648314: // when
           this.when = castToType(value); // Type
-          break;
+          return value;
         case 345689335: // rationale
           this.rationale = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("outcome"))
           this.outcome = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("probability[x]"))
@@ -575,7 +575,8 @@ public class RiskAssessment extends DomainResource {
         else if (name.equals("rationale"))
           this.rationale = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1517,63 +1518,63 @@ public class RiskAssessment extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -332612366: // basedOn
           this.basedOn = castToReference(value); // Reference
-          break;
+          return value;
         case -995424086: // parent
           this.parent = castToReference(value); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new RiskAssessmentStatusEnumFactory().fromType(value); // Enumeration<RiskAssessmentStatus>
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case 1687874001: // occurrence
           this.occurrence = castToType(value); // Type
-          break;
+          return value;
         case -861311717: // condition
           this.condition = castToReference(value); // Reference
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToType(value); // Type
-          break;
+          return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 93508670: // basis
           this.getBasis().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1161234575: // prediction
           this.getPrediction().add((RiskAssessmentPredictionComponent) value); // RiskAssessmentPredictionComponent
-          break;
+          return value;
         case 1293793087: // mitigation
           this.mitigation = castToString(value); // StringType
-          break;
+          return value;
         case 3387378: // note
           this.note = castToAnnotation(value); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("basedOn"))
@@ -1607,7 +1608,8 @@ public class RiskAssessment extends DomainResource {
         else if (name.equals("note"))
           this.note = castToAnnotation(value); // Annotation
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

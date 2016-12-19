@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1188,27 +1188,27 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case 3357091: // mode
           this.mode = new StructureMapModelModeEnumFactory().fromType(value); // Enumeration<StructureMapModelMode>
-          break;
+          return value;
         case 92902992: // alias
           this.alias = castToString(value); // StringType
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("mode"))
@@ -1218,7 +1218,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1621,30 +1622,30 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToId(value); // IdType
-          break;
+          return value;
         case -1305664359: // extends
           this.extends_ = castToId(value); // IdType
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
+          return value;
         case 100358090: // input
           this.getInput().add((StructureMapGroupInputComponent) value); // StructureMapGroupInputComponent
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToId(value); // IdType
         else if (name.equals("extends"))
@@ -1656,7 +1657,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("rule"))
           this.getRule().add((StructureMapGroupRuleComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2012,27 +2014,27 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToId(value); // IdType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToString(value); // StringType
-          break;
+          return value;
         case 3357091: // mode
           this.mode = new StructureMapInputModeEnumFactory().fromType(value); // Enumeration<StructureMapInputMode>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToId(value); // IdType
         else if (name.equals("type"))
@@ -2042,7 +2044,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2511,33 +2514,33 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToId(value); // IdType
-          break;
+          return value;
         case -896505829: // source
           this.getSource().add((StructureMapGroupRuleSourceComponent) value); // StructureMapGroupRuleSourceComponent
-          break;
+          return value;
         case -880905839: // target
           this.getTarget().add((StructureMapGroupRuleTargetComponent) value); // StructureMapGroupRuleTargetComponent
-          break;
+          return value;
         case 3512060: // rule
           this.getRule().add((StructureMapGroupRuleComponent) value); // StructureMapGroupRuleComponent
-          break;
+          return value;
         case -1109226753: // dependent
           this.getDependent().add((StructureMapGroupRuleDependentComponent) value); // StructureMapGroupRuleDependentComponent
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToId(value); // IdType
         else if (name.equals("source"))
@@ -2551,7 +2554,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3348,51 +3352,51 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -393139297: // required
           this.required = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 951530927: // context
           this.context = castToId(value); // IdType
-          break;
+          return value;
         case -102839927: // contextType
           this.contextType = new StructureMapContextTypeEnumFactory().fromType(value); // Enumeration<StructureMapContextType>
-          break;
+          return value;
         case 108114: // min
           this.min = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 107876: // max
           this.max = castToString(value); // StringType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToString(value); // StringType
-          break;
+          return value;
         case -659125328: // defaultValue
           this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
-          break;
+          return value;
         case -1662836996: // element
           this.element = castToString(value); // StringType
-          break;
+          return value;
         case 1345445729: // listMode
           this.listMode = new StructureMapSourceListModeEnumFactory().fromType(value); // Enumeration<StructureMapSourceListMode>
-          break;
+          return value;
         case -1249586564: // variable
           this.variable = castToId(value); // IdType
-          break;
+          return value;
         case -861311717: // condition
           this.condition = castToString(value); // StringType
-          break;
+          return value;
         case 94627080: // check
           this.check = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("required"))
           this.required = castToBoolean(value); // BooleanType
         else if (name.equals("context"))
@@ -3418,7 +3422,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("check"))
           this.check = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4185,39 +4190,39 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 951530927: // context
           this.context = castToId(value); // IdType
-          break;
+          return value;
         case -102839927: // contextType
           this.contextType = new StructureMapContextTypeEnumFactory().fromType(value); // Enumeration<StructureMapContextType>
-          break;
+          return value;
         case -1662836996: // element
           this.element = castToString(value); // StringType
-          break;
+          return value;
         case -1249586564: // variable
           this.variable = castToId(value); // IdType
-          break;
+          return value;
         case 1345445729: // listMode
           this.getListMode().add(new StructureMapTargetListModeEnumFactory().fromType(value)); // Enumeration<StructureMapTargetListMode>
-          break;
+          return value;
         case 337117045: // listRuleId
           this.listRuleId = castToId(value); // IdType
-          break;
+          return value;
         case 1052666732: // transform
           this.transform = new StructureMapTransformEnumFactory().fromType(value); // Enumeration<StructureMapTransform>
-          break;
+          return value;
         case 1954460585: // parameter
           this.getParameter().add((StructureMapGroupRuleTargetParameterComponent) value); // StructureMapGroupRuleTargetParameterComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("context"))
           this.context = castToId(value); // IdType
         else if (name.equals("contextType"))
@@ -4235,7 +4240,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("parameter"))
           this.getParameter().add((StructureMapGroupRuleTargetParameterComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4475,22 +4481,23 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
           this.value = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value[x]"))
           this.value = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4723,27 +4730,28 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToId(value); // IdType
-          break;
+          return value;
         case -1249586564: // variable
           this.getVariable().add((StructureMapGroupRuleDependentVariableComponent) value); // StructureMapGroupRuleDependentVariableComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToId(value); // IdType
         else if (name.equals("variable"))
           this.getVariable().add((StructureMapGroupRuleDependentVariableComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4925,27 +4933,28 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 111972721: // value
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("value[x]"))
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -6150,69 +6159,69 @@ public class StructureMap extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 144518515: // structure
           this.getStructure().add((StructureMapStructureComponent) value); // StructureMapStructureComponent
-          break;
+          return value;
         case -1184795739: // import
           this.getImport().add(castToUri(value)); // UriType
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((StructureMapGroupComponent) value); // StructureMapGroupComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -6250,7 +6259,8 @@ public class StructureMap extends MetadataResource {
         else if (name.equals("group"))
           this.getGroup().add((StructureMapGroupComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

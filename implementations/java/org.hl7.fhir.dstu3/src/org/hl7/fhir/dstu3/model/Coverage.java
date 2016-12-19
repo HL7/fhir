@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -890,51 +890,51 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 98629247: // group
           this.group = castToString(value); // StringType
-          break;
+          return value;
         case 1322335555: // groupDisplay
           this.groupDisplay = castToString(value); // StringType
-          break;
+          return value;
         case -2101792737: // subGroup
           this.subGroup = castToString(value); // StringType
-          break;
+          return value;
         case 1051914147: // subGroupDisplay
           this.subGroupDisplay = castToString(value); // StringType
-          break;
+          return value;
         case 3443497: // plan
           this.plan = castToString(value); // StringType
-          break;
+          return value;
         case -896076455: // planDisplay
           this.planDisplay = castToString(value); // StringType
-          break;
+          return value;
         case -1868653175: // subPlan
           this.subPlan = castToString(value); // StringType
-          break;
+          return value;
         case -1736083719: // subPlanDisplay
           this.subPlanDisplay = castToString(value); // StringType
-          break;
+          return value;
         case 94742904: // class
           this.class_ = castToString(value); // StringType
-          break;
+          return value;
         case 1707405354: // classDisplay
           this.classDisplay = castToString(value); // StringType
-          break;
+          return value;
         case -2105679080: // subClass
           this.subClass = castToString(value); // StringType
-          break;
+          return value;
         case 1436983946: // subClassDisplay
           this.subClassDisplay = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("group"))
           this.group = castToString(value); // StringType
         else if (name.equals("groupDisplay"))
@@ -960,7 +960,8 @@ public class Coverage extends DomainResource {
         else if (name.equals("subClassDisplay"))
           this.subClassDisplay = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1977,63 +1978,63 @@ public class Coverage extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new CoverageStatusEnumFactory().fromType(value); // Enumeration<CoverageStatus>
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 2046898558: // policyHolder
           this.policyHolder = castToReference(value); // Reference
-          break;
+          return value;
         case -1219769240: // subscriber
           this.subscriber = castToReference(value); // Reference
-          break;
+          return value;
         case 327834531: // subscriberId
           this.subscriberId = castToString(value); // StringType
-          break;
+          return value;
         case -565102875: // beneficiary
           this.beneficiary = castToReference(value); // Reference
-          break;
+          return value;
         case -261851592: // relationship
           this.relationship = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case 106443915: // payor
           this.getPayor().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 98629247: // group
           this.group = (GroupComponent) value; // GroupComponent
-          break;
+          return value;
         case -1109226753: // dependent
           this.dependent = castToString(value); // StringType
-          break;
+          return value;
         case 1349547969: // sequence
           this.sequence = castToString(value); // StringType
-          break;
+          return value;
         case 106006350: // order
           this.order = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case 1843485230: // network
           this.network = castToString(value); // StringType
-          break;
+          return value;
         case -566947566: // contract
           this.getContract().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -2067,7 +2068,8 @@ public class Coverage extends DomainResource {
         else if (name.equals("contract"))
           this.getContract().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

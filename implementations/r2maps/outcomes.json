@@ -1137,11 +1137,7 @@
         "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"
       ]
     },
-    "SearchParameter": {
-      "errors": [
-        "NullPointerException"
-      ]
-    },
+    "SearchParameter": {},
     "shareablevalueset": {
       "errors": [
         "Exception executing transform vt0.valueSet \u003d create(\"uri\") as vt on Rule \"\"ElementDefinition.binding-valueSet-uri\"\": Unknown Resource or Type Name \u0027uri\u0027"

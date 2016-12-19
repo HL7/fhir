@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1068,63 +1068,63 @@ public class Device extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -1343558178: // udiCarrier
           this.udiCarrier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 462547450: // lotNumber
           this.lotNumber = castToString(value); // StringType
-          break;
+          return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToString(value); // StringType
-          break;
+          return value;
         case 416714767: // manufactureDate
           this.manufactureDate = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -668811523: // expirationDate
           this.expirationDate = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 104069929: // model
           this.model = castToString(value); // StringType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 106164915: // owner
           this.owner = castToReference(value); // Reference
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case 1901043637: // location
           this.location = castToReference(value); // Reference
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("udiCarrier"))
@@ -1158,7 +1158,8 @@ public class Device extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1717,60 +1717,60 @@ public class Timing extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1383205195: // bounds
           this.bounds = castToType(value); // Type
-          break;
+          return value;
         case 94851343: // count
           this.count = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -372044331: // countMax
           this.countMax = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -1992012396: // duration
           this.duration = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -478083280: // durationMax
           this.durationMax = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1935429320: // durationUnit
           this.durationUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
-          break;
+          return value;
         case -70023844: // frequency
           this.frequency = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1273846376: // frequencyMax
           this.frequencyMax = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -991726143: // period
           this.period = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 566580195: // periodMax
           this.periodMax = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 384367333: // periodUnit
           this.periodUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
-          break;
+          return value;
         case -730552025: // dayOfWeek
           this.getDayOfWeek().add(new DayOfWeekEnumFactory().fromType(value)); // Enumeration<DayOfWeek>
-          break;
+          return value;
         case 21434232: // timeOfDay
           this.getTimeOfDay().add(castToTime(value)); // TimeType
-          break;
+          return value;
         case 3648314: // when
           this.when = new EventTimingEnumFactory().fromType(value); // Enumeration<EventTiming>
-          break;
+          return value;
         case -1019779949: // offset
           this.offset = castToUnsignedInt(value); // UnsignedIntType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("bounds[x]"))
           this.bounds = castToType(value); // Type
         else if (name.equals("count"))
@@ -1802,7 +1802,8 @@ public class Timing extends Type implements ICompositeType {
         else if (name.equals("offset"))
           this.offset = castToUnsignedInt(value); // UnsignedIntType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2119,24 +2120,24 @@ public class Timing extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 96891546: // event
           this.getEvent().add(castToDateTime(value)); // DateTimeType
-          break;
+          return value;
         case -934531685: // repeat
           this.repeat = (TimingRepeatComponent) value; // TimingRepeatComponent
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("event"))
           this.getEvent().add(castToDateTime(value));
         else if (name.equals("repeat"))
@@ -2144,7 +2145,8 @@ public class Timing extends Type implements ICompositeType {
         else if (name.equals("code"))
           this.code = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

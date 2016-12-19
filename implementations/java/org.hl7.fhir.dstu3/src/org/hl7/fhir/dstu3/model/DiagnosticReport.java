@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -366,27 +366,28 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 950398559: // comment
           this.comment = castToString(value); // StringType
-          break;
+          return value;
         case 3321850: // link
           this.link = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("comment"))
           this.comment = castToString(value); // StringType
         else if (name.equals("link"))
           this.link = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1544,66 +1545,66 @@ public class DiagnosticReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
-          break;
+          return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
-          break;
+          return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
-          break;
+          return value;
         case -1179159893: // issued
           this.issued = castToInstant(value); // InstantType
-          break;
+          return value;
         case 481140686: // performer
           this.getPerformer().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1095692943: // request
           this.getRequest().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -2132868344: // specimen
           this.getSpecimen().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -934426595: // result
           this.getResult().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -814900911: // imagingStudy
           this.getImagingStudy().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 100313435: // image
           this.getImage().add((DiagnosticReportImageComponent) value); // DiagnosticReportImageComponent
-          break;
+          return value;
         case -1731259873: // conclusion
           this.conclusion = castToString(value); // StringType
-          break;
+          return value;
         case -1364269926: // codedDiagnosis
           this.getCodedDiagnosis().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 230090366: // presentedForm
           this.getPresentedForm().add(castToAttachment(value)); // Attachment
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -1639,7 +1640,8 @@ public class DiagnosticReport extends DomainResource {
         else if (name.equals("presentedForm"))
           this.getPresentedForm().add(castToAttachment(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

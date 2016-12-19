@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1652,24 +1652,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 212873301: // releaseDate
           this.releaseDate = castToDateTime(value); // DateTimeType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("version"))
@@ -1677,7 +1677,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("releaseDate"))
           this.releaseDate = castToDateTime(value); // DateTimeType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1893,27 +1894,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2473,39 +2475,39 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3357091: // mode
           this.mode = new RestfulCapabilityModeEnumFactory().fromType(value); // Enumeration<RestfulCapabilityMode>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
+          return value;
         case 949122880: // security
           this.security = (CapabilityStatementRestSecurityComponent) value; // CapabilityStatementRestSecurityComponent
-          break;
+          return value;
         case -341064690: // resource
           this.getResource().add((CapabilityStatementRestResourceComponent) value); // CapabilityStatementRestResourceComponent
-          break;
+          return value;
         case 1844104722: // interaction
           this.getInteraction().add((SystemInteractionComponent) value); // SystemInteractionComponent
-          break;
+          return value;
         case -553645115: // searchParam
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value); // CapabilityStatementRestResourceSearchParamComponent
-          break;
+          return value;
         case 1662702951: // operation
           this.getOperation().add((CapabilityStatementRestOperationComponent) value); // CapabilityStatementRestOperationComponent
-          break;
+          return value;
         case -397756334: // compartment
           this.getCompartment().add(castToUri(value)); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("mode"))
           this.mode = new RestfulCapabilityModeEnumFactory().fromType(value); // Enumeration<RestfulCapabilityMode>
         else if (name.equals("documentation"))
@@ -2523,7 +2525,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("compartment"))
           this.getCompartment().add(castToUri(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2903,27 +2906,27 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059629: // cors
           this.cors = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 1984153269: // service
           this.getService().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 1952399767: // certificate
           this.getCertificate().add((CapabilityStatementRestSecurityCertificateComponent) value); // CapabilityStatementRestSecurityCertificateComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("cors"))
           this.cors = castToBoolean(value); // BooleanType
         else if (name.equals("service"))
@@ -2933,7 +2936,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("certificate"))
           this.getCertificate().add((CapabilityStatementRestSecurityCertificateComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3157,27 +3161,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCode(value); // CodeType
-          break;
+          return value;
         case 3026845: // blob
           this.blob = castToBase64Binary(value); // Base64BinaryType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
         else if (name.equals("blob"))
           this.blob = castToBase64Binary(value); // Base64BinaryType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4172,60 +4177,60 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCode(value); // CodeType
-          break;
+          return value;
         case -309425751: // profile
           this.profile = castToReference(value); // Reference
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 1844104722: // interaction
           this.getInteraction().add((ResourceInteractionComponent) value); // ResourceInteractionComponent
-          break;
+          return value;
         case -670487542: // versioning
           this.versioning = new ResourceVersionPolicyEnumFactory().fromType(value); // Enumeration<ResourceVersionPolicy>
-          break;
+          return value;
         case 187518494: // readHistory
           this.readHistory = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -1400550619: // updateCreate
           this.updateCreate = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 6401826: // conditionalCreate
           this.conditionalCreate = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 822786364: // conditionalRead
           this.conditionalRead = new ConditionalReadStatusEnumFactory().fromType(value); // Enumeration<ConditionalReadStatus>
-          break;
+          return value;
         case 519849711: // conditionalUpdate
           this.conditionalUpdate = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 23237585: // conditionalDelete
           this.conditionalDelete = new ConditionalDeleteStatusEnumFactory().fromType(value); // Enumeration<ConditionalDeleteStatus>
-          break;
+          return value;
         case 796257373: // referencePolicy
           this.getReferencePolicy().add(new ReferenceHandlingPolicyEnumFactory().fromType(value)); // Enumeration<ReferenceHandlingPolicy>
-          break;
+          return value;
         case -1035904544: // searchInclude
           this.getSearchInclude().add(castToString(value)); // StringType
-          break;
+          return value;
         case -2123884979: // searchRevInclude
           this.getSearchRevInclude().add(castToString(value)); // StringType
-          break;
+          return value;
         case -553645115: // searchParam
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value); // CapabilityStatementRestResourceSearchParamComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
         else if (name.equals("profile"))
@@ -4257,7 +4262,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("searchParam"))
           this.getSearchParam().add((CapabilityStatementRestResourceSearchParamComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4567,27 +4573,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
           this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = new TypeRestfulInteractionEnumFactory().fromType(value); // Enumeration<TypeRestfulInteraction>
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4909,27 +4916,27 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1014418093: // definition
           this.definition = castToUri(value); // UriType
-          break;
+          return value;
         case 3575610: // type
           this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("definition"))
@@ -4939,7 +4946,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5161,27 +5169,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
           this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = new SystemRestfulInteractionEnumFactory().fromType(value); // Enumeration<SystemRestfulInteraction>
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5390,27 +5399,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1014418093: // definition
           this.definition = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("definition"))
           this.definition = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5735,27 +5745,27 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1741102485: // endpoint
           this.getEndpoint().add((CapabilityStatementMessagingEndpointComponent) value); // CapabilityStatementMessagingEndpointComponent
-          break;
+          return value;
         case 897803608: // reliableCache
           this.reliableCache = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
+          return value;
         case 96891546: // event
           this.getEvent().add((CapabilityStatementMessagingEventComponent) value); // CapabilityStatementMessagingEventComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("endpoint"))
           this.getEndpoint().add((CapabilityStatementMessagingEndpointComponent) value);
         else if (name.equals("reliableCache"))
@@ -5765,7 +5775,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("event"))
           this.getEvent().add((CapabilityStatementMessagingEventComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -5971,27 +5982,28 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -989163880: // protocol
           this.protocol = castToCoding(value); // Coding
-          break;
+          return value;
         case -1147692044: // address
           this.address = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("protocol"))
           this.protocol = castToCoding(value); // Coding
         else if (name.equals("address"))
           this.address = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -6469,36 +6481,36 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
           this.code = castToCoding(value); // Coding
-          break;
+          return value;
         case 50511102: // category
           this.category = new MessageSignificanceCategoryEnumFactory().fromType(value); // Enumeration<MessageSignificanceCategory>
-          break;
+          return value;
         case 3357091: // mode
           this.mode = new EventCapabilityModeEnumFactory().fromType(value); // Enumeration<EventCapabilityMode>
-          break;
+          return value;
         case 97604824: // focus
           this.focus = castToCode(value); // CodeType
-          break;
+          return value;
         case 1095692943: // request
           this.request = castToReference(value); // Reference
-          break;
+          return value;
         case -340323263: // response
           this.response = castToReference(value); // Reference
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code"))
           this.code = castToCoding(value); // Coding
         else if (name.equals("category"))
@@ -6514,7 +6526,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("documentation"))
           this.documentation = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -6814,24 +6827,24 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3357091: // mode
           this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
-          break;
+          return value;
         case 1587405498: // documentation
           this.documentation = castToString(value); // StringType
-          break;
+          return value;
         case -309425751: // profile
           this.profile = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("mode"))
           this.mode = new DocumentModeEnumFactory().fromType(value); // Enumeration<DocumentMode>
         else if (name.equals("documentation"))
@@ -6839,7 +6852,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("profile"))
           this.profile = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -8458,96 +8472,96 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 3292052: // kind
           this.kind = new CapabilityStatementKindEnumFactory().fromType(value); // Enumeration<CapabilityStatementKind>
-          break;
+          return value;
         case -246883639: // instantiates
           this.getInstantiates().add(castToUri(value)); // UriType
-          break;
+          return value;
         case 1319330215: // software
           this.software = (CapabilityStatementSoftwareComponent) value; // CapabilityStatementSoftwareComponent
-          break;
+          return value;
         case 1683336114: // implementation
           this.implementation = (CapabilityStatementImplementationComponent) value; // CapabilityStatementImplementationComponent
-          break;
+          return value;
         case 461006061: // fhirVersion
           this.fhirVersion = castToId(value); // IdType
-          break;
+          return value;
         case -1862642142: // acceptUnknown
           this.acceptUnknown = new UnknownContentCodeEnumFactory().fromType(value); // Enumeration<UnknownContentCode>
-          break;
+          return value;
         case -1268779017: // format
           this.getFormat().add(castToCode(value)); // CodeType
-          break;
+          return value;
         case 172338783: // patchFormat
           this.getPatchFormat().add(castToCode(value)); // CodeType
-          break;
+          return value;
         case 156966506: // implementationGuide
           this.getImplementationGuide().add(castToUri(value)); // UriType
-          break;
+          return value;
         case -309425751: // profile
           this.getProfile().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3496916: // rest
           this.getRest().add((CapabilityStatementRestComponent) value); // CapabilityStatementRestComponent
-          break;
+          return value;
         case -1440008444: // messaging
           this.getMessaging().add((CapabilityStatementMessagingComponent) value); // CapabilityStatementMessagingComponent
-          break;
+          return value;
         case 861720859: // document
           this.getDocument().add((CapabilityStatementDocumentComponent) value); // CapabilityStatementDocumentComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("version"))
@@ -8603,7 +8617,8 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
         else if (name.equals("document"))
           this.getDocument().add((CapabilityStatementDocumentComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

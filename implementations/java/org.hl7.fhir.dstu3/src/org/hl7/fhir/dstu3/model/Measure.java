@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1029,30 +1029,30 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -2023558323: // population
           this.getPopulation().add((MeasureGroupPopulationComponent) value); // MeasureGroupPopulationComponent
-          break;
+          return value;
         case 90983669: // stratifier
           this.getStratifier().add((MeasureGroupStratifierComponent) value); // MeasureGroupStratifierComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("name"))
@@ -1064,7 +1064,8 @@ public class Measure extends MetadataResource {
         else if (name.equals("stratifier"))
           this.getStratifier().add((MeasureGroupStratifierComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1446,30 +1447,30 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 1952046943: // criteria
           this.criteria = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
         else if (name.equals("identifier"))
@@ -1481,7 +1482,8 @@ public class Measure extends MetadataResource {
         else if (name.equals("criteria"))
           this.criteria = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1745,24 +1747,24 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 1952046943: // criteria
           this.criteria = castToString(value); // StringType
-          break;
+          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("criteria"))
@@ -1770,7 +1772,8 @@ public class Measure extends MetadataResource {
         else if (name.equals("path"))
           this.path = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2094,27 +2097,27 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 111574433: // usage
           this.getUsage().add(new MeasureDataUsageEnumFactory().fromType(value)); // Enumeration<MeasureDataUsage>
-          break;
+          return value;
         case 1952046943: // criteria
           this.criteria = castToString(value); // StringType
-          break;
+          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("usage"))
@@ -2124,7 +2127,8 @@ public class Measure extends MetadataResource {
         else if (name.equals("path"))
           this.path = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4347,126 +4351,126 @@ public class Measure extends MetadataResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-          break;
+          return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -220463842: // purpose
           this.purpose = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 111574433: // usage
           this.usage = castToString(value); // StringType
-          break;
+          return value;
         case 223539345: // approvalDate
           this.approvalDate = castToDate(value); // DateType
-          break;
+          return value;
         case -1687512484: // lastReviewDate
           this.lastReviewDate = castToDate(value); // DateType
-          break;
+          return value;
         case -403934648: // effectivePeriod
           this.effectivePeriod = castToPeriod(value); // Period
-          break;
+          return value;
         case -669707736: // useContext
           this.getUseContext().add(castToUsageContext(value)); // UsageContext
-          break;
+          return value;
         case -507075711: // jurisdiction
           this.getJurisdiction().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 110546223: // topic
           this.getTopic().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1895276325: // contributor
           this.getContributor().add(castToContributor(value)); // Contributor
-          break;
+          return value;
         case 1447404028: // publisher
           this.publisher = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add(castToContactDetail(value)); // ContactDetail
-          break;
+          return value;
         case 1522889671: // copyright
           this.copyright = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 666807069: // relatedArtifact
           this.getRelatedArtifact().add(castToRelatedArtifact(value)); // RelatedArtifact
-          break;
+          return value;
         case 166208699: // library
           this.getLibrary().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 432371099: // disclaimer
           this.disclaimer = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 1924005583: // scoring
           this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
-          break;
+          return value;
         case 569347656: // compositeScoring
           this.compositeScoring = new CompositeMeasureScoringEnumFactory().fromType(value); // Enumeration<CompositeMeasureScoring>
-          break;
+          return value;
         case 3575610: // type
           this.getType().add(new MeasureTypeEnumFactory().fromType(value)); // Enumeration<MeasureType>
-          break;
+          return value;
         case 93273500: // riskAdjustment
           this.riskAdjustment = castToString(value); // StringType
-          break;
+          return value;
         case 1254503906: // rateAggregation
           this.rateAggregation = castToString(value); // StringType
-          break;
+          return value;
         case 345689335: // rationale
           this.rationale = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -18631389: // clinicalRecommendationStatement
           this.clinicalRecommendationStatement = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -2085456136: // improvementNotation
           this.improvementNotation = castToString(value); // StringType
-          break;
+          return value;
         case -1014418093: // definition
           this.definition = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -1314002088: // guidance
           this.guidance = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case 113762: // set
           this.set = castToString(value); // StringType
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((MeasureGroupComponent) value); // MeasureGroupComponent
-          break;
+          return value;
         case 1447496814: // supplementalData
           this.getSupplementalData().add((MeasureSupplementalDataComponent) value); // MeasureSupplementalDataComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else if (name.equals("identifier"))
@@ -4542,7 +4546,8 @@ public class Measure extends MetadataResource {
         else if (name.equals("supplementalData"))
           this.getSupplementalData().add((MeasureSupplementalDataComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

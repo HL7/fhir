@@ -172,3 +172,10 @@ group markdownToString extends Element
   "markdownToString-value" : for src.value as v make tgt.value = v
 endgroup
 
+group uriToCode extends Element
+  input src : uri as source
+  input tgt : codeR2 as target
+
+  "uriToCode-value" : for src.value as v make tgt.value = v
+endgroup
+

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1463,75 +1463,75 @@ public class DeviceUseRequest extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -1014418093: // definition
           this.getDefinition().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -430332865: // replaces
           this.getReplaces().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 395923612: // requisition
           this.requisition = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
-          break;
+          return value;
         case 109757182: // stage
           this.stage = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1335157162: // device
           this.device = castToType(value); // Type
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case 1687874001: // occurrence
           this.occurrence = castToType(value); // Type
-          break;
+          return value;
         case 1433073514: // authored
           this.authored = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 693933948: // requester
           this.requester = castToReference(value); // Reference
-          break;
+          return value;
         case -901444568: // performerType
           this.performerType = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case 722137681: // reasonCode
           this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1922406657: // supportingInfo
           this.getSupportingInfo().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case 1538891575: // relevantHistory
           this.getRelevantHistory().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("definition"))
@@ -1573,7 +1573,8 @@ public class DeviceUseRequest extends DomainResource {
         else if (name.equals("relevantHistory"))
           this.getRelevantHistory().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

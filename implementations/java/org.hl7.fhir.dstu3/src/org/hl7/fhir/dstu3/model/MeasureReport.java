@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -588,30 +588,30 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -2023558323: // population
           this.getPopulation().add((MeasureReportGroupPopulationComponent) value); // MeasureReportGroupPopulationComponent
-          break;
+          return value;
         case -386313260: // measureScore
           this.measureScore = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 90983669: // stratifier
           this.getStratifier().add((MeasureReportGroupStratifierComponent) value); // MeasureReportGroupStratifierComponent
-          break;
+          return value;
         case 1447496814: // supplementalData
           this.getSupplementalData().add((MeasureReportGroupSupplementalDataComponent) value); // MeasureReportGroupSupplementalDataComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("population"))
@@ -623,7 +623,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("supplementalData"))
           this.getSupplementalData().add((MeasureReportGroupSupplementalDataComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -917,24 +918,24 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCode(value); // CodeType
-          break;
+          return value;
         case 94851343: // count
           this.count = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1235842574: // patients
           this.patients = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
         else if (name.equals("count"))
@@ -942,7 +943,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("patients"))
           this.patients = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1140,27 +1142,28 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((StratifierGroupComponent) value); // StratifierGroupComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("group"))
           this.getGroup().add((StratifierGroupComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1453,24 +1456,24 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
+          return value;
         case -2023558323: // population
           this.getPopulation().add((StratifierGroupPopulationComponent) value); // StratifierGroupPopulationComponent
-          break;
+          return value;
         case -386313260: // measureScore
           this.measureScore = castToDecimal(value); // DecimalType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value"))
           this.value = castToString(value); // StringType
         else if (name.equals("population"))
@@ -1478,7 +1481,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("measureScore"))
           this.measureScore = castToDecimal(value); // DecimalType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1752,24 +1756,24 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCode(value); // CodeType
-          break;
+          return value;
         case 94851343: // count
           this.count = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1235842574: // patients
           this.patients = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCode(value); // CodeType
         else if (name.equals("count"))
@@ -1777,7 +1781,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("patients"))
           this.patients = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1975,27 +1980,28 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((SupplementalDataGroupComponent) value); // SupplementalDataGroupComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("group"))
           this.getGroup().add((SupplementalDataGroupComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2262,24 +2268,24 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 111972721: // value
           this.value = castToString(value); // StringType
-          break;
+          return value;
         case 94851343: // count
           this.count = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1235842574: // patients
           this.patients = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("value"))
           this.value = castToString(value); // StringType
         else if (name.equals("count"))
@@ -2287,7 +2293,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("patients"))
           this.patients = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2886,42 +2893,42 @@ public class MeasureReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 938321246: // measure
           this.measure = castToReference(value); // Reference
-          break;
+          return value;
         case 3575610: // type
           this.type = new MeasureReportTypeEnumFactory().fromType(value); // Enumeration<MeasureReportType>
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
+          return value;
         case -892481550: // status
           this.status = new MeasureReportStatusEnumFactory().fromType(value); // Enumeration<MeasureReportStatus>
-          break;
+          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -2053950847: // reportingOrganization
           this.reportingOrganization = castToReference(value); // Reference
-          break;
+          return value;
         case 98629247: // group
           this.getGroup().add((MeasureReportGroupComponent) value); // MeasureReportGroupComponent
-          break;
+          return value;
         case 1599836026: // evaluatedResources
           this.evaluatedResources = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("measure"))
           this.measure = castToReference(value); // Reference
         else if (name.equals("type"))
@@ -2941,7 +2948,8 @@ public class MeasureReport extends DomainResource {
         else if (name.equals("evaluatedResources"))
           this.evaluatedResources = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

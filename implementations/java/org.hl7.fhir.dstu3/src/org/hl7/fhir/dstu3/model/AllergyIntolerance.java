@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1273,39 +1273,39 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 530040176: // substance
           this.substance = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1404142937: // certainty
           this.certainty = new AllergyIntoleranceCertaintyEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCertainty>
-          break;
+          return value;
         case 1115984422: // manifestation
           this.getManifestation().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case 105901603: // onset
           this.onset = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 1478300413: // severity
           this.severity = new AllergyIntoleranceSeverityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceSeverity>
-          break;
+          return value;
         case 421286274: // exposureRoute
           this.exposureRoute = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("substance"))
           this.substance = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("certainty"))
@@ -1323,7 +1323,8 @@ public class AllergyIntolerance extends DomainResource {
         else if (name.equals("note"))
           this.getNote().add(castToAnnotation(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2358,60 +2359,60 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -462853915: // clinicalStatus
           this.clinicalStatus = new AllergyIntoleranceClinicalStatusEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceClinicalStatus>
-          break;
+          return value;
         case -842509843: // verificationStatus
           this.verificationStatus = new AllergyIntoleranceVerificationStatusEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceVerificationStatus>
-          break;
+          return value;
         case 3575610: // type
           this.type = new AllergyIntoleranceTypeEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceType>
-          break;
+          return value;
         case 50511102: // category
           this.getCategory().add(new AllergyIntoleranceCategoryEnumFactory().fromType(value)); // Enumeration<AllergyIntoleranceCategory>
-          break;
+          return value;
         case -1608054609: // criticality
           this.criticality = new AllergyIntoleranceCriticalityEnumFactory().fromType(value); // Enumeration<AllergyIntoleranceCriticality>
-          break;
+          return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 105901603: // onset
           this.onset = castToType(value); // Type
-          break;
+          return value;
         case -174231629: // assertedDate
           this.assertedDate = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -799233858: // recorder
           this.recorder = castToReference(value); // Reference
-          break;
+          return value;
         case -373242253: // asserter
           this.asserter = castToReference(value); // Reference
-          break;
+          return value;
         case 1896977671: // lastOccurrence
           this.lastOccurrence = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case -867509719: // reaction
           this.getReaction().add((AllergyIntoleranceReactionComponent) value); // AllergyIntoleranceReactionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("clinicalStatus"))
@@ -2443,7 +2444,8 @@ public class AllergyIntolerance extends DomainResource {
         else if (name.equals("reaction"))
           this.getReaction().add((AllergyIntoleranceReactionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

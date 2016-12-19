@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -578,33 +578,33 @@ public class RelatedArtifact extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
-          break;
+          return value;
         case 1671764162: // display
           this.display = castToString(value); // StringType
-          break;
+          return value;
         case -1442706713: // citation
           this.citation = castToString(value); // StringType
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case 861720859: // document
           this.document = castToAttachment(value); // Attachment
-          break;
+          return value;
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
         else if (name.equals("display"))
@@ -618,7 +618,8 @@ public class RelatedArtifact extends Type implements ICompositeType {
         else if (name.equals("resource"))
           this.resource = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

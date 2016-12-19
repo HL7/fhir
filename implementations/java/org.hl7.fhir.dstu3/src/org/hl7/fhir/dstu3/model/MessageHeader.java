@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -355,24 +355,24 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToId(value); // IdType
-          break;
+          return value;
         case 3059181: // code
           this.code = new ResponseTypeEnumFactory().fromType(value); // Enumeration<ResponseType>
-          break;
+          return value;
         case 1557721666: // details
           this.details = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToId(value); // IdType
         else if (name.equals("code"))
@@ -380,7 +380,8 @@ public class MessageHeader extends DomainResource {
         else if (name.equals("details"))
           this.details = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -745,30 +746,30 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 1319330215: // software
           this.software = castToString(value); // StringType
-          break;
+          return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
-          break;
+          return value;
         case 951526432: // contact
           this.contact = castToContactPoint(value); // ContactPoint
-          break;
+          return value;
         case 1741102485: // endpoint
           this.endpoint = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("software"))
@@ -780,7 +781,8 @@ public class MessageHeader extends DomainResource {
         else if (name.equals("endpoint"))
           this.endpoint = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1065,24 +1067,24 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -880905839: // target
           this.target = castToReference(value); // Reference
-          break;
+          return value;
         case 1741102485: // endpoint
           this.endpoint = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("target"))
@@ -1090,7 +1092,8 @@ public class MessageHeader extends DomainResource {
         else if (name.equals("endpoint"))
           this.endpoint = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1742,48 +1745,48 @@ public class MessageHeader extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 55126294: // timestamp
           this.timestamp = castToInstant(value); // InstantType
-          break;
+          return value;
         case 96891546: // event
           this.event = castToCoding(value); // Coding
-          break;
+          return value;
         case -340323263: // response
           this.response = (MessageHeaderResponseComponent) value; // MessageHeaderResponseComponent
-          break;
+          return value;
         case -896505829: // source
           this.source = (MessageSourceComponent) value; // MessageSourceComponent
-          break;
+          return value;
         case -1429847026: // destination
           this.getDestination().add((MessageDestinationComponent) value); // MessageDestinationComponent
-          break;
+          return value;
         case -1591951995: // enterer
           this.enterer = castToReference(value); // Reference
-          break;
+          return value;
         case -1406328437: // author
           this.author = castToReference(value); // Reference
-          break;
+          return value;
         case -808719889: // receiver
           this.receiver = castToReference(value); // Reference
-          break;
+          return value;
         case 1847674614: // responsible
           this.responsible = castToReference(value); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3076010: // data
           this.getData().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("timestamp"))
           this.timestamp = castToInstant(value); // InstantType
         else if (name.equals("event"))
@@ -1807,7 +1810,8 @@ public class MessageHeader extends DomainResource {
         else if (name.equals("data"))
           this.getData().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

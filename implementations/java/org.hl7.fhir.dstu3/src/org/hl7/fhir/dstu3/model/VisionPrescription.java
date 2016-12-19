@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1090,60 +1090,60 @@ public class VisionPrescription extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -309474065: // product
           this.product = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 100913: // eye
           this.eye = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -895981619: // sphere
           this.sphere = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -349378602: // cylinder
           this.cylinder = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 3008417: // axis
           this.axis = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 106935105: // prism
           this.prism = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 3016401: // base
           this.base = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 96417: // add
           this.add = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 106858757: // power
           this.power = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 1309344840: // backCurve
           this.backCurve = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -233204595: // diameter
           this.diameter = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1992012396: // duration
           this.duration = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 94842723: // color
           this.color = castToString(value); // StringType
-          break;
+          return value;
         case 93997959: // brand
           this.brand = castToString(value); // StringType
-          break;
+          return value;
         case 3387378: // note
           this.note = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("product"))
           this.product = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("eye"))
@@ -1175,7 +1175,8 @@ public class VisionPrescription extends DomainResource {
         else if (name.equals("note"))
           this.note = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1809,39 +1810,39 @@ public class VisionPrescription extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new VisionStatusEnumFactory().fromType(value); // Enumeration<VisionStatus>
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
-          break;
+          return value;
         case -1496880759: // dateWritten
           this.dateWritten = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 1430631077: // prescriber
           this.prescriber = castToReference(value); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToType(value); // Type
-          break;
+          return value;
         case 284885341: // dispense
           this.getDispense().add((VisionPrescriptionDispenseComponent) value); // VisionPrescriptionDispenseComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("status"))
@@ -1859,7 +1860,8 @@ public class VisionPrescription extends DomainResource {
         else if (name.equals("dispense"))
           this.getDispense().add((VisionPrescriptionDispenseComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

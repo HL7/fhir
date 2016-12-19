@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -836,39 +836,39 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1499470472: // chromosome
           this.chromosome = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 1061239735: // genomeBuild
           this.genomeBuild = castToString(value); // StringType
-          break;
+          return value;
         case -1911500465: // referenceSeqId
           this.referenceSeqId = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 1923414665: // referenceSeqPointer
           this.referenceSeqPointer = castToReference(value); // Reference
-          break;
+          return value;
         case -1648301499: // referenceSeqString
           this.referenceSeqString = castToString(value); // StringType
-          break;
+          return value;
         case -891993594: // strand
           this.strand = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1903685202: // windowStart
           this.windowStart = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -217026869: // windowEnd
           this.windowEnd = castToInteger(value); // IntegerType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("chromosome"))
           this.chromosome = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("genomeBuild"))
@@ -886,7 +886,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("windowEnd"))
           this.windowEnd = castToInteger(value); // IntegerType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1353,33 +1354,33 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 109757538: // start
           this.start = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 100571: // end
           this.end = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -1418745787: // observedAllele
           this.observedAllele = castToString(value); // StringType
-          break;
+          return value;
         case 364045960: // referenceAllele
           this.referenceAllele = castToString(value); // StringType
-          break;
+          return value;
         case 94658738: // cigar
           this.cigar = castToString(value); // StringType
-          break;
+          return value;
         case -1654319624: // variantPointer
           this.variantPointer = castToReference(value); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
         else if (name.equals("end"))
@@ -1393,7 +1394,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("variantPointer"))
           this.variantPointer = castToReference(value); // Reference
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2384,57 +2386,57 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new QualityTypeEnumFactory().fromType(value); // Enumeration<QualityType>
-          break;
+          return value;
         case -1861227106: // standardSequence
           this.standardSequence = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 109757538: // start
           this.start = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 100571: // end
           this.end = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 109264530: // score
           this.score = castToQuantity(value); // Quantity
-          break;
+          return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1048421849: // truthTP
           this.truthTP = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 655102276: // queryTP
           this.queryTP = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1048422285: // truthFN
           this.truthFN = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 655101842: // queryFP
           this.queryFP = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 3182199: // gtFP
           this.gtFP = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1376177026: // precision
           this.precision = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -934922479: // recall
           this.recall = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1295082036: // fScore
           this.fScore = castToDecimal(value); // DecimalType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new QualityTypeEnumFactory().fromType(value); // Enumeration<QualityType>
         else if (name.equals("standardSequence"))
@@ -2464,7 +2466,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("fScore"))
           this.fScore = castToDecimal(value); // DecimalType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2978,33 +2981,33 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new RepositoryTypeEnumFactory().fromType(value); // Enumeration<RepositoryType>
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -345342029: // datasetId
           this.datasetId = castToString(value); // StringType
-          break;
+          return value;
         case 1929752504: // variantsetId
           this.variantsetId = castToString(value); // StringType
-          break;
+          return value;
         case -1095407289: // readsetId
           this.readsetId = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new RepositoryTypeEnumFactory().fromType(value); // Enumeration<RepositoryType>
         else if (name.equals("url"))
@@ -3018,7 +3021,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("readsetId"))
           this.readsetId = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3385,30 +3389,30 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1591532317: // precisionOfBoundaries
           this.precisionOfBoundaries = castToString(value); // StringType
-          break;
+          return value;
         case -1872600587: // reportedaCGHRatio
           this.reportedaCGHRatio = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1106363674: // length
           this.length = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 106111099: // outer
           this.outer = (SequenceStructureVariantOuterComponent) value; // SequenceStructureVariantOuterComponent
-          break;
+          return value;
         case 100355670: // inner
           this.inner = (SequenceStructureVariantInnerComponent) value; // SequenceStructureVariantInnerComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("precisionOfBoundaries"))
           this.precisionOfBoundaries = castToString(value); // StringType
         else if (name.equals("reportedaCGHRatio"))
@@ -3420,7 +3424,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("inner"))
           this.inner = (SequenceStructureVariantInnerComponent) value; // SequenceStructureVariantInnerComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3637,27 +3642,28 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 109757538: // start
           this.start = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 100571: // end
           this.end = castToInteger(value); // IntegerType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
         else if (name.equals("end"))
           this.end = castToInteger(value); // IntegerType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3853,27 +3859,28 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 109757538: // start
           this.start = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 100571: // end
           this.end = castToInteger(value); // IntegerType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("start"))
           this.start = castToInteger(value); // IntegerType
         else if (name.equals("end"))
           this.end = castToInteger(value); // IntegerType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -4889,63 +4896,63 @@ public class Sequence extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 3575610: // type
           this.type = new SequenceTypeEnumFactory().fromType(value); // Enumeration<SequenceType>
-          break;
+          return value;
         case 354212295: // coordinateSystem
           this.coordinateSystem = castToInteger(value); // IntegerType
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case -2132868344: // specimen
           this.specimen = castToReference(value); // Reference
-          break;
+          return value;
         case -1335157162: // device
           this.device = castToReference(value); // Reference
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToQuantity(value); // Quantity
-          break;
+          return value;
         case -502547180: // referenceSeq
           this.referenceSeq = (SequenceReferenceSeqComponent) value; // SequenceReferenceSeqComponent
-          break;
+          return value;
         case 236785797: // variant
           this.getVariant().add((SequenceVariantComponent) value); // SequenceVariantComponent
-          break;
+          return value;
         case 125541495: // observedSeq
           this.observedSeq = castToString(value); // StringType
-          break;
+          return value;
         case 651215103: // quality
           this.getQuality().add((SequenceQualityComponent) value); // SequenceQualityComponent
-          break;
+          return value;
         case -1798816354: // readCoverage
           this.readCoverage = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 1950800714: // repository
           this.getRepository().add((SequenceRepositoryComponent) value); // SequenceRepositoryComponent
-          break;
+          return value;
         case -400605635: // pointer
           this.getPointer().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 757269394: // structureVariant
           this.getStructureVariant().add((SequenceStructureVariantComponent) value); // SequenceStructureVariantComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("type"))
@@ -4979,7 +4986,8 @@ public class Sequence extends DomainResource {
         else if (name.equals("structureVariant"))
           this.getStructureVariant().add((SequenceStructureVariantComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

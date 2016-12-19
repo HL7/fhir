@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1021,57 +1021,57 @@ public class GuidanceResponse extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 693933066: // requestId
           this.requestId = castToId(value); // IdType
-          break;
+          return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -1068784020: // module
           this.module = castToReference(value); // Reference
-          break;
+          return value;
         case -892481550: // status
           this.status = new GuidanceResponseStatusEnumFactory().fromType(value); // Enumeration<GuidanceResponseStatus>
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case -298443636: // occurrenceDateTime
           this.occurrenceDateTime = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 481140686: // performer
           this.performer = castToReference(value); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToType(value); // Type
-          break;
+          return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          break;
+          return value;
         case 1081619755: // evaluationMessage
           this.getEvaluationMessage().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 525609419: // outputParameters
           this.outputParameters = castToReference(value); // Reference
-          break;
+          return value;
         case -934426595: // result
           this.result = castToReference(value); // Reference
-          break;
+          return value;
         case 629147193: // dataRequirement
           this.getDataRequirement().add(castToDataRequirement(value)); // DataRequirement
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("requestId"))
           this.requestId = castToId(value); // IdType
         else if (name.equals("identifier"))
@@ -1101,7 +1101,8 @@ public class GuidanceResponse extends DomainResource {
         else if (name.equals("dataRequirement"))
           this.getDataRequirement().add(castToDataRequirement(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

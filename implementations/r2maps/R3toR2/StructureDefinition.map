@@ -4,10 +4,10 @@ conceptmap "StructureDefinitionKind" {
   prefix s = "http://hl7.org/fhir/structure-definition-kind"
   prefix t = "http://hl7.org/fhir/structure-definition-kind"
 
-  s:resource ~ t:datatype
-  s:resource ~ t:datatype
-  s:resource ~ t:datatype
-  s:resource ~ t:datatype
+  s:"primitive-type" - t:datatype
+  s:"complex-type" - t:datatype
+  s:resource - t:resource
+  s:logical - t:logical
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as source
@@ -37,7 +37,7 @@ group StructureDefinition extends DomainResource
   "StructureDefinition-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
   "StructureDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "StructureDefinition.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "StructureDefinition.contact-telecom" : for vs0.telecom as vs2 make vt0.telecom as vt2 then ContactPoint(vs2,vt2)
+    "StructureDefinition.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
   }
   "StructureDefinition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
   "StructureDefinition-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
@@ -56,13 +56,13 @@ group StructureDefinition extends DomainResource
   "StructureDefinition-abstract" : for src.abstract as vs make tgt.abstract as vt then boolean(vs, vt)
   "StructureDefinition-contextType" : for src.contextType as vs make tgt.contextType as vt then code(vs, vt)
   "StructureDefinition-context" : for src.context as vs make tgt.context as vt then string(vs, vt)
-  "StructureDefinition-constrainedType" : for src.type as vs make tgt.constrainedType as vt then code(vs, vt)
+  "StructureDefinition-constrainedType" : for src.type where derivation = 'constraint' as vs make tgt.constrainedType as vt then code(vs, vt)
   "StructureDefinition-base" : for src.baseDefinition as vs make tgt.base as vt then uri(vs, vt)
   "StructureDefinition-snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
-    "StructureDefinition.snapshot-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(vs,vt)
+    "StructureDefinition.snapshot-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs,vt)
   }
   "StructureDefinition-differential" : for src.differential as vs0 make tgt.differential as vt0 then {
-    "StructureDefinition.differential-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(vs,vt)
+    "StructureDefinition.differential-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs,vt)
   }
 endgroup
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -599,24 +599,24 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = new TestReportParticipantTypeEnumFactory().fromType(value); // Enumeration<TestReportParticipantType>
-          break;
+          return value;
         case 116076: // uri
           this.uri = castToUri(value); // UriType
-          break;
+          return value;
         case 1671764162: // display
           this.display = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new TestReportParticipantTypeEnumFactory().fromType(value); // Enumeration<TestReportParticipantType>
         else if (name.equals("uri"))
@@ -624,7 +624,8 @@ public class TestReport extends DomainResource {
         else if (name.equals("display"))
           this.display = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -781,22 +782,23 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1422950858: // action
           this.getAction().add((SetupActionComponent) value); // SetupActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("action"))
           this.getAction().add((SetupActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -949,27 +951,28 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
+          return value;
         case -1408208058: // assert
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else if (name.equals("assert"))
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1238,24 +1241,24 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
           this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
-          break;
+          return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -1335224239: // detail
           this.detail = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result"))
           this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
         else if (name.equals("message"))
@@ -1263,7 +1266,8 @@ public class TestReport extends DomainResource {
         else if (name.equals("detail"))
           this.detail = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1538,24 +1542,24 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
           this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
-          break;
+          return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
-          break;
+          return value;
         case -1335224239: // detail
           this.detail = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result"))
           this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
         else if (name.equals("message"))
@@ -1563,7 +1567,8 @@ public class TestReport extends DomainResource {
         else if (name.equals("detail"))
           this.detail = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1837,24 +1842,24 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1422950858: // action
           this.getAction().add((TestActionComponent) value); // TestActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -1862,7 +1867,8 @@ public class TestReport extends DomainResource {
         else if (name.equals("action"))
           this.getAction().add((TestActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2027,27 +2033,28 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
+          return value;
         case -1408208058: // assert
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else if (name.equals("assert"))
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2199,22 +2206,23 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1422950858: // action
           this.getAction().add((TeardownActionComponent) value); // TeardownActionComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("action"))
           this.getAction().add((TeardownActionComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2342,22 +2350,23 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1662702951: // operation
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("operation"))
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -3034,48 +3043,48 @@ public class TestReport extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case -892481550: // status
           this.status = new TestReportStatusEnumFactory().fromType(value); // Enumeration<TestReportStatus>
-          break;
+          return value;
         case 109264530: // score
           this.score = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -877169473: // tester
           this.tester = castToString(value); // StringType
-          break;
+          return value;
         case 1712049149: // testScript
           this.testScript = castToReference(value); // Reference
-          break;
+          return value;
         case -1179159893: // issued
           this.issued = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 767422259: // participant
           this.getParticipant().add((TestReportParticipantComponent) value); // TestReportParticipantComponent
-          break;
+          return value;
         case 109329021: // setup
           this.setup = (TestReportSetupComponent) value; // TestReportSetupComponent
-          break;
+          return value;
         case 3556498: // test
           this.getTest().add((TestReportTestComponent) value); // TestReportTestComponent
-          break;
+          return value;
         case -1663474172: // teardown
           this.teardown = (TestReportTeardownComponent) value; // TestReportTeardownComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("name"))
@@ -3099,7 +3108,8 @@ public class TestReport extends DomainResource {
         else if (name.equals("teardown"))
           this.teardown = (TestReportTeardownComponent) value; // TestReportTeardownComponent
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

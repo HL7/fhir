@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -291,27 +291,28 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCoding(value); // Coding
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -973,48 +974,48 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 115792: // uid
           this.uid = castToOid(value); // OidType
-          break;
+          return value;
         case -1034364087: // number
           this.number = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case -622722335: // modality
           this.modality = castToCoding(value); // Coding
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -1043544226: // numberOfInstances
           this.numberOfInstances = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case 1997542747: // availability
           this.availability = new InstanceAvailabilityEnumFactory().fromType(value); // Enumeration<InstanceAvailability>
-          break;
+          return value;
         case 231778726: // baseLocation
           this.getBaseLocation().add((SeriesBaseLocationComponent) value); // SeriesBaseLocationComponent
-          break;
+          return value;
         case 1702620169: // bodySite
           this.bodySite = castToCoding(value); // Coding
-          break;
+          return value;
         case -170291817: // laterality
           this.laterality = castToCoding(value); // Coding
-          break;
+          return value;
         case -1897185151: // started
           this.started = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case 555127957: // instance
           this.getInstance().add((ImagingStudySeriesInstanceComponent) value); // ImagingStudySeriesInstanceComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
         else if (name.equals("number"))
@@ -1038,7 +1039,8 @@ public class ImagingStudy extends DomainResource {
         else if (name.equals("instance"))
           this.getInstance().add((ImagingStudySeriesInstanceComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1287,27 +1289,28 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
           this.type = castToCoding(value); // Coding
-          break;
+          return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = castToCoding(value); // Coding
         else if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1625,27 +1628,27 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 115792: // uid
           this.uid = castToOid(value); // OidType
-          break;
+          return value;
         case -1034364087: // number
           this.number = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case 1560041540: // sopClass
           this.sopClass = castToOid(value); // OidType
-          break;
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
         else if (name.equals("number"))
@@ -1655,7 +1658,8 @@ public class ImagingStudy extends DomainResource {
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2841,69 +2845,69 @@ public class ImagingStudy extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 115792: // uid
           this.uid = castToOid(value); // OidType
-          break;
+          return value;
         case -2115028956: // accession
           this.accession = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 1997542747: // availability
           this.availability = new InstanceAvailabilityEnumFactory().fromType(value); // Enumeration<InstanceAvailability>
-          break;
+          return value;
         case -1030238433: // modalityList
           this.getModalityList().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
-          break;
+          return value;
         case -1897185151: // started
           this.started = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -722568161: // referrer
           this.referrer = castToReference(value); // Reference
-          break;
+          return value;
         case -2008009094: // interpreter
           this.getInterpreter().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 231778726: // baseLocation
           this.getBaseLocation().add((StudyBaseLocationComponent) value); // StudyBaseLocationComponent
-          break;
+          return value;
         case 1920000407: // numberOfSeries
           this.numberOfSeries = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case -1043544226: // numberOfInstances
           this.numberOfInstances = castToUnsignedInt(value); // UnsignedIntType
-          break;
+          return value;
         case -1095204141: // procedure
           this.getProcedure().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -934964668: // reason
           this.reason = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -905838985: // series
           this.getSeries().add((ImagingStudySeriesComponent) value); // ImagingStudySeriesComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("uid"))
           this.uid = castToOid(value); // OidType
         else if (name.equals("accession"))
@@ -2941,7 +2945,8 @@ public class ImagingStudy extends DomainResource {
         else if (name.equals("series"))
           this.getSeries().add((ImagingStudySeriesComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

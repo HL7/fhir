@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -654,54 +654,54 @@ public class DosageInstruction extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1349547969: // sequence
           this.sequence = castToInteger(value); // IntegerType
-          break;
+          return value;
         case 3556653: // text
           this.text = castToString(value); // StringType
-          break;
+          return value;
         case -1206718612: // additionalInstructions
           this.getAdditionalInstructions().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case -873664438: // timing
           this.timing = castToTiming(value); // Timing
-          break;
+          return value;
         case -1432923513: // asNeeded
           this.asNeeded = castToType(value); // Type
-          break;
+          return value;
         case 3530567: // site
           this.site = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 108704329: // route
           this.route = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1077554975: // method
           this.method = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 3089437: // dose
           this.dose = castToType(value); // Type
-          break;
+          return value;
         case 1506263709: // maxDosePerPeriod
           this.maxDosePerPeriod = castToRatio(value); // Ratio
-          break;
+          return value;
         case 2004889914: // maxDosePerAdministration
           this.maxDosePerAdministration = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 642099621: // maxDosePerLifetime
           this.maxDosePerLifetime = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 3493088: // rate
           this.rate = castToType(value); // Type
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("sequence"))
           this.sequence = castToInteger(value); // IntegerType
         else if (name.equals("text"))
@@ -729,7 +729,8 @@ public class DosageInstruction extends Type implements ICompositeType {
         else if (name.equals("rate[x]"))
           this.rate = castToType(value); // Type
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

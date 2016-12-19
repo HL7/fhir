@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -522,36 +522,36 @@ public class SampledData extends Type implements ICompositeType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1008619738: // origin
           this.origin = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case -991726143: // period
           this.period = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1282148017: // factor
           this.factor = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 1209133370: // lowerLimit
           this.lowerLimit = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case -1681713095: // upperLimit
           this.upperLimit = castToDecimal(value); // DecimalType
-          break;
+          return value;
         case 414334925: // dimensions
           this.dimensions = castToPositiveInt(value); // PositiveIntType
-          break;
+          return value;
         case 3076010: // data
           this.data = castToString(value); // StringType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("origin"))
           this.origin = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("period"))
@@ -567,7 +567,8 @@ public class SampledData extends Type implements ICompositeType {
         else if (name.equals("data"))
           this.data = castToString(value); // StringType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

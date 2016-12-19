@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -326,24 +326,24 @@ public class Account extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 106437350: // party
           this.party = castToReference(value); // Reference
-          break;
+          return value;
         case -1013289154: // onHold
           this.onHold = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("party"))
           this.party = castToReference(value); // Reference
         else if (name.equals("onHold"))
@@ -351,7 +351,8 @@ public class Account extends DomainResource {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1118,54 +1119,54 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -892481550: // status
           this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
-          break;
+          return value;
         case -1422950650: // active
           this.active = castToPeriod(value); // Period
-          break;
+          return value;
         case 575402001: // currency
           this.currency = castToCoding(value); // Coding
-          break;
+          return value;
         case -339185956: // balance
           this.balance = castToMoney(value); // Money
-          break;
+          return value;
         case -351767064: // coverage
           this.getCoverage().add(castToReference(value)); // Reference
-          break;
+          return value;
         case 1024117193: // coveragePeriod
           this.coveragePeriod = castToPeriod(value); // Period
-          break;
+          return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
-          break;
+          return value;
         case 106164915: // owner
           this.owner = castToReference(value); // Reference
-          break;
+          return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
-          break;
+          return value;
         case -188629045: // guarantor
           this.getGuarantor().add((GuarantorComponent) value); // GuarantorComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("name"))
@@ -1193,7 +1194,8 @@ A coverage may only be resposible for specific types of charges, and the sequenc
         else if (name.equals("guarantor"))
           this.getGuarantor().add((GuarantorComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

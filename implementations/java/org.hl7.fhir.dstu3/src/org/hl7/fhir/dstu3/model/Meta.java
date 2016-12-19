@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -431,30 +431,30 @@ public class Meta extends Type implements IBaseMetaType {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1407102957: // versionId
           this.versionId = castToId(value); // IdType
-          break;
+          return value;
         case 1649733957: // lastUpdated
           this.lastUpdated = castToInstant(value); // InstantType
-          break;
+          return value;
         case -309425751: // profile
           this.getProfile().add(castToUri(value)); // UriType
-          break;
+          return value;
         case 949122880: // security
           this.getSecurity().add(castToCoding(value)); // Coding
-          break;
+          return value;
         case 114586: // tag
           this.getTag().add(castToCoding(value)); // Coding
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("versionId"))
           this.versionId = castToId(value); // IdType
         else if (name.equals("lastUpdated"))
@@ -466,7 +466,8 @@ public class Meta extends Type implements IBaseMetaType {
         else if (name.equals("tag"))
           this.getTag().add(castToCoding(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -744,48 +744,48 @@ public class SupplyDelivery extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
-          break;
+          return value;
         case -892481550: // status
           this.status = new SupplyDeliveryStatusEnumFactory().fromType(value); // Enumeration<SupplyDeliveryStatus>
-          break;
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
-          break;
+          return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1285004149: // quantity
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-          break;
+          return value;
         case 1993333233: // suppliedItem
           this.suppliedItem = castToType(value); // Type
-          break;
+          return value;
         case -1663305268: // supplier
           this.supplier = castToReference(value); // Reference
-          break;
+          return value;
         case -562837097: // whenPrepared
           this.whenPrepared = castToPeriod(value); // Period
-          break;
+          return value;
         case 3560141: // time
           this.time = castToDateTime(value); // DateTimeType
-          break;
+          return value;
         case -1429847026: // destination
           this.destination = castToReference(value); // Reference
-          break;
+          return value;
         case -808719889: // receiver
           this.getReceiver().add(castToReference(value)); // Reference
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("status"))
@@ -809,7 +809,8 @@ public class SupplyDelivery extends DomainResource {
         else if (name.equals("receiver"))
           this.getReceiver().add(castToReference(value));
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

@@ -135,7 +135,7 @@ public class R2R3ConversionTests implements ITransformerServices {
 
         // convert from r2 to r3
         Resource r3 = ResourceFactory.createResource(tn);
-        smu3.transform(null, r2, sm, r3);
+        smu3.transform(contextR3, r2, sm, r3);
 
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r3);
@@ -156,7 +156,7 @@ public class R2R3ConversionTests implements ITransformerServices {
         // convert to R2
         StructureDefinition sd = smu2.getTargetType(sm);
         org.hl7.fhir.dstu3.elementmodel.Element ro2 = Manager.build(contextR2, sd);
-        smu2.transform(null, r3, sm, ro2);
+        smu2.transform(contextR2, r3, sm, ro2);
 
         // compare the XML
         bs = new ByteArrayOutputStream();
@@ -275,7 +275,7 @@ public class R2R3ConversionTests implements ITransformerServices {
   }
 
   @Override
-  public Base createResource(TransformContext context, Base res) {
+  public Base createResource(Object appInfo, Base res) {
     // nothing to do here .. 
     return res;
   }
@@ -283,6 +283,15 @@ public class R2R3ConversionTests implements ITransformerServices {
   @Override
   public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException {
     throw new Error("translate not done yet");
+  }
+
+  @Override
+  public Base createType(Object appInfo, String name) throws FHIRException {
+    SimpleWorkerContext context = (SimpleWorkerContext) appInfo;
+     if (context == contextR2)
+       return Manager.build(context, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/DSTU2/StructureDefinition/"+name));
+     else
+       return ResourceFactory.createResourceOrType(name);
   }
 
 }

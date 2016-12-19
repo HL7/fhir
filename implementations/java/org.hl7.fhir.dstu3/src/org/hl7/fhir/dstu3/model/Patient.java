@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Dec 18, 2016 21:26+1100 for FHIR v1.9.0
+// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -520,36 +520,36 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -261851592: // relationship
           this.getRelationship().add(castToCodeableConcept(value)); // CodeableConcept
-          break;
+          return value;
         case 3373707: // name
           this.name = castToHumanName(value); // HumanName
-          break;
+          return value;
         case -1429363305: // telecom
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case -1147692044: // address
           this.address = castToAddress(value); // Address
-          break;
+          return value;
         case -1249512767: // gender
           this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-          break;
+          return value;
         case 1178922291: // organization
           this.organization = castToReference(value); // Reference
-          break;
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("relationship"))
           this.getRelationship().add(castToCodeableConcept(value));
         else if (name.equals("name"))
@@ -565,7 +565,8 @@ public class Patient extends DomainResource {
         else if (name.equals("period"))
           this.period = castToPeriod(value); // Period
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -803,24 +804,24 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -2008465092: // species
           this.species = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case 94001524: // breed
           this.breed = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -678569453: // genderStatus
           this.genderStatus = castToCodeableConcept(value); // CodeableConcept
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("species"))
           this.species = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("breed"))
@@ -828,7 +829,8 @@ public class Patient extends DomainResource {
         else if (name.equals("genderStatus"))
           this.genderStatus = castToCodeableConcept(value); // CodeableConcept
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1022,27 +1024,28 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1613589672: // language
           this.language = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -1294005119: // preferred
           this.preferred = castToBoolean(value); // BooleanType
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("language"))
           this.language = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("preferred"))
           this.preferred = castToBoolean(value); // BooleanType
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -1248,27 +1251,28 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 106069776: // other
           this.other = castToReference(value); // Reference
-          break;
+          return value;
         case 3575610: // type
           this.type = new LinkTypeEnumFactory().fromType(value); // Enumeration<LinkType>
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("other"))
           this.other = castToReference(value); // Reference
         else if (name.equals("type"))
           this.type = new LinkTypeEnumFactory().fromType(value); // Enumeration<LinkType>
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override
@@ -2332,66 +2336,66 @@ public class Patient extends DomainResource {
       }
 
       @Override
-      public void setProperty(int hash, String name, Base value) throws FHIRException {
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          break;
+          return value;
         case -1422950650: // active
           this.active = castToBoolean(value); // BooleanType
-          break;
+          return value;
         case 3373707: // name
           this.getName().add(castToHumanName(value)); // HumanName
-          break;
+          return value;
         case -1429363305: // telecom
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
-          break;
+          return value;
         case -1249512767: // gender
           this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-          break;
+          return value;
         case -1210031859: // birthDate
           this.birthDate = castToDate(value); // DateType
-          break;
+          return value;
         case 561497972: // deceased
           this.deceased = castToType(value); // Type
-          break;
+          return value;
         case -1147692044: // address
           this.getAddress().add(castToAddress(value)); // Address
-          break;
+          return value;
         case 1756919302: // maritalStatus
           this.maritalStatus = castToCodeableConcept(value); // CodeableConcept
-          break;
+          return value;
         case -677369713: // multipleBirth
           this.multipleBirth = castToType(value); // Type
-          break;
+          return value;
         case 106642994: // photo
           this.getPhoto().add(castToAttachment(value)); // Attachment
-          break;
+          return value;
         case 951526432: // contact
           this.getContact().add((ContactComponent) value); // ContactComponent
-          break;
+          return value;
         case -1413116420: // animal
           this.animal = (AnimalComponent) value; // AnimalComponent
-          break;
+          return value;
         case -1035284522: // communication
           this.getCommunication().add((PatientCommunicationComponent) value); // PatientCommunicationComponent
-          break;
+          return value;
         case 1488292898: // generalPractitioner
           this.getGeneralPractitioner().add(castToReference(value)); // Reference
-          break;
+          return value;
         case -2058947787: // managingOrganization
           this.managingOrganization = castToReference(value); // Reference
-          break;
+          return value;
         case 3321850: // link
           this.getLink().add((PatientLinkComponent) value); // PatientLinkComponent
-          break;
-        default: super.setProperty(hash, name, value);
+          return value;
+        default: return super.setProperty(hash, name, value);
         }
 
       }
 
       @Override
-      public void setProperty(String name, Base value) throws FHIRException {
+      public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
         else if (name.equals("active"))
@@ -2427,7 +2431,8 @@ public class Patient extends DomainResource {
         else if (name.equals("link"))
           this.getLink().add((PatientLinkComponent) value);
         else
-          super.setProperty(name, value);
+          return super.setProperty(name, value);
+        return value;
       }
 
       @Override

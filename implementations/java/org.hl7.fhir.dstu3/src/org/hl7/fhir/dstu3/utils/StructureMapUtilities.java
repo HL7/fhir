@@ -2,6 +2,7 @@ package org.hl7.fhir.dstu3.utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -106,7 +107,8 @@ public class StructureMapUtilities {
 	public interface ITransformerServices {
 		//    public boolean validateByValueSet(Coding code, String valuesetId);
 	  public void log(String message); // log internal progress
-    public Base createResource(TransformContext context, Base res);
+	  public Base createType(Object appInfo, String name) throws FHIRException;
+    public Base createResource(Object appInfo, Base res); // an already created resource is provided; this is to identify/store it
 		public Coding translate(Object appInfo, Coding source, String conceptMapUrl) throws FHIRException;
 		//    public Coding translate(Coding code)
 		//    ValueSet validation operation
@@ -541,7 +543,7 @@ public class StructureMapUtilities {
 		String id = lexer.readConstant("map id");
 		if (!id.startsWith("#"))
 			lexer.error("Concept Map identifier must start with #");
-		map.setId(id.substring(1));
+		map.setId(id);
 		map.setStatus(PublicationStatus.DRAFT); // todo: how to add this to the text format
 		result.getContained().add(map);
 		lexer.token("{");
@@ -604,7 +606,7 @@ public class StructureMapUtilities {
 
 	private ConceptMapEquivalence readEquivalence(FHIRLexer lexer) throws FHIRLexerException {
 		String token = lexer.take();
-    if (token.equals(":"))
+    if (token.equals("-"))
       return ConceptMapEquivalence.RELATEDTO;
     if (token.equals("="))
       return ConceptMapEquivalence.EQUAL;
@@ -756,8 +758,10 @@ public class StructureMapUtilities {
 			  lexer.token("=");
 			  if (lexer.hasToken("true", "false"))			    
 	        rdp.setValue(new BooleanType(lexer.take()));
-			  else  
+			  else if (lexer.isStringConstant()) 
   			  rdp.setValue(new StringType(lexer.readConstant("variable value")));
+			  else 
+          rdp.setValue(new IdType(lexer.take()));
 			}
 			done = !lexer.hasToken(",");
 			if (!done)
@@ -1108,7 +1112,13 @@ public class StructureMapUtilities {
 			VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
 			Base vv = vin.get(mode, var);
       if (vv == null && rdp.hasValue())
-        vv = rdp.getValue();
+        if (rdp.getValue() instanceof IdType) {
+          if ("null".equals(rdp.getValue().primitiveValue()))
+            vv = null;
+          else
+            vv = vin.get(VariableMode.INPUT, rdp.getValue().primitiveValue());
+        } else
+          vv = rdp.getValue();
 			if (vv == null)
 				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
 			v.add(mode, input.getName(), vv);    	
@@ -1251,7 +1261,7 @@ public class StructureMapUtilities {
 		if (tgt.hasTransform()) {
 			v = runTransform(ruleId, context, map, tgt, vars);
 			if (v != null && dest != null)
-				dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v);
+				v = dest.setProperty(tgt.getElement().hashCode(), tgt.getElement(), v); // reset v because some implementations may have to rewrite v when setting the value
 		} else if (dest != null) 
 			v = dest.makeProperty(tgt.getElement().hashCode(), tgt.getElement());
 		if (tgt.hasVariable() && v != null)
@@ -1262,11 +1272,12 @@ public class StructureMapUtilities {
 	  try {
 	    switch (tgt.getTransform()) {
 	    case CREATE :
-	      Base res = ResourceFactory.createResourceOrType(getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString()));
+	      String tn = getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString());
+	      Base res = services != null ? services.createType(context.getAppInfo(), tn) : ResourceFactory.createResourceOrType(tn);
 	      if (res.isResource()) {
 	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
 	        if (services != null) 
-	          res = services.createResource(context, res);
+	          res = services.createResource(context.getAppInfo(), res);
 	      }
 	      if (tgt.hasUserData("profile"))
 	        res.setUserData("profile", tgt.getUserData("profile"));
@@ -1279,7 +1290,7 @@ public class StructureMapUtilities {
 	        expr = fpe.parse(getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString()));
 	        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
 	      }
-	      List<Base> v = fpe.evaluate(null, null, getParam(vars, tgt.getParameter().get(0)), expr);
+	      List<Base> v = fpe.evaluate(vars, null, getParam(vars, tgt.getParameter().get(0)), expr);
 	      if (v.size() == 0)
 	        return null;
 	      else if (v.size() != 1)
@@ -1467,6 +1478,8 @@ public class StructureMapUtilities {
 						su = map.getUrl()+conceptMapUrl;
 					}
 				}
+				if (cmap == null)
+		      throw new FHIRException("Unable to translate - cannot find map "+conceptMapUrl);
 			} else
 				cmap = worker.fetchResource(ConceptMap.class, conceptMapUrl);
 			Coding outcome = null;
@@ -1495,7 +1508,7 @@ public class StructureMapUtilities {
 					message = "Concept map "+su+" found no translation for "+src.getCode();
 				else {
 					for (TargetElementComponent tgt : list.get(0).comp.getTarget()) {
-						if (tgt.getEquivalence() == null || tgt.getEquivalence() == ConceptMapEquivalence.EQUAL || tgt.getEquivalence() == ConceptMapEquivalence.EQUIVALENT || tgt.getEquivalence() == ConceptMapEquivalence.WIDER) {
+						if (tgt.getEquivalence() == null || EnumSet.of( ConceptMapEquivalence.EQUAL , ConceptMapEquivalence.RELATEDTO , ConceptMapEquivalence.EQUIVALENT  , ConceptMapEquivalence.WIDER).contains(tgt.getEquivalence())) {
 							if (done) {
 								message = "Concept map "+su+" found multiple matches for "+src.getCode();
 								done = false;
