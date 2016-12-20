@@ -338,7 +338,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (r.getResource() instanceof Bundle)
             regen = gen.generate((Bundle) r.getResource());
           if (regen)
-            r.setElement(new ObjectConverter(context).convert(r.getResource()));
+            r.setElement(convertToElement(r.getResource()));
         } else {
           if ("http://hl7.org/fhir/StructureDefinition/DomainResource".equals(r.getElement().getProperty().getStructure().getBaseDefinition()) && !hasNarrative(r.getElement())) {
             gen.generate(r.getElement(), true);
@@ -854,7 +854,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             String p = igm.getPath(u);
             if (p == null)
               throw new Exception("Internal error in IG "+name+" map: No identity found for "+u);
-            r.setUserData("path", location+"/"+p);
+            r.setUserData("path", location+"/"+ igpkp.doReplacements(p, r, null, null));
             context.seeResource(u, r);
           }
         }
@@ -1872,7 +1872,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       org.hl7.fhir.dstu3.formats.JsonParser jp = new org.hl7.fhir.dstu3.formats.JsonParser();
       jp.compose(bs, res);
     }  
-    ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
+      ByteArrayInputStream bi = new ByteArrayInputStream(bs.toByteArray());
     return new org.hl7.fhir.dstu3.elementmodel.JsonParser(context).parse(bi);
   }
 

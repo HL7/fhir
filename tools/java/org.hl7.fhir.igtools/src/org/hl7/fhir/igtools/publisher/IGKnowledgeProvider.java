@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -124,6 +125,23 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
       s = s.replace("{{[fmt]}}", format);
     s = s.replace("{{[type]}}", r.getElement().fhirType());
     s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
+    if (vars != null) {
+      for (String n : vars.keySet())
+        s = s.replace("{{["+n+"]}}", vars.get(n));
+    }
+    return s;
+  }
+
+  public String doReplacements(String s, Resource r, Map<String, String> vars, String format) {
+    if (Utilities.noString(s))
+      return s;
+    s = s.replace("{{[title]}}", "?title?");
+    s = s.replace("{{[name]}}", r.getId()+(format==null? "": "-"+format)+"-html");
+    s = s.replace("{{[id]}}", r.getId());
+    if (format!=null)
+      s = s.replace("{{[fmt]}}", format);
+//    s = s.replace("{{[type]}}", r.getElement().fhirType());
+//    s = s.replace("{{[uid]}}", r.getElement().fhirType()+"="+r.getId());
     if (vars != null) {
       for (String n : vars.keySet())
         s = s.replace("{{["+n+"]}}", vars.get(n));
