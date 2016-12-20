@@ -577,7 +577,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
     igName = Utilities.path(resourceDirs.get(0), configuration.get("source").getAsString());
 
-    inspector = new HTLMLInspector(outputDir, specMaps);
+    inspector = new HTLMLInspector(outputDir, specMaps, this);
     historyPage = ostr(paths, "history");
     if (historyPage != null)
       inspector.getManual().add(historyPage);

@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.NodeChangeType;
 import org.hl7.fhir.utilities.Utilities;
@@ -37,6 +38,7 @@ import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
 public class HTLMLInspector {
 
+  
   public enum NodeChangeType {
     NONE, SELF, CHILD
   }
@@ -124,10 +126,12 @@ public class HTLMLInspector {
   private List<StringPair> otherlinks = new ArrayList<StringPair>();
   private int links;
   private List<String> manual = new ArrayList<String>(); // pages that will be provided manually when published, so allowed to be broken links
+  private ILoggingService log;
 
-  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs) {
+  public HTLMLInspector(String rootFolder, List<SpecMapManager> specs, ILoggingService log) {
     this.rootFolder = rootFolder.replace("/", File.separator);
     this.specs = specs;
+    this.log = log;
   }
 
   public List<ValidationMessage> check() throws IOException {
@@ -135,17 +139,21 @@ public class HTLMLInspector {
 
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 
+    log.logDebugMessage("CheckHTML: List files");
     // list new or updated files
     List<String> loadList = new ArrayList<>();
     listFiles(rootFolder, loadList);
+    log.logMessage("found "+Integer.toString(loadList.size())+" files");
 
     checkGoneFiles();
 
+    log.logDebugMessage("Loading Files");
     // load files
     for (String s : loadList)
       loadFile(s, messages);
 
 
+    log.logDebugMessage("Checking Files");
     links = 0;
     // check links
     for (String s : cache.keySet()) {
@@ -156,12 +164,14 @@ public class HTLMLInspector {
     }
 
  
+    log.logDebugMessage("Checking Other Links");
     // check other links:
     for (StringPair sp : otherlinks) {
       sp = sp;
       checkResolveLink(sp.source, null, null, sp.link, messages, null);
     }
     
+    log.logDebugMessage("Done checking");
     return messages;
   }
 
@@ -414,7 +424,7 @@ public class HTLMLInspector {
   }
 
   public static void main(String[] args) throws Exception {
-    HTLMLInspector inspector = new HTLMLInspector(args[0], null);
+    HTLMLInspector inspector = new HTLMLInspector(args[0], null, null);
     inspector.setStrict(false);
     List<ValidationMessage> linkmsgs = inspector.check();
     int bl = 0;
