@@ -2097,9 +2097,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     
     try {    
 	    if (SystemUtils.IS_OS_WINDOWS)
-	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination "+outputDir));
+	      exec.execute(org.apache.commons.exec.CommandLine.parse("cmd /C jekyll build --destination \""+outputDir+"\""));
 	    else
-	      exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination "+outputDir));
+	      exec.execute(org.apache.commons.exec.CommandLine.parse("jekyll build --destination \""+outputDir+"\""));
     } catch (IOException ioex) {
     	log("Complete output from Jekyll: " + pumpHandler.getBufferString());
     	throw ioex;
