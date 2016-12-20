@@ -435,13 +435,13 @@
 
  -- Row 4 -----------------------------------
   Name = Biocompute Object
-  Identity = example-biocompute
+  Identity = example-biocompute-object
   Description = Provenance  example for Biocompute objects
   Filename = provenance-example-biocompute-object.xml
 
  -- Row 5 -----------------------------------
   Name = CWL Workflow
-  Identity = cwl-example
+  Identity = example-cwl
   Description = Provenance  example for cwl workflow project
   Filename = provenance-example-cwl.xml
 

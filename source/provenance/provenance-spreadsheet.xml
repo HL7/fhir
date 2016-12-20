@@ -6334,7 +6334,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">Biocompute Object</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Provenance  example for Biocompute objects</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">example-biocompute</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">example-biocompute-object</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">provenance-example-biocompute-object.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6343,7 +6343,7 @@
     <Cell ss:StyleID="s141"><Data ss:Type="String">CWL Workflow</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Provenance  example for cwl workflow project</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">cwl-example</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">example-cwl</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">provenance-example-cwl.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
@@ -6683,7 +6683,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
