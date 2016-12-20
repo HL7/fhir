@@ -12,7 +12,8 @@ other resources.  This pattern serves two purposes:
   this may become available in a future release.)</li>
 </ul>
 <p>
-A "definition" resource is a resource that describes a type of activity that *can* occur in a manner that is independent of a particular patient or subject.  Examples include protocols, order sets, questionnaires, etc.  It only includes definitions of activities, not of objects or roles.
+A "definition" resource is a resource that describes a type of activity that *can* occur in a manner that is independent of a particular patient or subject.  Examples include 
+protocols, order sets, questionnaires, etc.  It only includes definitions of activities, not of objects or roles.
 </p>
 </div>
 
@@ -22,13 +23,17 @@ A "definition" resource is a resource that describes a type of activity that *ca
 This logical model is one of three common <a href="workflow.html#respatterns">workflow patterns</a>.  The other two patterns are <a href="event.html">Event</a> and
 <a href="request.html">Request</a>.  This pattern is followed by (or is intended to be followed by a number of <a href="workflow.html#list">other FHIR resources</a>/
 </p>
+<p>
+Both definitions and <a href="request.html">requests</a> deal with activities that "can" occur, but requests represent a specific intention for something to occur and are bound to
+a specific context of subject and time, while definitions represent mere "possibility" rather than intention and are independent of a specific subject or timeframe.
+</p>
 
 </div>
 
 <div>
 <h2>Background and Context</h2>
 <p>
-This resource represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
+This model represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
 adhered to by resources that fall into the "definition" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
 Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
 are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be

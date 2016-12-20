@@ -41,7 +41,7 @@
   </p>
   
   <a name="compound"> </a>
-  <h2>Compount Requests</h2>
+  <h2>Compound Requests</h2>
   <p>
     There are three different ways to define "compound" requests in FHIR:
   </p>
@@ -82,6 +82,12 @@
     the same manner.  For example, if the original lab order were updated to "suspended", the initial blood draw request might
     be complete.  The other requests might change to either "suspended" or even "aborted" and a subsequent update of the
     lab order back to active might require spawning additional fulfilling orders, perhaps to draw a new specimen.
+  </p>
+  <p>
+    <code>basedOn</code> is distinct from the notion of <code>replaces</code>.  In a "based on" relationship both resources are
+    "active" and in force and the authority cascades from the initial request to the request that is based on that original request.
+     In a "replaces" relationship, the target resource is no longer in force and should have a status of
+    "completed" or "cancelled" or some other terminal state.
   </p>
 
   <a name="requestgroup"> </a>

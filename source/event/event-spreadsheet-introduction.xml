@@ -12,7 +12,9 @@ other resources.  This pattern serves two purposes:
   this may become available in a future release.)</li>
 </ul>
 <p>
-An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not include resources that describe objects or roles (e.g. patient, device, location).
+An "event" is any description of an activity that has already taken place or that is currently ongoing.  It includes resources that primarily describe the "result" of an activity 
+or what was found (e.g. a condition or observation).  Examples include encounters, procedures, completed questionnaires, representations of state transitions, etc.  It does not 
+include resources that describe objects or roles (e.g. patient, device, location).
 </p>
 </div>
 
@@ -20,7 +22,15 @@ An "event" is any description of an activity that has already taken place or tha
 <h2>Boundaries and Relationships</h2>
 <p>
 This logical model is one of three common <a href="workflow.html#respatterns">workflow patterns</a>.  The other two patterns are <a href="request.html">Request</a> and
-<a href="definition.html">Definition</a>.  This pattern is followed by (or is intended to be followed by a number of <a href="workflow.html#list">other FHIR resources</a>/
+<a href="definition.html">Definition</a>.  This pattern is followed by (or is intended to be followed by a number of <a href="workflow.html#list">other FHIR resources</a>
+</p>
+<p>
+Events are distinct from <a href="request.html">requests</a> in that an event is primarily focused on what has occurred or is occurring while requests deal with what is "desired"
+to occur.  While creating a request or definition can be seen as a type of event, the focus of those other resources is not the "creation" but the desire/intention.
+</p>
+<p>
+Events are related to <a href="task.html">Task</a> in that events can be performed in fulfillment of a task and performing an event may involve the execution of one or more
+tasks.  Events do not track the fulfillment of any requests they may be associated with.  Tracking of fulfillment is managed through the Task resource.
 </p>
 
 </div>
@@ -28,7 +38,7 @@ This logical model is one of three common <a href="workflow.html#respatterns">wo
 <div>
 <h2>Background and Context</h2>
 <p>
-This resource represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
+This model represents a pattern.  It provides a standard list of data elements with cardinalities, data types, definitions, rationale and usage notes that will ideally be 
 adhered to by resources that fall into the "event" workflow category.  However, adherence to this pattern is not mandatory.  Not all healthcare domains are the same.
 Concepts that may be generally applicable (and thus are included in this standard pattern) might still not be relevant everywhere or may be sufficiently uncommon that they
 are more appropriate to include as extensions than as core properties of the resource.  Work groups are encouraged to adjust descriptions, usage notes and rationale to be
