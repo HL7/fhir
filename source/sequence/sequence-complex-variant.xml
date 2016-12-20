@@ -2,7 +2,7 @@
 
 <Sequence>
     <id value="sequence-complex-variant"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value="1"/>
     <referenceSeq>
         <referenceSeqId>

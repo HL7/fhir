@@ -2,7 +2,7 @@
 
 <Sequence>
     <id value="coord-1-base"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value="1"/>
     <referenceSeq>
         <referenceSeqString value="ACGTAGTC"/>

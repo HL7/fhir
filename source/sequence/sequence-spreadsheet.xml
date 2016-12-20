@@ -22,7 +22,8 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>827</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1208,7 +1209,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">sequenceType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">AA | DNA | RNA</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">aa | dna | rna</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">Amino Acid Sequence/ DNA Sequence / RNA Sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1660,7 +1661,7 @@
     <Cell ss:Index="8"><Data ss:Type="String">qualityType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">INDEL | SNP | UNKNOWN</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">indel | snp | unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">INDEL / SNP / Undefined variant.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3504,9 +3505,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3518,11 +3519,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>28</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4260,7 +4261,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5720,22 +5720,22 @@
     <Cell ss:StyleID="s161"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">vcf comparison (precisionFDA)</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s94"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Sequence example for vcf comparison on precisionFDA</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">fda-vcf-comparison</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">sequence-example-fda-comparisons.xml</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">vcf and Hap.py comparison (precisionFDA)</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s94"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">Sequence example for vcf and Hap.py comparison on precisionFDA</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">fda-vcfeval-comparison</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">sequence-example-fda-vcfeval.xml</Data></Cell>
     <Cell ss:StyleID="s145"/>
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">n</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s160"/>
@@ -5941,10 +5941,11 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5957,12 +5958,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7975,11 +7975,12 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <TopRowVisible>2</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <RangeSelection>R30C1:R31C1</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8111,7 +8112,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">AA</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">aa</Data></Cell>
     <Cell ss:StyleID="s145"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s175"/>
@@ -8119,7 +8120,7 @@
     <Cell ss:StyleID="s175"><Data ss:Type="String">Amino acid sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">DNA</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">dna</Data></Cell>
     <Cell ss:StyleID="s142"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s174"/>
@@ -8127,7 +8128,7 @@
     <Cell ss:StyleID="s174"><Data ss:Type="String">DNA Sequence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">RNA</Data></Cell>
+    <Cell><Data ss:Type="String">rna</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">RNA Sequence</Data></Cell>
     <Cell><Data ss:Type="String">RNA Sequence</Data></Cell>
@@ -8149,8 +8150,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8477,7 +8477,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
-    <Cell ss:StyleID="s160"><Data ss:Type="String">INDEL</Data></Cell>
+    <Cell ss:StyleID="s160"><Data ss:Type="String">indel</Data></Cell>
     <Cell ss:StyleID="s178"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s175"/>
@@ -8485,7 +8485,7 @@
     <Cell ss:StyleID="s175"><Data ss:Type="String">INDEL Comparison</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.05">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">SNP</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">snp</Data></Cell>
     <Cell ss:StyleID="s179"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s174"/>
@@ -8493,7 +8493,7 @@
     <Cell ss:StyleID="s175"><Data ss:Type="String">SNP Comparison</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">UNKNOWN</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5" ss:StyleID="s175"><Data ss:Type="String">UNKNOWN Comparison</Data></Cell>
     <Cell ss:StyleID="s175"><Data ss:Type="String">UNKNOWN Comparison</Data></Cell>
@@ -8515,8 +8515,8 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>27</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

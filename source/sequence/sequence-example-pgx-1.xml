@@ -1,6 +1,6 @@
 <Sequence xmlns="http://hl7.org/fhir">
     <id value="example-pgx-1"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value="0"/>
     <patient>
         <reference value="Patient/example"/>

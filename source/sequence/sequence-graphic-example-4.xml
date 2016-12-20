@@ -2,7 +2,7 @@
 
 <Sequence>
     <id value="graphic-example-4"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value="0"/>
     <referenceSeq>
         <chromosome>

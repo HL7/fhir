@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Sequence>
-    <id value="fda-example"/>
-    <type value="dna"/>
+<Sequence xmlns="http://hl7.org/fhir">
+    <id value="fda-vcf-comparison"/>
     <coordinateSystem value="1"/>
     <patient>
         <reference value="Patient/example"/>
@@ -24,35 +22,35 @@
         <referenceAllele value="G"/>
     </variant>
     <quality>
-        <type value="snp"/>
+        <type value="unknown"/>
         <standardSequence>
             <coding>
                 <system value="https://precision.fda.gov/files/"/>
-                <code value="file-Bk50V4Q0qVb65P0v2VPbfYPZ"/>
+                <code value="file-BkZxBZ00bpJVk2q6x43b1YBx"/>
             </coding>
         </standardSequence>
-        <start value = "10453"/>
-        <end value = "101770080"/>
+        <start value="10453"/>
+        <end value="101770080"/>
+        <score>
+            <value value="5.000"/>
+        </score>
         <method>
             <coding>
-                <system value="https://precision.fda.gov/jobs/"/>
-                <code value="job-ByxYPx809jFVy21KJG74Jg3Y"/>
+                <system value="https://precision.fda.gov/apps/"/>
+                <code value="app-BqB9XZ8006ZZ2g5KzGXP3fpq"/>
             </coding>
-            <text value="Vcfeval + Hap.py Comparison"/>
+            <text value="VCF Comparison"/>
         </method>
-        <truthTP value="7749"/>
-        <queryTP value="7984"/>
-        <truthFN value="2554"/>
-        <queryFP value="10670"/>
+        <truthTP value="129481"/>
+        <truthFN value="3168"/>
+        <queryFP value="1507"/>
         <gtFP value="2186"/>
-        <precision value = "0.428005"/>
-        <recall value = "0.752111"/>
-        <fScore value = "0.545551"/>
+        <precision value="0.9885"/>
+        <fScore value="0.9823"/>
     </quality>
     <repository>
         <type value="login"/>
-        <url value="https://precision.fda.gov/files/file-Bx37ZK009P4bX5g3qjkFZV38"/>
+        <url value="https://precision.fda.gov/comparisons/1850"/>
         <name value="FDA"/>
-        <variantsetId value="file-Bx37ZK009P4bX5g3qjkFZV38"/>
     </repository>
 </Sequence>

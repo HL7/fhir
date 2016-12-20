@@ -251,19 +251,19 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = AA
+  Code = aa
   Display = AA Sequence
   Definition = Amino acid sequence
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = DNA
+  Code = dna
   Display = DNA Sequence
   Definition = DNA Sequence
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = RNA
+  Code = rna
   Display = RNA Sequence
   Definition = RNA Sequence
 
@@ -437,19 +437,19 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = INDEL
+  Code = indel
   Display = INDEL Comparison
   Definition = INDEL Comparison
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = SNP
+  Code = snp
   Display = SNP Comparison
   Definition = SNP Comparison
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = UNKNOWN
+  Code = unknown
   Display = UNKNOWN Comparison
   Definition = UNKNOWN Comparison
 
@@ -538,7 +538,7 @@
   Card. = 0..1
   Type = code
   Binding = sequenceType
-  Short Name = AA | DNA | RNA
+  Short Name = aa | dna | rna
   Definition = Amino Acid Sequence/ DNA Sequence / RNA Sequence
 
  -- Row 4 -----------------------------------
@@ -716,7 +716,7 @@
   Card. = 1..1
   Type = code
   Binding = qualityType
-  Short Name = INDEL | SNP | UNKNOWN
+  Short Name = indel | snp | unknown
   Definition = INDEL / SNP / Undefined variant.
 
  -- Row 29 -----------------------------------
@@ -1082,5 +1082,17 @@
   Identity = coord-1-base
   Description = Example of a record with 1-based coordinatesystem
   Filename = coord-1base-example.xml
+
+ -- Row 15 -----------------------------------
+  Name = vcf comparison (precisionFDA)
+  Identity = fda-vcf-comparison
+  Description = Sequence example for vcf comparison on precisionFDA
+  Filename = sequence-example-fda-comparisons.xml
+
+ -- Row 16 -----------------------------------
+  Name = vcf and Hap.py comparison (precisionFDA)
+  Identity = fda-vcfeval-comparison
+  Description = Sequence example for vcf and Hap.py comparison on precisionFDA
+  Filename = sequence-example-fda-vcfeval.xml
 
 === Sheet Examples =====================================

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Sequence xmlns="http://hl7.org/fhir">
     <id value="example"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value ="0"/>
     <patient>
         <reference value="Patient/example"/>

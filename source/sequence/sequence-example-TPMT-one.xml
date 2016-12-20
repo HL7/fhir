@@ -1,6 +1,6 @@
 <Sequence xmlns="http://hl7.org/fhir">
     <id value="example-TPMT-one"/>
-    <type value="DNA"/>
+    <type value="dna"/>
     <coordinateSystem value="1"/>
     <patient>
         <reference value="Patient/example"/>
