@@ -2999,23 +2999,28 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   }
 
-  @Override
-  public void logMessage(String msg) {
-    System.out.println(msg);
-    filelog.append(msg+"\r\n");
-  }
-
   public String getQAFile() throws IOException {
     return Utilities.path(outputDir, "qa.html");
   }
 
   @Override
+  public void logMessage(String msg) {
+    System.out.println(msg);
+    if (!autoBuildMode)
+      filelog.append(msg+"\r\n");
+  }
+
+  @Override
   public void logDebugMessage(String msg) {
-    filelog.append(msg+"\r\n");
-    try {
-      TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
-    } catch (IOException e) {
-      e.printStackTrace();
+    if (autoBuildMode)
+      System.out.println(msg);
+    else {  
+      filelog.append(msg+"\r\n");
+      try {
+        TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
   }
 
