@@ -39,9 +39,9 @@ affecting the patient within a given context for specific purposes and
 periods of time. All consent directives have a policy context, which is
 any set of organizational or jurisdictional policies which may limit the 
 consumer’s policy choices, and which include a named range of actions allowed.
-In addition, Privacy Consent Directives provide the ability for a healthcare client 
+In addition, Privacy Consent Directives provide the ability for a healthcare consumer 
 to delegate authority to a Substitute Decision Maker who may act on behalf of that individual.
-Alternatively, a client may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
+Alternatively, a consumer may author/publish their privacy preferences as a self-declared Privacy Consent Directive.  
 </p>
 <p>
 The Consent resource on FHIR provides support for alternative representations for expressing 
