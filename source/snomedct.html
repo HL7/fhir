@@ -19,7 +19,7 @@
 <h3>Summary</h3>
 
 <table class="grid">
- <tr><td>Source</td><td>SNOMED CT is made and managed by <a href="http://www.ihtsdo.org/">IHTSDO</a>. 
+ <tr><td>Source</td><td>SNOMED CT is owned, maintained and distributed by <a href="http://www.ihtsdo.org/">IHTSDO</a>. 
      IHTSDO is an international organization with countries as members.
      IHTSDO publishes the international release of SNOMED CT (which is used in FHIR international standards and resources).  
      Each of the IHTSDO member countries may also distribute their own SNOMED CT edition, which contains the international release plus local extension content and derivatives.
@@ -31,14 +31,14 @@
    <a href="http://www.snomed.org/gl?t=glsct_st_ConceptId">Concept IDs</a>, 
    <a href="http://www.snomed.org/gl?t=glsct_se_Expression">Expressions</a> (<a href="http://snomed.org/compgrammar.pdf">grammar</a>) and
    <a href="http://www.snomed.org/tig?t=tsg2_metadata_refset_legacy">SNOMED Legacy codes</a>.<br/><br/>
-     SNOMED CT Description Ids are not valid as codes in FHIR, nor are other alternate identifiers associated with SNOMED CT Concepts using the RF2 identifier infrastructure. Expressions SHOULD NOT contain terms, only concept IDs (note that when SNOMED CT Description Ids must be exchanged, use the <a href="extension-coding-sctdescid.html">Description Id Extension</a></td></tr>
- <tr><td>Display</td><td>The correct display for a SNOMED CT concept is one of the preferred terms for the concept. Preferred terms are case sensitive. The Fully Specified Name is not an appropriate choice. 
+     SNOMED CT Terms (Description Ids) are not valid as codes in FHIR, nor are other alternate identifiers associated with SNOMED CT Concepts using the RF2 identifier infrastructure. Expressions SHOULD NOT contain terms, only concept IDs (note that when SNOMED CT terms must be exchanged, use the <a href="extension-coding-sctdescid.html">Description Id Extension)</a></td></tr>
+ <tr><td>Display</td><td>The correct display for a SNOMED CT concept is one of the synonyms for the concept. The best display is the preferred term in the relevant language reference set (if applicable). Preferred terms are case sensitive. The Fully Specified Name is not an appropriate choice. 
     The source of preferred name comes from a Language Reference Set.
     
     SNOMED CT does not define displays for expressions; if no display has been associated with the expression
     through a value set or other mechanism, the full expression syntax with preferred terms embedded may be used</td></tr>
- <tr><td>Inactive</td><td>Inactive codes a identiifed using the 'iactive' property (see below)</td></tr>
- <tr><td>Subsumption</td><td>SNOMED CT Subsumption testing is based in the Is-a relationship defined by SNOMED CT</td></tr>
+ <tr><td>Inactive</td><td>Inactive codes are identified using the 'inactive' property (see below)</td></tr>
+ <tr><td>Subsumption</td><td>SNOMED CT Subsumption testing is based in the |is a| relationship defined by SNOMED CT</td></tr>
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 <p>
@@ -48,7 +48,7 @@ resource. See also the <a href="snomedct-usage.html">SNOMED CT Usage Summary</a>
 <!-- add note about usage of SNOMED 3 legacy codes - should be replaced with SNOMED CT identifiers, may change in future versions of FHIR -->
 
 <p>
-Note: The <a href="http://snomed.org/gl.pdf">IHTSDO glossary</a> explains some of these SNOMED CT specific terms. 
+Note: The <a href="http://snomed.org/gl">IHTSDO glossary</a> explains some of these SNOMED CT specific terms. 
 </p>
 
 <h3>Version Issues</h3>
@@ -57,7 +57,7 @@ There is no single distribution that contains all defined SNOMED CT codes in all
 Instead the international release contains all concepts shared and agreed to be internationally relevant and 
 each national release centre distributes this international release plus additional national content (to extend that international set). 
 In addition, other release authorities may be designated. 
-The <a href="http://snomed.org/uristandard.pdf">SNOMED CT URI Specification</a> describes
+The <a href="http://snomed.org/uristandard">SNOMED CT URI Specification</a> describes
 how to unambiguously reference a particular version of a distribution: 
 </p>
 <pre>
@@ -100,7 +100,7 @@ In addition to the <a href="terminology-service.html#standard-props">standard pr
 </p>
 <table class="grid">
 <tr><td>inactive</td><td>boolean</td><td>Whether the code is active or not (defaults to false). This is derived from the active column in the Concept file of the RF2 Distribution (by inverting the value) </td></tr>
-<tr><td>sufficientlyDefined</td><td>boolean</td><td>True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive).</td></tr>
+<tr><td>sufficientlyDefined</td><td>boolean</td><td>True if the description logic definition of the concept includes sufficient conditions (i.e., if the concept is not primitive - found in the value of definitionStatusId in the concept file).</td></tr>
 <tr><td>moduleId</td><td>code</td><td>The SNOMED CT concept id of the module that the concept belongs to.</td></tr>
 <tr><td>normalForm</td><td>string</td><td>Generated Normal form expression for the provided code or expression, with terms</td></tr>
 <tr><td>normalFormTerse</td><td>string</td><td>Generated Normal form expression for the provided code or expression, conceptIds only</td></tr>
@@ -189,11 +189,11 @@ of the <a href="http://www.ihtsdo.org/fileadmin/user_upload/Docs_01/News/SNOMED_
 <h4>By whether post-coordination is allowed</h4>
 
 <table class="grid">
- <tr><td>Description</td><td>Specify whether post-coordinations is allowed or not</td></tr>
+ <tr><td>Description</td><td>Specify whether post-coordination is allowed or not</td></tr>
  <tr><td>Property Name</td><td>expressions</td></tr>
  <tr><td>Operations Allowed</td><td>=</td></tr>
  <tr><td>Values Allowed</td><td>true or false</td></tr>
- <tr><td>Comments</td><td>Expressions, if allowed, are subject to the same rules as pre-coordinated concepts. Note: reference sets do not include expressions.</td></tr>
+ <tr><td>Comments</td><td>Expressions, if allowed, are subject to the same rules as pre-coordinated concepts. Note: simple reference sets do not include expressions, but Query specification reference sets might).</td></tr>
  <tr><td>Example</td><td><a href="valueset-administration-method-codes.html">Administation Methods</a></td></tr>
  <tr><td><a href="http://snomed.org/expressionconstraints.pdf">SCT ECL</a></td><td><pre>n/a</pre></td></tr>
 </table>
