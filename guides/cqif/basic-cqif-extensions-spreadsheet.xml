@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-07-14T22:55:21Z</LastSaved>
+  <LastSaved>2016-12-21T19:05:54Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,8 +24,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1022,7 +1022,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4329,7 +4328,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="86" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="87" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -6648,6 +6647,17 @@
     <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
     <Cell><Data ss:Type="String">A CQL expression that provides the value for the element or resource on which it appears</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">optionCode</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Questionnaire</Data></Cell>
+    <Cell><Data ss:Type="String">optionCode</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Meaning of the response option</Data></Cell>
+    <Cell><Data ss:Type="String">A CodeableConcept that assigns meaning to the response object on which it appears</Data></Cell>
+    <Cell><Data ss:Type="String">Need to be able to determine the semantics of each potential response in order to interpret the meaning when processing the questionnaire response.  For example, the response option &quot;Severe migraines within the past year&quot; to the question &quot;Select all that apply&quot; needs detailed coding (such as via CodeableConcept) at the option level, as well as a way to represent that an affirmation/negative response should result in (perhaps) an Observation in the QuestionnaireResponse tied to a clinical model (such as CIMI). This is key to support sophisticated CDS based on the semantics of the QuestionnaireResponse &#45;- not just the codes</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6661,12 +6671,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>70</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6674,6 +6685,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6681,8 +6693,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>79</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>86</ActiveRow>
+     <ActiveCol>15</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

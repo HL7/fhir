@@ -49,4 +49,17 @@
   Short Name = An expression that provides a calculated value for the answer to the question
   Definition = The name of an expression that determines a calculated value for the answer to the question. The expression is evaluated as necessary and has access to the answers to other questions by the linkId of the question
 
+ -- Row 7 -----------------------------------
+  Element = Questionnaire.item.option
+
+ -- Row 8 -----------------------------------
+  Element = Questionnaire.item.option.extension
+  Profile Name = optionCode
+  Card. = 0..*
+  Aliases = optionCode
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/cqif-optionCode}
+  Short Name = Meaning of the response option
+  Definition = A CodeableConcept that assigns meaning to the response object on which it appears
+  Requirements = Need to be able to determine the semantics of each potential response in order to interpret the meaning when processing the questionnaire response.  For example, the response option \"Severe migraines within the past year\" to the question \"Select all that apply\" needs detailed coding (such as via CodeableConcept) at the option level, as well as a way to represent that an affirmation/negative response should result in (perhaps) an Observation in the QuestionnaireResponse tied to a clinical model (such as CIMI). This is key to support sophisticated CDS based on the semantics of the QuestionnaireResponse -- not just the codes
+
 === Sheet Search =====================================
