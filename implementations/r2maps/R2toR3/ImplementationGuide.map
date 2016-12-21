@@ -4,8 +4,10 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImplementationGuide" alias I
 uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias ImplementationGuide as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/BackboneElement2to3"
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
 group for type+types  ImplementationGuide extends DomainResource
@@ -23,6 +25,10 @@ group for type+types  ImplementationGuide extends DomainResource
     "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
   }
 
+  "ImplementationGuide-description" : for src.description make tgt.description
+  "ImplementationGuide-copyright" : for src.copyright make tgt.copyright
+  "ImplementationGuide-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "ImplementationGuide-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
   "ImplementationGuide-date" : for src.date make tgt.date
   "ImplementationGuide-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
   "ImplementationGuide-dependency" : for src.dependency as vs0 make tgt.dependency as vt0 then {
@@ -33,6 +39,7 @@ group for type+types  ImplementationGuide extends DomainResource
   "ImplementationGuide-package" : for src.package as vs0 make tgt.package as vt0 then {
     "ImplementationGuide.package-name" : for vs0.name make vt0.name
     "ImplementationGuide.package-description" : for vs0.description make vt0.description
+    "ImplementationGuide.package-resource" : for vs0.resource as vs make vt0.resource as vt then resource(vs, vt)
   }
 
   "ImplementationGuide-global" : for src.global as vs0 make tgt.global as vt0 then {
@@ -41,14 +48,30 @@ group for type+types  ImplementationGuide extends DomainResource
   }
 
   "ImplementationGuide-binary" : for src.binary make tgt.binary
-  "ImplementationGuide-page" : for src.page as vs0 make tgt.page as vt0 then {
-    "ImplementationGuide.page-source" : for vs0.source make vt0.source
-    "ImplementationGuide.page-title" : for vs0.name make vt0.title
-    "ImplementationGuide.page-kind" : for vs0.kind make vt0.kind
-    "ImplementationGuide.page-type" : for vs0.type make vt0.type
-    "ImplementationGuide.page-package" : for vs0.package make vt0.package
-    "ImplementationGuide.page-format" : for vs0.format make vt0.format
-  }
+  "ImplementationGuide-page" : for src.page as vs0 make tgt.page as vt0 then page(vs0, vt0)
+endgroup
 
+group resource extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "ImplementationGuide.resource-purpose" : for src where purpose = 'example' make tgt.example = true
+  "ImplementationGuide.resource-name" : for src.name make tgt.name
+  "ImplementationGuide.resource-description" : for src.description make tgt.description
+  "ImplementationGuide.resource-acronym" : for src.acronym make tgt.acronym
+  "ImplementationGuide.resource-source" : for src.source make tgt.source
+  "ImplementationGuide.resource-exampleFor" : for src.exampleFor make tgt.exampleFor
+endgroup
+
+group page extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ImplementationGuide.page-source" : for src.source make tgt.source
+  "ImplementationGuide.page-title" : for src.name make tgt.title
+  "ImplementationGuide.page-kind" : for src.kind make tgt.kind
+  "ImplementationGuide.page-type" : for src.type make tgt.type
+  "ImplementationGuide.page-package" : for src.package make tgt.package
+  "ImplementationGuide.page-format" : for src.format make tgt.format
+  "ImplementationGuide.page-page" : for src.page as vs0 make tgt.page as vt0 then page(vs0, vt0)
 endgroup

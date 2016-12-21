@@ -516,11 +516,7 @@
     },
     "Immunization": {},
     "ImmunizationRecommendation": {},
-    "ImplementationGuide": {
-      "errors": [
-        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: nameReference/type"
-      ]
-    },
+    "ImplementationGuide": {},
     "instant": {
       "errors": [
         "Unknown StructureDefinitionKind code \u0027datatype\u0027"
@@ -9066,11 +9062,7 @@
     }
   },
   "ImplementationGuide": {
-    "example": {
-      "errors": [
-        "[R3 validation error] ImplementationGuide.package: Profile http://hl7.org/fhir/StructureDefinition/ImplementationGuide, Element \u0027ImplementationGuide.package.resource\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example": {}
   },
   "List": {
     "example": {},

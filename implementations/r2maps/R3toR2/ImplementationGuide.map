@@ -4,6 +4,7 @@ uses "http://hl7.org/fhir/StructureDefinition/ImplementationGuide" alias Impleme
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImplementationGuide" alias ImplementationGuideR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/BackboneElement3to2"
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -25,7 +26,9 @@ group for type+types  ImplementationGuide extends DomainResource
   }
 
   "ImplementationGuide-date" : for src.date make tgt.date
+  "ImplementationGuide-description" : for src.description make tgt.description
   "ImplementationGuide-useContext" : for src.jurisdiction make tgt.useContext
+  "ImplementationGuide-copyright" : for src.copyright make tgt.copyright
   "ImplementationGuide-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
   "ImplementationGuide-dependency" : for src.dependency as vs0 make tgt.dependency as vt0 then {
     "ImplementationGuide.dependency-type" : for vs0.type make vt0.type
@@ -35,6 +38,7 @@ group for type+types  ImplementationGuide extends DomainResource
   "ImplementationGuide-package" : for src.package as vs0 make tgt.package as vt0 then {
     "ImplementationGuide.package-name" : for vs0.name make vt0.name
     "ImplementationGuide.package-description" : for vs0.description make vt0.description
+    "ImplementationGuide.package-resource" : for vs0.resource as vs make vt0.resource as vt then resource(vs, vt)
   }
 
   "ImplementationGuide-global" : for src.global as vs0 make tgt.global as vt0 then {
@@ -43,14 +47,30 @@ group for type+types  ImplementationGuide extends DomainResource
   }
 
   "ImplementationGuide-binary" : for src.binary make tgt.binary
-  "ImplementationGuide-page" : for src.page as vs0 make tgt.page as vt0 then {
-    "ImplementationGuide.page-source" : for vs0.source make vt0.source
-    "ImplementationGuide.page-name" : for vs0.title make vt0.name
-    "ImplementationGuide.page-kind" : for vs0.kind make vt0.kind
-    "ImplementationGuide.page-type" : for vs0.type make vt0.type
-    "ImplementationGuide.page-package" : for vs0.package make vt0.package
-    "ImplementationGuide.page-format" : for vs0.format make vt0.format
-  }
+  "ImplementationGuide-page" : for src.page as vs0 make tgt.page as vt0 then page(vs0, vt0)
+endgroup
 
+group resource extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "ImplementationGuide.resource-purpose" : for src where example = true make tgt.purpose = 'example'
+  "ImplementationGuide.resource-name" : for src.name make tgt.name
+  "ImplementationGuide.resource-description" : for src.description make tgt.description
+  "ImplementationGuide.resource-acronym" : for src.acronym make tgt.acronym
+  "ImplementationGuide.resource-source" : for src.source make tgt.source
+  "ImplementationGuide.resource-exampleFor" : for src.exampleFor make tgt.exampleFor
+endgroup
+
+group page extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ImplementationGuide.page-source" : for src.source make tgt.source
+  "ImplementationGuide.page-name" : for src.title make tgt.name
+  "ImplementationGuide.page-kind" : for src.kind make tgt.kind
+  "ImplementationGuide.page-type" : for src.type make tgt.type
+  "ImplementationGuide.page-package" : for src.package make tgt.package
+  "ImplementationGuide.page-format" : for src.format make tgt.format
+  "ImplementationGuide.page-page" : for src.page as vs0 make tgt.page as vt0 then page(vs0, vt0)
 endgroup

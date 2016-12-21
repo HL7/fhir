@@ -4,7 +4,7 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias O
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/Element2to3"
+imports "http://hl7.org/fhir/StructureMap/BackboneElement2to3"
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -48,7 +48,7 @@ group for type+types  OperationDefinition extends DomainResource
   }
 endgroup
 
-group part extends Element
+group part extends BackboneElement
   input src as source
   input tgt as target
 

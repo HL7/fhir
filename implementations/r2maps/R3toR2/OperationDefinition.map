@@ -4,7 +4,7 @@ uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias Operati
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/Element3to2"
+imports "http://hl7.org/fhir/StructureMap/BackboneElement3to2"
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -46,7 +46,7 @@ group for type+types  OperationDefinition extends DomainResource
   }
 endgroup
 
-group part extends Element
+group part extends BackboneElement
   input src as source
   input tgt as target
 

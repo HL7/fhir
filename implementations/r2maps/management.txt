@@ -4,6 +4,8 @@ Flag
 SearchParameter
 NamingSystem
 OperationDefinition
+ConceptMap
+ImplementationGuide
 
 Category 2: except from Conversion
 ----------------------------------
@@ -12,6 +14,7 @@ ActivityDefinition
 Claim
 ClaimResponse
 CodeSystem
+CompartmentDefinition
 Consent
 Coverage
 EligibilityRequest
@@ -37,13 +40,14 @@ ResearchStudy
 ResearchSubject
 Sequence
 ServiceDefinition
+StructureMap
 Task
 TestReport
 
 Category 3: Allocated to a person
 ---------------------------------
 
-Grahame: AuditEvent, CapabilityStatement, CompartmentDefinition, ConceptMap, DataElement, ImplementationGuide, StructureDefinition, StructureMap, ValueSet
+Grahame: AuditEvent, CapabilityStatement, DataElement, StructureDefinition, ValueSet
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)
