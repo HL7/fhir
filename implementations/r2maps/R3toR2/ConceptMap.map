@@ -28,14 +28,36 @@ group for type+types  ConceptMap extends DomainResource
 
   "ConceptMap-date" : for src.date make tgt.date
   "ConceptMap-description" : for src.description make tgt.description
-  "ConceptMap-requirements" : for src.purpose make tgt.requirements
-  "ConceptMap-copyright" : for src.copyright make tgt.copyright
   "ConceptMap-useContext-1" : for src.jurisdiction make tgt.useContext
   "ConceptMap-useContext" : for src.useContext as vs then {
     "ConceptMap-useContext-value" : for vs.value make tgt.useContext
   }
+  "ConceptMap-requirements" : for src.purpose make tgt.requirements
+  "ConceptMap-copyright" : for src.copyright make tgt.copyright
 
   "ConceptMap-source" : for src.source make tgt.source
   "ConceptMap-target" : for src.target make tgt.target
 
+  "ConceptMap-group" : for src.group as grp then {
+    "ConceptMap-group-element" : for grp.element as els make tgt.element as elt then {
+      "ConceptMap-element-code" : for grp.source make elt.codeSystem
+      "ConceptMap-element-code" : for els.code make elt.code
+      "ConceptMap-element-target" : for els.target as srcT make elt.target as tgtT then  {
+        "ConceptMap-target-codeSystem":  for grp.target make tgtT.codeSystem
+        "ConceptMap-target-code":  for srcT.code make tgtT.code
+        "ConceptMap-target-equivalence":  for srcT.equivalence make tgtT.equivalence
+        "ConceptMap-target-comments":  for srcT.comments make tgtT.comments
+        "ConceptMap-target-dependsOn":  for srcT.dependsOn as vs make tgtT.dependsOn as vt then {
+          "ConceptMap-target-dependsOn-element": for vs.property make vt.element
+          "ConceptMap-target-dependsOn-codeSystem": for vs.system make vt.codeSystem
+          "ConceptMap-target-dependsOn-code": for vs.code make vt.code
+        }  
+        "ConceptMap-target-product":  for srcT.product as vs make tgtT.product as vt then {
+          "ConceptMap-target-product-element": for vs.property make vt.element
+          "ConceptMap-target-product-codeSystem": for vs.system make vt.codeSystem
+          "ConceptMap-target-product-code": for vs.code make vt.code
+        }  
+      }
+    }
+  }
 endgroup

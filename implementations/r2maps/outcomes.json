@@ -93,11 +93,7 @@
         "Round trip failed: Names differ at /StructureDefinition/snapshot/element: nameReference/type"
       ]
     },
-    "ConceptMap": {
-      "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
-      ]
-    },
+    "ConceptMap": {},
     "Condition": {},
     "Conformance": {
       "errors": [
@@ -1423,7 +1419,28 @@
     },
     "conceptmaps": {
       "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
+        "[R3 validation error] Bundle.entry[1]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[2]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[3]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[4]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[5]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[6]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[7]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[8]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[9]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[10]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[11]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[12]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[13]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[14]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[15]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[16]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[17]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[18]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[19]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[20]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[21]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]",
+        "[R3 validation error] Bundle.entry[22]: must be a resource unless there\u0027s a request or response [resource.exists() or request.exists() or response.exists()]"
       ]
     },
     "dataelements": {
@@ -8473,16 +8490,8 @@
     }
   },
   "ConceptMap": {
-    "101": {
-      "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
-      ]
-    },
-    "102": {
-      "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
-      ]
-    }
+    "101": {},
+    "102": {}
   },
   "Condition": {
     "cond-uslab-example1": {
@@ -9617,16 +9626,8 @@
         "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
-    "ConceptMap-closure": {
-      "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
-      ]
-    },
-    "ConceptMap-translate": {
-      "errors": [
-        "Unable to find map http://hl7.org/fhir/StructureMap/primitives2to3"
-      ]
-    },
+    "ConceptMap-closure": {},
+    "ConceptMap-translate": {},
     "Encounter-everything": {
       "errors": [
         "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"

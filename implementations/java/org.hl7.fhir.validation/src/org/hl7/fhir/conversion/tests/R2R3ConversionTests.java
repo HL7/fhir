@@ -251,7 +251,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-types.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-resources.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","extension-definitions.xml"), null);
-    contextR3.loadFromFile(Utilities.path(root,"publish","expansions.xml"), null);
+    contextR3.loadFromFile(Utilities.path(root,"publish","valuesets.xml"), null);
     contextR3.setCanRunWithoutTerminology(true);
 
     for (StructureDefinition sd : contextR2.allStructures()) {

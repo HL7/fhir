@@ -5,6 +5,7 @@ uses "http://hl7.org/fhir/StructureDefinition/ConceptMap" alias ConceptMap as ta
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
+imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -30,30 +31,30 @@ group for type+types  ConceptMap extends DomainResource
   "ConceptMap-purpose" : for src.requirements make tgt.purpose
   "ConceptMap-copyright" : for src.copyright make tgt.copyright
   "ConceptMap-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
-  "ConceptMap-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
+  "ConceptMap-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
   "ConceptMap-source" : for src.source make tgt.source
   "ConceptMap-target" : for src.target make tgt.target
 
-  ConceptMap-backbone: for src.element as srcE group-by srcE.codeSystem as srcSCs
-          inner srcE.target as srcT group-by srcT.codeSystem as srcTCs 
-          combo make tgt.group as tgtGrp, tgtGrp.source = srcSCs, tgtGrp.target = srcTCs 
-        make tgtGrp.element as tgtE then  { 
-         ConceptMap-element:  for srcE.code make tgtGrp.code
-         ConceptMap-target: for srcE.target as vs make tgtE.target as vt then {
-           ConceptMap-target-element:  for vs.code make vt.code
-           ConceptMap-target-equivalence:  for vs.equivalence make vt.equivalence
-           ConceptMap-target-comments:  for vs.comments make vt.comments
-           ConceptMap-target-dependsOn:  for vs.dependsOn as sd make vt.dependsOn as td then {
-             ConceptMap-target-dependsOn-element: for vs.element make vt.element
-             ConceptMap-target-dependsOn-codeSystem: for vs.codeSystem make vt.codeSystem
-             ConceptMap-target-dependsOn-code: for vs.code make vt.code
-           }  
-           ConceptMap-target-product:  for vs.product as sd make vt.product as td then {
-             ConceptMap-target-product-element: for vs.element make vt.element
-             ConceptMap-target-product-codeSystem: for vs.codeSystem make vt.codeSystem
-             ConceptMap-target-product-code: for vs.code make vt.code
-           }  
-         }
-  }
+  // ConceptMap-backbone:     group src.element as srcE by srcE.codeSystem as srcSCs, inner srcE.target as srcT by srcT.codeSystem as srcTCs make tgt.group as tgtGrp, tgtGrp.source = srcSCs, tgtGrp.target = srcTCs then {
+  "ConceptMap-element-1" : for src.element as srcE then {
+    "ConceptMap-element-2" : for srcE.target as srcT make tgt.group as tgtGrp, tgtGrp.element as tgtE, tgtE.target as tgtT then {
+      "ConceptMap-element-3" : for srcE.codeSystem make tgtGrp.source
+      "ConceptMap-element-4" : for srcT.codeSystem make tgtGrp.target
+      "ConceptMap-element-code":  for srcE.code make tgtE.code
+      "ConceptMap-target-element":  for srcT.code make tgtT.code
+      "ConceptMap-target-equivalence":  for srcT.equivalence make tgtT.equivalence
+      "ConceptMap-target-comments":  for srcT.comments make tgtT.comments
+      "ConceptMap-target-dependsOn":  for srcT.dependsOn as vs make tgtT.dependsOn as vt then {
+        "ConceptMap-target-dependsOn-element": for vs.element make vt.property
+        "ConceptMap-target-dependsOn-codeSystem": for vs.codeSystem make vt.system
+        "ConceptMap-target-dependsOn-code": for vs.code make vt.code
+      }  
+      "ConceptMap-target-product":  for srcT.product as vs make tgtT.product as vt then {
+        "ConceptMap-target-product-element": for vs.element make vt.property
+        "ConceptMap-target-product-codeSystem": for vs.codeSystem make vt.system
+        "ConceptMap-target-product-code": for vs.code make vt.code
+      }  
+    }
+  }     
 
 endgroup

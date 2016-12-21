@@ -4,6 +4,7 @@ uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias Operati
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
+imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -41,7 +42,21 @@ group for type+types  OperationDefinition extends DomainResource
     "OperationDefinition.parameter-documentation" : for vs0.documentation make vt0.documentation
     "OperationDefinition.parameter-type" : for vs0.type make vt0.type
     "OperationDefinition.parameter-profile" : for vs0.profile make vt0.profile
+    "OperationDefinition.parameter-part" : for vs0.part as ps0 make vt0.part as pt0 then part(ps0, pt0)
   }
+endgroup
 
+group part extends Element
+  input src as source
+  input tgt as target
 
+  "OperationDefinition.parameter-part-name" : for src.name make tgt.name
+  "OperationDefinition.parameter-part-use" : for src.use make tgt.use
+  "OperationDefinition.parameter-part-min" : for src.min make tgt.min
+  "OperationDefinition.parameter-part-max" : for src.max make tgt.max
+  "OperationDefinition.parameter-part-documentation" : for src.documentation make tgt.documentation
+  "OperationDefinition.parameter-part-type" : for src.type make tgt.type
+  "OperationDefinition.parameter-part-profile" : for src.profile make tgt.profile
+  "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then part(psrc, ptgt)
+  
 endgroup
