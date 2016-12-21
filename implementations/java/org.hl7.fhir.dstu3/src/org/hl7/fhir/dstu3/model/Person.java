@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class Person extends DomainResource {
         throw new IllegalArgumentException("Unknown IdentityAssuranceLevel code '"+codeString+"'");
         }
         public Enumeration<IdentityAssuranceLevel> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<IdentityAssuranceLevel>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -321,7 +323,8 @@ public class Person extends DomainResource {
           this.target = castToReference(value); // Reference
           return value;
         case 1771900717: // assurance
-          this.assurance = new IdentityAssuranceLevelEnumFactory().fromType(value); // Enumeration<IdentityAssuranceLevel>
+          value = new IdentityAssuranceLevelEnumFactory().fromType(castToCode(value));
+          this.assurance = (Enumeration) value; // Enumeration<IdentityAssuranceLevel>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -330,11 +333,12 @@ public class Person extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("target"))
+        if (name.equals("target")) {
           this.target = castToReference(value); // Reference
-        else if (name.equals("assurance"))
-          this.assurance = new IdentityAssuranceLevelEnumFactory().fromType(value); // Enumeration<IdentityAssuranceLevel>
-        else
+        } else if (name.equals("assurance")) {
+          value = new IdentityAssuranceLevelEnumFactory().fromType(castToCode(value));
+          this.assurance = (Enumeration) value; // Enumeration<IdentityAssuranceLevel>
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -345,6 +349,16 @@ public class Person extends DomainResource {
         case -880905839:  return getTarget(); 
         case 1771900717:  return getAssuranceElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        case 1771900717: /*assurance*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1007,7 +1021,8 @@ public class Person extends DomainResource {
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           return value;
         case -1249512767: // gender
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
           return value;
         case -1210031859: // birthDate
           this.birthDate = castToDate(value); // DateType
@@ -1034,27 +1049,28 @@ public class Person extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.getName().add(castToHumanName(value));
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("gender"))
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-        else if (name.equals("birthDate"))
+        } else if (name.equals("gender")) {
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+        } else if (name.equals("birthDate")) {
           this.birthDate = castToDate(value); // DateType
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.getAddress().add(castToAddress(value));
-        else if (name.equals("photo"))
+        } else if (name.equals("photo")) {
           this.photo = castToAttachment(value); // Attachment
-        else if (name.equals("managingOrganization"))
+        } else if (name.equals("managingOrganization")) {
           this.managingOrganization = castToReference(value); // Reference
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("link"))
+        } else if (name.equals("link")) {
           this.getLink().add((PersonLinkComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1073,6 +1089,24 @@ public class Person extends DomainResource {
         case -1422950650:  return getActiveElement();
         case 3321850:  return addLink(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3373707: /*name*/ return new String[] {"HumanName"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1249512767: /*gender*/ return new String[] {"code"};
+        case -1210031859: /*birthDate*/ return new String[] {"date"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        case 106642994: /*photo*/ return new String[] {"Attachment"};
+        case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case 3321850: /*link*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

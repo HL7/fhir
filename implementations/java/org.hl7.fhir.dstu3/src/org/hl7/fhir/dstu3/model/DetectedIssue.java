@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class DetectedIssue extends DomainResource {
         throw new IllegalArgumentException("Unknown DetectedIssueSeverity code '"+codeString+"'");
         }
         public Enumeration<DetectedIssueSeverity> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DetectedIssueSeverity>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -354,13 +356,13 @@ public class DetectedIssue extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.action = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -372,6 +374,17 @@ public class DetectedIssue extends DomainResource {
         case 3076014:  return getDateElement();
         case -1406328437:  return getAuthor(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {"CodeableConcept"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1015,7 +1028,8 @@ public class DetectedIssue extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 1478300413: // severity
-          this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
+          value = new DetectedIssueSeverityEnumFactory().fromType(castToCode(value));
+          this.severity = (Enumeration) value; // Enumeration<DetectedIssueSeverity>
           return value;
         case -810216884: // implicated
           this.getImplicated().add(castToReference(value)); // Reference
@@ -1045,27 +1059,28 @@ public class DetectedIssue extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("patient"))
+        if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("category"))
+        } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("severity"))
-          this.severity = new DetectedIssueSeverityEnumFactory().fromType(value); // Enumeration<DetectedIssueSeverity>
-        else if (name.equals("implicated"))
+        } else if (name.equals("severity")) {
+          value = new DetectedIssueSeverityEnumFactory().fromType(castToCode(value));
+          this.severity = (Enumeration) value; // Enumeration<DetectedIssueSeverity>
+        } else if (name.equals("implicated")) {
           this.getImplicated().add(castToReference(value));
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.detail = castToString(value); // StringType
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("reference"))
+        } else if (name.equals("reference")) {
           this.reference = castToUri(value); // UriType
-        else if (name.equals("mitigation"))
+        } else if (name.equals("mitigation")) {
           this.getMitigation().add((DetectedIssueMitigationComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1084,6 +1099,24 @@ public class DetectedIssue extends DomainResource {
         case -925155509:  return getReferenceElement();
         case 1293793087:  return addMitigation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 1478300413: /*severity*/ return new String[] {"code"};
+        case -810216884: /*implicated*/ return new String[] {"Reference"};
+        case -1335224239: /*detail*/ return new String[] {"string"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -925155509: /*reference*/ return new String[] {"uri"};
+        case 1293793087: /*mitigation*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

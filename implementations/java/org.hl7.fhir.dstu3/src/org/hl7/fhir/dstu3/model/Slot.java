@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class Slot extends DomainResource {
         throw new IllegalArgumentException("Unknown SlotStatus code '"+codeString+"'");
         }
         public Enumeration<SlotStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SlotStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -829,7 +831,8 @@ public class Slot extends DomainResource {
           this.schedule = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
+          value = new SlotStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SlotStatus>
           return value;
         case 109757538: // start
           this.start = castToInstant(value); // InstantType
@@ -850,29 +853,30 @@ public class Slot extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("serviceCategory"))
+        } else if (name.equals("serviceCategory")) {
           this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("serviceType"))
+        } else if (name.equals("serviceType")) {
           this.getServiceType().add(castToCodeableConcept(value));
-        else if (name.equals("specialty"))
+        } else if (name.equals("specialty")) {
           this.getSpecialty().add(castToCodeableConcept(value));
-        else if (name.equals("appointmentType"))
+        } else if (name.equals("appointmentType")) {
           this.appointmentType = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("schedule"))
+        } else if (name.equals("schedule")) {
           this.schedule = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
-        else if (name.equals("start"))
+        } else if (name.equals("status")) {
+          value = new SlotStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SlotStatus>
+        } else if (name.equals("start")) {
           this.start = castToInstant(value); // InstantType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInstant(value); // InstantType
-        else if (name.equals("overbooked"))
+        } else if (name.equals("overbooked")) {
           this.overbooked = castToBoolean(value); // BooleanType
-        else if (name.equals("comment"))
+        } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -892,6 +896,25 @@ public class Slot extends DomainResource {
         case 2068545308:  return getOverbookedElement();
         case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 1281188563: /*serviceCategory*/ return new String[] {"CodeableConcept"};
+        case -1928370289: /*serviceType*/ return new String[] {"CodeableConcept"};
+        case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
+        case -1596426375: /*appointmentType*/ return new String[] {"CodeableConcept"};
+        case -697920873: /*schedule*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 109757538: /*start*/ return new String[] {"instant"};
+        case 100571: /*end*/ return new String[] {"instant"};
+        case 2068545308: /*overbooked*/ return new String[] {"boolean"};
+        case 950398559: /*comment*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

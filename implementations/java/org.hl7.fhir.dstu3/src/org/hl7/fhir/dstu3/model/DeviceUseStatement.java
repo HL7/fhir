@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -617,25 +617,25 @@ public class DeviceUseStatement extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("bodySite"))
+        if (name.equals("bodySite")) {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("whenUsed"))
+        } else if (name.equals("whenUsed")) {
           this.whenUsed = castToPeriod(value); // Period
-        else if (name.equals("device"))
+        } else if (name.equals("device")) {
           this.device = castToReference(value); // Reference
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("indication"))
+        } else if (name.equals("indication")) {
           this.getIndication().add(castToCodeableConcept(value));
-        else if (name.equals("notes"))
+        } else if (name.equals("notes")) {
           this.getNotes().add(castToString(value));
-        else if (name.equals("recordedOn"))
+        } else if (name.equals("recordedOn")) {
           this.recordedOn = castToDateTime(value); // DateTimeType
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("timing[x]"))
+        } else if (name.equals("timing[x]")) {
           this.timing = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -652,7 +652,25 @@ public class DeviceUseStatement extends DomainResource {
         case 735397551:  return getRecordedOnElement();
         case -1867885268:  return getSubject(); 
         case 164632566:  return getTiming(); 
+        case -873664438:  return getTiming(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case 2042879511: /*whenUsed*/ return new String[] {"Period"};
+        case -1335157162: /*device*/ return new String[] {"Reference"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -597168804: /*indication*/ return new String[] {"CodeableConcept"};
+        case 105008833: /*notes*/ return new String[] {"string"};
+        case 735397551: /*recordedOn*/ return new String[] {"dateTime"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -873664438: /*timing*/ return new String[] {"Timing", "Period", "dateTime"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

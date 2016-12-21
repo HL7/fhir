@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -117,8 +117,10 @@ public class ImplementationGuide extends MetadataResource {
         throw new IllegalArgumentException("Unknown GuideDependencyType code '"+codeString+"'");
         }
         public Enumeration<GuideDependencyType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<GuideDependencyType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -279,8 +281,10 @@ public class ImplementationGuide extends MetadataResource {
         throw new IllegalArgumentException("Unknown GuidePageKind code '"+codeString+"'");
         }
         public Enumeration<GuidePageKind> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<GuidePageKind>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -471,7 +475,8 @@ public class ImplementationGuide extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new GuideDependencyTypeEnumFactory().fromType(value); // Enumeration<GuideDependencyType>
+          value = new GuideDependencyTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<GuideDependencyType>
           return value;
         case 116076: // uri
           this.uri = castToUri(value); // UriType
@@ -483,11 +488,12 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new GuideDependencyTypeEnumFactory().fromType(value); // Enumeration<GuideDependencyType>
-        else if (name.equals("uri"))
+        if (name.equals("type")) {
+          value = new GuideDependencyTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<GuideDependencyType>
+        } else if (name.equals("uri")) {
           this.uri = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -498,6 +504,16 @@ public class ImplementationGuide extends MetadataResource {
         case 3575610:  return getTypeElement();
         case 116076:  return getUriElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 116076: /*uri*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -777,13 +793,13 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.getResource().add((ImplementationGuidePackageResourceComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -795,6 +811,17 @@ public class ImplementationGuide extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case -341064690:  return addResource(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -341064690: /*resource*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1260,19 +1287,19 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("example"))
+        if (name.equals("example")) {
           this.example = castToBoolean(value); // BooleanType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("acronym"))
+        } else if (name.equals("acronym")) {
           this.acronym = castToString(value); // StringType
-        else if (name.equals("source[x]"))
+        } else if (name.equals("source[x]")) {
           this.source = castToType(value); // Type
-        else if (name.equals("exampleFor"))
+        } else if (name.equals("exampleFor")) {
           this.exampleFor = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1285,8 +1312,23 @@ public class ImplementationGuide extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case -1163472445:  return getAcronymElement();
         case -1698413947:  return getSource(); 
+        case -896505829:  return getSource(); 
         case -2002349313:  return getExampleFor(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1322970774: /*example*/ return new String[] {"boolean"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1163472445: /*acronym*/ return new String[] {"string"};
+        case -896505829: /*source*/ return new String[] {"uri", "Reference"};
+        case -2002349313: /*exampleFor*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1529,11 +1571,11 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.profile = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1544,6 +1586,16 @@ public class ImplementationGuide extends MetadataResource {
         case 3575610:  return getTypeElement();
         case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -309425751: /*profile*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2067,7 +2119,8 @@ public class ImplementationGuide extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case 3292052: // kind
-          this.kind = new GuidePageKindEnumFactory().fromType(value); // Enumeration<GuidePageKind>
+          value = new GuidePageKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<GuidePageKind>
           return value;
         case 3575610: // type
           this.getType().add(castToCode(value)); // CodeType
@@ -2088,21 +2141,22 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("source"))
+        if (name.equals("source")) {
           this.source = castToUri(value); // UriType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("kind"))
-          this.kind = new GuidePageKindEnumFactory().fromType(value); // Enumeration<GuidePageKind>
-        else if (name.equals("type"))
+        } else if (name.equals("kind")) {
+          value = new GuidePageKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<GuidePageKind>
+        } else if (name.equals("type")) {
           this.getType().add(castToCode(value));
-        else if (name.equals("package"))
+        } else if (name.equals("package")) {
           this.getPackage().add(castToString(value));
-        else if (name.equals("format"))
+        } else if (name.equals("format")) {
           this.format = castToCode(value); // CodeType
-        else if (name.equals("page"))
+        } else if (name.equals("page")) {
           this.getPage().add((ImplementationGuidePageComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2118,6 +2172,21 @@ public class ImplementationGuide extends MetadataResource {
         case -1268779017:  return getFormatElement();
         case 3433103:  return addPage(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -896505829: /*source*/ return new String[] {"uri"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case 3292052: /*kind*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -807062458: /*package*/ return new String[] {"string"};
+        case -1268779017: /*format*/ return new String[] {"code"};
+        case 3433103: /*page*/ return new String[] {"@ImplementationGuide.page"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3216,7 +3285,8 @@ public class ImplementationGuide extends MetadataResource {
           this.name = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -3267,43 +3337,44 @@ public class ImplementationGuide extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("fhirVersion"))
+        } else if (name.equals("fhirVersion")) {
           this.fhirVersion = castToId(value); // IdType
-        else if (name.equals("dependency"))
+        } else if (name.equals("dependency")) {
           this.getDependency().add((ImplementationGuideDependencyComponent) value);
-        else if (name.equals("package"))
+        } else if (name.equals("package")) {
           this.getPackage().add((ImplementationGuidePackageComponent) value);
-        else if (name.equals("global"))
+        } else if (name.equals("global")) {
           this.getGlobal().add((ImplementationGuideGlobalComponent) value);
-        else if (name.equals("binary"))
+        } else if (name.equals("binary")) {
           this.getBinary().add(castToUri(value));
-        else if (name.equals("page"))
+        } else if (name.equals("page")) {
           this.page = (ImplementationGuidePageComponent) value; // ImplementationGuidePageComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3330,6 +3401,32 @@ public class ImplementationGuide extends MetadataResource {
         case -1388966911:  return addBinaryElement();
         case 3433103:  return getPage(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case 461006061: /*fhirVersion*/ return new String[] {"id"};
+        case -26291381: /*dependency*/ return new String[] {};
+        case -807062458: /*package*/ return new String[] {};
+        case -1243020381: /*global*/ return new String[] {};
+        case -1388966911: /*binary*/ return new String[] {"uri"};
+        case 3433103: /*page*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

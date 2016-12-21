@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/RiskAssessment3to2" = "R3 to R2 Conversion for RiskAssessment"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/RiskAssessment" alias RiskAssessment as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RiskAssessment" alias RiskAssessmentR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -13,29 +11,28 @@ imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/Range3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group RiskAssessment extends DomainResource
+group for type+types  RiskAssessment extends DomainResource
   input src : RiskAssessment as source
   input tgt : RiskAssessmentR2 as target
 
-  "RiskAssessment-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "RiskAssessment-condition" : for src.condition as vs make tgt.condition as vt then Reference(vs,vt)
-  "RiskAssessment-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
-  "RiskAssessment-performer" : for src.performer as vs make tgt.performer as vt then Reference(vs,vt)
-  "RiskAssessment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "RiskAssessment-method" : for src.method as vs make tgt.method as vt then CodeableConcept(vs,vt)
-  "RiskAssessment-basis" : for src.basis as vs make tgt.basis as vt then Reference(vs,vt)
+  "RiskAssessment-subject" : for src.subject make tgt.subject
+  "RiskAssessment-condition" : for src.condition make tgt.condition
+  "RiskAssessment-encounter" : for src.context make tgt.encounter
+  "RiskAssessment-performer" : for src.performer make tgt.performer
+  "RiskAssessment-identifier" : for src.identifier make tgt.identifier
+  "RiskAssessment-method" : for src.method make tgt.method
+  "RiskAssessment-basis" : for src.basis make tgt.basis
   "RiskAssessment-prediction" : for src.prediction as vs0 make tgt.prediction as vt0 then {
-    "RiskAssessment.prediction-outcome" : for vs0.outcome as vs make vt0.outcome as vt then CodeableConcept(vs,vt)
-    "RiskAssessment.prediction-probability-decimal" : for vs0.probability  : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs,vt)
-    "RiskAssessment.prediction-probability-Range" : for vs0.probability  : Range as vs make vt0.probability = create("Range") as vt then Range(vs,vt)
-    "RiskAssessment.prediction-probability-CodeableConcept" : for vs0.probability  : CodeableConcept as vs make vt0.probability = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "RiskAssessment.prediction-relativeRisk" : for vs0.relativeRisk as vs make vt0.relativeRisk as vt then decimal(vs, vt)
-    "RiskAssessment.prediction-when-Period" : for vs0.when  : Period as vs make vt0.when = create("Period") as vt then Period(vs,vt)
-    "RiskAssessment.prediction-when-Range" : for vs0.when  : Range as vs make vt0.when = create("Range") as vt then Range(vs,vt)
-    "RiskAssessment.prediction-rationale" : for vs0.rationale as vs make vt0.rationale as vt then string(vs, vt)
+    "RiskAssessment.prediction-outcome" : for vs0.outcome make vt0.outcome
+    "RiskAssessment.prediction-probability-decimal" : for vs0.probability : decimal as vs make vt0.probability = create("decimal") as vt then decimal(vs, vt)
+    "RiskAssessment.prediction-probability-Range" : for vs0.probability : Range as vs make vt0.probability = create("Range") as vt then Range(vs, vt)
+    "RiskAssessment.prediction-probability-CodeableConcept" : for vs0.probability : CodeableConcept as vs make vt0.probability = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+    "RiskAssessment.prediction-relativeRisk" : for vs0.relativeRisk make vt0.relativeRisk
+    "RiskAssessment.prediction-when-Period" : for vs0.when : Period as vs make vt0.when = create("Period") as vt then Period(vs, vt)
+    "RiskAssessment.prediction-when-Range" : for vs0.when : Range as vs make vt0.when = create("Range") as vt then Range(vs, vt)
+    "RiskAssessment.prediction-rationale" : for vs0.rationale make vt0.rationale
   }
-  "RiskAssessment-mitigation" : for src.mitigation as vs make tgt.mitigation as vt then string(vs, vt)
-endgroup
 
+  "RiskAssessment-mitigation" : for src.mitigation make tgt.mitigation
+
+endgroup

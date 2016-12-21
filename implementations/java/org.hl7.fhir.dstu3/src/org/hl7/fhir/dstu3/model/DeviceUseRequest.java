@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -175,8 +175,10 @@ public class DeviceUseRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown DeviceUseRequestStatus code '"+codeString+"'");
         }
         public Enumeration<DeviceUseRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DeviceUseRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1481,7 +1483,8 @@ public class DeviceUseRequest extends DomainResource {
           this.requisition = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
+          value = new DeviceUseRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DeviceUseRequestStatus>
           return value;
         case 109757182: // stage
           this.stage = castToCodeableConcept(value); // CodeableConcept
@@ -1532,47 +1535,48 @@ public class DeviceUseRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("definition"))
+        } else if (name.equals("definition")) {
           this.getDefinition().add(castToReference(value));
-        else if (name.equals("basedOn"))
+        } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
-        else if (name.equals("replaces"))
+        } else if (name.equals("replaces")) {
           this.getReplaces().add(castToReference(value));
-        else if (name.equals("requisition"))
+        } else if (name.equals("requisition")) {
           this.requisition = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new DeviceUseRequestStatusEnumFactory().fromType(value); // Enumeration<DeviceUseRequestStatus>
-        else if (name.equals("stage"))
+        } else if (name.equals("status")) {
+          value = new DeviceUseRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DeviceUseRequestStatus>
+        } else if (name.equals("stage")) {
           this.stage = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("device[x]"))
+        } else if (name.equals("device[x]")) {
           this.device = castToType(value); // Type
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("occurrence[x]"))
+        } else if (name.equals("occurrence[x]")) {
           this.occurrence = castToType(value); // Type
-        else if (name.equals("authored"))
+        } else if (name.equals("authored")) {
           this.authored = castToDateTime(value); // DateTimeType
-        else if (name.equals("requester"))
+        } else if (name.equals("requester")) {
           this.requester = castToReference(value); // Reference
-        else if (name.equals("performerType"))
+        } else if (name.equals("performerType")) {
           this.performerType = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("reasonCode"))
+        } else if (name.equals("reasonCode")) {
           this.getReasonCode().add(castToCodeableConcept(value));
-        else if (name.equals("reasonReference"))
+        } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        else if (name.equals("supportingInfo"))
+        } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("relevantHistory"))
+        } else if (name.equals("relevantHistory")) {
           this.getRelevantHistory().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1588,9 +1592,11 @@ public class DeviceUseRequest extends DomainResource {
         case -892481550:  return getStatusElement();
         case 109757182:  return getStage(); 
         case 25206378:  return getDevice(); 
+        case -1335157162:  return getDevice(); 
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -2022646513:  return getOccurrence(); 
+        case 1687874001:  return getOccurrence(); 
         case 1433073514:  return getAuthoredElement();
         case 693933948:  return getRequester(); 
         case -901444568:  return getPerformerType(); 
@@ -1601,6 +1607,34 @@ public class DeviceUseRequest extends DomainResource {
         case 3387378:  return addNote(); 
         case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -430332865: /*replaces*/ return new String[] {"Reference"};
+        case 395923612: /*requisition*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 109757182: /*stage*/ return new String[] {"CodeableConcept"};
+        case -1335157162: /*device*/ return new String[] {"Reference", "CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period", "Timing"};
+        case 1433073514: /*authored*/ return new String[] {"dateTime"};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

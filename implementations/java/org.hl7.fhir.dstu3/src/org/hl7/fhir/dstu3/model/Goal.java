@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -247,8 +247,10 @@ public class Goal extends DomainResource {
         throw new IllegalArgumentException("Unknown GoalStatus code '"+codeString+"'");
         }
         public Enumeration<GoalStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<GoalStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -404,9 +406,9 @@ public class Goal extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("result[x]"))
+        if (name.equals("result[x]")) {
           this.result = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -415,7 +417,17 @@ public class Goal extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1819555005:  return getResult(); 
+        case -934426595:  return getResult(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -934426595: /*result*/ return new String[] {"CodeableConcept", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1293,7 +1305,8 @@ public class Goal extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
+          value = new GoalStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<GoalStatus>
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1338,35 +1351,36 @@ public class Goal extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new GoalStatusEnumFactory().fromType(value); // Enumeration<GoalStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("status")) {
+          value = new GoalStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<GoalStatus>
+        } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
-        else if (name.equals("priority"))
+        } else if (name.equals("priority")) {
           this.priority = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("start[x]"))
+        } else if (name.equals("start[x]")) {
           this.start = castToType(value); // Type
-        else if (name.equals("target[x]"))
+        } else if (name.equals("target[x]")) {
           this.target = castToType(value); // Type
-        else if (name.equals("statusDate"))
+        } else if (name.equals("statusDate")) {
           this.statusDate = castToDate(value); // DateType
-        else if (name.equals("statusReason"))
+        } else if (name.equals("statusReason")) {
           this.getStatusReason().add(castToCodeableConcept(value));
-        else if (name.equals("expressedBy"))
+        } else if (name.equals("expressedBy")) {
           this.expressedBy = castToReference(value); // Reference
-        else if (name.equals("addresses"))
+        } else if (name.equals("addresses")) {
           this.getAddresses().add(castToReference(value));
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.getOutcome().add((GoalOutcomeComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1381,7 +1395,9 @@ public class Goal extends DomainResource {
         case -1724546052:  return getDescription(); 
         case -1867885268:  return getSubject(); 
         case 1316793566:  return getStart(); 
+        case 109757538:  return getStart(); 
         case -815579825:  return getTarget(); 
+        case -880905839:  return getTarget(); 
         case 247524032:  return getStatusDateElement();
         case 2051346646:  return addStatusReason(); 
         case 175423686:  return getExpressedBy(); 
@@ -1389,6 +1405,28 @@ public class Goal extends DomainResource {
         case 3387378:  return addNote(); 
         case -1106507950:  return addOutcome(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 109757538: /*start*/ return new String[] {"date", "CodeableConcept"};
+        case -880905839: /*target*/ return new String[] {"date", "Duration"};
+        case 247524032: /*statusDate*/ return new String[] {"date"};
+        case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
+        case 175423686: /*expressedBy*/ return new String[] {"Reference"};
+        case 874544034: /*addresses*/ return new String[] {"Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -1106507950: /*outcome*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

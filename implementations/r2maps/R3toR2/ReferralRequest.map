@@ -1,35 +1,31 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ReferralRequest3to2" = "R3 to R2 Conversion for ReferralRequest"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ReferralRequest" alias ReferralRequest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ReferralRequest" alias ReferralRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group ReferralRequest extends DomainResource
+group for type+types  ReferralRequest extends DomainResource
   input src : ReferralRequest as source
   input tgt : ReferralRequestR2 as target
 
-  "ReferralRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "ReferralRequest-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "ReferralRequest-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "ReferralRequest-priority" : for src.priority as vs make tgt.priority as vt then CodeableConcept(vs,vt)
-  "ReferralRequest-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime as vs make tgt.fulfillmentTime as vt then Period(vs,vt)
-  "ReferralRequest-requester" : for src.requester as vs make tgt.requester as vt then Reference(vs,vt)
-  "ReferralRequest-specialty" : for src.specialty as vs make tgt.specialty as vt then CodeableConcept(vs,vt)
-  "ReferralRequest-recipient" : for src.recipient as vs make tgt.recipient as vt then Reference(vs,vt)
-  "ReferralRequest-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
-  "ReferralRequest-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "ReferralRequest-serviceRequested" : for src.serviceRequested as vs make tgt.serviceRequested as vt then CodeableConcept(vs,vt)
-  "ReferralRequest-supportingInformation" : for src.supportingInformation as vs make tgt.supportingInformation as vt then Reference(vs,vt)
-endgroup
+  "ReferralRequest-identifier" : for src.identifier make tgt.identifier
+  "ReferralRequest-status" : for src.status make tgt.status
+  "ReferralRequest-type" : for src.type make tgt.type
+  "ReferralRequest-priority" : for src.priority make tgt.priority
+  "ReferralRequest-patient" : for src.patient make tgt.patient
+  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
+  "ReferralRequest-requester" : for src.requester make tgt.requester
+  "ReferralRequest-specialty" : for src.specialty make tgt.specialty
+  "ReferralRequest-recipient" : for src.recipient make tgt.recipient
+  "ReferralRequest-reason" : for src.reason make tgt.reason
+  "ReferralRequest-description" : for src.description make tgt.description
+  "ReferralRequest-serviceRequested" : for src.serviceRequested make tgt.serviceRequested
+  "ReferralRequest-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
 
+endgroup

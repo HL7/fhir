@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -147,9 +147,9 @@ public class DocumentManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("p[x]"))
+        if (name.equals("p[x]")) {
           this.p = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -158,7 +158,17 @@ public class DocumentManifest extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3427856:  return getP(); 
+        case 112:  return getP(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 112: /*p*/ return new String[] {"Attachment", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -340,11 +350,11 @@ public class DocumentManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("ref"))
+        } else if (name.equals("ref")) {
           this.ref = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -355,6 +365,16 @@ public class DocumentManifest extends DomainResource {
         case -1618432855:  return getIdentifier(); 
         case 112787:  return getRef(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 112787: /*ref*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1158,7 +1178,8 @@ public class DocumentManifest extends DomainResource {
           this.source = castToUri(value); // UriType
           return value;
         case -892481550: // status
-          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
+          value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -1176,31 +1197,32 @@ public class DocumentManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("masterIdentifier"))
+        if (name.equals("masterIdentifier")) {
           this.masterIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("recipient"))
+        } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.getAuthor().add(castToReference(value));
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = castToUri(value); // UriType
-        else if (name.equals("status"))
-          this.status = new DocumentReferenceStatusEnumFactory().fromType(value); // Enumeration<DocumentReferenceStatus>
-        else if (name.equals("description"))
+        } else if (name.equals("status")) {
+          value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("content"))
+        } else if (name.equals("content")) {
           this.getContent().add((DocumentManifestContentComponent) value);
-        else if (name.equals("related"))
+        } else if (name.equals("related")) {
           this.getRelated().add((DocumentManifestRelatedComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1221,6 +1243,26 @@ public class DocumentManifest extends DomainResource {
         case 951530617:  return addContent(); 
         case 1090493483:  return addRelated(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 243769515: /*masterIdentifier*/ return new String[] {"Identifier"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case -896505829: /*source*/ return new String[] {"uri"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 951530617: /*content*/ return new String[] {};
+        case 1090493483: /*related*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

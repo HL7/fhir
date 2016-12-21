@@ -1,26 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/HumanName3to2" = "R3 to R2 Conversion for HumanName"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanName as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HumanName" alias HumanNameR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 
-
-
-group HumanName extends Element
+group for type+types  HumanName extends Element
   input src : HumanName as source
   input tgt : HumanNameR2 as target
 
-  "HumanName-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
-  "HumanName-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
-  "HumanName-family" : for src.family as vs make tgt.family as vt then string(vs, vt)
-  "HumanName-given" : for src.given as vs make tgt.given as vt then string(vs, vt)
-  "HumanName-prefix" : for src.prefix as vs make tgt.prefix as vt then string(vs, vt)
-  "HumanName-suffix" : for src.suffix as vs make tgt.suffix as vt then string(vs, vt)
-  "HumanName-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-endgroup
+  "HumanName-use" : for src.use make tgt.use
+  "HumanName-text" : for src.text make tgt.text
+  "HumanName-family" : for src.family make tgt.family
+  "HumanName-given" : for src.given make tgt.given
+  "HumanName-prefix" : for src.prefix make tgt.prefix
+  "HumanName-suffix" : for src.suffix make tgt.suffix
+  "HumanName-period" : for src.period make tgt.period
 
+endgroup

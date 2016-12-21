@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -128,8 +128,10 @@ public class TestReport extends DomainResource {
         throw new IllegalArgumentException("Unknown TestReportStatus code '"+codeString+"'");
         }
         public Enumeration<TestReportStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TestReportStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -234,8 +236,10 @@ public class TestReport extends DomainResource {
         throw new IllegalArgumentException("Unknown TestReportParticipantType code '"+codeString+"'");
         }
         public Enumeration<TestReportParticipantType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TestReportParticipantType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -364,8 +368,10 @@ public class TestReport extends DomainResource {
         throw new IllegalArgumentException("Unknown TestReportResultCodes code '"+codeString+"'");
         }
         public Enumeration<TestReportResultCodes> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TestReportResultCodes>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -602,7 +608,8 @@ public class TestReport extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new TestReportParticipantTypeEnumFactory().fromType(value); // Enumeration<TestReportParticipantType>
+          value = new TestReportParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<TestReportParticipantType>
           return value;
         case 116076: // uri
           this.uri = castToUri(value); // UriType
@@ -617,13 +624,14 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new TestReportParticipantTypeEnumFactory().fromType(value); // Enumeration<TestReportParticipantType>
-        else if (name.equals("uri"))
+        if (name.equals("type")) {
+          value = new TestReportParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<TestReportParticipantType>
+        } else if (name.equals("uri")) {
           this.uri = castToUri(value); // UriType
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -635,6 +643,17 @@ public class TestReport extends DomainResource {
         case 116076:  return getUriElement();
         case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 116076: /*uri*/ return new String[] {"uri"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -794,9 +813,9 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.getAction().add((SetupActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -806,6 +825,15 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -966,11 +994,11 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else if (name.equals("assert"))
+        } else if (name.equals("assert")) {
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -981,6 +1009,16 @@ public class TestReport extends DomainResource {
         case 1662702951:  return getOperation(); 
         case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {};
+        case -1408208058: /*assert*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1244,7 +1282,8 @@ public class TestReport extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
-          this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
+          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
           return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
@@ -1259,13 +1298,14 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("result"))
-          this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
-        else if (name.equals("message"))
+        if (name.equals("result")) {
+          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+        } else if (name.equals("message")) {
           this.message = castToMarkdown(value); // MarkdownType
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.detail = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1277,6 +1317,17 @@ public class TestReport extends DomainResource {
         case 954925063:  return getMessageElement();
         case -1335224239:  return getDetailElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -934426595: /*result*/ return new String[] {"code"};
+        case 954925063: /*message*/ return new String[] {"markdown"};
+        case -1335224239: /*detail*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1545,7 +1596,8 @@ public class TestReport extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
-          this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
+          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
           return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
@@ -1560,13 +1612,14 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("result"))
-          this.result = new TestReportResultCodesEnumFactory().fromType(value); // Enumeration<TestReportResultCodes>
-        else if (name.equals("message"))
+        if (name.equals("result")) {
+          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+        } else if (name.equals("message")) {
           this.message = castToMarkdown(value); // MarkdownType
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.detail = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1578,6 +1631,17 @@ public class TestReport extends DomainResource {
         case 954925063:  return getMessageElement();
         case -1335224239:  return getDetailElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -934426595: /*result*/ return new String[] {"code"};
+        case 954925063: /*message*/ return new String[] {"markdown"};
+        case -1335224239: /*detail*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1860,13 +1924,13 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("action"))
+        } else if (name.equals("action")) {
           this.getAction().add((TestActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1878,6 +1942,17 @@ public class TestReport extends DomainResource {
         case -1724546052:  return getDescriptionElement();
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2048,11 +2123,11 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else if (name.equals("assert"))
+        } else if (name.equals("assert")) {
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2063,6 +2138,16 @@ public class TestReport extends DomainResource {
         case 1662702951:  return getOperation(); 
         case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {"@TestReport.setup.action.operation"};
+        case -1408208058: /*assert*/ return new String[] {"@TestReport.setup.action.assert"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2218,9 +2303,9 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.getAction().add((TeardownActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2230,6 +2315,15 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2362,9 +2456,9 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2374,6 +2468,15 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case 1662702951:  return getOperation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {"@TestReport.setup.action.operation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3052,7 +3155,8 @@ public class TestReport extends DomainResource {
           this.name = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new TestReportStatusEnumFactory().fromType(value); // Enumeration<TestReportStatus>
+          value = new TestReportStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<TestReportStatus>
           return value;
         case 109264530: // score
           this.score = castToDecimal(value); // DecimalType
@@ -3085,29 +3189,30 @@ public class TestReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new TestReportStatusEnumFactory().fromType(value); // Enumeration<TestReportStatus>
-        else if (name.equals("score"))
+        } else if (name.equals("status")) {
+          value = new TestReportStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<TestReportStatus>
+        } else if (name.equals("score")) {
           this.score = castToDecimal(value); // DecimalType
-        else if (name.equals("tester"))
+        } else if (name.equals("tester")) {
           this.tester = castToString(value); // StringType
-        else if (name.equals("testScript"))
+        } else if (name.equals("testScript")) {
           this.testScript = castToReference(value); // Reference
-        else if (name.equals("issued"))
+        } else if (name.equals("issued")) {
           this.issued = castToDateTime(value); // DateTimeType
-        else if (name.equals("participant"))
+        } else if (name.equals("participant")) {
           this.getParticipant().add((TestReportParticipantComponent) value);
-        else if (name.equals("setup"))
+        } else if (name.equals("setup")) {
           this.setup = (TestReportSetupComponent) value; // TestReportSetupComponent
-        else if (name.equals("test"))
+        } else if (name.equals("test")) {
           this.getTest().add((TestReportTestComponent) value);
-        else if (name.equals("teardown"))
+        } else if (name.equals("teardown")) {
           this.teardown = (TestReportTeardownComponent) value; // TestReportTeardownComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3127,6 +3232,25 @@ public class TestReport extends DomainResource {
         case 3556498:  return addTest(); 
         case -1663474172:  return getTeardown(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 109264530: /*score*/ return new String[] {"decimal"};
+        case -877169473: /*tester*/ return new String[] {"string"};
+        case 1712049149: /*testScript*/ return new String[] {"Reference"};
+        case -1179159893: /*issued*/ return new String[] {"dateTime"};
+        case 767422259: /*participant*/ return new String[] {};
+        case 109329021: /*setup*/ return new String[] {};
+        case 3556498: /*test*/ return new String[] {};
+        case -1663474172: /*teardown*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

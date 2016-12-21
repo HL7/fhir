@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -141,8 +141,10 @@ public class CodeSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown CodeSystemHierarchyMeaning code '"+codeString+"'");
         }
         public Enumeration<CodeSystemHierarchyMeaning> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CodeSystemHierarchyMeaning>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -263,8 +265,10 @@ public class CodeSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown CodeSystemContentMode code '"+codeString+"'");
         }
         public Enumeration<CodeSystemContentMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CodeSystemContentMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -445,8 +449,10 @@ public class CodeSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
         public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FilterOperator>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -611,8 +617,10 @@ public class CodeSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown PropertyType code '"+codeString+"'");
         }
         public Enumeration<PropertyType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<PropertyType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -929,7 +937,8 @@ public class CodeSystem extends MetadataResource {
           this.description = castToString(value); // StringType
           return value;
         case -500553564: // operator
-          this.getOperator().add(new FilterOperatorEnumFactory().fromType(value)); // Enumeration<FilterOperator>
+          value = new FilterOperatorEnumFactory().fromType(castToCode(value));
+          this.getOperator().add((Enumeration) value); // Enumeration<FilterOperator>
           return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
@@ -941,15 +950,16 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("operator"))
-          this.getOperator().add(new FilterOperatorEnumFactory().fromType(value));
-        else if (name.equals("value"))
+        } else if (name.equals("operator")) {
+          value = new FilterOperatorEnumFactory().fromType(castToCode(value));
+          this.getOperator().add((Enumeration) value);
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -962,6 +972,18 @@ public class CodeSystem extends MetadataResource {
         case -500553564:  return addOperatorElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -500553564: /*operator*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1302,7 +1324,8 @@ public class CodeSystem extends MetadataResource {
           this.description = castToString(value); // StringType
           return value;
         case 3575610: // type
-          this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
+          value = new PropertyTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<PropertyType>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1311,15 +1334,16 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("uri"))
+        } else if (name.equals("uri")) {
           this.uri = castToUri(value); // UriType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("type"))
-          this.type = new PropertyTypeEnumFactory().fromType(value); // Enumeration<PropertyType>
-        else
+        } else if (name.equals("type")) {
+          value = new PropertyTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<PropertyType>
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1332,6 +1356,18 @@ public class CodeSystem extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case 3575610:  return getTypeElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 116076: /*uri*/ return new String[] {"uri"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1813,19 +1849,19 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else if (name.equals("definition"))
+        } else if (name.equals("definition")) {
           this.definition = castToString(value); // StringType
-        else if (name.equals("designation"))
+        } else if (name.equals("designation")) {
           this.getDesignation().add((ConceptDefinitionDesignationComponent) value);
-        else if (name.equals("property"))
+        } else if (name.equals("property")) {
           this.getProperty().add((ConceptPropertyComponent) value);
-        else if (name.equals("concept"))
+        } else if (name.equals("concept")) {
           this.getConcept().add((ConceptDefinitionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1840,6 +1876,20 @@ public class CodeSystem extends MetadataResource {
         case -993141291:  return addProperty(); 
         case 951024232:  return addConcept(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        case -1014418093: /*definition*/ return new String[] {"string"};
+        case -900931593: /*designation*/ return new String[] {};
+        case -993141291: /*property*/ return new String[] {};
+        case 951024232: /*concept*/ return new String[] {"@CodeSystem.concept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2124,13 +2174,13 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("language"))
+        if (name.equals("language")) {
           this.language = castToCode(value); // CodeType
-        else if (name.equals("use"))
+        } else if (name.equals("use")) {
           this.use = castToCoding(value); // Coding
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2142,6 +2192,17 @@ public class CodeSystem extends MetadataResource {
         case 116103:  return getUse(); 
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1613589672: /*language*/ return new String[] {"code"};
+        case 116103: /*use*/ return new String[] {"Coding"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2411,11 +2472,11 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2425,7 +2486,18 @@ public class CodeSystem extends MetadataResource {
         switch (hash) {
         case 3059181:  return getCodeElement();
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"code", "Coding", "string", "integer", "boolean", "dateTime"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3890,7 +3962,8 @@ public class CodeSystem extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -3926,7 +3999,8 @@ public class CodeSystem extends MetadataResource {
           this.valueSet = castToUri(value); // UriType
           return value;
         case 1913078280: // hierarchyMeaning
-          this.hierarchyMeaning = new CodeSystemHierarchyMeaningEnumFactory().fromType(value); // Enumeration<CodeSystemHierarchyMeaning>
+          value = new CodeSystemHierarchyMeaningEnumFactory().fromType(castToCode(value));
+          this.hierarchyMeaning = (Enumeration) value; // Enumeration<CodeSystemHierarchyMeaning>
           return value;
         case 1248023381: // compositional
           this.compositional = castToBoolean(value); // BooleanType
@@ -3935,7 +4009,8 @@ public class CodeSystem extends MetadataResource {
           this.versionNeeded = castToBoolean(value); // BooleanType
           return value;
         case 951530617: // content
-          this.content = new CodeSystemContentModeEnumFactory().fromType(value); // Enumeration<CodeSystemContentMode>
+          value = new CodeSystemContentModeEnumFactory().fromType(castToCode(value));
+          this.content = (Enumeration) value; // Enumeration<CodeSystemContentMode>
           return value;
         case 94851343: // count
           this.count = castToUnsignedInt(value); // UnsignedIntType
@@ -3956,57 +4031,60 @@ public class CodeSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("caseSensitive"))
+        } else if (name.equals("caseSensitive")) {
           this.caseSensitive = castToBoolean(value); // BooleanType
-        else if (name.equals("valueSet"))
+        } else if (name.equals("valueSet")) {
           this.valueSet = castToUri(value); // UriType
-        else if (name.equals("hierarchyMeaning"))
-          this.hierarchyMeaning = new CodeSystemHierarchyMeaningEnumFactory().fromType(value); // Enumeration<CodeSystemHierarchyMeaning>
-        else if (name.equals("compositional"))
+        } else if (name.equals("hierarchyMeaning")) {
+          value = new CodeSystemHierarchyMeaningEnumFactory().fromType(castToCode(value));
+          this.hierarchyMeaning = (Enumeration) value; // Enumeration<CodeSystemHierarchyMeaning>
+        } else if (name.equals("compositional")) {
           this.compositional = castToBoolean(value); // BooleanType
-        else if (name.equals("versionNeeded"))
+        } else if (name.equals("versionNeeded")) {
           this.versionNeeded = castToBoolean(value); // BooleanType
-        else if (name.equals("content"))
-          this.content = new CodeSystemContentModeEnumFactory().fromType(value); // Enumeration<CodeSystemContentMode>
-        else if (name.equals("count"))
+        } else if (name.equals("content")) {
+          value = new CodeSystemContentModeEnumFactory().fromType(castToCode(value));
+          this.content = (Enumeration) value; // Enumeration<CodeSystemContentMode>
+        } else if (name.equals("count")) {
           this.count = castToUnsignedInt(value); // UnsignedIntType
-        else if (name.equals("filter"))
+        } else if (name.equals("filter")) {
           this.getFilter().add((CodeSystemFilterComponent) value);
-        else if (name.equals("property"))
+        } else if (name.equals("property")) {
           this.getProperty().add((PropertyComponent) value);
-        else if (name.equals("concept"))
+        } else if (name.equals("concept")) {
           this.getConcept().add((ConceptDefinitionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4040,6 +4118,39 @@ public class CodeSystem extends MetadataResource {
         case -993141291:  return addProperty(); 
         case 951024232:  return addConcept(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case -35616442: /*caseSensitive*/ return new String[] {"boolean"};
+        case -1410174671: /*valueSet*/ return new String[] {"uri"};
+        case 1913078280: /*hierarchyMeaning*/ return new String[] {"code"};
+        case 1248023381: /*compositional*/ return new String[] {"boolean"};
+        case 617270957: /*versionNeeded*/ return new String[] {"boolean"};
+        case 951530617: /*content*/ return new String[] {"code"};
+        case 94851343: /*count*/ return new String[] {"unsignedInt"};
+        case -1274492040: /*filter*/ return new String[] {};
+        case -993141291: /*property*/ return new String[] {};
+        case 951024232: /*concept*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

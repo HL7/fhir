@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -211,8 +211,10 @@ public class ProcedureRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ProcedureRequestStatus code '"+codeString+"'");
         }
         public Enumeration<ProcedureRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ProcedureRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -357,8 +359,10 @@ public class ProcedureRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ProcedureRequestPriority code '"+codeString+"'");
         }
         public Enumeration<ProcedureRequestPriority> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ProcedureRequestPriority>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1313,7 +1317,8 @@ public class ProcedureRequest extends DomainResource {
           this.performer = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new ProcedureRequestStatusEnumFactory().fromType(value); // Enumeration<ProcedureRequestStatus>
+          value = new ProcedureRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcedureRequestStatus>
           return value;
         case 1922406657: // supportingInfo
           this.getSupportingInfo().add(castToReference(value)); // Reference
@@ -1331,7 +1336,8 @@ public class ProcedureRequest extends DomainResource {
           this.orderer = castToReference(value); // Reference
           return value;
         case -1165461084: // priority
-          this.priority = new ProcedureRequestPriorityEnumFactory().fromType(value); // Enumeration<ProcedureRequestPriority>
+          value = new ProcedureRequestPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ProcedureRequestPriority>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1340,37 +1346,39 @@ public class ProcedureRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("bodySite"))
+        } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("scheduled[x]"))
+        } else if (name.equals("scheduled[x]")) {
           this.scheduled = castToType(value); // Type
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new ProcedureRequestStatusEnumFactory().fromType(value); // Enumeration<ProcedureRequestStatus>
-        else if (name.equals("supportingInfo"))
+        } else if (name.equals("status")) {
+          value = new ProcedureRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcedureRequestStatus>
+        } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
-        else if (name.equals("notes"))
+        } else if (name.equals("notes")) {
           this.getNotes().add(castToAnnotation(value));
-        else if (name.equals("asNeeded[x]"))
+        } else if (name.equals("asNeeded[x]")) {
           this.asNeeded = castToType(value); // Type
-        else if (name.equals("orderedOn"))
+        } else if (name.equals("orderedOn")) {
           this.orderedOn = castToDateTime(value); // DateTimeType
-        else if (name.equals("orderer"))
+        } else if (name.equals("orderer")) {
           this.orderer = castToReference(value); // Reference
-        else if (name.equals("priority"))
-          this.priority = new ProcedureRequestPriorityEnumFactory().fromType(value); // Enumeration<ProcedureRequestPriority>
-        else
+        } else if (name.equals("priority")) {
+          value = new ProcedureRequestPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ProcedureRequestPriority>
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1383,17 +1391,43 @@ public class ProcedureRequest extends DomainResource {
         case 3059181:  return getCode(); 
         case 1702620169:  return addBodySite(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case 1162627251:  return getScheduled(); 
+        case -160710483:  return getScheduled(); 
         case 1524132147:  return getEncounter(); 
         case 481140686:  return getPerformer(); 
         case -892481550:  return getStatusElement();
         case 1922406657:  return addSupportingInfo(); 
         case 105008833:  return addNotes(); 
         case -544329575:  return getAsNeeded(); 
+        case -1432923513:  return getAsNeeded(); 
         case -391079124:  return getOrderedOnElement();
         case -1207109509:  return getOrderer(); 
         case -1165461084:  return getPriorityElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case -160710483: /*scheduled*/ return new String[] {"dateTime", "Period", "Timing"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
+        case 105008833: /*notes*/ return new String[] {"Annotation"};
+        case -1432923513: /*asNeeded*/ return new String[] {"boolean", "CodeableConcept"};
+        case -391079124: /*orderedOn*/ return new String[] {"dateTime"};
+        case -1207109509: /*orderer*/ return new String[] {"Reference"};
+        case -1165461084: /*priority*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

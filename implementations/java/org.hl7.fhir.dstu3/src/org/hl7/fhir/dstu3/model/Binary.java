@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -259,13 +259,13 @@ public class Binary extends BaseBinary implements IBaseBinary {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("contentType"))
+        if (name.equals("contentType")) {
           this.contentType = castToCode(value); // CodeType
-        else if (name.equals("securityContext"))
+        } else if (name.equals("securityContext")) {
           this.securityContext = castToReference(value); // Reference
-        else if (name.equals("content"))
+        } else if (name.equals("content")) {
           this.content = castToBase64Binary(value); // Base64BinaryType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -277,6 +277,17 @@ public class Binary extends BaseBinary implements IBaseBinary {
         case -1622888881:  return getSecurityContext(); 
         case 951530617:  return getContentElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -389131437: /*contentType*/ return new String[] {"code"};
+        case -1622888881: /*securityContext*/ return new String[] {"Reference"};
+        case 951530617: /*content*/ return new String[] {"base64Binary"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

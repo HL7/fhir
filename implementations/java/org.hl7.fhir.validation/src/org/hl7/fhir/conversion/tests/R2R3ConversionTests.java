@@ -28,8 +28,11 @@ import org.hl7.fhir.dstu3.model.ExpansionProfile;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.StructureMap;
+import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.test.TestingUtilities;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.StructureMapUtilities;
@@ -117,7 +120,6 @@ public class R2R3ConversionTests implements ITransformerServices {
   @Test
   public void test() throws Exception {
     checkLoad();
-    
     StructureMapUtilities smu3 = new StructureMapUtilities(contextR3, library, this);
     StructureMapUtilities smu2 = new StructureMapUtilities(contextR2, library, this);
     String tn = null;
@@ -226,6 +228,14 @@ public class R2R3ConversionTests implements ITransformerServices {
       throw new FHIRException(b.toString());
   }
 
+  /*
+   * Supporting multiple versions at once is a little tricky. We're going to have 2 contexts:
+   * - an R2 context which is used to read/write R2 instances 
+   * - an R3 context which is used to perform the transforms
+   * 
+   * R2 structure definitions are cloned into R3 context with a modified URL (as DSTU2/)  
+   *  
+   */
   private void checkLoad() throws IOException, FHIRException {
     if (contextR2 != null)
       return;
@@ -244,12 +254,24 @@ public class R2R3ConversionTests implements ITransformerServices {
     contextR3.loadFromFile(Utilities.path(root,"publish","expansions.xml"), null);
     contextR3.setCanRunWithoutTerminology(true);
 
+    for (StructureDefinition sd : contextR2.allStructures()) {
+      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+        sd.setType(sd.getId());
+      StructureDefinition sdn = sd.copy();
+      sdn.getExtension().clear();
+      contextR3.seeResource(sdn.getUrl(), sdn);
+    }
+    
+    StructureDefinition sd = contextR3.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/xhtml").copy();
+    sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/DSTU2/"));
+    contextR2.seeResource(sd.getUrl(), sd);
+    contextR3.seeResource(sd.getUrl(), sd);
+    
     contextR2.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR3.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR2.setName("R2");
     contextR3.setName("R3");
     contextR3.setValidatorFactory(new InstanceValidatorFactory());
-    
     
     System.out.println("loading Maps");
     library = new HashMap<String, StructureMap>();
@@ -266,7 +288,7 @@ public class R2R3ConversionTests implements ITransformerServices {
         StructureMap sm = smu.parse(map);
         library.put(sm.getUrl(), sm);
       } catch (FHIRException e) {
-        System.out.println("Unable to load "+s+": "+e.getMessage());
+        System.out.println("Unable to load "+Utilities.path(dir, s)+": "+e.getMessage());
 //        e.printStackTrace();
       }
     }
@@ -291,9 +313,12 @@ public class R2R3ConversionTests implements ITransformerServices {
   @Override
   public Base createType(Object appInfo, String name) throws FHIRException {
     SimpleWorkerContext context = (SimpleWorkerContext) appInfo;
-     if (context == contextR2)
-       return Manager.build(context, context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/DSTU2/StructureDefinition/"+name));
-     else
+     if (context == contextR2) {
+       StructureDefinition sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/DSTU2/StructureDefinition/"+name);
+       if (sd == null)
+         throw new FHIRException("Type not found: '"+name+"'");
+       return Manager.build(context, sd);
+     } else
        return ResourceFactory.createResourceOrType(name);
   }
 

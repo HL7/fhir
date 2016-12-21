@@ -1,29 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/AppointmentResponse3to2" = "R3 to R2 Conversion for AppointmentResponse"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/AppointmentResponse" alias AppointmentResponse as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AppointmentResponse" alias AppointmentResponseR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group AppointmentResponse extends DomainResource
+group for type+types  AppointmentResponse extends DomainResource
   input src : AppointmentResponse as source
   input tgt : AppointmentResponseR2 as target
 
-  "AppointmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "AppointmentResponse-appointment" : for src.appointment as vs make tgt.appointment as vt then Reference(vs,vt)
-  "AppointmentResponse-start" : for src.start as vs make tgt.start as vt then instant(vs, vt)
-  "AppointmentResponse-end" : for src.end as vs make tgt.end as vt then instant(vs, vt)
-  "AppointmentResponse-participantType" : for src.participantType as vs make tgt.participantType as vt then CodeableConcept(vs,vt)
-  "AppointmentResponse-actor" : for src.actor as vs make tgt.actor as vt then Reference(vs,vt)
-  "AppointmentResponse-participantStatus" : for src.participantStatus as vs make tgt.participantStatus as vt then code(vs, vt)
-  "AppointmentResponse-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
-endgroup
+  "AppointmentResponse-identifier" : for src.identifier make tgt.identifier
+  "AppointmentResponse-appointment" : for src.appointment make tgt.appointment
+  "AppointmentResponse-start" : for src.start make tgt.start
+  "AppointmentResponse-end" : for src.end make tgt.end
+  "AppointmentResponse-participantType" : for src.participantType make tgt.participantType
+  "AppointmentResponse-actor" : for src.actor make tgt.actor
+  "AppointmentResponse-participantStatus" : for src.participantStatus make tgt.participantStatus
+  "AppointmentResponse-comment" : for src.comment make tgt.comment
 
+endgroup

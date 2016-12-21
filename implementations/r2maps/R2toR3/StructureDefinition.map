@@ -1,6 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/StructureDefinition2to3" = "R2 to R3 Conversions for StructureDefinition"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/StructureDefinition" alias StructureDefinitionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as target
 
@@ -11,55 +10,60 @@ imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 imports "http://hl7.org/fhir/StructureMap/ElementDefinition2to3"
 
-
-
-group StructureDefinition extends DomainResource
+group for type+types  StructureDefinition extends DomainResource
   input src : StructureDefinitionR2 as source
   input tgt : StructureDefinition as target
 
-  "StructureDefinition-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "StructureDefinition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "StructureDefinition-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "StructureDefinition-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "StructureDefinition-title" : for src.display as vs make tgt.title as vt then string(vs, vt)
-  "StructureDefinition-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "StructureDefinition-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "StructureDefinition-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "StructureDefinition-url" : for src.url make tgt.url
+  "StructureDefinition-identifier" : for src.identifier make tgt.identifier
+  "StructureDefinition-version" : for src.version make tgt.version
+  "StructureDefinition-name" : for src.name make tgt.name
+  "StructureDefinition-title" : for src.display make tgt.title
+  "StructureDefinition-status" : for src.status make tgt.status
+  "StructureDefinition-experimental" : for src.experimental make tgt.experimental
+  "StructureDefinition-publisher" : for src.publisher make tgt.publisher
   "StructureDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "ContactDetail-name" : for vs0.name make vt0.name
+    "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
   }
-  "StructureDefinition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "StructureDefinition-description" : for src.description as vs make tgt.description as vt then stringToMarkdown(vs, vt)
-  "StructureDefinition-purpose" : for src.requirements as vs make tgt.purpose as vt then stringToMarkdown(vs, vt)
-  "StructureDefinition-copyright" : for src.copyright as vs make tgt.copyright as vt then stringToMarkdown(vs, vt)
-  "StructureDefinition-keyword" : for src.code as vs make tgt.keyword as vt then Coding(vs,vt)
-  "StructureDefinition-fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt then id(vs, vt)
-  "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "StructureDefinition.mapping-identity" : for vs0.identity as vs make vt0.identity as vt then id(vs, vt)
-    "StructureDefinition.mapping-uri" : for vs0.uri as vs make vt0.uri as vt then uri(vs, vt)
-    "StructureDefinition.mapping-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "StructureDefinition.mapping-comments" : for vs0.comments as vs make vt0.comments as vt then string(vs, vt)
-  }
-  "StructureDefinition-derivation-1" : for src where url.startsWith('http://hl7.org/fhir/StructureDefinition/') and url.endsWith('/'+$this.id) make tgt.derivation = "specialization"
-  "StructureDefinition-type-1" : for src.id as vs where url.startsWith('http://hl7.org/fhir/StructureDefinition/') and url.endsWith('/'+$this.id) make tgt.type = vs
-  "StructureDefinition-derivation-2" : for src where (url.startsWith('http://hl7.org/fhir/StructureDefinition/') and url.endsWith('/'+$this.id)).not() make tgt.derivation = "constraint"
-  "StructureDefinition-kind-1" : for src.kind as vs0 where kind = 'logical' make tgt.kind as vt0 then code(vs0, vt0)
-  "StructureDefinition-kind-1" : for src.kind as vs0 where kind = 'resource' make tgt.kind as vt0 then code(vs0, vt0)
-  "StructureDefinition-kind-1" : for src.kind as vs0 where kind = 'datatype' and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')) make tgt.kind as vt0 then code(vs0, vt0)
-  "StructureDefinition-kind-1" : for src.kind as vs0 where kind = 'datatype' and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')).not() make tgt.kind as vt0 then code(vs0, vt0)
-  "StructureDefinition-abstract" : for src.abstract as vs make tgt.abstract as vt then boolean(vs, vt)
-  "StructureDefinition-contextType" : for src.contextType as vs make tgt.contextType as vt then code(vs, vt)
-  "StructureDefinition-context" : for src.context as vs make tgt.context as vt then string(vs, vt)
-  "StructureDefinition-type" : for src.constrainedType as vs make tgt.type as vt then code(vs, vt)
-  "StructureDefinition-baseDefinition" : for src.base as vs make tgt.baseDefinition as vt then uri(vs, vt)
-  "StructureDefinition-snapshot" : for src.snapshot as vs0  make tgt.snapshot as vt0 then {
-    "StructureDefinition.snapshot-element-1" : for vs0.element first as vs make vt0.element as vt then ElementDefinition(vs,vt, first = true)
-    "StructureDefinition.snapshot-element-2" : for vs0.element not_first as vs make vt0.element as vt then ElementDefinition(vs,vt, first = false)
-  }
-  "StructureDefinition-differential" : for src.differential first as vs0 make tgt.differential as vt0 then {
-    "StructureDefinition.differential-element-1" : for vs0.element first as vs make vt0.element as vt then ElementDefinition(vs,vt, first = true)
-    "StructureDefinition.differential-element-2" : for vs0.element not_first as vs make vt0.element as vt then ElementDefinition(vs,vt, first = false)
-  }
-endgroup
 
+  "StructureDefinition-date" : for src.date make tgt.date
+  "StructureDefinition-description" : for src.description make tgt.description
+  "StructureDefinition-purpose" : for src.requirements make tgt.purpose
+  "StructureDefinition-copyright" : for src.copyright make tgt.copyright
+  "StructureDefinition-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "StructureDefinition-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
+  "StructureDefinition-keyword" : for src.code make tgt.keyword
+  "StructureDefinition-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
+  "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
+    "StructureDefinition.mapping-identity" : for vs0.identity make vt0.identity
+    "StructureDefinition.mapping-uri" : for vs0.uri make vt0.uri
+    "StructureDefinition.mapping-name" : for vs0.name make vt0.name
+    "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comments
+  }
+
+  "StructureDefinition-derivation-1" : for src where src.constrainedType.empty() make tgt.derivation = "specialization"
+  "StructureDefinition-type-1" : for src.id as vs where src.constrainedType.empty() make tgt.type = vs
+  "StructureDefinition-derivation-2" : for src where src.constrainedType.exists() make tgt.derivation = "constraint"
+  "StructureDefinition-type-2" : for src.constrainedType as vs where src.constrainedType.exists() make tgt.type = vs
+  "StructureDefinition-kind-1" : for src.kind where kind = 'logical' make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where kind = 'resource' make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where (kind = 'datatype') and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')) make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where (kind = 'datatype') and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')).not() make tgt.kind
+  "StructureDefinition-abstract" : for src.abstract make tgt.abstract
+  "StructureDefinition-contextType" : for src.contextType make tgt.contextType
+  "StructureDefinition-context" : for src.context make tgt.context
+  "StructureDefinition-type" : for src.constrainedType make tgt.type
+  "StructureDefinition-baseDefinition" : for src.base make tgt.baseDefinition
+  "StructureDefinition-snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
+    "StructureDefinition.snapshot-element-1" : for vs0.element first as vs make  vt0.element as vt,  create("boolean") as first,  first.value = "true" then ElementDefinition(vs, vt, first)
+    "StructureDefinition.snapshot-element-2" : for vs0.element not_first as vs make  vt0.element as vt,  create("boolean") as first,  first.value = "false" then ElementDefinition(vs, vt, first)
+  }
+
+  "StructureDefinition-differential" : for src.differential first as vs0 make tgt.differential as vt0 then {
+    "StructureDefinition.differential-element-1" : for vs0.element first as vs make  vt0.element as vt,  create("boolean") as first,  first.value = "true" then ElementDefinition(vs, vt, first)
+    "StructureDefinition.differential-element-2" : for vs0.element not_first as vs make  vt0.element as vt,  create("boolean") as first,  first.value = "false" then ElementDefinition(vs, vt, first)
+  }
+
+
+endgroup

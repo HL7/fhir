@@ -1,44 +1,41 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ValueSet3to2" = "R3 to R2 Conversion for ValueSet"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ValueSet" alias ValueSetR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group ValueSet extends DomainResource
+group for type+types  ValueSet extends DomainResource
   input src : ValueSet as source
   input tgt : ValueSetR2 as target
 
-  "ValueSet-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "ValueSet-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "ValueSet-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "ValueSet-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "ValueSet-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "ValueSet-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "ValueSet-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "ValueSet-url" : for src.url make tgt.url
+  "ValueSet-identifier" : for src.identifier make tgt.identifier
+  "ValueSet-version" : for src.version make tgt.version
+  "ValueSet-name" : for src.name make tgt.name
+  "ValueSet-status" : for src.status make tgt.status
+  "ValueSet-experimental" : for src.experimental make tgt.experimental
+  "ValueSet-publisher" : for src.publisher make tgt.publisher
   "ValueSet-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "ValueSet.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "ValueSet.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "ValueSet.contact-name" : for vs0.name make vt0.name
+    "ValueSet.contact-telecom" : for vs0.telecom make vt0.telecom
   }
-  "ValueSet-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "ValueSet-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
-  "ValueSet-immutable" : for src.immutable as vs make tgt.immutable as vt then boolean(vs, vt)
-  "ValueSet-extensible" : for src.extensible as vs make tgt.extensible as vt then boolean(vs, vt)
-  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0 then {
-  }
-  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
-    "ValueSet.expansion-identifier" : for vs0.identifier as vs make vt0.identifier as vt then uri(vs, vt)
-    "ValueSet.expansion-timestamp" : for vs0.timestamp as vs make vt0.timestamp as vt then dateTime(vs, vt)
-    "ValueSet.expansion-total" : for vs0.total as vs make vt0.total as vt then integer(vs, vt)
-    "ValueSet.expansion-offset" : for vs0.offset as vs make vt0.offset as vt then integer(vs, vt)
-  }
-endgroup
 
+  "ValueSet-date" : for src.date make tgt.date
+  "ValueSet-useContext" : for src.jurisdiction make tgt.useContext
+  "ValueSet-immutable" : for src.immutable make tgt.immutable
+  "ValueSet-extensible" : for src.extensible make tgt.extensible
+  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0
+  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
+    "ValueSet.expansion-identifier" : for vs0.identifier make vt0.identifier
+    "ValueSet.expansion-timestamp" : for vs0.timestamp make vt0.timestamp
+    "ValueSet.expansion-total" : for vs0.total make vt0.total
+    "ValueSet.expansion-offset" : for vs0.offset make vt0.offset
+  }
+
+
+endgroup

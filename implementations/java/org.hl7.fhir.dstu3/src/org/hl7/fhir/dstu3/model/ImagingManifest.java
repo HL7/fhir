@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -337,15 +337,15 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("uid"))
+        if (name.equals("uid")) {
           this.uid = castToOid(value); // OidType
-        else if (name.equals("imagingStudy"))
+        } else if (name.equals("imagingStudy")) {
           this.imagingStudy = castToReference(value); // Reference
-        else if (name.equals("baseLocation"))
+        } else if (name.equals("baseLocation")) {
           this.getBaseLocation().add((StudyBaseLocationComponent) value);
-        else if (name.equals("series"))
+        } else if (name.equals("series")) {
           this.getSeries().add((SeriesComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -358,6 +358,18 @@ public class ImagingManifest extends DomainResource {
         case 231778726:  return addBaseLocation(); 
         case -905838985:  return addSeries(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 115792: /*uid*/ return new String[] {"oid"};
+        case -814900911: /*imagingStudy*/ return new String[] {"Reference"};
+        case 231778726: /*baseLocation*/ return new String[] {};
+        case -905838985: /*series*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -568,11 +580,11 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -583,6 +595,16 @@ public class ImagingManifest extends DomainResource {
         case 3575610:  return getType(); 
         case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"Coding"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -867,13 +889,13 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("uid"))
+        if (name.equals("uid")) {
           this.uid = castToOid(value); // OidType
-        else if (name.equals("baseLocation"))
+        } else if (name.equals("baseLocation")) {
           this.getBaseLocation().add((SeriesBaseLocationComponent) value);
-        else if (name.equals("instance"))
+        } else if (name.equals("instance")) {
           this.getInstance().add((InstanceComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -885,6 +907,17 @@ public class ImagingManifest extends DomainResource {
         case 231778726:  return addBaseLocation(); 
         case 555127957:  return addInstance(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 115792: /*uid*/ return new String[] {"oid"};
+        case 231778726: /*baseLocation*/ return new String[] {};
+        case 555127957: /*instance*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1090,11 +1123,11 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1105,6 +1138,16 @@ public class ImagingManifest extends DomainResource {
         case 3575610:  return getType(); 
         case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"Coding"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1317,11 +1360,11 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("sopClass"))
+        if (name.equals("sopClass")) {
           this.sopClass = castToOid(value); // OidType
-        else if (name.equals("uid"))
+        } else if (name.equals("uid")) {
           this.uid = castToOid(value); // OidType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1332,6 +1375,16 @@ public class ImagingManifest extends DomainResource {
         case 1560041540:  return getSopClassElement();
         case 115792:  return getUidElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1560041540: /*sopClass*/ return new String[] {"oid"};
+        case 115792: /*uid*/ return new String[] {"oid"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1829,21 +1882,21 @@ public class ImagingManifest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("uid"))
+        if (name.equals("uid")) {
           this.uid = castToOid(value); // OidType
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("authoringTime"))
+        } else if (name.equals("authoringTime")) {
           this.authoringTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("study"))
+        } else if (name.equals("study")) {
           this.getStudy().add((StudyComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1859,6 +1912,21 @@ public class ImagingManifest extends DomainResource {
         case -1724546052:  return getDescriptionElement();
         case 109776329:  return addStudy(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 115792: /*uid*/ return new String[] {"oid"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1724532252: /*authoringTime*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 110371416: /*title*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 109776329: /*study*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

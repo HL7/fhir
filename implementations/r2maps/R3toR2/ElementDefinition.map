@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ElementDefinition3to2" = "R3 to R2 Conversion for ElementDefinition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ElementDefinition" alias ElementDefinitionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Meta3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
@@ -25,186 +23,78 @@ imports "http://hl7.org/fhir/StructureMap/Signature3to2"
 imports "http://hl7.org/fhir/StructureMap/Timing3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group ElementDefinition extends Element
+group for type+types  ElementDefinition extends Element
   input srcR : Resource as source
   input src : ElementDefinition as source
   input tgt : ElementDefinitionR2 as target
 
-  "ElementDefinition-path" : for src.path as vs make tgt.path as vt then string(vs, vt)
-  "ElementDefinition-name" : for src.sliceName as vs make tgt.name as vt then string(vs, vt)
-  "ElementDefinition-representation" : for src.representation as vs where representation = 'xmlAttr' make tgt.representation as vt then code(vs, vt)
-  "ElementDefinition-label" : for src.label as vs make tgt.label as vt then string(vs, vt)
-  "ElementDefinition-code" : for src.code as vs make tgt.code as vt then Coding(vs,vt)
+  "ElementDefinition-path" : for src.path make tgt.path
+  "ElementDefinition-name" : for src.sliceName make tgt.name
+  "ElementDefinition-representation" : for src.representation where representation = 'xmlAttr' make tgt.representation
+  "ElementDefinition-label" : for src.label make tgt.label
+  "ElementDefinition-code" : for src.code make tgt.code
   "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
-    "ElementDefinition.slicing-discriminator" : for vs0.discriminator as vs make vt0.discriminator as vt then string(vs, vt)
-    "ElementDefinition.slicing-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-    "ElementDefinition.slicing-ordered" : for vs0.ordered as vs make vt0.ordered as vt then boolean(vs, vt)
-    "ElementDefinition.slicing-rules" : for vs0.rules as vs make vt0.rules as vt then code(vs, vt)
+    "ElementDefinition.slicing-discriminator" : for vs0.discriminator make vt0.discriminator
+    "ElementDefinition.slicing-description" : for vs0.description make vt0.description
+    "ElementDefinition.slicing-ordered" : for vs0.ordered make vt0.ordered
+    "ElementDefinition.slicing-rules" : for vs0.rules make vt0.rules
   }
-  "ElementDefinition-short" : for src.short as vs make tgt.short as vt then string(vs, vt)
-  "ElementDefinition-definition" : for src.definition as vs make tgt.definition as vt then markdown(vs, vt)
-  "ElementDefinition-comments" : for src.comments as vs make tgt.comments as vt then markdown(vs, vt)
-  "ElementDefinition-requirements" : for src.requirements as vs make tgt.requirements as vt then markdown(vs, vt)
-  "ElementDefinition-alias" : for src.alias as vs make tgt.alias as vt then string(vs, vt)
-  "ElementDefinition-min" : for src.min as vs make tgt.min as vt then integer(vs, vt)
-  "ElementDefinition-max" : for src.max as vs make tgt.max as vt then string(vs, vt)
+
+  "ElementDefinition-short" : for src.short make tgt.short
+  "ElementDefinition-definition" : for src.definition make tgt.definition
+  "ElementDefinition-comments" : for src.comments make tgt.comments
+  "ElementDefinition-requirements" : for src.requirements make tgt.requirements
+  "ElementDefinition-alias" : for src.alias make tgt.alias
+  "ElementDefinition-min" : for src.min make tgt.min
+  "ElementDefinition-max" : for src.max make tgt.max
   "ElementDefinition-base" : for src.base as vs0 make tgt.base as vt0 then {
-    "ElementDefinition.base-path" : for vs0.path as vs make vt0.path as vt then string(vs, vt)
-    "ElementDefinition.base-min" : for vs0.min as vs make vt0.min as vt then integer(vs, vt)
-    "ElementDefinition.base-max" : for vs0.max as vs make vt0.max as vt then string(vs, vt)
+    "ElementDefinition.base-path" : for vs0.path make vt0.path
+    "ElementDefinition.base-min" : for vs0.min make vt0.min
+    "ElementDefinition.base-max" : for vs0.max make vt0.max
   }
+
   "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then {
-    "ElementDefinition.type-code" : for vs0.code as vs make vt0.code as vt then uriToCode(vs, vt)
-    "ElementDefinition.type-profile1" : for vs0.profile as vs where targetProfile.empty() make vt0.profile as vt then uri(vs, vt)
-    "ElementDefinition.type-profile2" : for vs0.targetProfile as vs make vt0.profile as vt then uri(vs, vt)
-    "ElementDefinition.type-aggregation" : for vs0.aggregation as vs make vt0.aggregation as vt then code(vs, vt)
+    "ElementDefinition.type-code" : for vs0.code make vt0.code
+    "ElementDefinition.type-profile1" : for vs0.profile where targetProfile.empty() make vt0.profile
+    "ElementDefinition.type-profile2" : for vs0.targetProfile make vt0.profile
+    "ElementDefinition.type-aggregation" : for vs0.aggregation make vt0.aggregation
   }
-  "ElementDefinition-type-1st" : for src as vs0 where type.empty() and contentReference.empty() make tgt.type as vt0 then {
+
+  "ElementDefinition-type-1st" : for src where src.path.contains('.').not() and src.type.empty() and src.contentReference.empty() make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for srcR.baseDefinition as base make vt0.code = (base.substring(40))
   }
-  "ElementDefinition-contentReference" : for src.contentReference as vs make tgt.nameReference as vt then uriToString(vs,vt)
-  "ElementDefinition-defaultValue-base64Binary" : for src.defaultValue  : base64Binary as vs make tgt.defaultValue = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition-defaultValue-boolean" : for src.defaultValue  : boolean as vs make tgt.defaultValue = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition-defaultValue-code" : for src.defaultValue  : code as vs make tgt.defaultValue = create("code") as vt then code(vs,vt)
-  "ElementDefinition-defaultValue-date" : for src.defaultValue  : date as vs make tgt.defaultValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition-defaultValue-dateTime" : for src.defaultValue  : dateTime as vs make tgt.defaultValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition-defaultValue-decimal" : for src.defaultValue  : decimal as vs make tgt.defaultValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition-defaultValue-id" : for src.defaultValue  : id as vs make tgt.defaultValue = create("id") as vt then id(vs,vt)
-  "ElementDefinition-defaultValue-instant" : for src.defaultValue  : instant as vs make tgt.defaultValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition-defaultValue-integer" : for src.defaultValue  : integer as vs make tgt.defaultValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition-defaultValue-markdown" : for src.defaultValue  : markdown as vs make tgt.defaultValue = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition-defaultValue-oid" : for src.defaultValue  : oid as vs make tgt.defaultValue = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition-defaultValue-positiveInt" : for src.defaultValue  : positiveInt as vs make tgt.defaultValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition-defaultValue-string" : for src.defaultValue  : string as vs make tgt.defaultValue = create("string") as vt then string(vs,vt)
-  "ElementDefinition-defaultValue-time" : for src.defaultValue  : time as vs make tgt.defaultValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition-defaultValue-unsignedInt" : for src.defaultValue  : unsignedInt as vs make tgt.defaultValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition-defaultValue-uri" : for src.defaultValue  : uri as vs make tgt.defaultValue = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition-defaultValue-Address" : for src.defaultValue  : Address as vs make tgt.defaultValue = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition-defaultValue-Annotation" : for src.defaultValue  : Annotation as vs make tgt.defaultValue = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition-defaultValue-Attachment" : for src.defaultValue  : Attachment as vs make tgt.defaultValue = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition-defaultValue-CodeableConcept" : for src.defaultValue  : CodeableConcept as vs make tgt.defaultValue = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition-defaultValue-Coding" : for src.defaultValue  : Coding as vs make tgt.defaultValue = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition-defaultValue-ContactPoint" : for src.defaultValue  : ContactPoint as vs make tgt.defaultValue = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition-defaultValue-HumanName" : for src.defaultValue  : HumanName as vs make tgt.defaultValue = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition-defaultValue-Identifier" : for src.defaultValue  : Identifier as vs make tgt.defaultValue = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition-defaultValue-Period" : for src.defaultValue  : Period as vs make tgt.defaultValue = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition-defaultValue-Quantity" : for src.defaultValue  : Quantity as vs make tgt.defaultValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition-defaultValue-Range" : for src.defaultValue  : Range as vs make tgt.defaultValue = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition-defaultValue-Ratio" : for src.defaultValue  : Ratio as vs make tgt.defaultValue = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition-defaultValue-Reference" : for src.defaultValue  : Reference as vs make tgt.defaultValue = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition-defaultValue-SampledData" : for src.defaultValue  : SampledData as vs make tgt.defaultValue = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition-defaultValue-Signature" : for src.defaultValue  : Signature as vs make tgt.defaultValue = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition-defaultValue-Timing" : for src.defaultValue  : Timing as vs make tgt.defaultValue = create("Timing") as vt then Timing(vs,vt)
-  "ElementDefinition-defaultValue-Meta" : for src.defaultValue  : Meta as vs make tgt.defaultValue = create("Meta") as vt then Meta(vs,vt)
-  "ElementDefinition-meaningWhenMissing" : for src.meaningWhenMissing as vs make tgt.meaningWhenMissing as vt then markdown(vs, vt)
-  "ElementDefinition-fixed-base64Binary" : for src.fixed  : base64Binary as vs make tgt.fixed = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition-fixed-boolean" : for src.fixed  : boolean as vs make tgt.fixed = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition-fixed-code" : for src.fixed  : code as vs make tgt.fixed = create("code") as vt then code(vs,vt)
-  "ElementDefinition-fixed-date" : for src.fixed  : date as vs make tgt.fixed = create("date") as vt then date(vs,vt)
-  "ElementDefinition-fixed-dateTime" : for src.fixed  : dateTime as vs make tgt.fixed = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition-fixed-decimal" : for src.fixed  : decimal as vs make tgt.fixed = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition-fixed-id" : for src.fixed  : id as vs make tgt.fixed = create("id") as vt then id(vs,vt)
-  "ElementDefinition-fixed-instant" : for src.fixed  : instant as vs make tgt.fixed = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition-fixed-integer" : for src.fixed  : integer as vs make tgt.fixed = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition-fixed-markdown" : for src.fixed  : markdown as vs make tgt.fixed = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition-fixed-oid" : for src.fixed  : oid as vs make tgt.fixed = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition-fixed-positiveInt" : for src.fixed  : positiveInt as vs make tgt.fixed = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition-fixed-string" : for src.fixed  : string as vs make tgt.fixed = create("string") as vt then string(vs,vt)
-  "ElementDefinition-fixed-time" : for src.fixed  : time as vs make tgt.fixed = create("time") as vt then time(vs,vt)
-  "ElementDefinition-fixed-unsignedInt" : for src.fixed  : unsignedInt as vs make tgt.fixed = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition-fixed-uri" : for src.fixed  : uri as vs make tgt.fixed = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition-fixed-Address" : for src.fixed  : Address as vs make tgt.fixed = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition-fixed-Annotation" : for src.fixed  : Annotation as vs make tgt.fixed = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition-fixed-Attachment" : for src.fixed  : Attachment as vs make tgt.fixed = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition-fixed-CodeableConcept" : for src.fixed  : CodeableConcept as vs make tgt.fixed = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition-fixed-Coding" : for src.fixed  : Coding as vs make tgt.fixed = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition-fixed-ContactPoint" : for src.fixed  : ContactPoint as vs make tgt.fixed = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition-fixed-HumanName" : for src.fixed  : HumanName as vs make tgt.fixed = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition-fixed-Identifier" : for src.fixed  : Identifier as vs make tgt.fixed = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition-fixed-Period" : for src.fixed  : Period as vs make tgt.fixed = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition-fixed-Quantity" : for src.fixed  : Quantity as vs make tgt.fixed = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition-fixed-Range" : for src.fixed  : Range as vs make tgt.fixed = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition-fixed-Ratio" : for src.fixed  : Ratio as vs make tgt.fixed = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition-fixed-Reference" : for src.fixed  : Reference as vs make tgt.fixed = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition-fixed-SampledData" : for src.fixed  : SampledData as vs make tgt.fixed = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition-fixed-Signature" : for src.fixed  : Signature as vs make tgt.fixed = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition-fixed-Timing" : for src.fixed  : Timing as vs make tgt.fixed = create("Timing") as vt then Timing(vs,vt)
-  "ElementDefinition-fixed-Meta" : for src.fixed  : Meta as vs make tgt.fixed = create("Meta") as vt then Meta(vs,vt)
-  "ElementDefinition-pattern-base64Binary" : for src.pattern  : base64Binary as vs make tgt.pattern = create("base64Binary") as vt then base64Binary(vs,vt)
-  "ElementDefinition-pattern-boolean" : for src.pattern  : boolean as vs make tgt.pattern = create("boolean") as vt then boolean(vs,vt)
-  "ElementDefinition-pattern-code" : for src.pattern  : code as vs make tgt.pattern = create("code") as vt then code(vs,vt)
-  "ElementDefinition-pattern-date" : for src.pattern  : date as vs make tgt.pattern = create("date") as vt then date(vs,vt)
-  "ElementDefinition-pattern-dateTime" : for src.pattern  : dateTime as vs make tgt.pattern = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition-pattern-decimal" : for src.pattern  : decimal as vs make tgt.pattern = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition-pattern-id" : for src.pattern  : id as vs make tgt.pattern = create("id") as vt then id(vs,vt)
-  "ElementDefinition-pattern-instant" : for src.pattern  : instant as vs make tgt.pattern = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition-pattern-integer" : for src.pattern  : integer as vs make tgt.pattern = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition-pattern-markdown" : for src.pattern  : markdown as vs make tgt.pattern = create("markdown") as vt then markdown(vs,vt)
-  "ElementDefinition-pattern-oid" : for src.pattern  : oid as vs make tgt.pattern = create("oid") as vt then oid(vs,vt)
-  "ElementDefinition-pattern-positiveInt" : for src.pattern  : positiveInt as vs make tgt.pattern = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition-pattern-string" : for src.pattern  : string as vs make tgt.pattern = create("string") as vt then string(vs,vt)
-  "ElementDefinition-pattern-time" : for src.pattern  : time as vs make tgt.pattern = create("time") as vt then time(vs,vt)
-  "ElementDefinition-pattern-unsignedInt" : for src.pattern  : unsignedInt as vs make tgt.pattern = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition-pattern-uri" : for src.pattern  : uri as vs make tgt.pattern = create("uri") as vt then uri(vs,vt)
-  "ElementDefinition-pattern-Address" : for src.pattern  : Address as vs make tgt.pattern = create("Address") as vt then Address(vs,vt)
-  "ElementDefinition-pattern-Annotation" : for src.pattern  : Annotation as vs make tgt.pattern = create("Annotation") as vt then Annotation(vs,vt)
-  "ElementDefinition-pattern-Attachment" : for src.pattern  : Attachment as vs make tgt.pattern = create("Attachment") as vt then Attachment(vs,vt)
-  "ElementDefinition-pattern-CodeableConcept" : for src.pattern  : CodeableConcept as vs make tgt.pattern = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "ElementDefinition-pattern-Coding" : for src.pattern  : Coding as vs make tgt.pattern = create("Coding") as vt then Coding(vs,vt)
-  "ElementDefinition-pattern-ContactPoint" : for src.pattern  : ContactPoint as vs make tgt.pattern = create("ContactPoint") as vt then ContactPoint(vs,vt)
-  "ElementDefinition-pattern-HumanName" : for src.pattern  : HumanName as vs make tgt.pattern = create("HumanName") as vt then HumanName(vs,vt)
-  "ElementDefinition-pattern-Identifier" : for src.pattern  : Identifier as vs make tgt.pattern = create("Identifier") as vt then Identifier(vs,vt)
-  "ElementDefinition-pattern-Period" : for src.pattern  : Period as vs make tgt.pattern = create("Period") as vt then Period(vs,vt)
-  "ElementDefinition-pattern-Quantity" : for src.pattern  : Quantity as vs make tgt.pattern = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition-pattern-Range" : for src.pattern  : Range as vs make tgt.pattern = create("Range") as vt then Range(vs,vt)
-  "ElementDefinition-pattern-Ratio" : for src.pattern  : Ratio as vs make tgt.pattern = create("Ratio") as vt then Ratio(vs,vt)
-  "ElementDefinition-pattern-Reference" : for src.pattern  : Reference as vs make tgt.pattern = create("Reference") as vt then Reference(vs,vt)
-  "ElementDefinition-pattern-SampledData" : for src.pattern  : SampledData as vs make tgt.pattern = create("SampledData") as vt then SampledData(vs,vt)
-  "ElementDefinition-pattern-Signature" : for src.pattern  : Signature as vs make tgt.pattern = create("Signature") as vt then Signature(vs,vt)
-  "ElementDefinition-pattern-Timing" : for src.pattern  : Timing as vs make tgt.pattern = create("Timing") as vt then Timing(vs,vt)
-  "ElementDefinition-pattern-Meta" : for src.pattern  : Meta as vs make tgt.pattern = create("Meta") as vt then Meta(vs,vt)
-  "ElementDefinition-minValue-date" : for src.minValue  : date as vs make tgt.minValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition-minValue-dateTime" : for src.minValue  : dateTime as vs make tgt.minValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition-minValue-instant" : for src.minValue  : instant as vs make tgt.minValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition-minValue-time" : for src.minValue  : time as vs make tgt.minValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition-minValue-decimal" : for src.minValue  : decimal as vs make tgt.minValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition-minValue-integer" : for src.minValue  : integer as vs make tgt.minValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition-minValue-positiveInt" : for src.minValue  : positiveInt as vs make tgt.minValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition-minValue-unsignedInt" : for src.minValue  : unsignedInt as vs make tgt.minValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition-minValue-Quantity" : for src.minValue  : Quantity as vs make tgt.minValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition-maxValue-date" : for src.maxValue  : date as vs make tgt.maxValue = create("date") as vt then date(vs,vt)
-  "ElementDefinition-maxValue-dateTime" : for src.maxValue  : dateTime as vs make tgt.maxValue = create("dateTime") as vt then dateTime(vs,vt)
-  "ElementDefinition-maxValue-instant" : for src.maxValue  : instant as vs make tgt.maxValue = create("instant") as vt then instant(vs,vt)
-  "ElementDefinition-maxValue-time" : for src.maxValue  : time as vs make tgt.maxValue = create("time") as vt then time(vs,vt)
-  "ElementDefinition-maxValue-decimal" : for src.maxValue  : decimal as vs make tgt.maxValue = create("decimal") as vt then decimal(vs,vt)
-  "ElementDefinition-maxValue-integer" : for src.maxValue  : integer as vs make tgt.maxValue = create("integer") as vt then integer(vs,vt)
-  "ElementDefinition-maxValue-positiveInt" : for src.maxValue  : positiveInt as vs make tgt.maxValue = create("positiveInt") as vt then positiveInt(vs,vt)
-  "ElementDefinition-maxValue-unsignedInt" : for src.maxValue  : unsignedInt as vs make tgt.maxValue = create("unsignedInt") as vt then unsignedInt(vs,vt)
-  "ElementDefinition-maxValue-Quantity" : for src.maxValue  : Quantity as vs make tgt.maxValue = create("Quantity") as vt then Quantity(vs,vt)
-  "ElementDefinition-maxLength" : for src.maxLength as vs make tgt.maxLength as vt then integer(vs, vt)
-  "ElementDefinition-condition" : for src.condition as vs make tgt.condition as vt then id(vs, vt)
-  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
-    "ElementDefinition.constraint-key" : for vs0.key as vs make vt0.key as vt then id(vs, vt)
-    "ElementDefinition.constraint-requirements" : for vs0.requirements as vs make vt0.requirements as vt then string(vs, vt)
-    "ElementDefinition.constraint-severity" : for vs0.severity as vs make vt0.severity as vt then code(vs, vt)
-    "ElementDefinition.constraint-human" : for vs0.human as vs make vt0.human as vt then string(vs, vt)
-    "ElementDefinition.constraint-xpath" : for vs0.xpath as vs make vt0.xpath as vt then string(vs, vt)
-  }
-  "ElementDefinition-mustSupport" : for src.mustSupport as vs make tgt.mustSupport as vt then boolean(vs, vt)
-  "ElementDefinition-isModifier" : for src.isModifier as vs make tgt.isModifier as vt then boolean(vs, vt)
-  "ElementDefinition-isSummary" : for src.isSummary as vs make tgt.isSummary as vt then boolean(vs, vt)
-  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then {
-    "ElementDefinition.binding-strength" : for vs0.strength as vs make vt0.strength as vt then code(vs, vt)
-    "ElementDefinition.binding-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-    "ElementDefinition.binding-valueSet-uri" : for vs0.valueSet  : uri as vs make vt0.valueSet = create("uri") as vt then uri(vs,vt)
-    "ElementDefinition.binding-valueSet-Reference" : for vs0.valueSet  : Reference as vs make vt0.valueSet = create("Reference") as vt then Reference(vs,vt)
-  }
-  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "ElementDefinition.mapping-identity" : for vs0.identity as vs make vt0.identity as vt then id(vs, vt)
-    "ElementDefinition.mapping-language" : for vs0.language as vs make vt0.language as vt then code(vs, vt)
-    "ElementDefinition.mapping-map" : for vs0.map as vs make vt0.map as vt then string(vs, vt)
-  }
-endgroup
 
+  "ElementDefinition-contentReference" : for src.contentReference make tgt.nameReference
+  "ElementDefinition-defaultValue" : for src.defaultValue make tgt.defaultValue
+  "ElementDefinition-meaningWhenMissing" : for src.meaningWhenMissing make tgt.meaningWhenMissing
+  "ElementDefinition-fixed" : for src.fixed make tgt.fixed
+  "ElementDefinition-pattern" : for src.pattern make tgt.pattern
+  "ElementDefinition-minValue" : for src.minValue make tgt.minValue
+  "ElementDefinition-maxValue" : for src.maxValue make tgt.maxValue
+  "ElementDefinition-maxLength" : for src.maxLength make tgt.maxLength
+  "ElementDefinition-condition" : for src.condition make tgt.condition
+  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
+    "ElementDefinition.constraint-key" : for vs0.key make vt0.key
+    "ElementDefinition.constraint-requirements" : for vs0.requirements make vt0.requirements
+    "ElementDefinition.constraint-severity" : for vs0.severity make vt0.severity
+    "ElementDefinition.constraint-human" : for vs0.human make vt0.human
+    "ElementDefinition.constraint-xpath" : for vs0.xpath make vt0.xpath
+  }
+
+  "ElementDefinition-mustSupport" : for src.mustSupport make tgt.mustSupport
+  "ElementDefinition-isModifier" : for src.isModifier make tgt.isModifier
+  "ElementDefinition-isSummary" : for src.isSummary make tgt.isSummary
+  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then {
+    "ElementDefinition.binding-strength" : for vs0.strength make vt0.strength
+    "ElementDefinition.binding-description" : for vs0.description make vt0.description
+    "ElementDefinition.binding-valueSet" : for vs0.valueSet make vt0.valueSet
+  }
+
+  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
+    "ElementDefinition.mapping-identity" : for vs0.identity make vt0.identity
+    "ElementDefinition.mapping-language" : for vs0.language make vt0.language
+    "ElementDefinition.mapping-map" : for vs0.map make vt0.map
+  }
+
+
+endgroup

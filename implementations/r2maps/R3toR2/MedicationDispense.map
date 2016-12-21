@@ -1,43 +1,39 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationDispense3to2" = "R3 to R2 Conversion for MedicationDispense"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationDispense" alias MedicationDispenseR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group MedicationDispense extends DomainResource
+group for type+types  MedicationDispense extends DomainResource
   input src : MedicationDispense as source
   input tgt : MedicationDispenseR2 as target
 
-  "MedicationDispense-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "MedicationDispense-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "MedicationDispense-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationDispense-medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationDispense-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "MedicationDispense-dispenser" : for src.dispenser as vs make tgt.dispenser as vt then Reference(vs,vt)
-  "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription as vs make tgt.authorizingPrescription as vt then Reference(vs,vt)
-  "MedicationDispense-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "MedicationDispense-quantity" : for src.quantity as vs make tgt.quantity as vt then Quantity(vs,vt)
-  "MedicationDispense-daysSupply" : for src.daysSupply as vs make tgt.daysSupply as vt then Quantity(vs,vt)
-  "MedicationDispense-whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt then dateTime(vs, vt)
-  "MedicationDispense-whenHandedOver" : for src.whenHandedOver as vs make tgt.whenHandedOver as vt then dateTime(vs, vt)
-  "MedicationDispense-destination" : for src.destination as vs make tgt.destination as vt then Reference(vs,vt)
-  "MedicationDispense-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
-  "MedicationDispense-dosageInstruction" : for src.dosageInstruction as vs0 make tgt.dosageInstruction as vt0 then {
-  }
+  "MedicationDispense-identifier" : for src.identifier make tgt.identifier
+  "MedicationDispense-status" : for src.status make tgt.status
+  "MedicationDispense-medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "MedicationDispense-medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs, vt)
+  "MedicationDispense-patient" : for src.patient make tgt.patient
+  "MedicationDispense-dispenser" : for src.dispenser make tgt.dispenser
+  "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription make tgt.authorizingPrescription
+  "MedicationDispense-type" : for src.type make tgt.type
+  "MedicationDispense-quantity" : for src.quantity make tgt.quantity
+  "MedicationDispense-daysSupply" : for src.daysSupply make tgt.daysSupply
+  "MedicationDispense-whenPrepared" : for src.whenPrepared make tgt.whenPrepared
+  "MedicationDispense-whenHandedOver" : for src.whenHandedOver make tgt.whenHandedOver
+  "MedicationDispense-destination" : for src.destination make tgt.destination
+  "MedicationDispense-receiver" : for src.receiver make tgt.receiver
+  "MedicationDispense-dosageInstruction" : for src.dosageInstruction as vs0 make tgt.dosageInstruction as vt0
   "MedicationDispense-substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
-    "MedicationDispense.substitution-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
-    "MedicationDispense.substitution-reason" : for vs0.reason as vs make vt0.reason as vt then CodeableConcept(vs,vt)
-    "MedicationDispense.substitution-responsibleParty" : for vs0.responsibleParty as vs make vt0.responsibleParty as vt then Reference(vs,vt)
+    "MedicationDispense.substitution-type" : for vs0.type make vt0.type
+    "MedicationDispense.substitution-reason" : for vs0.reason make vt0.reason
+    "MedicationDispense.substitution-responsibleParty" : for vs0.responsibleParty make vt0.responsibleParty
   }
-endgroup
 
+
+endgroup

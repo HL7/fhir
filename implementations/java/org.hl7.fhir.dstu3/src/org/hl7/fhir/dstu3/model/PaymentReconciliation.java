@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class PaymentReconciliation extends DomainResource {
         throw new IllegalArgumentException("Unknown PaymentReconciliationStatus code '"+codeString+"'");
         }
         public Enumeration<PaymentReconciliationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<PaymentReconciliationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -580,21 +582,21 @@ public class PaymentReconciliation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("response"))
+        } else if (name.equals("response")) {
           this.response = castToReference(value); // Reference
-        else if (name.equals("submitter"))
+        } else if (name.equals("submitter")) {
           this.submitter = castToReference(value); // Reference
-        else if (name.equals("payee"))
+        } else if (name.equals("payee")) {
           this.payee = castToReference(value); // Reference
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDate(value); // DateType
-        else if (name.equals("amount"))
+        } else if (name.equals("amount")) {
           this.amount = castToMoney(value); // Money
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -610,6 +612,21 @@ public class PaymentReconciliation extends DomainResource {
         case 3076014:  return getDateElement();
         case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -340323263: /*response*/ return new String[] {"Reference"};
+        case 348678409: /*submitter*/ return new String[] {"Reference"};
+        case 106443592: /*payee*/ return new String[] {"Reference"};
+        case 3076014: /*date*/ return new String[] {"date"};
+        case -1413853096: /*amount*/ return new String[] {"Money"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -825,11 +842,11 @@ public class PaymentReconciliation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -840,6 +857,16 @@ public class PaymentReconciliation extends DomainResource {
         case 3575610:  return getType(); 
         case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1651,7 +1678,8 @@ public class PaymentReconciliation extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
+          value = new PaymentReconciliationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PaymentReconciliationStatus>
           return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
@@ -1696,35 +1724,36 @@ public class PaymentReconciliation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new PaymentReconciliationStatusEnumFactory().fromType(value); // Enumeration<PaymentReconciliationStatus>
-        else if (name.equals("period"))
+        } else if (name.equals("status")) {
+          value = new PaymentReconciliationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PaymentReconciliationStatus>
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("disposition"))
+        } else if (name.equals("disposition")) {
           this.disposition = castToString(value); // StringType
-        else if (name.equals("requestProvider"))
+        } else if (name.equals("requestProvider")) {
           this.requestProvider = castToReference(value); // Reference
-        else if (name.equals("requestOrganization"))
+        } else if (name.equals("requestOrganization")) {
           this.requestOrganization = castToReference(value); // Reference
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.getDetail().add((DetailsComponent) value);
-        else if (name.equals("form"))
+        } else if (name.equals("form")) {
           this.form = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("total"))
+        } else if (name.equals("total")) {
           this.total = castToMoney(value); // Money
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add((NotesComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1747,6 +1776,28 @@ public class PaymentReconciliation extends DomainResource {
         case 110549828:  return getTotal(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case 583380919: /*disposition*/ return new String[] {"string"};
+        case 1601527200: /*requestProvider*/ return new String[] {"Reference"};
+        case 599053666: /*requestOrganization*/ return new String[] {"Reference"};
+        case -1335224239: /*detail*/ return new String[] {};
+        case 3148996: /*form*/ return new String[] {"CodeableConcept"};
+        case 110549828: /*total*/ return new String[] {"Money"};
+        case 3387378: /*note*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

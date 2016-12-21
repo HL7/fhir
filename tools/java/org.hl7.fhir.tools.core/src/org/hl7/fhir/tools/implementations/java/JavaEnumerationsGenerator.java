@@ -186,8 +186,10 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("        public Enumeration<"+tns+"> fromType(Base code) throws FHIRException {\r\n");
-    write("          if (code == null || code.isEmpty())\r\n");
+    write("          if (code == null)\r\n");
     write("            return null;\r\n");
+    write("          if (code.isEmpty())\r\n");
+    write("            return new Enumeration<"+tns+">(this);\r\n");
     write("          String codeString = ((PrimitiveType) code).asStringValue();\r\n");
     write("          if (codeString == null || \"\".equals(codeString))\r\n");
     write("            return null;\r\n");

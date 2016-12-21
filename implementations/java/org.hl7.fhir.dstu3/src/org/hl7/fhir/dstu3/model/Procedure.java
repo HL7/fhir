@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class Procedure extends DomainResource {
         throw new IllegalArgumentException("Unknown ProcedureStatus code '"+codeString+"'");
         }
         public Enumeration<ProcedureStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ProcedureStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -312,11 +314,11 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actor"))
+        if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
-        else if (name.equals("role"))
+        } else if (name.equals("role")) {
           this.role = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -327,6 +329,16 @@ public class Procedure extends DomainResource {
         case 92645877:  return getActor(); 
         case 3506294:  return getRole(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92645877: /*actor*/ return new String[] {"Reference"};
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -523,11 +535,11 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.action = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("manipulated"))
+        } else if (name.equals("manipulated")) {
           this.manipulated = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -538,6 +550,16 @@ public class Procedure extends DomainResource {
         case -1422950858:  return getAction(); 
         case 947372650:  return getManipulated(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {"CodeableConcept"};
+        case 947372650: /*manipulated*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2077,7 +2099,8 @@ public class Procedure extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ProcedureStatusEnumFactory().fromType(value); // Enumeration<ProcedureStatus>
+          value = new ProcedureStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcedureStatus>
           return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
@@ -2152,55 +2175,56 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ProcedureStatusEnumFactory().fromType(value); // Enumeration<ProcedureStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("status")) {
+          value = new ProcedureStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcedureStatus>
+        } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("performed[x]"))
+        } else if (name.equals("performed[x]")) {
           this.performed = castToType(value); // Type
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.getPerformer().add((ProcedurePerformerComponent) value);
-        else if (name.equals("location"))
+        } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        else if (name.equals("reasonReference"))
+        } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        else if (name.equals("reasonCode"))
+        } else if (name.equals("reasonCode")) {
           this.getReasonCode().add(castToCodeableConcept(value));
-        else if (name.equals("notPerformed"))
+        } else if (name.equals("notPerformed")) {
           this.notPerformed = castToBoolean(value); // BooleanType
-        else if (name.equals("reasonNotPerformed"))
+        } else if (name.equals("reasonNotPerformed")) {
           this.getReasonNotPerformed().add(castToCodeableConcept(value));
-        else if (name.equals("bodySite"))
+        } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("report"))
+        } else if (name.equals("report")) {
           this.getReport().add(castToReference(value));
-        else if (name.equals("complication"))
+        } else if (name.equals("complication")) {
           this.getComplication().add(castToCodeableConcept(value));
-        else if (name.equals("followUp"))
+        } else if (name.equals("followUp")) {
           this.getFollowUp().add(castToCodeableConcept(value));
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("notes"))
+        } else if (name.equals("notes")) {
           this.getNotes().add(castToAnnotation(value));
-        else if (name.equals("focalDevice"))
+        } else if (name.equals("focalDevice")) {
           this.getFocalDevice().add((ProcedureFocalDeviceComponent) value);
-        else if (name.equals("usedReference"))
+        } else if (name.equals("usedReference")) {
           this.getUsedReference().add(castToReference(value));
-        else if (name.equals("usedCode"))
+        } else if (name.equals("usedCode")) {
           this.getUsedCode().add(castToCodeableConcept(value));
-        else if (name.equals("component"))
+        } else if (name.equals("component")) {
           this.getComponent().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2215,6 +2239,7 @@ public class Procedure extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 1524132147:  return getEncounter(); 
         case 1355984064:  return getPerformed(); 
+        case 481140672:  return getPerformed(); 
         case 481140686:  return addPerformer(); 
         case 1901043637:  return getLocation(); 
         case -1146218137:  return addReasonReference(); 
@@ -2233,6 +2258,38 @@ public class Procedure extends DomainResource {
         case -279910582:  return addUsedCode(); 
         case -1399907075:  return addComponent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case 481140672: /*performed*/ return new String[] {"dateTime", "Period"};
+        case 481140686: /*performer*/ return new String[] {};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case 585470509: /*notPerformed*/ return new String[] {"boolean"};
+        case -906415471: /*reasonNotPerformed*/ return new String[] {"CodeableConcept"};
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case -934521548: /*report*/ return new String[] {"Reference"};
+        case -1644401602: /*complication*/ return new String[] {"CodeableConcept"};
+        case 301801004: /*followUp*/ return new String[] {"CodeableConcept"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case 105008833: /*notes*/ return new String[] {"Annotation"};
+        case -1129235173: /*focalDevice*/ return new String[] {};
+        case -504932338: /*usedReference*/ return new String[] {"Reference"};
+        case -279910582: /*usedCode*/ return new String[] {"CodeableConcept"};
+        case -1399907075: /*component*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -6,13 +6,13 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Resource" alias ResourceR2 a
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 imports "http://hl7.org/fhir/StructureMap/Meta3to2"
 
-group Resource 
+group for type+types  Resource
   input src : Resource as source
   input tgt : ResourceR2 as target
 
-  "Resource-id" : for src.id as vs make tgt.id as vt then id(vs,vt)
-  "Resource-meta" : for src.meta as vs make tgt.meta as vt then Meta(vs,vt)
-  "Resource-implicitRules" : for src.implicitRules as vs make tgt.implicitRules as vt then uri(vs, vt)
-  "Resource-language" : for src.language as vs make tgt.language as vt then code(vs, vt)
-endgroup
+  "Resource-id" : for src.id make tgt.id
+  "Resource-meta" : for src.meta make tgt.meta
+  "Resource-implicitRules" : for src.implicitRules make tgt.implicitRules
+  "Resource-language" : for src.language make tgt.language
 
+endgroup

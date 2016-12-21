@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Substance2to3" = "R2 to R3 Conversions for Substance"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Substance" alias SubstanceR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
@@ -13,24 +11,24 @@ imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Substance extends DomainResource
+group for type+types  Substance extends DomainResource
   input src : SubstanceR2 as source
   input tgt : Substance as target
 
-  "Substance-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Substance-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
-  "Substance-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
-  "Substance-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "Substance-identifier" : for src.identifier make tgt.identifier
+  "Substance-category" : for src.category make tgt.category
+  "Substance-code" : for src.code make tgt.code
+  "Substance-description" : for src.description make tgt.description
   "Substance-instance" : for src.instance as vs0 make tgt.instance as vt0 then {
-    "Substance.instance-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
-    "Substance.instance-expiry" : for vs0.expiry as vs make vt0.expiry as vt then dateTime(vs, vt)
-    "Substance.instance-quantity" : for vs0.quantity as vs make vt0.quantity as vt then Quantity(vs,vt)
+    "Substance.instance-identifier" : for vs0.identifier make vt0.identifier
+    "Substance.instance-expiry" : for vs0.expiry make vt0.expiry
+    "Substance.instance-quantity" : for vs0.quantity make vt0.quantity
   }
-  "Substance-ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
-    "Substance.ingredient-quantity" : for vs0.quantity as vs make vt0.quantity as vt then Ratio(vs,vt)
-    "Substance.ingredient-substance" : for vs0.substance as vs make vt0.substance as vt then Reference(vs,vt)
-  }
-endgroup
 
+  "Substance-ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
+    "Substance.ingredient-quantity" : for vs0.quantity make vt0.quantity
+    "Substance.ingredient-substance" : for vs0.substance make vt0.substance
+  }
+
+
+endgroup

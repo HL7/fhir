@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Quantity extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown QuantityComparator code '"+codeString+"'");
         }
         public Enumeration<QuantityComparator> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<QuantityComparator>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -558,7 +560,8 @@ public class Quantity extends Type implements ICompositeType {
           this.value = castToDecimal(value); // DecimalType
           return value;
         case -844673834: // comparator
-          this.comparator = new QuantityComparatorEnumFactory().fromType(value); // Enumeration<QuantityComparator>
+          value = new QuantityComparatorEnumFactory().fromType(castToCode(value));
+          this.comparator = (Enumeration) value; // Enumeration<QuantityComparator>
           return value;
         case 3594628: // unit
           this.unit = castToString(value); // StringType
@@ -576,17 +579,18 @@ public class Quantity extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("value"))
+        if (name.equals("value")) {
           this.value = castToDecimal(value); // DecimalType
-        else if (name.equals("comparator"))
-          this.comparator = new QuantityComparatorEnumFactory().fromType(value); // Enumeration<QuantityComparator>
-        else if (name.equals("unit"))
+        } else if (name.equals("comparator")) {
+          value = new QuantityComparatorEnumFactory().fromType(castToCode(value));
+          this.comparator = (Enumeration) value; // Enumeration<QuantityComparator>
+        } else if (name.equals("unit")) {
           this.unit = castToString(value); // StringType
-        else if (name.equals("system"))
+        } else if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -600,6 +604,19 @@ public class Quantity extends Type implements ICompositeType {
         case -887328209:  return getSystemElement();
         case 3059181:  return getCodeElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 111972721: /*value*/ return new String[] {"decimal"};
+        case -844673834: /*comparator*/ return new String[] {"code"};
+        case 3594628: /*unit*/ return new String[] {"string"};
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

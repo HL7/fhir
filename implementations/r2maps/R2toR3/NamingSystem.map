@@ -1,43 +1,41 @@
 ﻿map "http://hl7.org/fhir/StructureMap/NamingSystem2to3" = "R2 to R3 Conversions for NamingSystem"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/NamingSystem" alias NamingSystemR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/NamingSystem" alias NamingSystem as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group NamingSystem extends DomainResource
+group for type+types  NamingSystem extends DomainResource
   input src : NamingSystemR2 as source
   input tgt : NamingSystem as target
 
-  "NamingSystem-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "NamingSystem-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "NamingSystem-kind" : for src.kind as vs make tgt.kind as vt then code(vs, vt)
-  "NamingSystem-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "NamingSystem-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "NamingSystem-name" : for src.name make tgt.name
+  "NamingSystem-status" : for src.status make tgt.status
+  "NamingSystem-kind" : for src.kind make tgt.kind
+  "NamingSystem-date" : for src.date make tgt.date
+  "NamingSystem-publisher" : for src.publisher make tgt.publisher
   "NamingSystem-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "ContactDetail-name" : for vs0.name make vt0.name
+    "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
   }
-  "NamingSystem-responsible" : for src.responsible as vs make tgt.responsible as vt then string(vs, vt)
-  "NamingSystem-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "NamingSystem-description" : for src.description as vs make tgt.description as vt then stringToMarkdown(vs, vt)
-  "NamingSystem-usage" : for src.usage as vs make tgt.usage as vt then string(vs, vt)
-  "NamingSystem-uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {
-    "NamingSystem.uniqueId-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
-    "NamingSystem.uniqueId-value" : for vs0.value as vs make vt0.value as vt then string(vs, vt)
-    "NamingSystem.uniqueId-preferred" : for vs0.preferred as vs make vt0.preferred as vt then boolean(vs, vt)
-    "NamingSystem.uniqueId-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
-  }
-  "NamingSystem-replacedBy" : for src.replacedBy as vs make tgt.replacedBy as vt then Reference(vs,vt)
-  "NamingSystem-jurisdiction" : for src.useContext as vs where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction as vt then CodeableConcept(vs,vt)
-endgroup
 
+  "NamingSystem-responsible" : for src.responsible make tgt.responsible
+  "NamingSystem-type" : for src.type make tgt.type
+  "NamingSystem-description" : for src.description make tgt.description
+  "NamingSystem-usage" : for src.usage make tgt.usage
+  "NamingSystem-uniqueId" : for src.uniqueId as vs0 make tgt.uniqueId as vt0 then {
+    "NamingSystem.uniqueId-type" : for vs0.type make vt0.type
+    "NamingSystem.uniqueId-value" : for vs0.value make vt0.value
+    "NamingSystem.uniqueId-preferred" : for vs0.preferred make vt0.preferred
+    "NamingSystem.uniqueId-period" : for vs0.period make vt0.period
+  }
+
+  "NamingSystem-replacedBy" : for src.replacedBy make tgt.replacedBy
+  "NamingSystem-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class Condition extends DomainResource {
         throw new IllegalArgumentException("Unknown ConditionClinicalStatus code '"+codeString+"'");
         }
         public Enumeration<ConditionClinicalStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConditionClinicalStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -301,8 +303,10 @@ public class Condition extends DomainResource {
         throw new IllegalArgumentException("Unknown ConditionVerificationStatus code '"+codeString+"'");
         }
         public Enumeration<ConditionVerificationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConditionVerificationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -490,11 +494,11 @@ public class Condition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("summary"))
+        if (name.equals("summary")) {
           this.summary = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("assessment"))
+        } else if (name.equals("assessment")) {
           this.getAssessment().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -505,6 +509,16 @@ public class Condition extends DomainResource {
         case -1857640538:  return getSummary(); 
         case 2119382722:  return addAssessment(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1857640538: /*summary*/ return new String[] {"CodeableConcept"};
+        case 2119382722: /*assessment*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -715,11 +729,11 @@ public class Condition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.getDetail().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -730,6 +744,16 @@ public class Condition extends DomainResource {
         case 3059181:  return getCode(); 
         case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1335224239: /*detail*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1774,10 +1798,12 @@ public class Condition extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -462853915: // clinicalStatus
-          this.clinicalStatus = new ConditionClinicalStatusEnumFactory().fromType(value); // Enumeration<ConditionClinicalStatus>
+          value = new ConditionClinicalStatusEnumFactory().fromType(castToCode(value));
+          this.clinicalStatus = (Enumeration) value; // Enumeration<ConditionClinicalStatus>
           return value;
         case -842509843: // verificationStatus
-          this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
+          value = new ConditionVerificationStatusEnumFactory().fromType(castToCode(value));
+          this.verificationStatus = (Enumeration) value; // Enumeration<ConditionVerificationStatus>
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1825,39 +1851,41 @@ public class Condition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("clinicalStatus"))
-          this.clinicalStatus = new ConditionClinicalStatusEnumFactory().fromType(value); // Enumeration<ConditionClinicalStatus>
-        else if (name.equals("verificationStatus"))
-          this.verificationStatus = new ConditionVerificationStatusEnumFactory().fromType(value); // Enumeration<ConditionVerificationStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("clinicalStatus")) {
+          value = new ConditionClinicalStatusEnumFactory().fromType(castToCode(value));
+          this.clinicalStatus = (Enumeration) value; // Enumeration<ConditionClinicalStatus>
+        } else if (name.equals("verificationStatus")) {
+          value = new ConditionVerificationStatusEnumFactory().fromType(castToCode(value));
+          this.verificationStatus = (Enumeration) value; // Enumeration<ConditionVerificationStatus>
+        } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
-        else if (name.equals("severity"))
+        } else if (name.equals("severity")) {
           this.severity = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("bodySite"))
+        } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("onset[x]"))
+        } else if (name.equals("onset[x]")) {
           this.onset = castToType(value); // Type
-        else if (name.equals("abatement[x]"))
+        } else if (name.equals("abatement[x]")) {
           this.abatement = castToType(value); // Type
-        else if (name.equals("assertedDate"))
+        } else if (name.equals("assertedDate")) {
           this.assertedDate = castToDate(value); // DateType
-        else if (name.equals("asserter"))
+        } else if (name.equals("asserter")) {
           this.asserter = castToReference(value); // Reference
-        else if (name.equals("stage"))
+        } else if (name.equals("stage")) {
           this.stage = (ConditionStageComponent) value; // ConditionStageComponent
-        else if (name.equals("evidence"))
+        } else if (name.equals("evidence")) {
           this.getEvidence().add((ConditionEvidenceComponent) value);
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1875,13 +1903,39 @@ public class Condition extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -1886216323:  return getOnset(); 
+        case 105901603:  return getOnset(); 
         case -584196495:  return getAbatement(); 
+        case -921554001:  return getAbatement(); 
         case -174231629:  return getAssertedDateElement();
         case -373242253:  return getAsserter(); 
         case 109757182:  return getStage(); 
         case 382967383:  return addEvidence(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -462853915: /*clinicalStatus*/ return new String[] {"code"};
+        case -842509843: /*verificationStatus*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 1478300413: /*severity*/ return new String[] {"CodeableConcept"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 105901603: /*onset*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
+        case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "boolean", "Period", "Range", "string"};
+        case -174231629: /*assertedDate*/ return new String[] {"date"};
+        case -373242253: /*asserter*/ return new String[] {"Reference"};
+        case 109757182: /*stage*/ return new String[] {};
+        case 382967383: /*evidence*/ return new String[] {};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

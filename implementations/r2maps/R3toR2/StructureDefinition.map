@@ -21,48 +21,50 @@ imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group StructureDefinition extends DomainResource
+group for type+types  StructureDefinition extends DomainResource
   input src : StructureDefinition as source
   input tgt : StructureDefinitionR2 as target
 
-  "StructureDefinition-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "StructureDefinition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "StructureDefinition-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "StructureDefinition-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "StructureDefinition-display" : for src.title as vs make tgt.display as vt then string(vs, vt)
-  "StructureDefinition-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "StructureDefinition-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "StructureDefinition-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "StructureDefinition-url" : for src.url make tgt.url
+  "StructureDefinition-identifier" : for src.identifier make tgt.identifier
+  "StructureDefinition-version" : for src.version make tgt.version
+  "StructureDefinition-name" : for src.name make tgt.name
+  "StructureDefinition-display" : for src.title make tgt.display
+  "StructureDefinition-status" : for src.status make tgt.status
+  "StructureDefinition-experimental" : for src.experimental make tgt.experimental
+  "StructureDefinition-publisher" : for src.publisher make tgt.publisher
   "StructureDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "StructureDefinition.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "StructureDefinition.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "StructureDefinition.contact-name" : for vs0.name make vt0.name
+    "StructureDefinition.contact-telecom" : for vs0.telecom make vt0.telecom
   }
-  "StructureDefinition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "StructureDefinition-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
-  "StructureDefinition-useContext" : for src.jurisdiction as vs make tgt.useContext as vt then CodeableConcept(vs,vt)
-  "StructureDefinition-requirements" : for src.purpose as vs make tgt.requirements as vt then markdownToString(vs, vt)
-  "StructureDefinition-copyright" : for src.copyright as vs make tgt.copyright as vt then markdownToString(vs, vt)
-  "StructureDefinition-code" : for src.keyword as vs make tgt.code as vt then Coding(vs,vt)
-  "StructureDefinition-fhirVersion" : for src.fhirVersion as vs make tgt.fhirVersion as vt then id(vs, vt)
-  "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "StructureDefinition.mapping-identity" : for vs0.identity as vs make vt0.identity as vt then id(vs, vt)
-    "StructureDefinition.mapping-uri" : for vs0.uri as vs make vt0.uri as vt then uri(vs, vt)
-    "StructureDefinition.mapping-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "StructureDefinition.mapping-comments" : for vs0.comments as vs make vt0.comments as vt then string(vs, vt)
-  }
-  "StructureDefinition-kind" : for src.kind as v make tgt.kind = translate(v, "#StructureDefinitionKind", "code")
-  "StructureDefinition-abstract" : for src.abstract as vs make tgt.abstract as vt then boolean(vs, vt)
-  "StructureDefinition-contextType" : for src.contextType as vs make tgt.contextType as vt then code(vs, vt)
-  "StructureDefinition-context" : for src.context as vs make tgt.context as vt then string(vs, vt)
-  "StructureDefinition-constrainedType" : for src.type where derivation = 'constraint' as vs make tgt.constrainedType as vt then code(vs, vt)
-  "StructureDefinition-base" : for src.baseDefinition as vs make tgt.base as vt then uri(vs, vt)
-  "StructureDefinition-snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
-    "StructureDefinition.snapshot-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs,vt)
-  }
-  "StructureDefinition-differential" : for src.differential as vs0 make tgt.differential as vt0 then {
-    "StructureDefinition.differential-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs,vt)
-  }
-endgroup
 
+  "StructureDefinition-date" : for src.date make tgt.date
+  "StructureDefinition-description" : for src.description make tgt.description
+  "StructureDefinition-useContext" : for src.jurisdiction make tgt.useContext
+  "StructureDefinition-requirements" : for src.purpose make tgt.requirements
+  "StructureDefinition-copyright" : for src.copyright make tgt.copyright
+  "StructureDefinition-code" : for src.keyword make tgt.code
+  "StructureDefinition-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
+  "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
+    "StructureDefinition.mapping-identity" : for vs0.identity make vt0.identity
+    "StructureDefinition.mapping-uri" : for vs0.uri make vt0.uri
+    "StructureDefinition.mapping-name" : for vs0.name make vt0.name
+    "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comments
+  }
+
+  "StructureDefinition-kind" : for src.kind as v make tgt.kind = translate(v, "#StructureDefinitionKind", "code")
+  "StructureDefinition-contextType" : for src.contextType make tgt.contextType
+  "StructureDefinition-context" : for src.context make tgt.context
+  "StructureDefinition-constrainedType" : for src.type as vs where src.derivation = 'constraint' make tgt.constrainedType as vt then code(vs, vt)
+  "StructureDefinition-abstract" : for src.abstract make tgt.abstract
+  "StructureDefinition-base" : for src.baseDefinition make tgt.base
+  "StructureDefinition-snapshot" : for src.snapshot as vs0 make tgt.snapshot as vt0 then {
+    "StructureDefinition.snapshot-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs, vt)
+  }
+
+  "StructureDefinition-differential" : for src.differential as vs0 make tgt.differential as vt0 then {
+    "StructureDefinition.differential-element" : for vs0.element as vs make vt0.element as vt then ElementDefinition(src, vs, vt)
+  }
+
+
+endgroup

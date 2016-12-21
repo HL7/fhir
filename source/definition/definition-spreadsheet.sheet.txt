@@ -89,6 +89,7 @@
   Short Name = Business version of the {{title}}
   Definition = The identifier that is used to identify this version of the {{title}} when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the {{title}} author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable
   Comments = There may be multiple different instances of a {{title}} that have the same identifier but different versions
+  RIM Mapping = N/A (to add?)
   w5 = id.version
 
  -- Row 5 -----------------------------------
@@ -98,6 +99,7 @@
   Type = string
   Short Name = Name for this {{title}} (Human friendly)
   Definition = A short, descriptive, user-friendly title for the {{title}}
+  RIM Mapping = .title
 
  -- Row 6 -----------------------------------
   Element = Definition.definition
@@ -157,6 +159,7 @@
   Definition = A flag to indicate that this {{title}} is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
   Requirements = Enables experimental content to be developed following the same life-cycle as a production-level {{title}} would
   Comments = Allows filtering of {{title}} that are appropriate for use vs. not
+  RIM Mapping = N/A (to add?)
   w5 = class
 
  -- Row 11 -----------------------------------
@@ -203,6 +206,7 @@
   Short Name = Contact details for the publisher
   Definition = Contact details to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
+  RIM Mapping = .participation[typeCode=CALLBCK].role
 
  -- Row 15 -----------------------------------
   Element = Definition.useContext
@@ -213,6 +217,7 @@
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
   Requirements = Assist in searching for appropriate content
   Comments = When multiple usageContexts are specified, there is no expectation for whether all or any of the contexts apply
+  RIM Mapping = N/A (to add?)
 
  -- Row 16 -----------------------------------
   Element = Definition.jurisdiction
@@ -222,6 +227,7 @@
   Binding = Jurisdiction
   Short Name = Intended jurisdiction for {{title}} (if applicable)
   Definition = A jurisdiction in which the {{title}} is intended to be used
+  RIM Mapping = N/A (to add?)
 
  -- Row 17 -----------------------------------
   Element = Definition.description
@@ -230,6 +236,7 @@
   Short Name = Natural language description of the {{title}}
   Definition = A free text natural language description of the {{title}} from the consumer\'s perspective
   Comments = This description can be used to capture details such as why the {{title}} was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+  RIM Mapping = .text
 
  -- Row 18 -----------------------------------
   Element = Definition.purpose
@@ -238,6 +245,7 @@
   Short Name = Why this {{title}} is defined
   Definition = Explains why this {{title}} is needed and why it has been designed as it has
   Comments = This element does not describe the usage of the {{title}} (See, e.g, the comments element, or relatedArtifacts), rather it\'s for traceability of \'\'why\'\' the resource is either needed or \'\'why\'\' it is defined as it is.  This may be used to point to source materials or specifications that drove the structure of this {{title}}
+  RIM Mapping = .reasonCode.text
   w5 = why
 
  -- Row 19 -----------------------------------
@@ -248,6 +256,7 @@
   Short Name = Use and/or publishing restrictions
   Definition = A copyright statement relating to the {{title}} and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the {{title}}
   Requirements = Consumers of the {{title}} must be able to determine any legal restrictions on the use of the artifact and/or its content
+  RIM Mapping = N/A (to add?)
 
  -- Row 20 -----------------------------------
   Element = Definition.approvalDate
@@ -256,6 +265,7 @@
   Short Name = When {{title}} approved by publisher
   Definition = The date on which the asset content was approved by the publisher. Approval happens once when the content is officially approved for usage
   Comments = The date may be more recent than the approval date because of minor changes / editorial corrections
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].act[classCode=CACT;moodCode=EVN;code=\"approval\"].effectiveTime
 
  -- Row 21 -----------------------------------
   Element = Definition.lastReviewDate
@@ -264,6 +274,7 @@
   Short Name = Last review date for the {{title}}
   Definition = The date on which the asset content was last reviewed. Review happens periodically after that, but doesn\'t change the original approval date.
   Comments = If specified, this is usually after the approval date
+  RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"; subsetCode=\"RECENT\"].act[classCode=CACT;moodCode=EVN;code=\"review\"].effectiveTime
 
  -- Row 22 -----------------------------------
   Element = Definition.effectivePeriod
@@ -273,6 +284,7 @@
   Short Name = The effective date range for the {{title}}
   Definition = The period during which the {{title}} content was or is planned to be effective
   Comments = The effective period for a {{title}}  determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+  RIM Mapping = N/A (to add?)
 
  -- Row 23 -----------------------------------
   Element = Definition.performerType

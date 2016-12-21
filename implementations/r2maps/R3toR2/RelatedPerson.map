@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/RelatedPerson3to2" = "R3 to R2 Conversion for RelatedPerson"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RelatedPerson" alias RelatedPersonR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
@@ -15,20 +13,18 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group RelatedPerson extends DomainResource
+group for type+types  RelatedPerson extends DomainResource
   input src : RelatedPerson as source
   input tgt : RelatedPersonR2 as target
 
-  "RelatedPerson-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "RelatedPerson-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "RelatedPerson-relationship" : for src.relationship as vs make tgt.relationship as vt then CodeableConcept(vs,vt)
-  "RelatedPerson-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "RelatedPerson-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
-  "RelatedPerson-birthDate" : for src.birthDate as vs make tgt.birthDate as vt then date(vs, vt)
-  "RelatedPerson-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
-  "RelatedPerson-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
-  "RelatedPerson-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-endgroup
+  "RelatedPerson-identifier" : for src.identifier make tgt.identifier
+  "RelatedPerson-patient" : for src.patient make tgt.patient
+  "RelatedPerson-relationship" : for src.relationship make tgt.relationship
+  "RelatedPerson-telecom" : for src.telecom make tgt.telecom
+  "RelatedPerson-gender" : for src.gender make tgt.gender
+  "RelatedPerson-birthDate" : for src.birthDate make tgt.birthDate
+  "RelatedPerson-address" : for src.address make tgt.address
+  "RelatedPerson-photo" : for src.photo make tgt.photo
+  "RelatedPerson-period" : for src.period make tgt.period
 
+endgroup

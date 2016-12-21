@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -174,8 +174,10 @@ public class TriggerDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown TriggerType code '"+codeString+"'");
         }
         public Enumeration<TriggerType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TriggerType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -476,7 +478,8 @@ public class TriggerDefinition extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new TriggerTypeEnumFactory().fromType(value); // Enumeration<TriggerType>
+          value = new TriggerTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<TriggerType>
           return value;
         case 31228997: // eventName
           this.eventName = castToString(value); // StringType
@@ -494,15 +497,16 @@ public class TriggerDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new TriggerTypeEnumFactory().fromType(value); // Enumeration<TriggerType>
-        else if (name.equals("eventName"))
+        if (name.equals("type")) {
+          value = new TriggerTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<TriggerType>
+        } else if (name.equals("eventName")) {
           this.eventName = castToString(value); // StringType
-        else if (name.equals("eventTiming[x]"))
+        } else if (name.equals("eventTiming[x]")) {
           this.eventTiming = castToType(value); // Type
-        else if (name.equals("eventData"))
+        } else if (name.equals("eventData")) {
           this.eventData = castToDataRequirement(value); // DataRequirement
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -513,8 +517,21 @@ public class TriggerDefinition extends Type implements ICompositeType {
         case 3575610:  return getTypeElement();
         case 31228997:  return getEventNameElement();
         case 1120539260:  return getEventTiming(); 
+        case 125465476:  return getEventTiming(); 
         case 30931300:  return getEventData(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 31228997: /*eventName*/ return new String[] {"string"};
+        case 125465476: /*eventTiming*/ return new String[] {"Timing", "Reference", "date", "dateTime"};
+        case 30931300: /*eventData*/ return new String[] {"DataRequirement"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

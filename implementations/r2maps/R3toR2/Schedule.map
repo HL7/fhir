@@ -1,27 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Schedule3to2" = "R3 to R2 Conversion for Schedule"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Schedule" alias Schedule as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Schedule" alias ScheduleR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Schedule extends DomainResource
+group for type+types  Schedule extends DomainResource
   input src : Schedule as source
   input tgt : ScheduleR2 as target
 
-  "Schedule-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Schedule-type" : for src.serviceType as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Schedule-actor" : for src.actor as vs make tgt.actor as vt then Reference(vs,vt)
-  "Schedule-planningHorizon" : for src.planningHorizon as vs make tgt.planningHorizon as vt then Period(vs,vt)
-  "Schedule-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
-endgroup
+  "Schedule-identifier" : for src.identifier make tgt.identifier
+  "Schedule-type" : for src.serviceType make tgt.type
+  "Schedule-actor" : for src.actor make tgt.actor
+  "Schedule-planningHorizon" : for src.planningHorizon make tgt.planningHorizon
+  "Schedule-comment" : for src.comment make tgt.comment
 
+endgroup

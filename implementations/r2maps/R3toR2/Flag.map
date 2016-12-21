@@ -1,30 +1,26 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Flag3to2" = "R3 to R2 Conversion for Flag"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Flag" alias Flag as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Flag" alias FlagR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Flag extends DomainResource
+group for type+types  Flag extends DomainResource
   input src : Flag as source
   input tgt : FlagR2 as target
 
-  "Flag-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Flag-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
-  "Flag-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Flag-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-  "Flag-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "Flag-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
-  "Flag-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-  "Flag-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
-endgroup
+  "Flag-identifier" : for src.identifier make tgt.identifier
+  "Flag-category" : for src.category make tgt.category
+  "Flag-status" : for src.status make tgt.status
+  "Flag-period" : for src.period make tgt.period
+  "Flag-subject" : for src.subject make tgt.subject
+  "Flag-encounter" : for src.encounter make tgt.encounter
+  "Flag-author" : for src.author make tgt.author
+  "Flag-code" : for src.code make tgt.code
 
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -531,23 +531,23 @@ public class Schedule extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("serviceCategory"))
+        } else if (name.equals("serviceCategory")) {
           this.serviceCategory = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("serviceType"))
+        } else if (name.equals("serviceType")) {
           this.getServiceType().add(castToCodeableConcept(value));
-        else if (name.equals("specialty"))
+        } else if (name.equals("specialty")) {
           this.getSpecialty().add(castToCodeableConcept(value));
-        else if (name.equals("actor"))
+        } else if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
-        else if (name.equals("planningHorizon"))
+        } else if (name.equals("planningHorizon")) {
           this.planningHorizon = castToPeriod(value); // Period
-        else if (name.equals("comment"))
+        } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -564,6 +564,22 @@ public class Schedule extends DomainResource {
         case -1718507650:  return getPlanningHorizon(); 
         case 950398559:  return getCommentElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case 1281188563: /*serviceCategory*/ return new String[] {"CodeableConcept"};
+        case -1928370289: /*serviceType*/ return new String[] {"CodeableConcept"};
+        case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
+        case 92645877: /*actor*/ return new String[] {"Reference"};
+        case -1718507650: /*planningHorizon*/ return new String[] {"Period"};
+        case 950398559: /*comment*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

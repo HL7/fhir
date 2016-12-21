@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Location3to2" = "R3 to R2 Conversion for Location"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Location" alias LocationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
@@ -13,27 +11,26 @@ imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Location extends DomainResource
+group for type+types  Location extends DomainResource
   input src : Location as source
   input tgt : LocationR2 as target
 
-  "Location-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Location-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Location-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "Location-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "Location-mode" : for src.mode as vs make tgt.mode as vt then code(vs, vt)
-  "Location-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Location-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "Location-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
-  "Location-physicalType" : for src.physicalType as vs make tgt.physicalType as vt then CodeableConcept(vs,vt)
+  "Location-identifier" : for src.identifier make tgt.identifier
+  "Location-status" : for src.status make tgt.status
+  "Location-name" : for src.name make tgt.name
+  "Location-description" : for src.description make tgt.description
+  "Location-mode" : for src.mode make tgt.mode
+  "Location-type" : for src.type make tgt.type
+  "Location-telecom" : for src.telecom make tgt.telecom
+  "Location-address" : for src.address make tgt.address
+  "Location-physicalType" : for src.physicalType make tgt.physicalType
   "Location-position" : for src.position as vs0 make tgt.position as vt0 then {
-    "Location.position-longitude" : for vs0.longitude as vs make vt0.longitude as vt then decimal(vs, vt)
-    "Location.position-latitude" : for vs0.latitude as vs make vt0.latitude as vt then decimal(vs, vt)
-    "Location.position-altitude" : for vs0.altitude as vs make vt0.altitude as vt then decimal(vs, vt)
+    "Location.position-longitude" : for vs0.longitude make vt0.longitude
+    "Location.position-latitude" : for vs0.latitude make vt0.latitude
+    "Location.position-altitude" : for vs0.altitude make vt0.altitude
   }
-  "Location-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
-  "Location-partOf" : for src.partOf as vs make tgt.partOf as vt then Reference(vs,vt)
-endgroup
 
+  "Location-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
+  "Location-partOf" : for src.partOf make tgt.partOf
+
+endgroup

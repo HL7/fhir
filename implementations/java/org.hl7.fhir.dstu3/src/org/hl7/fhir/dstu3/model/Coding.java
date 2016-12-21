@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -391,17 +391,17 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("system"))
+        if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else if (name.equals("userSelected"))
+        } else if (name.equals("userSelected")) {
           this.userSelected = castToBoolean(value); // BooleanType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -415,6 +415,19 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
         case 1671764162:  return getDisplayElement();
         case 423643014:  return getUserSelectedElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        case 423643014: /*userSelected*/ return new String[] {"boolean"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

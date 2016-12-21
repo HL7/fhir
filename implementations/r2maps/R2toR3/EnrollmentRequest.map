@@ -1,26 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentRequest2to3" = "R2 to R3 Conversions for EnrollmentRequest"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EnrollmentRequest" alias EnrollmentRequestR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentRequest" alias EnrollmentRequest as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
-
-
-group EnrollmentRequest extends DomainResource
+group for type+types  EnrollmentRequest extends DomainResource
   input src : EnrollmentRequestR2 as source
   input tgt : EnrollmentRequest as target
 
-  "EnrollmentRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "EnrollmentRequest-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)
-  "EnrollmentRequest-provider" : for src.provider as vs make tgt.provider as vt then Reference(vs,vt)
-  "EnrollmentRequest-organization" : for src.organization as vs make tgt.organization as vt then Reference(vs,vt)
-  "EnrollmentRequest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "EnrollmentRequest-coverage" : for src.coverage as vs make tgt.coverage as vt then Reference(vs,vt)
-endgroup
+  "EnrollmentRequest-identifier" : for src.identifier make tgt.identifier
+  "EnrollmentRequest-created" : for src.created make tgt.created
+  "EnrollmentRequest-provider" : for src.provider make tgt.provider
+  "EnrollmentRequest-organization" : for src.organization make tgt.organization
+  "EnrollmentRequest-subject" : for src.subject make tgt.subject
+  "EnrollmentRequest-coverage" : for src.coverage make tgt.coverage
 
+endgroup

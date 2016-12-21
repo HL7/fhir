@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -702,33 +702,33 @@ public class DosageInstruction extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("sequence"))
+        if (name.equals("sequence")) {
           this.sequence = castToInteger(value); // IntegerType
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else if (name.equals("additionalInstructions"))
+        } else if (name.equals("additionalInstructions")) {
           this.getAdditionalInstructions().add(castToCodeableConcept(value));
-        else if (name.equals("timing"))
+        } else if (name.equals("timing")) {
           this.timing = castToTiming(value); // Timing
-        else if (name.equals("asNeeded[x]"))
+        } else if (name.equals("asNeeded[x]")) {
           this.asNeeded = castToType(value); // Type
-        else if (name.equals("site"))
+        } else if (name.equals("site")) {
           this.site = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("route"))
+        } else if (name.equals("route")) {
           this.route = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("dose[x]"))
+        } else if (name.equals("dose[x]")) {
           this.dose = castToType(value); // Type
-        else if (name.equals("maxDosePerPeriod"))
+        } else if (name.equals("maxDosePerPeriod")) {
           this.maxDosePerPeriod = castToRatio(value); // Ratio
-        else if (name.equals("maxDosePerAdministration"))
+        } else if (name.equals("maxDosePerAdministration")) {
           this.maxDosePerAdministration = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("maxDosePerLifetime"))
+        } else if (name.equals("maxDosePerLifetime")) {
           this.maxDosePerLifetime = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("rate[x]"))
+        } else if (name.equals("rate[x]")) {
           this.rate = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -741,15 +741,39 @@ public class DosageInstruction extends Type implements ICompositeType {
         case -1206718612:  return addAdditionalInstructions(); 
         case -873664438:  return getTiming(); 
         case -544329575:  return getAsNeeded(); 
+        case -1432923513:  return getAsNeeded(); 
         case 3530567:  return getSite(); 
         case 108704329:  return getRoute(); 
         case -1077554975:  return getMethod(); 
         case 1843195715:  return getDose(); 
+        case 3089437:  return getDose(); 
         case 1506263709:  return getMaxDosePerPeriod(); 
         case 2004889914:  return getMaxDosePerAdministration(); 
         case 642099621:  return getMaxDosePerLifetime(); 
         case 983460768:  return getRate(); 
+        case 3493088:  return getRate(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1349547969: /*sequence*/ return new String[] {"integer"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        case -1206718612: /*additionalInstructions*/ return new String[] {"CodeableConcept"};
+        case -873664438: /*timing*/ return new String[] {"Timing"};
+        case -1432923513: /*asNeeded*/ return new String[] {"boolean", "CodeableConcept"};
+        case 3530567: /*site*/ return new String[] {"CodeableConcept"};
+        case 108704329: /*route*/ return new String[] {"CodeableConcept"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case 3089437: /*dose*/ return new String[] {"Range", "SimpleQuantity"};
+        case 1506263709: /*maxDosePerPeriod*/ return new String[] {"Ratio"};
+        case 2004889914: /*maxDosePerAdministration*/ return new String[] {"SimpleQuantity"};
+        case 642099621: /*maxDosePerLifetime*/ return new String[] {"SimpleQuantity"};
+        case 3493088: /*rate*/ return new String[] {"Ratio", "Range", "SimpleQuantity"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

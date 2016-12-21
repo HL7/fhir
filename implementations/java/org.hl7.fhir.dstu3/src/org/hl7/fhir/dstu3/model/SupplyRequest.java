@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class SupplyRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown SupplyRequestStatus code '"+codeString+"'");
         }
         public Enumeration<SupplyRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SupplyRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -276,11 +278,11 @@ public class SupplyRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("schedule"))
+        } else if (name.equals("schedule")) {
           this.schedule = castToTiming(value); // Timing
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -291,6 +293,16 @@ public class SupplyRequest extends DomainResource {
         case 3059181:  return getCode(); 
         case -697920873:  return getSchedule(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -697920873: /*schedule*/ return new String[] {"Timing"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -912,7 +924,8 @@ public class SupplyRequest extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new SupplyRequestStatusEnumFactory().fromType(value); // Enumeration<SupplyRequestStatus>
+          value = new SupplyRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SupplyRequestStatus>
           return value;
         case 3292052: // kind
           this.kind = castToCodeableConcept(value); // CodeableConcept
@@ -936,27 +949,28 @@ public class SupplyRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("patient"))
+        if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = castToReference(value); // Reference
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new SupplyRequestStatusEnumFactory().fromType(value); // Enumeration<SupplyRequestStatus>
-        else if (name.equals("kind"))
+        } else if (name.equals("status")) {
+          value = new SupplyRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SupplyRequestStatus>
+        } else if (name.equals("kind")) {
           this.kind = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("orderedItem[x]"))
+        } else if (name.equals("orderedItem[x]")) {
           this.orderedItem = castToType(value); // Type
-        else if (name.equals("supplier"))
+        } else if (name.equals("supplier")) {
           this.getSupplier().add(castToReference(value));
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("when"))
+        } else if (name.equals("when")) {
           this.when = (SupplyRequestWhenComponent) value; // SupplyRequestWhenComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -971,10 +985,30 @@ public class SupplyRequest extends DomainResource {
         case -892481550:  return getStatusElement();
         case 3292052:  return getKind(); 
         case -1574475936:  return getOrderedItem(); 
+        case 2129914144:  return getOrderedItem(); 
         case -1663305268:  return addSupplier(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case 3648314:  return getWhen(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -896505829: /*source*/ return new String[] {"Reference"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3292052: /*kind*/ return new String[] {"CodeableConcept"};
+        case 2129914144: /*orderedItem*/ return new String[] {"CodeableConcept", "Reference"};
+        case -1663305268: /*supplier*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case 3648314: /*when*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

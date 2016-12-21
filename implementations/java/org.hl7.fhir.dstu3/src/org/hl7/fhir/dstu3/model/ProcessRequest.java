@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class ProcessRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ProcessRequestStatus code '"+codeString+"'");
         }
         public Enumeration<ProcessRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ProcessRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -261,8 +263,10 @@ public class ProcessRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionList code '"+codeString+"'");
         }
         public Enumeration<ActionList> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionList>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -390,9 +394,9 @@ public class ProcessRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("sequenceLinkId"))
+        if (name.equals("sequenceLinkId")) {
           this.sequenceLinkId = castToInteger(value); // IntegerType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -402,6 +406,15 @@ public class ProcessRequest extends DomainResource {
         switch (hash) {
         case -1422298666:  return getSequenceLinkIdElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422298666: /*sequenceLinkId*/ return new String[] {"integer"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1346,10 +1359,12 @@ public class ProcessRequest extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
+          value = new ProcessRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcessRequestStatus>
           return value;
         case -1422950858: // action
-          this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
+          value = new ActionListEnumFactory().fromType(castToCode(value));
+          this.action = (Enumeration) value; // Enumeration<ActionList>
           return value;
         case -880905839: // target
           this.target = castToReference(value); // Reference
@@ -1394,37 +1409,39 @@ public class ProcessRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ProcessRequestStatusEnumFactory().fromType(value); // Enumeration<ProcessRequestStatus>
-        else if (name.equals("action"))
-          this.action = new ActionListEnumFactory().fromType(value); // Enumeration<ActionList>
-        else if (name.equals("target"))
+        } else if (name.equals("status")) {
+          value = new ProcessRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ProcessRequestStatus>
+        } else if (name.equals("action")) {
+          value = new ActionListEnumFactory().fromType(castToCode(value));
+          this.action = (Enumeration) value; // Enumeration<ActionList>
+        } else if (name.equals("target")) {
           this.target = castToReference(value); // Reference
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("provider"))
+        } else if (name.equals("provider")) {
           this.provider = castToReference(value); // Reference
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("response"))
+        } else if (name.equals("response")) {
           this.response = castToReference(value); // Reference
-        else if (name.equals("nullify"))
+        } else if (name.equals("nullify")) {
           this.nullify = castToBoolean(value); // BooleanType
-        else if (name.equals("reference"))
+        } else if (name.equals("reference")) {
           this.reference = castToString(value); // StringType
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.getItem().add((ItemsComponent) value);
-        else if (name.equals("include"))
+        } else if (name.equals("include")) {
           this.getInclude().add(castToString(value));
-        else if (name.equals("exclude"))
+        } else if (name.equals("exclude")) {
           this.getExclude().add(castToString(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1448,6 +1465,29 @@ public class ProcessRequest extends DomainResource {
         case -1321148966:  return addExcludeElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1422950858: /*action*/ return new String[] {"code"};
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case -987494927: /*provider*/ return new String[] {"Reference"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -340323263: /*response*/ return new String[] {"Reference"};
+        case -2001137643: /*nullify*/ return new String[] {"boolean"};
+        case -925155509: /*reference*/ return new String[] {"string"};
+        case 3242771: /*item*/ return new String[] {};
+        case 1942574248: /*include*/ return new String[] {"string"};
+        case -1321148966: /*exclude*/ return new String[] {"string"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

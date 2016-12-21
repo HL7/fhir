@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -176,8 +176,10 @@ public class RiskAssessment extends DomainResource {
         throw new IllegalArgumentException("Unknown RiskAssessmentStatus code '"+codeString+"'");
         }
         public Enumeration<RiskAssessmentStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<RiskAssessmentStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -564,17 +566,17 @@ public class RiskAssessment extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("outcome"))
+        if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("probability[x]"))
+        } else if (name.equals("probability[x]")) {
           this.probability = castToType(value); // Type
-        else if (name.equals("relativeRisk"))
+        } else if (name.equals("relativeRisk")) {
           this.relativeRisk = castToDecimal(value); // DecimalType
-        else if (name.equals("when[x]"))
+        } else if (name.equals("when[x]")) {
           this.when = castToType(value); // Type
-        else if (name.equals("rationale"))
+        } else if (name.equals("rationale")) {
           this.rationale = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -584,10 +586,25 @@ public class RiskAssessment extends DomainResource {
         switch (hash) {
         case -1106507950:  return getOutcome(); 
         case 1430185003:  return getProbability(); 
+        case -1290561483:  return getProbability(); 
         case -70741061:  return getRelativeRiskElement();
         case 1312831238:  return getWhen(); 
+        case 3648314:  return getWhen(); 
         case 345689335:  return getRationaleElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case -1290561483: /*probability*/ return new String[] {"decimal", "Range", "CodeableConcept"};
+        case -70741061: /*relativeRisk*/ return new String[] {"decimal"};
+        case 3648314: /*when*/ return new String[] {"Period", "Range"};
+        case 345689335: /*rationale*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1530,7 +1547,8 @@ public class RiskAssessment extends DomainResource {
           this.parent = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new RiskAssessmentStatusEnumFactory().fromType(value); // Enumeration<RiskAssessmentStatus>
+          value = new RiskAssessmentStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<RiskAssessmentStatus>
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -1575,39 +1593,40 @@ public class RiskAssessment extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("basedOn"))
+        } else if (name.equals("basedOn")) {
           this.basedOn = castToReference(value); // Reference
-        else if (name.equals("parent"))
+        } else if (name.equals("parent")) {
           this.parent = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new RiskAssessmentStatusEnumFactory().fromType(value); // Enumeration<RiskAssessmentStatus>
-        else if (name.equals("code"))
+        } else if (name.equals("status")) {
+          value = new RiskAssessmentStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<RiskAssessmentStatus>
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("occurrence[x]"))
+        } else if (name.equals("occurrence[x]")) {
           this.occurrence = castToType(value); // Type
-        else if (name.equals("condition"))
+        } else if (name.equals("condition")) {
           this.condition = castToReference(value); // Reference
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("basis"))
+        } else if (name.equals("basis")) {
           this.getBasis().add(castToReference(value));
-        else if (name.equals("prediction"))
+        } else if (name.equals("prediction")) {
           this.getPrediction().add((RiskAssessmentPredictionComponent) value);
-        else if (name.equals("mitigation"))
+        } else if (name.equals("mitigation")) {
           this.mitigation = castToString(value); // StringType
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.note = castToAnnotation(value); // Annotation
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1623,15 +1642,41 @@ public class RiskAssessment extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -2022646513:  return getOccurrence(); 
+        case 1687874001:  return getOccurrence(); 
         case -861311717:  return getCondition(); 
         case 481140686:  return getPerformer(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case -1077554975:  return getMethod(); 
         case 93508670:  return addBasis(); 
         case 1161234575:  return addPrediction(); 
         case 1293793087:  return getMitigationElement();
         case 3387378:  return getNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -995424086: /*parent*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period"};
+        case -861311717: /*condition*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case 93508670: /*basis*/ return new String[] {"Reference"};
+        case 1161234575: /*prediction*/ return new String[] {};
+        case 1293793087: /*mitigation*/ return new String[] {"string"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

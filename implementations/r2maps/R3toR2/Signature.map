@@ -1,26 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Signature3to2" = "R3 to R2 Conversion for Signature"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Signature" alias Signature as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Signature" alias SignatureR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
-
-
-group Signature extends Element
+group for type+types  Signature extends Element
   input src : Signature as source
   input tgt : SignatureR2 as target
 
-  "Signature-type" : for src.type as vs make tgt.type as vt then Coding(vs,vt)
-  "Signature-when" : for src.when as vs make tgt.when as vt then instant(vs, vt)
-  "Signature-who-uri" : for src.who  : uri as vs make tgt.who = create("uri") as vt then uri(vs,vt)
-  "Signature-who-Reference" : for src.who  : Reference as vs make tgt.who = create("Reference") as vt then Reference(vs,vt)
-  "Signature-contentType" : for src.contentType as vs make tgt.contentType as vt then code(vs, vt)
-  "Signature-blob" : for src.blob as vs make tgt.blob as vt then base64Binary(vs, vt)
-endgroup
+  "Signature-type" : for src.type make tgt.type
+  "Signature-when" : for src.when make tgt.when
+  "Signature-who-uri" : for src.who : uri as vs make tgt.who = create("uri") as vt then uri(vs, vt)
+  "Signature-who-Reference" : for src.who : Reference as vs make tgt.who = create("Reference") as vt then Reference(vs, vt)
+  "Signature-contentType" : for src.contentType make tgt.contentType
+  "Signature-blob" : for src.blob make tgt.blob
 
+endgroup

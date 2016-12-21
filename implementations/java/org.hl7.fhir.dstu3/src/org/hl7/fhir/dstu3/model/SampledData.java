@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -552,21 +552,21 @@ public class SampledData extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("origin"))
+        if (name.equals("origin")) {
           this.origin = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToDecimal(value); // DecimalType
-        else if (name.equals("factor"))
+        } else if (name.equals("factor")) {
           this.factor = castToDecimal(value); // DecimalType
-        else if (name.equals("lowerLimit"))
+        } else if (name.equals("lowerLimit")) {
           this.lowerLimit = castToDecimal(value); // DecimalType
-        else if (name.equals("upperLimit"))
+        } else if (name.equals("upperLimit")) {
           this.upperLimit = castToDecimal(value); // DecimalType
-        else if (name.equals("dimensions"))
+        } else if (name.equals("dimensions")) {
           this.dimensions = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("data"))
+        } else if (name.equals("data")) {
           this.data = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -582,6 +582,21 @@ public class SampledData extends Type implements ICompositeType {
         case 414334925:  return getDimensionsElement();
         case 3076010:  return getDataElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1008619738: /*origin*/ return new String[] {"SimpleQuantity"};
+        case -991726143: /*period*/ return new String[] {"decimal"};
+        case -1282148017: /*factor*/ return new String[] {"decimal"};
+        case 1209133370: /*lowerLimit*/ return new String[] {"decimal"};
+        case -1681713095: /*upperLimit*/ return new String[] {"decimal"};
+        case 414334925: /*dimensions*/ return new String[] {"positiveInt"};
+        case 3076010: /*data*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

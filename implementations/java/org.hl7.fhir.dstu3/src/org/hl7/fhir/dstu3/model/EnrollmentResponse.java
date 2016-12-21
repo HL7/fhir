@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class EnrollmentResponse extends DomainResource {
         throw new IllegalArgumentException("Unknown EnrollmentResponseStatus code '"+codeString+"'");
         }
         public Enumeration<EnrollmentResponseStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EnrollmentResponseStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -702,7 +704,8 @@ public class EnrollmentResponse extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new EnrollmentResponseStatusEnumFactory().fromType(value); // Enumeration<EnrollmentResponseStatus>
+          value = new EnrollmentResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EnrollmentResponseStatus>
           return value;
         case 1095692943: // request
           this.request = castToReference(value); // Reference
@@ -732,25 +735,26 @@ public class EnrollmentResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new EnrollmentResponseStatusEnumFactory().fromType(value); // Enumeration<EnrollmentResponseStatus>
-        else if (name.equals("request"))
+        } else if (name.equals("status")) {
+          value = new EnrollmentResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EnrollmentResponseStatus>
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("disposition"))
+        } else if (name.equals("disposition")) {
           this.disposition = castToString(value); // StringType
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("requestProvider"))
+        } else if (name.equals("requestProvider")) {
           this.requestProvider = castToReference(value); // Reference
-        else if (name.equals("requestOrganization"))
+        } else if (name.equals("requestOrganization")) {
           this.requestOrganization = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -768,6 +772,23 @@ public class EnrollmentResponse extends DomainResource {
         case 1601527200:  return getRequestProvider(); 
         case 599053666:  return getRequestOrganization(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case 583380919: /*disposition*/ return new String[] {"string"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1601527200: /*requestProvider*/ return new String[] {"Reference"};
+        case 599053666: /*requestOrganization*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

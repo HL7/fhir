@@ -1,35 +1,32 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EpisodeOfCare3to2" = "R3 to R2 Conversion for EpisodeOfCare"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group EpisodeOfCare extends DomainResource
+group for type+types  EpisodeOfCare extends DomainResource
   input src : EpisodeOfCare as source
   input tgt : EpisodeOfCareR2 as target
 
-  "EpisodeOfCare-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "EpisodeOfCare-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
+  "EpisodeOfCare-identifier" : for src.identifier make tgt.identifier
+  "EpisodeOfCare-status" : for src.status make tgt.status
   "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
-    "EpisodeOfCare.statusHistory-status" : for vs0.status as vs make vt0.status as vt then code(vs, vt)
-    "EpisodeOfCare.statusHistory-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
+    "EpisodeOfCare.statusHistory-status" : for vs0.status make vt0.status
+    "EpisodeOfCare.statusHistory-period" : for vs0.period make vt0.period
   }
-  "EpisodeOfCare-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "EpisodeOfCare-condition" : for src.condition as vs make tgt.condition as vt then Reference(vs,vt)
-  "EpisodeOfCare-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "EpisodeOfCare-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
-  "EpisodeOfCare-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-  "EpisodeOfCare-referralRequest" : for src.referralRequest as vs make tgt.referralRequest as vt then Reference(vs,vt)
-  "EpisodeOfCare-careManager" : for src.careManager as vs make tgt.careManager as vt then Reference(vs,vt)
-endgroup
 
+  "EpisodeOfCare-type" : for src.type make tgt.type
+  "EpisodeOfCare-condition" : for src.condition make tgt.condition
+  "EpisodeOfCare-patient" : for src.patient make tgt.patient
+  "EpisodeOfCare-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
+  "EpisodeOfCare-period" : for src.period make tgt.period
+  "EpisodeOfCare-referralRequest" : for src.referralRequest make tgt.referralRequest
+  "EpisodeOfCare-careManager" : for src.careManager make tgt.careManager
+
+endgroup

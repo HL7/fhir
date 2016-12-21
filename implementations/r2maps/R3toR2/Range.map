@@ -1,21 +1,17 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Range3to2" = "R3 to R2 Conversion for Range"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Range" alias Range as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Range" alias RangeR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
-
-
-group Range extends Element
+group for type+types  Range extends Element
   input src : Range as source
   input tgt : RangeR2 as target
 
-  "Range-low" : for src.low as vs make tgt.low as vt then Quantity(vs,vt)
-  "Range-high" : for src.high as vs make tgt.high as vt then Quantity(vs,vt)
-endgroup
+  "Range-low" : for src.low make tgt.low
+  "Range-high" : for src.high make tgt.high
 
+endgroup

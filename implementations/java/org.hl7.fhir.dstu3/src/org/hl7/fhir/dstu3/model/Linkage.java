@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class Linkage extends DomainResource {
         throw new IllegalArgumentException("Unknown LinkageType code '"+codeString+"'");
         }
         public Enumeration<LinkageType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<LinkageType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -278,7 +280,8 @@ public class Linkage extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new LinkageTypeEnumFactory().fromType(value); // Enumeration<LinkageType>
+          value = new LinkageTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<LinkageType>
           return value;
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
@@ -290,11 +293,12 @@ public class Linkage extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new LinkageTypeEnumFactory().fromType(value); // Enumeration<LinkageType>
-        else if (name.equals("resource"))
+        if (name.equals("type")) {
+          value = new LinkageTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<LinkageType>
+        } else if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -305,6 +309,16 @@ public class Linkage extends DomainResource {
         case 3575610:  return getTypeElement();
         case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -513,11 +527,11 @@ public class Linkage extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("author"))
+        if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.getItem().add((LinkageItemComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -528,6 +542,16 @@ public class Linkage extends DomainResource {
         case -1406328437:  return getAuthor(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 3242771: /*item*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

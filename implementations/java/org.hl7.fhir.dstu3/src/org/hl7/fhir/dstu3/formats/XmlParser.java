@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -14625,6 +14625,8 @@ public class XmlParser extends XmlParserBase {
         res.setNameElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("extends")) {
         res.setExtendsElement(parseId(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("typeMode")) {
+        res.setTypeModeElement(parseEnumeration(xpp, StructureMap.StructureMapGroupTypeMode.NULL, new StructureMap.StructureMapGroupTypeModeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("documentation")) {
         res.setDocumentationElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("input")) {
@@ -14822,32 +14824,7 @@ public class XmlParser extends XmlParserBase {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseId(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("variable")) {
-        res.getVariable().add(parseStructureMapStructureMapGroupRuleDependentVariableComponent(xpp, owner));
-      } else if (!parseBackboneContent(eventType, xpp, res))
-        return false;
-    return true;
-  }
-
-  protected StructureMap.StructureMapGroupRuleDependentVariableComponent parseStructureMapStructureMapGroupRuleDependentVariableComponent(XmlPullParser xpp, StructureMap owner) throws XmlPullParserException, IOException, FHIRFormatError {
-    StructureMap.StructureMapGroupRuleDependentVariableComponent res = new StructureMap.StructureMapGroupRuleDependentVariableComponent();
-    parseBackboneAttributes(xpp, res);
-    next(xpp);
-    int eventType = nextNoWhitespace(xpp);
-    while (eventType != XmlPullParser.END_TAG) {
-  if (!parseStructureMapStructureMapGroupRuleDependentVariableComponentContent(eventType, xpp, owner, res))
-        unknownContent(xpp);
-      eventType = nextNoWhitespace(xpp);
-    }
-    next(xpp);
-    parseElementClose(res);
-    return res;
-  }
-
-  protected boolean parseStructureMapStructureMapGroupRuleDependentVariableComponentContent(int eventType, XmlPullParser xpp, StructureMap owner, StructureMap.StructureMapGroupRuleDependentVariableComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
-        res.setNameElement(parseString(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && nameIsTypeName(xpp, "value")) {
-        res.setValue(parseType("value", xpp));
+        res.getVariable().add(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -33025,6 +33002,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExtendsElement()) {
         composeId("extends", element.getExtendsElement());
       }
+      if (element.hasTypeModeElement())
+        composeEnumeration("typeMode", element.getTypeModeElement(), new StructureMap.StructureMapGroupTypeModeEnumFactory());
       if (element.hasDocumentationElement()) {
         composeString("documentation", element.getDocumentationElement());
       }
@@ -33215,29 +33194,10 @@ public class XmlParser extends XmlParserBase {
         composeId("name", element.getNameElement());
       }
       if (element.hasVariable()) { 
-        for (StructureMap.StructureMapGroupRuleDependentVariableComponent e : element.getVariable()) 
-          composeStructureMapStructureMapGroupRuleDependentVariableComponent("variable", e);
+        for (StringType e : element.getVariable()) 
+          composeString("variable", e);
       }
   }
-
-  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
-    if (element != null) {
-      composeElementAttributes(element);
-      xml.enter(FHIR_NS, name);
-      composeStructureMapStructureMapGroupRuleDependentVariableComponentElements(element);
-      composeElementClose(element);
-      xml.exit(FHIR_NS, name);
-    }
-  }
-
-  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponentElements(StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
-      composeBackboneElements(element);
-      if (element.hasNameElement()) {
-        composeString("name", element.getNameElement());
-      }
-      if (element.hasValue()) {
-        composeType("value", element.getValue());
-      }  }
 
   protected void composeSubscription(String name, Subscription element) throws IOException {
     if (element != null) {

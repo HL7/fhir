@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -141,8 +141,10 @@ public class TestScript extends MetadataResource {
         throw new IllegalArgumentException("Unknown ContentType code '"+codeString+"'");
         }
         public Enumeration<ContentType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ContentType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -239,8 +241,10 @@ public class TestScript extends MetadataResource {
         throw new IllegalArgumentException("Unknown AssertionDirectionType code '"+codeString+"'");
         }
         public Enumeration<AssertionDirectionType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AssertionDirectionType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -437,8 +441,10 @@ public class TestScript extends MetadataResource {
         throw new IllegalArgumentException("Unknown AssertionOperatorType code '"+codeString+"'");
         }
         public Enumeration<AssertionOperatorType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AssertionOperatorType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -683,8 +689,10 @@ public class TestScript extends MetadataResource {
         throw new IllegalArgumentException("Unknown AssertionResponseTypes code '"+codeString+"'");
         }
         public Enumeration<AssertionResponseTypes> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AssertionResponseTypes>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -882,11 +890,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("index"))
+        if (name.equals("index")) {
           this.index = castToInteger(value); // IntegerType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.profile = castToCoding(value); // Coding
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -897,6 +905,16 @@ public class TestScript extends MetadataResource {
         case 100346066:  return getIndexElement();
         case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 100346066: /*index*/ return new String[] {"integer"};
+        case -309425751: /*profile*/ return new String[] {"Coding"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1089,11 +1107,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("index"))
+        if (name.equals("index")) {
           this.index = castToInteger(value); // IntegerType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.profile = castToCoding(value); // Coding
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1104,6 +1122,16 @@ public class TestScript extends MetadataResource {
         case 100346066:  return getIndexElement();
         case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 100346066: /*index*/ return new String[] {"integer"};
+        case -309425751: /*profile*/ return new String[] {"Coding"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1323,11 +1351,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("link"))
+        if (name.equals("link")) {
           this.getLink().add((TestScriptMetadataLinkComponent) value);
-        else if (name.equals("capability"))
+        } else if (name.equals("capability")) {
           this.getCapability().add((TestScriptMetadataCapabilityComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1338,6 +1366,16 @@ public class TestScript extends MetadataResource {
         case 3321850:  return addLink(); 
         case -783669992:  return addCapability(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3321850: /*link*/ return new String[] {};
+        case -783669992: /*capability*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1560,11 +1598,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1575,6 +1613,16 @@ public class TestScript extends MetadataResource {
         case 116079:  return getUrlElement();
         case -1724546052:  return getDescriptionElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2110,21 +2158,21 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("required"))
+        if (name.equals("required")) {
           this.required = castToBoolean(value); // BooleanType
-        else if (name.equals("validated"))
+        } else if (name.equals("validated")) {
           this.validated = castToBoolean(value); // BooleanType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("origin"))
+        } else if (name.equals("origin")) {
           this.getOrigin().add(castToInteger(value));
-        else if (name.equals("destination"))
+        } else if (name.equals("destination")) {
           this.destination = castToInteger(value); // IntegerType
-        else if (name.equals("link"))
+        } else if (name.equals("link")) {
           this.getLink().add(castToUri(value));
-        else if (name.equals("capabilities"))
+        } else if (name.equals("capabilities")) {
           this.capabilities = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2140,6 +2188,21 @@ public class TestScript extends MetadataResource {
         case 3321850:  return addLinkElement();
         case -1487597642:  return getCapabilities(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -393139297: /*required*/ return new String[] {"boolean"};
+        case -1109784050: /*validated*/ return new String[] {"boolean"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1008619738: /*origin*/ return new String[] {"integer"};
+        case -1429847026: /*destination*/ return new String[] {"integer"};
+        case 3321850: /*link*/ return new String[] {"uri"};
+        case -1487597642: /*capabilities*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2432,13 +2495,13 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("autocreate"))
+        if (name.equals("autocreate")) {
           this.autocreate = castToBoolean(value); // BooleanType
-        else if (name.equals("autodelete"))
+        } else if (name.equals("autodelete")) {
           this.autodelete = castToBoolean(value); // BooleanType
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2450,6 +2513,17 @@ public class TestScript extends MetadataResource {
         case 89990170:  return getAutodeleteElement();
         case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 73154411: /*autocreate*/ return new String[] {"boolean"};
+        case 89990170: /*autodelete*/ return new String[] {"boolean"};
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3038,23 +3112,23 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("defaultValue"))
+        } else if (name.equals("defaultValue")) {
           this.defaultValue = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("expression"))
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else if (name.equals("headerField"))
+        } else if (name.equals("headerField")) {
           this.headerField = castToString(value); // StringType
-        else if (name.equals("hint"))
+        } else if (name.equals("hint")) {
           this.hint = castToString(value); // StringType
-        else if (name.equals("path"))
+        } else if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("sourceId"))
+        } else if (name.equals("sourceId")) {
           this.sourceId = castToId(value); // IdType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3071,6 +3145,22 @@ public class TestScript extends MetadataResource {
         case 3433509:  return getPathElement();
         case 1746327190:  return getSourceIdElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -659125328: /*defaultValue*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        case 1160732269: /*headerField*/ return new String[] {"string"};
+        case 3202695: /*hint*/ return new String[] {"string"};
+        case 3433509: /*path*/ return new String[] {"string"};
+        case 1746327190: /*sourceId*/ return new String[] {"id"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3319,11 +3409,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("resource"))
+        if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else if (name.equals("param"))
+        } else if (name.equals("param")) {
           this.getParam().add((RuleParamComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3334,6 +3424,16 @@ public class TestScript extends MetadataResource {
         case -341064690:  return getResource(); 
         case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        case 106436749: /*param*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3553,11 +3653,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3568,6 +3668,16 @@ public class TestScript extends MetadataResource {
         case 3373707:  return getNameElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3785,11 +3895,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("resource"))
+        if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else if (name.equals("rule"))
+        } else if (name.equals("rule")) {
           this.getRule().add((RulesetRuleComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3800,6 +3910,16 @@ public class TestScript extends MetadataResource {
         case -341064690:  return getResource(); 
         case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        case 3512060: /*rule*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4023,11 +4143,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("ruleId"))
+        if (name.equals("ruleId")) {
           this.ruleId = castToId(value); // IdType
-        else if (name.equals("param"))
+        } else if (name.equals("param")) {
           this.getParam().add((RulesetRuleParamComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4038,6 +4158,16 @@ public class TestScript extends MetadataResource {
         case -919875273:  return getRuleIdElement();
         case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -919875273: /*ruleId*/ return new String[] {"id"};
+        case 106436749: /*param*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4256,11 +4386,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4271,6 +4401,16 @@ public class TestScript extends MetadataResource {
         case 3373707:  return getNameElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4424,9 +4564,9 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.getAction().add((SetupActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4436,6 +4576,15 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4596,11 +4745,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else if (name.equals("assert"))
+        } else if (name.equals("assert")) {
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4611,6 +4760,16 @@ public class TestScript extends MetadataResource {
         case 1662702951:  return getOperation(); 
         case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {};
+        case -1408208058: /*assert*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -5606,10 +5765,12 @@ public class TestScript extends MetadataResource {
           this.description = castToString(value); // StringType
           return value;
         case -1423461112: // accept
-          this.accept = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.accept = (Enumeration) value; // Enumeration<ContentType>
           return value;
         case -389131437: // contentType
-          this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.contentType = (Enumeration) value; // Enumeration<ContentType>
           return value;
         case -1429847026: // destination
           this.destination = castToInteger(value); // IntegerType
@@ -5648,39 +5809,41 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.resource = castToCode(value); // CodeType
-        else if (name.equals("label"))
+        } else if (name.equals("label")) {
           this.label = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("accept"))
-          this.accept = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-        else if (name.equals("contentType"))
-          this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-        else if (name.equals("destination"))
+        } else if (name.equals("accept")) {
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.accept = (Enumeration) value; // Enumeration<ContentType>
+        } else if (name.equals("contentType")) {
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+        } else if (name.equals("destination")) {
           this.destination = castToInteger(value); // IntegerType
-        else if (name.equals("encodeRequestUrl"))
+        } else if (name.equals("encodeRequestUrl")) {
           this.encodeRequestUrl = castToBoolean(value); // BooleanType
-        else if (name.equals("origin"))
+        } else if (name.equals("origin")) {
           this.origin = castToInteger(value); // IntegerType
-        else if (name.equals("params"))
+        } else if (name.equals("params")) {
           this.params = castToString(value); // StringType
-        else if (name.equals("requestHeader"))
+        } else if (name.equals("requestHeader")) {
           this.getRequestHeader().add((SetupActionOperationRequestHeaderComponent) value);
-        else if (name.equals("requestId"))
+        } else if (name.equals("requestId")) {
           this.requestId = castToId(value); // IdType
-        else if (name.equals("responseId"))
+        } else if (name.equals("responseId")) {
           this.responseId = castToId(value); // IdType
-        else if (name.equals("sourceId"))
+        } else if (name.equals("sourceId")) {
           this.sourceId = castToId(value); // IdType
-        else if (name.equals("targetId"))
+        } else if (name.equals("targetId")) {
           this.targetId = castToId(value); // IdType
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -5705,6 +5868,30 @@ public class TestScript extends MetadataResource {
         case -441951604:  return getTargetIdElement();
         case 116079:  return getUrlElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"Coding"};
+        case -341064690: /*resource*/ return new String[] {"code"};
+        case 102727412: /*label*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1423461112: /*accept*/ return new String[] {"code"};
+        case -389131437: /*contentType*/ return new String[] {"code"};
+        case -1429847026: /*destination*/ return new String[] {"integer"};
+        case -1760554218: /*encodeRequestUrl*/ return new String[] {"boolean"};
+        case -1008619738: /*origin*/ return new String[] {"integer"};
+        case -995427962: /*params*/ return new String[] {"string"};
+        case 1074158076: /*requestHeader*/ return new String[] {};
+        case 693933066: /*requestId*/ return new String[] {"id"};
+        case -633138884: /*responseId*/ return new String[] {"id"};
+        case 1746327190: /*sourceId*/ return new String[] {"id"};
+        case -441951604: /*targetId*/ return new String[] {"id"};
+        case 116079: /*url*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -5989,11 +6176,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("field"))
+        if (name.equals("field")) {
           this.field = castToString(value); // StringType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -6004,6 +6191,16 @@ public class TestScript extends MetadataResource {
         case 97427706:  return getFieldElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 97427706: /*field*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -7373,7 +7570,8 @@ public class TestScript extends MetadataResource {
           this.description = castToString(value); // StringType
           return value;
         case -962590849: // direction
-          this.direction = new AssertionDirectionTypeEnumFactory().fromType(value); // Enumeration<AssertionDirectionType>
+          value = new AssertionDirectionTypeEnumFactory().fromType(castToCode(value));
+          this.direction = (Enumeration) value; // Enumeration<AssertionDirectionType>
           return value;
         case 2081856758: // compareToSourceId
           this.compareToSourceId = castToString(value); // StringType
@@ -7385,7 +7583,8 @@ public class TestScript extends MetadataResource {
           this.compareToSourcePath = castToString(value); // StringType
           return value;
         case -389131437: // contentType
-          this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.contentType = (Enumeration) value; // Enumeration<ContentType>
           return value;
         case -1795452264: // expression
           this.expression = castToString(value); // StringType
@@ -7400,7 +7599,8 @@ public class TestScript extends MetadataResource {
           this.navigationLinks = castToBoolean(value); // BooleanType
           return value;
         case -500553564: // operator
-          this.operator = new AssertionOperatorTypeEnumFactory().fromType(value); // Enumeration<AssertionOperatorType>
+          value = new AssertionOperatorTypeEnumFactory().fromType(castToCode(value));
+          this.operator = (Enumeration) value; // Enumeration<AssertionOperatorType>
           return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
@@ -7412,7 +7612,8 @@ public class TestScript extends MetadataResource {
           this.resource = castToCode(value); // CodeType
           return value;
         case -340323263: // response
-          this.response = new AssertionResponseTypesEnumFactory().fromType(value); // Enumeration<AssertionResponseTypes>
+          value = new AssertionResponseTypesEnumFactory().fromType(castToCode(value));
+          this.response = (Enumeration) value; // Enumeration<AssertionResponseTypes>
           return value;
         case 1438723534: // responseCode
           this.responseCode = castToString(value); // StringType
@@ -7442,53 +7643,57 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("label"))
+        if (name.equals("label")) {
           this.label = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("direction"))
-          this.direction = new AssertionDirectionTypeEnumFactory().fromType(value); // Enumeration<AssertionDirectionType>
-        else if (name.equals("compareToSourceId"))
+        } else if (name.equals("direction")) {
+          value = new AssertionDirectionTypeEnumFactory().fromType(castToCode(value));
+          this.direction = (Enumeration) value; // Enumeration<AssertionDirectionType>
+        } else if (name.equals("compareToSourceId")) {
           this.compareToSourceId = castToString(value); // StringType
-        else if (name.equals("compareToSourceExpression"))
+        } else if (name.equals("compareToSourceExpression")) {
           this.compareToSourceExpression = castToString(value); // StringType
-        else if (name.equals("compareToSourcePath"))
+        } else if (name.equals("compareToSourcePath")) {
           this.compareToSourcePath = castToString(value); // StringType
-        else if (name.equals("contentType"))
-          this.contentType = new ContentTypeEnumFactory().fromType(value); // Enumeration<ContentType>
-        else if (name.equals("expression"))
+        } else if (name.equals("contentType")) {
+          value = new ContentTypeEnumFactory().fromType(castToCode(value));
+          this.contentType = (Enumeration) value; // Enumeration<ContentType>
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else if (name.equals("headerField"))
+        } else if (name.equals("headerField")) {
           this.headerField = castToString(value); // StringType
-        else if (name.equals("minimumId"))
+        } else if (name.equals("minimumId")) {
           this.minimumId = castToString(value); // StringType
-        else if (name.equals("navigationLinks"))
+        } else if (name.equals("navigationLinks")) {
           this.navigationLinks = castToBoolean(value); // BooleanType
-        else if (name.equals("operator"))
-          this.operator = new AssertionOperatorTypeEnumFactory().fromType(value); // Enumeration<AssertionOperatorType>
-        else if (name.equals("path"))
+        } else if (name.equals("operator")) {
+          value = new AssertionOperatorTypeEnumFactory().fromType(castToCode(value));
+          this.operator = (Enumeration) value; // Enumeration<AssertionOperatorType>
+        } else if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("requestURL"))
+        } else if (name.equals("requestURL")) {
           this.requestURL = castToString(value); // StringType
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.resource = castToCode(value); // CodeType
-        else if (name.equals("response"))
-          this.response = new AssertionResponseTypesEnumFactory().fromType(value); // Enumeration<AssertionResponseTypes>
-        else if (name.equals("responseCode"))
+        } else if (name.equals("response")) {
+          value = new AssertionResponseTypesEnumFactory().fromType(castToCode(value));
+          this.response = (Enumeration) value; // Enumeration<AssertionResponseTypes>
+        } else if (name.equals("responseCode")) {
           this.responseCode = castToString(value); // StringType
-        else if (name.equals("rule"))
+        } else if (name.equals("rule")) {
           this.rule = (ActionAssertRuleComponent) value; // ActionAssertRuleComponent
-        else if (name.equals("ruleset"))
+        } else if (name.equals("ruleset")) {
           this.ruleset = (ActionAssertRulesetComponent) value; // ActionAssertRulesetComponent
-        else if (name.equals("sourceId"))
+        } else if (name.equals("sourceId")) {
           this.sourceId = castToId(value); // IdType
-        else if (name.equals("validateProfileId"))
+        } else if (name.equals("validateProfileId")) {
           this.validateProfileId = castToId(value); // IdType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else if (name.equals("warningOnly"))
+        } else if (name.equals("warningOnly")) {
           this.warningOnly = castToBoolean(value); // BooleanType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -7520,6 +7725,37 @@ public class TestScript extends MetadataResource {
         case 111972721:  return getValueElement();
         case -481159832:  return getWarningOnlyElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 102727412: /*label*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -962590849: /*direction*/ return new String[] {"code"};
+        case 2081856758: /*compareToSourceId*/ return new String[] {"string"};
+        case -1415702669: /*compareToSourceExpression*/ return new String[] {"string"};
+        case -790206144: /*compareToSourcePath*/ return new String[] {"string"};
+        case -389131437: /*contentType*/ return new String[] {"code"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        case 1160732269: /*headerField*/ return new String[] {"string"};
+        case 818925001: /*minimumId*/ return new String[] {"string"};
+        case 1001488901: /*navigationLinks*/ return new String[] {"boolean"};
+        case -500553564: /*operator*/ return new String[] {"code"};
+        case 3433509: /*path*/ return new String[] {"string"};
+        case 37099616: /*requestURL*/ return new String[] {"string"};
+        case -341064690: /*resource*/ return new String[] {"code"};
+        case -340323263: /*response*/ return new String[] {"code"};
+        case 1438723534: /*responseCode*/ return new String[] {"string"};
+        case 3512060: /*rule*/ return new String[] {};
+        case 1548678118: /*ruleset*/ return new String[] {};
+        case 1746327190: /*sourceId*/ return new String[] {"id"};
+        case 1555541038: /*validateProfileId*/ return new String[] {"id"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        case -481159832: /*warningOnly*/ return new String[] {"boolean"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -7845,11 +8081,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("ruleId"))
+        if (name.equals("ruleId")) {
           this.ruleId = castToId(value); // IdType
-        else if (name.equals("param"))
+        } else if (name.equals("param")) {
           this.getParam().add((ActionAssertRuleParamComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -7860,6 +8096,16 @@ public class TestScript extends MetadataResource {
         case -919875273:  return getRuleIdElement();
         case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -919875273: /*ruleId*/ return new String[] {"id"};
+        case 106436749: /*param*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -8075,11 +8321,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -8090,6 +8336,16 @@ public class TestScript extends MetadataResource {
         case 3373707:  return getNameElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -8308,11 +8564,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("rulesetId"))
+        if (name.equals("rulesetId")) {
           this.rulesetId = castToId(value); // IdType
-        else if (name.equals("rule"))
+        } else if (name.equals("rule")) {
           this.getRule().add((ActionAssertRulesetRuleComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -8323,6 +8579,16 @@ public class TestScript extends MetadataResource {
         case -2073977951:  return getRulesetIdElement();
         case 3512060:  return addRule(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -2073977951: /*rulesetId*/ return new String[] {"id"};
+        case 3512060: /*rule*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -8545,11 +8811,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("ruleId"))
+        if (name.equals("ruleId")) {
           this.ruleId = castToId(value); // IdType
-        else if (name.equals("param"))
+        } else if (name.equals("param")) {
           this.getParam().add((ActionAssertRulesetRuleParamComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -8560,6 +8826,16 @@ public class TestScript extends MetadataResource {
         case -919875273:  return getRuleIdElement();
         case 106436749:  return addParam(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -919875273: /*ruleId*/ return new String[] {"id"};
+        case 106436749: /*param*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -8775,11 +9051,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -8790,6 +9066,16 @@ public class TestScript extends MetadataResource {
         case 3373707:  return getNameElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -9065,13 +9351,13 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("action"))
+        } else if (name.equals("action")) {
           this.getAction().add((TestActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -9083,6 +9369,17 @@ public class TestScript extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -9253,11 +9550,11 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else if (name.equals("assert"))
+        } else if (name.equals("assert")) {
           this.assert_ = (SetupActionAssertComponent) value; // SetupActionAssertComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -9268,6 +9565,16 @@ public class TestScript extends MetadataResource {
         case 1662702951:  return getOperation(); 
         case -1408208058:  return getAssert(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {"@TestScript.setup.action.operation"};
+        case -1408208058: /*assert*/ return new String[] {"@TestScript.setup.action.assert"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -9423,9 +9730,9 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("action"))
+        if (name.equals("action")) {
           this.getAction().add((TeardownActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -9435,6 +9742,15 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -9567,9 +9883,9 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("operation"))
+        if (name.equals("operation")) {
           this.operation = (SetupActionOperationComponent) value; // SetupActionOperationComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -9579,6 +9895,15 @@ public class TestScript extends MetadataResource {
         switch (hash) {
         case 1662702951:  return getOperation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1662702951: /*operation*/ return new String[] {"@TestScript.setup.action.operation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -11048,7 +11373,8 @@ public class TestScript extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -11117,59 +11443,60 @@ public class TestScript extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("origin"))
+        } else if (name.equals("origin")) {
           this.getOrigin().add((TestScriptOriginComponent) value);
-        else if (name.equals("destination"))
+        } else if (name.equals("destination")) {
           this.getDestination().add((TestScriptDestinationComponent) value);
-        else if (name.equals("metadata"))
+        } else if (name.equals("metadata")) {
           this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
-        else if (name.equals("fixture"))
+        } else if (name.equals("fixture")) {
           this.getFixture().add((TestScriptFixtureComponent) value);
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.getProfile().add(castToReference(value));
-        else if (name.equals("variable"))
+        } else if (name.equals("variable")) {
           this.getVariable().add((TestScriptVariableComponent) value);
-        else if (name.equals("rule"))
+        } else if (name.equals("rule")) {
           this.getRule().add((TestScriptRuleComponent) value);
-        else if (name.equals("ruleset"))
+        } else if (name.equals("ruleset")) {
           this.getRuleset().add((TestScriptRulesetComponent) value);
-        else if (name.equals("setup"))
+        } else if (name.equals("setup")) {
           this.setup = (TestScriptSetupComponent) value; // TestScriptSetupComponent
-        else if (name.equals("test"))
+        } else if (name.equals("test")) {
           this.getTest().add((TestScriptTestComponent) value);
-        else if (name.equals("teardown"))
+        } else if (name.equals("teardown")) {
           this.teardown = (TestScriptTeardownComponent) value; // TestScriptTeardownComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -11204,6 +11531,40 @@ public class TestScript extends MetadataResource {
         case 3556498:  return addTest(); 
         case -1663474172:  return getTeardown(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case -1008619738: /*origin*/ return new String[] {};
+        case -1429847026: /*destination*/ return new String[] {};
+        case -450004177: /*metadata*/ return new String[] {};
+        case -843449847: /*fixture*/ return new String[] {};
+        case -309425751: /*profile*/ return new String[] {"Reference"};
+        case -1249586564: /*variable*/ return new String[] {};
+        case 3512060: /*rule*/ return new String[] {};
+        case 1548678118: /*ruleset*/ return new String[] {};
+        case 109329021: /*setup*/ return new String[] {};
+        case 3556498: /*test*/ return new String[] {};
+        case -1663474172: /*teardown*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

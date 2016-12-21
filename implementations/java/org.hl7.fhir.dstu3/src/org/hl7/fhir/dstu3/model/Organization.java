@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -255,15 +255,15 @@ public class Organization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("purpose"))
+        if (name.equals("purpose")) {
           this.purpose = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToHumanName(value); // HumanName
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.address = castToAddress(value); // Address
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -276,6 +276,18 @@ public class Organization extends DomainResource {
         case -1429363305:  return addTelecom(); 
         case -1147692044:  return getAddress(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -220463842: /*purpose*/ return new String[] {"CodeableConcept"};
+        case 3373707: /*name*/ return new String[] {"HumanName"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1020,27 +1032,27 @@ public class Organization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("alias"))
+        } else if (name.equals("alias")) {
           this.getAlias().add(castToString(value));
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.getAddress().add(castToAddress(value));
-        else if (name.equals("partOf"))
+        } else if (name.equals("partOf")) {
           this.partOf = castToReference(value); // Reference
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add((OrganizationContactComponent) value);
-        else if (name.equals("endpoint"))
+        } else if (name.equals("endpoint")) {
           this.getEndpoint().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1059,6 +1071,24 @@ public class Organization extends DomainResource {
         case 951526432:  return addContact(); 
         case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 92902992: /*alias*/ return new String[] {"string"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
+        case 951526432: /*contact*/ return new String[] {};
+        case 1741102485: /*endpoint*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

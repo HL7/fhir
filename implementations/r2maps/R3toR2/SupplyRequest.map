@@ -1,35 +1,32 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SupplyRequest3to2" = "R3 to R2 Conversion for SupplyRequest"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/SupplyRequest" alias SupplyRequest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyRequest" alias SupplyRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Timing3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group SupplyRequest extends DomainResource
+group for type+types  SupplyRequest extends DomainResource
   input src : SupplyRequest as source
   input tgt : SupplyRequestR2 as target
 
-  "SupplyRequest-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "SupplyRequest-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
-  "SupplyRequest-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "SupplyRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "SupplyRequest-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "SupplyRequest-kind" : for src.kind as vs make tgt.kind as vt then CodeableConcept(vs,vt)
-  "SupplyRequest-supplier" : for src.supplier as vs make tgt.supplier as vt then Reference(vs,vt)
-  "SupplyRequest-reason-CodeableConcept" : for src.reason  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "SupplyRequest-reason-Reference" : for src.reason  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
+  "SupplyRequest-patient" : for src.patient make tgt.patient
+  "SupplyRequest-source" : for src.source make tgt.source
+  "SupplyRequest-date" : for src.date make tgt.date
+  "SupplyRequest-identifier" : for src.identifier make tgt.identifier
+  "SupplyRequest-status" : for src.status make tgt.status
+  "SupplyRequest-kind" : for src.kind make tgt.kind
+  "SupplyRequest-supplier" : for src.supplier make tgt.supplier
+  "SupplyRequest-reason-CodeableConcept" : for src.reason : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "SupplyRequest-reason-Reference" : for src.reason : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs, vt)
   "SupplyRequest-when" : for src.when as vs0 make tgt.when as vt0 then {
-    "SupplyRequest.when-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
-    "SupplyRequest.when-schedule" : for vs0.schedule as vs make vt0.schedule as vt then Timing(vs,vt)
+    "SupplyRequest.when-code" : for vs0.code make vt0.code
+    "SupplyRequest.when-schedule" : for vs0.schedule make vt0.schedule
   }
-endgroup
 
+
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -273,15 +273,15 @@ public class Parameters extends Resource implements IBaseParameters {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.resource = castToResource(value); // Resource
-        else if (name.equals("part"))
+        } else if (name.equals("part")) {
           this.getPart().add((ParametersParameterComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -291,9 +291,22 @@ public class Parameters extends Resource implements IBaseParameters {
         switch (hash) {
         case 3373707:  return getNameElement();
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         case -341064690: throw new FHIRException("Cannot make property resource as it is not a complex type"); // Resource
         case 3433459:  return addPart(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"*"};
+        case -341064690: /*resource*/ return new String[] {"Resource"};
+        case 3433459: /*part*/ return new String[] {"@Parameters.parameter"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -588,9 +601,9 @@ public class Parameters extends Resource implements IBaseParameters {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("parameter"))
+        if (name.equals("parameter")) {
           this.getParameter().add((ParametersParameterComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -600,6 +613,15 @@ public class Parameters extends Resource implements IBaseParameters {
         switch (hash) {
         case 1954460585:  return addParameter(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1954460585: /*parameter*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

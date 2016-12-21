@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -149,11 +149,11 @@ public class Range extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("low"))
+        if (name.equals("low")) {
           this.low = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("high"))
+        } else if (name.equals("high")) {
           this.high = castToSimpleQuantity(value); // SimpleQuantity
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -164,6 +164,16 @@ public class Range extends Type implements ICompositeType {
         case 107348:  return getLow(); 
         case 3202466:  return getHigh(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 107348: /*low*/ return new String[] {"SimpleQuantity"};
+        case 3202466: /*high*/ return new String[] {"SimpleQuantity"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

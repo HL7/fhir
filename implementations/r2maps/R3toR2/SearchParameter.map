@@ -1,6 +1,5 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SearchParameter3to2" = "R3 to R2 Conversion for SearchParameter"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/SearchParameter" alias SearchParameter as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SearchParameter" alias SearchParameterR2 as target
 
@@ -8,29 +7,28 @@ imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 
-
-
-group SearchParameter extends DomainResource
+group for type+types  SearchParameter extends DomainResource
   input src : SearchParameter as source
   input tgt : SearchParameterR2 as target
 
-  "SearchParameter-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "SearchParameter-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "SearchParameter-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "SearchParameter-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "SearchParameter-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "SearchParameter-url" : for src.url make tgt.url
+  "SearchParameter-name" : for src.name make tgt.name
+  "SearchParameter-status" : for src.status make tgt.status
+  "SearchParameter-experimental" : for src.experimental make tgt.experimental
+  "SearchParameter-publisher" : for src.publisher make tgt.publisher
   "SearchParameter-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "SearchParameter.contact-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "SearchParameter.contact-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "SearchParameter.contact-name" : for vs0.name make vt0.name
+    "SearchParameter.contact-telecom" : for vs0.telecom make vt0.telecom
   }
-  "SearchParameter-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "SearchParameter-requirements" : for src.purpose as vs make tgt.requirements as vt then markdownToString(vs, vt)
-  "SearchParameter-code" : for src.code as vs make tgt.code as vt then code(vs, vt)
-  "SearchParameter-base" : for src.base only_one as vs make tgt.base as vt then code(vs, vt)
-  "SearchParameter-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
-  "SearchParameter-description" : for src.description as vs make tgt.description as vt then markdownToString(vs, vt)
-  "SearchParameter-xpath" : for src.xpath as vs make tgt.xpath as vt then string(vs, vt)
-  "SearchParameter-xpathUsage" : for src.xpathUsage as vs make tgt.xpathUsage as vt then code(vs, vt)
-  "SearchParameter-target" : for src.target as vs make tgt.target as vt then code(vs, vt)
-endgroup
 
+  "SearchParameter-date" : for src.date make tgt.date
+  "SearchParameter-requirements" : for src.purpose make tgt.requirements
+  "SearchParameter-code" : for src.code make tgt.code
+  "SearchParameter-base" : for src.base only_one make tgt.base
+  "SearchParameter-type" : for src.type make tgt.type
+  "SearchParameter-description" : for src.description make tgt.description
+  "SearchParameter-xpath" : for src.xpath make tgt.xpath
+  "SearchParameter-xpathUsage" : for src.xpathUsage make tgt.xpathUsage
+  "SearchParameter-target" : for src.target make tgt.target
+
+endgroup

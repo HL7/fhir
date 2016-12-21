@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Account2to3" = "R2 to R3 Conversions for Account"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Account" alias AccountR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Account" alias Account as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Money2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
@@ -14,22 +12,20 @@ imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Account extends DomainResource
+group for type+types  Account extends DomainResource
   input src : AccountR2 as source
   input tgt : Account as target
 
-  "Account-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Account-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "Account-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Account-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Account-active" : for src.activePeriod as vs make tgt.active as vt then Period(vs,vt)
-  "Account-currency" : for src.currency as vs make tgt.currency as vt then Coding(vs,vt)
-  "Account-balance" : for src.balance as vs make tgt.balance as vt then Money(vs,vt)
-  "Account-coveragePeriod" : for src.coveragePeriod as vs make tgt.coveragePeriod as vt then Period(vs,vt)
-  "Account-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "Account-owner" : for src.owner as vs make tgt.owner as vt then Reference(vs,vt)
-  "Account-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-endgroup
+  "Account-identifier" : for src.identifier make tgt.identifier
+  "Account-name" : for src.name make tgt.name
+  "Account-type" : for src.type make tgt.type
+  "Account-status" : for src.status make tgt.status
+  "Account-active" : for src.activePeriod make tgt.active
+  "Account-currency" : for src.currency make tgt.currency
+  "Account-balance" : for src.balance make tgt.balance
+  "Account-coveragePeriod" : for src.coveragePeriod make tgt.coveragePeriod
+  "Account-subject" : for src.subject make tgt.subject
+  "Account-owner" : for src.owner make tgt.owner
+  "Account-description" : for src.description make tgt.description
 
+endgroup

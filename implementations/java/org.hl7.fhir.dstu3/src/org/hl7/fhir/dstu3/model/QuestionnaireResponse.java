@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class QuestionnaireResponse extends DomainResource {
         throw new IllegalArgumentException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
         public Enumeration<QuestionnaireResponseStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<QuestionnaireResponseStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -576,19 +578,19 @@ public class QuestionnaireResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("linkId"))
+        if (name.equals("linkId")) {
           this.linkId = castToString(value); // StringType
-        else if (name.equals("definition"))
+        } else if (name.equals("definition")) {
           this.definition = castToUri(value); // UriType
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("answer"))
+        } else if (name.equals("answer")) {
           this.getAnswer().add((QuestionnaireResponseItemAnswerComponent) value);
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -603,6 +605,20 @@ public class QuestionnaireResponse extends DomainResource {
         case -1412808770:  return addAnswer(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1102667083: /*linkId*/ return new String[] {"string"};
+        case -1014418093: /*definition*/ return new String[] {"uri"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -1412808770: /*answer*/ return new String[] {};
+        case 3242771: /*item*/ return new String[] {"@QuestionnaireResponse.item"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -985,11 +1001,11 @@ public class QuestionnaireResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("value[x]"))
+        if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -998,8 +1014,19 @@ public class QuestionnaireResponse extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 111972721: /*value*/ return new String[] {"boolean", "decimal", "integer", "date", "dateTime", "instant", "time", "string", "uri", "Attachment", "Coding", "Quantity", "Reference"};
+        case 3242771: /*item*/ return new String[] {"@QuestionnaireResponse.item"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1785,7 +1812,8 @@ public class QuestionnaireResponse extends DomainResource {
           this.questionnaire = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new QuestionnaireResponseStatusEnumFactory().fromType(value); // Enumeration<QuestionnaireResponseStatus>
+          value = new QuestionnaireResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<QuestionnaireResponseStatus>
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -1812,29 +1840,30 @@ public class QuestionnaireResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("basedOn"))
+        } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
-        else if (name.equals("parent"))
+        } else if (name.equals("parent")) {
           this.getParent().add(castToReference(value));
-        else if (name.equals("questionnaire"))
+        } else if (name.equals("questionnaire")) {
           this.questionnaire = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new QuestionnaireResponseStatusEnumFactory().fromType(value); // Enumeration<QuestionnaireResponseStatus>
-        else if (name.equals("subject"))
+        } else if (name.equals("status")) {
+          value = new QuestionnaireResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<QuestionnaireResponseStatus>
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("authored"))
+        } else if (name.equals("authored")) {
           this.authored = castToDateTime(value); // DateTimeType
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = castToReference(value); // Reference
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.getItem().add((QuestionnaireResponseItemComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1854,6 +1883,25 @@ public class QuestionnaireResponse extends DomainResource {
         case -896505829:  return getSource(); 
         case 3242771:  return addItem(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -995424086: /*parent*/ return new String[] {"Reference"};
+        case -1017049693: /*questionnaire*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 1433073514: /*authored*/ return new String[] {"dateTime"};
+        case -896505829: /*source*/ return new String[] {"Reference"};
+        case 3242771: /*item*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/HealthcareService2to3" = "R2 to R3 Conversions for HealthcareService"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HealthcareService" alias HealthcareServiceR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
@@ -14,39 +12,39 @@ imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group HealthcareService extends DomainResource
+group for type+types  HealthcareService extends DomainResource
   input src : HealthcareServiceR2 as source
   input tgt : HealthcareService as target
 
-  "HealthcareService-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "HealthcareService-providedBy" : for src.providedBy as vs make tgt.providedBy as vt then Reference(vs,vt)
-  "HealthcareService-serviceCategory" : for src.serviceCategory as vs make tgt.serviceCategory as vt then CodeableConcept(vs,vt)
-  "HealthcareService-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
-  "HealthcareService-serviceName" : for src.serviceName as vs make tgt.serviceName as vt then string(vs, vt)
-  "HealthcareService-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
-  "HealthcareService-extraDetails" : for src.extraDetails as vs make tgt.extraDetails as vt then string(vs, vt)
-  "HealthcareService-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
-  "HealthcareService-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "HealthcareService-coverageArea" : for src.coverageArea as vs make tgt.coverageArea as vt then Reference(vs,vt)
-  "HealthcareService-serviceProvisionCode" : for src.serviceProvisionCode as vs make tgt.serviceProvisionCode as vt then CodeableConcept(vs,vt)
-  "HealthcareService-eligibility" : for src.eligibility as vs make tgt.eligibility as vt then CodeableConcept(vs,vt)
-  "HealthcareService-eligibilityNote" : for src.eligibilityNote as vs make tgt.eligibilityNote as vt then string(vs, vt)
-  "HealthcareService-programName" : for src.programName as vs make tgt.programName as vt then string(vs, vt)
-  "HealthcareService-characteristic" : for src.characteristic as vs make tgt.characteristic as vt then CodeableConcept(vs,vt)
-  "HealthcareService-referralMethod" : for src.referralMethod as vs make tgt.referralMethod as vt then CodeableConcept(vs,vt)
-  "HealthcareService-publicKey" : for src.publicKey as vs make tgt.publicKey as vt then string(vs, vt)
-  "HealthcareService-appointmentRequired" : for src.appointmentRequired as vs make tgt.appointmentRequired as vt then boolean(vs, vt)
+  "HealthcareService-identifier" : for src.identifier make tgt.identifier
+  "HealthcareService-providedBy" : for src.providedBy make tgt.providedBy
+  "HealthcareService-serviceCategory" : for src.serviceCategory make tgt.serviceCategory
+  "HealthcareService-location" : for src.location make tgt.location
+  "HealthcareService-serviceName" : for src.serviceName make tgt.serviceName
+  "HealthcareService-comment" : for src.comment make tgt.comment
+  "HealthcareService-extraDetails" : for src.extraDetails make tgt.extraDetails
+  "HealthcareService-photo" : for src.photo make tgt.photo
+  "HealthcareService-telecom" : for src.telecom make tgt.telecom
+  "HealthcareService-coverageArea" : for src.coverageArea make tgt.coverageArea
+  "HealthcareService-serviceProvisionCode" : for src.serviceProvisionCode make tgt.serviceProvisionCode
+  "HealthcareService-eligibility" : for src.eligibility make tgt.eligibility
+  "HealthcareService-eligibilityNote" : for src.eligibilityNote make tgt.eligibilityNote
+  "HealthcareService-programName" : for src.programName make tgt.programName
+  "HealthcareService-characteristic" : for src.characteristic make tgt.characteristic
+  "HealthcareService-referralMethod" : for src.referralMethod make tgt.referralMethod
+  "HealthcareService-publicKey" : for src.publicKey make tgt.publicKey
+  "HealthcareService-appointmentRequired" : for src.appointmentRequired make tgt.appointmentRequired
   "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then {
-    "HealthcareService.availableTime-allDay" : for vs0.allDay as vs make vt0.allDay as vt then boolean(vs, vt)
-    "HealthcareService.availableTime-availableStartTime" : for vs0.availableStartTime as vs make vt0.availableStartTime as vt then time(vs, vt)
-    "HealthcareService.availableTime-availableEndTime" : for vs0.availableEndTime as vs make vt0.availableEndTime as vt then time(vs, vt)
+    "HealthcareService.availableTime-allDay" : for vs0.allDay make vt0.allDay
+    "HealthcareService.availableTime-availableStartTime" : for vs0.availableStartTime make vt0.availableStartTime
+    "HealthcareService.availableTime-availableEndTime" : for vs0.availableEndTime make vt0.availableEndTime
   }
-  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
-    "HealthcareService.notAvailable-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-    "HealthcareService.notAvailable-during" : for vs0.during as vs make vt0.during as vt then Period(vs,vt)
-  }
-  "HealthcareService-availabilityExceptions" : for src.availabilityExceptions as vs make tgt.availabilityExceptions as vt then string(vs, vt)
-endgroup
 
+  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
+    "HealthcareService.notAvailable-description" : for vs0.description make vt0.description
+    "HealthcareService.notAvailable-during" : for vs0.during make vt0.during
+  }
+
+  "HealthcareService-availabilityExceptions" : for src.availabilityExceptions make tgt.availabilityExceptions
+
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -298,15 +298,15 @@ public abstract class Resource extends BaseResource implements IAnyResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("id"))
+        if (name.equals("id")) {
           this.id = castToId(value); // IdType
-        else if (name.equals("meta"))
+        } else if (name.equals("meta")) {
           this.meta = castToMeta(value); // Meta
-        else if (name.equals("implicitRules"))
+        } else if (name.equals("implicitRules")) {
           this.implicitRules = castToUri(value); // UriType
-        else if (name.equals("language"))
+        } else if (name.equals("language")) {
           this.language = castToCode(value); // CodeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -319,6 +319,18 @@ public abstract class Resource extends BaseResource implements IAnyResource {
         case -961826286:  return getImplicitRulesElement();
         case -1613589672:  return getLanguageElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3355: /*id*/ return new String[] {"id"};
+        case 3347973: /*meta*/ return new String[] {"Meta"};
+        case -961826286: /*implicitRules*/ return new String[] {"uri"};
+        case -1613589672: /*language*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

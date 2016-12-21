@@ -1,45 +1,42 @@
 ﻿map "http://hl7.org/fhir/StructureMap/VisionPrescription2to3" = "R2 to R3 Conversions for VisionPrescription"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/VisionPrescription" alias VisionPrescriptionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group VisionPrescription extends DomainResource
+group for type+types  VisionPrescription extends DomainResource
   input src : VisionPrescriptionR2 as source
   input tgt : VisionPrescription as target
 
-  "VisionPrescription-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "VisionPrescription-dateWritten" : for src.dateWritten as vs make tgt.dateWritten as vt then dateTime(vs, vt)
-  "VisionPrescription-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "VisionPrescription-prescriber" : for src.prescriber as vs make tgt.prescriber as vt then Reference(vs,vt)
-  "VisionPrescription-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
-  "VisionPrescription-reason-CodeableConcept" : for src.reason  : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "VisionPrescription-reason-Reference" : for src.reason  : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs,vt)
+  "VisionPrescription-identifier" : for src.identifier make tgt.identifier
+  "VisionPrescription-dateWritten" : for src.dateWritten make tgt.dateWritten
+  "VisionPrescription-patient" : for src.patient make tgt.patient
+  "VisionPrescription-prescriber" : for src.prescriber make tgt.prescriber
+  "VisionPrescription-encounter" : for src.encounter make tgt.encounter
+  "VisionPrescription-reason-CodeableConcept" : for src.reason : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "VisionPrescription-reason-Reference" : for src.reason : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs, vt)
   "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense as vt0 then {
-    "VisionPrescription.dispense-eye" : for vs0.eye as vs make vt0.eye as vt then code(vs, vt)
-    "VisionPrescription.dispense-sphere" : for vs0.sphere as vs make vt0.sphere as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-cylinder" : for vs0.cylinder as vs make vt0.cylinder as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-axis" : for vs0.axis as vs make vt0.axis as vt then integer(vs, vt)
-    "VisionPrescription.dispense-prism" : for vs0.prism as vs make vt0.prism as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-base" : for vs0.base as vs make vt0.base as vt then code(vs, vt)
-    "VisionPrescription.dispense-add" : for vs0.add as vs make vt0.add as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-power" : for vs0.power as vs make vt0.power as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-backCurve" : for vs0.backCurve as vs make vt0.backCurve as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-diameter" : for vs0.diameter as vs make vt0.diameter as vt then decimal(vs, vt)
-    "VisionPrescription.dispense-duration" : for vs0.duration as vs make vt0.duration as vt then Quantity(vs,vt)
-    "VisionPrescription.dispense-color" : for vs0.color as vs make vt0.color as vt then string(vs, vt)
-    "VisionPrescription.dispense-brand" : for vs0.brand as vs make vt0.brand as vt then string(vs, vt)
-    "VisionPrescription.dispense-note" : for vs0.notes as vs make vt0.note as vt then string(vs, vt)
+    "VisionPrescription.dispense-eye" : for vs0.eye make vt0.eye
+    "VisionPrescription.dispense-sphere" : for vs0.sphere make vt0.sphere
+    "VisionPrescription.dispense-cylinder" : for vs0.cylinder make vt0.cylinder
+    "VisionPrescription.dispense-axis" : for vs0.axis make vt0.axis
+    "VisionPrescription.dispense-prism" : for vs0.prism make vt0.prism
+    "VisionPrescription.dispense-base" : for vs0.base make vt0.base
+    "VisionPrescription.dispense-add" : for vs0.add make vt0.add
+    "VisionPrescription.dispense-power" : for vs0.power make vt0.power
+    "VisionPrescription.dispense-backCurve" : for vs0.backCurve make vt0.backCurve
+    "VisionPrescription.dispense-diameter" : for vs0.diameter make vt0.diameter
+    "VisionPrescription.dispense-duration" : for vs0.duration make vt0.duration
+    "VisionPrescription.dispense-color" : for vs0.color make vt0.color
+    "VisionPrescription.dispense-brand" : for vs0.brand make vt0.brand
+    "VisionPrescription.dispense-note" : for vs0.notes make vt0.note
   }
-endgroup
 
+
+endgroup

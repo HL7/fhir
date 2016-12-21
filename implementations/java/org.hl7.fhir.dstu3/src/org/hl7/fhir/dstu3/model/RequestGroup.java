@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionConditionKind code '"+codeString+"'");
         }
         public Enumeration<ActionConditionKind> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionConditionKind>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -305,8 +307,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
         public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionRelationshipType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -435,8 +439,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionGroupingBehavior code '"+codeString+"'");
         }
         public Enumeration<ActionGroupingBehavior> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionGroupingBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -577,8 +583,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionSelectionBehavior code '"+codeString+"'");
         }
         public Enumeration<ActionSelectionBehavior> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionSelectionBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -695,8 +703,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionRequiredBehavior code '"+codeString+"'");
         }
         public Enumeration<ActionRequiredBehavior> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionRequiredBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -789,8 +799,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
         }
         public Enumeration<ActionPrecheckBehavior> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionPrecheckBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -879,8 +891,10 @@ public class RequestGroup extends DomainResource {
         throw new IllegalArgumentException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
         }
         public Enumeration<ActionCardinalityBehavior> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ActionCardinalityBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -2092,19 +2106,24 @@ public class RequestGroup extends DomainResource {
           this.type = castToCoding(value); // Coding
           return value;
         case 586678389: // groupingBehavior
-          this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
+          value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
+          this.groupingBehavior = (Enumeration) value; // Enumeration<ActionGroupingBehavior>
           return value;
         case 168639486: // selectionBehavior
-          this.selectionBehavior = new ActionSelectionBehaviorEnumFactory().fromType(value); // Enumeration<ActionSelectionBehavior>
+          value = new ActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
+          this.selectionBehavior = (Enumeration) value; // Enumeration<ActionSelectionBehavior>
           return value;
         case -1163906287: // requiredBehavior
-          this.requiredBehavior = new ActionRequiredBehaviorEnumFactory().fromType(value); // Enumeration<ActionRequiredBehavior>
+          value = new ActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
+          this.requiredBehavior = (Enumeration) value; // Enumeration<ActionRequiredBehavior>
           return value;
         case -1174249033: // precheckBehavior
-          this.precheckBehavior = new ActionPrecheckBehaviorEnumFactory().fromType(value); // Enumeration<ActionPrecheckBehavior>
+          value = new ActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
+          this.precheckBehavior = (Enumeration) value; // Enumeration<ActionPrecheckBehavior>
           return value;
         case -922577408: // cardinalityBehavior
-          this.cardinalityBehavior = new ActionCardinalityBehaviorEnumFactory().fromType(value); // Enumeration<ActionCardinalityBehavior>
+          value = new ActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
+          this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
           return value;
         case -341064690: // resource
           this.resource = castToReference(value); // Reference
@@ -2119,45 +2138,50 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actionIdentifier"))
+        if (name.equals("actionIdentifier")) {
           this.actionIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("label"))
+        } else if (name.equals("label")) {
           this.label = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("textEquivalent"))
+        } else if (name.equals("textEquivalent")) {
           this.textEquivalent = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.getCode().add(castToCodeableConcept(value));
-        else if (name.equals("documentation"))
+        } else if (name.equals("documentation")) {
           this.getDocumentation().add(castToRelatedArtifact(value));
-        else if (name.equals("condition"))
+        } else if (name.equals("condition")) {
           this.getCondition().add((RequestGroupActionConditionComponent) value);
-        else if (name.equals("relatedAction"))
+        } else if (name.equals("relatedAction")) {
           this.getRelatedAction().add((RequestGroupActionRelatedActionComponent) value);
-        else if (name.equals("timing[x]"))
+        } else if (name.equals("timing[x]")) {
           this.timing = castToType(value); // Type
-        else if (name.equals("participant"))
+        } else if (name.equals("participant")) {
           this.getParticipant().add(castToReference(value));
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
-        else if (name.equals("groupingBehavior"))
-          this.groupingBehavior = new ActionGroupingBehaviorEnumFactory().fromType(value); // Enumeration<ActionGroupingBehavior>
-        else if (name.equals("selectionBehavior"))
-          this.selectionBehavior = new ActionSelectionBehaviorEnumFactory().fromType(value); // Enumeration<ActionSelectionBehavior>
-        else if (name.equals("requiredBehavior"))
-          this.requiredBehavior = new ActionRequiredBehaviorEnumFactory().fromType(value); // Enumeration<ActionRequiredBehavior>
-        else if (name.equals("precheckBehavior"))
-          this.precheckBehavior = new ActionPrecheckBehaviorEnumFactory().fromType(value); // Enumeration<ActionPrecheckBehavior>
-        else if (name.equals("cardinalityBehavior"))
-          this.cardinalityBehavior = new ActionCardinalityBehaviorEnumFactory().fromType(value); // Enumeration<ActionCardinalityBehavior>
-        else if (name.equals("resource"))
+        } else if (name.equals("groupingBehavior")) {
+          value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
+          this.groupingBehavior = (Enumeration) value; // Enumeration<ActionGroupingBehavior>
+        } else if (name.equals("selectionBehavior")) {
+          value = new ActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
+          this.selectionBehavior = (Enumeration) value; // Enumeration<ActionSelectionBehavior>
+        } else if (name.equals("requiredBehavior")) {
+          value = new ActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
+          this.requiredBehavior = (Enumeration) value; // Enumeration<ActionRequiredBehavior>
+        } else if (name.equals("precheckBehavior")) {
+          value = new ActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
+          this.precheckBehavior = (Enumeration) value; // Enumeration<ActionPrecheckBehavior>
+        } else if (name.equals("cardinalityBehavior")) {
+          value = new ActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
+          this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
+        } else if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else if (name.equals("action"))
+        } else if (name.equals("action")) {
           this.getAction().add((RequestGroupActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2175,6 +2199,7 @@ public class RequestGroup extends DomainResource {
         case -861311717:  return addCondition(); 
         case -384107967:  return addRelatedAction(); 
         case 164632566:  return getTiming(); 
+        case -873664438:  return getTiming(); 
         case 767422259:  return addParticipant(); 
         case 3575610:  return getType(); 
         case 586678389:  return getGroupingBehaviorElement();
@@ -2185,6 +2210,33 @@ public class RequestGroup extends DomainResource {
         case -341064690:  return getResource(); 
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -889046145: /*actionIdentifier*/ return new String[] {"Identifier"};
+        case 102727412: /*label*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -900391049: /*textEquivalent*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 1587405498: /*documentation*/ return new String[] {"RelatedArtifact"};
+        case -861311717: /*condition*/ return new String[] {};
+        case -384107967: /*relatedAction*/ return new String[] {};
+        case -873664438: /*timing*/ return new String[] {"dateTime", "Period", "Duration", "Range", "Timing"};
+        case 767422259: /*participant*/ return new String[] {"Reference"};
+        case 3575610: /*type*/ return new String[] {"Coding"};
+        case 586678389: /*groupingBehavior*/ return new String[] {"code"};
+        case 168639486: /*selectionBehavior*/ return new String[] {"code"};
+        case -1163906287: /*requiredBehavior*/ return new String[] {"code"};
+        case -1174249033: /*precheckBehavior*/ return new String[] {"code"};
+        case -922577408: /*cardinalityBehavior*/ return new String[] {"code"};
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        case -1422950858: /*action*/ return new String[] {"@RequestGroup.action"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2630,7 +2682,8 @@ public class RequestGroup extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3292052: // kind
-          this.kind = new ActionConditionKindEnumFactory().fromType(value); // Enumeration<ActionConditionKind>
+          value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -2648,15 +2701,16 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("kind"))
-          this.kind = new ActionConditionKindEnumFactory().fromType(value); // Enumeration<ActionConditionKind>
-        else if (name.equals("description"))
+        if (name.equals("kind")) {
+          value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("language"))
+        } else if (name.equals("language")) {
           this.language = castToString(value); // StringType
-        else if (name.equals("expression"))
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2669,6 +2723,18 @@ public class RequestGroup extends DomainResource {
         case -1613589672:  return getLanguageElement();
         case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3292052: /*kind*/ return new String[] {"code"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1613589672: /*language*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2916,7 +2982,8 @@ public class RequestGroup extends DomainResource {
           this.actionIdentifier = castToIdentifier(value); // Identifier
           return value;
         case -261851592: // relationship
-          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
+          value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.relationship = (Enumeration) value; // Enumeration<ActionRelationshipType>
           return value;
         case -1019779949: // offset
           this.offset = castToType(value); // Type
@@ -2928,13 +2995,14 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actionIdentifier"))
+        if (name.equals("actionIdentifier")) {
           this.actionIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("relationship"))
-          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
-        else if (name.equals("offset[x]"))
+        } else if (name.equals("relationship")) {
+          value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.relationship = (Enumeration) value; // Enumeration<ActionRelationshipType>
+        } else if (name.equals("offset[x]")) {
           this.offset = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2945,7 +3013,19 @@ public class RequestGroup extends DomainResource {
         case -889046145:  return getActionIdentifier(); 
         case -261851592:  return getRelationshipElement();
         case -1960684787:  return getOffset(); 
+        case -1019779949:  return getOffset(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -889046145: /*actionIdentifier*/ return new String[] {"Identifier"};
+        case -261851592: /*relationship*/ return new String[] {"code"};
+        case -1019779949: /*offset*/ return new String[] {"Duration", "Range"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3496,23 +3576,23 @@ public class RequestGroup extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("occurrenceDateTime"))
+        } else if (name.equals("occurrenceDateTime")) {
           this.occurrenceDateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("action"))
+        } else if (name.equals("action")) {
           this.getAction().add((RequestGroupActionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3526,9 +3606,26 @@ public class RequestGroup extends DomainResource {
         case -298443636:  return getOccurrenceDateTimeElement();
         case -1406328437:  return getAuthor(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case 3387378:  return addNote(); 
         case -1422950858:  return addAction(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case -298443636: /*occurrenceDateTime*/ return new String[] {"dateTime"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -1422950858: /*action*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

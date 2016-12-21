@@ -1,8 +1,8 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Provenance2to3" = "R2 to R3 Conversions for Provenance"
 
 
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias ProvenanceR2 as source
-uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias Provenance as target
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias  ProvenanceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias  Provenance as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
 
@@ -14,7 +14,7 @@ imports "http://hl7.org/fhir/StructureMap/Signature2to3"
 
 
 
-group Provenance extends DomainResource
+group for type+types  Provenance extends DomainResource
   input src : ProvenanceR2 as source
   input tgt : Provenance as target
 

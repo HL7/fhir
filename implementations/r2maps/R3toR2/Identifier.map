@@ -1,27 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Identifier3to2" = "R3 to R2 Conversion for Identifier"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Identifier" alias Identifier as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Identifier" alias IdentifierR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Identifier extends Element
+group for type+types  Identifier extends Element
   input src : Identifier as source
   input tgt : IdentifierR2 as target
 
-  "Identifier-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
-  "Identifier-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Identifier-system" : for src.system as vs make tgt.system as vt then uri(vs, vt)
-  "Identifier-value" : for src.value as vs make tgt.value as vt then string(vs, vt)
-  "Identifier-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-  "Identifier-assigner" : for src.assigner as vs make tgt.assigner as vt then Reference(vs,vt)
-endgroup
+  "Identifier-use" : for src.use make tgt.use
+  "Identifier-type" : for src.type make tgt.type
+  "Identifier-system" : for src.system make tgt.system
+  "Identifier-value" : for src.value make tgt.value
+  "Identifier-period" : for src.period make tgt.period
+  "Identifier-assigner" : for src.assigner make tgt.assigner
 
+endgroup

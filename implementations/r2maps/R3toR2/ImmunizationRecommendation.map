@@ -1,31 +1,28 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImmunizationRecommendation3to2" = "R3 to R2 Conversion for ImmunizationRecommendation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group ImmunizationRecommendation extends DomainResource
+group for type+types  ImmunizationRecommendation extends DomainResource
   input src : ImmunizationRecommendation as source
   input tgt : ImmunizationRecommendationR2 as target
 
-  "ImmunizationRecommendation-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "ImmunizationRecommendation-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
+  "ImmunizationRecommendation-identifier" : for src.identifier make tgt.identifier
+  "ImmunizationRecommendation-patient" : for src.patient make tgt.patient
   "ImmunizationRecommendation-recommendation" : for src.recommendation as vs0 make tgt.recommendation as vt0 then {
-    "ImmunizationRecommendation.recommendation-date" : for vs0.date as vs make vt0.date as vt then dateTime(vs, vt)
-    "ImmunizationRecommendation.recommendation-vaccineCode" : for vs0.vaccineCode as vs make vt0.vaccineCode as vt then CodeableConcept(vs,vt)
-    "ImmunizationRecommendation.recommendation-doseNumber" : for vs0.doseNumber as vs make vt0.doseNumber as vt then positiveInt(vs, vt)
-    "ImmunizationRecommendation.recommendation-forecastStatus" : for vs0.forecastStatus as vs make vt0.forecastStatus as vt then CodeableConcept(vs,vt)
-    "ImmunizationRecommendation.recommendation-supportingImmunization" : for vs0.supportingImmunization as vs make vt0.supportingImmunization as vt then Reference(vs,vt)
-    "ImmunizationRecommendation.recommendation-supportingPatientInformation" : for vs0.supportingPatientInformation as vs make vt0.supportingPatientInformation as vt then Reference(vs,vt)
+    "ImmunizationRecommendation.recommendation-date" : for vs0.date make vt0.date
+    "ImmunizationRecommendation.recommendation-vaccineCode" : for vs0.vaccineCode make vt0.vaccineCode
+    "ImmunizationRecommendation.recommendation-doseNumber" : for vs0.doseNumber make vt0.doseNumber
+    "ImmunizationRecommendation.recommendation-forecastStatus" : for vs0.forecastStatus make vt0.forecastStatus
+    "ImmunizationRecommendation.recommendation-supportingImmunization" : for vs0.supportingImmunization make vt0.supportingImmunization
+    "ImmunizationRecommendation.recommendation-supportingPatientInformation" : for vs0.supportingPatientInformation make vt0.supportingPatientInformation
   }
-endgroup
 
+
+endgroup

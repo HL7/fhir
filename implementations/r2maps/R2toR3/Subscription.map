@@ -1,33 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Subscription2to3" = "R2 to R3 Conversions for Subscription"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Subscription" alias SubscriptionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Subscription" alias Subscription as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 
-
-
-group Subscription extends DomainResource
+group for type+types  Subscription extends DomainResource
   input src : SubscriptionR2 as source
   input tgt : Subscription as target
 
-  "Subscription-criteria" : for src.criteria as vs make tgt.criteria as vt then string(vs, vt)
-  "Subscription-contact" : for src.contact as vs make tgt.contact as vt then ContactPoint(vs,vt)
-  "Subscription-reason" : for src.reason as vs make tgt.reason as vt then string(vs, vt)
-  "Subscription-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Subscription-error" : for src.error as vs make tgt.error as vt then string(vs, vt)
+  "Subscription-criteria" : for src.criteria make tgt.criteria
+  "Subscription-contact" : for src.contact make tgt.contact
+  "Subscription-reason" : for src.reason make tgt.reason
+  "Subscription-status" : for src.status make tgt.status
+  "Subscription-error" : for src.error make tgt.error
   "Subscription-channel" : for src.channel as vs0 make tgt.channel as vt0 then {
-    "Subscription.channel-type" : for vs0.type as vs make vt0.type as vt then code(vs, vt)
-    "Subscription.channel-endpoint" : for vs0.endpoint as vs make vt0.endpoint as vt then uri(vs, vt)
-    "Subscription.channel-payload" : for vs0.payload as vs make vt0.payload as vt then string(vs, vt)
-    "Subscription.channel-header" : for vs0.header as vs make vt0.header as vt then string(vs, vt)
+    "Subscription.channel-type" : for vs0.type make vt0.type
+    "Subscription.channel-endpoint" : for vs0.endpoint make vt0.endpoint
+    "Subscription.channel-payload" : for vs0.payload make vt0.payload
+    "Subscription.channel-header" : for vs0.header make vt0.header
   }
-  "Subscription-end" : for src.end as vs make tgt.end as vt then instant(vs, vt)
-  "Subscription-tag" : for src.tag as vs make tgt.tag as vt then Coding(vs,vt)
-endgroup
 
+  "Subscription-end" : for src.end make tgt.end
+  "Subscription-tag" : for src.tag make tgt.tag
+
+endgroup

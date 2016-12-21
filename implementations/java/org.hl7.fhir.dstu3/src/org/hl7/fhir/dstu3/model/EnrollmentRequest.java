@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class EnrollmentRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown EnrollmentRequestStatus code '"+codeString+"'");
         }
         public Enumeration<EnrollmentRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EnrollmentRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -667,7 +669,8 @@ public class EnrollmentRequest extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new EnrollmentRequestStatusEnumFactory().fromType(value); // Enumeration<EnrollmentRequestStatus>
+          value = new EnrollmentRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EnrollmentRequestStatus>
           return value;
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
@@ -694,23 +697,24 @@ public class EnrollmentRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new EnrollmentRequestStatusEnumFactory().fromType(value); // Enumeration<EnrollmentRequestStatus>
-        else if (name.equals("created"))
+        } else if (name.equals("status")) {
+          value = new EnrollmentRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EnrollmentRequestStatus>
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("insurer"))
+        } else if (name.equals("insurer")) {
           this.insurer = castToReference(value); // Reference
-        else if (name.equals("provider"))
+        } else if (name.equals("provider")) {
           this.provider = castToReference(value); // Reference
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("coverage"))
+        } else if (name.equals("coverage")) {
           this.coverage = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -727,6 +731,22 @@ public class EnrollmentRequest extends DomainResource {
         case -1867885268:  return getSubject(); 
         case -351767064:  return getCoverage(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case 1957615864: /*insurer*/ return new String[] {"Reference"};
+        case -987494927: /*provider*/ return new String[] {"Reference"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -351767064: /*coverage*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

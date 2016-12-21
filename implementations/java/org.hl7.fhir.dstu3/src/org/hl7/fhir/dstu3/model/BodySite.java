@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -442,19 +442,19 @@ public class BodySite extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("patient"))
+        if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("modifier"))
+        } else if (name.equals("modifier")) {
           this.getModifier().add(castToCodeableConcept(value));
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("image"))
+        } else if (name.equals("image")) {
           this.getImage().add(castToAttachment(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -469,6 +469,20 @@ public class BodySite extends DomainResource {
         case -1724546052:  return getDescriptionElement();
         case 100313435:  return addImage(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -615513385: /*modifier*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 100313435: /*image*/ return new String[] {"Attachment"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

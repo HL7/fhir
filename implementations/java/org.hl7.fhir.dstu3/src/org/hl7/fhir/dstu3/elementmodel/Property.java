@@ -326,6 +326,16 @@ public class Property {
     return null;
   }
 
+  public Property getChildSimpleName(String elementName, String name) throws DefinitionException {
+    List<Property> children = getChildProperties(elementName, null);
+    for (Property p : children) {
+      if (p.getName().equals(name) || p.getName().equals(name+"[x]")) {
+        return p;
+      }
+    }
+    return null;
+  }
+
   public IWorkerContext getContext() {
     return context;
   }

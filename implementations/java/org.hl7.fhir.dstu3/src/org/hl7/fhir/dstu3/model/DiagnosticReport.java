@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -175,8 +175,10 @@ public class DiagnosticReport extends DomainResource {
         throw new IllegalArgumentException("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
         public Enumeration<DiagnosticReportStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DiagnosticReportStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -381,11 +383,11 @@ public class DiagnosticReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("comment"))
+        if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
-        else if (name.equals("link"))
+        } else if (name.equals("link")) {
           this.link = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -396,6 +398,16 @@ public class DiagnosticReport extends DomainResource {
         case 950398559:  return getCommentElement();
         case 3321850:  return getLink(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 950398559: /*comment*/ return new String[] {"string"};
+        case 3321850: /*link*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1551,7 +1563,8 @@ public class DiagnosticReport extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
+          value = new DiagnosticReportStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DiagnosticReportStatus>
           return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
@@ -1605,41 +1618,42 @@ public class DiagnosticReport extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new DiagnosticReportStatusEnumFactory().fromType(value); // Enumeration<DiagnosticReportStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("status")) {
+          value = new DiagnosticReportStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DiagnosticReportStatus>
+        } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("effective[x]"))
+        } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
-        else if (name.equals("issued"))
+        } else if (name.equals("issued")) {
           this.issued = castToInstant(value); // InstantType
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.getPerformer().add(castToReference(value));
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.getRequest().add(castToReference(value));
-        else if (name.equals("specimen"))
+        } else if (name.equals("specimen")) {
           this.getSpecimen().add(castToReference(value));
-        else if (name.equals("result"))
+        } else if (name.equals("result")) {
           this.getResult().add(castToReference(value));
-        else if (name.equals("imagingStudy"))
+        } else if (name.equals("imagingStudy")) {
           this.getImagingStudy().add(castToReference(value));
-        else if (name.equals("image"))
+        } else if (name.equals("image")) {
           this.getImage().add((DiagnosticReportImageComponent) value);
-        else if (name.equals("conclusion"))
+        } else if (name.equals("conclusion")) {
           this.conclusion = castToString(value); // StringType
-        else if (name.equals("codedDiagnosis"))
+        } else if (name.equals("codedDiagnosis")) {
           this.getCodedDiagnosis().add(castToCodeableConcept(value));
-        else if (name.equals("presentedForm"))
+        } else if (name.equals("presentedForm")) {
           this.getPresentedForm().add(castToAttachment(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1654,6 +1668,7 @@ public class DiagnosticReport extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 1524132147:  return getEncounter(); 
         case 247104889:  return getEffective(); 
+        case -1468651097:  return getEffective(); 
         case -1179159893:  return getIssuedElement();
         case 481140686:  return addPerformer(); 
         case 1095692943:  return addRequest(); 
@@ -1665,6 +1680,31 @@ public class DiagnosticReport extends DomainResource {
         case -1364269926:  return addCodedDiagnosis(); 
         case 230090366:  return addPresentedForm(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
+        case -1179159893: /*issued*/ return new String[] {"instant"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -2132868344: /*specimen*/ return new String[] {"Reference"};
+        case -934426595: /*result*/ return new String[] {"Reference"};
+        case -814900911: /*imagingStudy*/ return new String[] {"Reference"};
+        case 100313435: /*image*/ return new String[] {};
+        case -1731259873: /*conclusion*/ return new String[] {"string"};
+        case -1364269926: /*codedDiagnosis*/ return new String[] {"CodeableConcept"};
+        case 230090366: /*presentedForm*/ return new String[] {"Attachment"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

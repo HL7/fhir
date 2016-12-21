@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Specimen extends DomainResource {
         throw new IllegalArgumentException("Unknown SpecimenStatus code '"+codeString+"'");
         }
         public Enumeration<SpecimenStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SpecimenStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -431,17 +433,17 @@ public class Specimen extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("collector"))
+        if (name.equals("collector")) {
           this.collector = castToReference(value); // Reference
-        else if (name.equals("collected[x]"))
+        } else if (name.equals("collected[x]")) {
           this.collected = castToType(value); // Type
-        else if (name.equals("quantity"))
+        } else if (name.equals("quantity")) {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("bodySite"))
+        } else if (name.equals("bodySite")) {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -451,10 +453,24 @@ public class Specimen extends DomainResource {
         switch (hash) {
         case 1883491469:  return getCollector(); 
         case 1632037015:  return getCollected(); 
+        case 1883491145:  return getCollected(); 
         case -1285004149:  return getQuantity(); 
         case -1077554975:  return getMethod(); 
         case 1702620169:  return getBodySite(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1883491469: /*collector*/ return new String[] {"Reference"};
+        case 1883491145: /*collected*/ return new String[] {"dateTime", "Period"};
+        case -1285004149: /*quantity*/ return new String[] {"SimpleQuantity"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -813,15 +829,15 @@ public class Specimen extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("description"))
+        if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("procedure"))
+        } else if (name.equals("procedure")) {
           this.procedure = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("additive"))
+        } else if (name.equals("additive")) {
           this.getAdditive().add(castToReference(value));
-        else if (name.equals("time[x]"))
+        } else if (name.equals("time[x]")) {
           this.time = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -833,7 +849,20 @@ public class Specimen extends DomainResource {
         case -1095204141:  return getProcedure(); 
         case -1226589236:  return addAdditive(); 
         case -1313930605:  return getTime(); 
+        case 3560141:  return getTime(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1095204141: /*procedure*/ return new String[] {"CodeableConcept"};
+        case -1226589236: /*additive*/ return new String[] {"Reference"};
+        case 3560141: /*time*/ return new String[] {"dateTime", "Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1235,19 +1264,19 @@ public class Specimen extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("capacity"))
+        } else if (name.equals("capacity")) {
           this.capacity = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("specimenQuantity"))
+        } else if (name.equals("specimenQuantity")) {
           this.specimenQuantity = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("additive[x]"))
+        } else if (name.equals("additive[x]")) {
           this.additive = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1261,7 +1290,22 @@ public class Specimen extends DomainResource {
         case -67824454:  return getCapacity(); 
         case 1485980595:  return getSpecimenQuantity(); 
         case 261915956:  return getAdditive(); 
+        case -1226589236:  return getAdditive(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -67824454: /*capacity*/ return new String[] {"SimpleQuantity"};
+        case 1485980595: /*specimenQuantity*/ return new String[] {"SimpleQuantity"};
+        case -1226589236: /*additive*/ return new String[] {"CodeableConcept", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2071,7 +2115,8 @@ public class Specimen extends DomainResource {
           this.accessionIdentifier = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new SpecimenStatusEnumFactory().fromType(value); // Enumeration<SpecimenStatus>
+          value = new SpecimenStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SpecimenStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -2107,31 +2152,32 @@ public class Specimen extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("accessionIdentifier"))
+        } else if (name.equals("accessionIdentifier")) {
           this.accessionIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new SpecimenStatusEnumFactory().fromType(value); // Enumeration<SpecimenStatus>
-        else if (name.equals("type"))
+        } else if (name.equals("status")) {
+          value = new SpecimenStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SpecimenStatus>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("receivedTime"))
+        } else if (name.equals("receivedTime")) {
           this.receivedTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("parent"))
+        } else if (name.equals("parent")) {
           this.getParent().add(castToReference(value));
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.getRequest().add(castToReference(value));
-        else if (name.equals("collection"))
+        } else if (name.equals("collection")) {
           this.collection = (SpecimenCollectionComponent) value; // SpecimenCollectionComponent
-        else if (name.equals("treatment"))
+        } else if (name.equals("treatment")) {
           this.getTreatment().add((SpecimenTreatmentComponent) value);
-        else if (name.equals("container"))
+        } else if (name.equals("container")) {
           this.getContainer().add((SpecimenContainerComponent) value);
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2152,6 +2198,26 @@ public class Specimen extends DomainResource {
         case -410956671:  return addContainer(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 818734061: /*accessionIdentifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -767961010: /*receivedTime*/ return new String[] {"dateTime"};
+        case -995424086: /*parent*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -1741312354: /*collection*/ return new String[] {};
+        case -63342472: /*treatment*/ return new String[] {};
+        case -410956671: /*container*/ return new String[] {};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

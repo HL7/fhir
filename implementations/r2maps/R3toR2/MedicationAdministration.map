@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationAdministration3to2" = "R3 to R2 Conversion for MedicationAdministration"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/MedicationAdministration" alias MedicationAdministration as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationAdministration" alias MedicationAdministrationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
@@ -13,31 +11,30 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group MedicationAdministration extends DomainResource
+group for type+types  MedicationAdministration extends DomainResource
   input src : MedicationAdministration as source
   input tgt : MedicationAdministrationR2 as target
 
-  "MedicationAdministration-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "MedicationAdministration-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "MedicationAdministration-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationAdministration-medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationAdministration-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "MedicationAdministration-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
-  "MedicationAdministration-effectiveTime-dateTime" : for src.effective  : dateTime as vs make tgt.effectiveTime = create("dateTime") as vt then dateTime(vs,vt)
-  "MedicationAdministration-effectiveTime-Period" : for src.effective  : Period as vs make tgt.effectiveTime = create("Period") as vt then Period(vs,vt)
-  "MedicationAdministration-prescription" : for src.prescription as vs make tgt.prescription as vt then Reference(vs,vt)
-  "MedicationAdministration-wasNotGiven" : for src.notGiven as vs make tgt.wasNotGiven as vt then boolean(vs, vt)
-  "MedicationAdministration-reasonNotGiven" : for src.reasonNotGiven as vs make tgt.reasonNotGiven as vt then CodeableConcept(vs,vt)
-  "MedicationAdministration-reasonGiven" : for src.reasonGiven as vs make tgt.reasonGiven as vt then CodeableConcept(vs,vt)
-  "MedicationAdministration-device" : for src.device as vs make tgt.device as vt then Reference(vs,vt)
+  "MedicationAdministration-identifier" : for src.identifier make tgt.identifier
+  "MedicationAdministration-status" : for src.status make tgt.status
+  "MedicationAdministration-medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "MedicationAdministration-medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs, vt)
+  "MedicationAdministration-patient" : for src.patient make tgt.patient
+  "MedicationAdministration-encounter" : for src.encounter make tgt.encounter
+  "MedicationAdministration-effectiveTime-dateTime" : for src.effective : dateTime as vs make tgt.effectiveTime = create("dateTime") as vt then dateTime(vs, vt)
+  "MedicationAdministration-effectiveTime-Period" : for src.effective : Period as vs make tgt.effectiveTime = create("Period") as vt then Period(vs, vt)
+  "MedicationAdministration-prescription" : for src.prescription make tgt.prescription
+  "MedicationAdministration-wasNotGiven" : for src.notGiven make tgt.wasNotGiven
+  "MedicationAdministration-reasonNotGiven" : for src.reasonNotGiven make tgt.reasonNotGiven
+  "MedicationAdministration-reasonGiven" : for src.reasonGiven make tgt.reasonGiven
+  "MedicationAdministration-device" : for src.device make tgt.device
   "MedicationAdministration-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then {
-    "MedicationAdministration.dosage-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
-    "MedicationAdministration.dosage-site-CodeableConcept" : for vs0.site  : CodeableConcept as vs make vt0.site = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "MedicationAdministration.dosage-route" : for vs0.route as vs make vt0.route as vt then CodeableConcept(vs,vt)
-    "MedicationAdministration.dosage-method" : for vs0.method as vs make vt0.method as vt then CodeableConcept(vs,vt)
-    "MedicationAdministration.dosage-rate-Ratio" : for vs0.rate  : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs,vt)
+    "MedicationAdministration.dosage-text" : for vs0.text make vt0.text
+    "MedicationAdministration.dosage-site-CodeableConcept" : for vs0.site : CodeableConcept as vs make vt0.site = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+    "MedicationAdministration.dosage-route" : for vs0.route make vt0.route
+    "MedicationAdministration.dosage-method" : for vs0.method make vt0.method
+    "MedicationAdministration.dosage-rate-Ratio" : for vs0.rate : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs, vt)
   }
-endgroup
 
+
+endgroup

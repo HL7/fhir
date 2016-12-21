@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SupplyDelivery2to3" = "R2 to R3 Conversions for SupplyDelivery"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDelivery as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -13,22 +11,20 @@ imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group SupplyDelivery extends DomainResource
+group for type+types  SupplyDelivery extends DomainResource
   input src : SupplyDeliveryR2 as source
   input tgt : SupplyDelivery as target
 
-  "SupplyDelivery-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "SupplyDelivery-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "SupplyDelivery-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "SupplyDelivery-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "SupplyDelivery-quantity" : for src.quantity as vs make tgt.quantity as vt then Quantity(vs,vt)
-  "SupplyDelivery-suppliedItem" : for src.suppliedItem as vs make tgt.suppliedItem as vt then Reference(vs,vt)
-  "SupplyDelivery-supplier" : for src.supplier as vs make tgt.supplier as vt then Reference(vs,vt)
-  "SupplyDelivery-whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt then Period(vs,vt)
-  "SupplyDelivery-time" : for src.time as vs make tgt.time as vt then dateTime(vs, vt)
-  "SupplyDelivery-destination" : for src.destination as vs make tgt.destination as vt then Reference(vs,vt)
-  "SupplyDelivery-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
-endgroup
+  "SupplyDelivery-identifier" : for src.identifier make tgt.identifier
+  "SupplyDelivery-status" : for src.status make tgt.status
+  "SupplyDelivery-patient" : for src.patient make tgt.patient
+  "SupplyDelivery-type" : for src.type make tgt.type
+  "SupplyDelivery-quantity" : for src.quantity make tgt.quantity
+  "SupplyDelivery-suppliedItem" : for src.suppliedItem make tgt.suppliedItem
+  "SupplyDelivery-supplier" : for src.supplier make tgt.supplier
+  "SupplyDelivery-whenPrepared" : for src.whenPrepared make tgt.whenPrepared
+  "SupplyDelivery-time" : for src.time make tgt.time
+  "SupplyDelivery-destination" : for src.destination make tgt.destination
+  "SupplyDelivery-receiver" : for src.receiver make tgt.receiver
 
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -115,8 +115,10 @@ public class ParameterDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ParameterUse code '"+codeString+"'");
         }
         public Enumeration<ParameterUse> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ParameterUse>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -571,7 +573,8 @@ public class ParameterDefinition extends Type implements ICompositeType {
           this.name = castToCode(value); // CodeType
           return value;
         case 116103: // use
-          this.use = new ParameterUseEnumFactory().fromType(value); // Enumeration<ParameterUse>
+          value = new ParameterUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<ParameterUse>
           return value;
         case 108114: // min
           this.min = castToInteger(value); // IntegerType
@@ -595,21 +598,22 @@ public class ParameterDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToCode(value); // CodeType
-        else if (name.equals("use"))
-          this.use = new ParameterUseEnumFactory().fromType(value); // Enumeration<ParameterUse>
-        else if (name.equals("min"))
+        } else if (name.equals("use")) {
+          value = new ParameterUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<ParameterUse>
+        } else if (name.equals("min")) {
           this.min = castToInteger(value); // IntegerType
-        else if (name.equals("max"))
+        } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
-        else if (name.equals("documentation"))
+        } else if (name.equals("documentation")) {
           this.documentation = castToString(value); // StringType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.profile = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -625,6 +629,21 @@ public class ParameterDefinition extends Type implements ICompositeType {
         case 3575610:  return getTypeElement();
         case -309425751:  return getProfile(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"code"};
+        case 116103: /*use*/ return new String[] {"code"};
+        case 108114: /*min*/ return new String[] {"integer"};
+        case 107876: /*max*/ return new String[] {"string"};
+        case 1587405498: /*documentation*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -309425751: /*profile*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -162,8 +162,10 @@ public class ContactPoint extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ContactPointSystem code '"+codeString+"'");
         }
         public Enumeration<ContactPointSystem> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ContactPointSystem>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -304,8 +306,10 @@ public class ContactPoint extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ContactPointUse code '"+codeString+"'");
         }
         public Enumeration<ContactPointUse> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ContactPointUse>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -627,13 +631,15 @@ public class ContactPoint extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -887328209: // system
-          this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
+          value = new ContactPointSystemEnumFactory().fromType(castToCode(value));
+          this.system = (Enumeration) value; // Enumeration<ContactPointSystem>
           return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
           return value;
         case 116103: // use
-          this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
+          value = new ContactPointUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<ContactPointUse>
           return value;
         case 3492908: // rank
           this.rank = castToPositiveInt(value); // PositiveIntType
@@ -648,17 +654,19 @@ public class ContactPoint extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("system"))
-          this.system = new ContactPointSystemEnumFactory().fromType(value); // Enumeration<ContactPointSystem>
-        else if (name.equals("value"))
+        if (name.equals("system")) {
+          value = new ContactPointSystemEnumFactory().fromType(castToCode(value));
+          this.system = (Enumeration) value; // Enumeration<ContactPointSystem>
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else if (name.equals("use"))
-          this.use = new ContactPointUseEnumFactory().fromType(value); // Enumeration<ContactPointUse>
-        else if (name.equals("rank"))
+        } else if (name.equals("use")) {
+          value = new ContactPointUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<ContactPointUse>
+        } else if (name.equals("rank")) {
           this.rank = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -672,6 +680,19 @@ public class ContactPoint extends Type implements ICompositeType {
         case 3492908:  return getRankElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -887328209: /*system*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        case 116103: /*use*/ return new String[] {"code"};
+        case 3492908: /*rank*/ return new String[] {"positiveInt"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

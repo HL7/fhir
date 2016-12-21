@@ -16,7 +16,6 @@ uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseR
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -24,20 +23,18 @@ imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/Timing3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group DeviceUseRequest extends DomainResource
+group for type+types  DeviceUseRequest extends DomainResource
   input src : DeviceUseRequest as source
   input tgt : DeviceUseRequestR2 as target
 
   "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#DeviceUseRequestStatus", "code")
-  "DeviceUseRequest-encounter" : for src.context as vs make tgt.encounter as vt then Reference(vs,vt)
-  "DeviceUseRequest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "DeviceUseRequest-indication" : for src.reasonCode as vs make tgt.indication as vt then CodeableConcept(vs,vt)
-  "DeviceUseRequest-orderedOn" : for src.authored as vs make tgt.orderedOn as vt then dateTime(vs, vt)
-  "DeviceUseRequest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "DeviceUseRequest-timing-dateTime" : for src.occurrence  : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs,vt)
-  "DeviceUseRequest-timing-Period" : for src.occurrence  : Period as vs make tgt.timing = create("Period") as vt then Period(vs,vt)
-  "DeviceUseRequest-timing-Timing" : for src.occurrence  : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
-endgroup
+  "DeviceUseRequest-encounter" : for src.context make tgt.encounter
+  "DeviceUseRequest-identifier" : for src.identifier make tgt.identifier
+  "DeviceUseRequest-indication" : for src.reasonCode make tgt.indication
+  "DeviceUseRequest-orderedOn" : for src.authored make tgt.orderedOn
+  "DeviceUseRequest-subject" : for src.subject make tgt.subject
+  "DeviceUseRequest-timing-dateTime" : for src.occurrence : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs, vt)
+  "DeviceUseRequest-timing-Period" : for src.occurrence : Period as vs make tgt.timing = create("Period") as vt then Period(vs, vt)
+  "DeviceUseRequest-timing-Timing" : for src.occurrence : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs, vt)
 
+endgroup

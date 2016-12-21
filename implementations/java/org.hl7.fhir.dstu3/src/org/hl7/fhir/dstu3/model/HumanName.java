@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -174,8 +174,10 @@ public class HumanName extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown NameUse code '"+codeString+"'");
         }
         public Enumeration<NameUse> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<NameUse>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -726,7 +728,8 @@ public class HumanName extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116103: // use
-          this.use = new NameUseEnumFactory().fromType(value); // Enumeration<NameUse>
+          value = new NameUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<NameUse>
           return value;
         case 3556653: // text
           this.text = castToString(value); // StringType
@@ -753,21 +756,22 @@ public class HumanName extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("use"))
-          this.use = new NameUseEnumFactory().fromType(value); // Enumeration<NameUse>
-        else if (name.equals("text"))
+        if (name.equals("use")) {
+          value = new NameUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<NameUse>
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else if (name.equals("family"))
+        } else if (name.equals("family")) {
           this.family = castToString(value); // StringType
-        else if (name.equals("given"))
+        } else if (name.equals("given")) {
           this.getGiven().add(castToString(value));
-        else if (name.equals("prefix"))
+        } else if (name.equals("prefix")) {
           this.getPrefix().add(castToString(value));
-        else if (name.equals("suffix"))
+        } else if (name.equals("suffix")) {
           this.getSuffix().add(castToString(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -783,6 +787,21 @@ public class HumanName extends Type implements ICompositeType {
         case -891422895:  return addSuffixElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116103: /*use*/ return new String[] {"code"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        case -1281860764: /*family*/ return new String[] {"string"};
+        case 98367357: /*given*/ return new String[] {"string"};
+        case -980110702: /*prefix*/ return new String[] {"string"};
+        case -891422895: /*suffix*/ return new String[] {"string"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

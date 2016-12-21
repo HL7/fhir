@@ -1,45 +1,42 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ImagingStudy3to2" = "R3 to R2 Conversion for ImagingStudy"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImagingStudy" alias ImagingStudyR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Coding3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
-
-
-group ImagingStudy extends DomainResource
+group for type+types  ImagingStudy extends DomainResource
   input src : ImagingStudy as source
   input tgt : ImagingStudyR2 as target
 
-  "ImagingStudy-uid" : for src.uid as vs make tgt.uid as vt then oid(vs, vt)
-  "ImagingStudy-accession" : for src.accession as vs make tgt.accession as vt then Identifier(vs,vt)
-  "ImagingStudy-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "ImagingStudy-availability" : for src.availability as vs make tgt.availability as vt then code(vs, vt)
-  "ImagingStudy-modalityList" : for src.modalityList as vs make tgt.modalityList as vt then Coding(vs,vt)
-  "ImagingStudy-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "ImagingStudy-started" : for src.started as vs make tgt.started as vt then dateTime(vs, vt)
-  "ImagingStudy-referrer" : for src.referrer as vs make tgt.referrer as vt then Reference(vs,vt)
-  "ImagingStudy-interpreter" : for src.interpreter as vs make tgt.interpreter as vt then Reference(vs,vt)
-  "ImagingStudy-numberOfSeries" : for src.numberOfSeries as vs make tgt.numberOfSeries as vt then unsignedInt(vs, vt)
-  "ImagingStudy-numberOfInstances" : for src.numberOfInstances as vs make tgt.numberOfInstances as vt then unsignedInt(vs, vt)
-  "ImagingStudy-procedure" : for src.procedure as vs make tgt.procedure as vt then Reference(vs,vt)
-  "ImagingStudy-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "ImagingStudy-uid" : for src.uid make tgt.uid
+  "ImagingStudy-accession" : for src.accession make tgt.accession
+  "ImagingStudy-identifier" : for src.identifier make tgt.identifier
+  "ImagingStudy-availability" : for src.availability make tgt.availability
+  "ImagingStudy-modalityList" : for src.modalityList make tgt.modalityList
+  "ImagingStudy-patient" : for src.patient make tgt.patient
+  "ImagingStudy-started" : for src.started make tgt.started
+  "ImagingStudy-referrer" : for src.referrer make tgt.referrer
+  "ImagingStudy-interpreter" : for src.interpreter make tgt.interpreter
+  "ImagingStudy-numberOfSeries" : for src.numberOfSeries make tgt.numberOfSeries
+  "ImagingStudy-numberOfInstances" : for src.numberOfInstances make tgt.numberOfInstances
+  "ImagingStudy-procedure" : for src.procedure make tgt.procedure
+  "ImagingStudy-description" : for src.description make tgt.description
   "ImagingStudy-series" : for src.series as vs0 make tgt.series as vt0 then {
-    "ImagingStudy.series-uid" : for vs0.uid as vs make vt0.uid as vt then oid(vs, vt)
-    "ImagingStudy.series-number" : for vs0.number as vs make vt0.number as vt then unsignedInt(vs, vt)
-    "ImagingStudy.series-modality" : for vs0.modality as vs make vt0.modality as vt then Coding(vs,vt)
-    "ImagingStudy.series-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-    "ImagingStudy.series-numberOfInstances" : for vs0.numberOfInstances as vs make vt0.numberOfInstances as vt then unsignedInt(vs, vt)
-    "ImagingStudy.series-availability" : for vs0.availability as vs make vt0.availability as vt then code(vs, vt)
-    "ImagingStudy.series-bodySite" : for vs0.bodySite as vs make vt0.bodySite as vt then Coding(vs,vt)
-    "ImagingStudy.series-laterality" : for vs0.laterality as vs make vt0.laterality as vt then Coding(vs,vt)
-    "ImagingStudy.series-started" : for vs0.started as vs make vt0.started as vt then dateTime(vs, vt)
+    "ImagingStudy.series-uid" : for vs0.uid make vt0.uid
+    "ImagingStudy.series-number" : for vs0.number make vt0.number
+    "ImagingStudy.series-modality" : for vs0.modality make vt0.modality
+    "ImagingStudy.series-description" : for vs0.description make vt0.description
+    "ImagingStudy.series-numberOfInstances" : for vs0.numberOfInstances make vt0.numberOfInstances
+    "ImagingStudy.series-availability" : for vs0.availability make vt0.availability
+    "ImagingStudy.series-bodySite" : for vs0.bodySite make vt0.bodySite
+    "ImagingStudy.series-laterality" : for vs0.laterality make vt0.laterality
+    "ImagingStudy.series-started" : for vs0.started make vt0.started
   }
-endgroup
 
+
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class GuidanceResponse extends DomainResource {
         throw new IllegalArgumentException("Unknown GuidanceResponseStatus code '"+codeString+"'");
         }
         public Enumeration<GuidanceResponseStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<GuidanceResponseStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1033,7 +1035,8 @@ public class GuidanceResponse extends DomainResource {
           this.module = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new GuidanceResponseStatusEnumFactory().fromType(value); // Enumeration<GuidanceResponseStatus>
+          value = new GuidanceResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<GuidanceResponseStatus>
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -1072,35 +1075,36 @@ public class GuidanceResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("requestId"))
+        if (name.equals("requestId")) {
           this.requestId = castToId(value); // IdType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("module"))
+        } else if (name.equals("module")) {
           this.module = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new GuidanceResponseStatusEnumFactory().fromType(value); // Enumeration<GuidanceResponseStatus>
-        else if (name.equals("subject"))
+        } else if (name.equals("status")) {
+          value = new GuidanceResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<GuidanceResponseStatus>
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("occurrenceDateTime"))
+        } else if (name.equals("occurrenceDateTime")) {
           this.occurrenceDateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("evaluationMessage"))
+        } else if (name.equals("evaluationMessage")) {
           this.getEvaluationMessage().add(castToReference(value));
-        else if (name.equals("outputParameters"))
+        } else if (name.equals("outputParameters")) {
           this.outputParameters = castToReference(value); // Reference
-        else if (name.equals("result"))
+        } else if (name.equals("result")) {
           this.result = castToReference(value); // Reference
-        else if (name.equals("dataRequirement"))
+        } else if (name.equals("dataRequirement")) {
           this.getDataRequirement().add(castToDataRequirement(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1117,12 +1121,35 @@ public class GuidanceResponse extends DomainResource {
         case -298443636:  return getOccurrenceDateTimeElement();
         case 481140686:  return getPerformer(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case 3387378:  return addNote(); 
         case 1081619755:  return addEvaluationMessage(); 
         case 525609419:  return getOutputParameters(); 
         case -934426595:  return getResult(); 
         case 629147193:  return addDataRequirement(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 693933066: /*requestId*/ return new String[] {"id"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1068784020: /*module*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case -298443636: /*occurrenceDateTime*/ return new String[] {"dateTime"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case 1081619755: /*evaluationMessage*/ return new String[] {"Reference"};
+        case 525609419: /*outputParameters*/ return new String[] {"Reference"};
+        case -934426595: /*result*/ return new String[] {"Reference"};
+        case 629147193: /*dataRequirement*/ return new String[] {"DataRequirement"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

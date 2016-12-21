@@ -5,10 +5,10 @@ uses "http://hl7.org/fhir/StructureDefinition/Element" as target
 
 imports "http://hl7.org/fhir/StructureMap/Extension2to3"
 
-group Element 
+group for type+types  Element
   input src : ElementR2 as source
   input tgt : Element as target
 
-  "extensions" : for src.extension as vs make tgt.extension as vt then Extension(vs, vt)
-endgroup
+  "extensions" : for src.extension make tgt.extension
 
+endgroup

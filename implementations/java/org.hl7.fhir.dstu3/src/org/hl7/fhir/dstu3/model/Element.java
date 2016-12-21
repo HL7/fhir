@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -235,11 +235,11 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("id"))
+        if (name.equals("id")) {
           this.id = castToString(value); // StringType
-        else if (name.equals("extension"))
+        } else if (name.equals("extension")) {
           this.getExtension().add(castToExtension(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -250,6 +250,16 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
         case 3355:  return getIdElement();
         case -612557761:  return addExtension(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3355: /*id*/ return new String[] {"string"};
+        case -612557761: /*extension*/ return new String[] {"Extension"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Practitioner2to3" = "R2 to R3 Conversions for Practitioner"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Practitioner" alias PractitionerR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Address2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
@@ -16,34 +14,34 @@ imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Practitioner extends DomainResource
+group for type+types  Practitioner extends DomainResource
   input src : PractitionerR2 as source
   input tgt : Practitioner as target
 
-  "Practitioner-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Practitioner-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
-  "Practitioner-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
-  "Practitioner-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "Practitioner-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
-  "Practitioner-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
-  "Practitioner-birthDate" : for src.birthDate as vs make tgt.birthDate as vt then date(vs, vt)
-  "Practitioner-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
+  "Practitioner-identifier" : for src.identifier make tgt.identifier
+  "Practitioner-active" : for src.active make tgt.active
+  "Practitioner-name" : for src.name make tgt.name
+  "Practitioner-telecom" : for src.telecom make tgt.telecom
+  "Practitioner-address" : for src.address make tgt.address
+  "Practitioner-gender" : for src.gender make tgt.gender
+  "Practitioner-birthDate" : for src.birthDate make tgt.birthDate
+  "Practitioner-photo" : for src.photo make tgt.photo
   "Practitioner-role" : for src.practitionerRole as vs0 make tgt.role as vt0 then {
-    "Practitioner.role-organization" : for vs0.managingOrganization as vs make vt0.organization as vt then Reference(vs,vt)
-    "Practitioner.role-code" : for vs0.role as vs make vt0.code as vt then CodeableConcept(vs,vt)
-    "Practitioner.role-specialty" : for vs0.specialty as vs make vt0.specialty as vt then CodeableConcept(vs,vt)
-    "Practitioner.role-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
-    "Practitioner.role-location" : for vs0.location as vs make vt0.location as vt then Reference(vs,vt)
-    "Practitioner.role-healthcareService" : for vs0.healthcareService as vs make vt0.healthcareService as vt then Reference(vs,vt)
+    "Practitioner.role-organization" : for vs0.managingOrganization make vt0.organization
+    "Practitioner.role-code" : for vs0.role make vt0.code
+    "Practitioner.role-specialty" : for vs0.specialty make vt0.specialty
+    "Practitioner.role-period" : for vs0.period make vt0.period
+    "Practitioner.role-location" : for vs0.location make vt0.location
+    "Practitioner.role-healthcareService" : for vs0.healthcareService make vt0.healthcareService
   }
-  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {
-    "Practitioner.qualification-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
-    "Practitioner.qualification-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
-    "Practitioner.qualification-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
-    "Practitioner.qualification-issuer" : for vs0.issuer as vs make vt0.issuer as vt then Reference(vs,vt)
-  }
-  "Practitioner-communication" : for src.communication as vs make tgt.communication as vt then CodeableConcept(vs,vt)
-endgroup
 
+  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {
+    "Practitioner.qualification-identifier" : for vs0.identifier make vt0.identifier
+    "Practitioner.qualification-code" : for vs0.code make vt0.code
+    "Practitioner.qualification-period" : for vs0.period make vt0.period
+    "Practitioner.qualification-issuer" : for vs0.issuer make vt0.issuer
+  }
+
+  "Practitioner-communication" : for src.communication make tgt.communication
+
+endgroup

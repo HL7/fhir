@@ -1,55 +1,52 @@
 ﻿map "http://hl7.org/fhir/StructureMap/TestScript2to3" = "R2 to R3 Conversions for TestScript"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/TestScript" alias TestScriptR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/TestScript" alias TestScript as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
-
-
-group TestScript extends DomainResource
+group for type+types  TestScript extends DomainResource
   input src : TestScriptR2 as source
   input tgt : TestScript as target
 
-  "TestScript-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "TestScript-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "TestScript-name" : for src.name as vs make tgt.name as vt then string(vs, vt)
-  "TestScript-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "TestScript-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "TestScript-experimental" : for src.experimental as vs make tgt.experimental as vt then boolean(vs, vt)
-  "TestScript-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
+  "TestScript-url" : for src.url make tgt.url
+  "TestScript-version" : for src.version make tgt.version
+  "TestScript-name" : for src.name make tgt.name
+  "TestScript-status" : for src.status make tgt.status
+  "TestScript-identifier" : for src.identifier make tgt.identifier
+  "TestScript-experimental" : for src.experimental make tgt.experimental
+  "TestScript-publisher" : for src.publisher make tgt.publisher
   "TestScript-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "ContactDetail-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "ContactDetail-telecom" : for vs0.telecom as vs make vt0.telecom as vt then ContactPoint(vs,vt)
+    "ContactDetail-name" : for vs0.name make vt0.name
+    "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
   }
-  "TestScript-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "TestScript-metadata" : for src.metadata as vs0 make tgt.metadata as vt0 then {
-  }
-  "TestScript-fixture" : for src.fixture as vs0 make tgt.fixture as vt0 then {
-    "TestScript.fixture-autocreate" : for vs0.autocreate as vs make vt0.autocreate as vt then boolean(vs, vt)
-    "TestScript.fixture-autodelete" : for vs0.autodelete as vs make vt0.autodelete as vt then boolean(vs, vt)
-    "TestScript.fixture-resource" : for vs0.resource as vs make vt0.resource as vt then Reference(vs,vt)
-  }
-  "TestScript-profile" : for src.profile as vs make tgt.profile as vt then Reference(vs,vt)
-  "TestScript-variable" : for src.variable as vs0 make tgt.variable as vt0 then {
-    "TestScript.variable-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "TestScript.variable-headerField" : for vs0.headerField as vs make vt0.headerField as vt then string(vs, vt)
-    "TestScript.variable-path" : for vs0.path as vs make vt0.path as vt then string(vs, vt)
-    "TestScript.variable-sourceId" : for vs0.sourceId as vs make vt0.sourceId as vt then id(vs, vt)
-  }
-  "TestScript-setup" : for src.setup as vs0 make tgt.setup as vt0 then {
-  }
-  "TestScript-test" : for src.test as vs0 make tgt.test as vt0 then {
-    "TestScript.test-name" : for vs0.name as vs make vt0.name as vt then string(vs, vt)
-    "TestScript.test-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-  }
-  "TestScript-teardown" : for src.teardown as vs0 make tgt.teardown as vt0 then {
-  }
-endgroup
 
+  "TestScript-date" : for src.date make tgt.date
+  "TestScript-metadata" : for src.metadata as vs0 make tgt.metadata as vt0
+  "TestScript-fixture" : for src.fixture as vs0 make tgt.fixture as vt0 then {
+    "TestScript.fixture-autocreate" : for vs0.autocreate make vt0.autocreate
+    "TestScript.fixture-autodelete" : for vs0.autodelete make vt0.autodelete
+    "TestScript.fixture-resource" : for vs0.resource make vt0.resource
+  }
+
+  "TestScript-profile" : for src.profile make tgt.profile
+  "TestScript-variable" : for src.variable as vs0 make tgt.variable as vt0 then {
+    "TestScript.variable-name" : for vs0.name make vt0.name
+    "TestScript.variable-headerField" : for vs0.headerField make vt0.headerField
+    "TestScript.variable-path" : for vs0.path make vt0.path
+    "TestScript.variable-sourceId" : for vs0.sourceId make vt0.sourceId
+  }
+
+  "TestScript-setup" : for src.setup as vs0 make tgt.setup as vt0
+  "TestScript-test" : for src.test as vs0 make tgt.test as vt0 then {
+    "TestScript.test-name" : for vs0.name make vt0.name
+    "TestScript.test-description" : for vs0.description make vt0.description
+  }
+
+  "TestScript-teardown" : for src.teardown as vs0 make tgt.teardown as vt0
+
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -10867,6 +10867,8 @@ public class RdfParser extends RdfParserBase {
       composeId(t, "StructureMap", "name", element.getNameElement(), -1);
     if (element.hasExtendsElement())
       composeId(t, "StructureMap", "extends", element.getExtendsElement(), -1);
+    if (element.hasTypeModeElement())
+      composeEnum(t, "StructureMap", "typeMode", element.getTypeModeElement(), -1);
     if (element.hasDocumentationElement())
       composeString(t, "StructureMap", "documentation", element.getDocumentationElement(), -1);
     for (int i = 0; i < element.getInput().size(); i++)
@@ -11010,23 +11012,7 @@ public class RdfParser extends RdfParserBase {
     if (element.hasNameElement())
       composeId(t, "StructureMap", "name", element.getNameElement(), -1);
     for (int i = 0; i < element.getVariable().size(); i++)
-      composeStructureMapStructureMapGroupRuleDependentVariableComponent(t, "StructureMap", "variable", element.getVariable().get(i), i);
-  }
-
-  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(Complex parent, String parentType, String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element, int index) {
-    if (element == null) 
-      return;
-    Complex t;
-    if (Utilities.noString(parentType))
-      t = parent;
-    else {
-      t = parent.predicate("fhir:"+parentType+'.'+name);
-    }
-    composeBackboneElement(t, "variable", name, element, index);
-    if (element.hasNameElement())
-      composeString(t, "StructureMap", "name", element.getNameElement(), -1);
-    if (element.hasValue())
-      composeType(t, "StructureMap", "value", element.getValue(), -1);
+      composeString(t, "StructureMap", "variable", element.getVariable().get(i), i);
   }
 
   protected void composeSubscription(Complex parent, String parentType, String name, Subscription element, int index) {

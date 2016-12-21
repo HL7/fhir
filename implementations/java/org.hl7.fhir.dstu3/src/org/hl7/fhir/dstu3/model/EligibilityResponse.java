@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class EligibilityResponse extends DomainResource {
         throw new IllegalArgumentException("Unknown EligibilityResponseStatus code '"+codeString+"'");
         }
         public Enumeration<EligibilityResponseStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EligibilityResponseStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -391,13 +393,13 @@ public class EligibilityResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("coverage"))
+        if (name.equals("coverage")) {
           this.coverage = castToReference(value); // Reference
-        else if (name.equals("contract"))
+        } else if (name.equals("contract")) {
           this.contract = castToReference(value); // Reference
-        else if (name.equals("benefitBalance"))
+        } else if (name.equals("benefitBalance")) {
           this.getBenefitBalance().add((BenefitsComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -409,6 +411,17 @@ public class EligibilityResponse extends DomainResource {
         case -566947566:  return getContract(); 
         case 596003397:  return addBenefitBalance(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -351767064: /*coverage*/ return new String[] {"Reference"};
+        case -566947566: /*contract*/ return new String[] {"Reference"};
+        case 596003397: /*benefitBalance*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -946,25 +959,25 @@ public class EligibilityResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("category"))
+        if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subCategory"))
+        } else if (name.equals("subCategory")) {
           this.subCategory = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("excluded"))
+        } else if (name.equals("excluded")) {
           this.excluded = castToBoolean(value); // BooleanType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("network"))
+        } else if (name.equals("network")) {
           this.network = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("unit"))
+        } else if (name.equals("unit")) {
           this.unit = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("term"))
+        } else if (name.equals("term")) {
           this.term = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("financial"))
+        } else if (name.equals("financial")) {
           this.getFinancial().add((BenefitComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -982,6 +995,23 @@ public class EligibilityResponse extends DomainResource {
         case 3556460:  return getTerm(); 
         case 357555337:  return addFinancial(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 1365024606: /*subCategory*/ return new String[] {"CodeableConcept"};
+        case 1994055114: /*excluded*/ return new String[] {"boolean"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 1843485230: /*network*/ return new String[] {"CodeableConcept"};
+        case 3594628: /*unit*/ return new String[] {"CodeableConcept"};
+        case 3556460: /*term*/ return new String[] {"CodeableConcept"};
+        case 357555337: /*financial*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1284,13 +1314,13 @@ public class EligibilityResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("allowed[x]"))
+        } else if (name.equals("allowed[x]")) {
           this.allowed = castToType(value); // Type
-        else if (name.equals("used[x]"))
+        } else if (name.equals("used[x]")) {
           this.used = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1300,8 +1330,21 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 3575610:  return getType(); 
         case -1336663592:  return getAllowed(); 
+        case -911343192:  return getAllowed(); 
         case -147553373:  return getUsed(); 
+        case 3599293:  return getUsed(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -911343192: /*allowed*/ return new String[] {"unsignedInt", "string", "Money"};
+        case 3599293: /*used*/ return new String[] {"unsignedInt", "Money"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1455,9 +1498,9 @@ public class EligibilityResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1467,6 +1510,15 @@ public class EligibilityResponse extends DomainResource {
         switch (hash) {
         case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2262,7 +2314,8 @@ public class EligibilityResponse extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new EligibilityResponseStatusEnumFactory().fromType(value); // Enumeration<EligibilityResponseStatus>
+          value = new EligibilityResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EligibilityResponseStatus>
           return value;
         case 1028554472: // created
           this.created = castToDateTime(value); // DateTimeType
@@ -2304,33 +2357,34 @@ public class EligibilityResponse extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new EligibilityResponseStatusEnumFactory().fromType(value); // Enumeration<EligibilityResponseStatus>
-        else if (name.equals("created"))
+        } else if (name.equals("status")) {
+          value = new EligibilityResponseStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EligibilityResponseStatus>
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("requestProvider"))
+        } else if (name.equals("requestProvider")) {
           this.requestProvider = castToReference(value); // Reference
-        else if (name.equals("requestOrganization"))
+        } else if (name.equals("requestOrganization")) {
           this.requestOrganization = castToReference(value); // Reference
-        else if (name.equals("request"))
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("disposition"))
+        } else if (name.equals("disposition")) {
           this.disposition = castToString(value); // StringType
-        else if (name.equals("insurer"))
+        } else if (name.equals("insurer")) {
           this.insurer = castToReference(value); // Reference
-        else if (name.equals("inforce"))
+        } else if (name.equals("inforce")) {
           this.inforce = castToBoolean(value); // BooleanType
-        else if (name.equals("insurance"))
+        } else if (name.equals("insurance")) {
           this.getInsurance().add((InsuranceComponent) value);
-        else if (name.equals("form"))
+        } else if (name.equals("form")) {
           this.form = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("error"))
+        } else if (name.equals("error")) {
           this.getError().add((ErrorsComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2352,6 +2406,27 @@ public class EligibilityResponse extends DomainResource {
         case 3148996:  return getForm(); 
         case 96784904:  return addError(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case 1601527200: /*requestProvider*/ return new String[] {"Reference"};
+        case 599053666: /*requestOrganization*/ return new String[] {"Reference"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case 583380919: /*disposition*/ return new String[] {"string"};
+        case 1957615864: /*insurer*/ return new String[] {"Reference"};
+        case 1945431270: /*inforce*/ return new String[] {"boolean"};
+        case 73049818: /*insurance*/ return new String[] {};
+        case 3148996: /*form*/ return new String[] {"CodeableConcept"};
+        case 96784904: /*error*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -706,7 +706,8 @@ public class RelatedPerson extends DomainResource {
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
           return value;
         case -1249512767: // gender
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
           return value;
         case -1210031859: // birthDate
           this.birthDate = castToDate(value); // DateType
@@ -727,29 +728,30 @@ public class RelatedPerson extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("relationship"))
+        } else if (name.equals("relationship")) {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.getName().add(castToHumanName(value));
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("gender"))
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-        else if (name.equals("birthDate"))
+        } else if (name.equals("gender")) {
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+        } else if (name.equals("birthDate")) {
           this.birthDate = castToDate(value); // DateType
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.getAddress().add(castToAddress(value));
-        else if (name.equals("photo"))
+        } else if (name.equals("photo")) {
           this.getPhoto().add(castToAttachment(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -769,6 +771,25 @@ public class RelatedPerson extends DomainResource {
         case 106642994:  return addPhoto(); 
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
+        case 3373707: /*name*/ return new String[] {"HumanName"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1249512767: /*gender*/ return new String[] {"code"};
+        case -1210031859: /*birthDate*/ return new String[] {"date"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        case 106642994: /*photo*/ return new String[] {"Attachment"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

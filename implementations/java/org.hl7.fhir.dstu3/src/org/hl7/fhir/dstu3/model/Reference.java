@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -279,13 +279,13 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("reference"))
+        if (name.equals("reference")) {
           this.reference = castToString(value); // StringType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -297,6 +297,17 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
         case -1618432855:  return getIdentifier(); 
         case 1671764162:  return getDisplayElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -925155509: /*reference*/ return new String[] {"string"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

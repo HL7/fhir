@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -193,11 +193,11 @@ public class UsageContext extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCoding(value); // Coding
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -207,7 +207,18 @@ public class UsageContext extends Type implements ICompositeType {
         switch (hash) {
         case 3059181:  return getCode(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"Coding"};
+        case 111972721: /*value*/ return new String[] {"CodeableConcept", "Quantity", "Range"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

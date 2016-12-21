@@ -1,27 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/EnrollmentResponse2to3" = "R2 to R3 Conversions for EnrollmentResponse"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EnrollmentResponse" alias EnrollmentResponseR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/EnrollmentResponse" alias EnrollmentResponse as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
-
-
-group EnrollmentResponse extends DomainResource
+group for type+types  EnrollmentResponse extends DomainResource
   input src : EnrollmentResponseR2 as source
   input tgt : EnrollmentResponse as target
 
-  "EnrollmentResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "EnrollmentResponse-request" : for src.request as vs make tgt.request as vt then Reference(vs,vt)
-  "EnrollmentResponse-disposition" : for src.disposition as vs make tgt.disposition as vt then string(vs, vt)
-  "EnrollmentResponse-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)
-  "EnrollmentResponse-organization" : for src.organization as vs make tgt.organization as vt then Reference(vs,vt)
-  "EnrollmentResponse-requestProvider" : for src.requestProvider as vs make tgt.requestProvider as vt then Reference(vs,vt)
-  "EnrollmentResponse-requestOrganization" : for src.requestOrganization as vs make tgt.requestOrganization as vt then Reference(vs,vt)
-endgroup
+  "EnrollmentResponse-identifier" : for src.identifier make tgt.identifier
+  "EnrollmentResponse-request" : for src.request make tgt.request
+  "EnrollmentResponse-disposition" : for src.disposition make tgt.disposition
+  "EnrollmentResponse-created" : for src.created make tgt.created
+  "EnrollmentResponse-organization" : for src.organization make tgt.organization
+  "EnrollmentResponse-requestProvider" : for src.requestProvider make tgt.requestProvider
+  "EnrollmentResponse-requestOrganization" : for src.requestOrganization make tgt.requestOrganization
 
+endgroup

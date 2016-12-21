@@ -1,38 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Appointment2to3" = "R2 to R3 Conversions for Appointment"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Appointment" alias AppointmentR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Appointment extends DomainResource
+group for type+types  Appointment extends DomainResource
   input src : AppointmentR2 as source
   input tgt : Appointment as target
 
-  "Appointment-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Appointment-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Appointment-serviceType" : for src.type as vs make tgt.serviceType as vt then CodeableConcept(vs,vt)
-  "Appointment-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
-  "Appointment-priority" : for src.priority as vs make tgt.priority as vt then unsignedInt(vs, vt)
-  "Appointment-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "Appointment-start" : for src.start as vs make tgt.start as vt then instant(vs, vt)
-  "Appointment-end" : for src.end as vs make tgt.end as vt then instant(vs, vt)
-  "Appointment-minutesDuration" : for src.minutesDuration as vs make tgt.minutesDuration as vt then positiveInt(vs, vt)
-  "Appointment-slot" : for src.slot as vs make tgt.slot as vt then Reference(vs,vt)
-  "Appointment-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
+  "Appointment-identifier" : for src.identifier make tgt.identifier
+  "Appointment-status" : for src.status make tgt.status
+  "Appointment-serviceType" : for src.type make tgt.serviceType
+  "Appointment-reason" : for src.reason make tgt.reason
+  "Appointment-priority" : for src.priority make tgt.priority
+  "Appointment-description" : for src.description make tgt.description
+  "Appointment-start" : for src.start make tgt.start
+  "Appointment-end" : for src.end make tgt.end
+  "Appointment-minutesDuration" : for src.minutesDuration make tgt.minutesDuration
+  "Appointment-slot" : for src.slot make tgt.slot
+  "Appointment-comment" : for src.comment make tgt.comment
   "Appointment-participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Appointment.participant-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
-    "Appointment.participant-actor" : for vs0.actor as vs make vt0.actor as vt then Reference(vs,vt)
-    "Appointment.participant-required" : for vs0.required as vs make vt0.required as vt then code(vs, vt)
-    "Appointment.participant-status" : for vs0.status as vs make vt0.status as vt then code(vs, vt)
+    "Appointment.participant-type" : for vs0.type make vt0.type
+    "Appointment.participant-actor" : for vs0.actor make vt0.actor
+    "Appointment.participant-required" : for vs0.required make vt0.required
+    "Appointment.participant-status" : for vs0.status make vt0.status
   }
-endgroup
 
+
+endgroup

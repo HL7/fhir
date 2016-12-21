@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -129,8 +129,10 @@ public class NamingSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown NamingSystemType code '"+codeString+"'");
         }
         public Enumeration<NamingSystemType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<NamingSystemType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -247,8 +249,10 @@ public class NamingSystem extends MetadataResource {
         throw new IllegalArgumentException("Unknown NamingSystemIdentifierType code '"+codeString+"'");
         }
         public Enumeration<NamingSystemIdentifierType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<NamingSystemIdentifierType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -568,7 +572,8 @@ public class NamingSystem extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new NamingSystemIdentifierTypeEnumFactory().fromType(value); // Enumeration<NamingSystemIdentifierType>
+          value = new NamingSystemIdentifierTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<NamingSystemIdentifierType>
           return value;
         case 111972721: // value
           this.value = castToString(value); // StringType
@@ -589,17 +594,18 @@ public class NamingSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new NamingSystemIdentifierTypeEnumFactory().fromType(value); // Enumeration<NamingSystemIdentifierType>
-        else if (name.equals("value"))
+        if (name.equals("type")) {
+          value = new NamingSystemIdentifierTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<NamingSystemIdentifierType>
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else if (name.equals("preferred"))
+        } else if (name.equals("preferred")) {
           this.preferred = castToBoolean(value); // BooleanType
-        else if (name.equals("comment"))
+        } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -613,6 +619,19 @@ public class NamingSystem extends MetadataResource {
         case 950398559:  return getCommentElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        case -1294005119: /*preferred*/ return new String[] {"boolean"};
+        case 950398559: /*comment*/ return new String[] {"string"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1456,10 +1475,12 @@ public class NamingSystem extends MetadataResource {
           this.name = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case 3292052: // kind
-          this.kind = new NamingSystemTypeEnumFactory().fromType(value); // Enumeration<NamingSystemType>
+          value = new NamingSystemTypeEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<NamingSystemType>
           return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
@@ -1501,35 +1522,37 @@ public class NamingSystem extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("kind"))
-          this.kind = new NamingSystemTypeEnumFactory().fromType(value); // Enumeration<NamingSystemType>
-        else if (name.equals("date"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("kind")) {
+          value = new NamingSystemTypeEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<NamingSystemType>
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("responsible"))
+        } else if (name.equals("responsible")) {
           this.responsible = castToString(value); // StringType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("usage"))
+        } else if (name.equals("usage")) {
           this.usage = castToString(value); // StringType
-        else if (name.equals("uniqueId"))
+        } else if (name.equals("uniqueId")) {
           this.getUniqueId().add((NamingSystemUniqueIdComponent) value);
-        else if (name.equals("replacedBy"))
+        } else if (name.equals("replacedBy")) {
           this.replacedBy = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1552,6 +1575,28 @@ public class NamingSystem extends MetadataResource {
         case -294460212:  return addUniqueId(); 
         case -1233035097:  return getReplacedBy(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3292052: /*kind*/ return new String[] {"code"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 1847674614: /*responsible*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case 111574433: /*usage*/ return new String[] {"string"};
+        case -294460212: /*uniqueId*/ return new String[] {};
+        case -1233035097: /*replacedBy*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

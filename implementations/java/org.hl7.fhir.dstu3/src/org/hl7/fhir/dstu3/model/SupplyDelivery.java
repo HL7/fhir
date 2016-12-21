@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class SupplyDelivery extends DomainResource {
         throw new IllegalArgumentException("Unknown SupplyDeliveryStatus code '"+codeString+"'");
         }
         public Enumeration<SupplyDeliveryStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SupplyDeliveryStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -750,7 +752,8 @@ public class SupplyDelivery extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new SupplyDeliveryStatusEnumFactory().fromType(value); // Enumeration<SupplyDeliveryStatus>
+          value = new SupplyDeliveryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SupplyDeliveryStatus>
           return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -786,29 +789,30 @@ public class SupplyDelivery extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new SupplyDeliveryStatusEnumFactory().fromType(value); // Enumeration<SupplyDeliveryStatus>
-        else if (name.equals("patient"))
+        } else if (name.equals("status")) {
+          value = new SupplyDeliveryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SupplyDeliveryStatus>
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("quantity"))
+        } else if (name.equals("quantity")) {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("suppliedItem[x]"))
+        } else if (name.equals("suppliedItem[x]")) {
           this.suppliedItem = castToType(value); // Type
-        else if (name.equals("supplier"))
+        } else if (name.equals("supplier")) {
           this.supplier = castToReference(value); // Reference
-        else if (name.equals("whenPrepared"))
+        } else if (name.equals("whenPrepared")) {
           this.whenPrepared = castToPeriod(value); // Period
-        else if (name.equals("time"))
+        } else if (name.equals("time")) {
           this.time = castToDateTime(value); // DateTimeType
-        else if (name.equals("destination"))
+        } else if (name.equals("destination")) {
           this.destination = castToReference(value); // Reference
-        else if (name.equals("receiver"))
+        } else if (name.equals("receiver")) {
           this.getReceiver().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -822,12 +826,32 @@ public class SupplyDelivery extends DomainResource {
         case 3575610:  return getType(); 
         case -1285004149:  return getQuantity(); 
         case 1172601071:  return getSuppliedItem(); 
+        case 1993333233:  return getSuppliedItem(); 
         case -1663305268:  return getSupplier(); 
         case -562837097:  return getWhenPrepared(); 
         case 3560141:  return getTimeElement();
         case -1429847026:  return getDestination(); 
         case -808719889:  return addReceiver(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1285004149: /*quantity*/ return new String[] {"SimpleQuantity"};
+        case 1993333233: /*suppliedItem*/ return new String[] {"CodeableConcept", "Reference"};
+        case -1663305268: /*supplier*/ return new String[] {"Reference"};
+        case -562837097: /*whenPrepared*/ return new String[] {"Period"};
+        case 3560141: /*time*/ return new String[] {"dateTime"};
+        case -1429847026: /*destination*/ return new String[] {"Reference"};
+        case -808719889: /*receiver*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

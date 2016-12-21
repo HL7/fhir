@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -141,8 +141,10 @@ public class StructureDefinition extends MetadataResource {
         throw new IllegalArgumentException("Unknown StructureDefinitionKind code '"+codeString+"'");
         }
         public Enumeration<StructureDefinitionKind> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<StructureDefinitionKind>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -251,8 +253,10 @@ public class StructureDefinition extends MetadataResource {
         throw new IllegalArgumentException("Unknown ExtensionContext code '"+codeString+"'");
         }
         public Enumeration<ExtensionContext> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ExtensionContext>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -345,8 +349,10 @@ public class StructureDefinition extends MetadataResource {
         throw new IllegalArgumentException("Unknown TypeDerivationRule code '"+codeString+"'");
         }
         public Enumeration<TypeDerivationRule> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TypeDerivationRule>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -649,15 +655,15 @@ public class StructureDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identity"))
+        if (name.equals("identity")) {
           this.identity = castToId(value); // IdType
-        else if (name.equals("uri"))
+        } else if (name.equals("uri")) {
           this.uri = castToUri(value); // UriType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("comments"))
+        } else if (name.equals("comments")) {
           this.comments = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -670,6 +676,18 @@ public class StructureDefinition extends MetadataResource {
         case 3373707:  return getNameElement();
         case -602415628:  return getCommentsElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -135761730: /*identity*/ return new String[] {"id"};
+        case 116076: /*uri*/ return new String[] {"uri"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -602415628: /*comments*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -834,9 +852,9 @@ public class StructureDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("element"))
+        if (name.equals("element")) {
           this.getElement().add(castToElementDefinition(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -846,6 +864,15 @@ public class StructureDefinition extends MetadataResource {
         switch (hash) {
         case -1662836996:  return addElement(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1662836996: /*element*/ return new String[] {"ElementDefinition"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -999,9 +1026,9 @@ public class StructureDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("element"))
+        if (name.equals("element")) {
           this.getElement().add(castToElementDefinition(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1011,6 +1038,15 @@ public class StructureDefinition extends MetadataResource {
         switch (hash) {
         case -1662836996:  return addElement(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1662836996: /*element*/ return new String[] {"ElementDefinition"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2634,7 +2670,8 @@ public class StructureDefinition extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2673,13 +2710,15 @@ public class StructureDefinition extends MetadataResource {
           this.getMapping().add((StructureDefinitionMappingComponent) value); // StructureDefinitionMappingComponent
           return value;
         case 3292052: // kind
-          this.kind = new StructureDefinitionKindEnumFactory().fromType(value); // Enumeration<StructureDefinitionKind>
+          value = new StructureDefinitionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<StructureDefinitionKind>
           return value;
         case 1732898850: // abstract
           this.abstract_ = castToBoolean(value); // BooleanType
           return value;
         case -102839927: // contextType
-          this.contextType = new ExtensionContextEnumFactory().fromType(value); // Enumeration<ExtensionContext>
+          value = new ExtensionContextEnumFactory().fromType(castToCode(value));
+          this.contextType = (Enumeration) value; // Enumeration<ExtensionContext>
           return value;
         case 951530927: // context
           this.getContext().add(castToString(value)); // StringType
@@ -2694,7 +2733,8 @@ public class StructureDefinition extends MetadataResource {
           this.baseDefinition = castToUri(value); // UriType
           return value;
         case -1353885513: // derivation
-          this.derivation = new TypeDerivationRuleEnumFactory().fromType(value); // Enumeration<TypeDerivationRule>
+          value = new TypeDerivationRuleEnumFactory().fromType(castToCode(value));
+          this.derivation = (Enumeration) value; // Enumeration<TypeDerivationRule>
           return value;
         case 284874180: // snapshot
           this.snapshot = (StructureDefinitionSnapshotComponent) value; // StructureDefinitionSnapshotComponent
@@ -2709,63 +2749,67 @@ public class StructureDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("keyword"))
+        } else if (name.equals("keyword")) {
           this.getKeyword().add(castToCoding(value));
-        else if (name.equals("fhirVersion"))
+        } else if (name.equals("fhirVersion")) {
           this.fhirVersion = castToId(value); // IdType
-        else if (name.equals("mapping"))
+        } else if (name.equals("mapping")) {
           this.getMapping().add((StructureDefinitionMappingComponent) value);
-        else if (name.equals("kind"))
-          this.kind = new StructureDefinitionKindEnumFactory().fromType(value); // Enumeration<StructureDefinitionKind>
-        else if (name.equals("abstract"))
+        } else if (name.equals("kind")) {
+          value = new StructureDefinitionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<StructureDefinitionKind>
+        } else if (name.equals("abstract")) {
           this.abstract_ = castToBoolean(value); // BooleanType
-        else if (name.equals("contextType"))
-          this.contextType = new ExtensionContextEnumFactory().fromType(value); // Enumeration<ExtensionContext>
-        else if (name.equals("context"))
+        } else if (name.equals("contextType")) {
+          value = new ExtensionContextEnumFactory().fromType(castToCode(value));
+          this.contextType = (Enumeration) value; // Enumeration<ExtensionContext>
+        } else if (name.equals("context")) {
           this.getContext().add(castToString(value));
-        else if (name.equals("contextInvariant"))
+        } else if (name.equals("contextInvariant")) {
           this.getContextInvariant().add(castToString(value));
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
-        else if (name.equals("baseDefinition"))
+        } else if (name.equals("baseDefinition")) {
           this.baseDefinition = castToUri(value); // UriType
-        else if (name.equals("derivation"))
-          this.derivation = new TypeDerivationRuleEnumFactory().fromType(value); // Enumeration<TypeDerivationRule>
-        else if (name.equals("snapshot"))
+        } else if (name.equals("derivation")) {
+          value = new TypeDerivationRuleEnumFactory().fromType(castToCode(value));
+          this.derivation = (Enumeration) value; // Enumeration<TypeDerivationRule>
+        } else if (name.equals("snapshot")) {
           this.snapshot = (StructureDefinitionSnapshotComponent) value; // StructureDefinitionSnapshotComponent
-        else if (name.equals("differential"))
+        } else if (name.equals("differential")) {
           this.differential = (StructureDefinitionDifferentialComponent) value; // StructureDefinitionDifferentialComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2802,6 +2846,42 @@ public class StructureDefinition extends MetadataResource {
         case 284874180:  return getSnapshot(); 
         case -1196150917:  return getDifferential(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case -814408215: /*keyword*/ return new String[] {"Coding"};
+        case 461006061: /*fhirVersion*/ return new String[] {"id"};
+        case 837556430: /*mapping*/ return new String[] {};
+        case 3292052: /*kind*/ return new String[] {"code"};
+        case 1732898850: /*abstract*/ return new String[] {"boolean"};
+        case -102839927: /*contextType*/ return new String[] {"code"};
+        case 951530927: /*context*/ return new String[] {"string"};
+        case -802505007: /*contextInvariant*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 1139771140: /*baseDefinition*/ return new String[] {"uri"};
+        case -1353885513: /*derivation*/ return new String[] {"code"};
+        case 284874180: /*snapshot*/ return new String[] {};
+        case -1196150917: /*differential*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

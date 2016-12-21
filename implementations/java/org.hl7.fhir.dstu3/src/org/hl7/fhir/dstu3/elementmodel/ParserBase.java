@@ -94,11 +94,17 @@ public abstract class ParserBase {
       logError(line, col, name, IssueType.STRUCTURE, "This cannot be parsed as a FHIR object (no name)", IssueSeverity.FATAL);
       return null;
   	}
+    // first pass: only look at base definitions
 	  for (StructureDefinition sd : context.allStructures()) {
-	    if (name.equals(sd.getIdElement().getIdPart())) {
+	    if (sd.getUrl().equals("http://hl7.org/fhir/StructureDefinition/"+name)) {
 	      return sd;
 	    }
 	  }
+    for (StructureDefinition sd : context.allStructures()) {
+      if (name.equals(sd.getIdElement().getIdPart())) {
+        return sd;
+      }
+    }
 	  logError(line, col, name, IssueType.STRUCTURE, "This does not appear to be a FHIR resource (unknown name '"+name+"')", IssueSeverity.FATAL);
 	  return null;
   }

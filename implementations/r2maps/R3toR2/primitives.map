@@ -22,166 +22,174 @@ uses "http://hl7.org/fhir/StructureDefinition/markdown" as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/markdown" alias markdownR2 as target
 uses "http://hl7.org/fhir/StructureDefinition/oid" as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/oid" alias oidR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as source
+uses "http://hl7.org/fhir/StructureDefinition/positiveInt" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/positiveInt" alias positiveIntR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/string" as source
+uses "http://hl7.org/fhir/StructureDefinition/string" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/string" alias stringR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/time" as source
+uses "http://hl7.org/fhir/StructureDefinition/time" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/time" alias timeR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as source
+uses "http://hl7.org/fhir/StructureDefinition/unsignedInt" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/unsignedInt" alias unsignedIntR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/uri" as source
+uses "http://hl7.org/fhir/StructureDefinition/uri" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uri" alias uriR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/uuid" as source
+uses "http://hl7.org/fhir/StructureDefinition/uuid" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/uuid" alias uuidR2 as target
-uses "http://hl7.org/fhir/StructureDefinition/xhtml" as source
+uses "http://hl7.org/fhir/StructureDefinition/xhtml" as source 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/xhtml" alias xhtmlR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 
-group base64Binary extends Element
-  input src : base64Binary as source
+group for type+types base64Binary extends Element
+  input src : base64Binary as source 
   input tgt : base64BinaryR2 as target
 
   "base64Binary-value" : for src.value as v make tgt.value = v
 endgroup
 
-group boolean extends Element
-  input src : boolean as source
+group for type+types boolean extends Element
+  input src : boolean as source 
   input tgt : booleanR2 as target
 
   "boolean-value" : for src.value as v make tgt.value = v
 endgroup
 
-group code extends Element
-  input src : code as source
+group for type+types code extends Element
+  input src : code as source 
   input tgt : codeR2 as target
 
   "code-value" : for src.value as v make tgt.value = v
 endgroup
 
-group date extends Element
-  input src : date as source
+group for type+types date extends Element
+  input src : date as source 
   input tgt : dateR2 as target
 
   "date-value" : for src.value as v make tgt.value = v
 endgroup
 
-group dateTime extends Element
-  input src : dateTime as source
+group for type+types dateTime extends Element
+  input src : dateTime as source 
   input tgt : dateTimeR2 as target
 
   "dateTime-value" : for src.value as v make tgt.value = v
 endgroup
 
-group decimal extends Element
-  input src : decimal as source
+group for type+types decimal extends Element
+  input src : decimal as source 
   input tgt : decimalR2 as target
 
   "decimal-value" : for src.value as v make tgt.value = v
 endgroup
 
-group id extends Element
-  input src : id as source
+group for type+types id extends Element
+  input src : id as source 
   input tgt : idR2 as target
 
   "id-value" : for src.value as v make tgt.value = v
 endgroup
 
-group instant extends Element
-  input src : instant as source
+group for type+types instant extends Element
+  input src : instant as source 
   input tgt : instantR2 as target
 
   "instant-value" : for src.value as v make tgt.value = v
 endgroup
 
-group integer extends Element
-  input src : integer as source
+group for type+types integer extends Element
+  input src : integer as source 
   input tgt : integerR2 as target
 
   "integer-value" : for src.value as v make tgt.value = v
 endgroup
 
-group markdown extends Element
-  input src : markdown as source
+group for type+types markdown extends Element
+  input src : markdown as source 
   input tgt : markdownR2 as target
 
   "markdown-value" : for src.value as v make tgt.value = v
 endgroup
 
-group oid extends Element
-  input src : oid as source
+group for type+types oid extends Element
+  input src : oid as source 
   input tgt : oidR2 as target
 
   "oid-value" : for src.value as v make tgt.value = v
 endgroup
 
-group positiveInt extends Element
-  input src : positiveInt as source
+group for type+types positiveInt extends Element
+  input src : positiveInt as source 
   input tgt : positiveIntR2 as target
 
   "positiveInt-value" : for src.value as v make tgt.value = v
 endgroup
 
-group string extends Element
-  input src : string as source
+group for type+types string extends Element
+  input src : string as source 
   input tgt : stringR2 as target
 
   "string-value" : for src.value as v make tgt.value = v
 endgroup
 
-group time extends Element
-  input src : time as source
+group for type+types time extends Element
+  input src : time as source 
   input tgt : timeR2 as target
 
   "time-value" : for src.value as v make tgt.value = v
 endgroup
 
-group unsignedInt extends Element
-  input src : unsignedInt as source
+group for type+types unsignedInt extends Element
+  input src : unsignedInt as source 
   input tgt : unsignedIntR2 as target
 
   "unsignedInt-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uri extends Element
-  input src : uri as source
+group for type+types uri extends Element
+  input src : uri as source 
   input tgt : uriR2 as target
 
   "uri-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uuid extends Element
-  input src : uuid as source
+group for type+types uuid extends Element
+  input src : uuid as source 
   input tgt : uuidR2 as target
 
   "uuid-value" : for src.value as v make tgt.value = v
 endgroup
 
-group xhtml extends Element
-  input src : xhtml as source
+group for type+types xhtml extends Element
+  input src : xhtml as source 
   input tgt : xhtmlR2 as target
 
   "xhtml-value" : for src.value as v make tgt.value = v
 endgroup
 
-group markdownToString extends Element
-  input src : markdown as source
+group for types markdownToString extends Element
+  input src : markdown as source 
   input tgt : stringR2 as target
 
   "markdownToString-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uriToCode extends Element
-  input src : uri as source
+group for types uriToCode extends Element
+  input src : uri as source 
   input tgt : codeR2 as target
 
   "uriToCode-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uriToString extends Element
-  input src : uri as source
+group for types uriToString extends Element
+  input src : uri as source 
   input tgt : stringR2 as target
 
   "uriToString-value" : for src.value as v make tgt.value = v
 endgroup
+
+group for types stringToXhtml extends Element
+  input src : string as source 
+  input tgt : xhtmlR2 as target
+
+  "stringToXhtml-value" : for src.value as v make tgt.value = v
+endgroup
+

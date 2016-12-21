@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -128,8 +128,10 @@ public class MessageHeader extends DomainResource {
         throw new IllegalArgumentException("Unknown ResponseType code '"+codeString+"'");
         }
         public Enumeration<ResponseType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ResponseType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -361,7 +363,8 @@ public class MessageHeader extends DomainResource {
           this.identifier = castToId(value); // IdType
           return value;
         case 3059181: // code
-          this.code = new ResponseTypeEnumFactory().fromType(value); // Enumeration<ResponseType>
+          value = new ResponseTypeEnumFactory().fromType(castToCode(value));
+          this.code = (Enumeration) value; // Enumeration<ResponseType>
           return value;
         case 1557721666: // details
           this.details = castToReference(value); // Reference
@@ -373,13 +376,14 @@ public class MessageHeader extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToId(value); // IdType
-        else if (name.equals("code"))
-          this.code = new ResponseTypeEnumFactory().fromType(value); // Enumeration<ResponseType>
-        else if (name.equals("details"))
+        } else if (name.equals("code")) {
+          value = new ResponseTypeEnumFactory().fromType(castToCode(value));
+          this.code = (Enumeration) value; // Enumeration<ResponseType>
+        } else if (name.equals("details")) {
           this.details = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -391,6 +395,17 @@ public class MessageHeader extends DomainResource {
         case 3059181:  return getCodeElement();
         case 1557721666:  return getDetails(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"id"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 1557721666: /*details*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -770,17 +785,17 @@ public class MessageHeader extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("software"))
+        } else if (name.equals("software")) {
           this.software = castToString(value); // StringType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.contact = castToContactPoint(value); // ContactPoint
-        else if (name.equals("endpoint"))
+        } else if (name.equals("endpoint")) {
           this.endpoint = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -794,6 +809,19 @@ public class MessageHeader extends DomainResource {
         case 951526432:  return getContact(); 
         case 1741102485:  return getEndpointElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 1319330215: /*software*/ return new String[] {"string"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactPoint"};
+        case 1741102485: /*endpoint*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1085,13 +1113,13 @@ public class MessageHeader extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("target"))
+        } else if (name.equals("target")) {
           this.target = castToReference(value); // Reference
-        else if (name.equals("endpoint"))
+        } else if (name.equals("endpoint")) {
           this.endpoint = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1103,6 +1131,17 @@ public class MessageHeader extends DomainResource {
         case -880905839:  return getTarget(); 
         case 1741102485:  return getEndpointElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        case 1741102485: /*endpoint*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1787,29 +1826,29 @@ public class MessageHeader extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("timestamp"))
+        if (name.equals("timestamp")) {
           this.timestamp = castToInstant(value); // InstantType
-        else if (name.equals("event"))
+        } else if (name.equals("event")) {
           this.event = castToCoding(value); // Coding
-        else if (name.equals("response"))
+        } else if (name.equals("response")) {
           this.response = (MessageHeaderResponseComponent) value; // MessageHeaderResponseComponent
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = (MessageSourceComponent) value; // MessageSourceComponent
-        else if (name.equals("destination"))
+        } else if (name.equals("destination")) {
           this.getDestination().add((MessageDestinationComponent) value);
-        else if (name.equals("enterer"))
+        } else if (name.equals("enterer")) {
           this.enterer = castToReference(value); // Reference
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("receiver"))
+        } else if (name.equals("receiver")) {
           this.receiver = castToReference(value); // Reference
-        else if (name.equals("responsible"))
+        } else if (name.equals("responsible")) {
           this.responsible = castToReference(value); // Reference
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.reason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("data"))
+        } else if (name.equals("data")) {
           this.getData().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1829,6 +1868,25 @@ public class MessageHeader extends DomainResource {
         case -934964668:  return getReason(); 
         case 3076010:  return addData(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 55126294: /*timestamp*/ return new String[] {"instant"};
+        case 96891546: /*event*/ return new String[] {"Coding"};
+        case -340323263: /*response*/ return new String[] {};
+        case -896505829: /*source*/ return new String[] {};
+        case -1429847026: /*destination*/ return new String[] {};
+        case -1591951995: /*enterer*/ return new String[] {"Reference"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case -808719889: /*receiver*/ return new String[] {"Reference"};
+        case 1847674614: /*responsible*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case 3076010: /*data*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition2to3" = "R2 to R3 Conversions for Condition"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -13,38 +11,38 @@ imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/Range2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Condition extends DomainResource
+group for type+types  Condition extends DomainResource
   input src : ConditionR2 as source
   input tgt : Condition as target
 
-  "Condition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Condition-subject" : for src.patient as vs make tgt.subject as vt then Reference(vs,vt)
-  "Condition-context" : for src.encounter as vs make tgt.context as vt then Reference(vs,vt)
-  "Condition-asserter" : for src.asserter as vs make tgt.asserter as vt then Reference(vs,vt)
-  "Condition-assertedDate" : for src.dateRecorded as vs make tgt.assertedDate as vt then date(vs, vt)
-  "Condition-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
-  "Condition-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
-  "Condition-verificationStatus" : for src.verificationStatus as vs make tgt.verificationStatus as vt then code(vs, vt)
-  "Condition-severity" : for src.severity as vs make tgt.severity as vt then CodeableConcept(vs,vt)
-  "Condition-onset-dateTime" : for src.onset  : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs,vt)
-  "Condition-onset-Period" : for src.onset  : Period as vs make tgt.onset = create("Period") as vt then Period(vs,vt)
-  "Condition-onset-Range" : for src.onset  : Range as vs make tgt.onset = create("Range") as vt then Range(vs,vt)
-  "Condition-onset-string" : for src.onset  : string as vs make tgt.onset = create("string") as vt then string(vs,vt)
-  "Condition-abatement-dateTime" : for src.abatement  : dateTime as vs make tgt.abatement = create("dateTime") as vt then dateTime(vs,vt)
-  "Condition-abatement-boolean" : for src.abatement  : boolean as vs make tgt.abatement = create("boolean") as vt then boolean(vs,vt)
-  "Condition-abatement-Period" : for src.abatement  : Period as vs make tgt.abatement = create("Period") as vt then Period(vs,vt)
-  "Condition-abatement-Range" : for src.abatement  : Range as vs make tgt.abatement = create("Range") as vt then Range(vs,vt)
-  "Condition-abatement-string" : for src.abatement  : string as vs make tgt.abatement = create("string") as vt then string(vs,vt)
+  "Condition-identifier" : for src.identifier make tgt.identifier
+  "Condition-subject" : for src.patient make tgt.subject
+  "Condition-context" : for src.encounter make tgt.context
+  "Condition-asserter" : for src.asserter make tgt.asserter
+  "Condition-assertedDate" : for src.dateRecorded make tgt.assertedDate
+  "Condition-code" : for src.code make tgt.code
+  "Condition-category" : for src.category make tgt.category
+  "Condition-verificationStatus" : for src.verificationStatus make tgt.verificationStatus
+  "Condition-severity" : for src.severity make tgt.severity
+  "Condition-onset-dateTime" : for src.onset : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs, vt)
+  "Condition-onset-Period" : for src.onset : Period as vs make tgt.onset = create("Period") as vt then Period(vs, vt)
+  "Condition-onset-Range" : for src.onset : Range as vs make tgt.onset = create("Range") as vt then Range(vs, vt)
+  "Condition-onset-string" : for src.onset : string as vs make tgt.onset = create("string") as vt then string(vs, vt)
+  "Condition-abatement-dateTime" : for src.abatement : dateTime as vs make tgt.abatement = create("dateTime") as vt then dateTime(vs, vt)
+  "Condition-abatement-boolean" : for src.abatement : boolean as vs make tgt.abatement = create("boolean") as vt then boolean(vs, vt)
+  "Condition-abatement-Period" : for src.abatement : Period as vs make tgt.abatement = create("Period") as vt then Period(vs, vt)
+  "Condition-abatement-Range" : for src.abatement : Range as vs make tgt.abatement = create("Range") as vt then Range(vs, vt)
+  "Condition-abatement-string" : for src.abatement : string as vs make tgt.abatement = create("string") as vt then string(vs, vt)
   "Condition-stage" : for src.stage as vs0 make tgt.stage as vt0 then {
-    "Condition.stage-summary" : for vs0.summary as vs make vt0.summary as vt then CodeableConcept(vs,vt)
-    "Condition.stage-assessment" : for vs0.assessment as vs make vt0.assessment as vt then Reference(vs,vt)
+    "Condition.stage-summary" : for vs0.summary make vt0.summary
+    "Condition.stage-assessment" : for vs0.assessment make vt0.assessment
   }
-  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then {
-    "Condition.evidence-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
-    "Condition.evidence-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
-  }
-  "Condition-bodySite" : for src.bodySite as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
-endgroup
 
+  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then {
+    "Condition.evidence-code" : for vs0.code make vt0.code
+    "Condition.evidence-detail" : for vs0.detail make vt0.detail
+  }
+
+  "Condition-bodySite" : for src.bodySite make tgt.bodySite
+
+endgroup

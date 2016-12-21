@@ -1,27 +1,23 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Questionnaire3to2" = "R3 to R2 Conversion for Questionnaire"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 
-
-
-group Questionnaire extends DomainResource
+group for type+types  Questionnaire extends DomainResource
   input src : Questionnaire as source
   input tgt : QuestionnaireR2 as target
 
-  "Questionnaire-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Questionnaire-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "Questionnaire-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Questionnaire-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "Questionnaire-publisher" : for src.publisher as vs make tgt.publisher as vt then string(vs, vt)
-  "Questionnaire-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "Questionnaire-subjectType" : for src.subjectType as vs make tgt.subjectType as vt then code(vs, vt)
-endgroup
+  "Questionnaire-identifier" : for src.identifier make tgt.identifier
+  "Questionnaire-version" : for src.version make tgt.version
+  "Questionnaire-status" : for src.status make tgt.status
+  "Questionnaire-date" : for src.date make tgt.date
+  "Questionnaire-publisher" : for src.publisher make tgt.publisher
+  "Questionnaire-telecom" : for src.telecom make tgt.telecom
+  "Questionnaire-subjectType" : for src.subjectType make tgt.subjectType
 
+endgroup

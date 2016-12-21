@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -299,15 +299,15 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("text"))
+        if (name.equals("text")) {
           this.text = castToNarrative(value); // Narrative
-        else if (name.equals("contained"))
+        } else if (name.equals("contained")) {
           this.getContained().add(castToResource(value));
-        else if (name.equals("extension"))
+        } else if (name.equals("extension")) {
           this.getExtension().add(castToExtension(value));
-        else if (name.equals("modifierExtension"))
+        } else if (name.equals("modifierExtension")) {
           this.getModifierExtension().add(castToExtension(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -320,6 +320,18 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
         case -612557761:  return addExtension(); 
         case -298878168:  return addModifierExtension(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3556653: /*text*/ return new String[] {"Narrative"};
+        case -410956685: /*contained*/ return new String[] {"Resource"};
+        case -612557761: /*extension*/ return new String[] {"Extension"};
+        case -298878168: /*modifierExtension*/ return new String[] {"Extension"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

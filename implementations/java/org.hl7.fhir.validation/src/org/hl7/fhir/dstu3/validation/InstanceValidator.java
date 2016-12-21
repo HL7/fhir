@@ -73,6 +73,7 @@ import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.ValidationProfileSet;
@@ -2972,7 +2973,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         ExpressionNode n = (ExpressionNode) inv.getUserData("validator.expression.cache");
         if (n == null) {
           long t = System.nanoTime();
-          n = fpe.parse(inv.getExpression());
+          try {
+            n = fpe.parse(inv.getExpression());
+          } catch (FHIRLexerException e) {
+            throw new FHIRException("Problem processing expression "+inv.getExpression() +" in profile " + profile.getUrl() + " path " + path + ": " + e.getMessage());
+          }
           fpeTime = fpeTime + (System.nanoTime() - t);
           inv.setUserData("validator.expression.cache", n);
         }

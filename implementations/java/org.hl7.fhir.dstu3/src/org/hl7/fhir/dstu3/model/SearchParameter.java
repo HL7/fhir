@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -153,8 +153,10 @@ public class SearchParameter extends MetadataResource {
         throw new IllegalArgumentException("Unknown XPathUsageType code '"+codeString+"'");
         }
         public Enumeration<XPathUsageType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<XPathUsageType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -339,8 +341,10 @@ public class SearchParameter extends MetadataResource {
         throw new IllegalArgumentException("Unknown SearchComparator code '"+codeString+"'");
         }
         public Enumeration<SearchComparator> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SearchComparator>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -553,8 +557,10 @@ public class SearchParameter extends MetadataResource {
         throw new IllegalArgumentException("Unknown SearchModifierCode code '"+codeString+"'");
         }
         public Enumeration<SearchModifierCode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SearchModifierCode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -768,11 +774,11 @@ public class SearchParameter extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("definition"))
+        if (name.equals("definition")) {
           this.definition = castToReference(value); // Reference
-        else if (name.equals("expression"))
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -783,6 +789,16 @@ public class SearchParameter extends MetadataResource {
         case -1014418093:  return getDefinition(); 
         case -1795452264:  return getExpressionElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2256,7 +2272,8 @@ public class SearchParameter extends MetadataResource {
           this.name = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2286,7 +2303,8 @@ public class SearchParameter extends MetadataResource {
           this.getBase().add(castToCode(value)); // CodeType
           return value;
         case 3575610: // type
-          this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
+          value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SearchParamType>
           return value;
         case 1077922663: // derivedFrom
           this.derivedFrom = castToUri(value); // UriType
@@ -2301,16 +2319,19 @@ public class SearchParameter extends MetadataResource {
           this.xpath = castToString(value); // StringType
           return value;
         case 1801322244: // xpathUsage
-          this.xpathUsage = new XPathUsageTypeEnumFactory().fromType(value); // Enumeration<XPathUsageType>
+          value = new XPathUsageTypeEnumFactory().fromType(castToCode(value));
+          this.xpathUsage = (Enumeration) value; // Enumeration<XPathUsageType>
           return value;
         case -880905839: // target
           this.getTarget().add(castToCode(value)); // CodeType
           return value;
         case -844673834: // comparator
-          this.getComparator().add(new SearchComparatorEnumFactory().fromType(value)); // Enumeration<SearchComparator>
+          value = new SearchComparatorEnumFactory().fromType(castToCode(value));
+          this.getComparator().add((Enumeration) value); // Enumeration<SearchComparator>
           return value;
         case -615513385: // modifier
-          this.getModifier().add(new SearchModifierCodeEnumFactory().fromType(value)); // Enumeration<SearchModifierCode>
+          value = new SearchModifierCodeEnumFactory().fromType(castToCode(value));
+          this.getModifier().add((Enumeration) value); // Enumeration<SearchModifierCode>
           return value;
         case 94623425: // chain
           this.getChain().add(castToString(value)); // StringType
@@ -2325,55 +2346,60 @@ public class SearchParameter extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("base"))
+        } else if (name.equals("base")) {
           this.getBase().add(castToCode(value));
-        else if (name.equals("type"))
-          this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
-        else if (name.equals("derivedFrom"))
+        } else if (name.equals("type")) {
+          value = new SearchParamTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SearchParamType>
+        } else if (name.equals("derivedFrom")) {
           this.derivedFrom = castToUri(value); // UriType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("expression"))
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else if (name.equals("xpath"))
+        } else if (name.equals("xpath")) {
           this.xpath = castToString(value); // StringType
-        else if (name.equals("xpathUsage"))
-          this.xpathUsage = new XPathUsageTypeEnumFactory().fromType(value); // Enumeration<XPathUsageType>
-        else if (name.equals("target"))
+        } else if (name.equals("xpathUsage")) {
+          value = new XPathUsageTypeEnumFactory().fromType(castToCode(value));
+          this.xpathUsage = (Enumeration) value; // Enumeration<XPathUsageType>
+        } else if (name.equals("target")) {
           this.getTarget().add(castToCode(value));
-        else if (name.equals("comparator"))
-          this.getComparator().add(new SearchComparatorEnumFactory().fromType(value));
-        else if (name.equals("modifier"))
-          this.getModifier().add(new SearchModifierCodeEnumFactory().fromType(value));
-        else if (name.equals("chain"))
+        } else if (name.equals("comparator")) {
+          value = new SearchComparatorEnumFactory().fromType(castToCode(value));
+          this.getComparator().add((Enumeration) value);
+        } else if (name.equals("modifier")) {
+          value = new SearchModifierCodeEnumFactory().fromType(castToCode(value));
+          this.getModifier().add((Enumeration) value);
+        } else if (name.equals("chain")) {
           this.getChain().add(castToString(value));
-        else if (name.equals("component"))
+        } else if (name.equals("component")) {
           this.getComponent().add((SearchParameterComponentComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2406,6 +2432,38 @@ public class SearchParameter extends MetadataResource {
         case 94623425:  return addChainElement();
         case -1399907075:  return addComponent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 3016401: /*base*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 1077922663: /*derivedFrom*/ return new String[] {"uri"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        case 114256029: /*xpath*/ return new String[] {"string"};
+        case 1801322244: /*xpathUsage*/ return new String[] {"code"};
+        case -880905839: /*target*/ return new String[] {"code"};
+        case -844673834: /*comparator*/ return new String[] {"code"};
+        case -615513385: /*modifier*/ return new String[] {"code"};
+        case 94623425: /*chain*/ return new String[] {"string"};
+        case -1399907075: /*component*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

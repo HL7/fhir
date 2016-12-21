@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -564,23 +564,23 @@ public class Attachment extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("contentType"))
+        if (name.equals("contentType")) {
           this.contentType = castToCode(value); // CodeType
-        else if (name.equals("language"))
+        } else if (name.equals("language")) {
           this.language = castToCode(value); // CodeType
-        else if (name.equals("data"))
+        } else if (name.equals("data")) {
           this.data = castToBase64Binary(value); // Base64BinaryType
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("size"))
+        } else if (name.equals("size")) {
           this.size = castToUnsignedInt(value); // UnsignedIntType
-        else if (name.equals("hash"))
+        } else if (name.equals("hash")) {
           this.hash = castToBase64Binary(value); // Base64BinaryType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("creation"))
+        } else if (name.equals("creation")) {
           this.creation = castToDateTime(value); // DateTimeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -597,6 +597,22 @@ public class Attachment extends Type implements ICompositeType {
         case 110371416:  return getTitleElement();
         case 1820421855:  return getCreationElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -389131437: /*contentType*/ return new String[] {"code"};
+        case -1613589672: /*language*/ return new String[] {"code"};
+        case 3076010: /*data*/ return new String[] {"base64Binary"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 3530753: /*size*/ return new String[] {"unsignedInt"};
+        case 3195150: /*hash*/ return new String[] {"base64Binary"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case 1820421855: /*creation*/ return new String[] {"dateTime"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

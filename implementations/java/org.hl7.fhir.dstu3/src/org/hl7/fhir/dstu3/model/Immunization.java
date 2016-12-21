@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -115,8 +115,10 @@ public class Immunization extends DomainResource {
         throw new IllegalArgumentException("Unknown ImmunizationStatus code '"+codeString+"'");
         }
         public Enumeration<ImmunizationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ImmunizationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -303,11 +305,11 @@ public class Immunization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("reason"))
+        if (name.equals("reason")) {
           this.getReason().add(castToCodeableConcept(value));
-        else if (name.equals("reasonNotGiven"))
+        } else if (name.equals("reasonNotGiven")) {
           this.getReasonNotGiven().add(castToCodeableConcept(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -318,6 +320,16 @@ public class Immunization extends DomainResource {
         case -934964668:  return addReason(); 
         case 2101123790:  return addReasonNotGiven(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case 2101123790: /*reasonNotGiven*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -594,13 +606,13 @@ public class Immunization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("date"))
+        if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.detail = castToReference(value); // Reference
-        else if (name.equals("reported"))
+        } else if (name.equals("reported")) {
           this.reported = castToBoolean(value); // BooleanType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -612,6 +624,17 @@ public class Immunization extends DomainResource {
         case -1335224239:  return getDetail(); 
         case -427039533:  return getReportedElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1335224239: /*detail*/ return new String[] {"Reference"};
+        case -427039533: /*reported*/ return new String[] {"boolean"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1151,23 +1174,23 @@ public class Immunization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("doseSequence"))
+        if (name.equals("doseSequence")) {
           this.doseSequence = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("authority"))
+        } else if (name.equals("authority")) {
           this.authority = castToReference(value); // Reference
-        else if (name.equals("series"))
+        } else if (name.equals("series")) {
           this.series = castToString(value); // StringType
-        else if (name.equals("seriesDoses"))
+        } else if (name.equals("seriesDoses")) {
           this.seriesDoses = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("targetDisease"))
+        } else if (name.equals("targetDisease")) {
           this.getTargetDisease().add(castToCodeableConcept(value));
-        else if (name.equals("doseStatus"))
+        } else if (name.equals("doseStatus")) {
           this.doseStatus = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("doseStatusReason"))
+        } else if (name.equals("doseStatusReason")) {
           this.doseStatusReason = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1184,6 +1207,22 @@ public class Immunization extends DomainResource {
         case -745826705:  return getDoseStatus(); 
         case 662783379:  return getDoseStatusReason(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 550933246: /*doseSequence*/ return new String[] {"positiveInt"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 1475610435: /*authority*/ return new String[] {"Reference"};
+        case -905838985: /*series*/ return new String[] {"string"};
+        case -1936727105: /*seriesDoses*/ return new String[] {"positiveInt"};
+        case -319593813: /*targetDisease*/ return new String[] {"CodeableConcept"};
+        case -745826705: /*doseStatus*/ return new String[] {"CodeableConcept"};
+        case 662783379: /*doseStatusReason*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2450,7 +2489,8 @@ public class Immunization extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ImmunizationStatusEnumFactory().fromType(value); // Enumeration<ImmunizationStatus>
+          value = new ImmunizationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ImmunizationStatus>
           return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
@@ -2519,51 +2559,52 @@ public class Immunization extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ImmunizationStatusEnumFactory().fromType(value); // Enumeration<ImmunizationStatus>
-        else if (name.equals("date"))
+        } else if (name.equals("status")) {
+          value = new ImmunizationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ImmunizationStatus>
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("vaccineCode"))
+        } else if (name.equals("vaccineCode")) {
           this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("wasNotGiven"))
+        } else if (name.equals("wasNotGiven")) {
           this.wasNotGiven = castToBoolean(value); // BooleanType
-        else if (name.equals("primarySource"))
+        } else if (name.equals("primarySource")) {
           this.primarySource = castToBoolean(value); // BooleanType
-        else if (name.equals("reportOrigin"))
+        } else if (name.equals("reportOrigin")) {
           this.reportOrigin = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("requester"))
+        } else if (name.equals("requester")) {
           this.requester = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("manufacturer"))
+        } else if (name.equals("manufacturer")) {
           this.manufacturer = castToReference(value); // Reference
-        else if (name.equals("location"))
+        } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        else if (name.equals("lotNumber"))
+        } else if (name.equals("lotNumber")) {
           this.lotNumber = castToString(value); // StringType
-        else if (name.equals("expirationDate"))
+        } else if (name.equals("expirationDate")) {
           this.expirationDate = castToDate(value); // DateType
-        else if (name.equals("site"))
+        } else if (name.equals("site")) {
           this.site = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("route"))
+        } else if (name.equals("route")) {
           this.route = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("doseQuantity"))
+        } else if (name.equals("doseQuantity")) {
           this.doseQuantity = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("explanation"))
+        } else if (name.equals("explanation")) {
           this.explanation = (ImmunizationExplanationComponent) value; // ImmunizationExplanationComponent
-        else if (name.equals("reaction"))
+        } else if (name.equals("reaction")) {
           this.getReaction().add((ImmunizationReactionComponent) value);
-        else if (name.equals("vaccinationProtocol"))
+        } else if (name.equals("vaccinationProtocol")) {
           this.getVaccinationProtocol().add((ImmunizationVaccinationProtocolComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2594,6 +2635,36 @@ public class Immunization extends DomainResource {
         case -867509719:  return addReaction(); 
         case -179633155:  return addVaccinationProtocol(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 664556354: /*vaccineCode*/ return new String[] {"CodeableConcept"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1050911117: /*wasNotGiven*/ return new String[] {"boolean"};
+        case -528721731: /*primarySource*/ return new String[] {"boolean"};
+        case 486750586: /*reportOrigin*/ return new String[] {"CodeableConcept"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
+        case 462547450: /*lotNumber*/ return new String[] {"string"};
+        case -668811523: /*expirationDate*/ return new String[] {"date"};
+        case 3530567: /*site*/ return new String[] {"CodeableConcept"};
+        case 108704329: /*route*/ return new String[] {"CodeableConcept"};
+        case -2083618872: /*doseQuantity*/ return new String[] {"SimpleQuantity"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -1105867239: /*explanation*/ return new String[] {};
+        case -867509719: /*reaction*/ return new String[] {};
+        case -179633155: /*vaccinationProtocol*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

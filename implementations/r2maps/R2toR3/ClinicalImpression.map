@@ -13,29 +13,27 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ClinicalImpression" alias Cl
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group ClinicalImpression extends DomainResource
+group for type+types  ClinicalImpression extends DomainResource
   input src : ClinicalImpressionR2 as source
   input tgt : ClinicalImpression as target
 
-  "ClinicalImpression-subject" : for src.patient as vs make tgt.subject as vt then Reference(vs,vt)
-  "ClinicalImpression-assessor" : for src.assessor as vs make tgt.assessor as vt then Reference(vs,vt)
+  "ClinicalImpression-subject" : for src.patient make tgt.subject
+  "ClinicalImpression-assessor" : for src.assessor make tgt.assessor
   "ClinicalImpression-status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")
-  "ClinicalImpression-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "ClinicalImpression-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "ClinicalImpression-previous" : for src.previous as vs make tgt.previous as vt then Reference(vs,vt)
-  "ClinicalImpression-problem" : for src.problem as vs make tgt.problem as vt then Reference(vs,vt)
-  "ClinicalImpression-protocol" : for src.protocol as vs make tgt.protocol as vt then uri(vs, vt)
-  "ClinicalImpression-summary" : for src.summary as vs make tgt.summary as vt then string(vs, vt)
+  "ClinicalImpression-date" : for src.date make tgt.date
+  "ClinicalImpression-description" : for src.description make tgt.description
+  "ClinicalImpression-previous" : for src.previous make tgt.previous
+  "ClinicalImpression-problem" : for src.problem make tgt.problem
+  "ClinicalImpression-protocol" : for src.protocol make tgt.protocol
+  "ClinicalImpression-summary" : for src.summary make tgt.summary
   "ClinicalImpression-finding" : for src.finding as vs0 make tgt.finding as vt0 then {
-    "ClinicalImpression.finding-item" : for vs0.item as vs make vt0.item as vt then CodeableConcept(vs,vt)
+    "ClinicalImpression.finding-item" : for vs0.item make vt0.item
   }
-  "ClinicalImpression-action" : for src.action as vs make tgt.action as vt then Reference(vs,vt)
-endgroup
 
+  "ClinicalImpression-action" : for src.action make tgt.action
+
+endgroup

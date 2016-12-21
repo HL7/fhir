@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -552,23 +552,23 @@ public class ImmunizationRecommendation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("date"))
+        if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("vaccineCode"))
+        } else if (name.equals("vaccineCode")) {
           this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("doseNumber"))
+        } else if (name.equals("doseNumber")) {
           this.doseNumber = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("forecastStatus"))
+        } else if (name.equals("forecastStatus")) {
           this.forecastStatus = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("dateCriterion"))
+        } else if (name.equals("dateCriterion")) {
           this.getDateCriterion().add((ImmunizationRecommendationRecommendationDateCriterionComponent) value);
-        else if (name.equals("protocol"))
+        } else if (name.equals("protocol")) {
           this.protocol = (ImmunizationRecommendationRecommendationProtocolComponent) value; // ImmunizationRecommendationRecommendationProtocolComponent
-        else if (name.equals("supportingImmunization"))
+        } else if (name.equals("supportingImmunization")) {
           this.getSupportingImmunization().add(castToReference(value));
-        else if (name.equals("supportingPatientInformation"))
+        } else if (name.equals("supportingPatientInformation")) {
           this.getSupportingPatientInformation().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -585,6 +585,22 @@ public class ImmunizationRecommendation extends DomainResource {
         case 1171592021:  return addSupportingImmunization(); 
         case -1234160646:  return addSupportingPatientInformation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 664556354: /*vaccineCode*/ return new String[] {"CodeableConcept"};
+        case -887709242: /*doseNumber*/ return new String[] {"positiveInt"};
+        case 1904598477: /*forecastStatus*/ return new String[] {"CodeableConcept"};
+        case 2087518867: /*dateCriterion*/ return new String[] {};
+        case -989163880: /*protocol*/ return new String[] {};
+        case 1171592021: /*supportingImmunization*/ return new String[] {"Reference"};
+        case -1234160646: /*supportingPatientInformation*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -820,11 +836,11 @@ public class ImmunizationRecommendation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToDateTime(value); // DateTimeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -835,6 +851,16 @@ public class ImmunizationRecommendation extends DomainResource {
         case 3059181:  return getCode(); 
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"dateTime"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1164,15 +1190,15 @@ public class ImmunizationRecommendation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("doseSequence"))
+        if (name.equals("doseSequence")) {
           this.doseSequence = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("authority"))
+        } else if (name.equals("authority")) {
           this.authority = castToReference(value); // Reference
-        else if (name.equals("series"))
+        } else if (name.equals("series")) {
           this.series = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1185,6 +1211,18 @@ public class ImmunizationRecommendation extends DomainResource {
         case 1475610435:  return getAuthority(); 
         case -905838985:  return getSeriesElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 550933246: /*doseSequence*/ return new String[] {"positiveInt"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 1475610435: /*authority*/ return new String[] {"Reference"};
+        case -905838985: /*series*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1482,13 +1520,13 @@ public class ImmunizationRecommendation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("recommendation"))
+        } else if (name.equals("recommendation")) {
           this.getRecommendation().add((ImmunizationRecommendationRecommendationComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1500,6 +1538,17 @@ public class ImmunizationRecommendation extends DomainResource {
         case -791418107:  return getPatient(); 
         case -1028636743:  return addRecommendation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1028636743: /*recommendation*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

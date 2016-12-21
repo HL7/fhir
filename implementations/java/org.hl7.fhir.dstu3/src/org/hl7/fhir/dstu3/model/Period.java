@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -225,11 +225,11 @@ public class Period extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("start"))
+        if (name.equals("start")) {
           this.start = castToDateTime(value); // DateTimeType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToDateTime(value); // DateTimeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -240,6 +240,16 @@ public class Period extends Type implements ICompositeType {
         case 109757538:  return getStartElement();
         case 100571:  return getEndElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 109757538: /*start*/ return new String[] {"dateTime"};
+        case 100571: /*end*/ return new String[] {"dateTime"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

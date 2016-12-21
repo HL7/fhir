@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -406,17 +406,17 @@ public class DataRequirement extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("path"))
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("valueSet[x]"))
+        } else if (name.equals("valueSet[x]")) {
           this.valueSet = castToType(value); // Type
-        else if (name.equals("valueCode"))
+        } else if (name.equals("valueCode")) {
           this.getValueCode().add(castToCode(value));
-        else if (name.equals("valueCoding"))
+        } else if (name.equals("valueCoding")) {
           this.getValueCoding().add(castToCoding(value));
-        else if (name.equals("valueCodeableConcept"))
+        } else if (name.equals("valueCodeableConcept")) {
           this.getValueCodeableConcept().add(castToCodeableConcept(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -426,10 +426,24 @@ public class DataRequirement extends Type implements ICompositeType {
         switch (hash) {
         case 3433509:  return getPathElement();
         case -1438410321:  return getValueSet(); 
+        case -1410174671:  return getValueSet(); 
         case -766209282:  return addValueCodeElement();
         case -1887705029:  return addValueCoding(); 
         case 924902896:  return addValueCodeableConcept(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3433509: /*path*/ return new String[] {"string"};
+        case -1410174671: /*valueSet*/ return new String[] {"string", "Reference"};
+        case -766209282: /*valueCode*/ return new String[] {"code"};
+        case -1887705029: /*valueCoding*/ return new String[] {"Coding"};
+        case 924902896: /*valueCodeableConcept*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -685,11 +699,11 @@ public class DataRequirement extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("path"))
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -699,7 +713,18 @@ public class DataRequirement extends Type implements ICompositeType {
         switch (hash) {
         case 3433509:  return getPathElement();
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3433509: /*path*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"dateTime", "Period", "Duration"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1137,17 +1162,17 @@ public class DataRequirement extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCode(value); // CodeType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.getProfile().add(castToUri(value));
-        else if (name.equals("mustSupport"))
+        } else if (name.equals("mustSupport")) {
           this.getMustSupport().add(castToString(value));
-        else if (name.equals("codeFilter"))
+        } else if (name.equals("codeFilter")) {
           this.getCodeFilter().add((DataRequirementCodeFilterComponent) value);
-        else if (name.equals("dateFilter"))
+        } else if (name.equals("dateFilter")) {
           this.getDateFilter().add((DataRequirementDateFilterComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1161,6 +1186,19 @@ public class DataRequirement extends Type implements ICompositeType {
         case -1303674939:  return addCodeFilter(); 
         case 149531846:  return addDateFilter(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -309425751: /*profile*/ return new String[] {"uri"};
+        case -1402857082: /*mustSupport*/ return new String[] {"string"};
+        case -1303674939: /*codeFilter*/ return new String[] {};
+        case 149531846: /*dateFilter*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

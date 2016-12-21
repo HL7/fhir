@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -688,25 +688,25 @@ public class Practitioner extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("organization"))
+        if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("specialty"))
+        } else if (name.equals("specialty")) {
           this.getSpecialty().add(castToCodeableConcept(value));
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("location"))
+        } else if (name.equals("location")) {
           this.getLocation().add(castToReference(value));
-        else if (name.equals("healthcareService"))
+        } else if (name.equals("healthcareService")) {
           this.getHealthcareService().add(castToReference(value));
-        else if (name.equals("endpoint"))
+        } else if (name.equals("endpoint")) {
           this.getEndpoint().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -724,6 +724,23 @@ public class Practitioner extends DomainResource {
         case 1289661064:  return addHealthcareService(); 
         case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
+        case 1289661064: /*healthcareService*/ return new String[] {"Reference"};
+        case 1741102485: /*endpoint*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1078,15 +1095,15 @@ public class Practitioner extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("issuer"))
+        } else if (name.equals("issuer")) {
           this.issuer = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1099,6 +1116,18 @@ public class Practitioner extends DomainResource {
         case -991726143:  return getPeriod(); 
         case -1179159879:  return getIssuer(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -1179159879: /*issuer*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1879,7 +1908,8 @@ public class Practitioner extends DomainResource {
           this.getAddress().add(castToAddress(value)); // Address
           return value;
         case -1249512767: // gender
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
           return value;
         case -1210031859: // birthDate
           this.birthDate = castToDate(value); // DateType
@@ -1903,29 +1933,30 @@ public class Practitioner extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.getName().add(castToHumanName(value));
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.getAddress().add(castToAddress(value));
-        else if (name.equals("gender"))
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-        else if (name.equals("birthDate"))
+        } else if (name.equals("gender")) {
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+        } else if (name.equals("birthDate")) {
           this.birthDate = castToDate(value); // DateType
-        else if (name.equals("photo"))
+        } else if (name.equals("photo")) {
           this.getPhoto().add(castToAttachment(value));
-        else if (name.equals("role"))
+        } else if (name.equals("role")) {
           this.getRole().add((PractitionerRoleComponent) value);
-        else if (name.equals("qualification"))
+        } else if (name.equals("qualification")) {
           this.getQualification().add((PractitionerQualificationComponent) value);
-        else if (name.equals("communication"))
+        } else if (name.equals("communication")) {
           this.getCommunication().add(castToCodeableConcept(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1945,6 +1976,25 @@ public class Practitioner extends DomainResource {
         case -631333393:  return addQualification(); 
         case -1035284522:  return addCommunication(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case 3373707: /*name*/ return new String[] {"HumanName"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        case -1249512767: /*gender*/ return new String[] {"code"};
+        case -1210031859: /*birthDate*/ return new String[] {"date"};
+        case 106642994: /*photo*/ return new String[] {"Attachment"};
+        case 3506294: /*role*/ return new String[] {};
+        case -631333393: /*qualification*/ return new String[] {};
+        case -1035284522: /*communication*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Person3to2" = "R3 to R2 Conversion for Person"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Person" alias Person as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Person" alias PersonR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Address3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
@@ -14,24 +12,23 @@ imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
-
-
-group Person extends DomainResource
+group for type+types  Person extends DomainResource
   input src : Person as source
   input tgt : PersonR2 as target
 
-  "Person-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Person-name" : for src.name as vs make tgt.name as vt then HumanName(vs,vt)
-  "Person-telecom" : for src.telecom as vs make tgt.telecom as vt then ContactPoint(vs,vt)
-  "Person-gender" : for src.gender as vs make tgt.gender as vt then code(vs, vt)
-  "Person-birthDate" : for src.birthDate as vs make tgt.birthDate as vt then date(vs, vt)
-  "Person-address" : for src.address as vs make tgt.address as vt then Address(vs,vt)
-  "Person-photo" : for src.photo as vs make tgt.photo as vt then Attachment(vs,vt)
-  "Person-managingOrganization" : for src.managingOrganization as vs make tgt.managingOrganization as vt then Reference(vs,vt)
-  "Person-active" : for src.active as vs make tgt.active as vt then boolean(vs, vt)
+  "Person-identifier" : for src.identifier make tgt.identifier
+  "Person-name" : for src.name make tgt.name
+  "Person-telecom" : for src.telecom make tgt.telecom
+  "Person-gender" : for src.gender make tgt.gender
+  "Person-birthDate" : for src.birthDate make tgt.birthDate
+  "Person-address" : for src.address make tgt.address
+  "Person-photo" : for src.photo make tgt.photo
+  "Person-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
+  "Person-active" : for src.active make tgt.active
   "Person-link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Person.link-target" : for vs0.target as vs make vt0.target as vt then Reference(vs,vt)
-    "Person.link-assurance" : for vs0.assurance as vs make vt0.assurance as vt then code(vs, vt)
+    "Person.link-target" : for vs0.target make vt0.target
+    "Person.link-assurance" : for vs0.assurance make vt0.assurance
   }
-endgroup
 
+
+endgroup

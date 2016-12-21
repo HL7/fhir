@@ -36,6 +36,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -53,8 +54,10 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn.SearchType;
+import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
@@ -299,6 +302,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       generatePropertySetterId(root, "    ");
       generatePropertySetterName(root, "    ");
       generatePropertyMaker(root, "    ");
+      generatePropertyTypeGetter(root, "    ");
       generateChildAdder(root, "    ", classname);
       generateFhirType(root.getName());
 		} else {
@@ -999,26 +1003,32 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       if (doGenerateAccessors(e)) { 
         String tn = typeNames.get(e);
         if (!e.typeCode().equals("xhtml")) {
-          write(indent+"    case "+propId(e.getName())+": ");
-          String name = e.getName().replace("[x]", "");
-          if (isPrimitive(e.typeCode())) {
-            if (e.unbounded())
-              write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
-            else
-              write(" return get"+upFirst(getElementName(name, false))+"Element();\r\n");
-          } else if (e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
-            write("throw new FHIRException(\"Cannot make property "+e.getName()+" as it is not a complex type\"); // "+tn+"\r\n");
-          } else if (e.unbounded()) {
-            write(" return add"+upFirst(getElementName(name, false))+"(); \r\n");
-          } else  {
-            write(" return get"+upFirst(getElementName(name, false))+"(); \r\n");
-          }
+          genPropMaker(indent, e, tn, e.getName());
         }
+        if (e.getName().endsWith("[x]"))
+          genPropMaker(indent, e, tn, e.getName().replace("[x]", ""));
       }
     }
     write(indent+"    default: return super.makeProperty(hash, name);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
+  }
+
+  private void genPropMaker(String indent, ElementDefn e, String tn, String elementname) throws IOException {
+    write(indent+"    case "+propId(elementname)+": ");
+    String name = e.getName().replace("[x]", "");
+    if (isPrimitive(e.typeCode())) {
+      if (e.unbounded())
+        write(" return add"+upFirst(getElementName(name, false))+"Element();\r\n");
+      else
+        write(" return get"+upFirst(getElementName(name, false))+"Element();\r\n");
+    } else if (e.typeCode().equals("Resource") || e.typeCode().equals("DomainResource")) {
+      write("throw new FHIRException(\"Cannot make property "+e.getName()+" as it is not a complex type\"); // "+tn+"\r\n");
+    } else if (e.unbounded()) {
+      write(" return add"+upFirst(getElementName(name, false))+"(); \r\n");
+    } else  {
+      write(" return get"+upFirst(getElementName(name, false))+"(); \r\n");
+    }
   }
 
   private void generatePropertySetterName(ElementDefn p, String indent) throws Exception {
@@ -1031,15 +1041,16 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (first) 
           write(indent+"    ");
         else
-          write(indent+"    else ");
+          write(indent+"    } else ");
         first = false;
-        write(           "if (name.equals(\""+e.getName()+"\"))\r\n");
+        write(           "if (name.equals(\""+e.getName()+"\")) {\r\n");
         String name = e.getName().replace("[x]", "");
         String cn = "("+tn+") value";
         if (e.typeCode().equals("xhtml")) {
           cn = "castToXhtml(value)";
         } else if (tn.contains("Enumeration<")) { // enumeration
-          cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
+          write(indent+"      value = new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(castToCode(value));\r\n");
+          cn = "(Enumeration) value";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
         } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
@@ -1053,7 +1064,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       }
     }
     if (!first)
-      write(indent+"    else\r\n");
+      write(indent+"    } else\r\n");
     write(indent+"      return super.setProperty(name, value);\r\n");
     if (!first)
       write(indent+"    return value;\r\n");
@@ -1073,7 +1084,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (e.typeCode().equals("xhtml")) {
           cn = "castToXhtml(value)";
         } if (tn.contains("Enumeration<")) { // enumeration
-          cn = "new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(value)";
+          write(indent+"      value = new "+tn.substring(tn.indexOf("<")+1, tn.length()-1)+"EnumFactory().fromType(castToCode(value));\r\n");
+          cn = "(Enumeration) value";
         } else if (e.getTypes().size() == 1 && !e.typeCode().equals("*") && !e.getTypes().get(0).getName().startsWith("@")) { 
           cn = "castTo"+upFirst(e.getTypes().get(0).getName())+"(value)";
         } else if (e.getTypes().size() > 0 && !e.getTypes().get(0).getName().startsWith("@")) { 
@@ -1104,7 +1116,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (e.unbounded()) {
           write("return this."+getElementName(name, true)+" == null ? new Base[0] : this."+getElementName(name, true)+".toArray(new Base[this."+getElementName(name, true)+".size()]); // "+tn+"\r\n");
         } else if (e.typeCode().equals("xhtml")) {
-          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {new StringType(new XhtmlComposer().composeEx(this."+getElementName(name, true)+"))}; // "+tn+"\r\n");
+          write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer().composeEx(this."+getElementName(name, true)+"))}; // "+tn+"\r\n");
         } else {
           write("return this."+getElementName(name, true)+" == null ? new Base[0] : new Base[] {this."+getElementName(name, true)+"}; // "+tn+"\r\n");
         }
@@ -1113,6 +1125,34 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write(indent+"    default: return super.getProperty(hash, name, checkValid);\r\n");
     write(indent+"    }\r\n\r\n");  
     write(indent+"  }\r\n\r\n");  
+  }
+
+  private void generatePropertyTypeGetter(ElementDefn p, String indent) throws Exception {
+    write(indent+"  @Override\r\n");
+    write(indent+"  public String[] getTypesForProperty(int hash, String name) throws FHIRException {\r\n");
+    write(indent+"    switch (hash) {\r\n");
+    for (ElementDefn e : p.getElements()) {
+      if (doGenerateAccessors(e)) { 
+        String name = e.getName().replace("[x]", "");
+        write(indent+"    case "+propId(name)+": /*"+name+"*/ ");
+        write("return new String[] {"+asCommaText(e.getTypes())+"};\r\n");
+      }
+    }
+    write(indent+"    default: return super.getTypesForProperty(hash, name);\r\n");
+    write(indent+"    }\r\n\r\n");  
+    write(indent+"  }\r\n\r\n");  
+  }
+
+  private String asCommaText(List<TypeRef> types) {
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    Set<String> tset = new HashSet<String>();
+    for (TypeRef t : types) {
+      if (!tset.contains(t.getName())) {
+        b.append("\""+t.getName()+"\"");
+        tset.add(t.getName());
+      }
+    }
+    return b.toString();
   }
 
   private String propId(String name) {
@@ -1420,8 +1460,10 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("        throw new IllegalArgumentException(\"Unknown "+tns+" code '\"+codeString+\"'\");\r\n");
     write("        }\r\n"); 
     write("        public Enumeration<"+tns+"> fromType(Base code) throws FHIRException {\r\n");
-    write("          if (code == null || code.isEmpty())\r\n");
+    write("          if (code == null)\r\n");
     write("            return null;\r\n");
+    write("          if (code.isEmpty())\r\n");
+    write("            return new Enumeration<"+tns+">(this);\r\n");
     write("          String codeString = ((PrimitiveType) code).asStringValue();\r\n");
     write("          if (codeString == null || \"\".equals(codeString))\r\n");
     write("            return null;\r\n");
@@ -1486,6 +1528,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     generatePropertySetterId(e, "    ");
     generatePropertySetterName(e, "    ");
     generatePropertyMaker(e, "    ");
+    generatePropertyTypeGetter(e, "    ");
     generateChildAdder(e, "    ", classname);
     generateCopy(e, tn, true, false);
     generateEquals(e, tn, true, false);

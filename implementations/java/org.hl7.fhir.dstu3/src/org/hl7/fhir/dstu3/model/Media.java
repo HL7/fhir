@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class Media extends DomainResource {
         throw new IllegalArgumentException("Unknown DigitalMediaType code '"+codeString+"'");
         }
         public Enumeration<DigitalMediaType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DigitalMediaType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -794,7 +796,8 @@ public class Media extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case 3575610: // type
-          this.type = new DigitalMediaTypeEnumFactory().fromType(value); // Enumeration<DigitalMediaType>
+          value = new DigitalMediaTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<DigitalMediaType>
           return value;
         case -1867567750: // subtype
           this.subtype = castToCodeableConcept(value); // CodeableConcept
@@ -833,31 +836,32 @@ public class Media extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("type"))
-          this.type = new DigitalMediaTypeEnumFactory().fromType(value); // Enumeration<DigitalMediaType>
-        else if (name.equals("subtype"))
+        } else if (name.equals("type")) {
+          value = new DigitalMediaTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<DigitalMediaType>
+        } else if (name.equals("subtype")) {
           this.subtype = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("view"))
+        } else if (name.equals("view")) {
           this.view = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("operator"))
+        } else if (name.equals("operator")) {
           this.operator = castToReference(value); // Reference
-        else if (name.equals("deviceName"))
+        } else if (name.equals("deviceName")) {
           this.deviceName = castToString(value); // StringType
-        else if (name.equals("height"))
+        } else if (name.equals("height")) {
           this.height = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("width"))
+        } else if (name.equals("width")) {
           this.width = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("frames"))
+        } else if (name.equals("frames")) {
           this.frames = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("duration"))
+        } else if (name.equals("duration")) {
           this.duration = castToUnsignedInt(value); // UnsignedIntType
-        else if (name.equals("content"))
+        } else if (name.equals("content")) {
           this.content = castToAttachment(value); // Attachment
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -878,6 +882,26 @@ public class Media extends DomainResource {
         case -1992012396:  return getDurationElement();
         case 951530617:  return getContent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -1867567750: /*subtype*/ return new String[] {"CodeableConcept"};
+        case 3619493: /*view*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -500553564: /*operator*/ return new String[] {"Reference"};
+        case 780988929: /*deviceName*/ return new String[] {"string"};
+        case -1221029593: /*height*/ return new String[] {"positiveInt"};
+        case 113126854: /*width*/ return new String[] {"positiveInt"};
+        case -1266514778: /*frames*/ return new String[] {"positiveInt"};
+        case -1992012396: /*duration*/ return new String[] {"unsignedInt"};
+        case 951530617: /*content*/ return new String[] {"Attachment"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

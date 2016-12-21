@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ public class Consent extends DomainResource {
          */
         DRAFT, 
         /**
-         * The consent has be proposed but not yet agreed to by all parties. The negotiation stage.
+         * The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
          */
         PROPOSED, 
         /**
@@ -123,7 +123,7 @@ public class Consent extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "The consent is in development or awaiting use but is not yet intended to be acted upon.";
-            case PROPOSED: return "The consent has be proposed but not yet agreed to by all parties. The negotiation stage.";
+            case PROPOSED: return "The consent has been proposed but not yet agreed to by all parties. The negotiation stage.";
             case ACTIVE: return "The consent is to be followed and enforced.";
             case REJECTED: return "The consent has been rejected by one or more of the parties.";
             case INACTIVE: return "The consent is terminated or replaced.";
@@ -164,8 +164,10 @@ public class Consent extends DomainResource {
         throw new IllegalArgumentException("Unknown ConsentStatus code '"+codeString+"'");
         }
         public Enumeration<ConsentStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConsentStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -270,8 +272,10 @@ public class Consent extends DomainResource {
         throw new IllegalArgumentException("Unknown ConsentExceptType code '"+codeString+"'");
         }
         public Enumeration<ConsentExceptType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConsentExceptType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -372,8 +376,10 @@ public class Consent extends DomainResource {
         throw new IllegalArgumentException("Unknown ConsentDataMeaning code '"+codeString+"'");
         }
         public Enumeration<ConsentDataMeaning> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConsentDataMeaning>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -961,7 +967,8 @@ public class Consent extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new ConsentExceptTypeEnumFactory().fromType(value); // Enumeration<ConsentExceptType>
+          value = new ConsentExceptTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ConsentExceptType>
           return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
@@ -994,25 +1001,26 @@ public class Consent extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new ConsentExceptTypeEnumFactory().fromType(value); // Enumeration<ConsentExceptType>
-        else if (name.equals("period"))
+        if (name.equals("type")) {
+          value = new ConsentExceptTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ConsentExceptType>
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("actor"))
+        } else if (name.equals("actor")) {
           this.getActor().add((ExceptActorComponent) value);
-        else if (name.equals("action"))
+        } else if (name.equals("action")) {
           this.getAction().add(castToCodeableConcept(value));
-        else if (name.equals("securityLabel"))
+        } else if (name.equals("securityLabel")) {
           this.getSecurityLabel().add(castToCoding(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.getPurpose().add(castToCoding(value));
-        else if (name.equals("class"))
+        } else if (name.equals("class")) {
           this.getClass_().add(castToCoding(value));
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.getCode().add(castToCoding(value));
-        else if (name.equals("data"))
+        } else if (name.equals("data")) {
           this.getData().add((ExceptDataComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1030,6 +1038,23 @@ public class Consent extends DomainResource {
         case 3059181:  return addCode(); 
         case 3076010:  return addData(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 92645877: /*actor*/ return new String[] {};
+        case -1422950858: /*action*/ return new String[] {"CodeableConcept"};
+        case -722296940: /*securityLabel*/ return new String[] {"Coding"};
+        case -220463842: /*purpose*/ return new String[] {"Coding"};
+        case 94742904: /*class*/ return new String[] {"Coding"};
+        case 3059181: /*code*/ return new String[] {"Coding"};
+        case 3076010: /*data*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1281,11 +1306,11 @@ public class Consent extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role"))
+        if (name.equals("role")) {
           this.role = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("reference"))
+        } else if (name.equals("reference")) {
           this.reference = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1296,6 +1321,16 @@ public class Consent extends DomainResource {
         case 3506294:  return getRole(); 
         case -925155509:  return getReference(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case -925155509: /*reference*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1497,7 +1532,8 @@ public class Consent extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 938160637: // meaning
-          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
+          value = new ConsentDataMeaningEnumFactory().fromType(castToCode(value));
+          this.meaning = (Enumeration) value; // Enumeration<ConsentDataMeaning>
           return value;
         case -925155509: // reference
           this.reference = castToReference(value); // Reference
@@ -1509,11 +1545,12 @@ public class Consent extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("meaning"))
-          this.meaning = new ConsentDataMeaningEnumFactory().fromType(value); // Enumeration<ConsentDataMeaning>
-        else if (name.equals("reference"))
+        if (name.equals("meaning")) {
+          value = new ConsentDataMeaningEnumFactory().fromType(castToCode(value));
+          this.meaning = (Enumeration) value; // Enumeration<ConsentDataMeaning>
+        } else if (name.equals("reference")) {
           this.reference = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1524,6 +1561,16 @@ public class Consent extends DomainResource {
         case 938160637:  return getMeaningElement();
         case -925155509:  return getReference(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 938160637: /*meaning*/ return new String[] {"code"};
+        case -925155509: /*reference*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2376,7 +2423,8 @@ public class Consent extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ConsentStatusEnumFactory().fromType(value); // Enumeration<ConsentStatus>
+          value = new ConsentStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ConsentStatus>
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2418,33 +2466,34 @@ public class Consent extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new ConsentStatusEnumFactory().fromType(value); // Enumeration<ConsentStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("status")) {
+          value = new ConsentStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ConsentStatus>
+        } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
-        else if (name.equals("dateTime"))
+        } else if (name.equals("dateTime")) {
           this.dateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("consentor"))
+        } else if (name.equals("consentor")) {
           this.getConsentor().add(castToReference(value));
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("source[x]"))
+        } else if (name.equals("source[x]")) {
           this.source = castToType(value); // Type
-        else if (name.equals("policy"))
+        } else if (name.equals("policy")) {
           this.policy = castToUri(value); // UriType
-        else if (name.equals("recipient"))
+        } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.getPurpose().add(castToCoding(value));
-        else if (name.equals("except"))
+        } else if (name.equals("except")) {
           this.getExcept().add((ExceptComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2461,11 +2510,33 @@ public class Consent extends DomainResource {
         case -435736707:  return addConsentor(); 
         case 1178922291:  return getOrganization(); 
         case -1698413947:  return getSource(); 
+        case -896505829:  return getSource(); 
         case -982670030:  return getPolicyElement();
         case 820081177:  return addRecipient(); 
         case -220463842:  return addPurpose(); 
         case -1289550567:  return addExcept(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 1792749467: /*dateTime*/ return new String[] {"dateTime"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -435736707: /*consentor*/ return new String[] {"Reference"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case -896505829: /*source*/ return new String[] {"Attachment", "Identifier", "Reference"};
+        case -982670030: /*policy*/ return new String[] {"uri"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        case -220463842: /*purpose*/ return new String[] {"Coding"};
+        case -1289550567: /*except*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

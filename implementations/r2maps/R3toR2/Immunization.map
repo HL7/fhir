@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Immunization3to2" = "R3 to R2 Conversion for Immunization"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Immunization" alias ImmunizationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
@@ -13,46 +11,47 @@ imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Immunization extends DomainResource
+group for type+types  Immunization extends DomainResource
   input src : Immunization as source
   input tgt : ImmunizationR2 as target
 
-  "Immunization-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Immunization-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "Immunization-vaccineCode" : for src.vaccineCode as vs make tgt.vaccineCode as vt then CodeableConcept(vs,vt)
-  "Immunization-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "Immunization-wasNotGiven" : for src.wasNotGiven as vs make tgt.wasNotGiven as vt then boolean(vs, vt)
-  "Immunization-performer" : for src.performer as vs make tgt.performer as vt then Reference(vs,vt)
-  "Immunization-requester" : for src.requester as vs make tgt.requester as vt then Reference(vs,vt)
-  "Immunization-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
-  "Immunization-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then Reference(vs,vt)
-  "Immunization-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
-  "Immunization-lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt then string(vs, vt)
-  "Immunization-expirationDate" : for src.expirationDate as vs make tgt.expirationDate as vt then date(vs, vt)
-  "Immunization-site" : for src.site as vs make tgt.site as vt then CodeableConcept(vs,vt)
-  "Immunization-route" : for src.route as vs make tgt.route as vt then CodeableConcept(vs,vt)
-  "Immunization-doseQuantity" : for src.doseQuantity as vs make tgt.doseQuantity as vt then Quantity(vs,vt)
-  "Immunization-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
+  "Immunization-identifier" : for src.identifier make tgt.identifier
+  "Immunization-date" : for src.date make tgt.date
+  "Immunization-vaccineCode" : for src.vaccineCode make tgt.vaccineCode
+  "Immunization-patient" : for src.patient make tgt.patient
+  "Immunization-wasNotGiven" : for src.wasNotGiven make tgt.wasNotGiven
+  "Immunization-performer" : for src.performer make tgt.performer
+  "Immunization-requester" : for src.requester make tgt.requester
+  "Immunization-encounter" : for src.encounter make tgt.encounter
+  "Immunization-manufacturer" : for src.manufacturer make tgt.manufacturer
+  "Immunization-location" : for src.location make tgt.location
+  "Immunization-lotNumber" : for src.lotNumber make tgt.lotNumber
+  "Immunization-expirationDate" : for src.expirationDate make tgt.expirationDate
+  "Immunization-site" : for src.site make tgt.site
+  "Immunization-route" : for src.route make tgt.route
+  "Immunization-doseQuantity" : for src.doseQuantity make tgt.doseQuantity
+  "Immunization-note" : for src.note make tgt.note
   "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation as vt0 then {
-    "Immunization.explanation-reason" : for vs0.reason as vs make vt0.reason as vt then CodeableConcept(vs,vt)
-    "Immunization.explanation-reasonNotGiven" : for vs0.reasonNotGiven as vs make vt0.reasonNotGiven as vt then CodeableConcept(vs,vt)
+    "Immunization.explanation-reason" : for vs0.reason make vt0.reason
+    "Immunization.explanation-reasonNotGiven" : for vs0.reasonNotGiven make vt0.reasonNotGiven
   }
-  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
-    "Immunization.reaction-date" : for vs0.date as vs make vt0.date as vt then dateTime(vs, vt)
-    "Immunization.reaction-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
-    "Immunization.reaction-reported" : for vs0.reported as vs make vt0.reported as vt then boolean(vs, vt)
-  }
-  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol as vt0 then {
-    "Immunization.vaccinationProtocol-doseSequence" : for vs0.doseSequence as vs make vt0.doseSequence as vt then positiveInt(vs, vt)
-    "Immunization.vaccinationProtocol-description" : for vs0.description as vs make vt0.description as vt then string(vs, vt)
-    "Immunization.vaccinationProtocol-authority" : for vs0.authority as vs make vt0.authority as vt then Reference(vs,vt)
-    "Immunization.vaccinationProtocol-series" : for vs0.series as vs make vt0.series as vt then string(vs, vt)
-    "Immunization.vaccinationProtocol-seriesDoses" : for vs0.seriesDoses as vs make vt0.seriesDoses as vt then positiveInt(vs, vt)
-    "Immunization.vaccinationProtocol-targetDisease" : for vs0.targetDisease as vs make vt0.targetDisease as vt then CodeableConcept(vs,vt)
-    "Immunization.vaccinationProtocol-doseStatus" : for vs0.doseStatus as vs make vt0.doseStatus as vt then CodeableConcept(vs,vt)
-    "Immunization.vaccinationProtocol-doseStatusReason" : for vs0.doseStatusReason as vs make vt0.doseStatusReason as vt then CodeableConcept(vs,vt)
-  }
-endgroup
 
+  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
+    "Immunization.reaction-date" : for vs0.date make vt0.date
+    "Immunization.reaction-detail" : for vs0.detail make vt0.detail
+    "Immunization.reaction-reported" : for vs0.reported make vt0.reported
+  }
+
+  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol as vt0 then {
+    "Immunization.vaccinationProtocol-doseSequence" : for vs0.doseSequence make vt0.doseSequence
+    "Immunization.vaccinationProtocol-description" : for vs0.description make vt0.description
+    "Immunization.vaccinationProtocol-authority" : for vs0.authority make vt0.authority
+    "Immunization.vaccinationProtocol-series" : for vs0.series make vt0.series
+    "Immunization.vaccinationProtocol-seriesDoses" : for vs0.seriesDoses make vt0.seriesDoses
+    "Immunization.vaccinationProtocol-targetDisease" : for vs0.targetDisease make vt0.targetDisease
+    "Immunization.vaccinationProtocol-doseStatus" : for vs0.doseStatus make vt0.doseStatus
+    "Immunization.vaccinationProtocol-doseStatusReason" : for vs0.doseStatusReason make vt0.doseStatusReason
+  }
+
+
+endgroup

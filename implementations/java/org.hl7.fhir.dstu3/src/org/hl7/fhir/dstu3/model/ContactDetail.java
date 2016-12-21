@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -204,11 +204,11 @@ public class ContactDetail extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -219,6 +219,16 @@ public class ContactDetail extends Type implements ICompositeType {
         case 3373707:  return getNameElement();
         case -1429363305:  return addTelecom(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

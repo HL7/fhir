@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class MedicationAdministration extends DomainResource {
         throw new IllegalArgumentException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
         }
         public Enumeration<MedicationAdministrationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MedicationAdministrationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -484,19 +486,19 @@ public class MedicationAdministration extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("text"))
+        if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else if (name.equals("site"))
+        } else if (name.equals("site")) {
           this.site = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("route"))
+        } else if (name.equals("route")) {
           this.route = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("dose"))
+        } else if (name.equals("dose")) {
           this.dose = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("rate[x]"))
+        } else if (name.equals("rate[x]")) {
           this.rate = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -510,7 +512,22 @@ public class MedicationAdministration extends DomainResource {
         case -1077554975:  return getMethod(); 
         case 3089437:  return getDose(); 
         case 983460768:  return getRate(); 
+        case 3493088:  return getRate(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3556653: /*text*/ return new String[] {"string"};
+        case 3530567: /*site*/ return new String[] {"CodeableConcept"};
+        case 108704329: /*route*/ return new String[] {"CodeableConcept"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case 3089437: /*dose*/ return new String[] {"SimpleQuantity"};
+        case 3493088: /*rate*/ return new String[] {"Ratio", "SimpleQuantity"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1693,7 +1710,8 @@ public class MedicationAdministration extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
+          value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
           return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
@@ -1747,41 +1765,42 @@ public class MedicationAdministration extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new MedicationAdministrationStatusEnumFactory().fromType(value); // Enumeration<MedicationAdministrationStatus>
-        else if (name.equals("medication[x]"))
+        } else if (name.equals("status")) {
+          value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
+        } else if (name.equals("medication[x]")) {
           this.medication = castToType(value); // Type
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("supportingInformation"))
+        } else if (name.equals("supportingInformation")) {
           this.getSupportingInformation().add(castToReference(value));
-        else if (name.equals("effective[x]"))
+        } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("reasonReference"))
+        } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        else if (name.equals("prescription"))
+        } else if (name.equals("prescription")) {
           this.prescription = castToReference(value); // Reference
-        else if (name.equals("notGiven"))
+        } else if (name.equals("notGiven")) {
           this.notGiven = castToBoolean(value); // BooleanType
-        else if (name.equals("reasonNotGiven"))
+        } else if (name.equals("reasonNotGiven")) {
           this.getReasonNotGiven().add(castToCodeableConcept(value));
-        else if (name.equals("reasonGiven"))
+        } else if (name.equals("reasonGiven")) {
           this.getReasonGiven().add(castToCodeableConcept(value));
-        else if (name.equals("device"))
+        } else if (name.equals("device")) {
           this.getDevice().add(castToReference(value));
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("dosage"))
+        } else if (name.equals("dosage")) {
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
-        else if (name.equals("eventHistory"))
+        } else if (name.equals("eventHistory")) {
           this.getEventHistory().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1792,10 +1811,12 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -892481550:  return getStatusElement();
         case 1458402129:  return getMedication(); 
+        case 1998965455:  return getMedication(); 
         case -791418107:  return getPatient(); 
         case 1524132147:  return getEncounter(); 
         case -1248768647:  return addSupportingInformation(); 
         case 247104889:  return getEffective(); 
+        case -1468651097:  return getEffective(); 
         case 481140686:  return getPerformer(); 
         case -1146218137:  return addReasonReference(); 
         case 460301338:  return getPrescription(); 
@@ -1807,6 +1828,31 @@ public class MedicationAdministration extends DomainResource {
         case -1326018889:  return getDosage(); 
         case 1835190426:  return addEventHistory(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
+        case 460301338: /*prescription*/ return new String[] {"Reference"};
+        case 1554065514: /*notGiven*/ return new String[] {"boolean"};
+        case 2101123790: /*reasonNotGiven*/ return new String[] {"CodeableConcept"};
+        case 914964377: /*reasonGiven*/ return new String[] {"CodeableConcept"};
+        case -1335157162: /*device*/ return new String[] {"Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -1326018889: /*dosage*/ return new String[] {};
+        case 1835190426: /*eventHistory*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

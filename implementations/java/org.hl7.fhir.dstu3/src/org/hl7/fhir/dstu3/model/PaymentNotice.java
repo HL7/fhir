@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class PaymentNotice extends DomainResource {
         throw new IllegalArgumentException("Unknown PaymentNoticeStatus code '"+codeString+"'");
         }
         public Enumeration<PaymentNoticeStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<PaymentNoticeStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -749,7 +751,8 @@ public class PaymentNotice extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new PaymentNoticeStatusEnumFactory().fromType(value); // Enumeration<PaymentNoticeStatus>
+          value = new PaymentNoticeStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PaymentNoticeStatus>
           return value;
         case 1095692943: // request
           this.request = castToReference(value); // Reference
@@ -782,27 +785,28 @@ public class PaymentNotice extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new PaymentNoticeStatusEnumFactory().fromType(value); // Enumeration<PaymentNoticeStatus>
-        else if (name.equals("request"))
+        } else if (name.equals("status")) {
+          value = new PaymentNoticeStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PaymentNoticeStatus>
+        } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        else if (name.equals("response"))
+        } else if (name.equals("response")) {
           this.response = castToReference(value); // Reference
-        else if (name.equals("statusDate"))
+        } else if (name.equals("statusDate")) {
           this.statusDate = castToDate(value); // DateType
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("target"))
+        } else if (name.equals("target")) {
           this.target = castToReference(value); // Reference
-        else if (name.equals("provider"))
+        } else if (name.equals("provider")) {
           this.provider = castToReference(value); // Reference
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("paymentStatus"))
+        } else if (name.equals("paymentStatus")) {
           this.paymentStatus = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -821,6 +825,24 @@ public class PaymentNotice extends DomainResource {
         case 1178922291:  return getOrganization(); 
         case 1430704536:  return getPaymentStatus(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 1095692943: /*request*/ return new String[] {"Reference"};
+        case -340323263: /*response*/ return new String[] {"Reference"};
+        case 247524032: /*statusDate*/ return new String[] {"date"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        case -987494927: /*provider*/ return new String[] {"Reference"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1430704536: /*paymentStatus*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

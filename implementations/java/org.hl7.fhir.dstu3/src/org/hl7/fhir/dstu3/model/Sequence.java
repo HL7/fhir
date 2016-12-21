@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -69,11 +69,11 @@ public class Sequence extends DomainResource {
         public static SequenceType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("AA".equals(codeString))
+        if ("aa".equals(codeString))
           return AA;
-        if ("DNA".equals(codeString))
+        if ("dna".equals(codeString))
           return DNA;
-        if ("RNA".equals(codeString))
+        if ("rna".equals(codeString))
           return RNA;
         if (Configuration.isAcceptInvalidEnums())
           return null;
@@ -82,9 +82,9 @@ public class Sequence extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case AA: return "AA";
-            case DNA: return "DNA";
-            case RNA: return "RNA";
+            case AA: return "aa";
+            case DNA: return "dna";
+            case RNA: return "rna";
             default: return "?";
           }
         }
@@ -119,35 +119,37 @@ public class Sequence extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("AA".equals(codeString))
+        if ("aa".equals(codeString))
           return SequenceType.AA;
-        if ("DNA".equals(codeString))
+        if ("dna".equals(codeString))
           return SequenceType.DNA;
-        if ("RNA".equals(codeString))
+        if ("rna".equals(codeString))
           return SequenceType.RNA;
         throw new IllegalArgumentException("Unknown SequenceType code '"+codeString+"'");
         }
         public Enumeration<SequenceType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SequenceType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("AA".equals(codeString))
+        if ("aa".equals(codeString))
           return new Enumeration<SequenceType>(this, SequenceType.AA);
-        if ("DNA".equals(codeString))
+        if ("dna".equals(codeString))
           return new Enumeration<SequenceType>(this, SequenceType.DNA);
-        if ("RNA".equals(codeString))
+        if ("rna".equals(codeString))
           return new Enumeration<SequenceType>(this, SequenceType.RNA);
         throw new FHIRException("Unknown SequenceType code '"+codeString+"'");
         }
     public String toCode(SequenceType code) {
       if (code == SequenceType.AA)
-        return "AA";
+        return "aa";
       if (code == SequenceType.DNA)
-        return "DNA";
+        return "dna";
       if (code == SequenceType.RNA)
-        return "RNA";
+        return "rna";
       return "?";
       }
     public String toSystem(SequenceType code) {
@@ -175,11 +177,11 @@ public class Sequence extends DomainResource {
         public static QualityType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("INDEL".equals(codeString))
+        if ("indel".equals(codeString))
           return INDEL;
-        if ("SNP".equals(codeString))
+        if ("snp".equals(codeString))
           return SNP;
-        if ("UNKNOWN".equals(codeString))
+        if ("unknown".equals(codeString))
           return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
@@ -188,9 +190,9 @@ public class Sequence extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case INDEL: return "INDEL";
-            case SNP: return "SNP";
-            case UNKNOWN: return "UNKNOWN";
+            case INDEL: return "indel";
+            case SNP: return "snp";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -225,35 +227,37 @@ public class Sequence extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("INDEL".equals(codeString))
+        if ("indel".equals(codeString))
           return QualityType.INDEL;
-        if ("SNP".equals(codeString))
+        if ("snp".equals(codeString))
           return QualityType.SNP;
-        if ("UNKNOWN".equals(codeString))
+        if ("unknown".equals(codeString))
           return QualityType.UNKNOWN;
         throw new IllegalArgumentException("Unknown QualityType code '"+codeString+"'");
         }
         public Enumeration<QualityType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<QualityType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("INDEL".equals(codeString))
+        if ("indel".equals(codeString))
           return new Enumeration<QualityType>(this, QualityType.INDEL);
-        if ("SNP".equals(codeString))
+        if ("snp".equals(codeString))
           return new Enumeration<QualityType>(this, QualityType.SNP);
-        if ("UNKNOWN".equals(codeString))
+        if ("unknown".equals(codeString))
           return new Enumeration<QualityType>(this, QualityType.UNKNOWN);
         throw new FHIRException("Unknown QualityType code '"+codeString+"'");
         }
     public String toCode(QualityType code) {
       if (code == QualityType.INDEL)
-        return "INDEL";
+        return "indel";
       if (code == QualityType.SNP)
-        return "SNP";
+        return "snp";
       if (code == QualityType.UNKNOWN)
-        return "UNKNOWN";
+        return "unknown";
       return "?";
       }
     public String toSystem(QualityType code) {
@@ -364,8 +368,10 @@ public class Sequence extends DomainResource {
         throw new IllegalArgumentException("Unknown RepositoryType code '"+codeString+"'");
         }
         public Enumeration<RepositoryType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<RepositoryType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -869,23 +875,23 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("chromosome"))
+        if (name.equals("chromosome")) {
           this.chromosome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("genomeBuild"))
+        } else if (name.equals("genomeBuild")) {
           this.genomeBuild = castToString(value); // StringType
-        else if (name.equals("referenceSeqId"))
+        } else if (name.equals("referenceSeqId")) {
           this.referenceSeqId = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("referenceSeqPointer"))
+        } else if (name.equals("referenceSeqPointer")) {
           this.referenceSeqPointer = castToReference(value); // Reference
-        else if (name.equals("referenceSeqString"))
+        } else if (name.equals("referenceSeqString")) {
           this.referenceSeqString = castToString(value); // StringType
-        else if (name.equals("strand"))
+        } else if (name.equals("strand")) {
           this.strand = castToInteger(value); // IntegerType
-        else if (name.equals("windowStart"))
+        } else if (name.equals("windowStart")) {
           this.windowStart = castToInteger(value); // IntegerType
-        else if (name.equals("windowEnd"))
+        } else if (name.equals("windowEnd")) {
           this.windowEnd = castToInteger(value); // IntegerType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -902,6 +908,22 @@ public class Sequence extends DomainResource {
         case 1903685202:  return getWindowStartElement();
         case -217026869:  return getWindowEndElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1499470472: /*chromosome*/ return new String[] {"CodeableConcept"};
+        case 1061239735: /*genomeBuild*/ return new String[] {"string"};
+        case -1911500465: /*referenceSeqId*/ return new String[] {"CodeableConcept"};
+        case 1923414665: /*referenceSeqPointer*/ return new String[] {"Reference"};
+        case -1648301499: /*referenceSeqString*/ return new String[] {"string"};
+        case -891993594: /*strand*/ return new String[] {"integer"};
+        case 1903685202: /*windowStart*/ return new String[] {"integer"};
+        case -217026869: /*windowEnd*/ return new String[] {"integer"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1381,19 +1403,19 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("start"))
+        if (name.equals("start")) {
           this.start = castToInteger(value); // IntegerType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInteger(value); // IntegerType
-        else if (name.equals("observedAllele"))
+        } else if (name.equals("observedAllele")) {
           this.observedAllele = castToString(value); // StringType
-        else if (name.equals("referenceAllele"))
+        } else if (name.equals("referenceAllele")) {
           this.referenceAllele = castToString(value); // StringType
-        else if (name.equals("cigar"))
+        } else if (name.equals("cigar")) {
           this.cigar = castToString(value); // StringType
-        else if (name.equals("variantPointer"))
+        } else if (name.equals("variantPointer")) {
           this.variantPointer = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1408,6 +1430,20 @@ public class Sequence extends DomainResource {
         case 94658738:  return getCigarElement();
         case -1654319624:  return getVariantPointer(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 109757538: /*start*/ return new String[] {"integer"};
+        case 100571: /*end*/ return new String[] {"integer"};
+        case -1418745787: /*observedAllele*/ return new String[] {"string"};
+        case 364045960: /*referenceAllele*/ return new String[] {"string"};
+        case 94658738: /*cigar*/ return new String[] {"string"};
+        case -1654319624: /*variantPointer*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1490,7 +1526,7 @@ public class Sequence extends DomainResource {
          * INDEL / SNP / Undefined variant.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="INDEL | SNP | UNKNOWN", formalDefinition="INDEL / SNP / Undefined variant." )
+        @Description(shortDefinition="indel | snp | unknown", formalDefinition="INDEL / SNP / Undefined variant." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/quality-type")
         protected Enumeration<QualityType> type;
 
@@ -2389,7 +2425,8 @@ public class Sequence extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new QualityTypeEnumFactory().fromType(value); // Enumeration<QualityType>
+          value = new QualityTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<QualityType>
           return value;
         case -1861227106: // standardSequence
           this.standardSequence = castToCodeableConcept(value); // CodeableConcept
@@ -2437,35 +2474,36 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new QualityTypeEnumFactory().fromType(value); // Enumeration<QualityType>
-        else if (name.equals("standardSequence"))
+        if (name.equals("type")) {
+          value = new QualityTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<QualityType>
+        } else if (name.equals("standardSequence")) {
           this.standardSequence = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("start"))
+        } else if (name.equals("start")) {
           this.start = castToInteger(value); // IntegerType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInteger(value); // IntegerType
-        else if (name.equals("score"))
+        } else if (name.equals("score")) {
           this.score = castToQuantity(value); // Quantity
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("truthTP"))
+        } else if (name.equals("truthTP")) {
           this.truthTP = castToDecimal(value); // DecimalType
-        else if (name.equals("queryTP"))
+        } else if (name.equals("queryTP")) {
           this.queryTP = castToDecimal(value); // DecimalType
-        else if (name.equals("truthFN"))
+        } else if (name.equals("truthFN")) {
           this.truthFN = castToDecimal(value); // DecimalType
-        else if (name.equals("queryFP"))
+        } else if (name.equals("queryFP")) {
           this.queryFP = castToDecimal(value); // DecimalType
-        else if (name.equals("gtFP"))
+        } else if (name.equals("gtFP")) {
           this.gtFP = castToDecimal(value); // DecimalType
-        else if (name.equals("precision"))
+        } else if (name.equals("precision")) {
           this.precision = castToDecimal(value); // DecimalType
-        else if (name.equals("recall"))
+        } else if (name.equals("recall")) {
           this.recall = castToDecimal(value); // DecimalType
-        else if (name.equals("fScore"))
+        } else if (name.equals("fScore")) {
           this.fScore = castToDecimal(value); // DecimalType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2488,6 +2526,28 @@ public class Sequence extends DomainResource {
         case -934922479:  return getRecallElement();
         case -1295082036:  return getFScoreElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -1861227106: /*standardSequence*/ return new String[] {"CodeableConcept"};
+        case 109757538: /*start*/ return new String[] {"integer"};
+        case 100571: /*end*/ return new String[] {"integer"};
+        case 109264530: /*score*/ return new String[] {"Quantity"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case -1048421849: /*truthTP*/ return new String[] {"decimal"};
+        case 655102276: /*queryTP*/ return new String[] {"decimal"};
+        case -1048422285: /*truthFN*/ return new String[] {"decimal"};
+        case 655101842: /*queryFP*/ return new String[] {"decimal"};
+        case 3182199: /*gtFP*/ return new String[] {"decimal"};
+        case -1376177026: /*precision*/ return new String[] {"decimal"};
+        case -934922479: /*recall*/ return new String[] {"decimal"};
+        case -1295082036: /*fScore*/ return new String[] {"decimal"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2984,7 +3044,8 @@ public class Sequence extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new RepositoryTypeEnumFactory().fromType(value); // Enumeration<RepositoryType>
+          value = new RepositoryTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<RepositoryType>
           return value;
         case 116079: // url
           this.url = castToUri(value); // UriType
@@ -3008,19 +3069,20 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new RepositoryTypeEnumFactory().fromType(value); // Enumeration<RepositoryType>
-        else if (name.equals("url"))
+        if (name.equals("type")) {
+          value = new RepositoryTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<RepositoryType>
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("datasetId"))
+        } else if (name.equals("datasetId")) {
           this.datasetId = castToString(value); // StringType
-        else if (name.equals("variantsetId"))
+        } else if (name.equals("variantsetId")) {
           this.variantsetId = castToString(value); // StringType
-        else if (name.equals("readsetId"))
+        } else if (name.equals("readsetId")) {
           this.readsetId = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3035,6 +3097,20 @@ public class Sequence extends DomainResource {
         case 1929752504:  return getVariantsetIdElement();
         case -1095407289:  return getReadsetIdElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -345342029: /*datasetId*/ return new String[] {"string"};
+        case 1929752504: /*variantsetId*/ return new String[] {"string"};
+        case -1095407289: /*readsetId*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3413,17 +3489,17 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("precisionOfBoundaries"))
+        if (name.equals("precisionOfBoundaries")) {
           this.precisionOfBoundaries = castToString(value); // StringType
-        else if (name.equals("reportedaCGHRatio"))
+        } else if (name.equals("reportedaCGHRatio")) {
           this.reportedaCGHRatio = castToDecimal(value); // DecimalType
-        else if (name.equals("length"))
+        } else if (name.equals("length")) {
           this.length = castToInteger(value); // IntegerType
-        else if (name.equals("outer"))
+        } else if (name.equals("outer")) {
           this.outer = (SequenceStructureVariantOuterComponent) value; // SequenceStructureVariantOuterComponent
-        else if (name.equals("inner"))
+        } else if (name.equals("inner")) {
           this.inner = (SequenceStructureVariantInnerComponent) value; // SequenceStructureVariantInnerComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3437,6 +3513,19 @@ public class Sequence extends DomainResource {
         case 106111099:  return getOuter(); 
         case 100355670:  return getInner(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1591532317: /*precisionOfBoundaries*/ return new String[] {"string"};
+        case -1872600587: /*reportedaCGHRatio*/ return new String[] {"decimal"};
+        case -1106363674: /*length*/ return new String[] {"integer"};
+        case 106111099: /*outer*/ return new String[] {};
+        case 100355670: /*inner*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3657,11 +3746,11 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("start"))
+        if (name.equals("start")) {
           this.start = castToInteger(value); // IntegerType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInteger(value); // IntegerType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3672,6 +3761,16 @@ public class Sequence extends DomainResource {
         case 109757538:  return getStartElement();
         case 100571:  return getEndElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 109757538: /*start*/ return new String[] {"integer"};
+        case 100571: /*end*/ return new String[] {"integer"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3874,11 +3973,11 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("start"))
+        if (name.equals("start")) {
           this.start = castToInteger(value); // IntegerType
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInteger(value); // IntegerType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3889,6 +3988,16 @@ public class Sequence extends DomainResource {
         case 109757538:  return getStartElement();
         case 100571:  return getEndElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 109757538: /*start*/ return new String[] {"integer"};
+        case 100571: /*end*/ return new String[] {"integer"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3955,7 +4064,7 @@ public class Sequence extends DomainResource {
      * Amino Acid Sequence/ DNA Sequence / RNA Sequence.
      */
     @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="AA | DNA | RNA", formalDefinition="Amino Acid Sequence/ DNA Sequence / RNA Sequence." )
+    @Description(shortDefinition="aa | dna | rna", formalDefinition="Amino Acid Sequence/ DNA Sequence / RNA Sequence." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/sequence-type")
     protected Enumeration<SequenceType> type;
 
@@ -4902,7 +5011,8 @@ public class Sequence extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case 3575610: // type
-          this.type = new SequenceTypeEnumFactory().fromType(value); // Enumeration<SequenceType>
+          value = new SequenceTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SequenceType>
           return value;
         case 354212295: // coordinateSystem
           this.coordinateSystem = castToInteger(value); // IntegerType
@@ -4953,39 +5063,40 @@ public class Sequence extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("type"))
-          this.type = new SequenceTypeEnumFactory().fromType(value); // Enumeration<SequenceType>
-        else if (name.equals("coordinateSystem"))
+        } else if (name.equals("type")) {
+          value = new SequenceTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SequenceType>
+        } else if (name.equals("coordinateSystem")) {
           this.coordinateSystem = castToInteger(value); // IntegerType
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("specimen"))
+        } else if (name.equals("specimen")) {
           this.specimen = castToReference(value); // Reference
-        else if (name.equals("device"))
+        } else if (name.equals("device")) {
           this.device = castToReference(value); // Reference
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.performer = castToReference(value); // Reference
-        else if (name.equals("quantity"))
+        } else if (name.equals("quantity")) {
           this.quantity = castToQuantity(value); // Quantity
-        else if (name.equals("referenceSeq"))
+        } else if (name.equals("referenceSeq")) {
           this.referenceSeq = (SequenceReferenceSeqComponent) value; // SequenceReferenceSeqComponent
-        else if (name.equals("variant"))
+        } else if (name.equals("variant")) {
           this.getVariant().add((SequenceVariantComponent) value);
-        else if (name.equals("observedSeq"))
+        } else if (name.equals("observedSeq")) {
           this.observedSeq = castToString(value); // StringType
-        else if (name.equals("quality"))
+        } else if (name.equals("quality")) {
           this.getQuality().add((SequenceQualityComponent) value);
-        else if (name.equals("readCoverage"))
+        } else if (name.equals("readCoverage")) {
           this.readCoverage = castToInteger(value); // IntegerType
-        else if (name.equals("repository"))
+        } else if (name.equals("repository")) {
           this.getRepository().add((SequenceRepositoryComponent) value);
-        else if (name.equals("pointer"))
+        } else if (name.equals("pointer")) {
           this.getPointer().add(castToReference(value));
-        else if (name.equals("structureVariant"))
+        } else if (name.equals("structureVariant")) {
           this.getStructureVariant().add((SequenceStructureVariantComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -5010,6 +5121,30 @@ public class Sequence extends DomainResource {
         case -400605635:  return addPointer(); 
         case 757269394:  return addStructureVariant(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 354212295: /*coordinateSystem*/ return new String[] {"integer"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -2132868344: /*specimen*/ return new String[] {"Reference"};
+        case -1335157162: /*device*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case -1285004149: /*quantity*/ return new String[] {"Quantity"};
+        case -502547180: /*referenceSeq*/ return new String[] {};
+        case 236785797: /*variant*/ return new String[] {};
+        case 125541495: /*observedSeq*/ return new String[] {"string"};
+        case 651215103: /*quality*/ return new String[] {};
+        case -1798816354: /*readCoverage*/ return new String[] {"integer"};
+        case 1950800714: /*repository*/ return new String[] {};
+        case -400605635: /*pointer*/ return new String[] {"Reference"};
+        case 757269394: /*structureVariant*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

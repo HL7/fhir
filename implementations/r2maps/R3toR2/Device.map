@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Device3to2" = "R3 to R2 Conversion for Device"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Device" alias DeviceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
@@ -13,26 +11,24 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Device extends DomainResource
+group for type+types  Device extends DomainResource
   input src : Device as source
   input tgt : DeviceR2 as target
 
-  "Device-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Device-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Device-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Device-lotNumber" : for src.lotNumber as vs make tgt.lotNumber as vt then string(vs, vt)
-  "Device-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then string(vs, vt)
-  "Device-manufactureDate" : for src.manufactureDate as vs make tgt.manufactureDate as vt then dateTime(vs, vt)
-  "Device-expiry" : for src.expirationDate as vs make tgt.expiry as vt then dateTime(vs, vt)
-  "Device-model" : for src.model as vs make tgt.model as vt then string(vs, vt)
-  "Device-version" : for src.version as vs make tgt.version as vt then string(vs, vt)
-  "Device-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "Device-owner" : for src.owner as vs make tgt.owner as vt then Reference(vs,vt)
-  "Device-contact" : for src.contact as vs make tgt.contact as vt then ContactPoint(vs,vt)
-  "Device-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
-  "Device-url" : for src.url as vs make tgt.url as vt then uri(vs, vt)
-  "Device-note" : for src.note as vs make tgt.note as vt then Annotation(vs,vt)
-endgroup
+  "Device-identifier" : for src.identifier make tgt.identifier
+  "Device-status" : for src.status make tgt.status
+  "Device-type" : for src.type make tgt.type
+  "Device-lotNumber" : for src.lotNumber make tgt.lotNumber
+  "Device-manufacturer" : for src.manufacturer make tgt.manufacturer
+  "Device-manufactureDate" : for src.manufactureDate make tgt.manufactureDate
+  "Device-expiry" : for src.expirationDate make tgt.expiry
+  "Device-model" : for src.model make tgt.model
+  "Device-version" : for src.version make tgt.version
+  "Device-patient" : for src.patient make tgt.patient
+  "Device-owner" : for src.owner make tgt.owner
+  "Device-contact" : for src.contact make tgt.contact
+  "Device-location" : for src.location make tgt.location
+  "Device-url" : for src.url make tgt.url
+  "Device-note" : for src.note make tgt.note
 
+endgroup

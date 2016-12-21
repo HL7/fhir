@@ -4,11 +4,14 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Type;
@@ -297,7 +300,7 @@ public class Element extends Base {
           childForValue = child;
           break;
         } else {
-          Element ne = new Element(this);
+          Element ne = new Element(child);
           children.add(ne);
           numberChildren();
           childForValue = ne;
@@ -548,4 +551,19 @@ public class Element extends Base {
     else
       return property.isList();
   }
+  
+  @Override
+  public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+    Property p = property.getChildSimpleName(this.name, name);
+    if (p != null) {
+      Set<String> types = new HashSet<String>();
+      for (TypeRefComponent tr : p.getDefinition().getType()) {
+        types.add(tr.getCode());
+      }
+      return types.toArray(new String[]{});
+    }
+    return super.getTypesForProperty(hash, name);
+
+  }
+
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -163,8 +163,10 @@ public class Group extends DomainResource {
         throw new IllegalArgumentException("Unknown GroupType code '"+codeString+"'");
         }
         public Enumeration<GroupType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<GroupType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -457,15 +459,15 @@ public class Group extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else if (name.equals("exclude"))
+        } else if (name.equals("exclude")) {
           this.exclude = castToBoolean(value); // BooleanType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -475,9 +477,22 @@ public class Group extends DomainResource {
         switch (hash) {
         case 3059181:  return getCode(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         case -1321148966:  return getExcludeElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"CodeableConcept", "boolean", "Quantity", "Range"};
+        case -1321148966: /*exclude*/ return new String[] {"boolean"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -748,13 +763,13 @@ public class Group extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("entity"))
+        if (name.equals("entity")) {
           this.entity = castToReference(value); // Reference
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("inactive"))
+        } else if (name.equals("inactive")) {
           this.inactive = castToBoolean(value); // BooleanType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -766,6 +781,17 @@ public class Group extends DomainResource {
         case -991726143:  return getPeriod(); 
         case 24665195:  return getInactiveElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1298275357: /*entity*/ return new String[] {"Reference"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 24665195: /*inactive*/ return new String[] {"boolean"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1360,7 +1386,8 @@ public class Group extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case 3575610: // type
-          this.type = new GroupTypeEnumFactory().fromType(value); // Enumeration<GroupType>
+          value = new GroupTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<GroupType>
           return value;
         case -1422939762: // actual
           this.actual = castToBoolean(value); // BooleanType
@@ -1390,25 +1417,26 @@ public class Group extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("type"))
-          this.type = new GroupTypeEnumFactory().fromType(value); // Enumeration<GroupType>
-        else if (name.equals("actual"))
+        } else if (name.equals("type")) {
+          value = new GroupTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<GroupType>
+        } else if (name.equals("actual")) {
           this.actual = castToBoolean(value); // BooleanType
-        else if (name.equals("active"))
+        } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("quantity"))
+        } else if (name.equals("quantity")) {
           this.quantity = castToUnsignedInt(value); // UnsignedIntType
-        else if (name.equals("characteristic"))
+        } else if (name.equals("characteristic")) {
           this.getCharacteristic().add((GroupCharacteristicComponent) value);
-        else if (name.equals("member"))
+        } else if (name.equals("member")) {
           this.getMember().add((GroupMemberComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1426,6 +1454,23 @@ public class Group extends DomainResource {
         case 366313883:  return addCharacteristic(); 
         case -1077769574:  return addMember(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -1422939762: /*actual*/ return new String[] {"boolean"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1285004149: /*quantity*/ return new String[] {"unsignedInt"};
+        case 366313883: /*characteristic*/ return new String[] {};
+        case -1077769574: /*member*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

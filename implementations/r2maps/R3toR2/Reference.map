@@ -1,20 +1,16 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Reference3to2" = "R3 to R2 Conversion for Reference"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Reference" alias Reference as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Reference" alias ReferenceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 
-
-
-group Reference extends Element
+group for type+types  Reference extends Element
   input src : Reference as source
   input tgt : ReferenceR2 as target
 
-  "Reference-reference" : for src.reference as vs make tgt.reference as vt then string(vs, vt)
-  "Reference-display" : for src.display as vs make tgt.display as vt then string(vs, vt)
-endgroup
+  "Reference-reference" : for src.reference make tgt.reference
+  "Reference-display" : for src.display make tgt.display
 
+endgroup

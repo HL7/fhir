@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -175,8 +175,10 @@ public class Observation extends DomainResource {
         throw new IllegalArgumentException("Unknown ObservationStatus code '"+codeString+"'");
         }
         public Enumeration<ObservationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ObservationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -333,8 +335,10 @@ public class Observation extends DomainResource {
         throw new IllegalArgumentException("Unknown ObservationRelationshipType code '"+codeString+"'");
         }
         public Enumeration<ObservationRelationshipType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ObservationRelationshipType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -640,17 +644,17 @@ public class Observation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("low"))
+        if (name.equals("low")) {
           this.low = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("high"))
+        } else if (name.equals("high")) {
           this.high = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("meaning"))
+        } else if (name.equals("meaning")) {
           this.getMeaning().add(castToCodeableConcept(value));
-        else if (name.equals("age"))
+        } else if (name.equals("age")) {
           this.age = castToRange(value); // Range
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -664,6 +668,19 @@ public class Observation extends DomainResource {
         case 96511:  return getAge(); 
         case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 107348: /*low*/ return new String[] {"SimpleQuantity"};
+        case 3202466: /*high*/ return new String[] {"SimpleQuantity"};
+        case 938160637: /*meaning*/ return new String[] {"CodeableConcept"};
+        case 96511: /*age*/ return new String[] {"Range"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -887,7 +904,8 @@ public class Observation extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
+          value = new ObservationRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ObservationRelationshipType>
           return value;
         case -880905839: // target
           this.target = castToReference(value); // Reference
@@ -899,11 +917,12 @@ public class Observation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new ObservationRelationshipTypeEnumFactory().fromType(value); // Enumeration<ObservationRelationshipType>
-        else if (name.equals("target"))
+        if (name.equals("type")) {
+          value = new ObservationRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ObservationRelationshipType>
+        } else if (name.equals("target")) {
           this.target = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -914,6 +933,16 @@ public class Observation extends DomainResource {
         case 3575610:  return getTypeElement();
         case -880905839:  return getTarget(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1348,17 +1377,17 @@ public class Observation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else if (name.equals("dataAbsentReason"))
+        } else if (name.equals("dataAbsentReason")) {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("interpretation"))
+        } else if (name.equals("interpretation")) {
           this.interpretation = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("referenceRange"))
+        } else if (name.equals("referenceRange")) {
           this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1368,10 +1397,24 @@ public class Observation extends DomainResource {
         switch (hash) {
         case 3059181:  return getCode(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         case 1034315687:  return getDataAbsentReason(); 
         case -297950712:  return getInterpretation(); 
         case -1912545102:  return addReferenceRange(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"Quantity", "CodeableConcept", "string", "Range", "Ratio", "SampledData", "Attachment", "time", "dateTime", "Period"};
+        case 1034315687: /*dataAbsentReason*/ return new String[] {"CodeableConcept"};
+        case -297950712: /*interpretation*/ return new String[] {"CodeableConcept"};
+        case -1912545102: /*referenceRange*/ return new String[] {"@Observation.referenceRange"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2686,7 +2729,8 @@ public class Observation extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ObservationStatusEnumFactory().fromType(value); // Enumeration<ObservationStatus>
+          value = new ObservationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ObservationStatus>
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2749,47 +2793,48 @@ public class Observation extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ObservationStatusEnumFactory().fromType(value); // Enumeration<ObservationStatus>
-        else if (name.equals("category"))
+        } else if (name.equals("status")) {
+          value = new ObservationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ObservationStatus>
+        } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("effective[x]"))
+        } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
-        else if (name.equals("issued"))
+        } else if (name.equals("issued")) {
           this.issued = castToInstant(value); // InstantType
-        else if (name.equals("performer"))
+        } else if (name.equals("performer")) {
           this.getPerformer().add(castToReference(value));
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else if (name.equals("dataAbsentReason"))
+        } else if (name.equals("dataAbsentReason")) {
           this.dataAbsentReason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("interpretation"))
+        } else if (name.equals("interpretation")) {
           this.interpretation = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("comment"))
+        } else if (name.equals("comment")) {
           this.comment = castToString(value); // StringType
-        else if (name.equals("bodySite"))
+        } else if (name.equals("bodySite")) {
           this.bodySite = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("method"))
+        } else if (name.equals("method")) {
           this.method = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("specimen"))
+        } else if (name.equals("specimen")) {
           this.specimen = castToReference(value); // Reference
-        else if (name.equals("device"))
+        } else if (name.equals("device")) {
           this.device = castToReference(value); // Reference
-        else if (name.equals("referenceRange"))
+        } else if (name.equals("referenceRange")) {
           this.getReferenceRange().add((ObservationReferenceRangeComponent) value);
-        else if (name.equals("related"))
+        } else if (name.equals("related")) {
           this.getRelated().add((ObservationRelatedComponent) value);
-        else if (name.equals("component"))
+        } else if (name.equals("component")) {
           this.getComponent().add((ObservationComponentComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2804,9 +2849,11 @@ public class Observation extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 1524132147:  return getEncounter(); 
         case 247104889:  return getEffective(); 
+        case -1468651097:  return getEffective(); 
         case -1179159893:  return getIssuedElement();
         case 481140686:  return addPerformer(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         case 1034315687:  return getDataAbsentReason(); 
         case -297950712:  return getInterpretation(); 
         case 950398559:  return getCommentElement();
@@ -2818,6 +2865,34 @@ public class Observation extends DomainResource {
         case 1090493483:  return addRelated(); 
         case -1399907075:  return addComponent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
+        case -1179159893: /*issued*/ return new String[] {"instant"};
+        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 111972721: /*value*/ return new String[] {"Quantity", "CodeableConcept", "string", "Range", "Ratio", "SampledData", "Attachment", "time", "dateTime", "Period"};
+        case 1034315687: /*dataAbsentReason*/ return new String[] {"CodeableConcept"};
+        case -297950712: /*interpretation*/ return new String[] {"CodeableConcept"};
+        case 950398559: /*comment*/ return new String[] {"string"};
+        case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
+        case -1077554975: /*method*/ return new String[] {"CodeableConcept"};
+        case -2132868344: /*specimen*/ return new String[] {"Reference"};
+        case -1335157162: /*device*/ return new String[] {"Reference"};
+        case -1912545102: /*referenceRange*/ return new String[] {};
+        case 1090493483: /*related*/ return new String[] {};
+        case -1399907075: /*component*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

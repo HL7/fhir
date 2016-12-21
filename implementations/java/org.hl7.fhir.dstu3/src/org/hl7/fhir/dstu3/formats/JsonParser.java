@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16361,6 +16361,10 @@ public class JsonParser extends JsonParserBase {
       res.setExtendsElement(parseId(json.get("extends").getAsString()));
     if (json.has("_extends"))
       parseElementProperties(json.getAsJsonObject("_extends"), res.getExtendsElement());
+    if (json.has("typeMode"))
+      res.setTypeModeElement(parseEnumeration(json.get("typeMode").getAsString(), StructureMap.StructureMapGroupTypeMode.NULL, new StructureMap.StructureMapGroupTypeModeEnumFactory()));
+    if (json.has("_typeMode"))
+      parseElementProperties(json.getAsJsonObject("_typeMode"), res.getTypeModeElement());
     if (json.has("documentation"))
       res.setDocumentationElement(parseString(json.get("documentation").getAsString()));
     if (json.has("_documentation"))
@@ -16587,26 +16591,18 @@ public class JsonParser extends JsonParserBase {
     if (json.has("variable")) {
       JsonArray array = json.getAsJsonArray("variable");
       for (int i = 0; i < array.size(); i++) {
-        res.getVariable().add(parseStructureMapStructureMapGroupRuleDependentVariableComponent(array.get(i).getAsJsonObject(), owner));
+        res.getVariable().add(parseString(array.get(i).getAsString()));
       }
     };
-  }
-
-  protected StructureMap.StructureMapGroupRuleDependentVariableComponent parseStructureMapStructureMapGroupRuleDependentVariableComponent(JsonObject json, StructureMap owner) throws IOException, FHIRFormatError {
-    StructureMap.StructureMapGroupRuleDependentVariableComponent res = new StructureMap.StructureMapGroupRuleDependentVariableComponent();
-    parseStructureMapStructureMapGroupRuleDependentVariableComponentProperties(json, owner, res);
-    return res;
-  }
-
-  protected void parseStructureMapStructureMapGroupRuleDependentVariableComponentProperties(JsonObject json, StructureMap owner, StructureMap.StructureMapGroupRuleDependentVariableComponent res) throws IOException, FHIRFormatError {
-    parseBackboneProperties(json, res);
-    if (json.has("name"))
-      res.setNameElement(parseString(json.get("name").getAsString()));
-    if (json.has("_name"))
-      parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
-    Type value = parseType("value", json);
-    if (value != null)
-      res.setValue(value);
+    if (json.has("_variable")) {
+      JsonArray array = json.getAsJsonArray("_variable");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getVariable().size())
+          res.getVariable().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getVariable().get(i));
+      }
+    };
   }
 
   protected Subscription parseSubscription(JsonObject json) throws IOException, FHIRFormatError {
@@ -37159,6 +37155,10 @@ public class JsonParser extends JsonParserBase {
         composeIdCore("extends", element.getExtendsElement(), false);
         composeIdExtras("extends", element.getExtendsElement(), false);
       }
+      if (element.hasTypeModeElement()) {
+        composeEnumerationCore("typeMode", element.getTypeModeElement(), new StructureMap.StructureMapGroupTypeModeEnumFactory(), false);
+        composeEnumerationExtras("typeMode", element.getTypeModeElement(), new StructureMap.StructureMapGroupTypeModeEnumFactory(), false);
+      }
       if (element.hasDocumentationElement()) {
         composeStringCore("documentation", element.getDocumentationElement(), false);
         composeStringExtras("documentation", element.getDocumentationElement(), false);
@@ -37393,29 +37393,16 @@ public class JsonParser extends JsonParserBase {
       }
       if (element.hasVariable()) {
         openArray("variable");
-        for (StructureMap.StructureMapGroupRuleDependentVariableComponent e : element.getVariable()) 
-          composeStructureMapStructureMapGroupRuleDependentVariableComponent(null, e);
+        for (StringType e : element.getVariable()) 
+          composeStringCore(null, e, true);
         closeArray();
+        if (anyHasExtras(element.getVariable())) {
+          openArray("_variable");
+          for (StringType e : element.getVariable()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
       };
-  }
-
-  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponent(String name, StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
-    if (element != null) {
-      open(name);
-      composeStructureMapStructureMapGroupRuleDependentVariableComponentInner(element);
-      close();
-    }
-  }
-
-  protected void composeStructureMapStructureMapGroupRuleDependentVariableComponentInner(StructureMap.StructureMapGroupRuleDependentVariableComponent element) throws IOException {
-      composeBackbone(element);
-      if (element.hasNameElement()) {
-        composeStringCore("name", element.getNameElement(), false);
-        composeStringExtras("name", element.getNameElement(), false);
-      }
-      if (element.hasValue()) {
-        composeType("value", element.getValue());
-      }
   }
 
   protected void composeSubscription(String name, Subscription element) throws IOException {

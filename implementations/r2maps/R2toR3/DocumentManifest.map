@@ -1,40 +1,38 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentManifest2to3" = "R2 to R3 Conversions for DocumentManifest"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentManifest" alias DocumentManifestR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group DocumentManifest extends DomainResource
+group for type+types  DocumentManifest extends DomainResource
   input src : DocumentManifestR2 as source
   input tgt : DocumentManifest as target
 
-  "DocumentManifest-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
-  "DocumentManifest-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "DocumentManifest-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "DocumentManifest-recipient" : for src.recipient as vs make tgt.recipient as vt then Reference(vs,vt)
-  "DocumentManifest-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "DocumentManifest-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-  "DocumentManifest-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)
-  "DocumentManifest-source" : for src.source as vs make tgt.source as vt then uri(vs, vt)
-  "DocumentManifest-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "DocumentManifest-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
+  "DocumentManifest-masterIdentifier" : for src.masterIdentifier make tgt.masterIdentifier
+  "DocumentManifest-identifier" : for src.identifier make tgt.identifier
+  "DocumentManifest-subject" : for src.subject make tgt.subject
+  "DocumentManifest-recipient" : for src.recipient make tgt.recipient
+  "DocumentManifest-type" : for src.type make tgt.type
+  "DocumentManifest-author" : for src.author make tgt.author
+  "DocumentManifest-created" : for src.created make tgt.created
+  "DocumentManifest-source" : for src.source make tgt.source
+  "DocumentManifest-status" : for src.status make tgt.status
+  "DocumentManifest-description" : for src.description make tgt.description
   "DocumentManifest-content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentManifest.content-p-Attachment" : for vs0.p  : Attachment as vs make vt0.p = create("Attachment") as vt then Attachment(vs,vt)
-    "DocumentManifest.content-p-Reference" : for vs0.p  : Reference as vs make vt0.p = create("Reference") as vt then Reference(vs,vt)
+    "DocumentManifest.content-p-Attachment" : for vs0.p : Attachment as vs make vt0.p = create("Attachment") as vt then Attachment(vs, vt)
+    "DocumentManifest.content-p-Reference" : for vs0.p : Reference as vs make vt0.p = create("Reference") as vt then Reference(vs, vt)
   }
-  "DocumentManifest-related" : for src.related as vs0 make tgt.related as vt0 then {
-    "DocumentManifest.related-identifier" : for vs0.identifier as vs make vt0.identifier as vt then Identifier(vs,vt)
-    "DocumentManifest.related-ref" : for vs0.ref as vs make vt0.ref as vt then Reference(vs,vt)
-  }
-endgroup
 
+  "DocumentManifest-related" : for src.related as vs0 make tgt.related as vt0 then {
+    "DocumentManifest.related-identifier" : for vs0.identifier make vt0.identifier
+    "DocumentManifest.related-ref" : for vs0.ref make vt0.ref
+  }
+
+
+endgroup

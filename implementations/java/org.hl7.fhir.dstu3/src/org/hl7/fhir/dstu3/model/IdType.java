@@ -39,6 +39,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.instance.model.api.IBaseResource;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.instance.model.api.IPrimitiveType;
@@ -760,5 +761,13 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
 		
 		return this;
 	}
-	
+
+  @Override
+  public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+    switch (hash) {
+    case 111972721: /*value*/ return new String[] {"id"};
+    default: return super.getTypesForProperty(hash, name);
+    }
+
+  }	
 }

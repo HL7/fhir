@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Coverage extends DomainResource {
         throw new IllegalArgumentException("Unknown CoverageStatus code '"+codeString+"'");
         }
         public Enumeration<CoverageStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CoverageStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -935,31 +937,31 @@ public class Coverage extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("group"))
+        if (name.equals("group")) {
           this.group = castToString(value); // StringType
-        else if (name.equals("groupDisplay"))
+        } else if (name.equals("groupDisplay")) {
           this.groupDisplay = castToString(value); // StringType
-        else if (name.equals("subGroup"))
+        } else if (name.equals("subGroup")) {
           this.subGroup = castToString(value); // StringType
-        else if (name.equals("subGroupDisplay"))
+        } else if (name.equals("subGroupDisplay")) {
           this.subGroupDisplay = castToString(value); // StringType
-        else if (name.equals("plan"))
+        } else if (name.equals("plan")) {
           this.plan = castToString(value); // StringType
-        else if (name.equals("planDisplay"))
+        } else if (name.equals("planDisplay")) {
           this.planDisplay = castToString(value); // StringType
-        else if (name.equals("subPlan"))
+        } else if (name.equals("subPlan")) {
           this.subPlan = castToString(value); // StringType
-        else if (name.equals("subPlanDisplay"))
+        } else if (name.equals("subPlanDisplay")) {
           this.subPlanDisplay = castToString(value); // StringType
-        else if (name.equals("class"))
+        } else if (name.equals("class")) {
           this.class_ = castToString(value); // StringType
-        else if (name.equals("classDisplay"))
+        } else if (name.equals("classDisplay")) {
           this.classDisplay = castToString(value); // StringType
-        else if (name.equals("subClass"))
+        } else if (name.equals("subClass")) {
           this.subClass = castToString(value); // StringType
-        else if (name.equals("subClassDisplay"))
+        } else if (name.equals("subClassDisplay")) {
           this.subClassDisplay = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -980,6 +982,26 @@ public class Coverage extends DomainResource {
         case -2105679080:  return getSubClassElement();
         case 1436983946:  return getSubClassDisplayElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 98629247: /*group*/ return new String[] {"string"};
+        case 1322335555: /*groupDisplay*/ return new String[] {"string"};
+        case -2101792737: /*subGroup*/ return new String[] {"string"};
+        case 1051914147: /*subGroupDisplay*/ return new String[] {"string"};
+        case 3443497: /*plan*/ return new String[] {"string"};
+        case -896076455: /*planDisplay*/ return new String[] {"string"};
+        case -1868653175: /*subPlan*/ return new String[] {"string"};
+        case -1736083719: /*subPlanDisplay*/ return new String[] {"string"};
+        case 94742904: /*class*/ return new String[] {"string"};
+        case 1707405354: /*classDisplay*/ return new String[] {"string"};
+        case -2105679080: /*subClass*/ return new String[] {"string"};
+        case 1436983946: /*subClassDisplay*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1984,7 +2006,8 @@ public class Coverage extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new CoverageStatusEnumFactory().fromType(value); // Enumeration<CoverageStatus>
+          value = new CoverageStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CoverageStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -2035,39 +2058,40 @@ public class Coverage extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new CoverageStatusEnumFactory().fromType(value); // Enumeration<CoverageStatus>
-        else if (name.equals("type"))
+        } else if (name.equals("status")) {
+          value = new CoverageStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CoverageStatus>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("policyHolder"))
+        } else if (name.equals("policyHolder")) {
           this.policyHolder = castToReference(value); // Reference
-        else if (name.equals("subscriber"))
+        } else if (name.equals("subscriber")) {
           this.subscriber = castToReference(value); // Reference
-        else if (name.equals("subscriberId"))
+        } else if (name.equals("subscriberId")) {
           this.subscriberId = castToString(value); // StringType
-        else if (name.equals("beneficiary"))
+        } else if (name.equals("beneficiary")) {
           this.beneficiary = castToReference(value); // Reference
-        else if (name.equals("relationship"))
+        } else if (name.equals("relationship")) {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("payor"))
+        } else if (name.equals("payor")) {
           this.getPayor().add(castToReference(value));
-        else if (name.equals("group"))
+        } else if (name.equals("group")) {
           this.group = (GroupComponent) value; // GroupComponent
-        else if (name.equals("dependent"))
+        } else if (name.equals("dependent")) {
           this.dependent = castToString(value); // StringType
-        else if (name.equals("sequence"))
+        } else if (name.equals("sequence")) {
           this.sequence = castToString(value); // StringType
-        else if (name.equals("order"))
+        } else if (name.equals("order")) {
           this.order = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("network"))
+        } else if (name.equals("network")) {
           this.network = castToString(value); // StringType
-        else if (name.equals("contract"))
+        } else if (name.equals("contract")) {
           this.getContract().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2092,6 +2116,30 @@ public class Coverage extends DomainResource {
         case 1843485230:  return getNetworkElement();
         case -566947566:  return addContract(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 2046898558: /*policyHolder*/ return new String[] {"Reference"};
+        case -1219769240: /*subscriber*/ return new String[] {"Reference"};
+        case 327834531: /*subscriberId*/ return new String[] {"string"};
+        case -565102875: /*beneficiary*/ return new String[] {"Reference"};
+        case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 106443915: /*payor*/ return new String[] {"Reference"};
+        case 98629247: /*group*/ return new String[] {};
+        case -1109226753: /*dependent*/ return new String[] {"string"};
+        case 1349547969: /*sequence*/ return new String[] {"string"};
+        case 106006350: /*order*/ return new String[] {"positiveInt"};
+        case 1843485230: /*network*/ return new String[] {"string"};
+        case -566947566: /*contract*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

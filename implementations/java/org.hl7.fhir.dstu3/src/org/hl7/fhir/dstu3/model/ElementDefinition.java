@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public Enumeration<PropertyRepresentation> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<PropertyRepresentation>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -265,8 +267,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown SlicingRules code '"+codeString+"'");
         }
         public Enumeration<SlicingRules> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SlicingRules>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -371,8 +375,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown AggregationMode code '"+codeString+"'");
         }
         public Enumeration<AggregationMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AggregationMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -477,8 +483,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ReferenceVersionRules code '"+codeString+"'");
         }
         public Enumeration<ReferenceVersionRules> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ReferenceVersionRules>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -571,8 +579,10 @@ public class ElementDefinition extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ConstraintSeverity code '"+codeString+"'");
         }
         public Enumeration<ConstraintSeverity> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConstraintSeverity>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -875,7 +885,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.ordered = castToBoolean(value); // BooleanType
           return value;
         case 108873975: // rules
-          this.rules = new SlicingRulesEnumFactory().fromType(value); // Enumeration<SlicingRules>
+          value = new SlicingRulesEnumFactory().fromType(castToCode(value));
+          this.rules = (Enumeration) value; // Enumeration<SlicingRules>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -884,15 +895,16 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("discriminator"))
+        if (name.equals("discriminator")) {
           this.getDiscriminator().add(castToString(value));
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("ordered"))
+        } else if (name.equals("ordered")) {
           this.ordered = castToBoolean(value); // BooleanType
-        else if (name.equals("rules"))
-          this.rules = new SlicingRulesEnumFactory().fromType(value); // Enumeration<SlicingRules>
-        else
+        } else if (name.equals("rules")) {
+          value = new SlicingRulesEnumFactory().fromType(castToCode(value));
+          this.rules = (Enumeration) value; // Enumeration<SlicingRules>
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -905,6 +917,18 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -1207109523:  return getOrderedElement();
         case 108873975:  return getRulesElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1888270692: /*discriminator*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1207109523: /*ordered*/ return new String[] {"boolean"};
+        case 108873975: /*rules*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1189,13 +1213,13 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("path"))
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("min"))
+        } else if (name.equals("min")) {
           this.min = castToInteger(value); // IntegerType
-        else if (name.equals("max"))
+        } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1207,6 +1231,17 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 108114:  return getMinElement();
         case 107876:  return getMaxElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3433509: /*path*/ return new String[] {"string"};
+        case 108114: /*min*/ return new String[] {"integer"};
+        case 107876: /*max*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1613,10 +1648,12 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.targetProfile = castToUri(value); // UriType
           return value;
         case 841524962: // aggregation
-          this.getAggregation().add(new AggregationModeEnumFactory().fromType(value)); // Enumeration<AggregationMode>
+          value = new AggregationModeEnumFactory().fromType(castToCode(value));
+          this.getAggregation().add((Enumeration) value); // Enumeration<AggregationMode>
           return value;
         case -670487542: // versioning
-          this.versioning = new ReferenceVersionRulesEnumFactory().fromType(value); // Enumeration<ReferenceVersionRules>
+          value = new ReferenceVersionRulesEnumFactory().fromType(castToCode(value));
+          this.versioning = (Enumeration) value; // Enumeration<ReferenceVersionRules>
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1625,17 +1662,19 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToUri(value); // UriType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.profile = castToUri(value); // UriType
-        else if (name.equals("targetProfile"))
+        } else if (name.equals("targetProfile")) {
           this.targetProfile = castToUri(value); // UriType
-        else if (name.equals("aggregation"))
-          this.getAggregation().add(new AggregationModeEnumFactory().fromType(value));
-        else if (name.equals("versioning"))
-          this.versioning = new ReferenceVersionRulesEnumFactory().fromType(value); // Enumeration<ReferenceVersionRules>
-        else
+        } else if (name.equals("aggregation")) {
+          value = new AggregationModeEnumFactory().fromType(castToCode(value));
+          this.getAggregation().add((Enumeration) value);
+        } else if (name.equals("versioning")) {
+          value = new ReferenceVersionRulesEnumFactory().fromType(castToCode(value));
+          this.versioning = (Enumeration) value; // Enumeration<ReferenceVersionRules>
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1649,6 +1688,19 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 841524962:  return addAggregationElement();
         case -670487542:  return getVersioningElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"uri"};
+        case -309425751: /*profile*/ return new String[] {"uri"};
+        case 1994521304: /*targetProfile*/ return new String[] {"uri"};
+        case 841524962: /*aggregation*/ return new String[] {"code"};
+        case -670487542: /*versioning*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1855,11 +1907,11 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("label"))
+        if (name.equals("label")) {
           this.label = castToString(value); // StringType
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1869,7 +1921,18 @@ public class ElementDefinition extends Type implements ICompositeType {
         switch (hash) {
         case 102727412:  return getLabelElement();
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 102727412: /*label*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"*"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2489,7 +2552,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.requirements = castToString(value); // StringType
           return value;
         case 1478300413: // severity
-          this.severity = new ConstraintSeverityEnumFactory().fromType(value); // Enumeration<ConstraintSeverity>
+          value = new ConstraintSeverityEnumFactory().fromType(castToCode(value));
+          this.severity = (Enumeration) value; // Enumeration<ConstraintSeverity>
           return value;
         case 99639597: // human
           this.human = castToString(value); // StringType
@@ -2510,21 +2574,22 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("key"))
+        if (name.equals("key")) {
           this.key = castToId(value); // IdType
-        else if (name.equals("requirements"))
+        } else if (name.equals("requirements")) {
           this.requirements = castToString(value); // StringType
-        else if (name.equals("severity"))
-          this.severity = new ConstraintSeverityEnumFactory().fromType(value); // Enumeration<ConstraintSeverity>
-        else if (name.equals("human"))
+        } else if (name.equals("severity")) {
+          value = new ConstraintSeverityEnumFactory().fromType(castToCode(value));
+          this.severity = (Enumeration) value; // Enumeration<ConstraintSeverity>
+        } else if (name.equals("human")) {
           this.human = castToString(value); // StringType
-        else if (name.equals("expression"))
+        } else if (name.equals("expression")) {
           this.expression = castToString(value); // StringType
-        else if (name.equals("xpath"))
+        } else if (name.equals("xpath")) {
           this.xpath = castToString(value); // StringType
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = castToUri(value); // UriType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2540,6 +2605,21 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 114256029:  return getXpathElement();
         case -896505829:  return getSourceElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 106079: /*key*/ return new String[] {"id"};
+        case -1619874672: /*requirements*/ return new String[] {"string"};
+        case 1478300413: /*severity*/ return new String[] {"code"};
+        case 99639597: /*human*/ return new String[] {"string"};
+        case -1795452264: /*expression*/ return new String[] {"string"};
+        case 114256029: /*xpath*/ return new String[] {"string"};
+        case -896505829: /*source*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2822,7 +2902,8 @@ public class ElementDefinition extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 1791316033: // strength
-          this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
+          value = new BindingStrengthEnumFactory().fromType(castToCode(value));
+          this.strength = (Enumeration) value; // Enumeration<BindingStrength>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -2837,13 +2918,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("strength"))
-          this.strength = new BindingStrengthEnumFactory().fromType(value); // Enumeration<BindingStrength>
-        else if (name.equals("description"))
+        if (name.equals("strength")) {
+          value = new BindingStrengthEnumFactory().fromType(castToCode(value));
+          this.strength = (Enumeration) value; // Enumeration<BindingStrength>
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("valueSet[x]"))
+        } else if (name.equals("valueSet[x]")) {
           this.valueSet = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2854,7 +2936,19 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 1791316033:  return getStrengthElement();
         case -1724546052:  return getDescriptionElement();
         case -1438410321:  return getValueSet(); 
+        case -1410174671:  return getValueSet(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1791316033: /*strength*/ return new String[] {"code"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -1410174671: /*valueSet*/ return new String[] {"uri", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3139,13 +3233,13 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identity"))
+        if (name.equals("identity")) {
           this.identity = castToId(value); // IdType
-        else if (name.equals("language"))
+        } else if (name.equals("language")) {
           this.language = castToCode(value); // CodeType
-        else if (name.equals("map"))
+        } else if (name.equals("map")) {
           this.map = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3157,6 +3251,17 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -1613589672:  return getLanguageElement();
         case 107868:  return getMapElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -135761730: /*identity*/ return new String[] {"id"};
+        case -1613589672: /*language*/ return new String[] {"code"};
+        case 107868: /*map*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -5096,7 +5201,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.path = castToString(value); // StringType
           return value;
         case -671065907: // representation
-          this.getRepresentation().add(new PropertyRepresentationEnumFactory().fromType(value)); // Enumeration<PropertyRepresentation>
+          value = new PropertyRepresentationEnumFactory().fromType(castToCode(value));
+          this.getRepresentation().add((Enumeration) value); // Enumeration<PropertyRepresentation>
           return value;
         case -825289923: // sliceName
           this.sliceName = castToString(value); // StringType
@@ -5192,69 +5298,70 @@ public class ElementDefinition extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("path"))
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else if (name.equals("representation"))
-          this.getRepresentation().add(new PropertyRepresentationEnumFactory().fromType(value));
-        else if (name.equals("sliceName"))
+        } else if (name.equals("representation")) {
+          value = new PropertyRepresentationEnumFactory().fromType(castToCode(value));
+          this.getRepresentation().add((Enumeration) value);
+        } else if (name.equals("sliceName")) {
           this.sliceName = castToString(value); // StringType
-        else if (name.equals("label"))
+        } else if (name.equals("label")) {
           this.label = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.getCode().add(castToCoding(value));
-        else if (name.equals("slicing"))
+        } else if (name.equals("slicing")) {
           this.slicing = (ElementDefinitionSlicingComponent) value; // ElementDefinitionSlicingComponent
-        else if (name.equals("short"))
+        } else if (name.equals("short")) {
           this.short_ = castToString(value); // StringType
-        else if (name.equals("definition"))
+        } else if (name.equals("definition")) {
           this.definition = castToMarkdown(value); // MarkdownType
-        else if (name.equals("comments"))
+        } else if (name.equals("comments")) {
           this.comments = castToMarkdown(value); // MarkdownType
-        else if (name.equals("requirements"))
+        } else if (name.equals("requirements")) {
           this.requirements = castToMarkdown(value); // MarkdownType
-        else if (name.equals("alias"))
+        } else if (name.equals("alias")) {
           this.getAlias().add(castToString(value));
-        else if (name.equals("min"))
+        } else if (name.equals("min")) {
           this.min = castToInteger(value); // IntegerType
-        else if (name.equals("max"))
+        } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
-        else if (name.equals("base"))
+        } else if (name.equals("base")) {
           this.base = (ElementDefinitionBaseComponent) value; // ElementDefinitionBaseComponent
-        else if (name.equals("contentReference"))
+        } else if (name.equals("contentReference")) {
           this.contentReference = castToUri(value); // UriType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.getType().add((TypeRefComponent) value);
-        else if (name.equals("defaultValue[x]"))
+        } else if (name.equals("defaultValue[x]")) {
           this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else if (name.equals("meaningWhenMissing"))
+        } else if (name.equals("meaningWhenMissing")) {
           this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
-        else if (name.equals("fixed[x]"))
+        } else if (name.equals("fixed[x]")) {
           this.fixed = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else if (name.equals("pattern[x]"))
+        } else if (name.equals("pattern[x]")) {
           this.pattern = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else if (name.equals("example"))
+        } else if (name.equals("example")) {
           this.getExample().add((ElementDefinitionExampleComponent) value);
-        else if (name.equals("minValue[x]"))
+        } else if (name.equals("minValue[x]")) {
           this.minValue = castToType(value); // Type
-        else if (name.equals("maxValue[x]"))
+        } else if (name.equals("maxValue[x]")) {
           this.maxValue = castToType(value); // Type
-        else if (name.equals("maxLength"))
+        } else if (name.equals("maxLength")) {
           this.maxLength = castToInteger(value); // IntegerType
-        else if (name.equals("condition"))
+        } else if (name.equals("condition")) {
           this.getCondition().add(castToId(value));
-        else if (name.equals("constraint"))
+        } else if (name.equals("constraint")) {
           this.getConstraint().add((ElementDefinitionConstraintComponent) value);
-        else if (name.equals("mustSupport"))
+        } else if (name.equals("mustSupport")) {
           this.mustSupport = castToBoolean(value); // BooleanType
-        else if (name.equals("isModifier"))
+        } else if (name.equals("isModifier")) {
           this.isModifier = castToBoolean(value); // BooleanType
-        else if (name.equals("isSummary"))
+        } else if (name.equals("isSummary")) {
           this.isSummary = castToBoolean(value); // BooleanType
-        else if (name.equals("binding"))
+        } else if (name.equals("binding")) {
           this.binding = (ElementDefinitionBindingComponent) value; // ElementDefinitionBindingComponent
-        else if (name.equals("mapping"))
+        } else if (name.equals("mapping")) {
           this.getMapping().add((ElementDefinitionMappingComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -5279,12 +5386,17 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 1193747154:  return getContentReferenceElement();
         case 3575610:  return addType(); 
         case 587922128:  return getDefaultValue(); 
+        case -659125328:  return getDefaultValue(); 
         case 1857257103:  return getMeaningWhenMissingElement();
         case -391522164:  return getFixed(); 
+        case 97445748:  return getFixed(); 
         case -885125392:  return getPattern(); 
+        case -791090288:  return getPattern(); 
         case -1322970774:  return addExample(); 
         case -55301663:  return getMinValue(); 
+        case -1376969153:  return getMinValue(); 
         case 622130931:  return getMaxValue(); 
+        case 399227501:  return getMaxValue(); 
         case -791400086:  return getMaxLengthElement();
         case -861311717:  return addConditionElement();
         case -190376483:  return addConstraint(); 
@@ -5294,6 +5406,45 @@ public class ElementDefinition extends Type implements ICompositeType {
         case -108220795:  return getBinding(); 
         case 837556430:  return addMapping(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3433509: /*path*/ return new String[] {"string"};
+        case -671065907: /*representation*/ return new String[] {"code"};
+        case -825289923: /*sliceName*/ return new String[] {"string"};
+        case 102727412: /*label*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"Coding"};
+        case -2119287345: /*slicing*/ return new String[] {};
+        case 109413500: /*short*/ return new String[] {"string"};
+        case -1014418093: /*definition*/ return new String[] {"markdown"};
+        case -602415628: /*comments*/ return new String[] {"markdown"};
+        case -1619874672: /*requirements*/ return new String[] {"markdown"};
+        case 92902992: /*alias*/ return new String[] {"string"};
+        case 108114: /*min*/ return new String[] {"integer"};
+        case 107876: /*max*/ return new String[] {"string"};
+        case 3016401: /*base*/ return new String[] {};
+        case 1193747154: /*contentReference*/ return new String[] {"uri"};
+        case 3575610: /*type*/ return new String[] {};
+        case -659125328: /*defaultValue*/ return new String[] {"*"};
+        case 1857257103: /*meaningWhenMissing*/ return new String[] {"markdown"};
+        case 97445748: /*fixed*/ return new String[] {"*"};
+        case -791090288: /*pattern*/ return new String[] {"*"};
+        case -1322970774: /*example*/ return new String[] {};
+        case -1376969153: /*minValue*/ return new String[] {"date", "dateTime", "instant", "time", "decimal", "integer", "positiveInt", "unsignedInt", "Quantity"};
+        case 399227501: /*maxValue*/ return new String[] {"date", "dateTime", "instant", "time", "decimal", "integer", "positiveInt", "unsignedInt", "Quantity"};
+        case -791400086: /*maxLength*/ return new String[] {"integer"};
+        case -861311717: /*condition*/ return new String[] {"id"};
+        case -190376483: /*constraint*/ return new String[] {};
+        case -1402857082: /*mustSupport*/ return new String[] {"boolean"};
+        case -1408783839: /*isModifier*/ return new String[] {"boolean"};
+        case 1857548060: /*isSummary*/ return new String[] {"boolean"};
+        case -108220795: /*binding*/ return new String[] {};
+        case 837556430: /*mapping*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

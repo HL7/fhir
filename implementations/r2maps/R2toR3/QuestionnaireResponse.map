@@ -1,33 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/QuestionnaireResponse2to3" = "R2 to R3 Conversions for QuestionnaireResponse"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 
-
-
-group QuestionnaireResponse extends DomainResource
+group for type+types  QuestionnaireResponse extends DomainResource
   input src : QuestionnaireResponseR2 as source
   input tgt : QuestionnaireResponse as target
 
-  "QuestionnaireResponse-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "QuestionnaireResponse-questionnaire" : for src.questionnaire as vs make tgt.questionnaire as vt then Reference(vs,vt)
-  "QuestionnaireResponse-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "QuestionnaireResponse-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "QuestionnaireResponse-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-  "QuestionnaireResponse-authored" : for src.authored as vs make tgt.authored as vt then dateTime(vs, vt)
-  "QuestionnaireResponse-source" : for src.source as vs make tgt.source as vt then Reference(vs,vt)
-  "QuestionnaireResponse-context" : for src.encounter as vs make tgt.context as vt then Reference(vs,vt)
+  "QuestionnaireResponse-identifier" : for src.identifier make tgt.identifier
+  "QuestionnaireResponse-questionnaire" : for src.questionnaire make tgt.questionnaire
+  "QuestionnaireResponse-status" : for src.status make tgt.status
+  "QuestionnaireResponse-subject" : for src.subject make tgt.subject
+  "QuestionnaireResponse-author" : for src.author make tgt.author
+  "QuestionnaireResponse-authored" : for src.authored make tgt.authored
+  "QuestionnaireResponse-source" : for src.source make tgt.source
+  "QuestionnaireResponse-context" : for src.encounter make tgt.context
   "QuestionnaireResponse-item" : for src.group as vs0 make tgt.item as vt0 then {
-    "QuestionnaireResponse.item-linkId" : for vs0.linkId as vs make vt0.linkId as vt then string(vs, vt)
-    "QuestionnaireResponse.item-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
-    "QuestionnaireResponse.item-subject" : for vs0.subject as vs make vt0.subject as vt then Reference(vs,vt)
+    "QuestionnaireResponse.item-linkId" : for vs0.linkId make vt0.linkId
+    "QuestionnaireResponse.item-text" : for vs0.text make vt0.text
+    "QuestionnaireResponse.item-subject" : for vs0.subject make vt0.subject
   }
-endgroup
 
+
+endgroup

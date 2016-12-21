@@ -1,26 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/SampledData3to2" = "R3 to R2 Conversion for SampledData"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/SampledData" alias SampledData as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SampledData" alias SampledDataR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
 
-
-
-group SampledData extends Element
+group for type+types  SampledData extends Element
   input src : SampledData as source
   input tgt : SampledDataR2 as target
 
-  "SampledData-origin" : for src.origin as vs make tgt.origin as vt then Quantity(vs,vt)
-  "SampledData-period" : for src.period as vs make tgt.period as vt then decimal(vs, vt)
-  "SampledData-factor" : for src.factor as vs make tgt.factor as vt then decimal(vs, vt)
-  "SampledData-lowerLimit" : for src.lowerLimit as vs make tgt.lowerLimit as vt then decimal(vs, vt)
-  "SampledData-upperLimit" : for src.upperLimit as vs make tgt.upperLimit as vt then decimal(vs, vt)
-  "SampledData-dimensions" : for src.dimensions as vs make tgt.dimensions as vt then positiveInt(vs, vt)
-  "SampledData-data" : for src.data as vs make tgt.data as vt then string(vs, vt)
-endgroup
+  "SampledData-origin" : for src.origin make tgt.origin
+  "SampledData-period" : for src.period make tgt.period
+  "SampledData-factor" : for src.factor make tgt.factor
+  "SampledData-lowerLimit" : for src.lowerLimit make tgt.lowerLimit
+  "SampledData-upperLimit" : for src.upperLimit make tgt.upperLimit
+  "SampledData-dimensions" : for src.dimensions make tgt.dimensions
+  "SampledData-data" : for src.data make tgt.data
 
+endgroup

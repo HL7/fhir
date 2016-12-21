@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MedicationDispense2to3" = "R2 to R3 Conversions for MedicationDispense"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationDispense" alias MedicationDispenseR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/MedicationDispense" alias MedicationDispense as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
@@ -15,44 +13,44 @@ imports "http://hl7.org/fhir/StructureMap/Range2to3"
 imports "http://hl7.org/fhir/StructureMap/Timing2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group MedicationDispense extends DomainResource
+group for type+types  MedicationDispense extends DomainResource
   input src : MedicationDispenseR2 as source
   input tgt : MedicationDispense as target
 
-  "MedicationDispense-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "MedicationDispense-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "MedicationDispense-medication-CodeableConcept" : for src.medication  : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-  "MedicationDispense-medication-Reference" : for src.medication  : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs,vt)
-  "MedicationDispense-patient" : for src.patient as vs make tgt.patient as vt then Reference(vs,vt)
-  "MedicationDispense-dispenser" : for src.dispenser as vs make tgt.dispenser as vt then Reference(vs,vt)
-  "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription as vs make tgt.authorizingPrescription as vt then Reference(vs,vt)
-  "MedicationDispense-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "MedicationDispense-quantity" : for src.quantity as vs make tgt.quantity as vt then Quantity(vs,vt)
-  "MedicationDispense-daysSupply" : for src.daysSupply as vs make tgt.daysSupply as vt then Quantity(vs,vt)
-  "MedicationDispense-whenPrepared" : for src.whenPrepared as vs make tgt.whenPrepared as vt then dateTime(vs, vt)
-  "MedicationDispense-whenHandedOver" : for src.whenHandedOver as vs make tgt.whenHandedOver as vt then dateTime(vs, vt)
-  "MedicationDispense-destination" : for src.destination as vs make tgt.destination as vt then Reference(vs,vt)
-  "MedicationDispense-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
+  "MedicationDispense-identifier" : for src.identifier make tgt.identifier
+  "MedicationDispense-status" : for src.status make tgt.status
+  "MedicationDispense-medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "MedicationDispense-medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs, vt)
+  "MedicationDispense-patient" : for src.patient make tgt.patient
+  "MedicationDispense-dispenser" : for src.dispenser make tgt.dispenser
+  "MedicationDispense-authorizingPrescription" : for src.authorizingPrescription make tgt.authorizingPrescription
+  "MedicationDispense-type" : for src.type make tgt.type
+  "MedicationDispense-quantity" : for src.quantity make tgt.quantity
+  "MedicationDispense-daysSupply" : for src.daysSupply make tgt.daysSupply
+  "MedicationDispense-whenPrepared" : for src.whenPrepared make tgt.whenPrepared
+  "MedicationDispense-whenHandedOver" : for src.whenHandedOver make tgt.whenHandedOver
+  "MedicationDispense-destination" : for src.destination make tgt.destination
+  "MedicationDispense-receiver" : for src.receiver make tgt.receiver
   "MedicationDispense-dosageInstruction" : for src.dosageInstruction as vs0 make tgt.dosageInstruction as vt0 then {
-    "DosageInstruction-text" : for vs0.text as vs make vt0.text as vt then string(vs, vt)
-    "DosageInstruction-timing" : for vs0.timing as vs make vt0.timing as vt then Timing(vs,vt)
-    "DosageInstruction-asNeeded-boolean" : for vs0.asNeeded  : boolean as vs make vt0.asNeeded = create("boolean") as vt then boolean(vs,vt)
-    "DosageInstruction-asNeeded-CodeableConcept" : for vs0.asNeeded  : CodeableConcept as vs make vt0.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs,vt)
-    "DosageInstruction-site" : for vs0.siteCodeableConcept as vs make vt0.site as vt then CodeableConcept(vs,vt)
-    "DosageInstruction-route" : for vs0.route as vs make vt0.route as vt then CodeableConcept(vs,vt)
-    "DosageInstruction-method" : for vs0.method as vs make vt0.method as vt then CodeableConcept(vs,vt)
-    "DosageInstruction-dose-Range" : for vs0.dose  : Range as vs make vt0.dose = create("Range") as vt then Range(vs,vt)
-    "DosageInstruction-dose-Quantity" : for vs0.dose  : Quantity as vs make vt0.dose = create("Quantity") as vt then Quantity(vs,vt)
-    "DosageInstruction-rate-Ratio" : for vs0.rate  : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs,vt)
-    "DosageInstruction-rate-Range" : for vs0.rate  : Range as vs make vt0.rate = create("Range") as vt then Range(vs,vt)
-    "DosageInstruction-maxDosePerPeriod" : for vs0.maxDosePerPeriod as vs make vt0.maxDosePerPeriod as vt then Ratio(vs,vt)
+    "DosageInstruction-text" : for vs0.text make vt0.text
+    "DosageInstruction-timing" : for vs0.timing make vt0.timing
+    "DosageInstruction-asNeeded-boolean" : for vs0.asNeeded : boolean as vs make vt0.asNeeded = create("boolean") as vt then boolean(vs, vt)
+    "DosageInstruction-asNeeded-CodeableConcept" : for vs0.asNeeded : CodeableConcept as vs make vt0.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+    "DosageInstruction-site" : for vs0.siteCodeableConcept make vt0.site
+    "DosageInstruction-route" : for vs0.route make vt0.route
+    "DosageInstruction-method" : for vs0.method make vt0.method
+    "DosageInstruction-dose-Range" : for vs0.dose : Range as vs make vt0.dose = create("Range") as vt then Range(vs, vt)
+    "DosageInstruction-dose-Quantity" : for vs0.dose : Quantity as vs make vt0.dose = create("Quantity") as vt then Quantity(vs, vt)
+    "DosageInstruction-rate-Ratio" : for vs0.rate : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs, vt)
+    "DosageInstruction-rate-Range" : for vs0.rate : Range as vs make vt0.rate = create("Range") as vt then Range(vs, vt)
+    "DosageInstruction-maxDosePerPeriod" : for vs0.maxDosePerPeriod make vt0.maxDosePerPeriod
   }
-  "MedicationDispense-substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
-    "MedicationDispense.substitution-type" : for vs0.type as vs make vt0.type as vt then CodeableConcept(vs,vt)
-    "MedicationDispense.substitution-reason" : for vs0.reason as vs make vt0.reason as vt then CodeableConcept(vs,vt)
-    "MedicationDispense.substitution-responsibleParty" : for vs0.responsibleParty as vs make vt0.responsibleParty as vt then Reference(vs,vt)
-  }
-endgroup
 
+  "MedicationDispense-substitution" : for src.substitution as vs0 make tgt.substitution as vt0 then {
+    "MedicationDispense.substitution-type" : for vs0.type make vt0.type
+    "MedicationDispense.substitution-reason" : for vs0.reason make vt0.reason
+    "MedicationDispense.substitution-responsibleParty" : for vs0.responsibleParty make vt0.responsibleParty
+  }
+
+
+endgroup

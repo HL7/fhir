@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DocumentReference3to2" = "R3 to R2 Conversion for DocumentReference"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentReference" alias DocumentReferenceR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
@@ -14,41 +12,42 @@ imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group DocumentReference extends DomainResource
+group for type+types  DocumentReference extends DomainResource
   input src : DocumentReference as source
   input tgt : DocumentReferenceR2 as target
 
-  "DocumentReference-masterIdentifier" : for src.masterIdentifier as vs make tgt.masterIdentifier as vt then Identifier(vs,vt)
-  "DocumentReference-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "DocumentReference-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "DocumentReference-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "DocumentReference-class" : for src.class as vs make tgt.class as vt then CodeableConcept(vs,vt)
-  "DocumentReference-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-  "DocumentReference-custodian" : for src.custodian as vs make tgt.custodian as vt then Reference(vs,vt)
-  "DocumentReference-authenticator" : for src.authenticator as vs make tgt.authenticator as vt then Reference(vs,vt)
-  "DocumentReference-created" : for src.created as vs make tgt.created as vt then dateTime(vs, vt)
-  "DocumentReference-indexed" : for src.indexed as vs make tgt.indexed as vt then instant(vs, vt)
-  "DocumentReference-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "DocumentReference-docStatus" : for src.docStatus as vs make tgt.docStatus as vt then CodeableConcept(vs,vt)
+  "DocumentReference-masterIdentifier" : for src.masterIdentifier make tgt.masterIdentifier
+  "DocumentReference-identifier" : for src.identifier make tgt.identifier
+  "DocumentReference-subject" : for src.subject make tgt.subject
+  "DocumentReference-type" : for src.type make tgt.type
+  "DocumentReference-class" : for src.class make tgt.class
+  "DocumentReference-author" : for src.author make tgt.author
+  "DocumentReference-custodian" : for src.custodian make tgt.custodian
+  "DocumentReference-authenticator" : for src.authenticator make tgt.authenticator
+  "DocumentReference-created" : for src.created make tgt.created
+  "DocumentReference-indexed" : for src.indexed make tgt.indexed
+  "DocumentReference-status" : for src.status make tgt.status
+  "DocumentReference-docStatus" : for src.docStatus make tgt.docStatus
   "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "DocumentReference.relatesTo-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
-    "DocumentReference.relatesTo-target" : for vs0.target as vs make vt0.target as vt then Reference(vs,vt)
+    "DocumentReference.relatesTo-code" : for vs0.code make vt0.code
+    "DocumentReference.relatesTo-target" : for vs0.target make vt0.target
   }
-  "DocumentReference-description" : for src.description as vs make tgt.description as vt then string(vs, vt)
-  "DocumentReference-securityLabel" : for src.securityLabel as vs make tgt.securityLabel as vt then CodeableConcept(vs,vt)
-  "DocumentReference-content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentReference.content-attachment" : for vs0.attachment as vs make vt0.attachment as vt then Attachment(vs,vt)
-    "DocumentReference.content-format" : for vs0.format as vs make vt0.format as vt then Coding(vs,vt)
-  }
-  "DocumentReference-context" : for src.context as vs0 make tgt.context as vt0 then {
-    "DocumentReference.context-encounter" : for vs0.encounter as vs make vt0.encounter as vt then Reference(vs,vt)
-    "DocumentReference.context-event" : for vs0.event as vs make vt0.event as vt then CodeableConcept(vs,vt)
-    "DocumentReference.context-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
-    "DocumentReference.context-facilityType" : for vs0.facilityType as vs make vt0.facilityType as vt then CodeableConcept(vs,vt)
-    "DocumentReference.context-practiceSetting" : for vs0.practiceSetting as vs make vt0.practiceSetting as vt then CodeableConcept(vs,vt)
-    "DocumentReference.context-sourcePatientInfo" : for vs0.sourcePatientInfo as vs make vt0.sourcePatientInfo as vt then Reference(vs,vt)
-  }
-endgroup
 
+  "DocumentReference-description" : for src.description make tgt.description
+  "DocumentReference-securityLabel" : for src.securityLabel make tgt.securityLabel
+  "DocumentReference-content" : for src.content as vs0 make tgt.content as vt0 then {
+    "DocumentReference.content-attachment" : for vs0.attachment make vt0.attachment
+    "DocumentReference.content-format" : for vs0.format make vt0.format
+  }
+
+  "DocumentReference-context" : for src.context as vs0 make tgt.context as vt0 then {
+    "DocumentReference.context-encounter" : for vs0.encounter make vt0.encounter
+    "DocumentReference.context-event" : for vs0.event make vt0.event
+    "DocumentReference.context-period" : for vs0.period make vt0.period
+    "DocumentReference.context-facilityType" : for vs0.facilityType make vt0.facilityType
+    "DocumentReference.context-practiceSetting" : for vs0.practiceSetting make vt0.practiceSetting
+    "DocumentReference.context-sourcePatientInfo" : for vs0.sourcePatientInfo make vt0.sourcePatientInfo
+  }
+
+
+endgroup

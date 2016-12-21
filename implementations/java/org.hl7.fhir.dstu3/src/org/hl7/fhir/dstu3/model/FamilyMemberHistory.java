@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class FamilyMemberHistory extends DomainResource {
         throw new IllegalArgumentException("Unknown FamilyHistoryStatus code '"+codeString+"'");
         }
         public Enumeration<FamilyHistoryStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FamilyHistoryStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -405,15 +407,15 @@ public class FamilyMemberHistory extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("outcome"))
+        } else if (name.equals("outcome")) {
           this.outcome = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("onset[x]"))
+        } else if (name.equals("onset[x]")) {
           this.onset = castToType(value); // Type
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.note = castToAnnotation(value); // Annotation
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -424,8 +426,21 @@ public class FamilyMemberHistory extends DomainResource {
         case 3059181:  return getCode(); 
         case -1106507950:  return getOutcome(); 
         case -1886216323:  return getOnset(); 
+        case 105901603:  return getOnset(); 
         case 3387378:  return getNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
+        case 105901603: /*onset*/ return new String[] {"Age", "Range", "Period", "string"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1311,7 +1326,8 @@ public class FamilyMemberHistory extends DomainResource {
           this.date = castToDateTime(value); // DateTimeType
           return value;
         case -892481550: // status
-          this.status = new FamilyHistoryStatusEnumFactory().fromType(value); // Enumeration<FamilyHistoryStatus>
+          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -1320,7 +1336,8 @@ public class FamilyMemberHistory extends DomainResource {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1249512767: // gender
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
           return value;
         case 3029833: // born
           this.born = castToType(value); // Type
@@ -1347,33 +1364,35 @@ public class FamilyMemberHistory extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("status"))
-          this.status = new FamilyHistoryStatusEnumFactory().fromType(value); // Enumeration<FamilyHistoryStatus>
-        else if (name.equals("name"))
+        } else if (name.equals("status")) {
+          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("relationship"))
+        } else if (name.equals("relationship")) {
           this.relationship = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("gender"))
-          this.gender = new AdministrativeGenderEnumFactory().fromType(value); // Enumeration<AdministrativeGender>
-        else if (name.equals("born[x]"))
+        } else if (name.equals("gender")) {
+          value = new AdministrativeGenderEnumFactory().fromType(castToCode(value));
+          this.gender = (Enumeration) value; // Enumeration<AdministrativeGender>
+        } else if (name.equals("born[x]")) {
           this.born = castToType(value); // Type
-        else if (name.equals("age[x]"))
+        } else if (name.equals("age[x]")) {
           this.age = castToType(value); // Type
-        else if (name.equals("estimatedAge"))
+        } else if (name.equals("estimatedAge")) {
           this.estimatedAge = castToBoolean(value); // BooleanType
-        else if (name.equals("deceased[x]"))
+        } else if (name.equals("deceased[x]")) {
           this.deceased = castToType(value); // Type
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.note = castToAnnotation(value); // Annotation
-        else if (name.equals("condition"))
+        } else if (name.equals("condition")) {
           this.getCondition().add((FamilyMemberHistoryConditionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1389,12 +1408,36 @@ public class FamilyMemberHistory extends DomainResource {
         case -261851592:  return getRelationship(); 
         case -1249512767:  return getGenderElement();
         case 67532951:  return getBorn(); 
+        case 3029833:  return getBorn(); 
         case -1419716831:  return getAge(); 
+        case 96511:  return getAge(); 
         case 2130167587:  return getEstimatedAgeElement();
         case -1311442804:  return getDeceased(); 
+        case 561497972:  return getDeceased(); 
         case 3387378:  return getNote(); 
         case -861311717:  return addCondition(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
+        case -1249512767: /*gender*/ return new String[] {"code"};
+        case 3029833: /*born*/ return new String[] {"Period", "date", "string"};
+        case 96511: /*age*/ return new String[] {"Age", "Range", "string"};
+        case 2130167587: /*estimatedAge*/ return new String[] {"boolean"};
+        case 561497972: /*deceased*/ return new String[] {"boolean", "Age", "Range", "date", "string"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -861311717: /*condition*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

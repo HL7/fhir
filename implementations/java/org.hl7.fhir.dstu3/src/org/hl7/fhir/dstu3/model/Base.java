@@ -670,6 +670,10 @@ private Map<String, Object> userData;
 		throw new FHIRException("Attempt to make an invalid property '"+name+"' on type "+fhirType());
 	}
 
+	public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+    throw new FHIRException("Attempt to get types for an invalid property '"+name+"' on type "+fhirType());
+	}
+	
 	public static boolean equals(String v1, String v2) {
   	if (v1 == null && v2 == null)
   		return true;

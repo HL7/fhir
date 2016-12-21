@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -396,17 +396,17 @@ public class ConceptMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("source"))
+        if (name.equals("source")) {
           this.source = castToUri(value); // UriType
-        else if (name.equals("sourceVersion"))
+        } else if (name.equals("sourceVersion")) {
           this.sourceVersion = castToString(value); // StringType
-        else if (name.equals("target"))
+        } else if (name.equals("target")) {
           this.target = castToUri(value); // UriType
-        else if (name.equals("targetVersion"))
+        } else if (name.equals("targetVersion")) {
           this.targetVersion = castToString(value); // StringType
-        else if (name.equals("element"))
+        } else if (name.equals("element")) {
           this.getElement().add((SourceElementComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -420,6 +420,19 @@ public class ConceptMap extends MetadataResource {
         case -1639412217:  return getTargetVersionElement();
         case -1662836996:  return addElement(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -896505829: /*source*/ return new String[] {"uri"};
+        case 446171197: /*sourceVersion*/ return new String[] {"string"};
+        case -880905839: /*target*/ return new String[] {"uri"};
+        case -1639412217: /*targetVersion*/ return new String[] {"string"};
+        case -1662836996: /*element*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -654,11 +667,11 @@ public class ConceptMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("target"))
+        } else if (name.equals("target")) {
           this.getTarget().add((TargetElementComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -669,6 +682,16 @@ public class ConceptMap extends MetadataResource {
         case 3059181:  return getCodeElement();
         case -880905839:  return addTarget(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case -880905839: /*target*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1057,7 +1080,8 @@ public class ConceptMap extends MetadataResource {
           this.code = castToCode(value); // CodeType
           return value;
         case -15828692: // equivalence
-          this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
+          value = new ConceptMapEquivalenceEnumFactory().fromType(castToCode(value));
+          this.equivalence = (Enumeration) value; // Enumeration<ConceptMapEquivalence>
           return value;
         case -602415628: // comments
           this.comments = castToString(value); // StringType
@@ -1075,17 +1099,18 @@ public class ConceptMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("equivalence"))
-          this.equivalence = new ConceptMapEquivalenceEnumFactory().fromType(value); // Enumeration<ConceptMapEquivalence>
-        else if (name.equals("comments"))
+        } else if (name.equals("equivalence")) {
+          value = new ConceptMapEquivalenceEnumFactory().fromType(castToCode(value));
+          this.equivalence = (Enumeration) value; // Enumeration<ConceptMapEquivalence>
+        } else if (name.equals("comments")) {
           this.comments = castToString(value); // StringType
-        else if (name.equals("dependsOn"))
+        } else if (name.equals("dependsOn")) {
           this.getDependsOn().add((OtherElementComponent) value);
-        else if (name.equals("product"))
+        } else if (name.equals("product")) {
           this.getProduct().add((OtherElementComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1099,6 +1124,19 @@ public class ConceptMap extends MetadataResource {
         case -1109214266:  return addDependsOn(); 
         case -309474065:  return addProduct(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case -15828692: /*equivalence*/ return new String[] {"code"};
+        case -602415628: /*comments*/ return new String[] {"string"};
+        case -1109214266: /*dependsOn*/ return new String[] {};
+        case -309474065: /*product*/ return new String[] {"@ConceptMap.group.element.target.dependsOn"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1394,13 +1432,13 @@ public class ConceptMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("property"))
+        if (name.equals("property")) {
           this.property = castToUri(value); // UriType
-        else if (name.equals("system"))
+        } else if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1412,6 +1450,17 @@ public class ConceptMap extends MetadataResource {
         case -887328209:  return getSystemElement();
         case 3059181:  return getCodeElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -993141291: /*property*/ return new String[] {"uri"};
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 3059181: /*code*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2456,7 +2505,8 @@ public class ConceptMap extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -2501,43 +2551,44 @@ public class ConceptMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("source[x]"))
+        } else if (name.equals("source[x]")) {
           this.source = castToType(value); // Type
-        else if (name.equals("target[x]"))
+        } else if (name.equals("target[x]")) {
           this.target = castToType(value); // Type
-        else if (name.equals("group"))
+        } else if (name.equals("group")) {
           this.getGroup().add((ConceptMapGroupComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2561,9 +2612,37 @@ public class ConceptMap extends MetadataResource {
         case -220463842:  return getPurposeElement();
         case 1522889671:  return getCopyrightElement();
         case -1698413947:  return getSource(); 
+        case -896505829:  return getSource(); 
         case -815579825:  return getTarget(); 
+        case -880905839:  return getTarget(); 
         case 98629247:  return addGroup(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case -896505829: /*source*/ return new String[] {"uri", "Reference"};
+        case -880905839: /*target*/ return new String[] {"uri", "Reference"};
+        case 98629247: /*group*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

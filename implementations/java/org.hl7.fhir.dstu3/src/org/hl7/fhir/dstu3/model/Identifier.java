@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Identifier extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown IdentifierUse code '"+codeString+"'");
         }
         public Enumeration<IdentifierUse> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<IdentifierUse>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -495,7 +497,8 @@ public class Identifier extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116103: // use
-          this.use = new IdentifierUseEnumFactory().fromType(value); // Enumeration<IdentifierUse>
+          value = new IdentifierUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<IdentifierUse>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -519,19 +522,20 @@ public class Identifier extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("use"))
-          this.use = new IdentifierUseEnumFactory().fromType(value); // Enumeration<IdentifierUse>
-        else if (name.equals("type"))
+        if (name.equals("use")) {
+          value = new IdentifierUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<IdentifierUse>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("system"))
+        } else if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("assigner"))
+        } else if (name.equals("assigner")) {
           this.assigner = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -546,6 +550,20 @@ public class Identifier extends Type implements ICompositeType {
         case -991726143:  return getPeriod(); 
         case -369881636:  return getAssigner(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116103: /*use*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -369881636: /*assigner*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

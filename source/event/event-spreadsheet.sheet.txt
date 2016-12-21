@@ -90,6 +90,7 @@
   Type = Logical
   Short Name = Event Pattern
   Definition = A pattern to be followed by resources that represent the performance of some activity, possibly in accordance with a request or service definition
+  v2 Mapping = EVN (for administrative events)
   RIM Mapping = Act[moodCode=EVN]
 
  -- Row 2 -----------------------------------
@@ -100,6 +101,7 @@
   Short Name = Business Identifer for event
   Definition = Identifiers assigned to this event performer or other systems
   Requirements = Allows identification of the event as it is known by various participating systems and in a way that remains consistent across servers
+  v2 Mapping = Varies by domain
   RIM Mapping = .identifier
   w5 = id
 
@@ -111,6 +113,7 @@
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event
   Comments = [The allowed reference resources may be adjusted as appropriate for the event resource]
+  v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
 
  -- Row 4 -----------------------------------
@@ -123,6 +126,7 @@
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this event
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
   Comments = [The allowed reference resources may be adjusted as appropriate for the event resource]
+  v2 Mapping = ORC in proximity to EVN segment
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
  -- Row 5 -----------------------------------
@@ -135,6 +139,7 @@
   Definition = A larger event of which this particular event is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
   Comments = Not to be used to link an event to an Encounter - use Event.context for that.\n\n[The allowed reference resources may be adjusted as appropriate for the event resource]
+  v2 Mapping = Varies by domain
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
 
  -- Row 6 -----------------------------------
@@ -147,6 +152,7 @@
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
   Definition = The current state of the event
   Comments = A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
+  v2 Mapping = Varies by domain
   RIM Mapping = .status
   To Do = Should this be a common code system for all events?
   w5 = status
@@ -161,6 +167,7 @@
   Definition = If true, indicates that the described event (combination of code, timing, performer, etc.) did not actually occur.
   Requirements = Creating a {{title}} where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
   Comments = The more attributes are populated, the more constrained the negated statement is.  For example if timeframe and performer are specified, that means the event wasn\'t done by that performer in that time-period, but could well have been done by someone else or by that performer in a different time period.
+  v2 Mapping = Varies by domain
   RIM Mapping = .actionNegationInd
 
  -- Row 8 -----------------------------------
@@ -172,6 +179,7 @@
   Short Name = Why {{title}} did not occur
   Definition = Describes why the event did not occur in coded and/or textual form.
   Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
+  v2 Mapping = Varies by domain
   RIM Mapping = .reasonCode
 
  -- Row 9 -----------------------------------
@@ -183,6 +191,7 @@
   Binding = EventCode
   Short Name = What was done
   Definition = A code that identifies the specific service or action that was or is being performed
+  v2 Mapping = Varies by domain
   RIM Mapping = .code
   w5 = what
 
@@ -196,6 +205,7 @@
   Definition = The individual or set of individuals the action is being or was performed on
   Requirements = Links the event to the Patient context
   Comments = [For resources that aren\'t patient-specific, the set of allowed resources may be extended to include other things.  Group should generally be retained unless there\'s certainty this resource won\'t be used for veterinary, research or public health settings where Group may be necessary (e.g. this cage of rats/crate of chickens, group of people in a 5 mile radious of the incident, etc.)]
+  v2 Mapping = PAT in proximity to EVN segment
   RIM Mapping = .participation[typeCode=SBJ].role
   To Do = For mapping, is it better if we make this Any and then constrain it down?
   w5 = who.focus
@@ -210,6 +220,7 @@
   Definition = The encounter or episode of care that establishes the context for this event
   Requirements = Links the request to the Encounter context
   Comments = This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter or episode but still be tied to the context of the encounter or episode (e.g. pre-admission lab tests).
+  v2 Mapping = PV1 in proximity to EVN segment
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
 
@@ -222,6 +233,7 @@
   Short Name = When event occurred
   Definition = The date or time(s) the activity occurred.
   Comments = [The list of types may be constrained as appropriate for the type of event]
+  v2 Mapping = Varies by domain
   RIM Mapping = .effectiveTime
   w5 = when.done
 
@@ -232,6 +244,7 @@
   Short Name = Who performed event
   Definition = Indicates who or what performed the event
   Comments = [Resources may choose to replace this with just a single performer or repeating where there\'s no need to distinguish role and/or responsible organization]
+  v2 Mapping = EVN.5 or by domain
   RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
 
  -- Row 14 -----------------------------------
@@ -242,6 +255,7 @@
   Binding = EventPerformerRole
   Short Name = What type of performance was done
   Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)
+  v2 Mapping = Varies by domain
   RIM Mapping = .participation.functionCode
 
  -- Row 15 -----------------------------------
@@ -251,6 +265,7 @@
   Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action
+  v2 Mapping = EVN.5 or by domain
   RIM Mapping = .player
   w5 = who.actor
 
@@ -261,6 +276,7 @@
   Short Name = Organization organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action
+  v2 Mapping = N/A
   RIM Mapping = .scoper
 
  -- Row 17 -----------------------------------
@@ -272,6 +288,7 @@
   Short Name = Why was event performed?
   Definition = Describes why the event occurred in coded or textual form.
   Comments = Textual reasons can be caprued using reasonCode.text
+  v2 Mapping = EVN.4 or by domain
   RIM Mapping = .reasonCode
   w5 = why
 
@@ -283,6 +300,7 @@
   Short Name = Why was event performed?
   Definition = Indicates another resource whose existence justifies this event
   Comments = [Additional resources may be added as appropriate]
+  v2 Mapping = EVN.4 or by domain
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
@@ -292,4 +310,5 @@
   Type = Annotation
   Short Name = Comments made about the event
   Definition = Comments made about the event by the performer, subject or other participants.
+  v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -235,8 +235,10 @@ public class Task extends DomainResource {
         throw new IllegalArgumentException("Unknown TaskStatus code '"+codeString+"'");
         }
         public Enumeration<TaskStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TaskStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -439,8 +441,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         throw new IllegalArgumentException("Unknown TaskIntent code '"+codeString+"'");
         }
         public Enumeration<TaskIntent> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TaskIntent>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -577,8 +581,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         throw new IllegalArgumentException("Unknown TaskPriority code '"+codeString+"'");
         }
         public Enumeration<TaskPriority> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<TaskPriority>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -766,11 +772,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("agent"))
+        if (name.equals("agent")) {
           this.agent = castToReference(value); // Reference
-        else if (name.equals("onBehalfOf"))
+        } else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -781,6 +787,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 92750597:  return getAgent(); 
         case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92750597: /*agent*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1044,13 +1060,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("repetitions"))
+        if (name.equals("repetitions")) {
           this.repetitions = castToPositiveInt(value); // PositiveIntType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("recipient"))
+        } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1062,6 +1078,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -991726143:  return getPeriod(); 
         case 820081177:  return addRecipient(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 984367650: /*repetitions*/ return new String[] {"positiveInt"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1237,11 +1264,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1251,7 +1278,18 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         switch (hash) {
         case 3575610:  return getType(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"*"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1546,11 +1584,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
+        if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // org.hl7.fhir.dstu3.model.Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1560,7 +1598,18 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         switch (hash) {
         case 3575610:  return getType(); 
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 111972721: /*value*/ return new String[] {"*"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3234,7 +3283,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getPartOf().add(castToReference(value)); // Reference
           return value;
         case -892481550: // status
-          this.status = new TaskStatusEnumFactory().fromType(value); // Enumeration<TaskStatus>
+          value = new TaskStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<TaskStatus>
           return value;
         case 2051346646: // statusReason
           this.statusReason = castToCodeableConcept(value); // CodeableConcept
@@ -3243,10 +3293,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.businessStatus = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1183762788: // intent
-          this.intent = new TaskIntentEnumFactory().fromType(value); // Enumeration<TaskIntent>
+          value = new TaskIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<TaskIntent>
           return value;
         case -1165461084: // priority
-          this.priority = new TaskPriorityEnumFactory().fromType(value); // Enumeration<TaskPriority>
+          value = new TaskPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<TaskPriority>
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -3306,61 +3358,64 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("definition[x]"))
+        } else if (name.equals("definition[x]")) {
           this.definition = castToType(value); // Type
-        else if (name.equals("basedOn"))
+        } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
-        else if (name.equals("groupIdentifier"))
+        } else if (name.equals("groupIdentifier")) {
           this.groupIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("partOf"))
+        } else if (name.equals("partOf")) {
           this.getPartOf().add(castToReference(value));
-        else if (name.equals("status"))
-          this.status = new TaskStatusEnumFactory().fromType(value); // Enumeration<TaskStatus>
-        else if (name.equals("statusReason"))
+        } else if (name.equals("status")) {
+          value = new TaskStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<TaskStatus>
+        } else if (name.equals("statusReason")) {
           this.statusReason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("businessStatus"))
+        } else if (name.equals("businessStatus")) {
           this.businessStatus = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("intent"))
-          this.intent = new TaskIntentEnumFactory().fromType(value); // Enumeration<TaskIntent>
-        else if (name.equals("priority"))
-          this.priority = new TaskPriorityEnumFactory().fromType(value); // Enumeration<TaskPriority>
-        else if (name.equals("code"))
+        } else if (name.equals("intent")) {
+          value = new TaskIntentEnumFactory().fromType(castToCode(value));
+          this.intent = (Enumeration) value; // Enumeration<TaskIntent>
+        } else if (name.equals("priority")) {
+          value = new TaskPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<TaskPriority>
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("focus"))
+        } else if (name.equals("focus")) {
           this.focus = castToReference(value); // Reference
-        else if (name.equals("for"))
+        } else if (name.equals("for")) {
           this.for_ = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("executionPeriod"))
+        } else if (name.equals("executionPeriod")) {
           this.executionPeriod = castToPeriod(value); // Period
-        else if (name.equals("authoredOn"))
+        } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
-        else if (name.equals("lastModified"))
+        } else if (name.equals("lastModified")) {
           this.lastModified = castToDateTime(value); // DateTimeType
-        else if (name.equals("requester"))
+        } else if (name.equals("requester")) {
           this.requester = (TaskRequesterComponent) value; // TaskRequesterComponent
-        else if (name.equals("performerType"))
+        } else if (name.equals("performerType")) {
           this.getPerformerType().add(castToCodeableConcept(value));
-        else if (name.equals("owner"))
+        } else if (name.equals("owner")) {
           this.owner = castToReference(value); // Reference
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.reason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("relevantHistory"))
+        } else if (name.equals("relevantHistory")) {
           this.getRelevantHistory().add(castToReference(value));
-        else if (name.equals("restriction"))
+        } else if (name.equals("restriction")) {
           this.restriction = (TaskRestrictionComponent) value; // TaskRestrictionComponent
-        else if (name.equals("input"))
+        } else if (name.equals("input")) {
           this.getInput().add((ParameterComponent) value);
-        else if (name.equals("output"))
+        } else if (name.equals("output")) {
           this.getOutput().add((TaskOutputComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3370,6 +3425,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -1139422643:  return getDefinition(); 
+        case -1014418093:  return getDefinition(); 
         case -332612366:  return addBasedOn(); 
         case -445338488:  return getGroupIdentifier(); 
         case -995410646:  return addPartOf(); 
@@ -3396,6 +3452,41 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 100358090:  return addInput(); 
         case -1005512447:  return addOutput(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1014418093: /*definition*/ return new String[] {"uri", "Reference"};
+        case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
+        case 2008591314: /*businessStatus*/ return new String[] {"CodeableConcept"};
+        case -1183762788: /*intent*/ return new String[] {"code"};
+        case -1165461084: /*priority*/ return new String[] {"code"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 97604824: /*focus*/ return new String[] {"Reference"};
+        case 101577: /*for*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1218624249: /*executionPeriod*/ return new String[] {"Period"};
+        case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
+        case 1959003007: /*lastModified*/ return new String[] {"dateTime"};
+        case 693933948: /*requester*/ return new String[] {};
+        case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
+        case 106164915: /*owner*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
+        case -1561062452: /*restriction*/ return new String[] {};
+        case 100358090: /*input*/ return new String[] {};
+        case -1005512447: /*output*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

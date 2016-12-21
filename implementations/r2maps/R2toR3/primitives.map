@@ -39,156 +39,165 @@ uses "http://hl7.org/fhir/StructureDefinition/xhtml" as target
 
 imports "http://hl7.org/fhir/StructureMap/Element2to3"
 
-group base64Binary extends Element
+group for type+types base64Binary extends Element
   input src : base64BinaryR2 as source
   input tgt : base64Binary as target
 
   "base64Binary-value" : for src.value as v make tgt.value = v
+
 endgroup
 
-group boolean extends Element
+group for type+types boolean extends Element
   input src : booleanR2 as source
   input tgt : boolean as target
 
   "boolean-value" : for src.value as v make tgt.value = v
 endgroup
 
-group code extends Element
+group for type+types code extends Element
   input src : codeR2 as source
   input tgt : code as target
 
   "code-value" : for src.value as v make tgt.value = v
 endgroup
 
-group date extends Element
+group for type+types date extends Element
   input src : dateR2 as source
   input tgt : date as target
 
   "date-value" : for src.value as v make tgt.value = v
 endgroup
 
-group dateTime extends Element
+group for type+types dateTime extends Element
   input src : dateTimeR2 as source
   input tgt : dateTime as target
 
   "dateTime-value" : for src.value as v make tgt.value = v
 endgroup
 
-group decimal extends Element
+group for type+types decimal extends Element
   input src : decimalR2 as source
   input tgt : decimal as target
 
   "decimal-value" : for src.value as v make tgt.value = v
 endgroup
 
-group id extends Element
+group for type+types id extends Element
   input src : idR2 as source
   input tgt : id as target
 
   "id-value" : for src.value as v make tgt.value = v
 endgroup
 
-group instant extends Element
+group for type+types instant extends Element
   input src : instantR2 as source
   input tgt : instant as target
 
   "instant-value" : for src.value as v make tgt.value = v
 endgroup
 
-group integer extends Element
+group for type+types integer extends Element
   input src : integerR2 as source
   input tgt : integer as target
 
   "integer-value" : for src.value as v make tgt.value = v
 endgroup
 
-group markdown extends Element
+group for type+types markdown extends Element
   input src : markdownR2 as source
   input tgt : markdown as target
 
   "markdown-value" : for src.value as v make tgt.value = v
 endgroup
 
-group oid extends Element
+group for type+types oid extends Element
   input src : oidR2 as source
   input tgt : oid as target
 
   "oid-value" : for src.value as v make tgt.value = v
 endgroup
 
-group positiveInt extends Element
+group for type+types positiveInt extends Element
   input src : positiveIntR2 as source
   input tgt : positiveInt as target
 
   "positiveInt-value" : for src.value as v make tgt.value = v
 endgroup
 
-group string extends Element
+group for type+types string extends Element
   input src : stringR2 as source
   input tgt : string as target
 
   "string-value" : for src.value as v make tgt.value = v
 endgroup
 
-group time extends Element
+group for type+types time extends Element
   input src : timeR2 as source
   input tgt : time as target
 
   "time-value" : for src.value as v make tgt.value = v
 endgroup
 
-group unsignedInt extends Element
+group for type+types unsignedInt extends Element
   input src : unsignedIntR2 as source
   input tgt : unsignedInt as target
 
   "unsignedInt-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uri extends Element
+group for type+types uri extends Element
   input src : uriR2 as source
   input tgt : uri as target
 
   "uri-value" : for src.value as v make tgt.value = v
 endgroup
 
-group uuid extends Element
+group for type+types uuid extends Element
   input src : uuidR2 as source
   input tgt : uuid as target
 
   "uuid-value" : for src.value as v make tgt.value = v
 endgroup
 
-group xhtml extends Element
+group for type+types xhtml extends Element
   input src : xhtmlR2 as source
   input tgt : xhtml as target
 
   "xhtml-value" : for src.value as v make tgt.value = v
 endgroup
 
-group stringToMarkdown extends Element
+group for types stringToMarkdown extends Element
   input src : stringR2 as source
   input tgt : markdown as target
 
   "stringToMarkdown-value" : for src.value as v make tgt.value = v
 endgroup
 
-group codeToUri extends Element
+group for types codeToUri extends Element
   input src : codeR2 as source
   input tgt : uri as target
 
   "codeToUri-value" : for src.value as v make tgt.value = v
 endgroup
 
-group stringToId extends Element
+group for types stringToId extends Element
   input src : stringR2 as source
   input tgt : id as target
 
   "stringToId-value" : for src.value as v make tgt.value = v
 endgroup
 
-group stringToUri extends Element
+group for types stringToUri extends Element
   input src : stringR2 as source
   input tgt : uri as target
 
   "stringToUri-value" : for src.value as v make tgt.value = v
 endgroup
+
+group for types stringToCode extends Element
+  input src : stringR2 as source
+  input tgt : code as target
+
+  "stringToCode-value" : for src.value as v make tgt.value = v
+endgroup
+

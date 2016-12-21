@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -186,8 +186,10 @@ public class RelatedArtifact extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown RelatedArtifactType code '"+codeString+"'");
         }
         public Enumeration<RelatedArtifactType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<RelatedArtifactType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -581,7 +583,8 @@ public class RelatedArtifact extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
+          value = new RelatedArtifactTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<RelatedArtifactType>
           return value;
         case 1671764162: // display
           this.display = castToString(value); // StringType
@@ -605,19 +608,20 @@ public class RelatedArtifact extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new RelatedArtifactTypeEnumFactory().fromType(value); // Enumeration<RelatedArtifactType>
-        else if (name.equals("display"))
+        if (name.equals("type")) {
+          value = new RelatedArtifactTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<RelatedArtifactType>
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else if (name.equals("citation"))
+        } else if (name.equals("citation")) {
           this.citation = castToString(value); // StringType
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("document"))
+        } else if (name.equals("document")) {
           this.document = castToAttachment(value); // Attachment
-        else if (name.equals("resource"))
+        } else if (name.equals("resource")) {
           this.resource = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -632,6 +636,20 @@ public class RelatedArtifact extends Type implements ICompositeType {
         case 861720859:  return getDocument(); 
         case -341064690:  return getResource(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        case -1442706713: /*citation*/ return new String[] {"string"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 861720859: /*document*/ return new String[] {"Attachment"};
+        case -341064690: /*resource*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

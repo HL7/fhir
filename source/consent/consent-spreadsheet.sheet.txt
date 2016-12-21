@@ -76,7 +76,7 @@
   Id = 2
   Code = proposed
   Display = Proposed
-  Definition = The consent has be proposed but not yet agreed to by all parties. The negotiation stage.
+  Definition = The consent has been proposed but not yet agreed to by all parties. The negotiation stage.
 
  -- Row 3 -----------------------------------
   Id = 3

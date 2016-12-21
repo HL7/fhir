@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class Provenance extends DomainResource {
         throw new IllegalArgumentException("Unknown ProvenanceEntityRole code '"+codeString+"'");
         }
         public Enumeration<ProvenanceEntityRole> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ProvenanceEntityRole>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -416,15 +418,15 @@ public class Provenance extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role"))
+        if (name.equals("role")) {
           this.role = castToCoding(value); // Coding
-        else if (name.equals("who[x]"))
+        } else if (name.equals("who[x]")) {
           this.who = castToType(value); // Type
-        else if (name.equals("onBehalfOf[x]"))
+        } else if (name.equals("onBehalfOf[x]")) {
           this.onBehalfOf = castToType(value); // Type
-        else if (name.equals("relatedAgentType"))
+        } else if (name.equals("relatedAgentType")) {
           this.relatedAgentType = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -434,9 +436,23 @@ public class Provenance extends DomainResource {
         switch (hash) {
         case 3506294:  return getRole(); 
         case -788654078:  return getWho(); 
+        case 117694:  return getWho(); 
         case 418120340:  return getOnBehalfOf(); 
+        case -14402964:  return getOnBehalfOf(); 
         case 1228161012:  return getRelatedAgentType(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"Coding"};
+        case 117694: /*who*/ return new String[] {"uri", "Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"uri", "Reference"};
+        case 1228161012: /*relatedAgentType*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -720,7 +736,8 @@ public class Provenance extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3506294: // role
-          this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
+          value = new ProvenanceEntityRoleEnumFactory().fromType(castToCode(value));
+          this.role = (Enumeration) value; // Enumeration<ProvenanceEntityRole>
           return value;
         case -925155509: // reference
           this.reference = castToReference(value); // Reference
@@ -735,13 +752,14 @@ public class Provenance extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role"))
-          this.role = new ProvenanceEntityRoleEnumFactory().fromType(value); // Enumeration<ProvenanceEntityRole>
-        else if (name.equals("reference"))
+        if (name.equals("role")) {
+          value = new ProvenanceEntityRoleEnumFactory().fromType(castToCode(value));
+          this.role = (Enumeration) value; // Enumeration<ProvenanceEntityRole>
+        } else if (name.equals("reference")) {
           this.reference = castToReference(value); // Reference
-        else if (name.equals("agent"))
+        } else if (name.equals("agent")) {
           this.getAgent().add((ProvenanceAgentComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -753,6 +771,17 @@ public class Provenance extends DomainResource {
         case -925155509:  return getReference(); 
         case 92750597:  return addAgent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"code"};
+        case -925155509: /*reference*/ return new String[] {"Reference"};
+        case 92750597: /*agent*/ return new String[] {"@Provenance.agent"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1462,27 +1491,27 @@ public class Provenance extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("target"))
+        if (name.equals("target")) {
           this.getTarget().add(castToReference(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("recorded"))
+        } else if (name.equals("recorded")) {
           this.recorded = castToInstant(value); // InstantType
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.getReason().add(castToCoding(value));
-        else if (name.equals("activity"))
+        } else if (name.equals("activity")) {
           this.activity = castToCoding(value); // Coding
-        else if (name.equals("location"))
+        } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        else if (name.equals("policy"))
+        } else if (name.equals("policy")) {
           this.getPolicy().add(castToUri(value));
-        else if (name.equals("agent"))
+        } else if (name.equals("agent")) {
           this.getAgent().add((ProvenanceAgentComponent) value);
-        else if (name.equals("entity"))
+        } else if (name.equals("entity")) {
           this.getEntity().add((ProvenanceEntityComponent) value);
-        else if (name.equals("signature"))
+        } else if (name.equals("signature")) {
           this.getSignature().add(castToSignature(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1501,6 +1530,24 @@ public class Provenance extends DomainResource {
         case -1298275357:  return addEntity(); 
         case 1073584312:  return addSignature(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -880905839: /*target*/ return new String[] {"Reference"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -799233872: /*recorded*/ return new String[] {"instant"};
+        case -934964668: /*reason*/ return new String[] {"Coding"};
+        case -1655966961: /*activity*/ return new String[] {"Coding"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
+        case -982670030: /*policy*/ return new String[] {"uri"};
+        case 92750597: /*agent*/ return new String[] {};
+        case -1298275357: /*entity*/ return new String[] {};
+        case 1073584312: /*signature*/ return new String[] {"Signature"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1650,27 +1697,21 @@ public class Provenance extends DomainResource {
    * Search parameter: <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="token", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>reference</b><br>
+   * Type: <b>token</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Provenance:agent</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Provenance:agent").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT);
 
  /**
    * Search parameter: <b>patient</b>

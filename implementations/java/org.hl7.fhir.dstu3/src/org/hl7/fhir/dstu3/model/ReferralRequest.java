@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,8 +151,10 @@ public class ReferralRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ReferralStatus code '"+codeString+"'");
         }
         public Enumeration<ReferralStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ReferralStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -265,8 +267,10 @@ public class ReferralRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown ReferralCategory code '"+codeString+"'");
         }
         public Enumeration<ReferralCategory> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ReferralCategory>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1281,10 +1285,12 @@ public class ReferralRequest extends DomainResource {
           this.parent = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ReferralStatusEnumFactory().fromType(value); // Enumeration<ReferralStatus>
+          value = new ReferralStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ReferralStatus>
           return value;
         case 50511102: // category
-          this.category = new ReferralCategoryEnumFactory().fromType(value); // Enumeration<ReferralCategory>
+          value = new ReferralCategoryEnumFactory().fromType(castToCode(value));
+          this.category = (Enumeration) value; // Enumeration<ReferralCategory>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -1332,43 +1338,45 @@ public class ReferralRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("basedOn"))
+        } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
-        else if (name.equals("parent"))
+        } else if (name.equals("parent")) {
           this.parent = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new ReferralStatusEnumFactory().fromType(value); // Enumeration<ReferralStatus>
-        else if (name.equals("category"))
-          this.category = new ReferralCategoryEnumFactory().fromType(value); // Enumeration<ReferralCategory>
-        else if (name.equals("type"))
+        } else if (name.equals("status")) {
+          value = new ReferralStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ReferralStatus>
+        } else if (name.equals("category")) {
+          value = new ReferralCategoryEnumFactory().fromType(castToCode(value));
+          this.category = (Enumeration) value; // Enumeration<ReferralCategory>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("priority"))
+        } else if (name.equals("priority")) {
           this.priority = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("fulfillmentTime"))
+        } else if (name.equals("fulfillmentTime")) {
           this.fulfillmentTime = castToPeriod(value); // Period
-        else if (name.equals("authored"))
+        } else if (name.equals("authored")) {
           this.authored = castToDateTime(value); // DateTimeType
-        else if (name.equals("requester"))
+        } else if (name.equals("requester")) {
           this.requester = castToReference(value); // Reference
-        else if (name.equals("specialty"))
+        } else if (name.equals("specialty")) {
           this.specialty = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("recipient"))
+        } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.reason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("serviceRequested"))
+        } else if (name.equals("serviceRequested")) {
           this.getServiceRequested().add(castToCodeableConcept(value));
-        else if (name.equals("supportingInformation"))
+        } else if (name.equals("supportingInformation")) {
           this.getSupportingInformation().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1395,6 +1403,32 @@ public class ReferralRequest extends DomainResource {
         case 190229561:  return addServiceRequested(); 
         case -1248768647:  return addSupportingInformation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -995424086: /*parent*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case 1098185163: /*fulfillmentTime*/ return new String[] {"Period"};
+        case 1433073514: /*authored*/ return new String[] {"dateTime"};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 190229561: /*serviceRequested*/ return new String[] {"CodeableConcept"};
+        case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

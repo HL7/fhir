@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class Device extends DomainResource {
         throw new IllegalArgumentException("Unknown DeviceStatus code '"+codeString+"'");
         }
         public Enumeration<DeviceStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DeviceStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1077,7 +1079,8 @@ public class Device extends DomainResource {
           this.udiCarrier = castToIdentifier(value); // Identifier
           return value;
         case -892481550: // status
-          this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
+          value = new DeviceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DeviceStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -1125,39 +1128,40 @@ public class Device extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("udiCarrier"))
+        } else if (name.equals("udiCarrier")) {
           this.udiCarrier = castToIdentifier(value); // Identifier
-        else if (name.equals("status"))
-          this.status = new DeviceStatusEnumFactory().fromType(value); // Enumeration<DeviceStatus>
-        else if (name.equals("type"))
+        } else if (name.equals("status")) {
+          value = new DeviceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<DeviceStatus>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("lotNumber"))
+        } else if (name.equals("lotNumber")) {
           this.lotNumber = castToString(value); // StringType
-        else if (name.equals("manufacturer"))
+        } else if (name.equals("manufacturer")) {
           this.manufacturer = castToString(value); // StringType
-        else if (name.equals("manufactureDate"))
+        } else if (name.equals("manufactureDate")) {
           this.manufactureDate = castToDateTime(value); // DateTimeType
-        else if (name.equals("expirationDate"))
+        } else if (name.equals("expirationDate")) {
           this.expirationDate = castToDateTime(value); // DateTimeType
-        else if (name.equals("model"))
+        } else if (name.equals("model")) {
           this.model = castToString(value); // StringType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("owner"))
+        } else if (name.equals("owner")) {
           this.owner = castToReference(value); // Reference
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactPoint(value));
-        else if (name.equals("location"))
+        } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        else if (name.equals("url"))
+        } else if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1182,6 +1186,30 @@ public class Device extends DomainResource {
         case 116079:  return getUrlElement();
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1343558178: /*udiCarrier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 462547450: /*lotNumber*/ return new String[] {"string"};
+        case -1969347631: /*manufacturer*/ return new String[] {"string"};
+        case 416714767: /*manufactureDate*/ return new String[] {"dateTime"};
+        case -668811523: /*expirationDate*/ return new String[] {"dateTime"};
+        case 104069929: /*model*/ return new String[] {"string"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 106164915: /*owner*/ return new String[] {"Reference"};
+        case 951526432: /*contact*/ return new String[] {"ContactPoint"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
+        case 116079: /*url*/ return new String[] {"uri"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

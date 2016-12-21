@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Composition extends DomainResource {
         throw new IllegalArgumentException("Unknown CompositionStatus code '"+codeString+"'");
         }
         public Enumeration<CompositionStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CompositionStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -285,8 +287,10 @@ public class Composition extends DomainResource {
         throw new IllegalArgumentException("Unknown DocumentConfidentiality code '"+codeString+"'");
         }
         public Enumeration<DocumentConfidentiality> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DocumentConfidentiality>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -415,8 +419,10 @@ public class Composition extends DomainResource {
         throw new IllegalArgumentException("Unknown CompositionAttestationMode code '"+codeString+"'");
         }
         public Enumeration<CompositionAttestationMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CompositionAttestationMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -525,8 +531,10 @@ public class Composition extends DomainResource {
         throw new IllegalArgumentException("Unknown SectionMode code '"+codeString+"'");
         }
         public Enumeration<SectionMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SectionMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -761,7 +769,8 @@ public class Composition extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3357091: // mode
-          this.getMode().add(new CompositionAttestationModeEnumFactory().fromType(value)); // Enumeration<CompositionAttestationMode>
+          value = new CompositionAttestationModeEnumFactory().fromType(castToCode(value));
+          this.getMode().add((Enumeration) value); // Enumeration<CompositionAttestationMode>
           return value;
         case 3560141: // time
           this.time = castToDateTime(value); // DateTimeType
@@ -776,13 +785,14 @@ public class Composition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("mode"))
-          this.getMode().add(new CompositionAttestationModeEnumFactory().fromType(value));
-        else if (name.equals("time"))
+        if (name.equals("mode")) {
+          value = new CompositionAttestationModeEnumFactory().fromType(castToCode(value));
+          this.getMode().add((Enumeration) value);
+        } else if (name.equals("time")) {
           this.time = castToDateTime(value); // DateTimeType
-        else if (name.equals("party"))
+        } else if (name.equals("party")) {
           this.party = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -794,6 +804,17 @@ public class Composition extends DomainResource {
         case 3560141:  return getTimeElement();
         case 106437350:  return getParty(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3357091: /*mode*/ return new String[] {"code"};
+        case 3560141: /*time*/ return new String[] {"dateTime"};
+        case 106437350: /*party*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1074,13 +1095,13 @@ public class Composition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.getCode().add(castToCodeableConcept(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("detail"))
+        } else if (name.equals("detail")) {
           this.getDetail().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1092,6 +1113,17 @@ public class Composition extends DomainResource {
         case -991726143:  return getPeriod(); 
         case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -1335224239: /*detail*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1588,7 +1620,8 @@ public class Composition extends DomainResource {
           this.text = castToNarrative(value); // Narrative
           return value;
         case 3357091: // mode
-          this.mode = new SectionModeEnumFactory().fromType(value); // Enumeration<SectionMode>
+          value = new SectionModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<SectionMode>
           return value;
         case -391079516: // orderedBy
           this.orderedBy = castToCodeableConcept(value); // CodeableConcept
@@ -1609,23 +1642,24 @@ public class Composition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("title"))
+        if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToNarrative(value); // Narrative
-        else if (name.equals("mode"))
-          this.mode = new SectionModeEnumFactory().fromType(value); // Enumeration<SectionMode>
-        else if (name.equals("orderedBy"))
+        } else if (name.equals("mode")) {
+          value = new SectionModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<SectionMode>
+        } else if (name.equals("orderedBy")) {
           this.orderedBy = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("entry"))
+        } else if (name.equals("entry")) {
           this.getEntry().add(castToReference(value));
-        else if (name.equals("emptyReason"))
+        } else if (name.equals("emptyReason")) {
           this.emptyReason = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("section"))
+        } else if (name.equals("section")) {
           this.getSection().add((SectionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1642,6 +1676,22 @@ public class Composition extends DomainResource {
         case 1140135409:  return getEmptyReason(); 
         case 1970241253:  return addSection(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 110371416: /*title*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case 3556653: /*text*/ return new String[] {"Narrative"};
+        case 3357091: /*mode*/ return new String[] {"code"};
+        case -391079516: /*orderedBy*/ return new String[] {"CodeableConcept"};
+        case 96667762: /*entry*/ return new String[] {"Reference"};
+        case 1140135409: /*emptyReason*/ return new String[] {"CodeableConcept"};
+        case 1970241253: /*section*/ return new String[] {"@Composition.section"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2543,10 +2593,12 @@ public class Composition extends DomainResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
+          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
           return value;
         case -1923018202: // confidentiality
-          this.confidentiality = new DocumentConfidentialityEnumFactory().fromType(value); // Enumeration<DocumentConfidentiality>
+          value = new DocumentConfidentialityEnumFactory().fromType(castToCode(value));
+          this.confidentiality = (Enumeration) value; // Enumeration<DocumentConfidentiality>
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
@@ -2576,35 +2628,37 @@ public class Composition extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("class"))
+        } else if (name.equals("class")) {
           this.class_ = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new CompositionStatusEnumFactory().fromType(value); // Enumeration<CompositionStatus>
-        else if (name.equals("confidentiality"))
-          this.confidentiality = new DocumentConfidentialityEnumFactory().fromType(value); // Enumeration<DocumentConfidentiality>
-        else if (name.equals("subject"))
+        } else if (name.equals("status")) {
+          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
+        } else if (name.equals("confidentiality")) {
+          value = new DocumentConfidentialityEnumFactory().fromType(castToCode(value));
+          this.confidentiality = (Enumeration) value; // Enumeration<DocumentConfidentiality>
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.getAuthor().add(castToReference(value));
-        else if (name.equals("attester"))
+        } else if (name.equals("attester")) {
           this.getAttester().add((CompositionAttesterComponent) value);
-        else if (name.equals("custodian"))
+        } else if (name.equals("custodian")) {
           this.custodian = castToReference(value); // Reference
-        else if (name.equals("event"))
+        } else if (name.equals("event")) {
           this.getEvent().add((CompositionEventComponent) value);
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("section"))
+        } else if (name.equals("section")) {
           this.getSection().add((SectionComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2627,6 +2681,28 @@ public class Composition extends DomainResource {
         case 1524132147:  return getEncounter(); 
         case 1970241253:  return addSection(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case 94742904: /*class*/ return new String[] {"CodeableConcept"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1923018202: /*confidentiality*/ return new String[] {"code"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 542920370: /*attester*/ return new String[] {};
+        case 1611297262: /*custodian*/ return new String[] {"Reference"};
+        case 96891546: /*event*/ return new String[] {};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case 1970241253: /*section*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

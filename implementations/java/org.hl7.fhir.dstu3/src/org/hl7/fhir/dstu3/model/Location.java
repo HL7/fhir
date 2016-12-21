@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -128,8 +128,10 @@ public class Location extends DomainResource {
         throw new IllegalArgumentException("Unknown LocationStatus code '"+codeString+"'");
         }
         public Enumeration<LocationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<LocationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -222,8 +224,10 @@ public class Location extends DomainResource {
         throw new IllegalArgumentException("Unknown LocationMode code '"+codeString+"'");
         }
         public Enumeration<LocationMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<LocationMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -516,13 +520,13 @@ public class Location extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("longitude"))
+        if (name.equals("longitude")) {
           this.longitude = castToDecimal(value); // DecimalType
-        else if (name.equals("latitude"))
+        } else if (name.equals("latitude")) {
           this.latitude = castToDecimal(value); // DecimalType
-        else if (name.equals("altitude"))
+        } else if (name.equals("altitude")) {
           this.altitude = castToDecimal(value); // DecimalType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -534,6 +538,17 @@ public class Location extends DomainResource {
         case -1439978388:  return getLatitudeElement();
         case 2036550306:  return getAltitudeElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 137365935: /*longitude*/ return new String[] {"decimal"};
+        case -1439978388: /*latitude*/ return new String[] {"decimal"};
+        case 2036550306: /*altitude*/ return new String[] {"decimal"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1391,7 +1406,8 @@ public class Location extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new LocationStatusEnumFactory().fromType(value); // Enumeration<LocationStatus>
+          value = new LocationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<LocationStatus>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -1403,7 +1419,8 @@ public class Location extends DomainResource {
           this.description = castToString(value); // StringType
           return value;
         case 3357091: // mode
-          this.mode = new LocationModeEnumFactory().fromType(value); // Enumeration<LocationMode>
+          value = new LocationModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<LocationMode>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -1436,35 +1453,37 @@ public class Location extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new LocationStatusEnumFactory().fromType(value); // Enumeration<LocationStatus>
-        else if (name.equals("name"))
+        } else if (name.equals("status")) {
+          value = new LocationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<LocationStatus>
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("alias"))
+        } else if (name.equals("alias")) {
           this.getAlias().add(castToString(value));
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("mode"))
-          this.mode = new LocationModeEnumFactory().fromType(value); // Enumeration<LocationMode>
-        else if (name.equals("type"))
+        } else if (name.equals("mode")) {
+          value = new LocationModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<LocationMode>
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("telecom"))
+        } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.address = castToAddress(value); // Address
-        else if (name.equals("physicalType"))
+        } else if (name.equals("physicalType")) {
           this.physicalType = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("position"))
+        } else if (name.equals("position")) {
           this.position = (LocationPositionComponent) value; // LocationPositionComponent
-        else if (name.equals("managingOrganization"))
+        } else if (name.equals("managingOrganization")) {
           this.managingOrganization = castToReference(value); // Reference
-        else if (name.equals("partOf"))
+        } else if (name.equals("partOf")) {
           this.partOf = castToReference(value); // Reference
-        else if (name.equals("endpoint"))
+        } else if (name.equals("endpoint")) {
           this.getEndpoint().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1487,6 +1506,28 @@ public class Location extends DomainResource {
         case -995410646:  return getPartOf(); 
         case 1741102485:  return addEndpoint(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 92902992: /*alias*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 3357091: /*mode*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
+        case -1147692044: /*address*/ return new String[] {"Address"};
+        case -1474715471: /*physicalType*/ return new String[] {"CodeableConcept"};
+        case 747804969: /*position*/ return new String[] {};
+        case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
+        case 1741102485: /*endpoint*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

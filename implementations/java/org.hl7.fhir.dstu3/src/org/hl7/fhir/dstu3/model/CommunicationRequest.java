@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -211,8 +211,10 @@ public class CommunicationRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
         public Enumeration<CommunicationRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CommunicationRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -377,9 +379,9 @@ public class CommunicationRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("content[x]"))
+        if (name.equals("content[x]")) {
           this.content = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -388,7 +390,17 @@ public class CommunicationRequest extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 264548711:  return getContent(); 
+        case 951530617:  return getContent(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 951530617: /*content*/ return new String[] {"string", "Attachment", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1354,7 +1366,8 @@ public class CommunicationRequest extends DomainResource {
           this.requester = castToReference(value); // Reference
           return value;
         case -892481550: // status
-          this.status = new CommunicationRequestStatusEnumFactory().fromType(value); // Enumeration<CommunicationRequestStatus>
+          value = new CommunicationRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CommunicationRequestStatus>
           return value;
         case 110546223: // topic
           this.getTopic().add(castToReference(value)); // Reference
@@ -1384,37 +1397,38 @@ public class CommunicationRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("category"))
+        } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("sender"))
+        } else if (name.equals("sender")) {
           this.sender = castToReference(value); // Reference
-        else if (name.equals("recipient"))
+        } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        else if (name.equals("payload"))
+        } else if (name.equals("payload")) {
           this.getPayload().add((CommunicationRequestPayloadComponent) value);
-        else if (name.equals("medium"))
+        } else if (name.equals("medium")) {
           this.getMedium().add(castToCodeableConcept(value));
-        else if (name.equals("requester"))
+        } else if (name.equals("requester")) {
           this.requester = castToReference(value); // Reference
-        else if (name.equals("status"))
-          this.status = new CommunicationRequestStatusEnumFactory().fromType(value); // Enumeration<CommunicationRequestStatus>
-        else if (name.equals("topic"))
+        } else if (name.equals("status")) {
+          value = new CommunicationRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CommunicationRequestStatus>
+        } else if (name.equals("topic")) {
           this.getTopic().add(castToReference(value));
-        else if (name.equals("context"))
+        } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        else if (name.equals("scheduled[x]"))
+        } else if (name.equals("scheduled[x]")) {
           this.scheduled = castToType(value); // Type
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.getReason().add(castToCodeableConcept(value));
-        else if (name.equals("requestedOn"))
+        } else if (name.equals("requestedOn")) {
           this.requestedOn = castToDateTime(value); // DateTimeType
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("priority"))
+        } else if (name.equals("priority")) {
           this.priority = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1433,11 +1447,35 @@ public class CommunicationRequest extends DomainResource {
         case 110546223:  return addTopic(); 
         case 951530927:  return getContext(); 
         case 1162627251:  return getScheduled(); 
+        case -160710483:  return getScheduled(); 
         case -934964668:  return addReason(); 
         case 1150582253:  return getRequestedOnElement();
         case -1867885268:  return getSubject(); 
         case -1165461084:  return getPriority(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case -905962955: /*sender*/ return new String[] {"Reference"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
+        case -786701938: /*payload*/ return new String[] {};
+        case -1078030475: /*medium*/ return new String[] {"CodeableConcept"};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 110546223: /*topic*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
+        case -160710483: /*scheduled*/ return new String[] {"dateTime", "Period"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case 1150582253: /*requestedOn*/ return new String[] {"dateTime"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

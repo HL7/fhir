@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -175,8 +175,10 @@ public class Timing extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown UnitsOfTime code '"+codeString+"'");
         }
         public Enumeration<UnitsOfTime> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<UnitsOfTime>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -345,8 +347,10 @@ public class Timing extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown DayOfWeek code '"+codeString+"'");
         }
         public Enumeration<DayOfWeek> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DayOfWeek>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -647,8 +651,10 @@ public class Timing extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown EventTiming code '"+codeString+"'");
         }
         public Enumeration<EventTiming> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EventTiming>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1735,7 +1741,8 @@ public class Timing extends Type implements ICompositeType {
           this.durationMax = castToDecimal(value); // DecimalType
           return value;
         case -1935429320: // durationUnit
-          this.durationUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
+          value = new UnitsOfTimeEnumFactory().fromType(castToCode(value));
+          this.durationUnit = (Enumeration) value; // Enumeration<UnitsOfTime>
           return value;
         case -70023844: // frequency
           this.frequency = castToInteger(value); // IntegerType
@@ -1750,16 +1757,19 @@ public class Timing extends Type implements ICompositeType {
           this.periodMax = castToDecimal(value); // DecimalType
           return value;
         case 384367333: // periodUnit
-          this.periodUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
+          value = new UnitsOfTimeEnumFactory().fromType(castToCode(value));
+          this.periodUnit = (Enumeration) value; // Enumeration<UnitsOfTime>
           return value;
         case -730552025: // dayOfWeek
-          this.getDayOfWeek().add(new DayOfWeekEnumFactory().fromType(value)); // Enumeration<DayOfWeek>
+          value = new DayOfWeekEnumFactory().fromType(castToCode(value));
+          this.getDayOfWeek().add((Enumeration) value); // Enumeration<DayOfWeek>
           return value;
         case 21434232: // timeOfDay
           this.getTimeOfDay().add(castToTime(value)); // TimeType
           return value;
         case 3648314: // when
-          this.when = new EventTimingEnumFactory().fromType(value); // Enumeration<EventTiming>
+          value = new EventTimingEnumFactory().fromType(castToCode(value));
+          this.when = (Enumeration) value; // Enumeration<EventTiming>
           return value;
         case -1019779949: // offset
           this.offset = castToUnsignedInt(value); // UnsignedIntType
@@ -1771,37 +1781,41 @@ public class Timing extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("bounds[x]"))
+        if (name.equals("bounds[x]")) {
           this.bounds = castToType(value); // Type
-        else if (name.equals("count"))
+        } else if (name.equals("count")) {
           this.count = castToInteger(value); // IntegerType
-        else if (name.equals("countMax"))
+        } else if (name.equals("countMax")) {
           this.countMax = castToInteger(value); // IntegerType
-        else if (name.equals("duration"))
+        } else if (name.equals("duration")) {
           this.duration = castToDecimal(value); // DecimalType
-        else if (name.equals("durationMax"))
+        } else if (name.equals("durationMax")) {
           this.durationMax = castToDecimal(value); // DecimalType
-        else if (name.equals("durationUnit"))
-          this.durationUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
-        else if (name.equals("frequency"))
+        } else if (name.equals("durationUnit")) {
+          value = new UnitsOfTimeEnumFactory().fromType(castToCode(value));
+          this.durationUnit = (Enumeration) value; // Enumeration<UnitsOfTime>
+        } else if (name.equals("frequency")) {
           this.frequency = castToInteger(value); // IntegerType
-        else if (name.equals("frequencyMax"))
+        } else if (name.equals("frequencyMax")) {
           this.frequencyMax = castToInteger(value); // IntegerType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToDecimal(value); // DecimalType
-        else if (name.equals("periodMax"))
+        } else if (name.equals("periodMax")) {
           this.periodMax = castToDecimal(value); // DecimalType
-        else if (name.equals("periodUnit"))
-          this.periodUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
-        else if (name.equals("dayOfWeek"))
-          this.getDayOfWeek().add(new DayOfWeekEnumFactory().fromType(value));
-        else if (name.equals("timeOfDay"))
+        } else if (name.equals("periodUnit")) {
+          value = new UnitsOfTimeEnumFactory().fromType(castToCode(value));
+          this.periodUnit = (Enumeration) value; // Enumeration<UnitsOfTime>
+        } else if (name.equals("dayOfWeek")) {
+          value = new DayOfWeekEnumFactory().fromType(castToCode(value));
+          this.getDayOfWeek().add((Enumeration) value);
+        } else if (name.equals("timeOfDay")) {
           this.getTimeOfDay().add(castToTime(value));
-        else if (name.equals("when"))
-          this.when = new EventTimingEnumFactory().fromType(value); // Enumeration<EventTiming>
-        else if (name.equals("offset"))
+        } else if (name.equals("when")) {
+          value = new EventTimingEnumFactory().fromType(castToCode(value));
+          this.when = (Enumeration) value; // Enumeration<EventTiming>
+        } else if (name.equals("offset")) {
           this.offset = castToUnsignedInt(value); // UnsignedIntType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1810,6 +1824,7 @@ public class Timing extends Type implements ICompositeType {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1149635157:  return getBounds(); 
+        case -1383205195:  return getBounds(); 
         case 94851343:  return getCountElement();
         case -372044331:  return getCountMaxElement();
         case -1992012396:  return getDurationElement();
@@ -1825,6 +1840,29 @@ public class Timing extends Type implements ICompositeType {
         case 3648314:  return getWhenElement();
         case -1019779949:  return getOffsetElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1383205195: /*bounds*/ return new String[] {"Duration", "Range", "Period"};
+        case 94851343: /*count*/ return new String[] {"integer"};
+        case -372044331: /*countMax*/ return new String[] {"integer"};
+        case -1992012396: /*duration*/ return new String[] {"decimal"};
+        case -478083280: /*durationMax*/ return new String[] {"decimal"};
+        case -1935429320: /*durationUnit*/ return new String[] {"code"};
+        case -70023844: /*frequency*/ return new String[] {"integer"};
+        case 1273846376: /*frequencyMax*/ return new String[] {"integer"};
+        case -991726143: /*period*/ return new String[] {"decimal"};
+        case 566580195: /*periodMax*/ return new String[] {"decimal"};
+        case 384367333: /*periodUnit*/ return new String[] {"code"};
+        case -730552025: /*dayOfWeek*/ return new String[] {"code"};
+        case 21434232: /*timeOfDay*/ return new String[] {"time"};
+        case 3648314: /*when*/ return new String[] {"code"};
+        case -1019779949: /*offset*/ return new String[] {"unsignedInt"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2138,13 +2176,13 @@ public class Timing extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("event"))
+        if (name.equals("event")) {
           this.getEvent().add(castToDateTime(value));
-        else if (name.equals("repeat"))
+        } else if (name.equals("repeat")) {
           this.repeat = (TimingRepeatComponent) value; // TimingRepeatComponent
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2156,6 +2194,17 @@ public class Timing extends Type implements ICompositeType {
         case -934531685:  return getRepeat(); 
         case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 96891546: /*event*/ return new String[] {"dateTime"};
+        case -934531685: /*repeat*/ return new String[] {};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

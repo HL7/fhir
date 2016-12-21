@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class Account extends DomainResource {
         throw new IllegalArgumentException("Unknown AccountStatus code '"+codeString+"'");
         }
         public Enumeration<AccountStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AccountStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -344,13 +346,13 @@ public class Account extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("party"))
+        if (name.equals("party")) {
           this.party = castToReference(value); // Reference
-        else if (name.equals("onHold"))
+        } else if (name.equals("onHold")) {
           this.onHold = castToBoolean(value); // BooleanType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -362,6 +364,17 @@ public class Account extends DomainResource {
         case -1013289154:  return getOnHoldElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 106437350: /*party*/ return new String[] {"Reference"};
+        case -1013289154: /*onHold*/ return new String[] {"boolean"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1131,7 +1144,8 @@ A coverage may only be resposible for specific types of charges, and the sequenc
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -892481550: // status
-          this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
+          value = new AccountStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<AccountStatus>
           return value;
         case -1422950650: // active
           this.active = castToPeriod(value); // Period
@@ -1167,33 +1181,34 @@ A coverage may only be resposible for specific types of charges, and the sequenc
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("type"))
+        } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("status"))
-          this.status = new AccountStatusEnumFactory().fromType(value); // Enumeration<AccountStatus>
-        else if (name.equals("active"))
+        } else if (name.equals("status")) {
+          value = new AccountStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<AccountStatus>
+        } else if (name.equals("active")) {
           this.active = castToPeriod(value); // Period
-        else if (name.equals("currency"))
+        } else if (name.equals("currency")) {
           this.currency = castToCoding(value); // Coding
-        else if (name.equals("balance"))
+        } else if (name.equals("balance")) {
           this.balance = castToMoney(value); // Money
-        else if (name.equals("coverage"))
+        } else if (name.equals("coverage")) {
           this.getCoverage().add(castToReference(value));
-        else if (name.equals("coveragePeriod"))
+        } else if (name.equals("coveragePeriod")) {
           this.coveragePeriod = castToPeriod(value); // Period
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("owner"))
+        } else if (name.equals("owner")) {
           this.owner = castToReference(value); // Reference
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("guarantor"))
+        } else if (name.equals("guarantor")) {
           this.getGuarantor().add((GuarantorComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1215,6 +1230,27 @@ A coverage may only be resposible for specific types of charges, and the sequenc
         case -1724546052:  return getDescriptionElement();
         case -188629045:  return addGuarantor(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 3575610: /*type*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1422950650: /*active*/ return new String[] {"Period"};
+        case 575402001: /*currency*/ return new String[] {"Coding"};
+        case -339185956: /*balance*/ return new String[] {"Money"};
+        case -351767064: /*coverage*/ return new String[] {"Reference"};
+        case 1024117193: /*coveragePeriod*/ return new String[] {"Period"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 106164915: /*owner*/ return new String[] {"Reference"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -188629045: /*guarantor*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

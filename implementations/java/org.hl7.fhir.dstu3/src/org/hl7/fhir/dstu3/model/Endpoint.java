@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -164,8 +164,10 @@ public class Endpoint extends DomainResource {
         throw new IllegalArgumentException("Unknown EndpointStatus code '"+codeString+"'");
         }
         public Enumeration<EndpointStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EndpointStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -918,7 +920,8 @@ public class Endpoint extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
+          value = new EndpointStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EndpointStatus>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -957,31 +960,32 @@ public class Endpoint extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new EndpointStatusEnumFactory().fromType(value); // Enumeration<EndpointStatus>
-        else if (name.equals("name"))
+        } else if (name.equals("status")) {
+          value = new EndpointStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EndpointStatus>
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("managingOrganization"))
+        } else if (name.equals("managingOrganization")) {
           this.managingOrganization = castToReference(value); // Reference
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactPoint(value));
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("connectionType"))
+        } else if (name.equals("connectionType")) {
           this.connectionType = castToCoding(value); // Coding
-        else if (name.equals("payloadType"))
+        } else if (name.equals("payloadType")) {
           this.getPayloadType().add(castToCodeableConcept(value));
-        else if (name.equals("payloadMimeType"))
+        } else if (name.equals("payloadMimeType")) {
           this.getPayloadMimeType().add(castToCode(value));
-        else if (name.equals("address"))
+        } else if (name.equals("address")) {
           this.address = castToUri(value); // UriType
-        else if (name.equals("header"))
+        } else if (name.equals("header")) {
           this.getHeader().add(castToString(value));
-        else if (name.equals("publicKey"))
+        } else if (name.equals("publicKey")) {
           this.publicKey = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1002,6 +1006,26 @@ public class Endpoint extends DomainResource {
         case -1221270899:  return addHeaderElement();
         case 1446899510:  return getPublicKeyElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        case 951526432: /*contact*/ return new String[] {"ContactPoint"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 1270211384: /*connectionType*/ return new String[] {"Coding"};
+        case 909929960: /*payloadType*/ return new String[] {"CodeableConcept"};
+        case -1702836932: /*payloadMimeType*/ return new String[] {"code"};
+        case -1147692044: /*address*/ return new String[] {"uri"};
+        case -1221270899: /*header*/ return new String[] {"string"};
+        case 1446899510: /*publicKey*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

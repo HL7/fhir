@@ -1,34 +1,31 @@
 ﻿map "http://hl7.org/fhir/StructureMap/MessageHeader2to3" = "R2 to R3 Conversions for MessageHeader"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MessageHeader" alias MessageHeaderR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group MessageHeader extends DomainResource
+group for type+types  MessageHeader extends DomainResource
   input src : MessageHeaderR2 as source
   input tgt : MessageHeader as target
 
-  "MessageHeader-timestamp" : for src.timestamp as vs make tgt.timestamp as vt then instant(vs, vt)
-  "MessageHeader-event" : for src.event as vs make tgt.event as vt then Coding(vs,vt)
+  "MessageHeader-timestamp" : for src.timestamp make tgt.timestamp
+  "MessageHeader-event" : for src.event make tgt.event
   "MessageHeader-response" : for src.response as vs0 make tgt.response as vt0 then {
-    "MessageHeader.response-identifier" : for vs0.identifier as vs make vt0.identifier as vt then id(vs, vt)
-    "MessageHeader.response-code" : for vs0.code as vs make vt0.code as vt then code(vs, vt)
-    "MessageHeader.response-details" : for vs0.details as vs make vt0.details as vt then Reference(vs,vt)
+    "MessageHeader.response-identifier" : for vs0.identifier make vt0.identifier
+    "MessageHeader.response-code" : for vs0.code make vt0.code
+    "MessageHeader.response-details" : for vs0.details make vt0.details
   }
-  "MessageHeader-enterer" : for src.enterer as vs make tgt.enterer as vt then Reference(vs,vt)
-  "MessageHeader-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-  "MessageHeader-receiver" : for src.receiver as vs make tgt.receiver as vt then Reference(vs,vt)
-  "MessageHeader-responsible" : for src.responsible as vs make tgt.responsible as vt then Reference(vs,vt)
-  "MessageHeader-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
-  "MessageHeader-data" : for src.data as vs make tgt.data as vt then Reference(vs,vt)
-endgroup
 
+  "MessageHeader-enterer" : for src.enterer make tgt.enterer
+  "MessageHeader-author" : for src.author make tgt.author
+  "MessageHeader-receiver" : for src.receiver make tgt.receiver
+  "MessageHeader-responsible" : for src.responsible make tgt.responsible
+  "MessageHeader-reason" : for src.reason make tgt.reason
+  "MessageHeader-data" : for src.data make tgt.data
+
+endgroup

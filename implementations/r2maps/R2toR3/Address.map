@@ -1,29 +1,25 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Address2to3" = "R2 to R3 Conversions for Address"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Address" alias AddressR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Period2to3"
 
-
-
-group Address extends Element
+group for type+types  Address extends Element
   input src : AddressR2 as source
   input tgt : Address as target
 
-  "Address-use" : for src.use as vs make tgt.use as vt then code(vs, vt)
-  "Address-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
-  "Address-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
-  "Address-line" : for src.line as vs make tgt.line as vt then string(vs, vt)
-  "Address-city" : for src.city as vs make tgt.city as vt then string(vs, vt)
-  "Address-district" : for src.district as vs make tgt.district as vt then string(vs, vt)
-  "Address-state" : for src.state as vs make tgt.state as vt then string(vs, vt)
-  "Address-postalCode" : for src.postalCode as vs make tgt.postalCode as vt then string(vs, vt)
-  "Address-country" : for src.country as vs make tgt.country as vt then string(vs, vt)
-  "Address-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-endgroup
+  "Address-use" : for src.use make tgt.use
+  "Address-type" : for src.type make tgt.type
+  "Address-text" : for src.text make tgt.text
+  "Address-line" : for src.line make tgt.line
+  "Address-city" : for src.city make tgt.city
+  "Address-district" : for src.district make tgt.district
+  "Address-state" : for src.state make tgt.state
+  "Address-postalCode" : for src.postalCode make tgt.postalCode
+  "Address-country" : for src.country make tgt.country
+  "Address-period" : for src.period make tgt.period
 
+endgroup

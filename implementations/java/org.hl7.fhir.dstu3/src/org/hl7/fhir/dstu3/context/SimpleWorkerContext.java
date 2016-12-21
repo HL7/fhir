@@ -490,7 +490,13 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   @Override
   public List<StructureDefinition> allStructures() {
     List<StructureDefinition> result = new ArrayList<StructureDefinition>();
-    result.addAll(structures.values());
+    Set<StructureDefinition> set = new HashSet<StructureDefinition>();
+    for (StructureDefinition sd : structures.values()) {
+      if (!set.contains(sd)) {
+        result.add(sd);
+        set.add(sd);
+      }
+    }
     return result;
   }
 
@@ -564,8 +570,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
   }
 
-  public void dropResource(Resource r) throws Exception {
-   throw new Exception("NOt done yet");
+  public void dropResource(Resource r) throws FHIRException {
+   throw new FHIRException("Not done yet");
     
   }
 

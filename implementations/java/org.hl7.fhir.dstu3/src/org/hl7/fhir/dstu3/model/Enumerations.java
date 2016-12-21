@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -121,8 +121,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown AbstractType code '"+codeString+"'");
         }
         public Enumeration<AbstractType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AbstractType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -232,8 +234,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown AdministrativeGender code '"+codeString+"'");
         }
         public Enumeration<AdministrativeGender> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AdministrativeGender>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -375,8 +379,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown AgeUnits code '"+codeString+"'");
         }
         public Enumeration<AgeUnits> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AgeUnits>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -502,8 +508,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown BindingStrength code '"+codeString+"'");
         }
         public Enumeration<BindingStrength> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<BindingStrength>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -693,8 +701,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown ConceptMapEquivalence code '"+codeString+"'");
         }
         public Enumeration<ConceptMapEquivalence> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ConceptMapEquivalence>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -908,8 +918,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown DataAbsentReason code '"+codeString+"'");
         }
         public Enumeration<DataAbsentReason> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DataAbsentReason>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1651,8 +1663,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown DataType code '"+codeString+"'");
         }
         public Enumeration<DataType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DataType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1958,8 +1972,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown DocumentReferenceStatus code '"+codeString+"'");
         }
         public Enumeration<DocumentReferenceStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<DocumentReferenceStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -4101,8 +4117,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown FHIRAllTypes code '"+codeString+"'");
         }
         public Enumeration<FHIRAllTypes> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FHIRAllTypes>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -6900,8 +6918,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown FHIRDefinedType code '"+codeString+"'");
         }
         public Enumeration<FHIRDefinedType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FHIRDefinedType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -7783,8 +7803,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown MessageEvent code '"+codeString+"'");
         }
         public Enumeration<MessageEvent> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MessageEvent>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -7922,8 +7944,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown NoteType code '"+codeString+"'");
         }
         public Enumeration<NoteType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<NoteType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -8025,8 +8049,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown PublicationStatus code '"+codeString+"'");
         }
         public Enumeration<PublicationStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<PublicationStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -8128,8 +8154,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown RemittanceOutcome code '"+codeString+"'");
         }
         public Enumeration<RemittanceOutcome> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<RemittanceOutcome>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -9599,8 +9627,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown ResourceType code '"+codeString+"'");
         }
         public Enumeration<ResourceType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ResourceType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -10218,8 +10248,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown SearchParamType code '"+codeString+"'");
         }
         public Enumeration<SearchParamType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SearchParamType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -10377,8 +10409,10 @@ public class Enumerations {
         throw new IllegalArgumentException("Unknown SpecialValues code '"+codeString+"'");
         }
         public Enumeration<SpecialValues> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SpecialValues>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;

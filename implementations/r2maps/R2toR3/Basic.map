@@ -1,26 +1,22 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Basic2to3" = "R2 to R3 Conversions for Basic"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Basic" alias BasicR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Basic" alias Basic as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Basic extends DomainResource
+group for type+types  Basic extends DomainResource
   input src : BasicR2 as source
   input tgt : Basic as target
 
-  "Basic-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Basic-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
-  "Basic-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "Basic-created" : for src.created as vs make tgt.created as vt then date(vs, vt)
-  "Basic-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
-endgroup
+  "Basic-identifier" : for src.identifier make tgt.identifier
+  "Basic-code" : for src.code make tgt.code
+  "Basic-subject" : for src.subject make tgt.subject
+  "Basic-created" : for src.created make tgt.created
+  "Basic-author" : for src.author make tgt.author
 
+endgroup

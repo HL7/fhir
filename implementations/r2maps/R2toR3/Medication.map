@@ -1,29 +1,27 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Medication2to3" = "R2 to R3 Conversions for Medication"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Medication" alias MedicationR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Medication" alias Medication as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Medication extends DomainResource
+group for type+types  Medication extends DomainResource
   input src : MedicationR2 as source
   input tgt : Medication as target
 
-  "Medication-code" : for src.code as vs make tgt.code as vt then CodeableConcept(vs,vt)
-  "Medication-isBrand" : for src.isBrand as vs make tgt.isBrand as vt then boolean(vs, vt)
-  "Medication-manufacturer" : for src.manufacturer as vs make tgt.manufacturer as vt then Reference(vs,vt)
+  "Medication-code" : for src.code make tgt.code
+  "Medication-isBrand" : for src.isBrand make tgt.isBrand
+  "Medication-manufacturer" : for src.manufacturer make tgt.manufacturer
   "Medication-product" : for src.product as vs0 make tgt.product as vt0 then {
-    "Medication.product-form" : for vs0.form as vs make vt0.form as vt then CodeableConcept(vs,vt)
+    "Medication.product-form" : for vs0.form make vt0.form
   }
-  "Medication-package" : for src.package as vs0 make tgt.package as vt0 then {
-    "Medication.package-container" : for vs0.container as vs make vt0.container as vt then CodeableConcept(vs,vt)
-  }
-endgroup
 
+  "Medication-package" : for src.package as vs0 make tgt.package as vt0 then {
+    "Medication.package-container" : for vs0.container make vt0.container
+  }
+
+
+endgroup

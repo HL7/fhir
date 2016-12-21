@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -261,13 +261,13 @@ public class Annotation extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("author[x]"))
+        if (name.equals("author[x]")) {
           this.author = castToType(value); // Type
-        else if (name.equals("time"))
+        } else if (name.equals("time")) {
           this.time = castToDateTime(value); // DateTimeType
-        else if (name.equals("text"))
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -276,9 +276,21 @@ public class Annotation extends Type implements ICompositeType {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 1475597077:  return getAuthor(); 
+        case -1406328437:  return getAuthor(); 
         case 3560141:  return getTimeElement();
         case 3556653:  return getTextElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1406328437: /*author*/ return new String[] {"Reference", "string"};
+        case 3560141: /*time*/ return new String[] {"dateTime"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -1,8 +1,8 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Procedure3to2" = "R3 to R2 Conversion for Procedure"
 
 
-uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as source
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Procedure" alias ProcedureR2 as target
+uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias  Procedure as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Procedure" alias  ProcedureR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 
@@ -15,7 +15,7 @@ imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
 
 
-group Procedure extends DomainResource
+group for type+types  Procedure extends DomainResource
   input src : Procedure as source
   input tgt : ProcedureR2 as target
 

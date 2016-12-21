@@ -29,11 +29,9 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
-
-import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 import org.hl7.fhir.utilities.Utilities;
@@ -141,8 +139,10 @@ public class Narrative extends BaseNarrative implements INarrative {
         throw new IllegalArgumentException("Unknown NarrativeStatus code '"+codeString+"'");
         }
         public Enumeration<NarrativeStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<NarrativeStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -283,7 +283,7 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<NarrativeStatus>
-        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new StringType(new XhtmlComposer().composeEx(this.div))}; // XhtmlNode
+        case 99473: /*div*/ return this.div == null ? new Base[0] : new Base[] {new StringType(new org.hl7.fhir.utilities.xhtml.XhtmlComposer().composeEx(this.div))}; // XhtmlNode
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -293,7 +293,8 @@ public class Narrative extends BaseNarrative implements INarrative {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -892481550: // status
-          this.status = new NarrativeStatusEnumFactory().fromType(value); // Enumeration<NarrativeStatus>
+          value = new NarrativeStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<NarrativeStatus>
           return value;
         case 99473: // div
           this.div = castToXhtml(value); // XhtmlNode
@@ -305,11 +306,12 @@ public class Narrative extends BaseNarrative implements INarrative {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("status"))
-          this.status = new NarrativeStatusEnumFactory().fromType(value); // Enumeration<NarrativeStatus>
-        else if (name.equals("div"))
+        if (name.equals("status")) {
+          value = new NarrativeStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<NarrativeStatus>
+        } else if (name.equals("div")) {
           this.div = castToXhtml(value); // XhtmlNode
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -319,6 +321,16 @@ public class Narrative extends BaseNarrative implements INarrative {
         switch (hash) {
         case -892481550:  return getStatusElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 99473: /*div*/ return new String[] {"xhtml"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

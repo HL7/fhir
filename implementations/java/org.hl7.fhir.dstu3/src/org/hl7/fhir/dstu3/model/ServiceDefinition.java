@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1467,7 +1467,8 @@ public class ServiceDefinition extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -1533,57 +1534,58 @@ public class ServiceDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("usage"))
+        } else if (name.equals("usage")) {
           this.usage = castToString(value); // StringType
-        else if (name.equals("approvalDate"))
+        } else if (name.equals("approvalDate")) {
           this.approvalDate = castToDate(value); // DateType
-        else if (name.equals("lastReviewDate"))
+        } else if (name.equals("lastReviewDate")) {
           this.lastReviewDate = castToDate(value); // DateType
-        else if (name.equals("effectivePeriod"))
+        } else if (name.equals("effectivePeriod")) {
           this.effectivePeriod = castToPeriod(value); // Period
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("topic"))
+        } else if (name.equals("topic")) {
           this.getTopic().add(castToCodeableConcept(value));
-        else if (name.equals("contributor"))
+        } else if (name.equals("contributor")) {
           this.getContributor().add(castToContributor(value));
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("relatedArtifact"))
+        } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
-        else if (name.equals("trigger"))
+        } else if (name.equals("trigger")) {
           this.getTrigger().add(castToTriggerDefinition(value));
-        else if (name.equals("dataRequirement"))
+        } else if (name.equals("dataRequirement")) {
           this.getDataRequirement().add(castToDataRequirement(value));
-        else if (name.equals("operationDefinition"))
+        } else if (name.equals("operationDefinition")) {
           this.operationDefinition = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1617,6 +1619,39 @@ public class ServiceDefinition extends MetadataResource {
         case 629147193:  return addDataRequirement(); 
         case 900960794:  return getOperationDefinition(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 111574433: /*usage*/ return new String[] {"string"};
+        case 223539345: /*approvalDate*/ return new String[] {"date"};
+        case -1687512484: /*lastReviewDate*/ return new String[] {"date"};
+        case -403934648: /*effectivePeriod*/ return new String[] {"Period"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
+        case -1895276325: /*contributor*/ return new String[] {"Contributor"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
+        case -1059891784: /*trigger*/ return new String[] {"TriggerDefinition"};
+        case 629147193: /*dataRequirement*/ return new String[] {"DataRequirement"};
+        case 900960794: /*operationDefinition*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class ListResource extends DomainResource {
         throw new IllegalArgumentException("Unknown ListStatus code '"+codeString+"'");
         }
         public Enumeration<ListStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ListStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -233,8 +235,10 @@ public class ListResource extends DomainResource {
         throw new IllegalArgumentException("Unknown ListMode code '"+codeString+"'");
         }
         public Enumeration<ListMode> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ListMode>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -512,15 +516,15 @@ public class ListResource extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("flag"))
+        if (name.equals("flag")) {
           this.flag = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("deleted"))
+        } else if (name.equals("deleted")) {
           this.deleted = castToBoolean(value); // BooleanType
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("item"))
+        } else if (name.equals("item")) {
           this.item = castToReference(value); // Reference
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -533,6 +537,18 @@ public class ListResource extends DomainResource {
         case 3076014:  return getDateElement();
         case 3242771:  return getItem(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3145580: /*flag*/ return new String[] {"CodeableConcept"};
+        case 1550463001: /*deleted*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 3242771: /*item*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1315,10 +1331,12 @@ public class ListResource extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new ListStatusEnumFactory().fromType(value); // Enumeration<ListStatus>
+          value = new ListStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ListStatus>
           return value;
         case 3357091: // mode
-          this.mode = new ListModeEnumFactory().fromType(value); // Enumeration<ListMode>
+          value = new ListModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<ListMode>
           return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
@@ -1357,33 +1375,35 @@ public class ListResource extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new ListStatusEnumFactory().fromType(value); // Enumeration<ListStatus>
-        else if (name.equals("mode"))
-          this.mode = new ListModeEnumFactory().fromType(value); // Enumeration<ListMode>
-        else if (name.equals("title"))
+        } else if (name.equals("status")) {
+          value = new ListStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<ListStatus>
+        } else if (name.equals("mode")) {
+          value = new ListModeEnumFactory().fromType(castToCode(value));
+          this.mode = (Enumeration) value; // Enumeration<ListMode>
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("source"))
+        } else if (name.equals("source")) {
           this.source = castToReference(value); // Reference
-        else if (name.equals("orderedBy"))
+        } else if (name.equals("orderedBy")) {
           this.orderedBy = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        else if (name.equals("entry"))
+        } else if (name.equals("entry")) {
           this.getEntry().add((ListEntryComponent) value);
-        else if (name.equals("emptyReason"))
+        } else if (name.equals("emptyReason")) {
           this.emptyReason = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1405,6 +1425,27 @@ public class ListResource extends DomainResource {
         case 96667762:  return addEntry(); 
         case 1140135409:  return getEmptyReason(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 3357091: /*mode*/ return new String[] {"code"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -896505829: /*source*/ return new String[] {"Reference"};
+        case -391079516: /*orderedBy*/ return new String[] {"CodeableConcept"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
+        case 96667762: /*entry*/ return new String[] {};
+        case 1140135409: /*emptyReason*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

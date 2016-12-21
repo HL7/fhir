@@ -1,34 +1,30 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Media3to2" = "R3 to R2 Conversion for Media"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Media" alias Media as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Media" alias MediaR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Media extends DomainResource
+group for type+types  Media extends DomainResource
   input src : Media as source
   input tgt : MediaR2 as target
 
-  "Media-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Media-type" : for src.type as vs make tgt.type as vt then code(vs, vt)
-  "Media-subtype" : for src.subtype as vs make tgt.subtype as vt then CodeableConcept(vs,vt)
-  "Media-view" : for src.view as vs make tgt.view as vt then CodeableConcept(vs,vt)
-  "Media-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "Media-operator" : for src.operator as vs make tgt.operator as vt then Reference(vs,vt)
-  "Media-deviceName" : for src.deviceName as vs make tgt.deviceName as vt then string(vs, vt)
-  "Media-height" : for src.height as vs make tgt.height as vt then positiveInt(vs, vt)
-  "Media-width" : for src.width as vs make tgt.width as vt then positiveInt(vs, vt)
-  "Media-frames" : for src.frames as vs make tgt.frames as vt then positiveInt(vs, vt)
-  "Media-duration" : for src.duration as vs make tgt.duration as vt then unsignedInt(vs, vt)
-  "Media-content" : for src.content as vs make tgt.content as vt then Attachment(vs,vt)
-endgroup
+  "Media-identifier" : for src.identifier make tgt.identifier
+  "Media-type" : for src.type make tgt.type
+  "Media-subtype" : for src.subtype make tgt.subtype
+  "Media-view" : for src.view make tgt.view
+  "Media-subject" : for src.subject make tgt.subject
+  "Media-operator" : for src.operator make tgt.operator
+  "Media-deviceName" : for src.deviceName make tgt.deviceName
+  "Media-height" : for src.height make tgt.height
+  "Media-width" : for src.width make tgt.width
+  "Media-frames" : for src.frames make tgt.frames
+  "Media-duration" : for src.duration make tgt.duration
+  "Media-content" : for src.content make tgt.content
 
+endgroup

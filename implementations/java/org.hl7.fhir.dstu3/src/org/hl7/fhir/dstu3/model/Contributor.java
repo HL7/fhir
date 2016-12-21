@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -138,8 +138,10 @@ public class Contributor extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown ContributorType code '"+codeString+"'");
         }
         public Enumeration<ContributorType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<ContributorType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -374,7 +376,8 @@ public class Contributor extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new ContributorTypeEnumFactory().fromType(value); // Enumeration<ContributorType>
+          value = new ContributorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ContributorType>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -389,13 +392,14 @@ public class Contributor extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new ContributorTypeEnumFactory().fromType(value); // Enumeration<ContributorType>
-        else if (name.equals("name"))
+        if (name.equals("type")) {
+          value = new ContributorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<ContributorType>
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -407,6 +411,17 @@ public class Contributor extends Type implements ICompositeType {
         case 3373707:  return getNameElement();
         case 951526432:  return addContact(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

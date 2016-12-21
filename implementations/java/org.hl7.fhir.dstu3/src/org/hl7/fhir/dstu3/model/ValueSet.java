@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -201,8 +201,10 @@ public class ValueSet extends MetadataResource {
         throw new IllegalArgumentException("Unknown FilterOperator code '"+codeString+"'");
         }
         public Enumeration<FilterOperator> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FilterOperator>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -533,15 +535,15 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("lockedDate"))
+        if (name.equals("lockedDate")) {
           this.lockedDate = castToDate(value); // DateType
-        else if (name.equals("inactive"))
+        } else if (name.equals("inactive")) {
           this.inactive = castToBoolean(value); // BooleanType
-        else if (name.equals("include"))
+        } else if (name.equals("include")) {
           this.getInclude().add((ConceptSetComponent) value);
-        else if (name.equals("exclude"))
+        } else if (name.equals("exclude")) {
           this.getExclude().add((ConceptSetComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -554,6 +556,18 @@ public class ValueSet extends MetadataResource {
         case 1942574248:  return addInclude(); 
         case -1321148966:  return addExclude(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1391591896: /*lockedDate*/ return new String[] {"date"};
+        case 24665195: /*inactive*/ return new String[] {"boolean"};
+        case 1942574248: /*include*/ return new String[] {};
+        case -1321148966: /*exclude*/ return new String[] {"@ValueSet.compose.include"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -985,17 +999,17 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("system"))
+        if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("concept"))
+        } else if (name.equals("concept")) {
           this.getConcept().add((ConceptReferenceComponent) value);
-        else if (name.equals("filter"))
+        } else if (name.equals("filter")) {
           this.getFilter().add((ConceptSetFilterComponent) value);
-        else if (name.equals("valueSet"))
+        } else if (name.equals("valueSet")) {
           this.getValueSet().add(castToUri(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1009,6 +1023,19 @@ public class ValueSet extends MetadataResource {
         case -1274492040:  return addFilter(); 
         case -1410174671:  return addValueSetElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 951024232: /*concept*/ return new String[] {};
+        case -1274492040: /*filter*/ return new String[] {};
+        case -1410174671: /*valueSet*/ return new String[] {"uri"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1315,13 +1342,13 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("code"))
+        if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else if (name.equals("designation"))
+        } else if (name.equals("designation")) {
           this.getDesignation().add((ConceptReferenceDesignationComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1333,6 +1360,17 @@ public class ValueSet extends MetadataResource {
         case 1671764162:  return getDisplayElement();
         case -900931593:  return addDesignation(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        case -900931593: /*designation*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1595,13 +1633,13 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("language"))
+        if (name.equals("language")) {
           this.language = castToCode(value); // CodeType
-        else if (name.equals("use"))
+        } else if (name.equals("use")) {
           this.use = castToCoding(value); // Coding
-        else if (name.equals("value"))
+        } else if (name.equals("value")) {
           this.value = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1613,6 +1651,17 @@ public class ValueSet extends MetadataResource {
         case 116103:  return getUse(); 
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1613589672: /*language*/ return new String[] {"code"};
+        case 116103: /*use*/ return new String[] {"Coding"};
+        case 111972721: /*value*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1877,7 +1926,8 @@ public class ValueSet extends MetadataResource {
           this.property = castToCode(value); // CodeType
           return value;
         case 3553: // op
-          this.op = new FilterOperatorEnumFactory().fromType(value); // Enumeration<FilterOperator>
+          value = new FilterOperatorEnumFactory().fromType(castToCode(value));
+          this.op = (Enumeration) value; // Enumeration<FilterOperator>
           return value;
         case 111972721: // value
           this.value = castToCode(value); // CodeType
@@ -1889,13 +1939,14 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("property"))
+        if (name.equals("property")) {
           this.property = castToCode(value); // CodeType
-        else if (name.equals("op"))
-          this.op = new FilterOperatorEnumFactory().fromType(value); // Enumeration<FilterOperator>
-        else if (name.equals("value"))
+        } else if (name.equals("op")) {
+          value = new FilterOperatorEnumFactory().fromType(castToCode(value));
+          this.op = (Enumeration) value; // Enumeration<FilterOperator>
+        } else if (name.equals("value")) {
           this.value = castToCode(value); // CodeType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1907,6 +1958,17 @@ public class ValueSet extends MetadataResource {
         case 3553:  return getOpElement();
         case 111972721:  return getValueElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -993141291: /*property*/ return new String[] {"code"};
+        case 3553: /*op*/ return new String[] {"code"};
+        case 111972721: /*value*/ return new String[] {"code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2368,19 +2430,19 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToUri(value); // UriType
-        else if (name.equals("timestamp"))
+        } else if (name.equals("timestamp")) {
           this.timestamp = castToDateTime(value); // DateTimeType
-        else if (name.equals("total"))
+        } else if (name.equals("total")) {
           this.total = castToInteger(value); // IntegerType
-        else if (name.equals("offset"))
+        } else if (name.equals("offset")) {
           this.offset = castToInteger(value); // IntegerType
-        else if (name.equals("parameter"))
+        } else if (name.equals("parameter")) {
           this.getParameter().add((ValueSetExpansionParameterComponent) value);
-        else if (name.equals("contains"))
+        } else if (name.equals("contains")) {
           this.getContains().add((ValueSetExpansionContainsComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2395,6 +2457,20 @@ public class ValueSet extends MetadataResource {
         case 1954460585:  return addParameter(); 
         case -567445985:  return addContains(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"uri"};
+        case 55126294: /*timestamp*/ return new String[] {"dateTime"};
+        case 110549828: /*total*/ return new String[] {"integer"};
+        case -1019779949: /*offset*/ return new String[] {"integer"};
+        case 1954460585: /*parameter*/ return new String[] {};
+        case -567445985: /*contains*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2685,11 +2761,11 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("value[x]"))
+        } else if (name.equals("value[x]")) {
           this.value = castToType(value); // Type
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2699,7 +2775,18 @@ public class ValueSet extends MetadataResource {
         switch (hash) {
         case 3373707:  return getNameElement();
         case -1410166417:  return getValue(); 
+        case 111972721:  return getValue(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 111972721: /*value*/ return new String[] {"string", "boolean", "integer", "decimal", "uri", "code"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -3297,23 +3384,23 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("system"))
+        if (name.equals("system")) {
           this.system = castToUri(value); // UriType
-        else if (name.equals("abstract"))
+        } else if (name.equals("abstract")) {
           this.abstract_ = castToBoolean(value); // BooleanType
-        else if (name.equals("inactive"))
+        } else if (name.equals("inactive")) {
           this.inactive = castToBoolean(value); // BooleanType
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCode(value); // CodeType
-        else if (name.equals("display"))
+        } else if (name.equals("display")) {
           this.display = castToString(value); // StringType
-        else if (name.equals("designation"))
+        } else if (name.equals("designation")) {
           this.getDesignation().add((ConceptReferenceDesignationComponent) value);
-        else if (name.equals("contains"))
+        } else if (name.equals("contains")) {
           this.getContains().add((ValueSetExpansionContainsComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -3330,6 +3417,22 @@ public class ValueSet extends MetadataResource {
         case -900931593:  return addDesignation(); 
         case -567445985:  return addContains(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -887328209: /*system*/ return new String[] {"uri"};
+        case 1732898850: /*abstract*/ return new String[] {"boolean"};
+        case 24665195: /*inactive*/ return new String[] {"boolean"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3059181: /*code*/ return new String[] {"code"};
+        case 1671764162: /*display*/ return new String[] {"string"};
+        case -900931593: /*designation*/ return new String[] {"@ValueSet.compose.include.concept.designation"};
+        case -567445985: /*contains*/ return new String[] {"@ValueSet.expansion.contains"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4438,7 +4541,8 @@ public class ValueSet extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -4486,45 +4590,46 @@ public class ValueSet extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("immutable"))
+        } else if (name.equals("immutable")) {
           this.immutable = castToBoolean(value); // BooleanType
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("extensible"))
+        } else if (name.equals("extensible")) {
           this.extensible = castToBoolean(value); // BooleanType
-        else if (name.equals("compose"))
+        } else if (name.equals("compose")) {
           this.compose = (ValueSetComposeComponent) value; // ValueSetComposeComponent
-        else if (name.equals("expansion"))
+        } else if (name.equals("expansion")) {
           this.expansion = (ValueSetExpansionComponent) value; // ValueSetExpansionComponent
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4552,6 +4657,33 @@ public class ValueSet extends MetadataResource {
         case 950497682:  return getCompose(); 
         case 17878207:  return getExpansion(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case 1596987778: /*immutable*/ return new String[] {"boolean"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case -1809433861: /*extensible*/ return new String[] {"boolean"};
+        case 950497682: /*compose*/ return new String[] {};
+        case 17878207: /*expansion*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

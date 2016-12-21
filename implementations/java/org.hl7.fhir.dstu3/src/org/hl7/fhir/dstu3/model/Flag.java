@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -127,8 +127,10 @@ public class Flag extends DomainResource {
         throw new IllegalArgumentException("Unknown FlagStatus code '"+codeString+"'");
         }
         public Enumeration<FlagStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<FlagStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -577,7 +579,8 @@ public class Flag extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -892481550: // status
-          this.status = new FlagStatusEnumFactory().fromType(value); // Enumeration<FlagStatus>
+          value = new FlagStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FlagStatus>
           return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
@@ -601,23 +604,24 @@ public class Flag extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("category"))
+        } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("status"))
-          this.status = new FlagStatusEnumFactory().fromType(value); // Enumeration<FlagStatus>
-        else if (name.equals("period"))
+        } else if (name.equals("status")) {
+          value = new FlagStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FlagStatus>
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("author"))
+        } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        else if (name.equals("code"))
+        } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -634,6 +638,22 @@ public class Flag extends DomainResource {
         case -1406328437:  return getAuthor(); 
         case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

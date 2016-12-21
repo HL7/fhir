@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -210,13 +210,13 @@ public class CareTeam extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role"))
+        if (name.equals("role")) {
           this.role = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("member"))
+        } else if (name.equals("member")) {
           this.member = castToReference(value); // Reference
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -228,6 +228,17 @@ public class CareTeam extends DomainResource {
         case -1077769574:  return getMember(); 
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case -1077769574: /*member*/ return new String[] {"Reference"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -798,23 +809,23 @@ public class CareTeam extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
+        } else if (name.equals("status")) {
           this.status = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("category"))
+        } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("subject"))
+        } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else if (name.equals("participant"))
+        } else if (name.equals("participant")) {
           this.getParticipant().add((CareTeamParticipantComponent) value);
-        else if (name.equals("managingOrganization"))
+        } else if (name.equals("managingOrganization")) {
           this.getManagingOrganization().add(castToReference(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -831,6 +842,22 @@ public class CareTeam extends DomainResource {
         case 767422259:  return addParticipant(); 
         case -2058947787:  return addManagingOrganization(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        case 767422259: /*participant*/ return new String[] {};
+        case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

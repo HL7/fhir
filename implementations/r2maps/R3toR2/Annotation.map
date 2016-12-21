@@ -1,23 +1,19 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Annotation3to2" = "R3 to R2 Conversion for Annotation"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Annotation" alias Annotation as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Annotation" alias AnnotationR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 
-
-
-group Annotation extends Element
+group for type+types  Annotation extends Element
   input src : Annotation as source
   input tgt : AnnotationR2 as target
 
-  "Annotation-author-Reference" : for src.author  : Reference as vs make tgt.author = create("Reference") as vt then Reference(vs,vt)
-  "Annotation-author-string" : for src.author  : string as vs make tgt.author = create("string") as vt then string(vs,vt)
-  "Annotation-time" : for src.time as vs make tgt.time as vt then dateTime(vs, vt)
-  "Annotation-text" : for src.text as vs make tgt.text as vt then string(vs, vt)
-endgroup
+  "Annotation-author-Reference" : for src.author : Reference as vs make tgt.author = create("Reference") as vt then Reference(vs, vt)
+  "Annotation-author-string" : for src.author : string as vs make tgt.author = create("string") as vt then string(vs, vt)
+  "Annotation-time" : for src.time make tgt.time
+  "Annotation-text" : for src.text make tgt.text
 
+endgroup

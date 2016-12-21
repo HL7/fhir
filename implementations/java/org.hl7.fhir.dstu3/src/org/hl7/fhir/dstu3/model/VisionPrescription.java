@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -140,8 +140,10 @@ public class VisionPrescription extends DomainResource {
         throw new IllegalArgumentException("Unknown VisionStatus code '"+codeString+"'");
         }
         public Enumeration<VisionStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<VisionStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1144,37 +1146,37 @@ public class VisionPrescription extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("product"))
+        if (name.equals("product")) {
           this.product = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("eye"))
+        } else if (name.equals("eye")) {
           this.eye = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("sphere"))
+        } else if (name.equals("sphere")) {
           this.sphere = castToDecimal(value); // DecimalType
-        else if (name.equals("cylinder"))
+        } else if (name.equals("cylinder")) {
           this.cylinder = castToDecimal(value); // DecimalType
-        else if (name.equals("axis"))
+        } else if (name.equals("axis")) {
           this.axis = castToInteger(value); // IntegerType
-        else if (name.equals("prism"))
+        } else if (name.equals("prism")) {
           this.prism = castToDecimal(value); // DecimalType
-        else if (name.equals("base"))
+        } else if (name.equals("base")) {
           this.base = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("add"))
+        } else if (name.equals("add")) {
           this.add = castToDecimal(value); // DecimalType
-        else if (name.equals("power"))
+        } else if (name.equals("power")) {
           this.power = castToDecimal(value); // DecimalType
-        else if (name.equals("backCurve"))
+        } else if (name.equals("backCurve")) {
           this.backCurve = castToDecimal(value); // DecimalType
-        else if (name.equals("diameter"))
+        } else if (name.equals("diameter")) {
           this.diameter = castToDecimal(value); // DecimalType
-        else if (name.equals("duration"))
+        } else if (name.equals("duration")) {
           this.duration = castToSimpleQuantity(value); // SimpleQuantity
-        else if (name.equals("color"))
+        } else if (name.equals("color")) {
           this.color = castToString(value); // StringType
-        else if (name.equals("brand"))
+        } else if (name.equals("brand")) {
           this.brand = castToString(value); // StringType
-        else if (name.equals("note"))
+        } else if (name.equals("note")) {
           this.note = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1198,6 +1200,29 @@ public class VisionPrescription extends DomainResource {
         case 93997959:  return getBrandElement();
         case 3387378:  return getNoteElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -309474065: /*product*/ return new String[] {"CodeableConcept"};
+        case 100913: /*eye*/ return new String[] {"CodeableConcept"};
+        case -895981619: /*sphere*/ return new String[] {"decimal"};
+        case -349378602: /*cylinder*/ return new String[] {"decimal"};
+        case 3008417: /*axis*/ return new String[] {"integer"};
+        case 106935105: /*prism*/ return new String[] {"decimal"};
+        case 3016401: /*base*/ return new String[] {"CodeableConcept"};
+        case 96417: /*add*/ return new String[] {"decimal"};
+        case 106858757: /*power*/ return new String[] {"decimal"};
+        case 1309344840: /*backCurve*/ return new String[] {"decimal"};
+        case -233204595: /*diameter*/ return new String[] {"decimal"};
+        case -1992012396: /*duration*/ return new String[] {"SimpleQuantity"};
+        case 94842723: /*color*/ return new String[] {"string"};
+        case 93997959: /*brand*/ return new String[] {"string"};
+        case 3387378: /*note*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1816,7 +1841,8 @@ public class VisionPrescription extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new VisionStatusEnumFactory().fromType(value); // Enumeration<VisionStatus>
+          value = new VisionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<VisionStatus>
           return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
@@ -1843,23 +1869,24 @@ public class VisionPrescription extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new VisionStatusEnumFactory().fromType(value); // Enumeration<VisionStatus>
-        else if (name.equals("patient"))
+        } else if (name.equals("status")) {
+          value = new VisionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<VisionStatus>
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("encounter"))
+        } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
-        else if (name.equals("dateWritten"))
+        } else if (name.equals("dateWritten")) {
           this.dateWritten = castToDateTime(value); // DateTimeType
-        else if (name.equals("prescriber"))
+        } else if (name.equals("prescriber")) {
           this.prescriber = castToReference(value); // Reference
-        else if (name.equals("reason[x]"))
+        } else if (name.equals("reason[x]")) {
           this.reason = castToType(value); // Type
-        else if (name.equals("dispense"))
+        } else if (name.equals("dispense")) {
           this.getDispense().add((VisionPrescriptionDispenseComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1874,8 +1901,25 @@ public class VisionPrescription extends DomainResource {
         case -1496880759:  return getDateWrittenElement();
         case 1430631077:  return getPrescriber(); 
         case -669418564:  return getReason(); 
+        case -934964668:  return getReason(); 
         case 284885341:  return addDispense(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1496880759: /*dateWritten*/ return new String[] {"dateTime"};
+        case 1430631077: /*prescriber*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
+        case 284885341: /*dispense*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

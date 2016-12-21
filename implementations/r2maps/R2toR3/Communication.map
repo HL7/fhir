@@ -1,38 +1,35 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Communication2to3" = "R2 to R3 Conversions for Communication"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Communication" alias CommunicationR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Communication" alias Communication as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Communication extends DomainResource
+group for type+types  Communication extends DomainResource
   input src : CommunicationR2 as source
   input tgt : Communication as target
 
-  "Communication-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Communication-category" : for src.category as vs make tgt.category as vt then CodeableConcept(vs,vt)
-  "Communication-sender" : for src.sender as vs make tgt.sender as vt then Reference(vs,vt)
-  "Communication-recipient" : for src.recipient as vs make tgt.recipient as vt then Reference(vs,vt)
+  "Communication-identifier" : for src.identifier make tgt.identifier
+  "Communication-category" : for src.category make tgt.category
+  "Communication-sender" : for src.sender make tgt.sender
+  "Communication-recipient" : for src.recipient make tgt.recipient
   "Communication-payload" : for src.payload as vs0 make tgt.payload as vt0 then {
-    "Communication.payload-content-string" : for vs0.content  : string as vs make vt0.content = create("string") as vt then string(vs,vt)
-    "Communication.payload-content-Attachment" : for vs0.content  : Attachment as vs make vt0.content = create("Attachment") as vt then Attachment(vs,vt)
-    "Communication.payload-content-Reference" : for vs0.content  : Reference as vs make vt0.content = create("Reference") as vt then Reference(vs,vt)
+    "Communication.payload-content-string" : for vs0.content : string as vs make vt0.content = create("string") as vt then string(vs, vt)
+    "Communication.payload-content-Attachment" : for vs0.content : Attachment as vs make vt0.content = create("Attachment") as vt then Attachment(vs, vt)
+    "Communication.payload-content-Reference" : for vs0.content : Reference as vs make vt0.content = create("Reference") as vt then Reference(vs, vt)
   }
-  "Communication-medium" : for src.medium as vs make tgt.medium as vt then CodeableConcept(vs,vt)
-  "Communication-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Communication-context" : for src.encounter as vs make tgt.context as vt then Reference(vs,vt)
-  "Communication-sent" : for src.sent as vs make tgt.sent as vt then dateTime(vs, vt)
-  "Communication-received" : for src.received as vs make tgt.received as vt then dateTime(vs, vt)
-  "Communication-reason" : for src.reason as vs make tgt.reason as vt then CodeableConcept(vs,vt)
-  "Communication-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-endgroup
 
+  "Communication-medium" : for src.medium make tgt.medium
+  "Communication-status" : for src.status make tgt.status
+  "Communication-context" : for src.encounter make tgt.context
+  "Communication-sent" : for src.sent make tgt.sent
+  "Communication-received" : for src.received make tgt.received
+  "Communication-reason" : for src.reason make tgt.reason
+  "Communication-subject" : for src.subject make tgt.subject
+
+endgroup

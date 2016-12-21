@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -138,8 +138,10 @@ public class Address extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown AddressUse code '"+codeString+"'");
         }
         public Enumeration<AddressUse> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AddressUse>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -248,8 +250,10 @@ public class Address extends Type implements ICompositeType {
         throw new IllegalArgumentException("Unknown AddressType code '"+codeString+"'");
         }
         public Enumeration<AddressType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<AddressType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -869,10 +873,12 @@ public class Address extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 116103: // use
-          this.use = new AddressUseEnumFactory().fromType(value); // Enumeration<AddressUse>
+          value = new AddressUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<AddressUse>
           return value;
         case 3575610: // type
-          this.type = new AddressTypeEnumFactory().fromType(value); // Enumeration<AddressType>
+          value = new AddressTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<AddressType>
           return value;
         case 3556653: // text
           this.text = castToString(value); // StringType
@@ -905,27 +911,29 @@ public class Address extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("use"))
-          this.use = new AddressUseEnumFactory().fromType(value); // Enumeration<AddressUse>
-        else if (name.equals("type"))
-          this.type = new AddressTypeEnumFactory().fromType(value); // Enumeration<AddressType>
-        else if (name.equals("text"))
+        if (name.equals("use")) {
+          value = new AddressUseEnumFactory().fromType(castToCode(value));
+          this.use = (Enumeration) value; // Enumeration<AddressUse>
+        } else if (name.equals("type")) {
+          value = new AddressTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<AddressType>
+        } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        else if (name.equals("line"))
+        } else if (name.equals("line")) {
           this.getLine().add(castToString(value));
-        else if (name.equals("city"))
+        } else if (name.equals("city")) {
           this.city = castToString(value); // StringType
-        else if (name.equals("district"))
+        } else if (name.equals("district")) {
           this.district = castToString(value); // StringType
-        else if (name.equals("state"))
+        } else if (name.equals("state")) {
           this.state = castToString(value); // StringType
-        else if (name.equals("postalCode"))
+        } else if (name.equals("postalCode")) {
           this.postalCode = castToString(value); // StringType
-        else if (name.equals("country"))
+        } else if (name.equals("country")) {
           this.country = castToString(value); // StringType
-        else if (name.equals("period"))
+        } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -944,6 +952,24 @@ public class Address extends Type implements ICompositeType {
         case 957831062:  return getCountryElement();
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116103: /*use*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 3556653: /*text*/ return new String[] {"string"};
+        case 3321844: /*line*/ return new String[] {"string"};
+        case 3053931: /*city*/ return new String[] {"string"};
+        case 288961422: /*district*/ return new String[] {"string"};
+        case 109757585: /*state*/ return new String[] {"string"};
+        case 2011152728: /*postalCode*/ return new String[] {"string"};
+        case 957831062: /*country*/ return new String[] {"string"};
+        case -991726143: /*period*/ return new String[] {"Period"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

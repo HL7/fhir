@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class Subscription extends DomainResource {
         throw new IllegalArgumentException("Unknown SubscriptionStatus code '"+codeString+"'");
         }
         public Enumeration<SubscriptionStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SubscriptionStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -273,8 +275,10 @@ public class Subscription extends DomainResource {
         throw new IllegalArgumentException("Unknown SubscriptionChannelType code '"+codeString+"'");
         }
         public Enumeration<SubscriptionChannelType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<SubscriptionChannelType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -572,7 +576,8 @@ public class Subscription extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new SubscriptionChannelTypeEnumFactory().fromType(value); // Enumeration<SubscriptionChannelType>
+          value = new SubscriptionChannelTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SubscriptionChannelType>
           return value;
         case 1741102485: // endpoint
           this.endpoint = castToUri(value); // UriType
@@ -590,15 +595,16 @@ public class Subscription extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new SubscriptionChannelTypeEnumFactory().fromType(value); // Enumeration<SubscriptionChannelType>
-        else if (name.equals("endpoint"))
+        if (name.equals("type")) {
+          value = new SubscriptionChannelTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<SubscriptionChannelType>
+        } else if (name.equals("endpoint")) {
           this.endpoint = castToUri(value); // UriType
-        else if (name.equals("payload"))
+        } else if (name.equals("payload")) {
           this.payload = castToString(value); // StringType
-        else if (name.equals("header"))
+        } else if (name.equals("header")) {
           this.header = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -611,6 +617,18 @@ public class Subscription extends DomainResource {
         case -786701938:  return getPayloadElement();
         case -1221270899:  return getHeaderElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 1741102485: /*endpoint*/ return new String[] {"uri"};
+        case -786701938: /*payload*/ return new String[] {"string"};
+        case -1221270899: /*header*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1159,7 +1177,8 @@ public class Subscription extends DomainResource {
           this.reason = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new SubscriptionStatusEnumFactory().fromType(value); // Enumeration<SubscriptionStatus>
+          value = new SubscriptionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SubscriptionStatus>
           return value;
         case 96784904: // error
           this.error = castToString(value); // StringType
@@ -1180,23 +1199,24 @@ public class Subscription extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("criteria"))
+        if (name.equals("criteria")) {
           this.criteria = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactPoint(value));
-        else if (name.equals("reason"))
+        } else if (name.equals("reason")) {
           this.reason = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new SubscriptionStatusEnumFactory().fromType(value); // Enumeration<SubscriptionStatus>
-        else if (name.equals("error"))
+        } else if (name.equals("status")) {
+          value = new SubscriptionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SubscriptionStatus>
+        } else if (name.equals("error")) {
           this.error = castToString(value); // StringType
-        else if (name.equals("channel"))
+        } else if (name.equals("channel")) {
           this.channel = (SubscriptionChannelComponent) value; // SubscriptionChannelComponent
-        else if (name.equals("end"))
+        } else if (name.equals("end")) {
           this.end = castToInstant(value); // InstantType
-        else if (name.equals("tag"))
+        } else if (name.equals("tag")) {
           this.getTag().add(castToCoding(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1213,6 +1233,22 @@ public class Subscription extends DomainResource {
         case 100571:  return getEndElement();
         case 114586:  return addTag(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1952046943: /*criteria*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactPoint"};
+        case -934964668: /*reason*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case 96784904: /*error*/ return new String[] {"string"};
+        case 738950403: /*channel*/ return new String[] {};
+        case 100571: /*end*/ return new String[] {"instant"};
+        case 114586: /*tag*/ return new String[] {"Coding"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

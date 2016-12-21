@@ -1,28 +1,24 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Slot2to3" = "R2 to R3 Conversions for Slot"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Slot" alias SlotR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group Slot extends DomainResource
+group for type+types  Slot extends DomainResource
   input src : SlotR2 as source
   input tgt : Slot as target
 
-  "Slot-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Slot-serviceType" : for src.type as vs make tgt.serviceType as vt then CodeableConcept(vs,vt)
-  "Slot-schedule" : for src.schedule as vs make tgt.schedule as vt then Reference(vs,vt)
-  "Slot-start" : for src.start as vs make tgt.start as vt then instant(vs, vt)
-  "Slot-end" : for src.end as vs make tgt.end as vt then instant(vs, vt)
-  "Slot-overbooked" : for src.overbooked as vs make tgt.overbooked as vt then boolean(vs, vt)
-  "Slot-comment" : for src.comment as vs make tgt.comment as vt then string(vs, vt)
-endgroup
+  "Slot-identifier" : for src.identifier make tgt.identifier
+  "Slot-serviceType" : for src.type make tgt.serviceType
+  "Slot-schedule" : for src.schedule make tgt.schedule
+  "Slot-start" : for src.start make tgt.start
+  "Slot-end" : for src.end make tgt.end
+  "Slot-overbooked" : for src.overbooked make tgt.overbooked
+  "Slot-comment" : for src.comment make tgt.comment
 
+endgroup

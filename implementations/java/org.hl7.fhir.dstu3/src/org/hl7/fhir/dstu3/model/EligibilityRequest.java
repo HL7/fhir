@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -139,8 +139,10 @@ public class EligibilityRequest extends DomainResource {
         throw new IllegalArgumentException("Unknown EligibilityRequestStatus code '"+codeString+"'");
         }
         public Enumeration<EligibilityRequestStatus> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<EligibilityRequestStatus>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -997,7 +999,8 @@ public class EligibilityRequest extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = new EligibilityRequestStatusEnumFactory().fromType(value); // Enumeration<EligibilityRequestStatus>
+          value = new EligibilityRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EligibilityRequestStatus>
           return value;
         case -1165461084: // priority
           this.priority = castToCodeableConcept(value); // CodeableConcept
@@ -1045,37 +1048,38 @@ public class EligibilityRequest extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("status"))
-          this.status = new EligibilityRequestStatusEnumFactory().fromType(value); // Enumeration<EligibilityRequestStatus>
-        else if (name.equals("priority"))
+        } else if (name.equals("status")) {
+          value = new EligibilityRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<EligibilityRequestStatus>
+        } else if (name.equals("priority")) {
           this.priority = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("patient"))
+        } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        else if (name.equals("serviced[x]"))
+        } else if (name.equals("serviced[x]")) {
           this.serviced = castToType(value); // Type
-        else if (name.equals("created"))
+        } else if (name.equals("created")) {
           this.created = castToDateTime(value); // DateTimeType
-        else if (name.equals("enterer"))
+        } else if (name.equals("enterer")) {
           this.enterer = castToReference(value); // Reference
-        else if (name.equals("provider"))
+        } else if (name.equals("provider")) {
           this.provider = castToReference(value); // Reference
-        else if (name.equals("organization"))
+        } else if (name.equals("organization")) {
           this.organization = castToReference(value); // Reference
-        else if (name.equals("insurer"))
+        } else if (name.equals("insurer")) {
           this.insurer = castToReference(value); // Reference
-        else if (name.equals("facility"))
+        } else if (name.equals("facility")) {
           this.facility = castToReference(value); // Reference
-        else if (name.equals("coverage"))
+        } else if (name.equals("coverage")) {
           this.coverage = castToReference(value); // Reference
-        else if (name.equals("businessArrangement"))
+        } else if (name.equals("businessArrangement")) {
           this.businessArrangement = castToString(value); // StringType
-        else if (name.equals("benefitCategory"))
+        } else if (name.equals("benefitCategory")) {
           this.benefitCategory = castToCodeableConcept(value); // CodeableConcept
-        else if (name.equals("benefitSubCategory"))
+        } else if (name.equals("benefitSubCategory")) {
           this.benefitSubCategory = castToCodeableConcept(value); // CodeableConcept
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1088,6 +1092,7 @@ public class EligibilityRequest extends DomainResource {
         case -1165461084:  return getPriority(); 
         case -791418107:  return getPatient(); 
         case -1927922223:  return getServiced(); 
+        case 1379209295:  return getServiced(); 
         case 1028554472:  return getCreatedElement();
         case -1591951995:  return getEnterer(); 
         case -987494927:  return getProvider(); 
@@ -1099,6 +1104,29 @@ public class EligibilityRequest extends DomainResource {
         case -1023390027:  return getBenefitCategory(); 
         case 1987878471:  return getBenefitSubCategory(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case 1379209295: /*serviced*/ return new String[] {"date", "Period"};
+        case 1028554472: /*created*/ return new String[] {"dateTime"};
+        case -1591951995: /*enterer*/ return new String[] {"Reference"};
+        case -987494927: /*provider*/ return new String[] {"Reference"};
+        case 1178922291: /*organization*/ return new String[] {"Reference"};
+        case 1957615864: /*insurer*/ return new String[] {"Reference"};
+        case 501116579: /*facility*/ return new String[] {"Reference"};
+        case -351767064: /*coverage*/ return new String[] {"Reference"};
+        case 259920682: /*businessArrangement*/ return new String[] {"string"};
+        case -1023390027: /*benefitCategory*/ return new String[] {"CodeableConcept"};
+        case 1987878471: /*benefitSubCategory*/ return new String[] {"CodeableConcept"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

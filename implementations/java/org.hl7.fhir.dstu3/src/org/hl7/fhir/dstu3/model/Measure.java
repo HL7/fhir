@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -141,8 +141,10 @@ public class Measure extends MetadataResource {
         throw new IllegalArgumentException("Unknown MeasureScoring code '"+codeString+"'");
         }
         public Enumeration<MeasureScoring> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MeasureScoring>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -263,8 +265,10 @@ public class Measure extends MetadataResource {
         throw new IllegalArgumentException("Unknown CompositeMeasureScoring code '"+codeString+"'");
         }
         public Enumeration<CompositeMeasureScoring> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<CompositeMeasureScoring>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -397,8 +401,10 @@ public class Measure extends MetadataResource {
         throw new IllegalArgumentException("Unknown MeasureType code '"+codeString+"'");
         }
         public Enumeration<MeasureType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MeasureType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -583,8 +589,10 @@ public class Measure extends MetadataResource {
         throw new IllegalArgumentException("Unknown MeasurePopulationType code '"+codeString+"'");
         }
         public Enumeration<MeasurePopulationType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MeasurePopulationType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -701,8 +709,10 @@ public class Measure extends MetadataResource {
         throw new IllegalArgumentException("Unknown MeasureDataUsage code '"+codeString+"'");
         }
         public Enumeration<MeasureDataUsage> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
+          if (code == null)
             return null;
+          if (code.isEmpty())
+            return new Enumeration<MeasureDataUsage>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
@@ -1053,17 +1063,17 @@ public class Measure extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("population"))
+        } else if (name.equals("population")) {
           this.getPopulation().add((MeasureGroupPopulationComponent) value);
-        else if (name.equals("stratifier"))
+        } else if (name.equals("stratifier")) {
           this.getStratifier().add((MeasureGroupStratifierComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1077,6 +1087,19 @@ public class Measure extends MetadataResource {
         case -2023558323:  return addPopulation(); 
         case 90983669:  return addStratifier(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case -2023558323: /*population*/ return new String[] {};
+        case 90983669: /*stratifier*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1450,7 +1473,8 @@ public class Measure extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3575610: // type
-          this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
+          value = new MeasurePopulationTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<MeasurePopulationType>
           return value;
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
@@ -1471,17 +1495,18 @@ public class Measure extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
-        else if (name.equals("identifier"))
+        if (name.equals("type")) {
+          value = new MeasurePopulationTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<MeasurePopulationType>
+        } else if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
-        else if (name.equals("criteria"))
+        } else if (name.equals("criteria")) {
           this.criteria = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1495,6 +1520,19 @@ public class Measure extends MetadataResource {
         case -1724546052:  return getDescriptionElement();
         case 1952046943:  return getCriteriaElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
+        case 1952046943: /*criteria*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -1765,13 +1803,13 @@ public class Measure extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("criteria"))
+        } else if (name.equals("criteria")) {
           this.criteria = castToString(value); // StringType
-        else if (name.equals("path"))
+        } else if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -1783,6 +1821,17 @@ public class Measure extends MetadataResource {
         case 1952046943:  return getCriteriaElement();
         case 3433509:  return getPathElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 1952046943: /*criteria*/ return new String[] {"string"};
+        case 3433509: /*path*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -2103,7 +2152,8 @@ public class Measure extends MetadataResource {
           this.identifier = castToIdentifier(value); // Identifier
           return value;
         case 111574433: // usage
-          this.getUsage().add(new MeasureDataUsageEnumFactory().fromType(value)); // Enumeration<MeasureDataUsage>
+          value = new MeasureDataUsageEnumFactory().fromType(castToCode(value));
+          this.getUsage().add((Enumeration) value); // Enumeration<MeasureDataUsage>
           return value;
         case 1952046943: // criteria
           this.criteria = castToString(value); // StringType
@@ -2118,15 +2168,16 @@ public class Measure extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
+        if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        else if (name.equals("usage"))
-          this.getUsage().add(new MeasureDataUsageEnumFactory().fromType(value));
-        else if (name.equals("criteria"))
+        } else if (name.equals("usage")) {
+          value = new MeasureDataUsageEnumFactory().fromType(castToCode(value));
+          this.getUsage().add((Enumeration) value);
+        } else if (name.equals("criteria")) {
           this.criteria = castToString(value); // StringType
-        else if (name.equals("path"))
+        } else if (name.equals("path")) {
           this.path = castToString(value); // StringType
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -2139,6 +2190,18 @@ public class Measure extends MetadataResource {
         case 1952046943:  return getCriteriaElement();
         case 3433509:  return getPathElement();
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 111574433: /*usage*/ return new String[] {"code"};
+        case 1952046943: /*criteria*/ return new String[] {"string"};
+        case 3433509: /*path*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }
@@ -4369,7 +4432,8 @@ public class Measure extends MetadataResource {
           this.title = castToString(value); // StringType
           return value;
         case -892481550: // status
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
           return value;
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
@@ -4426,13 +4490,16 @@ public class Measure extends MetadataResource {
           this.disclaimer = castToMarkdown(value); // MarkdownType
           return value;
         case 1924005583: // scoring
-          this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
+          value = new MeasureScoringEnumFactory().fromType(castToCode(value));
+          this.scoring = (Enumeration) value; // Enumeration<MeasureScoring>
           return value;
         case 569347656: // compositeScoring
-          this.compositeScoring = new CompositeMeasureScoringEnumFactory().fromType(value); // Enumeration<CompositeMeasureScoring>
+          value = new CompositeMeasureScoringEnumFactory().fromType(castToCode(value));
+          this.compositeScoring = (Enumeration) value; // Enumeration<CompositeMeasureScoring>
           return value;
         case 3575610: // type
-          this.getType().add(new MeasureTypeEnumFactory().fromType(value)); // Enumeration<MeasureType>
+          value = new MeasureTypeEnumFactory().fromType(castToCode(value));
+          this.getType().add((Enumeration) value); // Enumeration<MeasureType>
           return value;
         case 93273500: // riskAdjustment
           this.riskAdjustment = castToString(value); // StringType
@@ -4471,81 +4538,85 @@ public class Measure extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("url"))
+        if (name.equals("url")) {
           this.url = castToUri(value); // UriType
-        else if (name.equals("identifier"))
+        } else if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("version"))
+        } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
-        else if (name.equals("name"))
+        } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        else if (name.equals("title"))
+        } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        else if (name.equals("status"))
-          this.status = new PublicationStatusEnumFactory().fromType(value); // Enumeration<PublicationStatus>
-        else if (name.equals("experimental"))
+        } else if (name.equals("status")) {
+          value = new PublicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<PublicationStatus>
+        } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        else if (name.equals("date"))
+        } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        else if (name.equals("description"))
+        } else if (name.equals("description")) {
           this.description = castToMarkdown(value); // MarkdownType
-        else if (name.equals("purpose"))
+        } else if (name.equals("purpose")) {
           this.purpose = castToMarkdown(value); // MarkdownType
-        else if (name.equals("usage"))
+        } else if (name.equals("usage")) {
           this.usage = castToString(value); // StringType
-        else if (name.equals("approvalDate"))
+        } else if (name.equals("approvalDate")) {
           this.approvalDate = castToDate(value); // DateType
-        else if (name.equals("lastReviewDate"))
+        } else if (name.equals("lastReviewDate")) {
           this.lastReviewDate = castToDate(value); // DateType
-        else if (name.equals("effectivePeriod"))
+        } else if (name.equals("effectivePeriod")) {
           this.effectivePeriod = castToPeriod(value); // Period
-        else if (name.equals("useContext"))
+        } else if (name.equals("useContext")) {
           this.getUseContext().add(castToUsageContext(value));
-        else if (name.equals("jurisdiction"))
+        } else if (name.equals("jurisdiction")) {
           this.getJurisdiction().add(castToCodeableConcept(value));
-        else if (name.equals("topic"))
+        } else if (name.equals("topic")) {
           this.getTopic().add(castToCodeableConcept(value));
-        else if (name.equals("contributor"))
+        } else if (name.equals("contributor")) {
           this.getContributor().add(castToContributor(value));
-        else if (name.equals("publisher"))
+        } else if (name.equals("publisher")) {
           this.publisher = castToString(value); // StringType
-        else if (name.equals("contact"))
+        } else if (name.equals("contact")) {
           this.getContact().add(castToContactDetail(value));
-        else if (name.equals("copyright"))
+        } else if (name.equals("copyright")) {
           this.copyright = castToMarkdown(value); // MarkdownType
-        else if (name.equals("relatedArtifact"))
+        } else if (name.equals("relatedArtifact")) {
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
-        else if (name.equals("library"))
+        } else if (name.equals("library")) {
           this.getLibrary().add(castToReference(value));
-        else if (name.equals("disclaimer"))
+        } else if (name.equals("disclaimer")) {
           this.disclaimer = castToMarkdown(value); // MarkdownType
-        else if (name.equals("scoring"))
-          this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
-        else if (name.equals("compositeScoring"))
-          this.compositeScoring = new CompositeMeasureScoringEnumFactory().fromType(value); // Enumeration<CompositeMeasureScoring>
-        else if (name.equals("type"))
-          this.getType().add(new MeasureTypeEnumFactory().fromType(value));
-        else if (name.equals("riskAdjustment"))
+        } else if (name.equals("scoring")) {
+          value = new MeasureScoringEnumFactory().fromType(castToCode(value));
+          this.scoring = (Enumeration) value; // Enumeration<MeasureScoring>
+        } else if (name.equals("compositeScoring")) {
+          value = new CompositeMeasureScoringEnumFactory().fromType(castToCode(value));
+          this.compositeScoring = (Enumeration) value; // Enumeration<CompositeMeasureScoring>
+        } else if (name.equals("type")) {
+          value = new MeasureTypeEnumFactory().fromType(castToCode(value));
+          this.getType().add((Enumeration) value);
+        } else if (name.equals("riskAdjustment")) {
           this.riskAdjustment = castToString(value); // StringType
-        else if (name.equals("rateAggregation"))
+        } else if (name.equals("rateAggregation")) {
           this.rateAggregation = castToString(value); // StringType
-        else if (name.equals("rationale"))
+        } else if (name.equals("rationale")) {
           this.rationale = castToMarkdown(value); // MarkdownType
-        else if (name.equals("clinicalRecommendationStatement"))
+        } else if (name.equals("clinicalRecommendationStatement")) {
           this.clinicalRecommendationStatement = castToMarkdown(value); // MarkdownType
-        else if (name.equals("improvementNotation"))
+        } else if (name.equals("improvementNotation")) {
           this.improvementNotation = castToString(value); // StringType
-        else if (name.equals("definition"))
+        } else if (name.equals("definition")) {
           this.definition = castToMarkdown(value); // MarkdownType
-        else if (name.equals("guidance"))
+        } else if (name.equals("guidance")) {
           this.guidance = castToMarkdown(value); // MarkdownType
-        else if (name.equals("set"))
+        } else if (name.equals("set")) {
           this.set = castToString(value); // StringType
-        else if (name.equals("group"))
+        } else if (name.equals("group")) {
           this.getGroup().add((MeasureGroupComponent) value);
-        else if (name.equals("supplementalData"))
+        } else if (name.equals("supplementalData")) {
           this.getSupplementalData().add((MeasureSupplementalDataComponent) value);
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -4591,6 +4662,51 @@ public class Measure extends MetadataResource {
         case 98629247:  return addGroup(); 
         case 1447496814:  return addSupplementalData(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 351608024: /*version*/ return new String[] {"string"};
+        case 3373707: /*name*/ return new String[] {"string"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -892481550: /*status*/ return new String[] {"code"};
+        case -404562712: /*experimental*/ return new String[] {"boolean"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -1724546052: /*description*/ return new String[] {"markdown"};
+        case -220463842: /*purpose*/ return new String[] {"markdown"};
+        case 111574433: /*usage*/ return new String[] {"string"};
+        case 223539345: /*approvalDate*/ return new String[] {"date"};
+        case -1687512484: /*lastReviewDate*/ return new String[] {"date"};
+        case -403934648: /*effectivePeriod*/ return new String[] {"Period"};
+        case -669707736: /*useContext*/ return new String[] {"UsageContext"};
+        case -507075711: /*jurisdiction*/ return new String[] {"CodeableConcept"};
+        case 110546223: /*topic*/ return new String[] {"CodeableConcept"};
+        case -1895276325: /*contributor*/ return new String[] {"Contributor"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
+        case 951526432: /*contact*/ return new String[] {"ContactDetail"};
+        case 1522889671: /*copyright*/ return new String[] {"markdown"};
+        case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
+        case 166208699: /*library*/ return new String[] {"Reference"};
+        case 432371099: /*disclaimer*/ return new String[] {"markdown"};
+        case 1924005583: /*scoring*/ return new String[] {"code"};
+        case 569347656: /*compositeScoring*/ return new String[] {"code"};
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 93273500: /*riskAdjustment*/ return new String[] {"string"};
+        case 1254503906: /*rateAggregation*/ return new String[] {"string"};
+        case 345689335: /*rationale*/ return new String[] {"markdown"};
+        case -18631389: /*clinicalRecommendationStatement*/ return new String[] {"markdown"};
+        case -2085456136: /*improvementNotation*/ return new String[] {"string"};
+        case -1014418093: /*definition*/ return new String[] {"markdown"};
+        case -1314002088: /*guidance*/ return new String[] {"markdown"};
+        case 113762: /*set*/ return new String[] {"string"};
+        case 98629247: /*group*/ return new String[] {};
+        case 1447496814: /*supplementalData*/ return new String[] {};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

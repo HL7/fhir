@@ -1,11 +1,9 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseStatement2to3" = "R2 to R3 Conversions for DeviceUseStatement"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
 imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
 imports "http://hl7.org/fhir/StructureMap/Reference2to3"
@@ -13,22 +11,20 @@ imports "http://hl7.org/fhir/StructureMap/Period2to3"
 imports "http://hl7.org/fhir/StructureMap/Timing2to3"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
 
-
-
-group DeviceUseStatement extends DomainResource
+group for type+types  DeviceUseStatement extends DomainResource
   input src : DeviceUseStatementR2 as source
   input tgt : DeviceUseStatement as target
 
-  "DeviceUseStatement-bodySite" : for src.bodySiteCodeableConcept as vs make tgt.bodySite as vt then CodeableConcept(vs,vt)
-  "DeviceUseStatement-whenUsed" : for src.whenUsed as vs make tgt.whenUsed as vt then Period(vs,vt)
-  "DeviceUseStatement-device" : for src.device as vs make tgt.device as vt then Reference(vs,vt)
-  "DeviceUseStatement-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "DeviceUseStatement-indication" : for src.indication as vs make tgt.indication as vt then CodeableConcept(vs,vt)
-  "DeviceUseStatement-notes" : for src.notes as vs make tgt.notes as vt then string(vs, vt)
-  "DeviceUseStatement-recordedOn" : for src.recordedOn as vs make tgt.recordedOn as vt then dateTime(vs, vt)
-  "DeviceUseStatement-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "DeviceUseStatement-timing-Timing" : for src.timing  : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs,vt)
-  "DeviceUseStatement-timing-Period" : for src.timing  : Period as vs make tgt.timing = create("Period") as vt then Period(vs,vt)
-  "DeviceUseStatement-timing-dateTime" : for src.timing  : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs,vt)
-endgroup
+  "DeviceUseStatement-bodySite" : for src.bodySiteCodeableConcept make tgt.bodySite
+  "DeviceUseStatement-whenUsed" : for src.whenUsed make tgt.whenUsed
+  "DeviceUseStatement-device" : for src.device make tgt.device
+  "DeviceUseStatement-identifier" : for src.identifier make tgt.identifier
+  "DeviceUseStatement-indication" : for src.indication make tgt.indication
+  "DeviceUseStatement-notes" : for src.notes make tgt.notes
+  "DeviceUseStatement-recordedOn" : for src.recordedOn make tgt.recordedOn
+  "DeviceUseStatement-subject" : for src.subject make tgt.subject
+  "DeviceUseStatement-timing-Timing" : for src.timing : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs, vt)
+  "DeviceUseStatement-timing-Period" : for src.timing : Period as vs make tgt.timing = create("Period") as vt then Period(vs, vt)
+  "DeviceUseStatement-timing-dateTime" : for src.timing : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs, vt)
 
+endgroup

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -455,17 +455,17 @@ public class Meta extends Type implements IBaseMetaType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("versionId"))
+        if (name.equals("versionId")) {
           this.versionId = castToId(value); // IdType
-        else if (name.equals("lastUpdated"))
+        } else if (name.equals("lastUpdated")) {
           this.lastUpdated = castToInstant(value); // InstantType
-        else if (name.equals("profile"))
+        } else if (name.equals("profile")) {
           this.getProfile().add(castToUri(value));
-        else if (name.equals("security"))
+        } else if (name.equals("security")) {
           this.getSecurity().add(castToCoding(value));
-        else if (name.equals("tag"))
+        } else if (name.equals("tag")) {
           this.getTag().add(castToCoding(value));
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -479,6 +479,19 @@ public class Meta extends Type implements IBaseMetaType {
         case 949122880:  return addSecurity(); 
         case 114586:  return addTag(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1407102957: /*versionId*/ return new String[] {"id"};
+        case 1649733957: /*lastUpdated*/ return new String[] {"instant"};
+        case -309425751: /*profile*/ return new String[] {"uri"};
+        case 949122880: /*security*/ return new String[] {"Coding"};
+        case 114586: /*tag*/ return new String[] {"Coding"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

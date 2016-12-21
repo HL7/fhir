@@ -1,24 +1,20 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Meta2to3" = "R2 to R3 Conversions for Meta"
 
-
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Meta" alias MetaR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Meta" alias Meta as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
 imports "http://hl7.org/fhir/StructureMap/Element2to3"
 imports "http://hl7.org/fhir/StructureMap/Coding2to3"
 
-
-
-group Meta extends Element
+group for type+types  Meta extends Element
   input src : MetaR2 as source
   input tgt : Meta as target
 
-  "Meta-versionId" : for src.versionId as vs make tgt.versionId as vt then id(vs, vt)
-  "Meta-lastUpdated" : for src.lastUpdated as vs make tgt.lastUpdated as vt then instant(vs, vt)
-  "Meta-profile" : for src.profile as vs make tgt.profile as vt then uri(vs, vt)
-  "Meta-security" : for src.security as vs make tgt.security as vt then Coding(vs,vt)
-  "Meta-tag" : for src.tag as vs make tgt.tag as vt then Coding(vs,vt)
-endgroup
+  "Meta-versionId" : for src.versionId make tgt.versionId
+  "Meta-lastUpdated" : for src.lastUpdated make tgt.lastUpdated
+  "Meta-profile" : for src.profile make tgt.profile
+  "Meta-security" : for src.security make tgt.security
+  "Meta-tag" : for src.tag make tgt.tag
 
+endgroup

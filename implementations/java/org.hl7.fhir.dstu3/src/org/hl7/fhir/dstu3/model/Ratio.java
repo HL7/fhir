@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Dec 19, 2016 10:41+1100 for FHIR v1.9.0
+// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -149,11 +149,11 @@ public class Ratio extends Type implements ICompositeType {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("numerator"))
+        if (name.equals("numerator")) {
           this.numerator = castToQuantity(value); // Quantity
-        else if (name.equals("denominator"))
+        } else if (name.equals("denominator")) {
           this.denominator = castToQuantity(value); // Quantity
-        else
+        } else
           return super.setProperty(name, value);
         return value;
       }
@@ -164,6 +164,16 @@ public class Ratio extends Type implements ICompositeType {
         case 1747334793:  return getNumerator(); 
         case -1983274394:  return getDenominator(); 
         default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 1747334793: /*numerator*/ return new String[] {"Quantity"};
+        case -1983274394: /*denominator*/ return new String[] {"Quantity"};
+        default: return super.getTypesForProperty(hash, name);
         }
 
       }

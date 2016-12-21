@@ -1,41 +1,39 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Composition3to2" = "R3 to R2 Conversion for Composition"
 
-
 uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Composition" alias CompositionR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-
 imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
 imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
 imports "http://hl7.org/fhir/StructureMap/Reference3to2"
 imports "http://hl7.org/fhir/StructureMap/Period3to2"
 imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
 
-
-
-group Composition extends DomainResource
+group for type+types  Composition extends DomainResource
   input src : Composition as source
   input tgt : CompositionR2 as target
 
-  "Composition-identifier" : for src.identifier as vs make tgt.identifier as vt then Identifier(vs,vt)
-  "Composition-date" : for src.date as vs make tgt.date as vt then dateTime(vs, vt)
-  "Composition-type" : for src.type as vs make tgt.type as vt then CodeableConcept(vs,vt)
-  "Composition-class" : for src.class as vs make tgt.class as vt then CodeableConcept(vs,vt)
-  "Composition-title" : for src.title as vs make tgt.title as vt then string(vs, vt)
-  "Composition-status" : for src.status as vs make tgt.status as vt then code(vs, vt)
-  "Composition-subject" : for src.subject as vs make tgt.subject as vt then Reference(vs,vt)
-  "Composition-author" : for src.author as vs make tgt.author as vt then Reference(vs,vt)
+  "Composition-identifier" : for src.identifier make tgt.identifier
+  "Composition-date" : for src.date make tgt.date
+  "Composition-type" : for src.type make tgt.type
+  "Composition-class" : for src.class make tgt.class
+  "Composition-title" : for src.title make tgt.title
+  "Composition-status" : for src.status make tgt.status
+  "Composition-subject" : for src.subject make tgt.subject
+  "Composition-author" : for src.author make tgt.author
   "Composition-attester" : for src.attester as vs0 make tgt.attester as vt0 then {
-    "Composition.attester-time" : for vs0.time as vs make vt0.time as vt then dateTime(vs, vt)
-    "Composition.attester-party" : for vs0.party as vs make vt0.party as vt then Reference(vs,vt)
+    "Composition.attester-time" : for vs0.time make vt0.time
+    "Composition.attester-party" : for vs0.party make vt0.party
   }
-  "Composition-custodian" : for src.custodian as vs make tgt.custodian as vt then Reference(vs,vt)
-  "Composition-event" : for src.event as vs0 make tgt.event as vt0 then {
-    "Composition.event-code" : for vs0.code as vs make vt0.code as vt then CodeableConcept(vs,vt)
-    "Composition.event-period" : for vs0.period as vs make vt0.period as vt then Period(vs,vt)
-    "Composition.event-detail" : for vs0.detail as vs make vt0.detail as vt then Reference(vs,vt)
-  }
-  "Composition-encounter" : for src.encounter as vs make tgt.encounter as vt then Reference(vs,vt)
-endgroup
 
+  "Composition-custodian" : for src.custodian make tgt.custodian
+  "Composition-event" : for src.event as vs0 make tgt.event as vt0 then {
+    "Composition.event-code" : for vs0.code make vt0.code
+    "Composition.event-period" : for vs0.period make vt0.period
+    "Composition.event-detail" : for vs0.detail make vt0.detail
+  }
+
+  "Composition-encounter" : for src.encounter make tgt.encounter
+
+endgroup
