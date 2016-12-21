@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.igtools.publisher.HTLMLInspector.NodeChangeType;
 import org.hl7.fhir.utilities.Utilities;
@@ -139,7 +140,7 @@ public class HTLMLInspector {
 
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
 
-    log.logDebugMessage("CheckHTML: List files");
+    log.logDebugMessage(LogCategory.HTML, "CheckHTML: List files");
     // list new or updated files
     List<String> loadList = new ArrayList<>();
     listFiles(rootFolder, loadList);
@@ -147,13 +148,13 @@ public class HTLMLInspector {
 
     checkGoneFiles();
 
-    log.logDebugMessage("Loading Files");
+    log.logDebugMessage(LogCategory.HTML, "Loading Files");
     // load files
     for (String s : loadList)
       loadFile(s, messages);
 
 
-    log.logDebugMessage("Checking Files");
+    log.logDebugMessage(LogCategory.HTML, "Checking Files");
     links = 0;
     // check links
     for (String s : cache.keySet()) {
@@ -164,14 +165,14 @@ public class HTLMLInspector {
     }
 
  
-    log.logDebugMessage("Checking Other Links");
+    log.logDebugMessage(LogCategory.HTML, "Checking Other Links");
     // check other links:
     for (StringPair sp : otherlinks) {
       sp = sp;
       checkResolveLink(sp.source, null, null, sp.link, messages, null);
     }
     
-    log.logDebugMessage("Done checking");
+    log.logDebugMessage(LogCategory.HTML, "Done checking");
     return messages;
   }
 

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
@@ -203,7 +204,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private String igName;
   private boolean autoBuildMode; // for the IG publication infrastructure
 
-  private IFetchFile fetcher = new SimpleFetcher(resourceDirs);
+  private IFetchFile fetcher = new SimpleFetcher(resourceDirs, this);
   private SimpleWorkerContext context;
   private InstanceValidator validator;
   private IGKnowledgeProvider igpkp;
@@ -230,7 +231,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private Set<FetchedResource> examples = new HashSet<FetchedResource>();
   private HashMap<String, FetchedResource> resources = new HashMap<String, FetchedResource>();
   private HashMap<String, ImplementationGuidePageComponent> igPages = new HashMap<String, ImplementationGuidePageComponent>();
-
+  private List<String> logOptions = new ArrayList<String>();
   private long globalStart;
 
   private ILoggingService logger = this;
@@ -326,11 +327,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateNarratives() throws IOException, EOperationOutcome, FHIRException {
-    dlog("gen narratives");
+    dlog(LogCategory.PROGRESS, "gen narratives");
     gen = new NarrativeGenerator("", "", context, this);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
-        dlog("narrative for "+f.getName()+" : "+r.getId());
+        dlog(LogCategory.PROGRESS, "narrative for "+f.getName()+" : "+r.getId());
         if (r.getResource() != null) {
           boolean regen = false;
           if (r.getResource() instanceof DomainResource && !(((DomainResource) r.getResource()).hasText() && ((DomainResource) r.getResource()).getText().hasDiv()))
@@ -532,6 +533,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else
       log("Load Configuration from "+configFile);
     configuration = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(configFile));
+    if (configuration.has("logging")) {
+      for (JsonElement n : configuration.getAsJsonArray("logging")) {
+        logOptions.add(((JsonPrimitive) n).getAsString());
+      }
+    }
     if (!"jekyll".equals(str(configuration, "tool")))
       throw new Exception("Error: configuration file must include a \"tool\" property with a value of 'jekyll'");
     tool = GenerationTool.Jekyll;
@@ -582,22 +588,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (historyPage != null)
       inspector.getManual().add(historyPage);
 
-    dlog("Check folders");
+    dlog(LogCategory.INIT, "Check folders");
     for (String s : resourceDirs) {
-      dlog("Source: "+s);
+      dlog(LogCategory.INIT, "Source: "+s);
       checkDir(s);
     }
-    dlog("Pages: "+pagesDir);
+    dlog(LogCategory.INIT, "Pages: "+pagesDir);
     checkDir(pagesDir);
-    dlog("Temp: "+tempDir);
+    dlog(LogCategory.INIT, "Temp: "+tempDir);
     Utilities.clearDirectory(tempDir);
     forceDir(tempDir);
     forceDir(Utilities.path(tempDir, "_includes"));
     forceDir(Utilities.path(tempDir, "_data"));
-    dlog("Output: "+outputDir);
+    dlog(LogCategory.INIT, "Output: "+outputDir);
     forceDir(outputDir);
     Utilities.clearDirectory(outputDir);
-    dlog("Temp: "+qaDir);
+    dlog(LogCategory.INIT, "Temp: "+qaDir);
     forceDir(qaDir);
 
     Utilities.createDirectory(vsCache);
@@ -944,7 +950,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean checkMakeFile(byte[] bs, String path, Set<String> outputTracker) throws IOException {
-    dlog("Check Generate "+path);
+    dlog(LogCategory.PROGRESS, "Check Generate "+path);
     if (first) {
       String s = path.toLowerCase();
       if (allOutputs.contains(s))
@@ -1177,7 +1183,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private boolean loadResource(boolean needToBuild, FetchedFile f) throws Exception {
-    dlog("load "+f.getPath());
+    dlog(LogCategory.PROGRESS, "load "+f.getPath());
     boolean changed = noteFile(f.getPath(), f);
     if (changed) {
       determineType(f);
@@ -1211,7 +1217,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     boolean changed = noteFile("Spreadsheet/"+be.getAsString(), f);
     if (changed) {
       f.getValuesetsToLoad().clear();
-      dlog("load "+path);
+      dlog(LogCategory.PROGRESS, "load "+path);
       f.setBundle(new IgSpreadsheetParser(context, execTime, igpkp.getCanonical(), f.getValuesetsToLoad(), first, context.getBinaries().get("mappingSpaces.details"), knownValueSetIds).parse(f));
       for (BundleEntryComponent b : f.getBundle().getEntry()) {
         FetchedResource r = f.addResource();
@@ -1486,11 +1492,11 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void load(String type) throws Exception {
-    dlog("process type: "+type);
+    dlog(LogCategory.PROGRESS, "process type: "+type);
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getElement().fhirType().equals(type)) {
-          dlog("process res: "+r.getId());
+          dlog(LogCategory.PROGRESS, "process res: "+r.getId());
           if (!r.isValidated())
             validate(f, r);
           if (r.getResource() == null)
@@ -1523,8 +1529,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private void dlog(String s) {
-    logger.logDebugMessage(Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
+  private void dlog(LogCategory category, String s) {     
+    logger.logDebugMessage(category, Utilities.padRight(s, ' ', 80)+" ("+presentDuration(System.nanoTime()-globalStart)+"sec)");
   }
 
   private void generateAdditionalExamples() throws Exception {
@@ -1553,7 +1559,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   private void generateSnapshots() throws Exception {
-    dlog("Generate Snapshots");
+    dlog(LogCategory.PROGRESS, "Generate Snapshots");
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
@@ -1572,13 +1578,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd, boolean close) throws Exception {
     boolean changed = false;
-    dlog("Check Snapshot for "+sd.getUrl());
+    dlog(LogCategory.PROGRESS, "Check Snapshot for "+sd.getUrl());
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
     StructureDefinition base = sd.hasBaseDefinition() ? fetchSnapshotted(sd.getBaseDefinition()) : null;
     utils.setIds(sd, true);
     if (sd.getKind() != StructureDefinitionKind.LOGICAL) {
       if (!sd.hasSnapshot()) {
-        dlog("Generate Snapshot for "+sd.getUrl());
+        dlog(LogCategory.PROGRESS, "Generate Snapshot for "+sd.getUrl());
         if (base == null)
           throw new Exception("base is null ("+sd.getBaseDefinition()+" from "+sd.getUrl()+")");
         List<String> errors = new ArrayList<String>();
@@ -1599,7 +1605,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         changed = true;
       }
     } else { //sd.getKind() == StructureDefinitionKind.LOGICAL
-      dlog("Generate Snapshot for Logical Model "+sd.getUrl());
+      dlog(LogCategory.PROGRESS, "Generate Snapshot for Logical Model "+sd.getUrl());
       if (!sd.hasSnapshot()) {
         utils.populateLogicalSnapshot(sd);
         changed = true;
@@ -1608,12 +1614,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (changed || (!r.getElement().hasChild("snapshot") && sd.hasSnapshot()))
       r.setElement(convertToElement(sd));
     r.setSnapshotted(true);
-    dlog("Context.See "+sd.getUrl());
+    dlog(LogCategory.CONTEXT, "Context.See "+sd.getUrl());
     context.seeResource(sd.getUrl(), sd);
   }
 
   private void validateExpressions() {
-    dlog("validate Expressions");
+    dlog(LogCategory.PROGRESS, "validate Expressions");
     for (FetchedFile f : fileList) {
       for (FetchedResource r : f.getResources()) {
         if (r.getResource() instanceof StructureDefinition && !r.isSnapshotted()) {
@@ -1721,12 +1727,12 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void validate() throws Exception {
     for (FetchedFile f : fileList) {
-      dlog(" .. validate "+f.getName());
+      dlog(LogCategory.PROGRESS, " .. validate "+f.getName());
       if (first)
-        dlog(" .. "+f.getName());
+        dlog(LogCategory.PROGRESS, " .. "+f.getName());
       for (FetchedResource r : f.getResources()) {
         if (!r.isValidated()) {
-          dlog("     validating "+r.getTitle());
+          dlog(LogCategory.PROGRESS, "     validating "+r.getTitle());
           validate(f, r);
         }
       }
@@ -2498,7 +2504,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     } else {
       for (FetchedResource r : f.getResources()) {
         try {
-          dlog("Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
+          dlog(LogCategory.PROGRESS, "Produce outputs for "+r.getElement().fhirType()+"/"+r.getId());
           Map<String, String> vars = makeVars(r);
           saveDirectResourceOutputs(f, r, vars);
 
@@ -2942,7 +2948,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     return configFile;
   }
 
-  private static void runGUI() {
+  private static void runGUI() throws InterruptedException, InvocationTargetException {
     EventQueue.invokeLater(new Runnable() {
       public void run() {
         try {
@@ -2996,7 +3002,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   public void setLogger(ILoggingService logger) {
     this.logger = logger;
-
+    if (context != null)
+      context.setLogger(logger);
+    fetcher.setLogger(logger);
   }
 
   public String getQAFile() throws IOException {
@@ -3011,10 +3019,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   }
 
   @Override
-  public void logDebugMessage(String msg) {
-    if (autoBuildMode)
+  public void logDebugMessage(LogCategory category, String msg) {
+    if (logOptions.contains(category.toString().toLowerCase()))
       System.out.println(msg);
-    else {  
+    if (!autoBuildMode) {
       filelog.append(msg+"\r\n");
       try {
         TextFile.stringToFile(filelog.toString(), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher-tmp.log"));
@@ -3174,7 +3182,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
         }
         exitCode = 1;
       } finally {
-        TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
+        if (!self.autoBuildMode) {
+          TextFile.stringToFile(buildReport(getNamedParam(args, "-ig"), getNamedParam(args, "-source"), self.filelog.toString(), Utilities.path(self.qaDir, "validation.txt")), Utilities.path(System.getProperty("java.io.tmpdir"), "fhir-ig-publisher.log"));
+        }
       }
     }
     System.exit(exitCode);

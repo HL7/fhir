@@ -339,8 +339,11 @@ public interface IWorkerContext {
   public boolean hasCache();
 
   public interface ILoggingService {
+    public enum LogCategory {
+      PROGRESS, TX, INIT, CONTEXT, HTML 
+    }
     public void logMessage(String message); // status messages, always display
-    public void logDebugMessage(String message); // verbose; only when debugging 
+    public void logDebugMessage(LogCategory category, String message); // verbose; only when debugging 
   }
 
   public void setLogger(ILoggingService logger);

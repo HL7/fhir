@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -19,9 +20,11 @@ public class SimpleFetcher implements IFetchFile {
 
   private IGKnowledgeProvider pkp;
   private List<String> resourceDirs;
+  private ILoggingService log;
   
-  public SimpleFetcher(List<String> resourceDirs) {
+  public SimpleFetcher(List<String> resourceDirs, ILoggingService log) {
     this.resourceDirs = resourceDirs;
+    this.log = log;
   }
 
   @Override
@@ -177,7 +180,7 @@ public class SimpleFetcher implements IFetchFile {
             addFile(res, f, "application/fhir+xml");
             ok = true;
           } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.logMessage(e.getMessage());
           }
         if (!ok && !Utilities.existsInList(ext, "xml", "ttl", "html", "txt")) {
           try {
@@ -185,7 +188,7 @@ public class SimpleFetcher implements IFetchFile {
             addFile(res, f, "application/fhir+json");
             ok = true;
           } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.logMessage(e.getMessage());
           }
         }
         if (!ok && !Utilities.existsInList(ext, "json", "xml", "html", "txt")) {
@@ -194,7 +197,7 @@ public class SimpleFetcher implements IFetchFile {
             addFile(res, f, "text/turtle");
             ok = true;
           } catch (Exception e) {
-            System.out.println(e.getMessage());
+            log.logMessage(e.getMessage());
           }
         }
       }
@@ -217,4 +220,13 @@ public class SimpleFetcher implements IFetchFile {
     res.add(ff);    
   }
 
+  public ILoggingService getLogger() {
+    return log;
+  }
+
+  public void setLogger(ILoggingService log) {
+    this.log = log;
+  }
+
+  
 }

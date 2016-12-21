@@ -10,6 +10,7 @@
   <status value="draft"/>
   <group>
     <name value="Examples"/>
+    <typeMode value="none"/>
     <input>
       <name value="test"/>
       <mode value="source"/>

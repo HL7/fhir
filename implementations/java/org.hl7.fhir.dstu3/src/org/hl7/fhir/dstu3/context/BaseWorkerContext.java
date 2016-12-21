@@ -15,6 +15,7 @@ import java.util.Set;
 
 import org.apache.commons.codec.Charsets;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -84,7 +85,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected boolean noTerminologyServer;
   protected String cache;
   private int expandCodesLimit = 10000;
-  private ILoggingService logger;
+  protected ILoggingService logger;
   protected ExpansionProfile expProfile;
 
   @Override
@@ -110,7 +111,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
             noTerminologyServer = true;
-            System.out.println("==============!! Running without terminology server !!==============");
+            logger.logMessage("==============!! Running without terminology server !!==============");
             return false;
           } else
             throw new TerminologyServiceException(e);

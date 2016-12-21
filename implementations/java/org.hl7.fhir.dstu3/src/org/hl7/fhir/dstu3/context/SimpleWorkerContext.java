@@ -21,6 +21,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.IOUtils;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService.LogCategory;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
@@ -171,7 +172,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		  Bundle bnd = (Bundle) f;
 		  for (BundleEntryComponent e : bnd.getEntry()) {
 		    if (e.getFullUrl() == null) {
-		      System.out.println("unidentified resource in " + name+" (no fullUrl)");
+		      logger.logDebugMessage(LogCategory.CONTEXT, "unidentified resource in " + name+" (no fullUrl)");
 		    }
 		    seeResource(e.getFullUrl(), e.getResource());
 		  }
@@ -196,7 +197,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     for (BundleEntryComponent e : f.getEntry()) {
 
       if (e.getFullUrl() == null) {
-        System.out.println("unidentified resource in " + name+" (no fullUrl)");
+        logger.logDebugMessage(LogCategory.CONTEXT, "unidentified resource in " + name+" (no fullUrl)");
       }
       seeResource(e.getFullUrl(), e.getResource());
     }

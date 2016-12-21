@@ -34,4 +34,26 @@ group for type+types  ConceptMap extends DomainResource
   "ConceptMap-source" : for src.source make tgt.source
   "ConceptMap-target" : for src.target make tgt.target
 
+  ConceptMap-backbone: for src.element as srcE group-by srcE.codeSystem as srcSCs
+          inner srcE.target as srcT group-by srcT.codeSystem as srcTCs 
+          combo make tgt.group as tgtGrp, tgtGrp.source = srcSCs, tgtGrp.target = srcTCs 
+        make tgtGrp.element as tgtE then  { 
+         ConceptMap-element:  for srcE.code make tgtGrp.code
+         ConceptMap-target: for srcE.target as vs make tgtE.target as vt then {
+           ConceptMap-target-element:  for vs.code make vt.code
+           ConceptMap-target-equivalence:  for vs.equivalence make vt.equivalence
+           ConceptMap-target-comments:  for vs.comments make vt.comments
+           ConceptMap-target-dependsOn:  for vs.dependsOn as sd make vt.dependsOn as td then {
+             ConceptMap-target-dependsOn-element: for vs.element make vt.element
+             ConceptMap-target-dependsOn-codeSystem: for vs.codeSystem make vt.codeSystem
+             ConceptMap-target-dependsOn-code: for vs.code make vt.code
+           }  
+           ConceptMap-target-product:  for vs.product as sd make vt.product as td then {
+             ConceptMap-target-product-element: for vs.element make vt.element
+             ConceptMap-target-product-codeSystem: for vs.codeSystem make vt.codeSystem
+             ConceptMap-target-product-code: for vs.code make vt.code
+           }  
+         }
+  }
+
 endgroup

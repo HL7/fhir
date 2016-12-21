@@ -261,7 +261,7 @@ public class IGPublisherFrame extends javax.swing.JFrame {
     }
 
     @Override
-    public void logDebugMessage(String msg) {
+    public void logDebugMessage(LogCategory category, String msg) {
       publish(LOG_PREFIX+msg);
       
     }    
