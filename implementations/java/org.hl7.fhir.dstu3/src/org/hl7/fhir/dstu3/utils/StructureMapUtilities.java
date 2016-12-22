@@ -1265,6 +1265,11 @@ public class StructureMapUtilities {
           throw new FHIRException("Multiple possible matches looking for default rule for '"+type+"'");
       }
     }
+    if (res.targetMap != null) {
+      String result = getActualType(res.targetMap, res.target.getInput().get(1).getType());
+      source.setUserData(kn, result);
+      return result;
+    }
 
     for (UriType imp : map.getImport()) {
       List<StructureMap> impMapList = findMatchingMaps(imp.getValue());
@@ -1335,6 +1340,10 @@ public class StructureMapUtilities {
           throw new FHIRException("Multiple possible matches looking for rule for '"+srcType+"/"+tgtType+"', from rule '"+ruleid+"'");
       }
     }
+    if (res.targetMap != null) {
+      source.setUserData(kn, res);
+      return res;
+    }
 
     for (UriType imp : map.getImport()) {
       List<StructureMap> impMapList = findMatchingMaps(imp.getValue());
@@ -1382,9 +1391,8 @@ public class StructureMapUtilities {
     for (StructureMapStructureComponent imp : map.getStructure()) {
       if (imp.hasAlias() && statedType.equals(imp.getAlias())) {
         StructureDefinition sd = worker.fetchResource(StructureDefinition.class, imp.getUrl());
-        if (sd == null)
-          throw new FHIRException("Unable to resolve structure "+imp.getUrl());
-        statedType = sd.getType();
+        if (sd != null)
+          statedType = sd.getType();
         break;
       }
     }
@@ -1422,6 +1430,10 @@ public class StructureMapUtilities {
         } else 
           throw new FHIRException("Multiple possible matches for rule '"+name+"'");
       }
+    }
+    if (res.targetMap != null) {
+      source.setUserData(kn, res);
+      return res;
     }
 
     for (UriType imp : map.getImport()) {

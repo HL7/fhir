@@ -3,25 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDefinition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ElementDefinition" alias ElementDefinitionR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/Element3to2"
-imports "http://hl7.org/fhir/StructureMap/Meta3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/SampledData3to2"
-imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/Range3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/Signature3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ElementDefinition extends Element
   input srcR : Resource as source
