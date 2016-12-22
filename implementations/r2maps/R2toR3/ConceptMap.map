@@ -30,8 +30,8 @@ group for type+types  ConceptMap extends DomainResource
   "ConceptMap-description" : for src.description make tgt.description
   "ConceptMap-purpose" : for src.requirements make tgt.purpose
   "ConceptMap-copyright" : for src.copyright make tgt.copyright
-  "ConceptMap-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
-  "ConceptMap-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "ConceptMap-jurisdiction" : for src.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "ConceptMap-useContext" : for src.useContext as vs where (coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
   "ConceptMap-source" : for src.source make tgt.source
   "ConceptMap-target" : for src.target make tgt.target
 

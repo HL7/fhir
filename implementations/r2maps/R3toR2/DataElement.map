@@ -17,16 +17,15 @@ group for type+types  DataElement extends DomainResource
   "DataElement-url" : for src.url make tgt.url
   "DataElement-identifier" : for src.identifier make tgt.identifier
   "DataElement-version" : for src.version make tgt.version
-  "DataElement-status" : for src.status make tgt.status
   "DataElement-experimental" : for src.experimental make tgt.experimental
-  "DataElement-publisher" : for src.publisher make tgt.publisher
-  "DataElement-date" : for src.date make tgt.date
   "DataElement-name" : for src.name make tgt.name
+  "DataElement-status" : for src.status make tgt.status
+  "DataElement-publisher" : for src.publisher make tgt.publisher
   "DataElement-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
     "DataElement.contact-name" : for vs0.name make vt0.name
     "DataElement.contact-telecom" : for vs0.telecom make vt0.telecom
   }
-
+  "DataElement-date" : for src.date make tgt.date
   "DataElement-useContext" : for src.jurisdiction make tgt.useContext
   "DataElement-stringency" : for src.stringency make tgt.stringency
   "DataElement-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
@@ -36,6 +35,6 @@ group for type+types  DataElement extends DomainResource
     "DataElement.mapping-comments" : for vs0.comment make vt0.comments
   }
 
-  "DataElement-element" : for src.element make tgt.element
+  "DataElement-element" : for src.element as vs make tgt.element as vt then ElementDefinition(src, vs, vt)
 
 endgroup

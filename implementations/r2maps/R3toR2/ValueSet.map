@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ValueSet" alias ValueSetR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ValueSet extends DomainResource
   input src : ValueSet as source
@@ -27,15 +23,120 @@ group for type+types  ValueSet extends DomainResource
 
   "ValueSet-date" : for src.date make tgt.date
   "ValueSet-useContext" : for src.jurisdiction make tgt.useContext
+  "ValueSet-description" : for src.description make tgt.description
+  "ValueSet-requirements" : for src.purpose make tgt.requirements
+  "ValueSet-copyright" : for src.copyright make tgt.copyright
+  
   "ValueSet-immutable" : for src.immutable make tgt.immutable
   "ValueSet-extensible" : for src.extensible make tgt.extensible
-  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0
-  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
-    "ValueSet.expansion-identifier" : for vs0.identifier make vt0.identifier
-    "ValueSet.expansion-timestamp" : for vs0.timestamp make vt0.timestamp
-    "ValueSet.expansion-total" : for vs0.total make vt0.total
-    "ValueSet.expansion-offset" : for vs0.offset make vt0.offset
-  }
+  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0 then compose(src, tgt, vs0, vt0)
+  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then expansion(vs0, vt0) 
+endgroup
 
+group compose extends BackboneElement
+  input vs as source
+  input vst as target
+  input src as source
+  input tgt as target
 
+  "vs-compose-ld" : for src.lockedDate make vst.lockedDate
+  "vs-compose-incl-cs" : for src.include as vs where (system.exists() and valueSet.empty() and concept.empty() and filter.empty()) and (system.resolve().valueSet = vs.url) 
+    make vst.codeSystem as vt, (vs.system.resolve()) as cs then codeSystem(cs, vt)
+   
+  "vs-compose-incl" : for src.include as vs where ((system.exists() and valueSet.empty() and concept.empty() and filter.empty()) and (system.resolve().valueSet = vs.url)).not() make tgt.include as vt then include(vs, vt, tgt) 
+  "vs-compose-excl" : for src.exclude as vs check valueSet.empty() make tgt.exclude as vt then include(vs, vt, tgt)
+endgroup
+
+group codeSystem extends Element // choice of Element is deliberate here; avoid all other resource overhead
+  input src as source
+  input tgt as target
+
+  "CodeSystem-modifierExtension" : for src.modifierExtension make tgt.modifierExtension
+  "CodeSystem-system" : for src.url make tgt.system
+  "CodeSystem-version" : for src.version make tgt.version
+  "CodeSystem-caseSensitive" : for src.caseSensitive make tgt.caseSensitive
+  "CodeSystem-concept" : for src.concept as vs make tgt.concept as vt then csconcept(vs, vt)
+endgroup
+
+group csconcept extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "cs-concept-code" : for src.code make tgt.code
+  "cs-concept-abstract" : for src where property.where(code = 'notSelectable') make tgt.abstract = (src.property.where(code = 'notSelectable').value)
+  "cs-concept-display" : for src.display make tgt.display
+  "cs-concept-definition" : for src.definition make tgt.definition
+  "cs-concept-designation" : for src.designation as vs make tgt.designation as vt then designation(vs, vt)
+  "cs-concept-concept" : for src.concept as vs make tgt.concept as vt then csconcept(vs, vt)
+endgroup
+
+group include extends BackboneElement
+  input src as source
+  input tgt as target
+  input comp as target
+
+  "vs-incl-valueSet" : for src.valueSet make comp.import
+  "vs-incl-system" : for src.system make tgt.system
+  "vs-incl-version" : for src.version make tgt.version
+  "vs-incl-concept" : for src.concept as vs make tgt.concept as vt then concept(vs, vt)
+  "vs-incl-filter" : for src.filter as vs make tgt.filter as vt then filter(vs, vt)
+endgroup
+
+group concept extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-concept-code" : for src.code make tgt.code
+  "vs-concept-display" : for src.display make tgt.display
+  "vs-concept-designation" : for src.designation as vs make tgt.designation as vt then designation(vs, vt)
+endgroup
+
+group designation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-designation-language" : for src.language make tgt.language
+  "vs-designation-use" : for src.use make tgt.use
+  "vs-designation-value" : for src.value make tgt.value
+endgroup
+  
+group filter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-filter-property" : for src.property make tgt.property
+  "vs-filter-op" : for src.op make tgt.op
+  "vs-filter-value" : for src.value make tgt.value
+endgroup  
+
+group expansion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.expansion-identifier" : for src.identifier make tgt.identifier
+  "ValueSet.expansion-timestamp" : for src.timestamp make tgt.timestamp
+  "ValueSet.expansion-total" : for src.total make tgt.total
+  "ValueSet.expansion-offset" : for src.offset make tgt.offset
+  "ValueSet.expansion-parameter" : for src.parameter as vs make tgt.parameter as vt then parameter(vs, vt)
+  "ValueSet.expansion-contains" : for src.contains as vs make tgt.contains as vt then contains(vs, vt)
+endgroup
+
+group parameter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-parameter-name" : for src.name make tgt.name
+  "vs-parameter-value" : for src.value make tgt.value
+endgroup
+
+group contains extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.contains-system" : for src.system make tgt.system
+  "ValueSet.contains-abstract" : for src.abstract make tgt.abstract
+  "ValueSet.contains-version" : for src.version make tgt.version
+  "ValueSet.contains-code" : for src.code make tgt.code
+  "ValueSet.contains-display" : for src.display make tgt.display 
+  "ValueSet.contains-contains" : for src.contains as vs make tgt.contains as vt then contains(vs, vt)
 endgroup

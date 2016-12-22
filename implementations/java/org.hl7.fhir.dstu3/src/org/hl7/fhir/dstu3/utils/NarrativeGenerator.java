@@ -899,7 +899,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.para().b().setAttribute("style", "color: maroon").tx("Exception generating Narrative: "+e.getMessage());
     }
     inject(er, x,  NarrativeStatus.GENERATED);
-    return new XhtmlComposer().compose(x);
+    return new XhtmlComposer().setXmlOnly(true).compose(x);
   }
 
   private boolean generateByProfile(DomainResource r, StructureDefinition profile, boolean showCodeDetails) {
@@ -925,7 +925,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       x.para().b().setAttribute("style", "color: maroon").tx("Exception generating Narrative: "+e.getMessage());
     }
     inject(er, x,  NarrativeStatus.GENERATED);
-    return new XhtmlComposer().compose(x);
+    return new XhtmlComposer().setXmlOnly(true).compose(x);
   }
 
   private void generateByProfile(Element eres, StructureDefinition profile, Element ee, List<ElementDefinition> allElements, ElementDefinition defn, List<ElementDefinition> children,  XhtmlNode x, String path, boolean showCodeDetails) throws FHIRException, UnsupportedEncodingException, IOException {
@@ -2228,7 +2228,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     if (div.hasChildNodes())
       div.appendChild(er.getOwnerDocument().createElementNS(FormatUtilities.XHTML_NS, "hr"));
-    new XhtmlComposer().compose(div, x);
+    new XhtmlComposer().setXmlOnly(true).compose(div, x);
   }
 
   private void inject(org.hl7.fhir.dstu3.elementmodel.Element er, XhtmlNode x, NarrativeStatus status) throws DefinitionException, IOException {
@@ -2255,7 +2255,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (div == null) {
       div = new org.hl7.fhir.dstu3.elementmodel.Element("div", txt.getProperty().getChild(null, "div"));
       txt.getChildren().add(div);
-      div.setValue(new XhtmlComposer().compose(x));
+      div.setValue(new XhtmlComposer().setXmlOnly(true).compose(x));
     }
     div.setXhtml(x);
   }

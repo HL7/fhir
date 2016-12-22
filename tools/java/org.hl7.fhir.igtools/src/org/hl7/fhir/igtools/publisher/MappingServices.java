@@ -70,4 +70,9 @@ public class MappingServices implements ITransformerServices {
     return ResourceFactory.createResourceOrType(name);
   }
 
+  @Override
+  public Base resolveReference(Object appContext, String url) {
+    throw new Error("Not done yet");
+  }
+
 }

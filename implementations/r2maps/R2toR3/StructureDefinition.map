@@ -31,8 +31,8 @@ group for type+types  StructureDefinition extends DomainResource
   "StructureDefinition-description" : for src.description make tgt.description
   "StructureDefinition-purpose" : for src.requirements make tgt.purpose
   "StructureDefinition-copyright" : for src.copyright make tgt.copyright
-  "StructureDefinition-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
-  "StructureDefinition-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
+  "StructureDefinition-jurisdiction" : for src.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "StructureDefinition-useContext" : for src.useContext as vs where (coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
   "StructureDefinition-keyword" : for src.code make tgt.keyword
   "StructureDefinition-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
   "StructureDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
@@ -42,14 +42,14 @@ group for type+types  StructureDefinition extends DomainResource
     "StructureDefinition.mapping-comments" : for vs0.comments make vt0.comments
   }
 
-  "StructureDefinition-derivation-1" : for src where src.constrainedType.empty() make tgt.derivation = "specialization"
+  "StructureDefinition-derivation-1" : for src where constrainedType.empty() make tgt.derivation = "specialization"
   "StructureDefinition-type-1" : for src.id as vs where src.constrainedType.empty() make tgt.type = vs
-  "StructureDefinition-derivation-2" : for src where src.constrainedType.exists() make tgt.derivation = "constraint"
-  "StructureDefinition-type-2" : for src.constrainedType as vs where src.constrainedType.exists() make tgt.type = vs
-  "StructureDefinition-kind-1" : for src.kind where kind = 'logical' make tgt.kind
-  "StructureDefinition-kind-1" : for src.kind where kind = 'resource' make tgt.kind
-  "StructureDefinition-kind-1" : for src.kind where (kind = 'datatype') and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')) make tgt.kind
-  "StructureDefinition-kind-1" : for src.kind where (kind = 'datatype') and (id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')).not() make tgt.kind
+  "StructureDefinition-derivation-2" : for src where constrainedType.exists() make tgt.derivation = "constraint"
+  "StructureDefinition-type-2" : for src.constrainedType as vs make tgt.type = vs
+  "StructureDefinition-kind-1" : for src.kind where $this = 'logical' make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where $this = 'resource' make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where ($this = 'datatype') and (src.id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')) make tgt.kind
+  "StructureDefinition-kind-1" : for src.kind where ($this = 'datatype') and (src.id in ('boolean' | 'integer' | 'string' | 'decimal' | 'uri' | 'base64Binary' | 'instant' | 'date' | 'dateTime' | 'time' | 'code' | 'oid' | 'id' | 'markdown' | 'unsignedInt' | 'positiveInt')).not() make tgt.kind
   "StructureDefinition-abstract" : for src.abstract make tgt.abstract
   "StructureDefinition-contextType" : for src.contextType make tgt.contextType
   "StructureDefinition-context" : for src.context make tgt.context

@@ -30,7 +30,7 @@ group for type+types  ElementDefinition extends Element
 
   "ElementDefinition-path" : for src.path make tgt.path
   "ElementDefinition-name" : for src.sliceName make tgt.name
-  "ElementDefinition-representation" : for src.representation where representation = 'xmlAttr' make tgt.representation
+  "ElementDefinition-representation" : for src.representation where $this = 'xmlAttr' make tgt.representation
   "ElementDefinition-label" : for src.label make tgt.label
   "ElementDefinition-code" : for src.code make tgt.code
   "ElementDefinition-slicing" : for src.slicing as vs0 make tgt.slicing as vt0 then {
@@ -55,18 +55,21 @@ group for type+types  ElementDefinition extends Element
 
   "ElementDefinition-type" : for src.type as vs0 make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for vs0.code make vt0.code
-    "ElementDefinition.type-profile1" : for vs0.profile where targetProfile.empty() make vt0.profile
+    "ElementDefinition.type-profile1" : for vs0.profile where vs0.targetProfile.empty() make vt0.profile
     "ElementDefinition.type-profile2" : for vs0.targetProfile make vt0.profile
     "ElementDefinition.type-aggregation" : for vs0.aggregation make vt0.aggregation
   }
 
-  "ElementDefinition-type-1st" : for src where src.path.contains('.').not() and src.type.empty() and src.contentReference.empty() make tgt.type as vt0 then {
+  "ElementDefinition-type-1st" : for src where path.contains('.').not() and src.type.empty() and src.contentReference.empty() make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for srcR.baseDefinition as base make vt0.code = (base.substring(40))
   }
 
   "ElementDefinition-contentReference" : for src.contentReference make tgt.nameReference
   "ElementDefinition-defaultValue" : for src.defaultValue make tgt.defaultValue
   "ElementDefinition-meaningWhenMissing" : for src.meaningWhenMissing make tgt.meaningWhenMissing
+  "ElementDefinition-example" : for src.example first as exv then {
+    "ElementDefinition-example-1" : for exv.value make tgt.example
+  }
   "ElementDefinition-fixed" : for src.fixed make tgt.fixed
   "ElementDefinition-pattern" : for src.pattern make tgt.pattern
   "ElementDefinition-minValue" : for src.minValue make tgt.minValue

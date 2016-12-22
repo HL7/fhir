@@ -34,6 +34,6 @@ group for type+types  DataElement extends DomainResource
     "DataElement.mapping-comment" : for vs0.comments make vt0.comment
   }
 
-  "DataElement-element" : for src.element make tgt.element
+  "DataElement-element" : for src.element as vs make tgt.element as vt, create("boolean") as first, first.value = "false" then ElementDefinition(vs, vt, first)
 
 endgroup

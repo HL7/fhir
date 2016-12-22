@@ -7,14 +7,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
+import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Property;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.BooleanType;
@@ -73,7 +76,6 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
-import org.hl7.fhir.dstu3.utils.StructureMapUtilities.ResolvedGroup;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.PathEngineException;
@@ -120,6 +122,7 @@ public class StructureMapUtilities {
 		//    Lookup another tree of data
 		//    Create an instance tree
 		//    Return the correct string format to refer to a tree (input or output)
+    public Base resolveReference(Object appContext, String url);
 
 	}
 
@@ -151,7 +154,7 @@ public class StructureMapUtilities {
 
     @Override
     public FunctionDetails resolveFunction(String functionName) {
-      throw new Error("Not Implemented Yet");
+      return null; // throw new Error("Not Implemented Yet");
     }
 
     @Override
@@ -162,6 +165,13 @@ public class StructureMapUtilities {
     @Override
     public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
       throw new Error("Not Implemented Yet");
+    }
+
+    @Override
+    public Base resolveReference(Object appContext, String url) {
+      if (services == null)
+        return null;
+      return services.resolveReference(appContext, url);
     }
 	  
 	}
@@ -1156,6 +1166,8 @@ public class StructureMapUtilities {
 		vars.add(VariableMode.OUTPUT, getInputName(g, StructureMapInputMode.TARGET, "target"), target);
 
     executeGroup("", context, map, vars, g);
+    if (target instanceof Element)
+      ((Element) target).sort();
 	}
 
 	private String getInputName(StructureMapGroupComponent g, StructureMapInputMode mode, String def) throws DefinitionException {
@@ -1185,6 +1197,8 @@ public class StructureMapUtilities {
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
+		if (rule.getName().contains("vs-compose-imp"))
+		  System.out.println("debug");
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
 			throw new FHIRException("Rule \""+rule.getName()+"\": not handled yet");
@@ -1229,10 +1243,12 @@ public class StructureMapUtilities {
 			StructureMapGroupInputComponent input = rg.target.getInput().get(i);
 			StringType rdp = dependent.getVariable().get(i);
       String var = rdp.asStringValue();
-			VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT : VariableMode.OUTPUT;
+			VariableMode mode = input.getMode() == StructureMapInputMode.SOURCE ? VariableMode.INPUT :   VariableMode.OUTPUT; 
 			Base vv = vin.get(mode, var);
+      if (vv == null && mode == VariableMode.INPUT) //* once source, always source. but target can be treated as source at user convenient
+        vv = vin.get(VariableMode.OUTPUT, var);
 			if (vv == null)
-				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' has no value");
+				throw new FHIRException("Rule '"+dependent.getName()+"' "+mode.toString()+" variable '"+input.getName()+"' named as '"+var+"' has no value");
 			v.add(mode, input.getName(), vv);    	
 		}
 		executeGroup(indent+"  ", context, rg.targetMap, v, rg.target);
@@ -1258,16 +1274,20 @@ public class StructureMapUtilities {
     }
 
     for (UriType imp : map.getImport()) {
-      StructureMap impMap = library.get(imp.getValue());
-      if (impMap == null)
-        throw new FHIRException("Unable to find map "+imp.getValue());
-      for (StructureMapGroupComponent grp : impMap.getGroup()) {
-        if (matchesByType(impMap, grp, type)) {
-          if (res.targetMap == null) {
-            res.targetMap = impMap;
-            res.target = grp;
-          } else 
-            throw new FHIRException("Multiple possible matches for default rule for '"+type+"' in "+res.targetMap.getUrl()+" ("+res.target.getName()+") and "+impMap.getUrl()+" ("+grp.getName()+")");
+      List<StructureMap> impMapList = findMatchingMaps(imp.getValue());
+      if (impMapList.size() == 0)
+        throw new FHIRException("Unable to find map(s) for "+imp.getValue());
+      for (StructureMap impMap : impMapList) {
+        if (!impMap.getUrl().equals(map.getUrl())) {
+          for (StructureMapGroupComponent grp : impMap.getGroup()) {
+            if (matchesByType(impMap, grp, type)) {
+              if (res.targetMap == null) {
+                res.targetMap = impMap;
+                res.target = grp;
+              } else 
+                throw new FHIRException("Multiple possible matches for default rule for '"+type+"' in "+res.targetMap.getUrl()+" ("+res.target.getName()+") and "+impMap.getUrl()+" ("+grp.getName()+")");
+            }
+          }
         }
       }
     }
@@ -1276,6 +1296,33 @@ public class StructureMapUtilities {
     String result = getActualType(res.targetMap, res.target.getInput().get(1).getType());
     source.setUserData(kn, result);
     return result;
+  }
+
+  private List<StructureMap> findMatchingMaps(String value) {
+    List<StructureMap> res = new ArrayList<StructureMap>();
+    if (value.contains("*")) {
+      for (StructureMap sm : library.values()) {
+        if (urlMatches(value, sm.getUrl())) {
+          res.add(sm); 
+        }
+      }
+    } else {
+      StructureMap sm = library.get(value);
+      if (sm != null)
+        res.add(sm); 
+    }
+    Set<String> check = new HashSet<String>();
+    for (StructureMap sm : res) {
+      if (check.contains(sm.getUrl()))
+        throw new Error("duplicate");
+      else
+        check.add(sm.getUrl());
+    }
+    return res;
+  }
+
+  private boolean urlMatches(String mask, String url) {
+    return url.length() > mask.length() && url.startsWith(mask.substring(0, mask.indexOf("*"))) && url.endsWith(mask.substring(mask.indexOf("*")+1)) ;
   }
 
   private ResolvedGroup resolveGroupByTypes(StructureMap map, StructureMapGroupComponent source, String srcType, String tgtType) throws FHIRException {
@@ -1297,16 +1344,20 @@ public class StructureMapUtilities {
     }
 
     for (UriType imp : map.getImport()) {
-      StructureMap impMap = library.get(imp.getValue());
-      if (impMap == null)
-        throw new FHIRException("Unable to find map "+imp.getValue());
-      for (StructureMapGroupComponent grp : impMap.getGroup()) {
-        if (matchesByType(impMap, grp, srcType, tgtType)) {
-          if (res.targetMap == null) {
-            res.targetMap = impMap;
-            res.target = grp;
-          } else 
-            throw new FHIRException("Multiple possible matches for rule for '"+srcType+"/"+tgtType+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+      List<StructureMap> impMapList = findMatchingMaps(imp.getValue());
+      if (impMapList.size() == 0)
+        throw new FHIRException("Unable to find map(s) for "+imp.getValue());
+      for (StructureMap impMap : impMapList) {
+        if (!impMap.getUrl().equals(map.getUrl())) {
+          for (StructureMapGroupComponent grp : impMap.getGroup()) {
+            if (matchesByType(impMap, grp, srcType, tgtType)) {
+              if (res.targetMap == null) {
+                res.targetMap = impMap;
+                res.target = grp;
+              } else 
+                throw new FHIRException("Multiple possible matches for rule for '"+srcType+"/"+tgtType+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+            }
+          }
         }
       }
     }
@@ -1381,21 +1432,25 @@ public class StructureMapUtilities {
     }
 
     for (UriType imp : map.getImport()) {
-      StructureMap impMap = library.get(imp.getValue());
-      if (impMap == null)
-        throw new FHIRException("Unable to find map "+imp.getValue());
-      for (StructureMapGroupComponent grp : impMap.getGroup()) {
-        if (grp.getName().equals(name)) {
-          if (res.targetMap == null) {
-            res.targetMap = impMap;
-            res.target = grp;
-          } else 
-            throw new FHIRException("Multiple possible matches for rule '"+name+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+      List<StructureMap> impMapList = findMatchingMaps(imp.getValue());
+      if (impMapList.size() == 0)
+        throw new FHIRException("Unable to find map(s) for "+imp.getValue());
+      for (StructureMap impMap : impMapList) {
+        if (!impMap.getUrl().equals(map.getUrl())) {
+          for (StructureMapGroupComponent grp : impMap.getGroup()) {
+            if (grp.getName().equals(name)) {
+              if (res.targetMap == null) {
+                res.targetMap = impMap;
+                res.target = grp;
+              } else 
+                throw new FHIRException("Multiple possible matches for rule '"+name+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+            }
+          }
         }
       }
     }
     if (res.target == null)
-      throw new FHIRException("No matches found for rule '"+name+"'");
+      throw new FHIRException("No matches found for rule '"+name+"'. Reference found in "+map.getUrl());
     source.setUserData(kn, res);
     return res;
   }
@@ -1404,28 +1459,6 @@ public class StructureMapUtilities {
 		Base b = vars.get(VariableMode.INPUT, src.getContext());
 		if (b == null)
 			throw new FHIRException("Unknown input variable "+src.getContext());
-
-		if (src.hasCondition()) {
-			ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_EXPRESSION);
-			if (expr == null) {
-				expr = fpe.parse(src.getCondition());
-				//        fpe.check(context.appInfo, ??, ??, expr)
-				src.setUserData(MAP_WHERE_EXPRESSION, expr);
-			}
-			if (!fpe.evaluateToBoolean(vars, null, b, expr))
-				return null;
-		}
-
-		if (src.hasCheck()) {
-			ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_CHECK);
-			if (expr == null) {
-				expr = fpe.parse(src.getCheck());
-				//        fpe.check(context.appInfo, ??, ??, expr)
-				src.setUserData(MAP_WHERE_CHECK, expr);
-			}
-			if (!fpe.evaluateToBoolean(null, b, expr))
-				throw new FHIRException("Rule \""+ruleId+"\": Check condition failed");
-		} 
 
 		List<Base> items = new ArrayList<Base>();
 		if (!src.hasElement()) 
@@ -1444,7 +1477,38 @@ public class StructureMapUtilities {
 	    }
 	    items.removeAll(remove);
 		}
-		if (src.hasListMode()) {
+
+    if (src.hasCondition()) {
+      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_EXPRESSION);
+      if (expr == null) {
+        expr = fpe.parse(src.getCondition());
+        //        fpe.check(context.appInfo, ??, ??, expr)
+        src.setUserData(MAP_WHERE_EXPRESSION, expr);
+      }
+      List<Base> remove = new ArrayList<Base>();
+      for (Base item : items) {
+        if (!fpe.evaluateToBoolean(vars, null, item, expr))
+          remove.add(item);
+      }
+      items.removeAll(remove);
+    }
+
+    if (src.hasCheck()) {
+      ExpressionNode expr = (ExpressionNode) src.getUserData(MAP_WHERE_CHECK);
+      if (expr == null) {
+        expr = fpe.parse(src.getCheck());
+        //        fpe.check(context.appInfo, ??, ??, expr)
+        src.setUserData(MAP_WHERE_CHECK, expr);
+      }
+      List<Base> remove = new ArrayList<Base>();
+      for (Base item : items) {
+        if (!fpe.evaluateToBoolean(vars, null, item, expr))
+          throw new FHIRException("Rule \""+ruleId+"\": Check condition failed");
+      }
+    } 
+
+		
+		if (src.hasListMode() && !items.isEmpty()) {
 		  switch (src.getListMode()) {
 		  case FIRST:
 		    Base bt = items.get(0);
@@ -1516,7 +1580,7 @@ public class StructureMapUtilities {
 	      if (tgt.getParameter().isEmpty()) {
 	        // we have to work out the type. First, we see if there is a single type for the target. If there is, we use that
 	        String[] types = dest.getTypesForProperty(element.hashCode(), element);
-	        if (types.length == 1)
+	        if (types.length == 1 && !"*".equals(types[0]))
 	          tn = types[0];
 	        else if (srcVar != null) {
 	          tn = determineTypeFromSourceType(map, group, vars.get(VariableMode.INPUT, srcVar), types);
@@ -1541,7 +1605,7 @@ public class StructureMapUtilities {
 	        expr = fpe.parse(getParamStringNoNull(vars, tgt.getParameter().get(1), tgt.toString()));
 	        tgt.setUserData(MAP_WHERE_EXPRESSION, expr);
 	      }
-	      List<Base> v = fpe.evaluate(vars, null, tgt.getParameter().size() == 2 ? getParam(vars, tgt.getParameter().get(0)) : dest, expr);
+	      List<Base> v = fpe.evaluate(vars, null, tgt.getParameter().size() == 2 ? getParam(vars, tgt.getParameter().get(0)) : new BooleanType(false), expr);
 	      if (v.size() == 0)
 	        return null;
 	      else if (v.size() != 1)

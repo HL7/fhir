@@ -27,8 +27,8 @@ group for type+types  ImplementationGuide extends DomainResource
 
   "ImplementationGuide-description" : for src.description make tgt.description
   "ImplementationGuide-copyright" : for src.copyright make tgt.copyright
-  "ImplementationGuide-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
-  "ImplementationGuide-useContext" : for src.useContext as vs where (useContext.coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "ImplementationGuide-jurisdiction" : for src.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "ImplementationGuide-useContext" : for src.useContext as vs where (coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
   "ImplementationGuide-date" : for src.date make tgt.date
   "ImplementationGuide-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
   "ImplementationGuide-dependency" : for src.dependency as vs0 make tgt.dependency as vt0 then {
@@ -55,7 +55,7 @@ group resource extends BackboneElement
   input src as source
   input tgt as target
 
-  "ImplementationGuide.resource-purpose" : for src where purpose = 'example' make tgt.example = true
+  "ImplementationGuide.resource-purpose" : for src where src.purpose = 'example' make tgt.example = true
   "ImplementationGuide.resource-name" : for src.name make tgt.name
   "ImplementationGuide.resource-description" : for src.description make tgt.description
   "ImplementationGuide.resource-acronym" : for src.acronym make tgt.acronym

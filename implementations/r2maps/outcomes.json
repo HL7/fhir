@@ -1027,57 +1027,15 @@
         "Round trip failed: Names differ at /StructureDefinition: constrainedType/abstract"
       ]
     },
-    "sdc-valueset": {
-      "errors": [
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (snapshot) ( (ids: SDC-ValueSet,ValueSet.id,ValueSet.meta,ValueSet.implicitRules,ValueSet.language,ValueSet.text,ValueSet.contained,ValueSet.extension,styleSensitive,ValueSet.modifierExtension,ValueSet.url,ValueSet.identifier,ValueSet.version,ValueSet.name,ValueSet.status,ValueSet.experimental,ValueSet.publisher,ValueSet.contact,ValueSet.contact.id,ValueSet.contact.extension,ValueSet.contact.modifierExtension,ValueSet.contact.name,ValueSet.contact.telecom,ValueSet.date,ValueSet.lockedDate,ValueSet.description,ValueSet.useContext,ValueSet.immutable,ValueSet.requirements,ValueSet.copyright,ValueSet.extensible,ValueSet.codeSystem,ValueSet.codeSystem.id,ValueSet.codeSystem.extension,ValueSet.codeSystem.modifierExtension,ValueSet.codeSystem.system,ValueSet.codeSystem.version,ValueSet.codeSystem.caseSensitive,ValueSet.codeSystem.concept,ValueSet.codeSystem.concept.id,ValueSet.codeSystem.concept.extension,conceptLabel,ValueSet.codeSystem.concept.extension.id,extension,ValueSet.codeSystem.concept.extension.url,ValueSet.codeSystem.concept.extension.valueString,ValueSet.codeSystem.concept.extension.valueString.id,ValueSet.codeSystem.concept.extension.valueString.extension,conceptLabel.renderingStyle,conceptLabel.markup,ValueSet.codeSystem.concept.extension.valueString.value,conceptConceptOrder,ValueSet.codeSystem.concept.modifierExtension,ValueSet.codeSystem.concept.code,ValueSet.codeSystem.concept.abstract,ValueSet.codeSystem.concept.display,ValueSet.codeSystem.concept.display.id,ValueSet.codeSystem.concept.display.extension,conceptDisplayLabel.renderingStyle,conceptDisplayLabel.markup,ValueSet.codeSystem.concept.display.value,ValueSet.codeSystem.concept.definition,designation,ValueSet.codeSystem.concept.designation.id,ValueSet.codeSystem.concept.designation.extension,ValueSet.codeSystem.concept.designation.modifierExtension,ValueSet.codeSystem.concept.designation.language,ValueSet.codeSystem.concept.designation.use,ValueSet.codeSystem.concept.designation.value,ValueSet.codeSystem.concept.concept,ValueSet.compose,ValueSet.compose.id,ValueSet.compose.extension,ValueSet.compose.modifierExtension,ValueSet.compose.import,ValueSet.compose.include,ValueSet.compose.include.id,ValueSet.compose.include.extension,ValueSet.compose.include.modifierExtension,ValueSet.compose.include.system,ValueSet.compose.include.version,ValueSet.compose.include.concept,ValueSet.compose.include.concept.id,ValueSet.compose.include.concept.extension,conceptLabel,ValueSet.compose.include.concept.extension.id,extension,ValueSet.compose.include.concept.extension.url,ValueSet.compose.include.concept.extension.valueString,ValueSet.compose.include.concept.extension.valueString.id,ValueSet.compose.include.concept.extension.valueString.extension,code.renderingStyle,code.markup,ValueSet.compose.include.concept.extension.valueString.value,conceptConceptOrder,ValueSet.compose.include.concept.modifierExtension,ValueSet.compose.include.concept.code,ValueSet.compose.include.concept.display,ValueSet.compose.include.concept.display.id,ValueSet.compose.include.concept.display.extension,codeDisplay.renderingStyle,codeDisplay.markup,ValueSet.compose.include.concept.display.value,ValueSet.compose.include.concept.designation,ValueSet.compose.include.filter,ValueSet.compose.include.filter.id,ValueSet.compose.include.filter.extension,ValueSet.compose.include.filter.modifierExtension,ValueSet.compose.include.filter.property,ValueSet.compose.include.filter.op,ValueSet.compose.include.filter.value,ValueSet.compose.exclude,ValueSet.expansion,ValueSet.expansion.id,ValueSet.expansion.extension,ValueSet.expansion.modifierExtension,ValueSet.expansion.identifier,ValueSet.expansion.timestamp,ValueSet.expansion.total,ValueSet.expansion.offset,ValueSet.expansion.parameter,ValueSet.expansion.parameter.id,ValueSet.expansion.parameter.extension,ValueSet.expansion.parameter.modifierExtension,ValueSet.expansion.parameter.name,ValueSet.expansion.parameter.value[x],ValueSet.expansion.contains,ValueSet.expansion.contains.id,ValueSet.expansion.contains.extension,expansionLabel,ValueSet.expansion.contains.extension.id,extension,ValueSet.expansion.contains.extension.url,ValueSet.expansion.contains.extension.valueString,ValueSet.expansion.contains.extension.valueString.id,ValueSet.expansion.contains.extension.valueString.extension,expansion.renderingStyle,expansion.markup,ValueSet.expansion.contains.extension.valueString.value,conceptConceptOrder,ValueSet.expansion.contains.modifierExtension,ValueSet.expansion.contains.system,ValueSet.expansion.contains.abstract,ValueSet.expansion.contains.version,ValueSet.expansion.contains.code,ValueSet.expansion.contains.display,ValueSet.expansion.contains.display.id,ValueSet.expansion.contains.display.extension,expansionDisplay.renderingStyle,expansionDisplay.markup,ValueSet.expansion.contains.display.value,ValueSet.expansion.contains.contains)) [snapshot.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (diff) ( (ids: SDC-ValueSet,styleSensitive,ValueSet.url,ValueSet.name,ValueSet.status,ValueSet.experimental,ValueSet.date,ValueSet.lockedDate,ValueSet.description,ValueSet.useContext,ValueSet.immutable,ValueSet.extensible,ValueSet.codeSystem,ValueSet.codeSystem.system,ValueSet.codeSystem.version,ValueSet.codeSystem.caseSensitive,ValueSet.codeSystem.concept,conceptLabel,ValueSet.codeSystem.concept.extension.valueString,conceptLabel.renderingStyle,conceptLabel.markup,conceptConceptOrder,ValueSet.codeSystem.concept.code,ValueSet.codeSystem.concept.abstract,ValueSet.codeSystem.concept.display,conceptDisplayLabel.renderingStyle,conceptDisplayLabel.markup,ValueSet.codeSystem.concept.definition,ValueSet.codeSystem.concept.concept,ValueSet.compose,ValueSet.compose.import,ValueSet.compose.include,ValueSet.compose.include.system,ValueSet.compose.include.version,ValueSet.compose.include.concept,conceptLabel,ValueSet.compose.include.concept.extension.valueString,code.renderingStyle,code.markup,conceptConceptOrder,ValueSet.compose.include.concept.code,ValueSet.compose.include.concept.display,codeDisplay.renderingStyle,codeDisplay.markup,ValueSet.compose.include.filter,ValueSet.compose.include.filter.property,ValueSet.compose.include.filter.op,ValueSet.compose.include.filter.value,ValueSet.compose.exclude,ValueSet.expansion,ValueSet.expansion.identifier,ValueSet.expansion.timestamp,ValueSet.expansion.contains,expansionLabel,ValueSet.expansion.contains.extension.valueString,expansion.renderingStyle,expansion.markup,conceptConceptOrder,ValueSet.expansion.contains.system,ValueSet.expansion.contains.abstract,ValueSet.expansion.contains.version,ValueSet.expansion.contains.code,ValueSet.expansion.contains.display,expansionDisplay.renderingStyle,expansionDisplay.markup,ValueSet.expansion.contains.contains)) [differential.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: Element paths must be unique unless the structure is a constraint [derivation \u003d \u0027constraint\u0027 or snapshot.element.select(path).isDistinct()]",
-        "[R3 validation error] StructureDefinition.snapshot.element[49]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[50]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[59]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[60]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[92]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[93]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[101]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[102]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[137]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[138]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[149]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.snapshot.element[150]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[20]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[21]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[26]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[27]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[38]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[39]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[43]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[44]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[56]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[57]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[64]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]",
-        "[R3 validation error] StructureDefinition.differential.element[65]: sliceName must be a proper token [sliceName.empty() or sliceName.matches(\u0027^[a-zA-Z0-9\\\\-\\\\_]+$\u0027)]"
-      ]
-    },
+    "sdc-valueset": {},
     "sdcde-dataelement": {
       "errors": [
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (snapshot) ( (ids: SDCDE-DataElement,DataElement.id,DataElement.meta,DataElement.implicitRules,DataElement.language,DataElement.text,DataElement.contained,DataElement.extension,effectivePeriod,documentReference,administrativeStatus,changeDescription,submitterOrganization,registryOrganization,DataElement.modifierExtension,DataElement.url,DataElement.identifier,DataElement.version,DataElement.name,DataElement.status,DataElement.experimental,DataElement.publisher,DataElement.contact,DataElement.contact.id,DataElement.contact.extension,contactAddress,DataElement.contact.modifierExtension,DataElement.contact.name,DataElement.contact.telecom,DataElement.date,DataElement.useContext,DataElement.useContext.id,DataElement.useContext.extension,classificationOrContext,DataElement.useContext.coding,DataElement.useContext.text,DataElement.copyright,DataElement.stringency,DataElement.mapping,ObjectClassPropertyMapping,DataElement.mapping.id,DataElement.mapping.extension,DataElement.mapping.modifierExtension,DataElement.mapping.identity,DataElement.mapping.uri,DataElement.mapping.name,DataElement.mapping.comments,OtherMapping,DataElement.mapping.id,DataElement.mapping.extension,DataElement.mapping.modifierExtension,DataElement.mapping.identity,DataElement.mapping.uri,DataElement.mapping.name,DataElement.mapping.comments,DataElement.element,DataElement.element.id,DataElement.element.extension,question,allowedUnits,minLength,regex,entryFormat,maxDecimalPlaces,DataElement.element.path,DataElement.element.representation,DataElement.element.name,DataElement.element.label,DataElement.element.code,DataElement.element.code.id,DataElement.element.code.extension,isDataElementConcept,DataElement.element.code.system,DataElement.element.code.version,DataElement.element.code.code,DataElement.element.code.display,DataElement.element.code.userSelected,DataElement.element.slicing,DataElement.element.slicing.id,DataElement.element.slicing.extension,DataElement.element.slicing.discriminator,DataElement.element.slicing.description,DataElement.element.slicing.ordered,DataElement.element.slicing.rules,DataElement.element.short,DataElement.element.definition,DataElement.element.comments,DataElement.element.requirements,DataElement.element.alias,DataElement.element.min,DataElement.element.max,DataElement.element.base,DataElement.element.base.id,DataElement.element.base.extension,DataElement.element.base.path,DataElement.element.base.min,DataElement.element.base.max,DataElement.element.type,DataElement.element.type.id,DataElement.element.type.extension,DataElement.element.type.code,DataElement.element.type.profile,DataElement.element.type.aggregation,DataElement.element.nameReference,DataElement.element.defaultValue[x],DataElement.element.meaningWhenMissing,DataElement.element.fixed[x],DataElement.element.pattern[x],DataElement.element.example[x],DataElement.element.minValue[x],l,DataElement.element.maxLength,DataElement.element.condition,DataElement.element.constraint,DataElement.element.constraint.id,DataElement.element.constraint.extension,DataElement.element.constraint.key,DataElement.element.constraint.requirements,DataElement.element.constraint.severity,DataElement.element.constraint.human,DataElement.element.constraint.xpath,DataElement.element.mustSupport,DataElement.element.isModifier,DataElement.element.isSummary,DataElement.element.binding,DataElement.element.binding.id,DataElement.element.binding.extension,DataElement.element.binding.strength,DataElement.element.binding.description,DataElement.element.binding.valueSetReference,DataElement.element.binding.valueSetReference.id,DataElement.element.binding.valueSetReference.extension,permittedValueValueset,permittedValueConcepmap,DataElement.element.binding.valueSetReference.reference,DataElement.element.binding.valueSetReference.display,DataElement.element.mapping,ClassPropertyMapping,DataElement.element.mapping.id,DataElement.element.mapping.extension,objectClass,DataElement.element.mapping.extension.id,extension,DataElement.element.mapping.extension.url,DataElement.element.mapping.extension.valueCoding,property,DataElement.element.mapping.extension.id,extension,DataElement.element.mapping.extension.url,DataElement.element.mapping.extension.valueCoding,DataElement.element.mapping.identity,DataElement.element.mapping.language,DataElement.element.mapping.map,OtherElementMapping,DataElement.element.mapping.id,MappingEquivalence,DataElement.element.mapping.identity,DataElement.element.mapping.language,DataElement.element.mapping.map)) [snapshot.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (diff) ( (ids: SDCDE-DataElement,effectivePeriod,documentReference,administrativeStatus,changeDescription,submitterOrganization,registryOrganization,DataElement.url,DataElement.identifier,DataElement.version,DataElement.name,DataElement.status,DataElement.experimental,DataElement.publisher,DataElement.contact,contactAddress,DataElement.contact.name,DataElement.contact.telecom,DataElement.date,DataElement.useContext,classificationOrContext,DataElement.copyright,DataElement.stringency,ObjectClassPropertyMapping,DataElement.mapping.identity,DataElement.mapping.uri,DataElement.mapping.name,DataElement.mapping.comments,OtherMapping,DataElement.mapping.identity,DataElement.mapping.uri,DataElement.mapping.name,DataElement.mapping.comments,DataElement.element,question,allowedUnits,minLength,regex,entryFormat,maxDecimalPlaces,DataElement.element.path,DataElement.element.name,DataElement.element.label,DataElement.element.code,isDataElementConcept,DataElement.element.definition,DataElement.element.comments,DataElement.element.requirements,DataElement.element.alias,DataElement.element.min,DataElement.element.max,DataElement.element.type,DataElement.element.type.code,DataElement.element.defaultValue[x],DataElement.element.meaningWhenMissing,DataElement.element.example[x],DataElement.element.minValue[x],l,DataElement.element.maxLength,DataElement.element.condition,DataElement.element.constraint,DataElement.element.constraint.key,DataElement.element.constraint.requirements,DataElement.element.constraint.severity,DataElement.element.constraint.human,DataElement.element.constraint.xpath,DataElement.element.mustSupport,DataElement.element.binding,DataElement.element.binding.strength,DataElement.element.binding.description,DataElement.element.binding.valueSetReference,permittedValueValueset,permittedValueConcepmap,ClassPropertyMapping,objectClass,DataElement.element.mapping.extension.valueCoding,property,DataElement.element.mapping.extension.valueCoding,DataElement.element.mapping.identity,DataElement.element.mapping.map,OtherElementMapping,MappingEquivalence,DataElement.element.mapping.identity,DataElement.element.mapping.language,DataElement.element.mapping.map)) [differential.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: Element paths must be unique unless the structure is a constraint [derivation \u003d \u0027constraint\u0027 or snapshot.element.select(path).isDistinct()]"
+        "Exception executing transform tgt.fixed \u003d create() as vvv on Rule \"\"ElementDefinition-fixed\"\": Unknown Resource or Type Name \u0027*\u0027"
       ]
     },
-    "sdcde-valueset": {
-      "errors": [
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (snapshot) ( (ids: SDCDE-ValueSet,ValueSet.id,ValueSet.meta,ValueSet.implicitRules,ValueSet.language,ValueSet.text,ValueSet.contained,ValueSet.extension,styleSensitive,trustedExpansion,effectiveDate,expirationDate,ValueSet.modifierExtension,ValueSet.url,ValueSet.identifier,ValueSet.version,ValueSet.name,ValueSet.status,ValueSet.experimental,ValueSet.publisher,ValueSet.contact,ValueSet.contact.id,ValueSet.contact.extension,ValueSet.contact.modifierExtension,ValueSet.contact.name,ValueSet.contact.telecom,ValueSet.date,ValueSet.lockedDate,ValueSet.description,ValueSet.useContext,ValueSet.immutable,ValueSet.requirements,ValueSet.copyright,ValueSet.extensible,ValueSet.codeSystem,ValueSet.codeSystem.id,ValueSet.codeSystem.extension,ValueSet.codeSystem.modifierExtension,ValueSet.codeSystem.system,ValueSet.codeSystem.version,ValueSet.codeSystem.caseSensitive,ValueSet.codeSystem.concept,ValueSet.codeSystem.concept.id,ValueSet.codeSystem.concept.extension,conceptConceptOrder,ValueSet.codeSystem.concept.modifierExtension,ValueSet.codeSystem.concept.code,ValueSet.codeSystem.concept.abstract,ValueSet.codeSystem.concept.display,ValueSet.codeSystem.concept.definition,designation,ValueSet.codeSystem.concept.designation.id,ValueSet.codeSystem.concept.designation.extension,ValueSet.codeSystem.concept.designation.modifierExtension,ValueSet.codeSystem.concept.designation.language,ValueSet.codeSystem.concept.designation.use,ValueSet.codeSystem.concept.designation.value,ValueSet.codeSystem.concept.concept,ValueSet.compose,ValueSet.compose.id,ValueSet.compose.extension,ValueSet.compose.modifierExtension,ValueSet.compose.import,ValueSet.compose.include,ValueSet.compose.include.id,ValueSet.compose.include.extension,ValueSet.compose.include.modifierExtension,ValueSet.compose.include.system,ValueSet.compose.include.version,ValueSet.compose.include.concept,ValueSet.compose.include.concept.id,ValueSet.compose.include.concept.extension,conceptConceptOrder,ValueSet.compose.include.concept.modifierExtension,ValueSet.compose.include.concept.code,ValueSet.compose.include.concept.display,ValueSet.compose.include.concept.designation,ValueSet.compose.include.filter,ValueSet.compose.include.filter.id,ValueSet.compose.include.filter.extension,ValueSet.compose.include.filter.modifierExtension,ValueSet.compose.include.filter.property,ValueSet.compose.include.filter.op,ValueSet.compose.include.filter.value,ValueSet.compose.exclude,ValueSet.expansion,ValueSet.expansion.id,ValueSet.expansion.extension,ValueSet.expansion.modifierExtension,ValueSet.expansion.identifier,ValueSet.expansion.timestamp,ValueSet.expansion.total,ValueSet.expansion.offset,ValueSet.expansion.parameter,ValueSet.expansion.parameter.id,ValueSet.expansion.parameter.extension,ValueSet.expansion.parameter.modifierExtension,ValueSet.expansion.parameter.name,ValueSet.expansion.parameter.value[x],ValueSet.expansion.contains,ValueSet.expansion.contains.id,ValueSet.expansion.contains.extension,conceptConceptOrder,definition,systemName,ValueSet.expansion.contains.modifierExtension,ValueSet.expansion.contains.system,ValueSet.expansion.contains.abstract,ValueSet.expansion.contains.version,ValueSet.expansion.contains.code,ValueSet.expansion.contains.display,ValueSet.expansion.contains.contains)) [snapshot.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: All element definitions must have unique ids (diff) ( (ids: SDCDE-ValueSet,styleSensitive,trustedExpansion,effectiveDate,expirationDate,ValueSet.url,ValueSet.identifier,ValueSet.version,ValueSet.name,ValueSet.status,ValueSet.experimental,ValueSet.publisher,ValueSet.date,ValueSet.lockedDate,ValueSet.description,ValueSet.useContext,ValueSet.immutable,ValueSet.extensible,ValueSet.codeSystem,ValueSet.codeSystem.system,ValueSet.codeSystem.version,ValueSet.codeSystem.caseSensitive,ValueSet.codeSystem.concept,conceptConceptOrder,ValueSet.codeSystem.concept.code,ValueSet.codeSystem.concept.abstract,ValueSet.codeSystem.concept.display,ValueSet.codeSystem.concept.definition,ValueSet.codeSystem.concept.concept,ValueSet.compose,ValueSet.compose.import,ValueSet.compose.include,ValueSet.compose.include.system,ValueSet.compose.include.version,ValueSet.compose.include.concept,conceptConceptOrder,ValueSet.compose.include.concept.code,ValueSet.compose.include.concept.display,ValueSet.compose.include.filter,ValueSet.compose.include.filter.property,ValueSet.compose.include.filter.op,ValueSet.compose.include.filter.value,ValueSet.compose.exclude,ValueSet.expansion,ValueSet.expansion.identifier,ValueSet.expansion.timestamp,ValueSet.expansion.contains,conceptConceptOrder,definition,systemName,ValueSet.expansion.contains.system,ValueSet.expansion.contains.abstract,ValueSet.expansion.contains.version,ValueSet.expansion.contains.code,ValueSet.expansion.contains.display,ValueSet.expansion.contains.contains)) [differential.element.id.trace(\u0027ids\u0027).isDistinct()]",
-        "[R3 validation error] StructureDefinition: Element paths must be unique unless the structure is a constraint [derivation \u003d \u0027constraint\u0027 or snapshot.element.select(path).isDistinct()]"
-      ]
-    },
+    "sdcde-valueset": {},
     "SearchParameter": {},
-    "shareablevalueset": {
-      "errors": [
-        "Round trip failed: Names differ at /StructureDefinition: constrainedType/abstract"
-      ]
-    },
+    "shareablevalueset": {},
     "Signature": {
       "errors": [
         "Unknown StructureDefinitionKind code \u0027datatype\u0027"
@@ -1235,11 +1193,7 @@
         "Unknown StructureDefinitionKind code \u0027datatype\u0027"
       ]
     },
-    "ValueSet": {
-      "errors": [
-        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: nameReference/type"
-      ]
-    },
+    "ValueSet": {},
     "VisionPrescription": {},
     "xdsdocumentmanifest": {
       "errors": [
@@ -8649,22 +8603,18 @@
   "DataElement": {
     "gender": {
       "errors": [
-        "Rule \u0027ElementDefinition\u0027 has 3 but the invocation has 2 variables"
+        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": Unknown Resource or Type Name \u0027Resource\u0027"
       ]
     },
-    "prothrombin": {
-      "errors": [
-        "Rule \u0027ElementDefinition\u0027 has 3 but the invocation has 2 variables"
-      ]
-    },
+    "prothrombin": {},
     "dataelement-sdc-profile-example": {
       "errors": [
-        "Rule \u0027ElementDefinition\u0027 has 3 but the invocation has 2 variables"
+        "Round trip failed: Names differ at /DataElement: name/publisher"
       ]
     },
     "dataelement-sdc-profile-example-de": {
       "errors": [
-        "Rule \u0027ElementDefinition\u0027 has 3 but the invocation has 2 variables"
+        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": Unknown Resource or Type Name \u0027Resource\u0027"
       ]
     }
   },
@@ -9671,22 +9621,9 @@
         "[R3 validation error] OperationDefinition.parameter[2].type: The value provided (\u0027token\u0027) is not in the value set http://hl7.org/fhir/ValueSet/all-types (http://hl7.org/fhir/ValueSet/all-types, and a code is required from this value set) (error message \u003d Unknown Code token in http://hl7.org/fhir/ValueSet/all-types)"
       ]
     },
-    "ValueSet-expand": {
-      "errors": [
-        "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "ValueSet-lookup": {
-      "errors": [
-        "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] OperationDefinition.parameter[10]: Either a type must be provided, or parts [type.exists() or part.exists()]"
-      ]
-    },
-    "ValueSet-validate-code": {
-      "errors": [
-        "[R3 validation error] OperationDefinition: Profile http://hl7.org/fhir/StructureDefinition/OperationDefinition, Element \u0027OperationDefinition.type\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
+    "ValueSet-expand": {},
+    "ValueSet-lookup": {},
+    "ValueSet-validate-code": {},
     "example": {},
     "patient-mpi": {
       "errors": [
@@ -10347,63 +10284,21 @@
     }
   },
   "ValueSet": {
-    "cpt-all": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "dicom-dcim": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "example-extensional": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "example-expansion": {
-      "errors": [
-        "Round trip failed: Names differ at /ValueSet: description/compose"
-      ]
-    },
-    "example-inline": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "example-intensional": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "yesnodontknow": {
-      "errors": [
-        "Round trip failed: Names differ at /ValueSet: description/compose"
-      ]
-    },
+    "cpt-all": {},
+    "dicom-dcim": {},
+    "example-extensional": {},
+    "example-expansion": {},
+    "example-inline": {},
+    "example-intensional": {},
+    "yesnodontknow": {},
     "nhin-purposeofuse": {
       "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]",
-        "[R3 validation error] ValueSet.extension.valueReference: Unable to resolve contained resource",
-        "[R3 validation error] ValueSet.extension.valueReference: SHALL have a contained resource if a local reference is provided ( (url: map; ids: )) [reference.startsWith(\u0027#\u0027).not() or (reference.substring(1).trace(\u0027url\u0027) in %resource.contained.id.trace(\u0027ids\u0027))]"
+        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": Unknown Resource or Type Name \u0027Resource\u0027"
       ]
     },
-    "restful-interaction": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "valueset-sdc-profile-example": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    },
-    "ucum-common": {
-      "errors": [
-        "[R3 validation error] ValueSet: Value set SHALL contain at least one of a a compose, or an expansion element [compose.exists() or expansion.exists()]"
-      ]
-    }
+    "restful-interaction": {},
+    "valueset-sdc-profile-example": {},
+    "ucum-common": {}
   },
   "VisionPrescription": {
     "33123": {

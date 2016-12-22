@@ -30,6 +30,7 @@ import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Factory;
+import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.StructureMap;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
@@ -107,9 +108,10 @@ public class R2R3ConversionTests implements ITransformerServices {
   private static Map<String, StructureMap> library;
   private static JsonObject r2r3Outcomes;
   private static IniFile rules;
-  
+  private List<Resource> extras;
   private final byte[] content;
   private final String name;
+  private String workingid;
 
   public R2R3ConversionTests(String name, byte[] content) {
     this.name = name;
@@ -123,13 +125,15 @@ public class R2R3ConversionTests implements ITransformerServices {
     StructureMapUtilities smu3 = new StructureMapUtilities(contextR3, library, this);
     StructureMapUtilities smu2 = new StructureMapUtilities(contextR2, library, this);
     String tn = null;
-    String id = null;
+    workingid = null;
     try {
+      extras = new ArrayList<Resource>();
+      
       // load the example (r2)
       org.hl7.fhir.dstu3.elementmodel.Element r2 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).parse(new ByteArrayInputStream(content));
       tn = r2.fhirType();
-      id = r2.getChildValue("id");
-      TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".input.xml"));
+      workingid = r2.getChildValue("id");
+      TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".input.xml"));
       
       // load the r2 to R3 map
       String mapFile = Utilities.path(root, "implementations", "r2maps", "R2toR3", r2.fhirType()+".map");
@@ -143,7 +147,12 @@ public class R2R3ConversionTests implements ITransformerServices {
 
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r3);
-        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".r3.xml"));
+        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".r3.xml"));
+        for (Resource r : extras) {
+          bs = new ByteArrayOutputStream();
+          new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r);
+          TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", r.fhirType()+"-"+r.getId()+".r3.xml"));
+        }
 
         // validate against R3
         IResourceValidator validator = contextR3.newValidator();
@@ -164,18 +173,18 @@ public class R2R3ConversionTests implements ITransformerServices {
         // compare the XML
         bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).compose(ro2, bs, OutputStyle.PRETTY, null);
-        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+id+".output.xml"));
+        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".output.xml"));
         
-        check(errors, tn, id);
+        check(errors, tn, workingid);
         String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
-        if (s != null && !s.equals(rules.getStringProperty(tn+"/"+id, "roundtrip")))
+        if (s != null && !s.equals(rules.getStringProperty(tn+"/"+workingid, "roundtrip")))
           throw new Exception("Round trip failed: "+s);
       }
-      if (tn != null && id != null)
-        updateOutcomes(tn, id, null);
+      if (tn != null && workingid != null)
+        updateOutcomes(tn, workingid, null);
     } catch (Exception e) {
-      if (tn != null && id != null)
-        updateOutcomes(tn, id, (e.getMessage() == null ? "NullPointerException" : e.getMessage()).split("\\r?\\n"));
+      if (tn != null && workingid != null)
+        updateOutcomes(tn, workingid, (e.getMessage() == null ? "NullPointerException" : e.getMessage()).split("\\r?\\n"));
       throw e;
     }
   }
@@ -215,11 +224,23 @@ public class R2R3ConversionTests implements ITransformerServices {
     StringBuilder b = new StringBuilder();
     for (ValidationMessage vm : errors) {
       String s = rules.getStringProperty(tn+"/"+id, "validation");
-      if (!Utilities.noString(s) && vm.getMessage().contains(s))
-        break;
+      if (!Utilities.noString(s)) {
+        boolean ok = false;
+        for (String m : s.split("\\;"))
+          if (vm.getMessage().contains(m.trim()))
+            ok = true;
+       if (ok)
+          break;
+      }
       s = rules.getStringProperty(tn, "validation");
-      if (!Utilities.noString(s) && vm.getMessage().contains(s))
-        break;
+      if (!Utilities.noString(s)) {
+        boolean ok = false;
+        for (String m : s.split("\\;"))
+          if (vm.getMessage().contains(m.trim()))
+            ok = true;
+       if (ok)
+          break;
+      }
       if (vm.getLevel() == IssueSeverity.ERROR || vm.getLevel() == IssueSeverity.FATAL) {
         b.append("[R3 validation error] "+vm.getLocation()+": "+vm.getMessage()+"\r\n");
       }
@@ -301,7 +322,11 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Override
   public Base createResource(Object appInfo, Base res) {
-    // nothing to do here .. 
+    if (res instanceof Resource) {
+      Resource r = (Resource) res;
+      extras.add(r);
+      r.setId(workingid+"-"+extras.size());
+    }
     return res;
   }
 
@@ -320,6 +345,18 @@ public class R2R3ConversionTests implements ITransformerServices {
        return Manager.build(context, sd);
      } else
        return ResourceFactory.createResourceOrType(name);
+  }
+
+  @Override
+  public Base resolveReference(Object appContext, String url) {
+    for (Resource r : extras) {
+      if (r instanceof MetadataResource) {
+        MetadataResource mr = (MetadataResource) r;
+        if (mr.getUrl().equals(url))
+          return mr;
+      }
+    }
+    return null;
   }
 
 }

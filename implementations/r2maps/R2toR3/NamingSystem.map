@@ -36,6 +36,6 @@ group for type+types  NamingSystem extends DomainResource
   }
 
   "NamingSystem-replacedBy" : for src.replacedBy make tgt.replacedBy
-  "NamingSystem-jurisdiction" : for src.useContext where useContext.coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "NamingSystem-jurisdiction" : for src.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
 
 endgroup

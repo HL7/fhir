@@ -128,6 +128,14 @@ public class FHIRPathEngine {
      * @return
      */
     public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters);
+    
+    /**
+     * Implementation of resolve() function. Passed a string, return matching resource, if one is known - else null
+     * @param appInfo
+     * @param url
+     * @return
+     */
+    public Base resolveReference(Object appContext, String url);
   }
 
 
@@ -2348,7 +2356,16 @@ public class FHIRPathEngine {
 
 
   private List<Base> funcResolve(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
-    throw new Error("not Implemented yet");
+    List<Base> result = new ArrayList<Base>();
+    for (Base item : focus) {
+      String s = convertToString(item);
+      if (hostServices != null) {
+        Base res = hostServices.resolveReference(context.appInfo, s);
+        if (res != null)
+          result.add(res);
+      }
+    }
+    return result;
   }
 
 	private List<Base> funcExtension(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws FHIRException {

@@ -1,0 +1,16 @@
+﻿map "http://hl7.org/fhir/StructureMap/BackboneElement2to3" = "R2 to R3 Conversions for BackboneElement"
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/BackboneElement" alias BackboneElementR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/BackboneElement" alias BackboneElement as target
+
+imports "http://hl7.org/fhir/StructureMap/primitives2to3"
+imports "http://hl7.org/fhir/StructureMap/Element2to3"
+imports "http://hl7.org/fhir/StructureMap/Extension2to3"
+
+group for type+types  BackboneElement extends Element
+  input src : BackboneElementR2 as source
+  input tgt : BackboneElement as target
+
+  "BackboneElement-modifierExtension" : for src.modifierExtension make tgt.modifierExtension
+
+endgroup

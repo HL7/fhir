@@ -3,10 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ValueSet" alias ValueSetR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/ValueSet" alias ValueSet as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  ValueSet extends DomainResource
   input src : ValueSetR2 as source
@@ -25,15 +22,141 @@ group for type+types  ValueSet extends DomainResource
   }
 
   "ValueSet-date" : for src.date make tgt.date
+  "ValueSet-description" : for src.description make tgt.description
+  "ValueSet-purpose" : for src.requirements make tgt.purpose
+  "ValueSet-copyright" : for src.copyright make tgt.copyright
+  "ValueSet-jurisdiction" : for src.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "ValueSet-useContext" : for src.useContext as vs where (coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
+  
   "ValueSet-immutable" : for src.immutable make tgt.immutable
   "ValueSet-extensible" : for src.extensible make tgt.extensible
-  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0
-  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then {
-    "ValueSet.expansion-identifier" : for vs0.identifier make vt0.identifier
-    "ValueSet.expansion-timestamp" : for vs0.timestamp make vt0.timestamp
-    "ValueSet.expansion-total" : for vs0.total make vt0.total
-    "ValueSet.expansion-offset" : for vs0.offset make vt0.offset
-  }
-
-
+  "ValueSet-codeSystem" : for src.codeSystem as vs0 make create("CodeSystem") as vt0 then codeSystem(src, tgt, vs0, vt0)
+  "ValueSet-compose" : for src.compose as vs0 make tgt.compose as vt0 then compose(src, vs0, vt0)
+  "ValueSet-expansion" : for src.expansion as vs0 make tgt.expansion as vt0 then expansion(vs0, vt0) 
 endgroup
+
+group codeSystem extends Element
+  input vs as source
+  input vstgt as target
+  input src as source
+  input tgt as target
+
+  "CodeSystem-modifierExtension" : for src.modifierExtension make tgt.modifierExtension
+  "CodeSystem-reference": for src.system as v make vstgt.compose as c, c.include as i, i.system = v
+  "CodeSystem-text" : for vs.text make tgt.text
+  "CodeSystem-url" : for src.system make tgt.url
+  "CodeSystem-identifier" : for vs.identifier make tgt.identifier // not sure whether it's right to copy the identifier?
+  "CodeSystem-version" : for src.version make tgt.version 
+  "CodeSystem-name" : for vs.name make tgt.name
+  "CodeSystem-status" : for vs.status make tgt.status
+  "CodeSystem-experimental" : for vs.experimental make tgt.experimental
+  "CodeSystem-publisher" : for vs.publisher make tgt.publisher
+  "CodeSystem-contact" : for vs.contact as vs0 make tgt.contact as vt0 then {
+    "ContactDetail-name" : for vs0.name make vt0.name
+    "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
+  }
+  "CodeSystem-abstract" : for vs where codeSystem.descendants().abstract make tgt.property as p, p.code = 'notSelectable', p.uri = 'http://todo', p.description = 'Indicates that the code is abstract - only intended to be used as a selector for other concepts'
+  "CodeSystem-date" : for vs.date make tgt.date
+  "CodeSystem-description" : for vs.description make tgt.description
+  "CodeSystem-jurisdiction" : for vs.useContext where coding.system = 'urn:iso:std:iso:3166' make tgt.jurisdiction
+  "CodeSystem-useContext" : for vs.useContext as vs where (coding.system = 'urn:iso:std:iso:3166').not() make  tgt.useContext as uc,  uc.code as ucc,  ucc.system = "http://hl7.org/fhir/usage-context-type",  ucc.code = "task",  uc.value as vt then CodeableConcept(vs, vt)
+  "CodeSystem-purpose" : for vs.requirements make tgt.purpose
+  "CodeSystem-copyright" : for vs.copyright make tgt.copyright
+  "CodeSystem-valueSet" : for vs.url make tgt.valueSet
+  "CodeSystem-caseSensitive" : for src.caseSensitive make tgt.caseSensitive
+  "CodeSystem-content" : for src make tgt.content = 'complete'
+  "CodeSystem-concept" : for src.concept as vs make tgt.concept as vt then csconcept(vs, vt)
+endgroup
+
+group csconcept extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "cs-concept-code" : for src.code make tgt.code
+  "cs-concept-abstract" : for src.abstract as v make tgt.property as p, p.code = 'notSelectable', p.value = v
+  "cs-concept-display" : for src.display make tgt.display
+  "cs-concept-definition" : for src.definition make tgt.definition
+  "cs-concept-designation" : for src.designation as vs make tgt.designation as vt then designation(vs, vt)
+  "cs-concept-concept" : for src.concept as vs make tgt.concept as vt then csconcept(vs, vt)
+endgroup
+
+group compose extends BackboneElement
+  input vs as source
+  input src as source
+  input tgt as target
+
+  "vs-compose-ld" : for vs.lockedDate make tgt.lockedDate
+  "vs-compose-imp" : for src.import as v make tgt.include as ti, ti.valueSet = v
+  "vs-compose-incl" : for src.include as vs make tgt.include as vt then include(vs, vt)
+  "vs-compose-excl" : for src.exclude as vs make tgt.exclude as vt then include(vs, vt)
+endgroup
+
+group include extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-incl-system" : for src.system make tgt.system
+  "vs-incl-version" : for src.version make tgt.version
+  "vs-incl-concept" : for src.concept as vs make tgt.concept as vt then concept(vs, vt)
+  "vs-incl-filter" : for src.filter as vs make tgt.filter as vt then filter(vs, vt)
+endgroup
+
+group concept extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-concept-code" : for src.code make tgt.code
+  "vs-concept-display" : for src.display make tgt.display
+  "vs-concept-designation" : for src.designation as vs make tgt.designation as vt then designation(vs, vt)
+endgroup
+
+group designation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-designation-language" : for src.language make tgt.language
+  "vs-designation-use" : for src.use make tgt.use
+  "vs-designation-value" : for src.value make tgt.value
+endgroup
+  
+group filter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-filter-property" : for src.property make tgt.property
+  "vs-filter-op" : for src.op make tgt.op
+  "vs-filter-value" : for src.value make tgt.value
+endgroup  
+
+group expansion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.expansion-identifier" : for src.identifier make tgt.identifier
+  "ValueSet.expansion-timestamp" : for src.timestamp make tgt.timestamp
+  "ValueSet.expansion-total" : for src.total make tgt.total
+  "ValueSet.expansion-offset" : for src.offset make tgt.offset
+  "ValueSet.expansion-parameter" : for src.parameter as vs make tgt.parameter as vt then parameter(vs, vt)
+  "ValueSet.expansion-contains" : for src.contains as vs make tgt.contains as vt then contains(vs, vt)
+endgroup
+
+group parameter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "vs-parameter-name" : for src.name make tgt.name
+  "vs-parameter-value" : for src.value make tgt.value
+endgroup
+
+group contains extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ValueSet.contains-system" : for src.system make tgt.system
+  "ValueSet.contains-abstract" : for src.abstract make tgt.abstract
+  "ValueSet.contains-version" : for src.version make tgt.version
+  "ValueSet.contains-code" : for src.code make tgt.code
+  "ValueSet.contains-display" : for src.display make tgt.display 
+  "ValueSet.contains-contains" : for src.contains as vs make tgt.contains as vt then contains(vs, vt)
+endgroup
+

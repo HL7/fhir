@@ -249,6 +249,11 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       return list;
     }
 
+    @Override
+    public Base resolveReference(Object appContext, String url) {
+      throw new Error("Not done yet");
+    }
+
   }
 
   public class SectionSorter implements Comparator<String> {

@@ -1,11 +1,12 @@
 Category 1: Passing all tests
 -----------------------------
+ConceptMap
 Flag
-SearchParameter
+ImplementationGuide
 NamingSystem
 OperationDefinition
-ConceptMap
-ImplementationGuide
+SearchParameter
+ValueSet
 
 Category 2: except from Conversion
 ----------------------------------
@@ -47,7 +48,7 @@ TestReport
 Category 3: Allocated to a person
 ---------------------------------
 
-Grahame: AuditEvent, CapabilityStatement, DataElement, StructureDefinition, ValueSet
+Grahame: AuditEvent, CapabilityStatement, DataElement, StructureDefinition, 
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)

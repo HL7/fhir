@@ -57,14 +57,15 @@ group for type+types  ElementDefinition extends Element
 
   "ElementDefinition-type" : for src.type as vs0 where first.not() make tgt.type as vt0 then {
     "ElementDefinition.type-code" : for vs0.code make vt0.code
-    "ElementDefinition.type-profile1" : for vs0.profile where code = 'Reference' make vt0.profile
-    "ElementDefinition.type-profile2" : for vs0.profile where code != 'Reference' make vt0.targetProfile
+    "ElementDefinition.type-profile1" : for vs0.profile where vs0.code = 'Reference' make vt0.profile
+    "ElementDefinition.type-profile2" : for vs0.profile where vs0.code != 'Reference' make vt0.targetProfile
     "ElementDefinition.type-aggregation" : for vs0.aggregation make vt0.aggregation
   }
 
   "ElementDefinition-nameReference" : for src.nameReference make tgt.contentReference
   "ElementDefinition-defaultValue" : for src.defaultValue make tgt.defaultValue
   "ElementDefinition-meaningWhenMissing" : for src.meaningWhenMissing make tgt.meaningWhenMissing
+  "ElementDefinition-example" : for src.example as v make tgt.example as ve, ve.label = "General", ve.value = v
   "ElementDefinition-fixed" : for src.fixed make tgt.fixed
   "ElementDefinition-pattern" : for src.pattern make tgt.pattern
   "ElementDefinition-minValue" : for src.minValue make tgt.minValue
