@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
+// Generated on Thu, Dec 22, 2016 14:49+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -10931,12 +10931,8 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeBackboneElement(t, "source", name, element, index);
-    if (element.hasRequiredElement())
-      composeBoolean(t, "StructureMap", "required", element.getRequiredElement(), -1);
     if (element.hasContextElement())
       composeId(t, "StructureMap", "context", element.getContextElement(), -1);
-    if (element.hasContextTypeElement())
-      composeEnum(t, "StructureMap", "contextType", element.getContextTypeElement(), -1);
     if (element.hasMinElement())
       composeInteger(t, "StructureMap", "min", element.getMinElement(), -1);
     if (element.hasMaxElement())

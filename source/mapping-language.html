@@ -1,7 +1,4 @@
 <!DOCTYPE HTML>
-
-
-      
 [%settitle FHIR Mapping Language%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,35 +14,38 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a yet</a></td></tr></table>
 
 <p>
-The FHIR Specification includes a mapping language. The mapping language as a concrete syntax, defined
+The FHIR Specification includes a mapping language. The mapping language has a concrete syntax, defined
 and described in this page, and an abstract syntax, which is found in the <a href="structuremap.html">StructureMap</a> 
 resource. See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </p>
 <p>
-The mapping language describes how one set of Directed Acyclic Graphs (instances) is transformed to another set of 
-directed ayclic graphs. When the instances have formal definitions that are represented as 
-<a href="structuredefinition.html">Structure Definitions</a>, the language can use additional type
-related features, though it can function without them, and therefore can function on any directed 
-acyclic graph, even if it has no typing system (or cannot have one e.g. HL7 v2).
+The mapping language describes how one set of Directed Acyclic Graphs (an instance) is transformed to another set of 
+directed ayclic graphs. It is not necessary for the instances to have formal declarations and/or be 
+strongly typed - just that they have named children that themselves have properties. On the other hand, 
+when the instances are strongly typed - specifically, when they have formal definitions that are represented as 
+<a href="structuredefinition.html">Structure Definitions</a>, the mapping language can use additional type
+related features. 
 </p>
 <p>
 The mapping language addresses 2 very different kinds of transformations:
 </p>
 <ul>
  <li>Structural changes between the source and target structures</li>
- <li>Differences in formats in string (and related) primitives contained within the structures</li>
+ <li>Differences in content and formats in string (and related) primitives contained within the structures</li>
 </ul>
 <p>
-A map has 5 parts:
+A map has 6 parts:
 </p>
 <ul>
  <li>Metadata</li>
+ <li>Embedded <a href="conceptmap.html">ConceptMaps</a> to translate between different code systems</li>
  <li>References to the structures involved in the mapping</li>
  <li>Imports: additional Maps used by this map</li>
  <li>a series of groups, with a list of input variables</li>
  <li>A series of transformation rules in each group</li>
 </ul>
 
+<a name="execution"> </a>
 <h3>Executing Maps</h3>
 
 <p>
@@ -61,6 +61,10 @@ instance for it's children, it's primitive value, and (optionally) it's type. Th
 <li>Return the correct string format to refer to a tree (input or output)</li>
 </ul>
 <p>
+These functions consistitute a Mapping Support API that makes maps portable between different systems
+</p>
+
+<p>
 Generally, it is assumed the invocation of the engine follows some pattern like this:
 </p>
 <ul>
@@ -69,9 +73,14 @@ Generally, it is assumed the invocation of the engine follows some pattern like 
 <li>The host application asks the engine to execute and provides a set of resources that match defined inputs in the map</li>
 <li>Any created output will be created via the standard API</li>
 </ul>
+<p>
+Some host applications may be able to determine how to combine maps and inputs on the fly based 
+on their metadata, and minimal configuration, while others may require manual arrangements in
+order to manage the map execution process.
+</p>
 
-<h3>Mapping Support API</h3>
 
+<a name="syntax"> </a>
 <h3>General Syntax Notes</h3>
 <p>
 Mapping files are always plain text in unicode. Whitespace is any unicode whitespace, and the particular whitespace used 
@@ -85,10 +94,11 @@ at the end of the line as a comment.
 </p>
 <p>
 All names defined by the map language - group, rule and variable names - must be valid 
-<a href="datatypes.html#id">id</a> (1-64 characters, upper and lowercase letters, numbers, dashes, dots and underscores), 
-and must start with a letter. The special values 'true' and 'false' are not allowed as variable names.
+<a href="datatypes.html#id">ids</a> (1-64 characters, upper and lowercase letters, numbers, dashes, dots and underscores), 
+and must start with a letter. The special boolean values 'true' and 'false' are not allowed as variable names.
 </p>
 
+<a name="metadata"> </a>
 <h3>Metadata</h3>
 
 <p>
@@ -106,6 +116,7 @@ the map uniquely, and then a human readable name for the map.
 <i>todo: add additional metadata?</i>
 </p>
 
+<a name="typing"> </a>
 <h3>Structure Definition References</h3> 
 
 <p>
@@ -113,12 +124,15 @@ The next section of the map references the set of structure definitions
 that are used or produced by this map. 
 </p>
 <pre>
-uses "[url]" as [mode] // documentation
+uses "[url]" (alias name) as [mode] // documentation
 </pre>
 <p>
 This optional section lists one or more structure definitions that the 
 map makes use of, and indicates for each structure definition, how it 
-is used. 
+is used. It may also provide an Alias - a name used for the type inside
+the mapping language - this may be necessary when transforming from 
+source to target where both source and target use overlapping type 
+names (not unusual).
 </p>
 <p>
 Any kind of structure definition may be referenced, including 
@@ -129,14 +143,14 @@ There are 4 modes in which a structure definition may be used:
 </p>
 <ul>
  <li><b>source</b>: One of more instances of this type are passed to the mapping engine when the mapping is executed, and serve as the source from which mapping is performed</li>
- <li><b>queried</b>: The map may ask the (via the API, see above) for some instances of this type. For further discussion, see below</li>
+ <li><b>queried</b>: The map may ask the (via the API) for some instances of this type. For further discussion, see <a href="#api">below</a></li>
  <li><b>target</b>: One or more instances of this type are passed in, and will be populated from the source material</li>
- <li><b>produced</b>: The map may ask (via the API, see above) for some instances of this type to be created. For further discussion, see below</li>
+ <li><b>produced</b>: The map may ask (via the API) for some instances of this type to be created. For further discussion, see <a href="#api">below</a></li>
 </ul>
 <p>
-The simplest case, which is also relatively common, is where a single structure is converted to another single structure. in 
-this case, the map specifes one target, and one source. Such maps can be used automatically - the host application has content
-in one format, creates an empty instance of the target, and asks the mapping engine to convert. 
+The simplest case, which is common, is where a single structure is converted to another single structure. in 
+this case, the map specifes one target, and one source. Such maps are easy to use automatically - the host 
+application has content in one format, creates an empty instance of the target, and asks the mapping engine to convert. 
 </p>
 <p>
 However, many mappings are not so simple. For instance, converting from a single CDA document to FHIR typically
@@ -150,6 +164,7 @@ indicate any structure definitions can still be used, but the type features of t
 and such maps typically require special development to integrate the execution of the map into an application.
 </p>
 
+<a name="imports"> </a>
 <h3>Map Imports</h3>
 <p>
 This section references additional maps that are used by this map:
@@ -159,12 +174,14 @@ imports "[url]" // documentation
 </pre>
 <p>
 Typically, maps that are imported a type based, such as a CDA --> FHIR map that makes 
-use of a CD --> CodeableConcept map.
+use of a CD --> CodeableConcept map. How imported maps are actually used is discussed below.
 </p>
 <p>
-How imported maps are actually used is discussed below.
+The [url] may contain a "*" as a wildcard character to include any matching maps 
+that are available to the mapping engine. 
 </p>
 
+<a name="groups"> </a>
 <h3>Groups</h3>
 <p>
 Each Mapping source contains one or more groups of rules. Each group
@@ -173,32 +190,42 @@ output variables, that define exactly which instances are passed to
 the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
-group [group-name] (extends [other-group])
+group (for type) [group-name] (extends [other-group])
   input [name] : [type] as [mode] // documentation
 </pre>
 <p>
 Each group has a name, which is how the mapping is invoked. The first group 
 is special, in that this is the group invoked if there no name is provided (e.g.
-starting the mapping by a host application). Groups may extend other groups,
-which means that the rules in the other group also apply (typically, this is 
-used with specialising classes in an OO context). 
+starting the mapping by a host application). 
 </p>
-
 <p>
-Each variable parameter to the group has a name. This is the name that applications use when passing the 
+Each input to the group has a name. This is the name that applications use when passing the 
 instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should (see the 
 discussion above), but are not required to. Input variables also have a mode, 
-which may be one of source or target (see above).
+which may be one of source or target (see above). There must be at least two 
+input variable (source and target) - else there's nothing to map. 
+Maps may have additional input or output inputs, where that's necessary. 
 </p>
 <p>
-There must be at least one input variable - else there's nothing to map. 
-Maps may list more that one input variable, where that's necessary. Maps
-can also list one or more target (output) variables, instances that must 
-exist in order to call the map. Note that a map can specify no output variables,
-and create output instances based on the content of the input, rather than specifying
-that they must be created in advance. 
+Groups may extend other groups, which means that the rules in the other group 
+also apply (typically, this is used with specialising classes in an OO context). 
+When a group extends another group, it SHALL have the same input parameters (by name, type and mode)
+though their order may differ, and it may have additional parameters.
+</p>
+<p>
+The key word <code>for</code> is used to indicate that this group provides a 
+set of mappings that are intended to be used as the default way to map from
+source from source to target. There are 2 variants:
+</p>
+<ul>
+ <li><code>for types</code>: Use this by default when a [source] of the specified type must be converted to a [target] of the specified type, and no specific dependent rules (see below) are specified. </li>
+ <li><code>for type+types</code>: in addition, to the above use, when a [source] of the specified type must be converted to a [target] and the type of the target is not fixed, use this group</li>
+</ul>
+<p>
+In both these cases, the group SHALL have 2 parameters, a source, and a target, in that order, and both SHALL have specified types for the inputs.
 </p>
 
+<a name="rules"> </a>
 <h3>Transform Rules</h3>
 
 <p>
@@ -207,17 +234,20 @@ how source content is transformed into target content. The full format for a rul
 looks like this:
 </p>
 <pre>
-name_of_rule: for src_context.field as new_variable where condition make tgt_context.field as new_variable = create("RRoot") then by [details].
+name_of_rule: for src_context.field as new_variable where condition make tgt_context.field as new_variable = create([type]) then [details].
 </pre>
 <p>
 Each rule has 4 main sections:
 </p>
 <ul>
- <li><b>Name</b>: The identity of the rule, for internal references</li>
+ <li><b>Name</b>: The identity of the rule, for logging/debugging</li>
  <li><b>Source Content</b>: One or more elements from the source that contribute to the mapping </li>
  <li><b>Target Transform</b>: One or more specifications of content to create in the target model </li>
  <li><b>Dependent Rules</b>: Specifies which - if any - rules or groups to apply within the scope of the rule</li>
 </ul>
+<p>
+Rules may be applied in any order; there is no sense of sequentially applying one rule after another.
+</p>
 
 <h4>Name</h4>
 <p>
@@ -238,26 +268,27 @@ rule_name: for [source], [source], make ...
 Each [source] contains the following items:
 </p>
 <pre>
-for (optional) context.element { list-option } as variable where [fluentpath] check [fluentpath]
+for context.element { : type {min..max}} {default [value]} { list-option } as variable where [FHIRPath] check [FHIRPath]
 </pre>
 <ul>
- <li><b>optional</b>: The keyword 'optional' indicates that the rule should still apply when there is no value that matches this source element - see below</li>
- <li><b>context</b>: Either a variable or type that is the context in which this rule applies. Variables are not prefixed, and must be declared elsewhere in 
-   the map ('as variable' below, or in the input source variables). If the context is a type, it is prefixed by the character '@' e.g. @Patient.id</li>
+ <li><b>context</b>: A variable that is the context in which this rule applies. Variables are not prefixed, and must be declared elsewhere in the map ('as variable' below, or in the input source variables)</li>
  <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the source is the context. If this is provided, the rule will apply once for each element on the context that matches this name. If the element name contains spaces (possible in some contexts), it can be quoted using &quot; </li>
- <li><b>list-option</b>: by default, the rule will apply once for each occurance of the element in context. The list option can override this to specify only to apply to the first, or the last, and to ignore the others</li>
- <li><b>as variable</b>: if an element is specified, a variable name must be assigned. This variable name may be used in the target statement, and may be re-used in other rules that apply in the scope of this rule</li>
+ <li><b>type</b>: A type may be specified. If a type is specified, only elements that have the specified type are selected as part of the source</li>
+ <li><b>min..max</b>: Specified cardinality. If a cardinality is specified, and the input document does not conform to the cardinality, the mapping engine raises an exception instead of completing the transformation</li>
+ <li><b>default</b>: A default value, used if there is no source value found. If there's a default value on an item that can repeat, it will only be used once</li>
+ <li><b>list-option</b>: by default, the rule will apply once for each occurance of the element in context. The list option can override this to specify only to apply the first, last, or not to those</li>
+ <li><b>as variable</b>: if an element is specified, a variable must be assigned. This variable name may be used in the target statement, and may be re-used in other dependent rules (see below). There is one special case described below (simple form) where the variable name is provided explicitly</li>
  <li><b>where [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine terminates execution with an error. Note: it's usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
 </ul>
 <p>
-If all the source elements have a match (or are labeled as optional) the rule applies for the permutation of the source 
+If all the source elements have a match the rule applies for the permutation of the source 
 elements (e.g. if there are 2 elements, each with 2 matches, the rule applies 4 times, one for each combination). Typically,
 if there is more than one source element, only one of the elements can repeat. 
 </p>
 <p>
-Once the source statement is evaluated, the engine performing the evaluation has a set of variables, each of which
-contains a single value. These variables are now mapped into the target structures in the target transformation.
+Once the source statement is evaluated, the engine performing the evaluation has a list of variables, each of which
+contains a single value for each named variable. These variables are now mapped into the target structures in the target transformation.
 </p>
 <h4>Target Transform</h4>
 <p>
@@ -272,18 +303,23 @@ defined source variables. Multiple target elements are separated by a comma, lik
 Each [target] contains the following items:
 </p>
 <pre>
-make context.element = transform_code(parameters...)  as variable {list_modes}
+make context.element = transform_code(parameters...) as variable {list_modes}
 </pre>
 <ul>
- <li><b>context</b>: Either a variable or type that is the context in which the content will be created. Variables are not prefixed, and must be declared elsewhere in 
-   the map ('as variable' below, or in the input target variables). If the context is a type, it is prefixed by the character '@' e.g. @Patient.id</li>
- <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the transform rule must be 'create' - this means the creation of a new instance of data as part of the output. If this is provided, the created value will be placed into the named element</li>
+ <li><b>context</b>: The name of a variable that is the context in which the content will be created. Variables must be declared elsewhere in 
+   the map ('as variable' below, or in the input target variables)</li>
+ <li><b>element</b>: The name of a child element that is valid in the context. The created value will be placed into the named element</li>
  <li><b>transform+parameters</b>: details how the content that is created is transformed from the source data. See below for possible transform codes. If no transform code is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
- <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in other rules that apply in the scope of this rule</li>
+ <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in the dependent rules</li>
  <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated</li> 
 </ul>
 <p>
-Each time the rule is applied, the engine determines the value from the transforms, considers the list mode, if required, and creates that specified content in the target instance. Within a given transform url, the targets are processed in order, so that a transform rule may refer to a variable defined by a prior transform rule.
+Context and Element are optional as a pair. If no context/element is specified, then a variable must be defined, and the created value is only available in the variable. 
+</p>
+<p>
+Each time the rule is applied, the engine determines the value from the transforms, considers the list mode, if required, 
+and creates that specified content in the target instance. Within a given transform url, the targets are processed in order, 
+so that a transform rule may refer to a variable defined by a prior transform rule.
 </p>
 
 <p>
@@ -291,7 +327,7 @@ The following list specifies that transforms that can be specified. Each transfo
 </p>
 <table class="grid">
  <tr><td><b>Name</b></td><td><b>parameters</b></td><td><b>Documentation</b></td></tr>
- <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concretet syntax, this is simply represented as the source variable</td></tr>
+ <tr><td>copy</td> <td>source</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concrete syntax, this is simply represented as the source variable</td></tr>
  <tr><td>create</td> <td>type</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the type parameter must be a string which is a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
  <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
  <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
@@ -302,7 +338,8 @@ The following list specifies that transforms that can be specified. Each transfo
  <tr><td>dateOp</td> <td>??</td> <td>Perform a date operation. Parameters to be documented</td></tr>
  <tr><td>uuid</td> <td>n/a</td> <td>Generate a random UUID (in lowercase). No Parameters</td></tr>
  <tr><td>pointer</td> <td>resource</td> <td>Return the appropriate string to put in a Reference that refers to the resource provided as a parameter</td></tr>
- <tr><td>evaluate</td> <td>resource</td> <td>Execute the supplied fluentpath expression and use the value returned by that. In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter</td></tr>
+ <tr><td>evaluate</td> <td>resource</td> <td>Execute the supplied FHIRPath expression and use the value returned by that. The 2nd parameter - FHIRPath expression - is evaluated in the context of the first parameter, and the result used as the value. 
+   In the concrete syntax, there is a short hand for this operation, by supplying () around the parameter. In this case, there is no context for the FHIRPath expression, and it must start with a reference to one of the defined variables</td></tr>
  <tr><td>cc</td> <td>(text) or (system. Code[, display])</td> <td>Create a CodeableConcept from the parameters provided</td></tr>
  <tr><td>c</td> <td>system. Code[, display]</td> <td>Create a Coding from the parameters provided</td></tr>
  <tr><td>qty</td> <td>(text) or (value, unit, [system, code])</td> <td>Create a quantity. Parameters = (text) or (value, unit, [system, code]) where text =s the natural represenation e.g. [comparator]value[space]unit</td></tr>
@@ -318,9 +355,9 @@ TODO: explain how optional parameters work with transforms (append only?), docum
 
 <p>
 Once the source elements are evaluated, and any specifed targets created, the engine has a set of variables that represent source and target 
-contexts in which further mapping may occur. The set of variables includes those already defined before the rule was evaluated, as well as those newly 
-created by the evaluation of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more
-to do with them. But if either or both the source and target types are complex, there may be additional mapping rules that need to apply
+contexts in which further mapping may occur. The set of variables includes those provided to the group that contains the rule, and those
+created by the application of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more
+to do with them. But if either or both the source and target types are complex, there are usually additional mapping rules that need to apply
 to the newly created variables.
 </p>
 <p>
@@ -341,10 +378,54 @@ and then a set of parameters are provided.
  .. then rule(param, param)
 </pre>
 
+<p>
+The parameters provided must match the parameters required by the dependenct rule, in order. In addition, the mode
+of the variable must match - inputs that are targets must be target variables. Note, though, that target variables
+can be treated as source for a group. 
+</p>
+<p>
+Groups are resolved by name by looking through all the groups in all the available maps 
+referened by the uses (see above) statements. The name must be unique within the scope
+of these maps. 
+</p>
 
+<a name="simple"> </a>
+<h3>Simple Form + Implicit Type Dependencies</h3>
+<p>
+If no dependent rules are specified, and if the is only one source and target, and 
+they both speecify a variable, the rule can be written in an abbreviated form:
+</p>
+<pre>
+ "name" : for src.element make tgt.element
+</pre>
+<p>
+This is implicitly the same as 
+</p>
+<pre>
+ "name" : for src.element as vvs make create([type]) tgt.element as vvt then [typeGroup](vvs, vvt)
+</pre>
+<p>
+Where <code>type</code> and <code>typeGroup</code> are determined by the context of src.element
+and tgt.element:
+</p>
+<ul>
+ <li><code>typeGroup</code> is determined by looking through the available rule groups labelled as "for types" or "for type+types" and checking the types of their inputs
+ looking for a match to the type of src.element, and [type]</li>
+ <li><code>type</code> is determined by the type of tgt.element. If tgt.element can have more than one type, then the 
+ type is inferred by looking through the available groups labelled "for type+types" for a match to the type of 
+ src.element</li>
+</ul>
+
+<a name="grammar"> </a>
 <h3>Formal Grammar</h3>
 
 <p>todo</p>
+
+<a name="api"> </a>
+<h3>Mapping Support API</h3>
+
+<p>todo</p>
+
 
 </div>
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
+// Generated on Thu, Dec 22, 2016 14:49+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -16459,18 +16459,10 @@ public class JsonParser extends JsonParserBase {
 
   protected void parseStructureMapStructureMapGroupRuleSourceComponentProperties(JsonObject json, StructureMap owner, StructureMap.StructureMapGroupRuleSourceComponent res) throws IOException, FHIRFormatError {
     parseBackboneProperties(json, res);
-    if (json.has("required"))
-      res.setRequiredElement(parseBoolean(json.get("required").getAsBoolean()));
-    if (json.has("_required"))
-      parseElementProperties(json.getAsJsonObject("_required"), res.getRequiredElement());
     if (json.has("context"))
       res.setContextElement(parseId(json.get("context").getAsString()));
     if (json.has("_context"))
       parseElementProperties(json.getAsJsonObject("_context"), res.getContextElement());
-    if (json.has("contextType"))
-      res.setContextTypeElement(parseEnumeration(json.get("contextType").getAsString(), StructureMap.StructureMapContextType.NULL, new StructureMap.StructureMapContextTypeEnumFactory()));
-    if (json.has("_contextType"))
-      parseElementProperties(json.getAsJsonObject("_contextType"), res.getContextTypeElement());
     if (json.has("min"))
       res.setMinElement(parseInteger(json.get("min").getAsLong()));
     if (json.has("_min"))
@@ -37259,17 +37251,9 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeStructureMapStructureMapGroupRuleSourceComponentInner(StructureMap.StructureMapGroupRuleSourceComponent element) throws IOException {
       composeBackbone(element);
-      if (element.hasRequiredElement()) {
-        composeBooleanCore("required", element.getRequiredElement(), false);
-        composeBooleanExtras("required", element.getRequiredElement(), false);
-      }
       if (element.hasContextElement()) {
         composeIdCore("context", element.getContextElement(), false);
         composeIdExtras("context", element.getContextElement(), false);
-      }
-      if (element.hasContextTypeElement()) {
-        composeEnumerationCore("contextType", element.getContextTypeElement(), new StructureMap.StructureMapContextTypeEnumFactory(), false);
-        composeEnumerationExtras("contextType", element.getContextTypeElement(), new StructureMap.StructureMapContextTypeEnumFactory(), false);
       }
       if (element.hasMinElement()) {
         composeIntegerCore("min", element.getMinElement(), false);

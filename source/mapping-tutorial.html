@@ -19,6 +19,7 @@
 <p>
 This tutorial introduces the FHIR <a href="mapping-language.html">mapping language</a>.
 </p>
+<a name="step1"> </a>
 <h3>Step #1: Simplest possible transform</h3>
 <p>
 To start with, we're going to consider a very simple case: mapping between two structures
@@ -87,9 +88,22 @@ This simple statement says that:
  <li>the value of property 'a' of the target will be a copy of variable a - that is, source.a</li>
 </ul>
 <p>
-Note that the types don't feature explicitly in the mapping statements.
+"rule_a" is a purely arbitrary name associated with the rule that appears in logs, error messages,
+trace files, etc. It has no other meaning in the mapping statements.
+</p>
+<p>
+Note that there is no types explicitly in this mapping statement, but if the underlying system
+has types, then the types will have to be correct. If the underlying source and target trees
+are strongly typed, and the mapping groups have explicit types, then a short hand form is possible:
+</p>
+<pre>
+"rule_a" : for source.a make target.a 
+</pre>
+<p>
+How this works is described <a href="#step10">described below</a>.
 </p>
 
+<a name="step2"> </a>
 <h3>Step #2: Fields with different names</h3>
 <p>
 Now consider the case where the elements have different names:
@@ -115,6 +129,7 @@ This relationship is a simple variation of the last:
 Note that the choice of variable name is purely arbitrary. It does not need to be the same as the element name.
 </p>
 
+<a name="step3"> </a>
 <h3>Step #3: Length restriction</h3>
 <p>
 Still sticking with very simple mappings, let's consider the case where there is a length restriction on the target model that is shorter than the one on the source 
@@ -136,19 +151,20 @@ There are 3 different ways to express this mapping, depending on what should hap
 </p>
 <pre>
 "rule_a20a" : for source.a2 as a make target.a2 = truncate(a, 20) // just cut it off at 20 characters
-"rule_a20b" : for source.a2 as a where a1.length &lt;= 20 make target.a2 = a // ignore it
+"rule_a20b" : for source.a2 as a where a2.length &lt;= 20 make target.a2 = a // ignore it
 "rule_a20c" : for source.a2 as a check a2.length &lt;= 20 make target.a2 = a // error if it's longer than 20 characters
 </pre>
 <p>
 Note that it is implicit here that the transformation engine is not required to expected to validate the 
 output against that underlying structure definitions that may apply to it. An application may - and usually 
-should - validate the outputs after the transforms, but the transform engine itself should not assume that it's the 
-final step in the process and automatically validate the output. 
+should - validate the outputs after the transforms, but the transform engine itself does not automatically validate the output
+(e.g. it does not assume that it's the final step in the process). 
 </p>
 
-<h3>Step #4: Type Conversion</h3>
+<a name="step4"> </a>
+<h3>Step #4: Type Conversion in Primitives</h3>
 <p>
-Now for the case where there is a simple type conversion between left and right, in this case from a string to an integer.
+Now for the case where there is a simple type conversion between the primitive types on the left and right, in this case from a string to an integer.
 </p>
 <table>
   <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
@@ -166,10 +182,20 @@ There are 3 different ways to express this mapping, depending on what should hap
 </p>
 <pre>
 "rule_a21a" : for source.a21 as a make target.a21 = cast(a, "integer") // error if it's not an integer
-"rule_a21b" : for source.a21 as a where a1.isInteger make target.a2 = cast(a, "integer") // ignore it
+"rule_a21b" : for source.a21 as a where a.isInteger make target.a21 = cast(a, "integer") // ignore it
 "rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = 0 // just assign it 0
 </pre>
+<p>
+More than one of these mapping rules may be present to handle all possible cases - .e.g rule_a21b combined with rule_a21c.
+</p>
+<p>
+Note that the mapping language does not itself define which primitive types exist. Typically, 
+primitive types are defined by the underlying type system for the source and target trees, and
+the implementation layer makes these types available to the mapping language using the FHIRPath
+primitive types. The mapping language uses the FHIRPath syntax for primitive constants.
+</p>
 
+<a name="step5"> </a>
 <h3>Step #5: Managing lists, part 1</h3>
 <p>
 Back to the simple case where source.a22 is copied to target.a22, but in this case, a22 can repeat (in both source and target):
@@ -191,7 +217,11 @@ The transform rule simply asserts that a22 maps to a22. The engine will apply th
 <pre>
 "rule_a22" : for source.a22 as a make target.a22 = a 
 </pre>
+<p>
+This will create one a22 in TRight for each a22 in TLeft.
+</p>
 
+<a name="step6"> </a>
 <h3>Step #6: Managing lists, part 2</h3>
 <p>
 A more difficult case is where the source allows multiple repeats, but the target doesn't:
@@ -211,18 +241,19 @@ A more difficult case is where the source allows multiple repeats, but the targe
 Again, there are multiple different ways to write this, depending on out desired outcome if there is more than one copy of a23:
 </p>
 <pre>
-rule_a23a : for source.a23 as a make target.a23 = a { only_one } // transform engine creates an error 
-rule_a23b : for source.a23 as a make target.a23 = a  // leave error to lower layer; less informative
-
-rule_a23c_1 : for source.a23 { first } as a make target.a23 = a // only use the first item in the list
+rule_a23a : for source.a23 as a make target.a23 = a  // leave it to the transform engine 
+rule_a23a : for source.a23 only_one as a make target.a23 = a  // transform engine throws an error if there is more than one
+rule_a23b : for source.a23 first as a make target.a23 = a  // Only use the first one 
+rule_a23b : for source.a23 last as a make target.a23 = a  // Only use the last one 
 </pre>
 <p>
-The last rule is the first example of stringing rules together. In this case, rule_a23c_1 exists to define a variable for 
-the list so that the where condition can compare the items in the list against a criteria expressed against another variable. 
-The ability to compare conditions amongst variables like this in the where clause is a powerful technique that will explored 
-further below.
+Leaving the outcome to the transform engine is not recommended; it may not always
+know whether a property is confined to a single value, and exactly what happens is 
+unpredictable. However there are some circumstances where the appropriate action 
+is to defer resolution, so this is allowed.
 </p>
 
+<a name="step7"> </a>
 <h3>Step #7: Simple Nesting</h3>
 <p>
 Most transformations involve nested content. Let's start with a simple case, where element aa contains ab: 
@@ -246,26 +277,38 @@ leave these elements as anonymously typed, while others explicitly type them. Ho
 does not refer to the type, it's literal type is not important.
 </p>
 <pre>
-rule_aa : for source.aa as s_aa make target.aa as t_aa then rule_ab(s_aa, t_aa) // make aa exist
-rule_ab : for s_aa.ab as ab make t_aa.ab = ab // copy ab inside aa
+rule_aa : for source.aa as s_aa make target.aa as t_aa then { // make aa exist
+  rule_ab : for s_aa.ab as ab make t_aa.ab = ab // copy ab inside aa
+}  
 </pre>
 <p>
 This situation is handled by a pair of rules: the first rule establishes that relationship
-between source.aa and target.aa, and assigns 2 variable names to them. Then, the rule says to 
-check other rules for mappings involving s_aa and t_aa, and apply any other rules that match.
-In this case, rule_ab matches, and so for every source.aa, source.ab will be copied to target.aa.
+between source.aa and target.aa, and assigns 2 variable names to them. Then, the rule contains
+an additional set of rules (though only one in this example) to map with the context 
+of s_aa and t_aa. 
 </p>
 <p>
-Note that the source and target variables never overlap, so both of the variables could have been 
-named 'aa' with no ambiguity, but overloading the names like this is avoided in this tutorial due
-to the potential for reader confusion.
+An alternate approach is to move the dependent rules to their own group:
 </p>
+<pre>
+rule_aa : for source.aa as s_aa make target.aa as t_aa then ab_content{s_aa, t_aa) // make aa exist
+
+group ab_content
+  input src as source
+  input tgt as target
+  
+  rule_ab : for src.ab as ab make tgt.ab = ab // copy ab inside aa
+}  
+</pre>
+
 <p>
-In this case, the first rule specified for the any additional rules involving the variables 
-defined by applying the rule. This is a very flexible way to set up the mapping arrangements,
-but requires discipline in the way that variables are named so as not to get the rules crossed.
+Note that variables are divided into source and target; source variables are read-only,
+and cannot have their properties changed. Variable names may be reused in different
+contexts - they are only valid within the group or rule that defines them, and any
+dependent rules or groups. 
 </p>
 
+<a name="step8"> </a>
 <h3>Step #8: Translation</h3>
 <p>
 A common translation pattern is to perform a translation e.g. from one set of codes to another
@@ -290,10 +333,11 @@ rule_d : for source.d as d make target.d = translate(d, 'uri-of-concept-map', 'c
 </pre>
 <p>
 This asks the mapping engine to use the <a href="conceptmap-operations.html#translate">$translate</a>
-operation on the terminology server to translate the code, and then to put the code value of the 
-return translation in target.d.
+operation on the terminology server to translate the code using a specified concept map, and then to 
+put the code value of the return translation in target.d.
 </p>
 
+<a name="step9"> </a>
 <h3>Step #9: Co-dependency in translation</h3>
 <p>
 Another common translation is where the target mapping for one element depends on the 
@@ -313,14 +357,84 @@ value of another element.
   <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of m: if m &lt; 2, then i maps to j, else it maps to k</td></tr>
 </table>
 <p>
-This is managed using conditions on the mapping statements:
+This is managed using <a href="http://hl7.org/fhirpath">FHIRPath</a> conditions on the mapping statements:
 </p>
 <pre>
 rule_i1 : for source.i as i where m &lt; 2 make target.j = i
 rule_i2 : for source.i as i where m >= 2 make target.k = i
 </pre>
 
-<h3>Step #10: Reworking Structure #1</h3>
+<a name="step10"> </a>
+<h3>Step #10: Using Types</h3>
+<p>
+Many/most trees are fully and strongly typed. In these cases, the mapping language can make use of the
+typing system to simply the mapping statements. 
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      aa : TLeftInner [0..*]
+      
+    TLeftInner
+      ab : string [1..1]
+  </pre></td><td><pre>
+    TRight
+      aa : : TRightInner [0..*]
+
+    TRightInner
+      ab : string [1..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying aa to aa, and within aa, ab to ab</td></tr>
+</table>
+<p>
+This is the same case as <a href="#step7">Step 7 above</a>, but the mapping statements take advantage of the types:
+</p>
+<pre>
+rule_aa : for source.aa make target.aa 
+
+group for types ab_content
+  input src : TLeftInner as source
+  input tgt : TRightInner as target
+  
+  rule_ab : for src.ab make tgt.ab
+}  
+</pre>
+<p>
+There is 2 different things happening in this short form:
+</p>
+<ol>
+ <li><code>group for types</code> - the "for types" indicates that this group is the default group to apply any time an element of type TLeftInner is mapped to a TRightInner</li>
+ <li>Both the rules take advantage of the fact that the types of both source and target are known, and compatible, and instruct the mapping execution engine to make the target appropriately</li>
+</ol>
+<p>
+In the case of the first rule (rule_aa), the engine finds a need to map <code>aa</code> to <code>aa</code>, and determines that it must map from TLeftInner to a TRightInner.
+Since a group is defined for this purpose, it creates a TRightInner in target.aa, and then applies the discovered rule as a dependency rule. Inside 
+that rule that instructs the mapping engine to make tgt.ab from src.ab. It knows that both are primitive types, and compatible, and can apply this correctly. 
+This short form is only applicable when there is only one source and target, when the types of both are known, and when no other dependency rules
+are nominated.
+</p>
+<p>
+If the target element is polymorphic (can have more than one type), then the correct type of the target can only be inferred from the 
+source type:
+</p>
+<pre>
+group for type+types ab_content
+  input src : TLeftInner as source
+  input tgt : TRightInner as target
+  
+  rule_ab : for src.ab make tgt.ab
+}  
+</pre>
+<p>
+Not only is this group te default for (TLeftInner:TRightInner), if the engine has a TLeftInner with an unknown target type, it should create a TRightInner, and proceed as above.
+</p>
+<p>
+It is an error if the engine locates more than one group of rules claiming to be the correct group for a type pair of a single source type.
+</p>
+
+<a name="step11"> </a>
+<h3>Step #11: Reworking Structure #1</h3>
 <p>
 It's now time to start maving away from relatively simple cases to some of the harder ones to 
 manage mappings for. The first mixes list management, and converting from a specific structure 
@@ -355,7 +469,8 @@ ef_b1: for source.f as s_f make target.e as t_e { first } then {
 }
 </pre>
 
-<h3>Step #10: Reworking Structure #2</h3>
+<a name="step12"> </a>
+<h3>Step #12: Reworking Structure #2</h3>
 <p>
 The second example for reworking structure moves cardinality around the heirarchy.
 in this case, the source has an optional structure that contains a repeating structure,
@@ -395,7 +510,8 @@ aza : for src.az1 as s_az1 then {
 }
 </pre>
 
-<h3>Step #11: Multiple structures #1</h3>
+<a name="step13"> </a>
+<h3>Step #13: Multiple structures #1</h3>
 <p>
 Simple mappings, such as we've dealt with so far, where the source and target 
 structure both have the same scope, and there is only one of each, are all well
@@ -448,7 +564,8 @@ also passed back to the host application for it to determine how to represent th
 </p>
 
 
-<h3>Step #12: Multiple structures #2</h3>
+<a name="step14"> </a>
+<h3>Step #14: Multiple structures #2</h3>
 <p>
 For our second example, we're going to look at the reverse: where  multiple input structures create a single input structure.
 </p>
@@ -475,6 +592,12 @@ identified by source.ptr, and create a variable for it
 f2: [todo]
 </pre>
 
+<a name="step15"> </a>
+<h3>Step #15: Grouping</h3>
+
+<pre>
+f2: [todo]
+</pre>
 
 </div>
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
+// Generated on Thu, Dec 22, 2016 14:49+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -14716,12 +14716,8 @@ public class XmlParser extends XmlParserBase {
   }
 
   protected boolean parseStructureMapStructureMapGroupRuleSourceComponentContent(int eventType, XmlPullParser xpp, StructureMap owner, StructureMap.StructureMapGroupRuleSourceComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
-      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("required")) {
-        res.setRequiredElement(parseBoolean(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("context")) {
         res.setContextElement(parseId(xpp));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contextType")) {
-        res.setContextTypeElement(parseEnumeration(xpp, StructureMap.StructureMapContextType.NULL, new StructureMap.StructureMapContextTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("min")) {
         res.setMinElement(parseInteger(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("max")) {
@@ -33090,14 +33086,9 @@ public class XmlParser extends XmlParserBase {
 
   protected void composeStructureMapStructureMapGroupRuleSourceComponentElements(StructureMap.StructureMapGroupRuleSourceComponent element) throws IOException {
       composeBackboneElements(element);
-      if (element.hasRequiredElement()) {
-        composeBoolean("required", element.getRequiredElement());
-      }
       if (element.hasContextElement()) {
         composeId("context", element.getContextElement());
       }
-      if (element.hasContextTypeElement())
-        composeEnumeration("contextType", element.getContextTypeElement(), new StructureMap.StructureMapContextTypeEnumFactory());
       if (element.hasMinElement()) {
         composeInteger("min", element.getMinElement());
       }

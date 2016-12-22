@@ -479,8 +479,6 @@ public class StructureMapUtilities {
   }
   
 	private static void renderSource(StringBuilder b, StructureMapGroupRuleSourceComponent rs, boolean abbreviate) {
-		if (!rs.getRequired())
-			b.append("optional ");
 		b.append(rs.getContext());
 		if (rs.hasElement()) {
 			b.append('.');
@@ -892,12 +890,7 @@ public class StructureMapUtilities {
 
 	private void parseSource(StructureMapGroupRuleComponent rule, FHIRLexer lexer) throws FHIRException {
 		StructureMapGroupRuleSourceComponent source = rule.addSource();
-		if (lexer.hasToken("optional")) 
-			lexer.next();
-		else
-			source.setRequired(true);
 		source.setContext(lexer.take());
-		source.setContextType(StructureMapContextType.VARIABLE);
 		if (lexer.hasToken(".")) {
 			lexer.token(".");
 			source.setElement(lexer.take());

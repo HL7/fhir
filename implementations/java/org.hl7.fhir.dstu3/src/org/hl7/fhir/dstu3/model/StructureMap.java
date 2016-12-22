@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Dec 21, 2016 12:33+1100 for FHIR v1.9.0
+// Generated on Thu, Dec 22, 2016 14:49+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -378,98 +378,6 @@ public class StructureMap extends MetadataResource {
       }
     }
 
-    public enum StructureMapContextType {
-        /**
-         * The context specifies a type
-         */
-        TYPE, 
-        /**
-         * The context specifies a variable
-         */
-        VARIABLE, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static StructureMapContextType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("type".equals(codeString))
-          return TYPE;
-        if ("variable".equals(codeString))
-          return VARIABLE;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown StructureMapContextType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case TYPE: return "type";
-            case VARIABLE: return "variable";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case TYPE: return "http://hl7.org/fhir/map-context-type";
-            case VARIABLE: return "http://hl7.org/fhir/map-context-type";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case TYPE: return "The context specifies a type";
-            case VARIABLE: return "The context specifies a variable";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case TYPE: return "Type";
-            case VARIABLE: return "Variable";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class StructureMapContextTypeEnumFactory implements EnumFactory<StructureMapContextType> {
-    public StructureMapContextType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("type".equals(codeString))
-          return StructureMapContextType.TYPE;
-        if ("variable".equals(codeString))
-          return StructureMapContextType.VARIABLE;
-        throw new IllegalArgumentException("Unknown StructureMapContextType code '"+codeString+"'");
-        }
-        public Enumeration<StructureMapContextType> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<StructureMapContextType>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("type".equals(codeString))
-          return new Enumeration<StructureMapContextType>(this, StructureMapContextType.TYPE);
-        if ("variable".equals(codeString))
-          return new Enumeration<StructureMapContextType>(this, StructureMapContextType.VARIABLE);
-        throw new FHIRException("Unknown StructureMapContextType code '"+codeString+"'");
-        }
-    public String toCode(StructureMapContextType code) {
-      if (code == StructureMapContextType.TYPE)
-        return "type";
-      if (code == StructureMapContextType.VARIABLE)
-        return "variable";
-      return "?";
-      }
-    public String toSystem(StructureMapContextType code) {
-      return code.getSystem();
-      }
-    }
-
     public enum StructureMapSourceListMode {
         /**
          * Only process this rule for the first in the list
@@ -606,6 +514,98 @@ public class StructureMap extends MetadataResource {
       return "?";
       }
     public String toSystem(StructureMapSourceListMode code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum StructureMapContextType {
+        /**
+         * The context specifies a type
+         */
+        TYPE, 
+        /**
+         * The context specifies a variable
+         */
+        VARIABLE, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static StructureMapContextType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("type".equals(codeString))
+          return TYPE;
+        if ("variable".equals(codeString))
+          return VARIABLE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown StructureMapContextType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case TYPE: return "type";
+            case VARIABLE: return "variable";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case TYPE: return "http://hl7.org/fhir/map-context-type";
+            case VARIABLE: return "http://hl7.org/fhir/map-context-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case TYPE: return "The context specifies a type";
+            case VARIABLE: return "The context specifies a variable";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case TYPE: return "Type";
+            case VARIABLE: return "Variable";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class StructureMapContextTypeEnumFactory implements EnumFactory<StructureMapContextType> {
+    public StructureMapContextType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("type".equals(codeString))
+          return StructureMapContextType.TYPE;
+        if ("variable".equals(codeString))
+          return StructureMapContextType.VARIABLE;
+        throw new IllegalArgumentException("Unknown StructureMapContextType code '"+codeString+"'");
+        }
+        public Enumeration<StructureMapContextType> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<StructureMapContextType>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("type".equals(codeString))
+          return new Enumeration<StructureMapContextType>(this, StructureMapContextType.TYPE);
+        if ("variable".equals(codeString))
+          return new Enumeration<StructureMapContextType>(this, StructureMapContextType.VARIABLE);
+        throw new FHIRException("Unknown StructureMapContextType code '"+codeString+"'");
+        }
+    public String toCode(StructureMapContextType code) {
+      if (code == StructureMapContextType.TYPE)
+        return "type";
+      if (code == StructureMapContextType.VARIABLE)
+        return "variable";
+      return "?";
+      }
+    public String toSystem(StructureMapContextType code) {
       return code.getSystem();
       }
     }
@@ -2914,66 +2914,51 @@ public class StructureMap extends MetadataResource {
     @Block()
     public static class StructureMapGroupRuleSourceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Whether this rule applies if the source isn't found.
-         */
-        @Child(name = "required", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Whether this rule applies if the source isn't found", formalDefinition="Whether this rule applies if the source isn't found." )
-        protected BooleanType required;
-
-        /**
          * Type or variable this rule applies to.
          */
-        @Child(name = "context", type = {IdType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "context", type = {IdType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type or variable this rule applies to", formalDefinition="Type or variable this rule applies to." )
         protected IdType context;
 
         /**
-         * How to interpret the context.
-         */
-        @Child(name = "contextType", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="type | variable", formalDefinition="How to interpret the context." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-context-type")
-        protected Enumeration<StructureMapContextType> contextType;
-
-        /**
          * Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.
          */
-        @Child(name = "min", type = {IntegerType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "min", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Specified minimum cardinality", formalDefinition="Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content." )
         protected IntegerType min;
 
         /**
          * Specified maximum cardinality for the element - a number or a "*". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).
          */
-        @Child(name = "max", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "max", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Specified maximum cardinality (number or *)", formalDefinition="Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value)." )
         protected StringType max;
 
         /**
          * Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.
          */
-        @Child(name = "type", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "type", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Type for this source", formalDefinition="Specified type for the element. This works as a condition on the mapping - use for polymorphic elements." )
         protected StringType type;
 
         /**
          * A value to use if there is no existing value in the source object.
          */
-        @Child(name = "defaultValue", type = {}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "defaultValue", type = {}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Default value if no value exists", formalDefinition="A value to use if there is no existing value in the source object." )
         protected org.hl7.fhir.dstu3.model.Type defaultValue;
 
         /**
          * Optional field for this source.
          */
-        @Child(name = "element", type = {StringType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "element", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Optional field for this source", formalDefinition="Optional field for this source." )
         protected StringType element;
 
         /**
          * How to handle the list mode for this element.
          */
-        @Child(name = "listMode", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "listMode", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="first | not_first | last | not_last | only_one", formalDefinition="How to handle the list mode for this element." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/map-source-list-mode")
         protected Enumeration<StructureMapSourceListMode> listMode;
@@ -2981,25 +2966,25 @@ public class StructureMap extends MetadataResource {
         /**
          * Named context for field, if a field is specified.
          */
-        @Child(name = "variable", type = {IdType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "variable", type = {IdType.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Named context for field, if a field is specified", formalDefinition="Named context for field, if a field is specified." )
         protected IdType variable;
 
         /**
          * FHIRPath expression  - must be true or the rule does not apply.
          */
-        @Child(name = "condition", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "condition", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FHIRPath expression  - must be true or the rule does not apply", formalDefinition="FHIRPath expression  - must be true or the rule does not apply." )
         protected StringType condition;
 
         /**
          * FHIRPath expression  - must be true or the mapping engine throws an error instead of completing.
          */
-        @Child(name = "check", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "check", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing", formalDefinition="FHIRPath expression  - must be true or the mapping engine throws an error instead of completing." )
         protected StringType check;
 
-        private static final long serialVersionUID = 1773079421L;
+        private static final long serialVersionUID = 1893118862L;
 
     /**
      * Constructor
@@ -3011,57 +2996,10 @@ public class StructureMap extends MetadataResource {
     /**
      * Constructor
      */
-      public StructureMapGroupRuleSourceComponent(BooleanType required, IdType context, Enumeration<StructureMapContextType> contextType) {
+      public StructureMapGroupRuleSourceComponent(IdType context) {
         super();
-        this.required = required;
         this.context = context;
-        this.contextType = contextType;
       }
-
-        /**
-         * @return {@link #required} (Whether this rule applies if the source isn't found.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
-         */
-        public BooleanType getRequiredElement() { 
-          if (this.required == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StructureMapGroupRuleSourceComponent.required");
-            else if (Configuration.doAutoCreate())
-              this.required = new BooleanType(); // bb
-          return this.required;
-        }
-
-        public boolean hasRequiredElement() { 
-          return this.required != null && !this.required.isEmpty();
-        }
-
-        public boolean hasRequired() { 
-          return this.required != null && !this.required.isEmpty();
-        }
-
-        /**
-         * @param value {@link #required} (Whether this rule applies if the source isn't found.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
-         */
-        public StructureMapGroupRuleSourceComponent setRequiredElement(BooleanType value) { 
-          this.required = value;
-          return this;
-        }
-
-        /**
-         * @return Whether this rule applies if the source isn't found.
-         */
-        public boolean getRequired() { 
-          return this.required == null || this.required.isEmpty() ? false : this.required.getValue();
-        }
-
-        /**
-         * @param value Whether this rule applies if the source isn't found.
-         */
-        public StructureMapGroupRuleSourceComponent setRequired(boolean value) { 
-            if (this.required == null)
-              this.required = new BooleanType();
-            this.required.setValue(value);
-          return this;
-        }
 
         /**
          * @return {@link #context} (Type or variable this rule applies to.). This is the underlying object with id, value and extensions. The accessor "getContext" gives direct access to the value
@@ -3105,51 +3043,6 @@ public class StructureMap extends MetadataResource {
             if (this.context == null)
               this.context = new IdType();
             this.context.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #contextType} (How to interpret the context.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
-         */
-        public Enumeration<StructureMapContextType> getContextTypeElement() { 
-          if (this.contextType == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create StructureMapGroupRuleSourceComponent.contextType");
-            else if (Configuration.doAutoCreate())
-              this.contextType = new Enumeration<StructureMapContextType>(new StructureMapContextTypeEnumFactory()); // bb
-          return this.contextType;
-        }
-
-        public boolean hasContextTypeElement() { 
-          return this.contextType != null && !this.contextType.isEmpty();
-        }
-
-        public boolean hasContextType() { 
-          return this.contextType != null && !this.contextType.isEmpty();
-        }
-
-        /**
-         * @param value {@link #contextType} (How to interpret the context.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
-         */
-        public StructureMapGroupRuleSourceComponent setContextTypeElement(Enumeration<StructureMapContextType> value) { 
-          this.contextType = value;
-          return this;
-        }
-
-        /**
-         * @return How to interpret the context.
-         */
-        public StructureMapContextType getContextType() { 
-          return this.contextType == null ? null : this.contextType.getValue();
-        }
-
-        /**
-         * @param value How to interpret the context.
-         */
-        public StructureMapGroupRuleSourceComponent setContextType(StructureMapContextType value) { 
-            if (this.contextType == null)
-              this.contextType = new Enumeration<StructureMapContextType>(new StructureMapContextTypeEnumFactory());
-            this.contextType.setValue(value);
           return this;
         }
 
@@ -3562,9 +3455,7 @@ public class StructureMap extends MetadataResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("required", "boolean", "Whether this rule applies if the source isn't found.", 0, java.lang.Integer.MAX_VALUE, required));
           childrenList.add(new Property("context", "id", "Type or variable this rule applies to.", 0, java.lang.Integer.MAX_VALUE, context));
-          childrenList.add(new Property("contextType", "code", "How to interpret the context.", 0, java.lang.Integer.MAX_VALUE, contextType));
           childrenList.add(new Property("min", "integer", "Specified minimum cardinality for the element. This is optional; if present, it acts an implicit check on the input content.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "Specified maximum cardinality for the element - a number or a \"*\". This is optional; if present, it acts an implicit check on the input content (* just serves as documentation; it's the default value).", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("type", "string", "Specified type for the element. This works as a condition on the mapping - use for polymorphic elements.", 0, java.lang.Integer.MAX_VALUE, type));
@@ -3579,9 +3470,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -393139297: /*required*/ return this.required == null ? new Base[0] : new Base[] {this.required}; // BooleanType
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // IdType
-        case -102839927: /*contextType*/ return this.contextType == null ? new Base[0] : new Base[] {this.contextType}; // Enumeration<StructureMapContextType>
         case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // StringType
@@ -3599,15 +3488,8 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -393139297: // required
-          this.required = castToBoolean(value); // BooleanType
-          return value;
         case 951530927: // context
           this.context = castToId(value); // IdType
-          return value;
-        case -102839927: // contextType
-          value = new StructureMapContextTypeEnumFactory().fromType(castToCode(value));
-          this.contextType = (Enumeration) value; // Enumeration<StructureMapContextType>
           return value;
         case 108114: // min
           this.min = castToInteger(value); // IntegerType
@@ -3644,13 +3526,8 @@ public class StructureMap extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("required")) {
-          this.required = castToBoolean(value); // BooleanType
-        } else if (name.equals("context")) {
+        if (name.equals("context")) {
           this.context = castToId(value); // IdType
-        } else if (name.equals("contextType")) {
-          value = new StructureMapContextTypeEnumFactory().fromType(castToCode(value));
-          this.contextType = (Enumeration) value; // Enumeration<StructureMapContextType>
         } else if (name.equals("min")) {
           this.min = castToInteger(value); // IntegerType
         } else if (name.equals("max")) {
@@ -3678,9 +3555,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -393139297:  return getRequiredElement();
         case 951530927:  return getContextElement();
-        case -102839927:  return getContextTypeElement();
         case 108114:  return getMinElement();
         case 107876:  return getMaxElement();
         case 3575610:  return getTypeElement();
@@ -3699,9 +3574,7 @@ public class StructureMap extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -393139297: /*required*/ return new String[] {"boolean"};
         case 951530927: /*context*/ return new String[] {"id"};
-        case -102839927: /*contextType*/ return new String[] {"code"};
         case 108114: /*min*/ return new String[] {"integer"};
         case 107876: /*max*/ return new String[] {"string"};
         case 3575610: /*type*/ return new String[] {"string"};
@@ -3718,14 +3591,8 @@ public class StructureMap extends MetadataResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("required")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.required");
-        }
-        else if (name.equals("context")) {
+        if (name.equals("context")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.context");
-        }
-        else if (name.equals("contextType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureMap.contextType");
         }
         else if (name.equals("min")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureMap.min");
@@ -3890,9 +3757,7 @@ public class StructureMap extends MetadataResource {
       public StructureMapGroupRuleSourceComponent copy() {
         StructureMapGroupRuleSourceComponent dst = new StructureMapGroupRuleSourceComponent();
         copyValues(dst);
-        dst.required = required == null ? null : required.copy();
         dst.context = context == null ? null : context.copy();
-        dst.contextType = contextType == null ? null : contextType.copy();
         dst.min = min == null ? null : min.copy();
         dst.max = max == null ? null : max.copy();
         dst.type = type == null ? null : type.copy();
@@ -3912,11 +3777,10 @@ public class StructureMap extends MetadataResource {
         if (!(other instanceof StructureMapGroupRuleSourceComponent))
           return false;
         StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other;
-        return compareDeep(required, o.required, true) && compareDeep(context, o.context, true) && compareDeep(contextType, o.contextType, true)
-           && compareDeep(min, o.min, true) && compareDeep(max, o.max, true) && compareDeep(type, o.type, true)
-           && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(element, o.element, true) && compareDeep(listMode, o.listMode, true)
-           && compareDeep(variable, o.variable, true) && compareDeep(condition, o.condition, true) && compareDeep(check, o.check, true)
-          ;
+        return compareDeep(context, o.context, true) && compareDeep(min, o.min, true) && compareDeep(max, o.max, true)
+           && compareDeep(type, o.type, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(element, o.element, true)
+           && compareDeep(listMode, o.listMode, true) && compareDeep(variable, o.variable, true) && compareDeep(condition, o.condition, true)
+           && compareDeep(check, o.check, true);
       }
 
       @Override
@@ -3926,16 +3790,15 @@ public class StructureMap extends MetadataResource {
         if (!(other instanceof StructureMapGroupRuleSourceComponent))
           return false;
         StructureMapGroupRuleSourceComponent o = (StructureMapGroupRuleSourceComponent) other;
-        return compareValues(required, o.required, true) && compareValues(context, o.context, true) && compareValues(contextType, o.contextType, true)
-           && compareValues(min, o.min, true) && compareValues(max, o.max, true) && compareValues(type, o.type, true)
-           && compareValues(element, o.element, true) && compareValues(listMode, o.listMode, true) && compareValues(variable, o.variable, true)
-           && compareValues(condition, o.condition, true) && compareValues(check, o.check, true);
+        return compareValues(context, o.context, true) && compareValues(min, o.min, true) && compareValues(max, o.max, true)
+           && compareValues(type, o.type, true) && compareValues(element, o.element, true) && compareValues(listMode, o.listMode, true)
+           && compareValues(variable, o.variable, true) && compareValues(condition, o.condition, true) && compareValues(check, o.check, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, context, contextType
-          , min, max, type, defaultValue, element, listMode, variable, condition, check
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(context, min, max, type
+          , defaultValue, element, listMode, variable, condition, check);
       }
 
   public String fhirType() {

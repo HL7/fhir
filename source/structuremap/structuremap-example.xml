@@ -18,9 +18,7 @@
     <rule>
       <name value="rule1"/>
       <source>
-        <required value="true"/>
         <context value="test"/>
-        <contextType value="variable"/>
         <element value="test"/>
         <variable value="t"/>
       </source>
