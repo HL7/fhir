@@ -326,7 +326,7 @@ public class HTLMLInspector {
   private boolean checkResolveLink(String filename, Location loc, String path, String ref, List<ValidationMessage> messages, String uuid) throws IOException {
     links++;
     String tgtList = "";
-    boolean resolved = Utilities.existsInList(ref, "qa.html", "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/");
+    boolean resolved = Utilities.existsInList(ref, "qa.html", "http://hl7.org/fhir", "http://hl7.org", "http://www.hl7.org", "http://hl7.org/fhir/search.cfm") || ref.startsWith("http://gforge.hl7.org/gf/project/fhir/tracker/") || ref.startsWith("mailto:");
     if (!resolved)
       resolved = manual.contains(ref);
     if (!resolved && specs != null){
