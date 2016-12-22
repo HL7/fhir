@@ -352,8 +352,8 @@ public class IGKnowledgeProvider implements ProfileKnowledgeProvider, ParserBase
         } else {
           ValueSet vs = context.fetchResource(ValueSet.class, ref);
           if (vs == null) {
-            br.url = ref.substring(9)+".html"; // broken link, 
-            br.display = ref.substring(9);
+            br.url = ref+".html"; // broken link, 
+            br.display = ref;
             brokenLinkWarning(ref);
           } else {
             br.url = vs.getUserString("path");
