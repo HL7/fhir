@@ -193,3 +193,10 @@ group for types stringToXhtml extends Element
   "stringToXhtml-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types codeToString extends Element
+  input src : code as source 
+  input tgt : stringR2 as target
+
+  "uriToCode-value" : for src.value as v make tgt.value = v
+endgroup
+

@@ -242,7 +242,7 @@ public class Property {
       if (!"xhtml".equals(t)) {
         sd = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+t);
         if (sd == null)
-          throw new DefinitionException("Unable to find class '"+t+"' for name '"+elementName+"' on property "+definition.getPath());
+          throw new DefinitionException("Unable to find type '"+t+"' for name '"+elementName+"' on property "+definition.getPath());
         children = ProfileUtilities.getChildMap(sd, sd.getSnapshot().getElement().get(0));
       }
     }

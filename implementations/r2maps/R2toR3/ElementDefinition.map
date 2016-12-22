@@ -37,12 +37,7 @@ group for type+types  ElementDefinition extends Element
     "ElementDefinition.base-max" : for vs0.max make vt0.max
   }
 
-  "ElementDefinition-type" : for src.type as vs0 where first.not() make tgt.type as vt0 then {
-    "ElementDefinition.type-code" : for vs0.code make vt0.code
-    "ElementDefinition.type-profile1" : for vs0.profile where vs0.code = 'Reference' make vt0.profile
-    "ElementDefinition.type-profile2" : for vs0.profile where vs0.code != 'Reference' make vt0.targetProfile
-    "ElementDefinition.type-aggregation" : for vs0.aggregation make vt0.aggregation
-  }
+  "ElementDefinition-type" : for src.type as vs0 where first.not() make tgt.type as vt0 then type(vs0, vt0)
 
   "ElementDefinition-nameReference" : for src.nameReference make tgt.contentReference
   "ElementDefinition-defaultValue" : for src.defaultValue make tgt.defaultValue
@@ -54,29 +49,45 @@ group for type+types  ElementDefinition extends Element
   "ElementDefinition-maxValue" : for src.maxValue make tgt.maxValue
   "ElementDefinition-maxLength" : for src.maxLength make tgt.maxLength
   "ElementDefinition-condition" : for src.condition make tgt.condition
-  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then {
-    "ElementDefinition.constraint-key" : for vs0.key make vt0.key
-    "ElementDefinition.constraint-requirements" : for vs0.requirements make vt0.requirements
-    "ElementDefinition.constraint-severity" : for vs0.severity make vt0.severity
-    "ElementDefinition.constraint-human" : for vs0.human make vt0.human
-    "ElementDefinition.constraint-xpath" : for vs0.xpath make vt0.xpath
-    "ElementDefinition.constraint-expression" : for vs0 make vt0.expression = "todo"
-  }
-
+  "ElementDefinition-constraint" : for src.constraint as vs0 make tgt.constraint as vt0 then constraint(vs0, vt0)
   "ElementDefinition-mustSupport" : for src.mustSupport make tgt.mustSupport
   "ElementDefinition-isModifier" : for src.isModifier make tgt.isModifier
   "ElementDefinition-isSummary" : for src.isSummary make tgt.isSummary
-  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then {
-    "ElementDefinition.binding-strength" : for vs0.strength make vt0.strength
-    "ElementDefinition.binding-description" : for vs0.description make vt0.description
-    "ElementDefinition.binding-valueSet" : for vs0.valueSet make vt0.valueSet
-  }
-
+  "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
   "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
     "ElementDefinition.mapping-identity" : for vs0.identity make vt0.identity
     "ElementDefinition.mapping-language" : for vs0.language make vt0.language
     "ElementDefinition.mapping-map" : for vs0.map make vt0.map
   }
+endgroup
 
+group binding extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.binding-strength" : for src.strength make tgt.strength
+  "ElementDefinition.binding-description" : for src.description make tgt.description
+  "ElementDefinition.binding-valueSet" : for src.valueSet make tgt.valueSet
+endgroup
 
+group type extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.type-code" : for src.code make tgt.code
+  "ElementDefinition.type-profile1" : for src.profile where src.code = 'Reference' make tgt.profile
+  "ElementDefinition.type-profile2" : for src.profile where src.code != 'Reference' make tgt.targetProfile
+  "ElementDefinition.type-aggregation" : for src.aggregation make tgt.aggregation
+endgroup
+
+group constraint extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.constraint-key" : for src.key make tgt.key
+  "ElementDefinition.constraint-requirements" : for src.requirements make tgt.requirements
+  "ElementDefinition.constraint-severity" : for src.severity make tgt.severity
+  "ElementDefinition.constraint-human" : for src.human make tgt.human
+  "ElementDefinition.constraint-xpath" : for src.xpath make tgt.xpath
+  "ElementDefinition.constraint-expression" : for src make tgt.expression = "todo"
 endgroup

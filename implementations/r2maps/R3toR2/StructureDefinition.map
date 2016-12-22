@@ -13,13 +13,7 @@ conceptmap "StructureDefinitionKind" {
 uses "http://hl7.org/fhir/StructureDefinition/StructureDefinition" alias StructureDefinition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/StructureDefinition" alias StructureDefinitionR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  StructureDefinition extends DomainResource
   input src : StructureDefinition as source

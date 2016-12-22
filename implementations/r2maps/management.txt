@@ -8,6 +8,8 @@ NamingSystem
 OperationDefinition
 SearchParameter
 ValueSet
+StructureDefinition
+
 
 Category 2: except from Conversion
 ----------------------------------
@@ -48,7 +50,7 @@ TestReport
 
 Category 3: Allocated to a person
 ---------------------------------
-Grahame: CapabilityStatement, DataElement, StructureDefinition, 
+Grahame: CapabilityStatement, DataElement, , 
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)

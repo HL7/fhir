@@ -665,7 +665,7 @@ public class StructureMapUtilities {
 		while (!lexer.hasToken("}")) {
 		  String srcs = readPrefix(prefixes, lexer);
 			lexer.token(":");
-      String sc = lexer.take();
+      String sc = lexer.getCurrent().startsWith("\"") ? lexer.readConstant("code") : lexer.take();
 		  ConceptMapEquivalence eq = readEquivalence(lexer);
 		  String tgts = (eq != ConceptMapEquivalence.UNMATCHED) ? readPrefix(prefixes, lexer) : "";
 		  ConceptMapGroupComponent g = getGroup(map, srcs, tgts);
@@ -1190,7 +1190,7 @@ public class StructureMapUtilities {
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
-		if (rule.getName().contains("vs-compose-imp"))
+		if (rule.getName().contains("ElementDefinition-example-v"))
 		  System.out.println("debug");
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
@@ -1291,7 +1291,7 @@ public class StructureMapUtilities {
     }
     if (res.target == null)
       throw new FHIRException("No matches found for default rule for '"+type+"' from "+map.getUrl());
-    String result = getActualType(res.targetMap, res.target.getInput().get(1).getType());
+    String result = getActualType(res.targetMap, res.target.getInput().get(1).getType()); // should be .getType, but R2...
     source.setUserData(kn, result);
     return result;
   }
@@ -1407,7 +1407,7 @@ public class StructureMapUtilities {
         StructureDefinition sd = worker.fetchResource(StructureDefinition.class, imp.getUrl());
         if (sd == null)
           throw new FHIRException("Unable to resolve structure "+imp.getUrl());
-        return sd.getType();
+        return sd.getId(); // should be sd.getType(), but R2...
       }
     }
     return statedType;
@@ -1521,7 +1521,7 @@ public class StructureMapUtilities {
         items.add(bt);
 		    break;
 		  case NOTFIRST: 
-        if (items.size() > 1)
+        if (items.size() > 0)
           items.remove(0);
         break;
 		  case LAST:
@@ -1530,12 +1530,12 @@ public class StructureMapUtilities {
         items.add(bt);
         break;
 		  case NOTLAST: 
-        if (items.size() > 1)
+        if (items.size() > 0)
           items.remove(items.size()-1);
         break;
 		  case ONLYONE:
 		    if (items.size() > 1)
-		      items.clear();
+          throw new FHIRException("Rule \""+ruleId+"\": Check condition failed: the collection has more than one item");
         break;
       case NULL:
 		  }

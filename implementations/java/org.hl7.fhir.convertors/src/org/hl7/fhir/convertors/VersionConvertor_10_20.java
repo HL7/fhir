@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.DosageInstruction;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.NutritionRequest.NutritionOrderStatus;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
@@ -11999,6 +12000,12 @@ public class VersionConvertor_10_20 {
     if (tgt.getKind() == StructureDefinitionKind.PRIMITIVETYPE && !tgt.getType().equals(tgt.getId())) {
       tgt.setDerivation(TypeDerivationRule.SPECIALIZATION);
       tgt.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+tgt.getType());
+//      for (ElementDefinition ed : tgt.getSnapshot().getElement()) {
+//        ed.setPath(ed.getPath().replace(tgt.getType()+".", tgt.getId()+"."));
+//      }
+//      for (ElementDefinition ed : tgt.getDifferential().getElement()) {
+//        ed.setPath(ed.getPath().replace(tgt.getType()+".", tgt.getId()+"."));
+//      }
       tgt.setType(tgt.getId());
     }
     return tgt;

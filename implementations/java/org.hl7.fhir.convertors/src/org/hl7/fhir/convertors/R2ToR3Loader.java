@@ -11,6 +11,7 @@ import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -23,6 +24,7 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
 
   private List<CodeSystem> cslist = new ArrayList<>();
   private boolean patchUrls;
+  private boolean killPrimitives;;
   
   @Override
   public Bundle loadBundle(InputStream stream, boolean isJson) throws FHIRException, IOException {
@@ -37,6 +39,17 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
       BundleEntryComponent be = b.addEntry();
       be.setFullUrl(cs.getUrl());
       be.setResource(cs);
+    }
+    if (killPrimitives) {
+      List<BundleEntryComponent> remove = new ArrayList<BundleEntryComponent>();
+      for (BundleEntryComponent be : b.getEntry()) {
+        if (be.hasResource() && be.getResource() instanceof StructureDefinition) {
+          StructureDefinition sd = (StructureDefinition) be.getResource();
+          if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
+            remove.add(be);
+        }
+      }
+      b.getEntry().removeAll(remove);
     }
     if (patchUrls) {
       for (BundleEntryComponent be : b.getEntry()) {
@@ -79,6 +92,15 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
 
   public R2ToR3Loader setPatchUrls(boolean patchUrls) {
     this.patchUrls = patchUrls;
+    return this;
+  }
+
+  public boolean isKillPrimitives() {
+    return killPrimitives;
+  }
+
+  public R2ToR3Loader setKillPrimitives(boolean killPrimitives) {
+    this.killPrimitives = killPrimitives;
     return this;
   }
 

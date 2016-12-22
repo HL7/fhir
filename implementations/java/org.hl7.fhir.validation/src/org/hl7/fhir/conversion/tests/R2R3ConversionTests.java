@@ -29,6 +29,7 @@ import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.MetadataResource;
 import org.hl7.fhir.dstu3.model.StructureMap;
@@ -260,15 +261,17 @@ public class R2R3ConversionTests implements ITransformerServices {
   private void checkLoad() throws IOException, FHIRException {
     if (contextR2 != null)
       return;
-    R2ToR3Loader ldr = new R2ToR3Loader().setPatchUrls(true);
+    R2ToR3Loader ldr = new R2ToR3Loader().setPatchUrls(true).setKillPrimitives(true);
     System.out.println("loading R2");
     contextR2 = new SimpleWorkerContext();
+    contextR2.setAllowLoadingDuplicates(true);
     contextR2.loadFromFile(Utilities.path(root,"source","release2","profiles-types.xml"), ldr);
     contextR2.loadFromFile(Utilities.path(root,"source","release2","profiles-resources.xml"), ldr);
     contextR2.loadFromFile(Utilities.path(root,"source","release2","expansions.xml"), ldr);
     
     System.out.println("loading R3");
     contextR3 = new SimpleWorkerContext();
+    contextR2.setAllowLoadingDuplicates(true);
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-types.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","profiles-resources.xml"), null);
     contextR3.loadFromFile(Utilities.path(root,"publish","extension-definitions.xml"), null);
@@ -276,18 +279,22 @@ public class R2R3ConversionTests implements ITransformerServices {
     contextR3.setCanRunWithoutTerminology(true);
 
     for (StructureDefinition sd : contextR2.allStructures()) {
-      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE)
-        sd.setType(sd.getId());
       StructureDefinition sdn = sd.copy();
       sdn.getExtension().clear();
       contextR3.seeResource(sdn.getUrl(), sdn);
     }
     
-    StructureDefinition sd = contextR3.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/xhtml").copy();
-    sd.setUrl(sd.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/DSTU2/"));
-    contextR2.seeResource(sd.getUrl(), sd);
-    contextR3.seeResource(sd.getUrl(), sd);
-    
+    for (StructureDefinition sd : contextR3.allStructures()) {
+      if (sd.getKind() == StructureDefinitionKind.PRIMITIVETYPE) {
+        contextR2.seeResource(sd.getUrl(), sd);
+        StructureDefinition sdn = sd.copy();
+        sdn.setUrl(sdn.getUrl().replace("http://hl7.org/fhir/", "http://hl7.org/fhir/DSTU2/"));
+        sdn.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("http://hl7.org/fhir"));
+        contextR2.seeResource(sdn.getUrl(), sdn);
+        contextR3.seeResource(sdn.getUrl(), sdn);
+      }
+    }
+        
     contextR2.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR3.setExpansionProfile(new ExpansionProfile().setUrl("urn:uuid:"+UUID.randomUUID().toString().toLowerCase()));
     contextR2.setName("R2");

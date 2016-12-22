@@ -1,61 +1,33 @@
 ﻿{
   "Account": {
-    "example": {}
+    "example": {
+      "errors": [
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Money2to3"
+      ]
+    }
   },
   "StructureDefinition": {
     "Account": {},
-    "Address": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Age": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Address": {},
+    "Age": {},
     "AllergyIntolerance": {},
-    "Annotation": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Annotation": {},
     "Appointment": {},
     "AppointmentResponse": {},
-    "argonaut-careplan": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "Attachment": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "argonaut-careplan": {},
+    "Attachment": {},
     "AuditEvent": {},
-    "BackboneElement": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "base64Binary": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "BackboneElement": {},
+    "base64Binary": {},
     "Basic": {},
     "Binary": {},
     "BodySite": {},
-    "boolean": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "boolean": {},
     "Bundle": {},
     "CarePlan": {},
     "cholesterol": {
       "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+        "Exception executing transform tgt.fixed \u003d create() as vvv on Rule \"\"ElementDefinition-fixed\"\": Multiple possible matches for default rule for \u0027Quantity\u0027 in http://hl7.org/fhir/StructureMap/Count3to2 (Count) and http://hl7.org/fhir/StructureMap/Money3to2 (Money)"
       ]
     },
     "Claim": {},
@@ -64,148 +36,56 @@
     "ClinicalImpression": {},
     "code": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/string"
       ]
     },
-    "CodeableConcept": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Coding": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "CodeableConcept": {},
+    "Coding": {},
     "Communication": {},
     "CommunicationRequest": {},
     "Composition": {},
     "ConceptMap": {},
     "Condition": {},
-    "Conformance": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2, from rule \u0027\"ElementDefinition-defaultValue\"\u0027"
-      ]
-    },
+    "Conformance": {},
     "consentdirective": {},
-    "ContactPoint": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "ContactPoint": {},
     "Contract": {},
-    "Count": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Count": {},
     "Coverage": {},
     "daf-allergyintolerance": {},
-    "daf-allergylist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-allergylist": {},
     "daf-condition": {},
-    "daf-diagnosticorder": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-diagnosticorder": {},
     "daf-diagnosticreport": {},
     "daf-encounter": {},
-    "daf-encounterlist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-encounterlist": {},
     "daf-familymemberhistory": {},
     "daf-immunization": {},
-    "daf-immunizationlist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "daf-location": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-immunizationlist": {},
+    "daf-location": {},
     "daf-medication": {},
     "daf-medicationadministration": {},
     "daf-medicationdispense": {},
-    "daf-medicationlist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-medicationlist": {},
     "daf-medicationorder": {},
     "daf-medicationstatement": {},
-    "daf-organization": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "daf-patient": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "daf-pract": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "daf-problemlist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-organization": {},
+    "daf-patient": {},
+    "daf-pract": {},
+    "daf-problemlist": {},
     "daf-procedure": {},
-    "daf-procedurelist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-procedurelist": {},
     "daf-relatedperson": {},
-    "daf-resultlist": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "daf-resultobs": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-resultlist": {},
+    "daf-resultobs": {},
     "daf-smokingstatus": {},
-    "daf-spec": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-spec": {},
     "daf-substance": {},
-    "daf-vitalsigns": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "daf-vitalsigns": {},
     "DataElement": {},
-    "date": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "dateTime": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "decimal": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "date": {},
+    "dateTime": {},
+    "decimal": {},
     "DetectedIssue": {},
     "Device": {},
     "DeviceComponent": {},
@@ -215,32 +95,16 @@
     "DeviceUseStatement": {},
     "DiagnosticOrder": {},
     "DiagnosticReport": {},
-    "Distance": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Distance": {},
     "DocumentManifest": {},
     "DocumentReference": {},
     "DomainResource": {},
-    "Duration": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Duration": {},
     "ehrsrle-auditevent": {},
     "ehrsrle-provenance": {},
-    "Element": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Element": {},
     "elementdefinition-de": {},
-    "ElementDefinition": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "ElementDefinition": {},
     "EligibilityRequest": {},
     "EligibilityResponse": {},
     "Encounter": {},
@@ -248,56 +112,44 @@
     "EnrollmentResponse": {},
     "EpisodeOfCare": {},
     "ExplanationOfBenefit": {},
-    "Extension": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Extension": {},
     "familymemberhistory-genetic": {},
     "FamilyMemberHistory": {},
     "Flag": {},
     "genetics": {},
     "Goal": {},
     "Group": {},
-    "hdlcholesterol": {},
-    "HealthcareService": {},
-    "HumanName": {
+    "hdlcholesterol": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Exception executing transform tgt.fixed \u003d create() as vvv on Rule \"\"ElementDefinition-fixed\"\": Multiple possible matches for default rule for \u0027Quantity\u0027 in http://hl7.org/fhir/StructureMap/Count3to2 (Count) and http://hl7.org/fhir/StructureMap/Money3to2 (Money)"
       ]
     },
+    "HealthcareService": {},
+    "HumanName": {},
     "id": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/string"
       ]
     },
-    "Identifier": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Identifier": {},
     "ImagingObjectSelection": {},
     "ImagingStudy": {},
     "Immunization": {},
     "ImmunizationRecommendation": {},
     "ImplementationGuide": {},
-    "instant": {
+    "instant": {},
+    "integer": {},
+    "ldlcholesterol": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Exception executing transform tgt.fixed \u003d create() as vvv on Rule \"\"ElementDefinition-fixed\"\": Multiple possible matches for default rule for \u0027Quantity\u0027 in http://hl7.org/fhir/StructureMap/Count3to2 (Count) and http://hl7.org/fhir/StructureMap/Money3to2 (Money)"
       ]
     },
-    "integer": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "ldlcholesterol": {},
     "lipidprofile": {},
     "List": {},
     "Location": {},
     "markdown": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/string"
       ]
     },
     "measurereport": {},
@@ -308,27 +160,15 @@
     "MedicationOrder": {},
     "MedicationStatement": {},
     "MessageHeader": {},
-    "Meta": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Money": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Meta": {},
+    "Money": {},
     "NamingSystem": {},
-    "Narrative": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Narrative": {},
     "NutritionOrder": {},
     "Observation": {},
     "oid": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/uri"
       ]
     },
     "OperationDefinition": {},
@@ -340,15 +180,11 @@
     "Patient": {},
     "PaymentNotice": {},
     "PaymentReconciliation": {},
-    "Period": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Period": {},
     "Person": {},
     "positiveInt": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/integer"
       ]
     },
     "Practitioner": {},
@@ -375,27 +211,15 @@
     "qicore-imagingstudy": {},
     "qicore-immunization": {},
     "qicore-immunizationrec": {},
-    "qicore-location": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "qicore-location": {},
     "qicore-medication": {},
     "qicore-medicationadministration": {},
     "qicore-medicationdispense": {},
     "qicore-medicationorder": {},
     "qicore-medicationstatement": {},
     "qicore-observation": {},
-    "qicore-organization": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
-    "qicore-patient": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "qicore-organization": {},
+    "qicore-patient": {},
     "qicore-practitioner": {},
     "qicore-procedure": {},
     "qicore-procedurerequest": {},
@@ -403,74 +227,34 @@
     "qicore-relatedperson": {},
     "qicore-specimen": {},
     "qicore-substance": {},
-    "Quantity": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Quantity": {},
     "Questionnaire": {},
     "QuestionnaireResponse": {},
-    "Range": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Ratio": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Reference": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Range": {},
+    "Ratio": {},
+    "Reference": {},
     "ReferralRequest": {},
     "RelatedPerson": {},
     "Resource": {},
     "RiskAssessment": {},
-    "SampledData": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "SampledData": {},
     "Schedule": {},
-    "sdc-element": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "sdc-element": {},
     "sdc-questionnaire": {},
     "sdc-response": {},
     "sdc-valueset": {},
-    "sdcde-dataelement": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "sdcde-dataelement": {},
     "sdcde-valueset": {},
     "SearchParameter": {},
     "shareablevalueset": {},
-    "Signature": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "SimpleQuantity": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "Signature": {},
+    "SimpleQuantity": {},
     "Slot": {},
     "Specimen": {},
-    "string": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "string": {},
     "example": {
       "errors": [
-        "No matches found for rule for \u0027CodeableConcept/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/StructureDefinition2to3"
+        "No matches found for rule for \u0027CodeableConcept/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/StructureDefinition2to3, from rule \u0027\"StructureDefinition-jurisdiction\"\u0027"
       ]
     },
     "StructureDefinition": {},
@@ -479,72 +263,44 @@
     "SupplyDelivery": {},
     "SupplyRequest": {},
     "TestScript": {},
-    "time": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
-    "Timing": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "time": {},
+    "Timing": {},
     "triglyceride": {},
     "unsignedInt": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/integer"
       ]
     },
-    "uri": {
-      "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
-      ]
-    },
+    "uri": {},
     "uslab-cctarget": {
       "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: fixedUri/exampleUri"
       ]
     },
     "uslab-cond": {},
-    "uslab-do": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "uslab-do": {},
     "uslab-dr": {},
     "uslab-obscode": {},
     "uslab-obsother": {},
-    "uslab-obspanel": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "uslab-obspanel": {},
     "uslab-obsquantity": {},
     "uslab-obsrange": {},
     "uslab-obsratio": {},
     "uslab-orderfacility": {
       "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: fixedUri/exampleUri"
       ]
     },
-    "uslab-patient": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "uslab-patient": {},
     "uslab-performinglab": {
       "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: fixedUri/exampleUri"
       ]
     },
-    "uslab-phpatient": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "uslab-phpatient": {},
     "uslab-phpract": {
       "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
+        "Round trip failed: Names differ at /StructureDefinition/snapshot/element: fixedUri/exampleUri"
       ]
     },
     "uslab-pract": {
@@ -553,24 +309,16 @@
       ]
     },
     "uslab-reasonforstudy": {},
-    "uslab-spec": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    },
+    "uslab-spec": {},
     "uuid": {
       "errors": [
-        "Unknown StructureDefinitionKind code \u0027datatype\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Element/uri"
       ]
     },
     "ValueSet": {},
     "VisionPrescription": {},
     "xdsdocumentmanifest": {},
-    "xdsdocumentreference": {
-      "errors": [
-        "No matches found for rule for \u0027code/string\u0027 from http://hl7.org/fhir/StructureMap/ElementDefinition3to2"
-      ]
-    }
+    "xdsdocumentreference": {}
   },
   "AllergyIntolerance": {
     "allergyintolerance-example": {
@@ -611,41 +359,13 @@
     "exampleresp": {}
   },
   "AuditEvent": {
-    "example-login": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example-logout": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example-media": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example-pixQuery": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example-search": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example-rest": {
-      "errors": [
-        "Error at 21, 7: Found \")\" expecting \":\""
-      ]
-    },
-    "example": {
-      "errors": [
-        "[R3 validation error] AuditEvent.source.type: Error null validating Coding"
-      ]
-    },
+    "example-login": {},
+    "example-logout": {},
+    "example-media": {},
+    "example-pixQuery": {},
+    "example-search": {},
+    "example-rest": {},
+    "example": {},
     "example-disclosure": {}
   },
   "Basic": {
@@ -656,17 +376,9 @@
         "[R3 validation error] Basic.extension[3]: The extension http://hl7.org/fhir/StructureDefinition/qicore-adverseevent-period is unknown, and not allowed here"
       ]
     },
-    "referral": {
-      "errors": [
-        "Round trip failed: Names differ at /Basic/modifierExtension: valueCode/valueString"
-      ]
-    },
+    "referral": {},
     "basic-example-narrative": {},
-    "classModel": {
-      "errors": [
-        "Round trip failed: Names differ at /Basic/extension/extension/extension: valueCode/valueString"
-      ]
-    }
+    "classModel": {}
   },
   "Binary": {
     "example": {},
@@ -8685,11 +8397,7 @@
     },
     "xcda": {},
     "xds": {},
-    "glossy": {
-      "errors": [
-        "Round trip failed: Names differ at /Patient/extension: valueCode/valueString"
-      ]
-    },
+    "glossy": {},
     "patient-uslab-example1": {
       "errors": [
         "[R3 validation error] Patient.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
@@ -9155,65 +8863,64 @@
   "VisionPrescription": {
     "33123": {
       "errors": [
-        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3"
+        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3, from rule \u0027\"VisionPrescription.dispense-eye\"\u0027"
       ]
     },
     "33124": {
       "errors": [
-        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3"
+        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3, from rule \u0027\"VisionPrescription.dispense-eye\"\u0027"
       ]
     }
   },
   "Encounter": {
     "encounter-example": {
       "errors": [
-        "Exception executing transform tgt.class \u003d translate(v, \"#ActEncounterCode\", \"code\") on Rule \"\"Encounter-class\"\": Concept map http://hl7.org/fhir/StructureMap/Encounter2to3#ActEncounterCode found no usable translation for inpatient"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "example": {
       "errors": [
-        "Exception executing transform tgt.class \u003d translate(v, \"#ActEncounterCode\", \"code\") on Rule \"\"Encounter-class\"\": Concept map http://hl7.org/fhir/StructureMap/Encounter2to3#ActEncounterCode found no usable translation for inpatient"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f001": {
       "errors": [
-        "No matches found for rule for \u0027Duration/Quantity\u0027 from http://hl7.org/fhir/StructureMap/Encounter3to2"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f002": {
       "errors": [
-        "No matches found for rule for \u0027Duration/Quantity\u0027 from http://hl7.org/fhir/StructureMap/Encounter3to2"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f003": {
       "errors": [
-        "No matches found for rule for \u0027Duration/Quantity\u0027 from http://hl7.org/fhir/StructureMap/Encounter3to2"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f201": {
       "errors": [
-        "[R3 validation error] Encounter.type.coding: null",
-        "[R3 validation error] Encounter.priority.coding: null"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f202": {
       "errors": [
-        "No matches found for rule for \u0027Duration/Quantity\u0027 from http://hl7.org/fhir/StructureMap/Encounter3to2"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "f203": {
       "errors": [
-        "Exception executing transform tgt.class \u003d translate(v, \"#ActEncounterCode\", \"code\") on Rule \"\"Encounter-class\"\": Concept map http://hl7.org/fhir/StructureMap/Encounter2to3#ActEncounterCode found no usable translation for inpatient"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "home": {
       "errors": [
-        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": Unknown Resource or Type Name \u0027Resource\u0027"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     },
     "xcda": {
       "errors": [
-        "Round trip failed: Names differ at /Encounter: class/patient"
+        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
       ]
     }
   },
@@ -9355,18 +9062,12 @@
   "CapabilityStatement": {
     "base": {
       "errors": [
-        "[R3 validation error] CapabilityStatement.rest.resource[19].type: The value provided (\u0027Conformance\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code Conformance in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[29].type: The value provided (\u0027DiagnosticOrder\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code DiagnosticOrder in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[45].type: The value provided (\u0027ImagingObjectSelection\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code ImagingObjectSelection in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[56].type: The value provided (\u0027MedicationOrder\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code MedicationOrder in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[60].type: The value provided (\u0027NutritionOrder\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code NutritionOrder in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[64].type: The value provided (\u0027Order\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code Order in http://hl7.org/fhir/ValueSet/resource-types)",
-        "[R3 validation error] CapabilityStatement.rest.resource[65].type: The value provided (\u0027OrderResponse\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code OrderResponse in http://hl7.org/fhir/ValueSet/resource-types)"
+        "Unable to convert a org.hl7.fhir.dstu3.model.CapabilityStatement to a Code"
       ]
     },
     "base2": {
       "errors": [
-        "[R3 validation error] CapabilityStatement.rest.resource.type: The value provided (\u0027Conformance\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code Conformance in http://hl7.org/fhir/ValueSet/resource-types)"
+        "Unable to convert a org.hl7.fhir.dstu3.model.CapabilityStatement to a Code"
       ]
     },
     "conformance-daf-query-requestor": {
