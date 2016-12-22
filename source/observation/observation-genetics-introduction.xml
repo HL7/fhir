@@ -14,7 +14,7 @@
 Observation-genetics-profile extends <a href="observation.html">Observation</a> resource to enable reporting of structured genetic test results. In addition, the genetics profile contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
 </p>
 <p>
-For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer Implementation Guide <a href="genomics.html">here </a>.
+For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here </a>.
 </p>
 <p>
 <h4>Genetic Standards and Resources include:</h4>

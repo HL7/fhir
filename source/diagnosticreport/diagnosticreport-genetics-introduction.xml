@@ -5,7 +5,7 @@
     The DiagnosticReport-genetics profile extends the <a href="diagnosticreport.html">DiagnosticReport</a> resource to enable reporting of structured genetic test results by referring to <a href="observation-genetics.html">Observation-genetics</a> profile. In addition, the genetics profile denotes condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels and provides references to the <a href="familymemberhistory.html">FamilyMemberHistory</a> resource, the <a href="condition.html">Condition</a> resource.
 </p>
 <p>
-For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer Implementation Guide <a href="genomics.html">here </a>.
+For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here </a>.
 </p>
 
 

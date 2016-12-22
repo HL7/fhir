@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <p>
-For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer Implementation Guide <a href="genomics.html">here </a>.
+For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here </a>.
 </p>
 
 

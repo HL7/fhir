@@ -4,7 +4,7 @@
 <h2>Scope and Usage</h2>
 <p>
     The Sequence resource is designed to describe an atomic sequence which contains the alignment sequencing test result and multiple variations. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
-    For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer Implementation Guide <a href="genomics.html">here </a>.
+    For use cases, details on how this resource interact with other Clinical Genomics resources or profiles, please refer to implementation guidance document <a href="genomics.html">here </a>.
 </p>
 <h3>Genetic Standards and Resources include:</h3>
 <ul>
