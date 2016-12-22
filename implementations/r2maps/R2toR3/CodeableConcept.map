@@ -1,6 +1,7 @@
 ﻿map "http://hl7.org/fhir/StructureMap/CodeableConcept2to3" = "R2 to R3 Conversions for CodeableConcept"
 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CodeableConcept" alias CodeableConceptR2 as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Coding" alias CodingR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConcept as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives2to3"
@@ -13,5 +14,12 @@ group for type+types  CodeableConcept extends Element
 
   "CodeableConcept-coding" : for src.coding make tgt.coding
   "CodeableConcept-text" : for src.text make tgt.text
+endgroup
+
+group for types CodingToCodeableConcept extends Element
+  input src : CodingR2 as source
+  input tgt : CodeableConcept as target
+
+  "CodingToCodeableConcept-coding" : for src make tgt.coding as vt then Coding(src, vt)
 
 endgroup

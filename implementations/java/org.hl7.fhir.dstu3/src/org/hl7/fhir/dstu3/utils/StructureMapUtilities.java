@@ -1215,7 +1215,7 @@ public class StructureMapUtilities {
 				  Base tgt = v.get(VariableMode.OUTPUT, rule.getTargetFirstRep().getVariable());
 				  String srcType = src.fhirType();
 				  String tgtType = tgt.fhirType();
-				  ResolvedGroup defGroup = resolveGroupByTypes(map, group, srcType, tgtType);
+				  ResolvedGroup defGroup = resolveGroupByTypes(map, rule.getName(), group, srcType, tgtType);
 			    Variables vdef = new Variables();
           vdef.add(VariableMode.INPUT, defGroup.target.getInput().get(0).getName(), src);
           vdef.add(VariableMode.OUTPUT, defGroup.target.getInput().get(1).getName(), tgt);
@@ -1318,7 +1318,7 @@ public class StructureMapUtilities {
     return url.length() > mask.length() && url.startsWith(mask.substring(0, mask.indexOf("*"))) && url.endsWith(mask.substring(mask.indexOf("*")+1)) ;
   }
 
-  private ResolvedGroup resolveGroupByTypes(StructureMap map, StructureMapGroupComponent source, String srcType, String tgtType) throws FHIRException {
+  private ResolvedGroup resolveGroupByTypes(StructureMap map, String ruleid, StructureMapGroupComponent source, String srcType, String tgtType) throws FHIRException {
     String kn = "types^"+srcType+":"+tgtType;
     if (source.hasUserData(kn))
       return (ResolvedGroup) source.getUserData(kn);
@@ -1332,7 +1332,7 @@ public class StructureMapUtilities {
           res.targetMap = map;
           res.target = grp;
         } else 
-          throw new FHIRException("Multiple possible matches looking for rule for '"+srcType+"/"+tgtType+"'");
+          throw new FHIRException("Multiple possible matches looking for rule for '"+srcType+"/"+tgtType+"', from rule '"+ruleid+"'");
       }
     }
 
@@ -1348,14 +1348,14 @@ public class StructureMapUtilities {
                 res.targetMap = impMap;
                 res.target = grp;
               } else 
-                throw new FHIRException("Multiple possible matches for rule for '"+srcType+"/"+tgtType+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl());
+                throw new FHIRException("Multiple possible matches for rule for '"+srcType+"/"+tgtType+"' in "+res.targetMap.getUrl()+" and "+impMap.getUrl()+", from rule '"+ruleid+"'");
             }
           }
         }
       }
     }
     if (res.target == null)
-      throw new FHIRException("No matches found for rule for '"+srcType+"/"+tgtType+"' from "+map.getUrl());
+      throw new FHIRException("No matches found for rule for '"+srcType+"/"+tgtType+"' from "+map.getUrl()+", from rule '"+ruleid+"'");
     source.setUserData(kn, res);
     return res;
   }

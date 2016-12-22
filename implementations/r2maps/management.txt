@@ -1,5 +1,6 @@
 Category 1: Passing all tests
 -----------------------------
+AuditEvent
 ConceptMap
 Flag
 ImplementationGuide
@@ -47,8 +48,7 @@ TestReport
 
 Category 3: Allocated to a person
 ---------------------------------
-
-Grahame: AuditEvent, CapabilityStatement, DataElement, StructureDefinition, 
+Grahame: CapabilityStatement, DataElement, StructureDefinition, 
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)

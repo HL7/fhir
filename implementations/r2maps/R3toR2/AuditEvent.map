@@ -1,48 +1,78 @@
-﻿map "http://hl7.org/fhir/StructureMap/AuditEvent3to2" = "R3 to R2 Conversion for AuditEvent"
+﻿map "http://hl7.org/fhir/StructureMap/AuditEvent3to2" = "R3 to R2 Conversions for AuditEvent"
 
-uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias AuditEvent as source
-uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AuditEvent" alias AuditEventR2 as target
+uses "http://hl7.org/fhir/StructureDefinition/AuditEvent" alias  AuditEvent as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AuditEvent" alias  AuditEventR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
-group for type+types  AuditEvent extends DomainResource
+group for type+types AuditEvent extends DomainResource
   input src : AuditEvent as source
   input tgt : AuditEventR2 as target
 
-  "AuditEvent-participant" : for src.agent as vs0 make tgt.participant as vt0 then {
-    "AuditEvent.participant-role" : for vs0.role make vt0.role
-    "AuditEvent.participant-reference" : for vs0.reference make vt0.reference
-    "AuditEvent.participant-userId" : for vs0.userId make vt0.userId
-    "AuditEvent.participant-altId" : for vs0.altId make vt0.altId
-    "AuditEvent.participant-name" : for vs0.name make vt0.name
-    "AuditEvent.participant-requestor" : for vs0.requestor make vt0.requestor
-    "AuditEvent.participant-location" : for vs0.location make vt0.location
-    "AuditEvent.participant-policy" : for vs0.policy make vt0.policy
-    "AuditEvent.participant-media" : for vs0.media make vt0.media
+  "AuditEvent-event" : for src make tgt.event as ev then {
+     "AuditEvent-type" : for src.type make ev.type
+     "AuditEvent-subtype" : for src.subtype make ev.subtype
+     "AuditEvent-action" : for src.action make ev.action
+     "AuditEvent-recorded" : for src.recorded make ev.dateTime
+     "AuditEvent-outcome" : for src.outcome make ev.outcome
+     "AuditEvent-outcomeDesc" : for src.outcomeDesc make ev.outcomeDesc
+     "AuditEvent-purposeOfEvent" : for src.purposeOfEvent make ev.purposeOfEvent
   }
+  "AuditEvent-agent" : for src.agent as vs0 make tgt.participant as vt0 then agent(vs0, vt0) 
+  "AuditEvent-source" : for src.source as vs0 make tgt.source as vt0 then source (vs0, vt0)
+  "AuditEvent-entity" : for src.entity as vs0 make tgt.object as vt0 then entity (vs0, vt0)
+endgroup
 
-  "AuditEvent-source" : for src.source as vs0 make tgt.source as vt0 then {
-    "AuditEvent.source-site" : for vs0.site make vt0.site
-    "AuditEvent.source-identifier" : for vs0.identifier make vt0.identifier
-    "AuditEvent.source-type" : for vs0.type make vt0.type
-  }
+group agent extends BackboneElement
+  input src as source
+  input tgt as target
 
-  "AuditEvent-object" : for src.entity as vs0 make tgt.object as vt0 then {
-    "AuditEvent.object-identifier" : for vs0.identifier make vt0.identifier
-    "AuditEvent.object-reference" : for vs0.reference make vt0.reference
-    "AuditEvent.object-type" : for vs0.type make vt0.type
-    "AuditEvent.object-role" : for vs0.role make vt0.role
-    "AuditEvent.object-lifecycle" : for vs0.lifecycle make vt0.lifecycle
-    "AuditEvent.object-securityLabel" : for vs0.securityLabel make vt0.securityLabel
-    "AuditEvent.object-name" : for vs0.name make vt0.name
-    "AuditEvent.object-description" : for vs0.description make vt0.description
-    "AuditEvent.object-query" : for vs0.query make vt0.query
-  }
+  "AuditEvent.agent-role" : for src.role make tgt.role
+  "AuditEvent.agent-reference" : for src.reference make tgt.reference
+  "AuditEvent.agent-userId" : for src.userId make tgt.userId
+  "AuditEvent.agent-altId" : for src.altId make tgt.altId
+  "AuditEvent.agent-name" : for src.name make tgt.name
+  "AuditEvent.agent-requestor" : for src.requestor make tgt.requestor
+  "AuditEvent.agent-location" : for src.location make tgt.location
+  "AuditEvent.agent-policy" : for src.policy make tgt.policy
+  "AuditEvent.agent-media" : for src.media make tgt.media
+  "AuditEvent.agent-network" : for src.network as vs make tgt.network as vt then network(vs, vt)
+  "AuditEvent-purposeOfUse" : for src.purposeOfUse make tgt.purposeOfUse
+endgroup
 
+group network extends BackboneElement
+  input src as source
+  input tgt as target
+  "AuditEvent.agent.network-address" : for src.address make tgt.address
+  "AuditEvent.agent.network-type" : for src.type make tgt.type
+endgroup
 
+group source extends BackboneElement
+  input src as source
+  input tgt as target
+  "AuditEvent.source-site" : for src.site make tgt.site
+  "AuditEvent.source-identifier" : for src.identifier make tgt.identifier
+  "AuditEvent.source-type" : for src.type make tgt.type
+endgroup
+
+group entity extends BackboneElement
+  input src as source
+  input tgt as target
+  "AuditEvent.entity-identifier" : for src.identifier make tgt.identifier
+  "AuditEvent.entity-reference" : for src.reference make tgt.reference
+  "AuditEvent.entity-type" : for src.type make tgt.type
+  "AuditEvent.entity-role" : for src.role make tgt.role
+  "AuditEvent.entity-lifecycle" : for src.lifecycle make tgt.lifecycle
+  "AuditEvent.entity-securityLabel" : for src.securityLabel make tgt.securityLabel
+  "AuditEvent.entity-name" : for src.name make tgt.name
+  "AuditEvent.entity-description" : for src.description make tgt.description
+  "AuditEvent.entity-query" : for src.query make tgt.query
+  "AuditEvent.entity-detail" : for src.detail as vs make tgt.detail as vt then detail(vs, vt)
+endgroup
+
+group detail extends BackboneElement
+  input src as source
+  input tgt as target
+  "AuditEvent.entity.detail-type" : for src.type make tgt.type
+  "AuditEvent.entity.value-type" : for src.value make tgt.value
 endgroup
