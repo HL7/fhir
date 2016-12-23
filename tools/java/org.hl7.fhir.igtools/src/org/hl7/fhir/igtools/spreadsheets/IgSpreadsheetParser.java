@@ -447,6 +447,9 @@ public class IgSpreadsheetParser {
       bs.setDescription(sheet.getColumn(row, "Definition"));
       bs.setStrength(readBindingStrength(sheet.getColumn(row, "Conformance"), row));
 
+      if (sheet.hasColumn("max-valueset") && !Utilities.noString(sheet.getColumn(row, "max-valueset"))) {
+        bs.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").setValue(new Reference().setReference(sheet.getColumn(row, "max-valueset")));
+      }
       String type = sheet.getColumn(row, "Binding");
       if (type == null || "".equals(type) || "unbound".equals(type)) {
         // nothing

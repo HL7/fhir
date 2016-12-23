@@ -604,7 +604,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               if (!cc.hasCoding()) {
                 if (binding.getStrength() == BindingStrength.REQUIRED)
                   rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code is required from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
-                else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
+                else if (binding.getStrength() == BindingStrength.EXTENSIBLE) 
                   warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "No code provided, and a code should be provided from the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl());
               } else {
                 long t = System.nanoTime();
@@ -625,22 +625,27 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                     // ignore this since we can't validate but it doesn't matter..
                   } else {
                     ValidationResult vr = context.validateCode(cc, valueset);
-                    txTime = txTime + (System.nanoTime() - t);
                     if (!vr.isOk()) {
                       bindingsOk = false;
                       if (vr.getErrorClass() != null && vr.getErrorClass().isInfrastructure()) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code from this value set is required (class = "+vr.getErrorClass().toString()+")");
-                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code should come from this value set unless it has no suitable code (class = "+vr.getErrorClass().toString()+")");
-                        else if (binding.getStrength() == BindingStrength.PREFERRED)
+                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                            checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), cc);
+                          else
+                            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code should come from this value set unless it has no suitable code (class = "+vr.getErrorClass().toString()+")");
+                        } else if (binding.getStrength() == BindingStrength.PREFERRED)
                           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " and a code is recommended to come from this value set (class = "+vr.getErrorClass().toString()+")");
                       } else {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
                           rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required) (codes = "+ccSummary(cc)+")");
-                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code) (codes = "+ccSummary(cc)+")");
-                        else if (binding.getStrength() == BindingStrength.PREFERRED)
+                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                            checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), cc);
+                          else
+                            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code) (codes = "+ccSummary(cc)+")");
+                        } else if (binding.getStrength() == BindingStrength.PREFERRED)
                           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "None of the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set) (codes = "+ccSummary(cc)+")");
                       }
                     } else if (vr.getMessage()!=null)
@@ -672,6 +677,57 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         } else if (!noBindingMsgSuppressed) {
           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding for path " + path + " has no source, so can't be checked");
         }
+      }
+    }
+  }
+
+  private void checkMaxValueSet(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, Reference maxVSUrl, CodeableConcept cc) {
+    // TODO Auto-generated method stub
+    ValueSet valueset = resolveBindingReference(profile, maxVSUrl, profile.getUrl());
+    if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(maxVSUrl) + " not found")) {
+      try {
+        long t = System.nanoTime();
+        ValidationResult vr = context.validateCode(cc, valueset);
+        txTime = txTime + (System.nanoTime() - t);
+        if (!vr.isOk()) {
+          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "None of the codes provided are in the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+", and a code from this value set is required) (codes = "+ccSummary(cc)+")");
+        }
+      } catch (Exception e) {
+        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept using maxValueSet");
+      }
+    }
+  }
+
+  private void checkMaxValueSet(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, Reference maxVSUrl, Coding c) {
+    // TODO Auto-generated method stub
+    ValueSet valueset = resolveBindingReference(profile, maxVSUrl, profile.getUrl());
+    if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(maxVSUrl) + " not found")) {
+      try {
+        long t = System.nanoTime();
+        ValidationResult vr = context.validateCode(c, valueset);
+        txTime = txTime + (System.nanoTime() - t);
+        if (!vr.isOk()) {
+          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided is not in the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+", and a code from this value set is required) (code = "+c.getSystem()+"#"+c.getCode()+")");
+        }
+      } catch (Exception e) {
+        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept using maxValueSet");
+      }
+    }
+  }
+
+  private void checkMaxValueSet(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, Reference maxVSUrl, String value) {
+    // TODO Auto-generated method stub
+    ValueSet valueset = resolveBindingReference(profile, maxVSUrl, profile.getUrl());
+    if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, valueset != null, "ValueSet " + describeReference(maxVSUrl) + " not found")) {
+      try {
+        long t = System.nanoTime();
+        ValidationResult vr = context.validateCode(null, value, null, valueset);
+        txTime = txTime + (System.nanoTime() - t);
+        if (!vr.isOk()) {
+          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided is not in the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+", and a code from this value set is required) (code = "+value+")");
+        }
+      } catch (Exception e) {
+        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept using maxValueSet");
       }
     }
   }
@@ -734,16 +790,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided could not be validated in the absence of a terminology server");
                       else if (vr.getErrorClass() != null && !vr.getErrorClass().isInfrastructure()) {
                         if (binding.getStrength() == BindingStrength.REQUIRED)
-                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)");
-                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
-                        else if (binding.getStrength() == BindingStrength.PREFERRED)
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl()+", and a code from this value set is required)"); 
+                        else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
+                          if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                            checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), c);
+                          else
+                            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)");
+                        } else if (binding.getStrength() == BindingStrength.PREFERRED)
                           hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "Could not confirm that the codes provided are in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)");
                       } else if (binding.getStrength() == BindingStrength.REQUIRED)
                         rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is required from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
-                      else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-                        warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
-                      else if (binding.getStrength() == BindingStrength.PREFERRED)
+                      else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
+                        if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+                          checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), c);
+                        else
+                          warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
+                      } else if (binding.getStrength() == BindingStrength.PREFERRED)
                         hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The Coding provided is not in the value set " + describeReference(binding.getValueSet()) + " (" + valueset.getUrl() + ", and a code is recommended to come from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
                     }
                   } catch (Exception e) {
@@ -1207,9 +1269,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
             hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') could not be validated in the absence of a terminology server");
           else if (binding.getStrength() == BindingStrength.REQUIRED)
             rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is required from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
-          else if (binding.getStrength() == BindingStrength.EXTENSIBLE)
-            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
-          else if (binding.getStrength() == BindingStrength.PREFERRED)
+          else if (binding.getStrength() == BindingStrength.EXTENSIBLE) {
+            if (binding.hasExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet")) 
+              checkMaxValueSet(errors, path, element, profile, (Reference) binding.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet").get(0).getValue(), value);
+            else
+              warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code should come from this value set unless it has no suitable code)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
+          } else if (binding.getStrength() == BindingStrength.PREFERRED)
             hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false,  "The value provided ('"+value+"') is not in the value set " + describeReference(binding.getValueSet()) + " (" + vs.getUrl() + ", and a code is recommended to come from this value set)"+(vr.getMessage() != null ? " (error message = "+vr.getMessage()+")" : ""));
         }
       }
