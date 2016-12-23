@@ -426,7 +426,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
         String comment = "";
         if (comments.containsKey(cd)) {
           comment = comments.get(cd);
-          ToolingExtensions.addComment(concept, comment);
+          ToolingExtensions.addVSComment(concept, comment);
         }
         // be display name, not
         // definition. Open for
@@ -559,7 +559,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       if (comments.containsKey(cd)) {
         comment = comments.get(cd);
         commentVer = commentVersions.get(cd);
-        ToolingExtensions.addComment(concept, comment);
+        ToolingExtensions.addCSComment(concept, comment);
       }
       // be display name, not
       // definition. Open for
@@ -738,7 +738,7 @@ public class ValueSetImporterV2 extends ValueSetImporterBase {
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       if (comments.containsKey(cd))
-        ToolingExtensions.addComment(concept, comments.get(cd));
+        ToolingExtensions.addCSComment(concept, comments.get(cd));
       
       
       // be display name, not

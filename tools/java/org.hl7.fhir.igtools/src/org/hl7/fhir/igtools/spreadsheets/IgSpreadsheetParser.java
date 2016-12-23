@@ -538,7 +538,7 @@ public class IgSpreadsheetParser {
             cc.setDisplay(Utilities.humanize(cc.getCode()));
           cc.setDefinition(sheet.getColumn(row, "Definition"));
           if (!Utilities.noString(sheet.getColumn(row, "Comment")))
-            ToolingExtensions.addComment(cc, sheet.getColumn(row, "Comment"));
+            ToolingExtensions.addCSComment(cc, sheet.getColumn(row, "Comment"));
 //          cc.setUserData("v2", sheet.getColumn(row, "v2"));
 //          cc.setUserData("v3", sheet.getColumn(row, "v3"));
           for (String ct : sheet.columns) 
@@ -577,7 +577,7 @@ public class IgSpreadsheetParser {
         if (!Utilities.noString(sheet.getColumn(row, "Definition")))
           ToolingExtensions.addDefinition(cc, sheet.getColumn(row, "Definition"));
         if (!Utilities.noString(sheet.getColumn(row, "Comment")))
-          ToolingExtensions.addComment(cc, sheet.getColumn(row, "Comment"));
+          ToolingExtensions.addVSComment(cc, sheet.getColumn(row, "Comment"));
         cc.setUserDataINN("v2", sheet.getColumn(row, "v2"));
         cc.setUserDataINN("v3", sheet.getColumn(row, "v3"));
         for (String ct : sheet.columns) 

@@ -3508,7 +3508,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private void genCodeItem(boolean links, boolean hasComments, StringBuilder b, ConceptDefinitionComponent c) {
     if (hasComments)
-      b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(ToolingExtensions.getComment(c))+"</td></tr>\r\n");
+      b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td><td>"+Utilities.escapeXml(ToolingExtensions.getCSComment(c))+"</td></tr>\r\n");
     else
       b.append(" <tr><td>"+(links ? "<a href=\"#"+c.getCode()+"\">"+c.getCode()+"</a>" : c.getCode())+"</td><td>"+Utilities.escapeXml(c.getDefinition())+"</td></tr>\r\n");
     for (ConceptDefinitionComponent cc : c.getConcept()) {
@@ -3517,7 +3517,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   }
 
   private boolean checkHasComment(ConceptDefinitionComponent c) {
-    if (ToolingExtensions.getComment(c) != null)
+    if (ToolingExtensions.getCSComment(c) != null)
       return true;
     for (ConceptDefinitionComponent cc : c.getConcept())
       if (checkHasComment(cc))

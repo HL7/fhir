@@ -421,7 +421,7 @@ public class BindingSpecification {
     DefinedCode code = new DefinedCode();
     code.setCode(c.getCode());
     code.setDisplay(c.getDisplay());
-    code.setComment(ToolingExtensions.getComment(c));
+    code.setComment(ToolingExtensions.getCSComment(c));
     code.setDefinition(c.getDefinition());
     code.setParent(parent);
     code.setSystem(system);

@@ -102,7 +102,7 @@ public class ValueSetGenerator {
           c.setDefinition("...to do...");
       }
     }
-    ToolingExtensions.addComment(cs.addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
+    ToolingExtensions.addCSComment(cs.addConcept().setCode("xhtml").setDisplay("XHTML").setDefinition("XHTML format, as defined by W3C, but restricted usage (mainly, no active content)"), "Special case: xhtml can only be used in the narrative Data Type");
   }
 
   private void genResourceTypes(ValueSet vs) {

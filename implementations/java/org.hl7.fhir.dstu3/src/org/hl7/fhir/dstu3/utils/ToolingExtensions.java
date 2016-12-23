@@ -55,6 +55,8 @@ import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.validation.ValidationMessage.Source;
 
 
@@ -65,7 +67,8 @@ public class ToolingExtensions {
 //  private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
 //  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
-  public static final String EXT_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
+  public static final String EXT_CS_COMMENT = "http://hl7.org/fhir/StructureDefinition/codesystem-comments";
+  public static final String EXT_VS_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
   private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
   public static final String EXT_TRANSLATION = "http://hl7.org/fhir/StructureDefinition/translation";
   public static final String EXT_ISSUE_SOURCE = "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-source";
@@ -172,9 +175,18 @@ public class ToolingExtensions {
       dr.getExtension().add(Factory.newExtension(url, new IntegerType(value), true));   
   }
 
-  public static void addComment(Element nc, String comment) {
+  public static void addVSComment(ConceptSetComponent nc, String comment) {
     if (!StringUtils.isBlank(comment))
-      nc.getExtension().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
+      nc.getExtension().add(Factory.newExtension(EXT_VS_COMMENT, Factory.newString_(comment), true));   
+  }
+  public static void addVSComment(ConceptReferenceComponent nc, String comment) {
+    if (!StringUtils.isBlank(comment))
+      nc.getExtension().add(Factory.newExtension(EXT_VS_COMMENT, Factory.newString_(comment), true));   
+  }
+
+  public static void addCSComment(ConceptDefinitionComponent nc, String comment) {
+    if (!StringUtils.isBlank(comment))
+      nc.getExtension().add(Factory.newExtension(EXT_CS_COMMENT, Factory.newString_(comment), true));   
   }
 
 //  public static void markDeprecated(Element nc) {
@@ -268,16 +280,16 @@ public class ToolingExtensions {
     return true;
   }
 
-  public static String getComment(ConceptDefinitionComponent c) {
-    return readStringExtension(c, EXT_COMMENT);    
+  public static String getCSComment(ConceptDefinitionComponent c) {
+    return readStringExtension(c, EXT_CS_COMMENT);    
   }
 //
 //  public static Boolean getDeprecated(Element c) {
 //    return readBooleanExtension(c, EXT_DEPRECATED);    
 //  }
 
-  public static boolean hasComment(ConceptDefinitionComponent c) {
-    return findStringExtension(c, EXT_COMMENT);    
+  public static boolean hasCSComment(ConceptDefinitionComponent c) {
+    return findStringExtension(c, EXT_CS_COMMENT);    
   }
 
 //  public static boolean hasDeprecated(Element c) {

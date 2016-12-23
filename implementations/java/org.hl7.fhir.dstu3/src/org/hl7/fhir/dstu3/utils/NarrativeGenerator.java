@@ -2853,7 +2853,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   }
 
   private boolean conceptsHaveComments(ConceptDefinitionComponent c) {
-    if (ToolingExtensions.hasComment(c))
+    if (ToolingExtensions.hasCSComment(c))
       return true;
     for (ConceptDefinitionComponent g : c.getConcept())
       if (conceptsHaveComments(g))
@@ -3028,7 +3028,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     if (comment) {
       td = tr.td();
-      String s = ToolingExtensions.getComment(c);
+      String s = ToolingExtensions.getCSComment(c);
       if (s != null) {
         smartAddText(td, s);
         hasExtensions = true;
@@ -3226,7 +3226,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           boolean hasComments = false;
           boolean hasDefinition = false;
           for (ConceptReferenceComponent c : inc.getConcept()) {
-            hasComments = hasComments || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT);
+            hasComments = hasComments || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_VS_COMMENT);
             hasDefinition = hasDefinition || ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_DEFINITION);
           }
           if (hasComments || hasDefinition)
@@ -3249,8 +3249,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
             else if (cc != null && !Utilities.noString(cc.getDefinition()))
               smartAddText(td, cc.getDefinition());
 
-            if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_COMMENT)) {
-              smartAddText(tr.td(), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_COMMENT));
+            if (ExtensionHelper.hasExtension(c, ToolingExtensions.EXT_VS_COMMENT)) {
+              smartAddText(tr.td(), "Note: "+ToolingExtensions.readStringExtension(c, ToolingExtensions.EXT_VS_COMMENT));
             }
             for (ConceptReferenceDesignationComponent cd : c.getDesignation()) {
               if (cd.hasLanguage() && !langs.contains(cd.getLanguage()))

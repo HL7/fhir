@@ -1821,7 +1821,7 @@ public class ProfileUtilities {
       String ref = defPath == null ? null : defPath + element.getId();
       UnusedTracker used = new UnusedTracker();
       used.used = true;
-      Cell left = gen.new Cell(null, ref, s, !hasDef ? null : element.getDefinition(), null);
+      Cell left = gen.new Cell(null, ref, s, (element.hasSliceName() ? "Slice "+element.getSliceName() : "")+(hasDef && element.hasSliceName() ? ": " : "")+(!hasDef ? null : element.getDefinition()), null);
       row.getCells().add(left);
       Cell gc = gen.new Cell();
       row.getCells().add(gc);
