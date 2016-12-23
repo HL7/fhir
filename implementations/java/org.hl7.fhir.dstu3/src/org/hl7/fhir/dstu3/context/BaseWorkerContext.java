@@ -48,6 +48,7 @@ import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.TerminologyServiceError
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.NoTerminologyServiceException;
@@ -590,7 +591,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
       else 
         return verifyCodeExternal(vs, new Coding().setSystem(system).setCode(code).setDisplay(display), true);
     } catch (Exception e) {
-      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage());
+      return new ValidationResult(IssueSeverity.FATAL, "Error validating code \""+code+"\" in system \""+system+"\": "+e.getMessage(), TerminologyServiceErrorClass.SERVER_ERROR);
     }
   }
 
@@ -654,7 +655,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  private ValidationResult verifyCodeInternal(ValueSet vs, String code) throws FileNotFoundException, ETooCostly, IOException {
+  private ValidationResult verifyCodeInternal(ValueSet vs, String code) throws FileNotFoundException, ETooCostly, IOException, FHIRException {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, code);
     else {
@@ -709,11 +710,15 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     return null;
   }
 
-  private ValidationResult verifyCodeInExpansion(ValueSet vs, String code) {
-    ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
-    if (cc == null)
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getUrl());
-    return null;
+  private ValidationResult verifyCodeInExpansion(ValueSet vs, String code) throws FHIRException {
+    if (vs.getExpansion().hasExtension("http://hl7.org/fhir/StructureDefinition/valueset-toocostly")) {
+      throw new FHIRException("Unable to validate core - value set is too costly to expand"); 
+    } else {
+      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
+      if (cc == null)
+        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getUrl());
+      return null;
+    }
   }
 
   private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code) {

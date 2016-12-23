@@ -724,7 +724,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         ValidationResult vr = context.validateCode(null, value, null, valueset);
         txTime = txTime + (System.nanoTime() - t);
         if (!vr.isOk()) {
-          rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided is not in the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+", and a code from this value set is required) (code = "+value+")");
+          if (vr.getErrorClass() != null && vr.getErrorClass().isInfrastructure()) 
+            warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided could not be validated against the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+"), (error = "+vr.getMessage()+")");
+          else
+            rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "The code provided is not in the maxiumum value set " + describeReference(maxVSUrl) + " (" + valueset.getUrl()+"), and a code from this value set is required) (code = "+value+"), (error = "+vr.getMessage()+")");
         }
       } catch (Exception e) {
         warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Error "+e.getMessage()+" validating CodeableConcept using maxValueSet");
