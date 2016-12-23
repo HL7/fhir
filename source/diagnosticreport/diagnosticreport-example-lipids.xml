@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="lipids"/>
   <text>
@@ -77,7 +76,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <coding>
           <system value="http://loinc.org"/>
           <code value="14927-8"/>
-          <display value = "Triglyceride [Moles/​volume] in Serum or Plasma"/>
+          <display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
         </coding>
         <text value="Triglyceride"/>
       </code>
@@ -112,7 +111,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <coding>
           <system value="http://loinc.org"/>
           <code value="2085-9"/>
-          <display value = "Cholesterol in HDL [Moles/​volume] in Serum or Plasma"/>
+          <display value="Cholesterol in HDL [Moles/​volume] in Serum or Plasma"/>
         </coding>
         <text value="Cholesterol in HDL"/>
       </code>
@@ -147,7 +146,7 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
         <coding>
           <system value="http://loinc.org"/>
           <code value="39469-2"/>
-          <display value = "Cholesterol in LDL [Moles/​volume] in Serum or Plasma by calculation"/>
+          <display value="Cholesterol in LDL [Moles/​volume] in Serum or Plasma by calculation"/>
         </coding>
         <text value="LDL Chol. (Calc)"/>
       </code>
@@ -201,9 +200,11 @@ LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
 <!--    all this report is final    -->
   <issued value="2013-01-27T11:45:33+11:00"/>
   <performer>
-    <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-    <display value="Acme Laboratory, Inc"/>
-  </performer>
+		<actor>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+			<display value="Acme Laboratory, Inc"/>
+		</actor>
+	</performer>
 <!--    now the atomic results    -->
   <result>
     <reference value="#cholesterol"/>

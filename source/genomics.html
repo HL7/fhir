@@ -112,7 +112,7 @@ table th {
     </ul>
   </p>
   <p>
-    With these resource and profiles, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>). 
+    With these resource and profiles, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>).
     These tools are simple to implement, will optimize payload sizes, and help developers avoid redundant retrieval of data.  <a href="#history">Appendix 1</a> of this document shows how DSTU 2.0 can be mapped to the new additions to the resource.
   </p>
 
@@ -122,7 +122,7 @@ table th {
   <h3>Structure Diagram</h3>
 
 [%resource-table Sequence%]
-  
+
   <h3>Description</h3>
   <p>
     The <a href="sequence.html">Sequence resource</a> is designed for next-generation sequencing data. Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants. To specify how it proceed, here is a picture below:
@@ -137,7 +137,7 @@ table th {
 
 <img src="genomics-image11.png" alt="coordinateSystem" style="width:624px;height:468px;"/>
 
-<p>  Here are two examples that clarify the usage in both cases (they represent same segment part): 
+<p>  Here are two examples that clarify the usage in both cases (they represent same segment part):
   <ul>
     <li>0-based example: <a href="coord-0base-example.html">here</a> Source:<a href="coord-0base-example.xml.html">XML</a>,<a href="coord-0base-example.json.html">JSON</a></li>
     <li>1-based example: <a href="coord-1base-example.html">here</a> Source:<a href="coord-1base-example.xml.html">XML</a>,<a href="coord-1base-example.json.html">JSON</a></li>
@@ -231,7 +231,7 @@ We provide a detailed example to show how sequence resource can be used to repre
 <img src="genomics-image15.jpeg" alt="Sequence Graph" style="width:624px;height:468px;"/>
 
 <p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.
-Here is the corresponding examplepu 
+Here is the corresponding examplepu
 <ul>
     <li> <a href="sequence-graphic-example-1.html">column 1</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
     <li> <a href="sequence-graphic-example-2.html">column 2</a> Source:<a href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
@@ -318,7 +318,7 @@ The <a href="observation-genetic.html">Observation-genetics profile</a> Observat
     </table>
 
 <p>
-  In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant. (For example, sequence variant has its pointer back to the observation, see <a href="#PGx-example">PGx example</a>) 
+  In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant. (For example, sequence variant has its pointer back to the observation, see <a href="#PGx-example">PGx example</a>)
 </p>
 
 <h3>Usage Examples</h3>
@@ -459,7 +459,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
     <li>Full Genotype</li>
     <li>Consensus Sequence</li>
     <li>Novel Polymorphisms</li>
-    <li>Platform Documentation</li> 
+    <li>Platform Documentation</li>
     <li>Read Processing Documentation</li>
     <li>Primary Data</li>
   </ol>
@@ -739,7 +739,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   <tr>
     <td>DiagnosticReport</td>
     <td><a href="#diagnosticreport-genetics">DiagnosticReport Data Structure</a></td>
-    <td><a href="diagnosticreport-example.html">Example Here</a></td>
+    <td><a href="diagnosticreport-example-101.html">Example Here</a></td>
   </tr>
 </table>
 
@@ -1116,5 +1116,3 @@ Get /DiagnosticReport&amp;
 
 </body>
 </html>
-
-

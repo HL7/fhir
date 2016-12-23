@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport mlns="http://hl7.org/fhir">
 	<id value="example-pgx"/>
 	<status value="final"/>
@@ -16,7 +17,9 @@
 	<effectiveDateTime value="2016-10-15T12:34:56+11:00"/>
 	<issued value="2016-10-20T14:00:05+11:00"/>
 	<performer>
-		<reference value="Organization/4829"/>
+		<actor>
+			<reference value="Organization/4829"/>
+		</actor>
 	</performer>
 	<request>
 		<reference value="DiagnosticRequest/example-pgx"/>
@@ -25,8 +28,8 @@
 		<reference value="Observation/example-phenotype"/>
 	</result>
 	<presentedForm>
- 		<contentType value="PDF"/>
-	 	<language value="en-us"/>
+		<contentType value="PDF"/>
+		<language value="en"/>
 		<data value="cGRmSW5CYXNlNjRCaW5hcnk="/>
 		<hash value="571ef9c5655840f324e679072ed62b1b95eef8a0"/>
 		<title value="Pharmacogenetics Report"/>

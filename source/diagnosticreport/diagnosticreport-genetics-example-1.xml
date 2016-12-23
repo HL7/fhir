@@ -338,9 +338,11 @@
   <effectiveDateTime value="2014-03-04T08:30:00+11:00"/>
   <issued value="2014-05-16T10:28:00+01:00"/>
   <performer>
-    <reference value="Practitioner/genetics-example2"/>
-    <display value="Molecular Diagnostic Laboratory"/>
-  </performer>
+		<actor>
+			<reference value="Practitioner/genetics-example2"/>
+			<display value="Molecular Diagnostic Laboratory"/>
+		</actor>
+	</performer>
   <specimen>
     <reference value="Specimen/genetics-example2"/>
     <display value="Molecular Specimen ID: MLD45-Z4-1234"/>

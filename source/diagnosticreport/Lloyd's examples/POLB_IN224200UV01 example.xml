@@ -75,7 +75,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
         <desc value="Acme Laboratory, Inc"/>
       </representedOrganization>
     </assignedPerson>
-  </performer>
+  </actor></performer>
   <verifier typeCode="VRF">
     <time value="20110304114533+1100"/>
     <assignedEntity classCode="ASSIGNED">

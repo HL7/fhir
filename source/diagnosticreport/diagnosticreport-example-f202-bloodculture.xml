@@ -19,7 +19,7 @@
 			</subject>
 			<context>
 				<reference value="Encounter/f203"/>
-				<display value="Roel&apos;s encounter on March eleventh 2013"/>
+				<display value="Roel's encounter on March eleventh 2013"/>
 			</context>
 			<requester>
 				<reference value="Practitioner/f201"/>
@@ -54,8 +54,10 @@
 	<effectiveDateTime value="2013-03-11T03:45:00+01:00"/>
 	<issued value="2013-03-11T10:28:00+01:00"/>
 	<performer>
-		<reference value="Organization/f201"/>
-		<display value="AUMC"/>
+		<actor>
+			<reference value="Organization/f201"/>
+			<display value="AUMC"/>
+		</actor>
 	</performer>
 	<!-- No identifier was available -->
 	<request>

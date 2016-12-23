@@ -40,6 +40,13 @@
   Definition = The status of the diagnostic report as a whole.
   Conformance = required
 
+ -- Row 6 -----------------------------------
+  Binding Name = Role
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = Indicate a role of diagnostic report performer
+  Conformance = example
+
 === Sheet diagnostic-report-status =====================================
 
  -- Row 1 -----------------------------------
@@ -84,6 +91,12 @@
   Display = Entered in Error
   Definition = The report has been withdrawn following a previous final release.
 
+ -- Row 8 -----------------------------------
+  Id = 9
+  Code = unknown
+  Display = Unknown Status
+  Definition = The report status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -121,7 +134,7 @@
   Summary = y
   Type = code
   Binding = DiagnosticReportStatus
-  Short Name = registered | partial | final | corrected | appended | cancelled | entered-in-error
+  Short Name = registered | partial | final | corrected +
   Definition = The status of the diagnostic report as a whole
   Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
   Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn
@@ -217,16 +230,50 @@
   Card. = 0..*
   Aliases = Laboratory, Service, Practitioner, Department, Company
   Summary = y
+  Short Name = Participants in producing the report
+  Definition = Indicates who or what participated in producing the report.
+  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
+  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  Committee Notes = 12/22/2016 EH: 8936,11428
+  w5 = who.witness
+
+ -- Row 11 -----------------------------------
+  Element = DiagnosticReport.performer.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = Role
+  Short Name = Type of performer
+  Definition = Describes the type of participation (e.g.  a responsible party, author, or verifier).
+  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
+  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = edit mappings
+
+ -- Row 12 -----------------------------------
+  Element = DiagnosticReport.performer.actor
+  Card. = 1..1
+  Summary = y
   Type = Reference(Practitioner|Organization)
-  Short Name = Responsible Diagnostic Service
-  Definition = The diagnostic service that is responsible for issuing the report
+  Short Name = Practitioner or Organization  participant
+  Definition = The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  w5 = who.witness
+  To Do = edit mappings
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
+  Element = DiagnosticReport.performer.onBehalfOf
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Name = Organization was acting for
+  Definition = The organization the practitioner was acting on behalf of.
+  Requirements = Practitioners can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when performing the action.
+  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
+  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = edit mappings
+
+ -- Row 14 -----------------------------------
   Element = DiagnosticReport.request
   Card. = 0..*
   Type = Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest)
@@ -237,7 +284,7 @@
   v2 Mapping = ORC? OBR-2/3?
   RIM Mapping = outboundRelationship[typeCode=FLFS].target
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DiagnosticReport.specimen
   Card. = 0..*
   Type = Reference(Specimen)
@@ -248,7 +295,7 @@
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DiagnosticReport.result
   Card. = 0..*
   Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
@@ -259,7 +306,7 @@
   v2 Mapping = OBXs
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
   Type = Reference(ImagingStudy|ImagingManifest)
@@ -269,7 +316,7 @@
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
   Committee Notes = 6246
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DiagnosticReport.image
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
@@ -281,7 +328,7 @@
   v2 Mapping = OBX?
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DiagnosticReport.image.comment
   Card. = 0..1
   Type = string
@@ -291,7 +338,7 @@
   Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DiagnosticReport.image.link
   Card. = 1..1
   Summary = Y
@@ -299,7 +346,7 @@
   Short Name = Reference to the image source
   RIM Mapping = .value.reference
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Aliases = Report
@@ -310,7 +357,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..*
   Type = CodeableConcept
@@ -319,7 +366,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
@@ -354,7 +401,7 @@
   Name = performer
   Type = reference
   Description = Who was the source of the report (organization)
-  Path = DiagnosticReport.performer
+  Path = DiagnosticReport.performer.actor
 
  -- Row 5 -----------------------------------
   Name = identifier
@@ -455,7 +502,7 @@
   Name = General
   Identity = 101
   Description = General Lab Report Example
-  Filename = diagnosticreport-example.xml
+  Filename = diagnosticreport-example-101.xml
 
  -- Row 2 -----------------------------------
   Name = Assorted Collection

@@ -141,8 +141,10 @@ GE LUNAR PRODIGY DENSITOMETER
 	<issued value="2008-06-18T09:23:00+10:00"/>
 	<!--      well, actually. this isn't the patient, but it'll do for now      -->
 	<performer>
-		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-		<display value="Acme Imaging Diagnostics"/>
+		<actor>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+			<display value="Acme Imaging Diagnostics"/>
+		</actor>
 	</performer>
 	<result>
 		<reference value="Observation/bmd"/>

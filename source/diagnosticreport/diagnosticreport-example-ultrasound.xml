@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- This example demonstrates the use of the .image elements
--->
-<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd">
+<?xml version="1.0" encoding="UTF-8"?><!-- This example demonstrates the use of the .image elements
+--><DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd">
 	<id value="ultrasound"/>
 	<status value="final"/>
 	<!-- No identifier or request details were available -->
@@ -31,7 +29,9 @@
 	<effectiveDateTime value="2012-12-01T12:00:00+01:00"/>
 	<issued value="2012-12-01T12:00:00+01:00"/>
 	<performer>
-		<reference value="Practitioner/example"/>
+		<actor>
+			<reference value="Practitioner/example"/>
+		</actor>
 	</performer>
 	<image>
 		<comment value="A comment about the image"/>
@@ -40,5 +40,5 @@
 			<display value="WADO example image"/>
 		</link>
 	</image>
-	<conclusion value="Unremarkable study"></conclusion>
+	<conclusion value="Unremarkable study"/>
 </DiagnosticReport>

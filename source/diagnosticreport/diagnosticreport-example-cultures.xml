@@ -18,8 +18,10 @@
     <reference value="Patient/example"/>
   </subject>
   <performer>
-    <reference value="Organization/acme-lab"/>
-  </performer>
+		<actor>
+			<reference value="Organization/acme-lab"/>
+		</actor>
+	</performer>
   <effectiveDateTime value="2013-03-04T18:00:00"/>
     <group>
       <code>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticreport.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticreport.xsd">
 	<id value="ghp"/>
 	<meta>
 		<lastUpdated value="2015-08-16T10:35:23Z"/>
@@ -2263,8 +2263,10 @@
 	<effectiveDateTime value="2015-08-16T06:40:17Z"/>
 	<issued value="2015-08-17T06:40:17Z"/>
 	<performer>
-		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-		<display value="Acme Laboratory, Inc"/>
+		<actor>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+			<display value="Acme Laboratory, Inc"/>
+		</actor>
 	</performer>
 	<specimen>
 		<reference value="#rtt"/>

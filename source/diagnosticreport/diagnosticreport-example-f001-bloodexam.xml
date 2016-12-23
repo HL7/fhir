@@ -75,8 +75,10 @@
 	<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
 	<issued value="2013-05-15T19:32:52+01:00"/>
 	<performer>
-		<reference value="Organization/f001"/>
-		<display value="Burgers University Medical Centre"/>
+		<actor>
+			<reference value="Organization/f001"/>
+			<display value="Burgers University Medical Centre"/>
+		</actor>
 	</performer>
 	<request>
 		<reference value="#req"/>

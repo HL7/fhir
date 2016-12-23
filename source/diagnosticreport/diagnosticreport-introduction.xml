@@ -11,7 +11,7 @@ and codes. The mix varies depending on the nature of the diagnostic procedure, a
 of the outcomes for a particular investigation.  In FHIR, the report can be conveyed in a variety of ways including a <a href="documents.html">Document</a>, <a href="http.html">RESTful API</a>, or <a href="messaging.html">Messaging </a> framework.  Included within each of these, would be the DiagnosticReport resource itself.
 </p>
 <p>
-The DiagnosticReport resource has information about the diagnostic report itself, and about the subject and, in the case of lab tests, the specimen of the report.  It can also refers to the request details and atomic observations details or image instances.  Report conclusions can be expressed as a simple text blob, structured coded data or as an attached fully formatted report such as a PDF.</p>
+The DiagnosticReport resource has information about the diagnostic report itself, and about the subject and, in the case of lab tests, the specimen of the report.  It can also refer to the request details and atomic observations details or image instances.  Report conclusions can be expressed as a simple text blob, structured coded data or as an attached fully formatted report such as a PDF.</p>
 <p>
 The DiagnosticReport resource is suitable for the following kinds of diagnostic reports:
 </p>
@@ -75,15 +75,6 @@ In contrast to the <a href="observation.html">Observation</a> resource, the Diag
 <p>
 If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="diagnosticrequest.html">DiagnosticRequest</a>) resource and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
 </p>
-<a name="dstu"> </a>
-<blockquote class="dstu-note">
-<p>
-<b>STU Note:</b> The relationship between the two resources is subject to ongoing evaluation during the trial use period.
-</p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
 
 <p>
 Image and media representations of the report and supporting images are referenced in the DiagnosticReport resource.  The details and actual image instances can be referenced directly in Diagnostic report using the "imaging" element or by indirect reference through the <a href="imagingmanifest.html">ImagingManifest</a> or <a href="imagingstudy.html">ImagingStudy</a> resources which represent the content produced in a DICOM imaging study or set of DICOM Instances of a patient.

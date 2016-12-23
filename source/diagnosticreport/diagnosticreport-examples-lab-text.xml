@@ -67,8 +67,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T23:30:00Z"/>
 				<issued value="2012-04-06T00:38:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -134,8 +136,10 @@ Comment: *PLEASE NOTE AMENDED REPORT*
 				<effectiveDateTime value="2012-04-05T23:30:00Z"/>
 				<issued value="2012-04-05T23:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -209,8 +213,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:55:00Z"/>
 				<issued value="2012-04-05T23:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -264,8 +270,10 @@ Anti-Factor Xa Comment:
 				<effectiveDateTime value="2012-04-05T23:40:00Z"/>
 				<issued value="2012-04-06T00:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -313,8 +321,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T23:40:00Z"/>
 				<issued value="2012-04-06T00:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -366,8 +376,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T23:10:00Z"/>
 				<issued value="2012-04-06T00:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -418,8 +430,10 @@ CK                828     IU/L   ( &lt;175     )
 				<effectiveDateTime value="2012-04-05T23:10:00Z"/>
 				<issued value="2012-04-06T00:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -462,8 +476,10 @@ TSH                       0.01    L  mIU/L   ( 0.1-4.0  )
 				<effectiveDateTime value="2012-04-05T23:10:00Z"/>
 				<issued value="2012-04-06T05:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -520,8 +536,10 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T23:10:00Z"/>
 				<issued value="2012-04-05T23:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -580,8 +598,10 @@ C-React Prot      152     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T23:30:00Z"/>
 				<issued value="2012-04-05T23:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -654,8 +674,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T23:30:00Z"/>
 				<issued value="2012-04-05T23:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -716,8 +738,10 @@ Urea             10.0     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T22:40:00Z"/>
 				<issued value="2012-04-06T00:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -816,8 +840,10 @@ Film Comment : Mild neutrophilia with mild toxic changes. Manual
 				<effectiveDateTime value="2012-04-05T22:40:00Z"/>
 				<issued value="2012-04-05T23:53:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -874,8 +900,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-06T00:22:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -922,8 +950,10 @@ Comment: The Potassium result has been checked.
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-06T01:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -980,8 +1010,10 @@ Baso         0.1      0.0      0.1      0.1      0.1   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-05T23:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -1063,8 +1095,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:31:00Z"/>
 				<issued value="2012-04-05T23:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1113,8 +1147,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T23:21:00Z"/>
 				<issued value="2012-04-06T00:11:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -1171,8 +1207,10 @@ Baso                  0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T23:21:00Z"/>
 				<issued value="2012-04-06T08:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -1231,8 +1269,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1305,8 +1345,10 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-05T23:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1373,8 +1415,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1443,8 +1487,10 @@ Troponin I        0.03    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1513,8 +1559,10 @@ Troponin I        0.03    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1606,8 +1654,10 @@ Comment: Please note moderate thrombocytopenia persists. Please
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-05T23:37:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1675,8 +1725,10 @@ Protein Total      65     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T23:23:00Z"/>
 				<issued value="2012-04-06T01:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1772,8 +1824,10 @@ Conclusion: Suggestive of infection.
 				<effectiveDateTime value="2012-04-05T23:23:00Z"/>
 				<issued value="2012-04-06T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1837,8 +1891,10 @@ Hrs Since Dose No Info  No Info                            HH:MM
 				<effectiveDateTime value="2012-04-05T23:25:00Z"/>
 				<issued value="2012-04-06T03:24:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1907,8 +1963,10 @@ Lipase             87     IU/L   ( &lt;60      )
 				<effectiveDateTime value="2012-04-05T23:25:00Z"/>
 				<issued value="2012-04-06T00:08:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -1995,8 +2053,10 @@ Comment: Instrument differential and parameters reported.
 				<effectiveDateTime value="2012-04-05T23:25:00Z"/>
 				<issued value="2012-04-05T23:36:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2042,8 +2102,10 @@ INR               1.2                                            0.8-1.3
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -2092,8 +2154,10 @@ Albumin            26     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -2167,8 +2231,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:19:00Z"/>
 				<issued value="2012-04-05T23:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2227,8 +2293,10 @@ INR               3.0H                                           0.8-1.3
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T00:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2289,8 +2357,10 @@ Urea              8.0     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-06T01:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2363,8 +2433,10 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T23:00:00Z"/>
 				<issued value="2012-04-05T23:37:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2449,8 +2521,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:15:00Z"/>
 				<issued value="2012-04-05T23:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2514,8 +2588,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T22:30:00Z"/>
 				<issued value="2012-04-06T00:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2584,8 +2660,10 @@ Protein Total      77     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T22:30:00Z"/>
 				<issued value="2012-04-06T00:07:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2658,8 +2736,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T22:30:00Z"/>
 				<issued value="2012-04-05T23:37:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2730,8 +2810,10 @@ Salicylate       &lt;0.30             &lt;0.30                   mmol/L &lt;2.9
 				<effectiveDateTime value="2012-04-05T22:56:00Z"/>
 				<issued value="2012-04-06T00:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2802,8 +2884,10 @@ Protein Total      70     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T22:56:00Z"/>
 				<issued value="2012-04-06T00:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2891,8 +2975,10 @@ Comment: Mild neutropenia.
 				<effectiveDateTime value="2012-04-05T22:56:00Z"/>
 				<issued value="2012-04-06T08:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -2977,8 +3063,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:13:00Z"/>
 				<issued value="2012-04-05T23:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3063,8 +3151,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:13:00Z"/>
 				<issued value="2012-04-05T23:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3149,8 +3239,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T23:01:00Z"/>
 				<issued value="2012-04-05T23:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3235,8 +3327,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:58:00Z"/>
 				<issued value="2012-04-05T23:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3313,8 +3407,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:57:00Z"/>
 				<issued value="2012-04-05T23:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3395,8 +3491,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:58:00Z"/>
 				<issued value="2012-04-05T23:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3481,8 +3579,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:36:00Z"/>
 				<issued value="2012-04-05T22:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3570,8 +3670,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:36:00Z"/>
 				<issued value="2012-04-05T22:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3624,8 +3726,10 @@ Specimen Type:  Serum
 				<effectiveDateTime value="2012-04-05T22:20:00Z"/>
 				<issued value="2012-04-05T22:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3690,8 +3794,10 @@ HBsAB Titre                                            :      44 IU/L
 				<effectiveDateTime value="2012-04-05T22:20:00Z"/>
 				<issued value="2012-04-05T22:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3776,8 +3882,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:33:00Z"/>
 				<issued value="2012-04-05T22:38:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3836,8 +3944,10 @@ TSH                       0.08    L  mIU/L   ( 0.1-4.0  )
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-06T01:08:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3922,8 +4032,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:30:00Z"/>
 				<issued value="2012-04-05T22:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -3974,8 +4086,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T22:20:00Z"/>
 				<issued value="2012-04-05T22:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -4031,8 +4145,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-10T00:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4117,8 +4233,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:28:00Z"/>
 				<issued value="2012-04-06T06:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4217,8 +4335,10 @@ perinatal or neonatal infection.
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-09T11:38:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4303,8 +4423,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:25:00Z"/>
 				<issued value="2012-04-05T22:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4360,8 +4482,10 @@ Comment: sample not protected from light ward notified for
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-10T07:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -4412,8 +4536,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-05T22:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -4463,8 +4589,10 @@ C-React Prot        2     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-05T23:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -4533,8 +4661,10 @@ Conclusion: No clinical information provided.
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -4614,8 +4744,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:24:00Z"/>
 				<issued value="2012-04-05T22:27:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4676,8 +4808,10 @@ Urea             12.2     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T22:20:00Z"/>
 				<issued value="2012-04-05T23:16:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4759,8 +4893,10 @@ Conclusion: Common causes of macrocytosis include liver disease,
 				<effectiveDateTime value="2012-04-05T22:20:00Z"/>
 				<issued value="2012-04-06T08:48:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4824,8 +4960,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T22:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4894,8 +5032,10 @@ C-React Prot        4     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-06T01:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -4968,8 +5108,10 @@ Baso         0.1      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5054,8 +5196,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:18:00Z"/>
 				<issued value="2012-04-05T22:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5110,8 +5254,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T22:10:00Z"/>
 				<issued value="2012-04-05T22:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5166,8 +5312,10 @@ Protein Total      69     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T22:10:00Z"/>
 				<issued value="2012-04-05T22:47:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5237,8 +5385,10 @@ Comment: Note neutrophilia.
 				<effectiveDateTime value="2012-04-05T22:10:00Z"/>
 				<issued value="2012-04-05T22:34:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5289,8 +5439,10 @@ Troponin I        0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T22:05:00Z"/>
 				<issued value="2012-04-05T22:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5344,8 +5496,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T22:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5399,8 +5553,10 @@ NTRC
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T22:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5461,8 +5617,10 @@ Urea              5.3     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T23:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5535,8 +5693,10 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-05T22:32:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5584,8 +5744,10 @@ Urea              6.1     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T22:11:00Z"/>
 				<issued value="2012-04-05T22:47:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5642,8 +5804,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T22:11:00Z"/>
 				<issued value="2012-04-05T22:32:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5734,8 +5898,10 @@ culture.
 				<effectiveDateTime value="2012-04-05T22:00:00Z"/>
 				<issued value="2012-04-09T12:08:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5820,8 +5986,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:13:00Z"/>
 				<issued value="2012-04-06T06:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5869,8 +6037,10 @@ Protein/Creat Ratio              30   mg/mmol Creat   ( 15-35    )
 				<effectiveDateTime value="2012-04-05T18:11:00Z"/>
 				<issued value="2012-04-07T16:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -5928,8 +6098,10 @@ GROIN SWAB                    VRE not detected
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-08T09:50:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -5980,8 +6152,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T21:50:00Z"/>
 				<issued value="2012-04-05T22:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6038,8 +6212,10 @@ CK                 43     IU/L   ( &lt;175     )
 				<effectiveDateTime value="2012-04-05T21:50:00Z"/>
 				<issued value="2012-04-05T22:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6115,8 +6291,10 @@ Conclusion: Known beta thalassaemia minor. Suggest repeat FBE for an
 				<effectiveDateTime value="2012-04-05T21:50:00Z"/>
 				<issued value="2012-04-05T22:32:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6177,8 +6355,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T22:05:00Z"/>
 				<issued value="2012-04-05T22:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -6261,8 +6441,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T22:05:00Z"/>
 				<issued value="2012-04-05T22:11:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -6310,8 +6492,10 @@ Protein/Creat Ratio             232 H mg/mmol Creat   ( 15-35    )
 				<effectiveDateTime value="2012-04-05T21:58:00Z"/>
 				<issued value="2012-04-05T22:16:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6376,8 +6560,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T21:58:00Z"/>
 				<issued value="2012-04-07T08:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6442,8 +6628,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:28:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -6504,8 +6692,10 @@ Urea              7.5     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -6578,8 +6768,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -6628,8 +6820,10 @@ Troponin I        0.04    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T21:53:00Z"/>
 				<issued value="2012-04-05T22:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6696,8 +6890,10 @@ Conclusion: Note persistent anaemia.
 				<effectiveDateTime value="2012-04-05T21:53:00Z"/>
 				<issued value="2012-04-05T22:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6746,8 +6942,10 @@ Albumin            28     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6807,8 +7005,10 @@ Comment: Intra-op
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6864,8 +7064,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-05T22:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -6947,8 +7149,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T21:52:00Z"/>
 				<issued value="2012-04-05T21:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7025,8 +7229,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T21:49:00Z"/>
 				<issued value="2012-04-05T21:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7096,8 +7302,10 @@ C-React Prot        5     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:58:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7170,8 +7378,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T21:40:00Z"/>
 				<issued value="2012-04-05T22:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7227,8 +7437,10 @@ LIPIDS
 				<effectiveDateTime value="2012-04-05T21:44:00Z"/>
 				<issued value="2012-04-06T03:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7297,8 +7509,10 @@ investigation, please contact the Microbiology Registrar.
 				<effectiveDateTime value="2012-04-05T21:00:00Z"/>
 				<issued value="2012-04-07T14:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7359,8 +7573,10 @@ Standard culture:   ++ Mixed upper respiratory tract flora
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-07T12:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -7425,8 +7641,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-07T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -7469,8 +7687,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-09T22:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -7525,8 +7745,10 @@ Comment: The requested tests were not completed as no
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-05T23:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7602,8 +7824,10 @@ Xanthochromia Comment:   Oxyhaemoglobin present but no significant
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-05T23:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7678,8 +7902,10 @@ culture or special media are required.
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-08T10:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7746,8 +7972,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T21:25:00Z"/>
 				<issued value="2012-04-05T22:28:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7809,8 +8037,10 @@ Troponin I        0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T21:25:00Z"/>
 				<issued value="2012-04-05T22:29:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7886,8 +8116,10 @@ Comment: * Please note: no specimen received.
 				<effectiveDateTime value="2012-04-05T21:25:00Z"/>
 				<issued value="2012-04-05T22:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -7954,8 +8186,10 @@ COMMENT: This serum sample has been stored for 3 months.  If clinically
 				<effectiveDateTime value="2012-04-05T21:30:00Z"/>
 				<issued value="2012-04-06T12:52:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8040,8 +8274,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T21:26:00Z"/>
 				<issued value="2012-04-05T21:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8126,8 +8362,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T21:22:00Z"/>
 				<issued value="2012-04-05T21:26:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8175,8 +8413,10 @@ Urea              7.0     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T21:10:00Z"/>
 				<issued value="2012-04-05T22:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8249,8 +8489,10 @@ Comment: Please note fall in haemoglobin and platelet count since
 				<effectiveDateTime value="2012-04-05T21:10:00Z"/>
 				<issued value="2012-04-05T21:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8295,8 +8537,10 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T22:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8341,8 +8585,10 @@ Urea              9.1     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T22:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8411,8 +8657,10 @@ Conclusion: Please note fall in haemoglobin since the previous
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T21:36:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8465,8 +8713,10 @@ Antithrombin (Functional)         88     %      (80-120)
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T22:07:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8514,8 +8764,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T21:48:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8583,8 +8835,10 @@ Presumptive  negative for pneumococcal pneumonia.
 				<effectiveDateTime value="2012-04-05T21:17:00Z"/>
 				<issued value="2012-04-10T12:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8632,8 +8886,10 @@ Urea             16.4     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T21:05:00Z"/>
 				<issued value="2012-04-05T22:22:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8689,8 +8945,10 @@ yeasts                                    Occasional
 				<effectiveDateTime value="2012-04-05T21:10:00Z"/>
 				<issued value="2012-04-06T14:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8772,8 +9030,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T21:08:00Z"/>
 				<issued value="2012-04-05T21:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8830,8 +9090,10 @@ TSH                       2.52       mIU/L   ( 0.1-4.0  )
 				<effectiveDateTime value="2012-04-05T16:52:00Z"/>
 				<issued value="2012-04-05T21:58:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -8899,8 +9161,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-07T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -8978,8 +9242,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T21:00:00Z"/>
 				<issued value="2012-04-07T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -9047,8 +9313,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T20:45:00Z"/>
 				<issued value="2012-04-07T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9096,8 +9364,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T20:59:00Z"/>
 				<issued value="2012-04-05T21:27:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9152,8 +9422,10 @@ Protein Total      55     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T20:59:00Z"/>
 				<issued value="2012-04-05T21:47:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9228,8 +9500,10 @@ Conclusion: Increase in leucocyte count since the last examination.
 				<effectiveDateTime value="2012-04-05T20:59:00Z"/>
 				<issued value="2012-04-05T22:29:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9307,8 +9581,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T20:45:00Z"/>
 				<issued value="2012-04-07T08:55:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -9354,8 +9630,10 @@ Cortisol Diurnal Variation:AM (0800 - 0900): 150 - 650 nmol/L
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T23:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9401,8 +9679,10 @@ Osmolality        290     mosm/kg( 280-300  )
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9447,8 +9727,10 @@ Urine Osmolality                618   mmol/L          ( 50-1200  )
 				<effectiveDateTime value="2012-04-05T20:10:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9530,8 +9812,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:59:00Z"/>
 				<issued value="2012-04-05T21:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -9579,8 +9863,10 @@ Urine Osmolality                612   mmol/L          ( 50-1200  )
 				<effectiveDateTime value="2012-04-05T20:15:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9626,8 +9912,10 @@ Osmolality        295     mosm/kg( 280-300  )
 				<effectiveDateTime value="2012-04-05T20:15:00Z"/>
 				<issued value="2012-04-05T22:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9692,8 +9980,10 @@ Protein Total      73     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T20:55:00Z"/>
 				<issued value="2012-04-05T21:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -9776,8 +10066,10 @@ Conclusion: Features suggestive of infection / inflammation. Suggest
 				<effectiveDateTime value="2012-04-05T20:55:00Z"/>
 				<issued value="2012-04-05T22:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -9825,8 +10117,10 @@ Urea              4.1     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T20:56:00Z"/>
 				<issued value="2012-04-05T21:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9883,8 +10177,10 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T20:56:00Z"/>
 				<issued value="2012-04-05T21:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -9966,8 +10262,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:56:00Z"/>
 				<issued value="2012-04-05T21:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10052,8 +10350,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:52:00Z"/>
 				<issued value="2012-04-05T20:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10113,8 +10413,10 @@ call 1-800-555-2123 to contact the State Department of Health.
 				<effectiveDateTime value="2012-04-05T20:52:00Z"/>
 				<issued value="2012-04-09T11:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -10170,8 +10472,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:57:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10248,8 +10552,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:52:00Z"/>
 				<issued value="2012-04-05T20:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10303,8 +10609,10 @@ Troponin I        0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T20:30:00Z"/>
 				<issued value="2012-04-05T21:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10358,8 +10666,10 @@ C-React Prot      149     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T20:40:00Z"/>
 				<issued value="2012-04-05T21:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10418,8 +10728,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T20:40:00Z"/>
 				<issued value="2012-04-09T22:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10475,8 +10787,10 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-05T20:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10507,8 +10821,8 @@ Iron Studies (Plasma/serum)
 Ferritin       182.0                                      ug/L    15-200
 Iron              15                                      umol/L  10-30
 Transferrin     2.33                                      g/L     1.9-3.2
-Transf&#39;n IBC    58.4                                      umol/L  47.6-80.2
-Transf&#39;n Sat      25                                      %       14.7-37.4
+Transf'n IBC    58.4                                      umol/L  47.6-80.2
+Transf'n Sat      25                                      %       14.7-37.4
 
 NOTE NEW REFERENCE RANGES FOR FOLATE
 From 27th April 2004, B12 and Folate will be performed on the Bayer Centaur
@@ -10549,8 +10863,10 @@ Old Ref Ranges prior to 27th April 2004
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-06T08:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10625,8 +10941,10 @@ LIPIDS
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-05T21:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10699,8 +11017,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-05T20:52:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10761,8 +11081,10 @@ Urea              4.4     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-05T21:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10844,8 +11166,10 @@ Comment: Instrument differential and parameters reported.
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-05T21:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10904,8 +11228,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T20:39:00Z"/>
 				<issued value="2012-04-09T22:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -10995,8 +11321,10 @@ Timentin         S
 				<effectiveDateTime value="2012-04-05T20:25:00Z"/>
 				<issued value="2012-04-09T08:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11059,8 +11387,10 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 				<effectiveDateTime value="2012-04-05T20:38:00Z"/>
 				<issued value="2012-04-08T11:37:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11142,8 +11472,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:36:00Z"/>
 				<issued value="2012-04-05T20:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11205,8 +11537,10 @@ C-React Prot        2     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T20:20:00Z"/>
 				<issued value="2012-04-05T20:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11252,8 +11586,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T20:06:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11308,8 +11644,10 @@ Protein Total      56     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-05T21:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11391,8 +11729,10 @@ Film Comment : Red cells show some microcytes, elongated cells and mildly
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-05T22:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11465,8 +11805,10 @@ CULTURE
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-09T12:07:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11551,8 +11893,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:21:00Z"/>
 				<issued value="2012-04-05T20:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11613,8 +11957,10 @@ RECTAL SWAB                   VRE not detected
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-08T09:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11668,8 +12014,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-05T21:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11720,8 +12068,10 @@ Comment: The requested tests were not completed as the
 				<effectiveDateTime value="2012-04-05T20:12:00Z"/>
 				<issued value="2012-04-05T21:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11769,8 +12119,10 @@ Comment: The specimen received was mislabeled. The ward has  been
 				<effectiveDateTime value="2012-04-05T20:12:00Z"/>
 				<issued value="2012-04-05T20:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -11798,8 +12150,8 @@ Iron Studies (Plasma/serum)
 Ferritin       215.0                                      ug/L    30-300
 Iron              25                                      umol/L  10-35
 Transferrin     2.69                                      g/L     1.9-3.2
-Transf&#39;n IBC    67.4                                      umol/L  47.6-80.2
-Transf&#39;n Sat      38                                      %       14.7-43.6
+Transf'n IBC    67.4                                      umol/L  47.6-80.2
+Transf'n Sat      38                                      %       14.7-43.6
 
 NOTE NEW REFERENCE RANGES FOR FOLATE
 From 27th April 2004, B12 and Folate will be performed on the Bayer Centaur
@@ -11840,8 +12192,10 @@ Old Ref Ranges prior to 27th April 2004
 				<effectiveDateTime value="2012-04-05T19:30:00Z"/>
 				<issued value="2012-04-06T09:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11905,8 +12259,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:30:00Z"/>
 				<issued value="2012-04-05T21:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -11962,8 +12318,10 @@ Vitamin 25 D                 TF      nmol/L( SEE-BELOW
 				<effectiveDateTime value="2012-04-05T19:30:00Z"/>
 				<issued value="2012-04-05T19:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12036,8 +12394,10 @@ Baso         0.0      0.0      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:30:00Z"/>
 				<issued value="2012-04-05T20:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12106,8 +12466,10 @@ C-React Prot       12     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T19:30:00Z"/>
 				<issued value="2012-04-05T20:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12166,8 +12528,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T20:04:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12200,7 +12564,7 @@ PT                                 43.1                    secs
 PT mix                             14.2                    secs
 
 12Z766236 05/04/12 13:47
-PT Mix  : 50/50 mixture of the patient&#39;s plasma with normal plasma -
+PT Mix  : 50/50 mixture of the patient's plasma with normal plasma -
           CORRECTED.
 
 12Z986616 05/04/12 11:55
@@ -12227,8 +12591,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T20:04:00Z"/>
 				<issued value="2012-04-05T21:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -12283,8 +12649,10 @@ Protein Total      51     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T20:04:00Z"/>
 				<issued value="2012-04-05T21:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -12353,8 +12721,10 @@ Conclusion: Please note fall in haemoglobin since the previous
 				<effectiveDateTime value="2012-04-05T20:04:00Z"/>
 				<issued value="2012-04-05T22:11:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -12436,8 +12806,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:08:00Z"/>
 				<issued value="2012-04-05T20:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12522,8 +12894,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:05:00Z"/>
 				<issued value="2012-04-05T20:10:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12580,8 +12954,10 @@ TSH                       1.55       mIU/L   ( 0.1-4.0  )
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-05T20:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12654,8 +13030,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-05T20:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12721,8 +13099,10 @@ Troponin I        0.03    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T19:50:00Z"/>
 				<issued value="2012-04-05T20:51:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12791,8 +13171,10 @@ streptococci and diphtheroid bacilli.
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-07T10:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -12874,8 +13256,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:02:00Z"/>
 				<issued value="2012-04-05T20:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12935,8 +13319,10 @@ G1691A Substitution Result:
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-05T20:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -12987,8 +13373,10 @@ MicroAlb/Creat Ratio           5.66 H mg/mmol creat   ( &lt;2.5     )
 				<effectiveDateTime value="2012-04-05T19:57:00Z"/>
 				<issued value="2012-04-06T04:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13070,8 +13458,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T20:00:00Z"/>
 				<issued value="2012-04-05T20:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13126,8 +13516,10 @@ Protein Total      64     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T21:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13184,8 +13576,10 @@ Baso         0.0      0.1      0.0      0.0      0.0   x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T20:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13267,8 +13661,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T19:54:00Z"/>
 				<issued value="2012-04-05T19:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13336,8 +13732,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13408,8 +13806,10 @@ Protein Total      65     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:18:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13485,8 +13885,10 @@ Film Comment : Film scanned. The blood film shows no diagnostic features.
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T22:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13570,8 +13972,10 @@ emergence of resistance  and clinical failure.
 				<effectiveDateTime value="2012-04-05T17:00:00Z"/>
 				<issued value="2012-04-09T08:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13617,8 +14021,10 @@ C-React Prot       24     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13688,8 +14094,10 @@ Comment: FBE with BMAT. Report to follow.
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -13744,8 +14152,10 @@ Comment: The requested tests were not completed as no sample was
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-06T07:38:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13806,8 +14216,10 @@ Urea              6.5     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13880,8 +14292,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:45:00Z"/>
 				<issued value="2012-04-05T20:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13935,8 +14349,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T19:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -13999,8 +14415,10 @@ Comment: The requested tests were not completed as no
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T20:15:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14064,8 +14482,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T20:32:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14137,8 +14557,10 @@ Comment: Haemolysed. Some tests (*) unavailable.
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T20:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14218,8 +14640,10 @@ Comment: * Specimen clotted. ED informed.
 				<effectiveDateTime value="2012-04-05T19:40:00Z"/>
 				<issued value="2012-04-05T20:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14304,8 +14728,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T19:43:00Z"/>
 				<issued value="2012-04-06T06:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14377,8 +14803,10 @@ No Growth After 2 Days.
 				<effectiveDateTime value="2012-04-05T19:21:00Z"/>
 				<issued value="2012-04-09T11:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14442,8 +14870,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:28:00Z"/>
 				<issued value="2012-04-05T20:10:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14504,8 +14934,10 @@ Urea              4.3     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T19:28:00Z"/>
 				<issued value="2012-04-05T20:06:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14581,8 +15013,10 @@ Comment: Please note mild neutrophilia
 				<effectiveDateTime value="2012-04-05T19:28:00Z"/>
 				<issued value="2012-04-05T19:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14611,7 +15045,7 @@ CLINICAL NOTES:
 
 MACROSCOPIC DESCRIPTION:
 
-&quot;Biopsy back&quot;: Two punch biopsies each 3mm across and 3mm deep.  A1.
+"Biopsy back": Two punch biopsies each 3mm across and 3mm deep.  A1.
 (TJB)
 
 MICROSCOPIC DESCRIPTION:
@@ -14641,8 +15075,10 @@ Pathologist: To Follow
 				<effectiveDateTime value="2012-04-05T19:20:00Z"/>
 				<issued value="2012-04-05T19:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -14668,7 +15104,7 @@ Shave biopsy (L) nose ?BCC ?(illigible) papule of the nose.
 
 MACROSCOPIC DESCRIPTION:
 
-&quot;Shave biopsy nose&quot;: A white shaving of skin with a raised white
+"Shave biopsy nose": A white shaving of skin with a raised white
 nodule and brown top all measuring 6x5x2mm.  Specimen bisected, A1.
 (TJB)
 
@@ -14699,8 +15135,10 @@ Pathologist: To Follow
 				<effectiveDateTime value="2012-04-05T19:23:00Z"/>
 				<issued value="2012-04-05T19:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -14761,8 +15199,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:24:00Z"/>
 				<issued value="2012-04-05T19:24:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14831,8 +15271,10 @@ C-React Prot      109     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T19:24:00Z"/>
 				<issued value="2012-04-05T19:24:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14915,8 +15357,10 @@ Comment: Please note mild neutrophilia and mild monocytosis
 				<effectiveDateTime value="2012-04-05T19:24:00Z"/>
 				<issued value="2012-04-05T19:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -14977,8 +15421,10 @@ Protein/Creat Ratio             190 H mg/mmol Creat   ( 15-35    )
 				<effectiveDateTime value="2012-04-05T19:20:00Z"/>
 				<issued value="2012-04-05T19:49:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15009,7 +15455,7 @@ Known endocarditis vasculitic rash post x 1.  ?Septic emboli.
 
 MACROSCOPIC DESCRIPTION:
 
-&quot;Biopsy left foot&quot;: A 3mm core of skin 3mm deep.  A1.  (TJB)
+"Biopsy left foot": A 3mm core of skin 3mm deep.  A1.  (TJB)
 
 MICROSCOPIC DESCRIPTION:
 
@@ -15051,8 +15497,10 @@ Pathologist: To Follow
 				<effectiveDateTime value="2012-04-05T19:21:00Z"/>
 				<issued value="2012-04-05T19:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15127,8 +15575,10 @@ the Blood Bank.
 				<effectiveDateTime value="2012-04-05T19:15:00Z"/>
 				<issued value="2012-04-06T06:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15205,8 +15655,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T19:20:00Z"/>
 				<issued value="2012-04-05T19:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15250,8 +15702,10 @@ Albumin            22     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T19:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -15330,8 +15784,10 @@ and diphtheroid bacilli.
 				<effectiveDateTime value="2012-04-05T19:00:00Z"/>
 				<issued value="2012-04-07T10:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15390,8 +15846,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T19:00:00Z"/>
 				<issued value="2012-04-05T19:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -15463,8 +15921,10 @@ the Blood Bank.
 				<effectiveDateTime value="2012-04-05T19:10:00Z"/>
 				<issued value="2012-04-05T19:18:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15541,8 +16001,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T19:11:00Z"/>
 				<issued value="2012-04-05T19:13:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15614,8 +16076,10 @@ Comment: The CKMB was not measured on this sample. It has
 				<effectiveDateTime value="2012-04-05T18:55:00Z"/>
 				<issued value="2012-04-05T20:14:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15692,8 +16156,10 @@ Comment: Please note fall in haemoglobin and platelet count since
 				<effectiveDateTime value="2012-04-05T18:55:00Z"/>
 				<issued value="2012-04-05T19:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15765,8 +16231,10 @@ Comment
 				<effectiveDateTime value="2012-04-05T17:15:00Z"/>
 				<issued value="2012-04-05T17:15:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15851,8 +16319,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T19:04:00Z"/>
 				<issued value="2012-04-06T06:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15911,8 +16381,10 @@ INR               1.1      1.1      1.1      1.1      2.6H       0.8-1.3
 				<effectiveDateTime value="2012-04-05T18:50:00Z"/>
 				<issued value="2012-04-05T19:48:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -15971,8 +16443,10 @@ Comment: A troponin has been measured for this patient in
 				<effectiveDateTime value="2012-04-05T18:50:00Z"/>
 				<issued value="2012-04-05T19:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16048,8 +16522,10 @@ Hrs Since Dose          No Info    02:00                   HH:MM
 				<effectiveDateTime value="2012-04-05T18:45:00Z"/>
 				<issued value="2012-04-05T20:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16113,8 +16589,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:58:00Z"/>
 				<issued value="2012-04-05T19:48:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16185,8 +16663,10 @@ Protein Total      47     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T18:58:00Z"/>
 				<issued value="2012-04-05T19:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16263,8 +16743,10 @@ Comment: Please note fall in haemoglobin and platelet count since
 				<effectiveDateTime value="2012-04-05T18:58:00Z"/>
 				<issued value="2012-04-05T19:42:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16318,8 +16800,10 @@ NTRC
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T18:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16384,8 +16868,10 @@ Albumin            34     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T19:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16458,8 +16944,10 @@ Baso         0.0      0.0                              x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T19:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16518,8 +17006,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:57:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16584,8 +17074,10 @@ General Comments:
 				<effectiveDateTime value="2012-04-05T18:56:00Z"/>
 				<issued value="2012-04-10T10:58:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16649,8 +17141,10 @@ Standard culture:   +++  Mixed upper respiratory tract flora
 				<effectiveDateTime value="2012-04-05T18:05:00Z"/>
 				<issued value="2012-04-08T11:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -16746,8 +17240,10 @@ Comment: Post platelet increment
 				<effectiveDateTime value="2012-04-05T17:45:00Z"/>
 				<issued value="2012-04-05T17:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16789,8 +17285,10 @@ Lipase            741     IU/L   ( &lt;60      )
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T19:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -16852,8 +17350,10 @@ Albumin            27     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T17:45:00Z"/>
 				<issued value="2012-04-05T17:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -16934,8 +17434,10 @@ Comment: Instrument differential and parameters reported.
 				<effectiveDateTime value="2012-04-05T17:45:00Z"/>
 				<issued value="2012-04-05T17:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17003,8 +17505,10 @@ Conclusion: ? Post-op.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T21:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17086,8 +17590,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T18:54:00Z"/>
 				<issued value="2012-04-05T18:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17141,8 +17647,10 @@ NTRS
 				<effectiveDateTime value="2012-04-05T18:46:00Z"/>
 				<issued value="2012-04-06T00:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17208,8 +17716,10 @@ Post Dose (Peak) level : Not recommended
 				<effectiveDateTime value="2012-04-05T18:46:00Z"/>
 				<issued value="2012-04-05T19:42:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17278,8 +17788,10 @@ C-React Prot       19     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T18:46:00Z"/>
 				<issued value="2012-04-05T19:42:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17356,8 +17868,10 @@ Comment: Note: mild neutrophilia. Instrument differential and
 				<effectiveDateTime value="2012-04-05T18:46:00Z"/>
 				<issued value="2012-04-05T19:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17438,8 +17952,10 @@ No Growth -Detection limit 10^7 CFU/L
 				<effectiveDateTime value="2012-04-05T18:45:00Z"/>
 				<issued value="2012-04-07T08:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -17490,8 +18006,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:49:00Z"/>
 				<issued value="2012-04-05T19:34:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17545,8 +18063,10 @@ Comment: The CKMB was not measured on this sample. It has
 				<effectiveDateTime value="2012-04-05T18:49:00Z"/>
 				<issued value="2012-04-05T21:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17607,8 +18127,10 @@ Comment: Please note fall in haemoglobin and platelet count since
 				<effectiveDateTime value="2012-04-05T18:49:00Z"/>
 				<issued value="2012-04-05T19:01:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17645,8 +18167,10 @@ Blank Report?
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-06T00:03:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17700,8 +18224,10 @@ sera. This serum sample has been stored for 3 months.
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-05T17:50:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17741,8 +18267,10 @@ HIV-1/2 Ag/Ab Combo by Architect:
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-05T17:50:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17787,8 +18315,10 @@ Antinuclear abs     TF
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-05T17:50:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17839,8 +18369,10 @@ Old Ref Ranges prior to 27th April 2004
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-05T19:48:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17898,8 +18430,10 @@ Baso         0.1                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T17:50:00Z"/>
 				<issued value="2012-04-05T19:38:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -17950,8 +18484,10 @@ NTRESR
 				<effectiveDateTime value="2012-04-05T11:45:00Z"/>
 				<issued value="2012-04-05T11:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18005,8 +18541,10 @@ NTRESR
 				<effectiveDateTime value="2012-04-05T08:30:00Z"/>
 				<issued value="2012-04-05T08:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18057,8 +18595,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T19:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18103,8 +18643,10 @@ Urea              6.8     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T19:21:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18161,8 +18703,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T18:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18218,8 +18762,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:44:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18261,8 +18807,10 @@ NTRF
 				<effectiveDateTime value="2012-04-05T18:40:00Z"/>
 				<issued value="2012-04-06T00:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18305,8 +18853,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:40:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18354,8 +18904,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:40:00Z"/>
 				<issued value="2012-04-05T19:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18413,8 +18965,10 @@ C-React Prot      184     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T18:40:00Z"/>
 				<issued value="2012-04-05T19:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18482,8 +19036,10 @@ Conclusion: Please note fall in haemoglobin since the previous
 				<effectiveDateTime value="2012-04-05T18:40:00Z"/>
 				<issued value="2012-04-05T18:57:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18541,8 +19097,10 @@ Urea             11.7     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T19:20:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18627,8 +19185,10 @@ Film Comment : Neutrophils show mild toxic changes. Manual differential.
 				<effectiveDateTime value="2012-04-05T18:30:00Z"/>
 				<issued value="2012-04-05T18:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18697,8 +19257,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T18:35:00Z"/>
 				<issued value="2012-04-05T19:29:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18771,8 +19333,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:35:00Z"/>
 				<issued value="2012-04-05T18:56:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -18818,8 +19382,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-09T21:19:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18872,8 +19438,10 @@ C-React Prot       54     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T19:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18936,8 +19504,10 @@ Conclusion: ? Cause of persistent mild thrombocytopenia.
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T18:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -18993,8 +19563,10 @@ INR               4.3H     4.0H     6.2H     6.6H     6.9H       0.8-1.3
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T19:34:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19062,8 +19634,10 @@ Protein Total      80     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T18:18:00Z"/>
 				<issued value="2012-04-05T20:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19136,8 +19710,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:18:00Z"/>
 				<issued value="2012-04-05T18:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19210,8 +19786,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:18:00Z"/>
 				<issued value="2012-04-05T18:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19260,8 +19838,10 @@ Troponin I        1.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T19:24:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -19304,8 +19884,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-09T21:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -19361,8 +19943,10 @@ INR               1.0                                            0.8-1.3
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T19:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19419,8 +20003,10 @@ Quant Pregnancy (hCG) &lt;2           IU/L    ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T19:25:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19496,8 +20082,10 @@ Comment: Please note mild neutrophilia
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T18:39:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19565,8 +20153,10 @@ Protein Total      67     g/L    ( 65-85    )
 				<effectiveDateTime value="2012-04-05T18:15:00Z"/>
 				<issued value="2012-04-05T20:09:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19595,7 +20185,7 @@ Sample Error
 
 Comments / Steps Taken
 
-    DOB on specimen &quot;02/03/1975&quot;. Ward informed new specimen
+    DOB on specimen "02/03/1975". Ward informed new specimen
     and request form required for GS.
 </pre>
 					</div>
@@ -19629,8 +20219,10 @@ Comments / Steps Taken
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T19:24:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19707,8 +20299,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T18:24:00Z"/>
 				<issued value="2012-04-05T18:26:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19779,8 +20373,10 @@ Conclusion: * Film shows fibrin strands suggestive of a partially
 				<effectiveDateTime value="2012-04-05T18:05:00Z"/>
 				<issued value="2012-04-05T18:46:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -19838,8 +20434,10 @@ Urea              4.2     mmol/L ( 2.5-8.3  )
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T18:41:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19915,8 +20513,10 @@ Comment: Please note mild monocytosis
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T18:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -19977,8 +20577,10 @@ to STAGO D-Dimer reagents (LIATEST). NB the reference range is unchanged
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T19:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20026,8 +20628,10 @@ HbA1c(HPLC)               %      (See Below)
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T18:54:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20113,8 +20717,10 @@ Conclusion: Recent tissue damage/trauma.
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T21:04:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20144,7 +20750,7 @@ PT               17.3                                      secs
 PT mix           14.3                                      secs
 
 12Z167743 02/04/12 02:00
-PT Mix  : 50/50 mixture of the patient&#39;s plasma with normal plasma -
+PT Mix  : 50/50 mixture of the patient's plasma with normal plasma -
           CORRECTED.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
@@ -20168,8 +20774,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T19:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20224,8 +20832,10 @@ Amylase            51     IU/L   ( 22-100   )
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T19:30:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20300,8 +20910,10 @@ Standard culture:   +  Mixed upper respiratory tract flora
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-08T11:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20386,8 +20998,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T18:18:00Z"/>
 				<issued value="2012-04-05T18:23:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20443,8 +21057,10 @@ Amylase           390 IU/L
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T21:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20513,8 +21129,10 @@ streptococci, diphtheroid bacilli \T\ gram negative bacilli.
 				<effectiveDateTime value="2012-04-05T18:11:00Z"/>
 				<issued value="2012-04-07T10:22:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20576,8 +21194,10 @@ No Beta haemolytic streptococci isolated.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-09T12:08:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20646,8 +21266,10 @@ be processed.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-07T16:52:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20701,8 +21323,10 @@ sera. This serum sample has been stored for 3 months.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:00:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20745,8 +21369,10 @@ Anaerobic bottle             4   days                 Negative
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-09T20:35:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20799,8 +21425,10 @@ C-React Prot       44     mg/L   ( &lt;5       )
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20862,8 +21490,10 @@ Conclusion: Suggest repeat FBE to confirm platelet count.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T21:15:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -20922,8 +21552,10 @@ Troponin I       &lt;0.02    ug/L   (See Below )
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:53:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -20996,8 +21628,10 @@ Baso         0.0                                       x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:32:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21082,8 +21716,10 @@ Note: Reference Ranges shown are for arterial blood only.
 				<effectiveDateTime value="2012-04-05T18:10:00Z"/>
 				<issued value="2012-04-05T18:15:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21143,8 +21779,10 @@ G1691A Substitution Result:
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21206,8 +21844,10 @@ Lactate           1.2     mmol/L ( 0.2-1.8  )
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:44:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21239,7 +21879,7 @@ Fibrinogen        3.8                                      g/L   2.0-5.0
 APTT mix         30.9                                      secs
 
 12Z986709 05/04/12 18:02
-APTT Mix: 50/50 mixture of the patient&#39;s plasma with normal plasma -
+APTT Mix: 50/50 mixture of the patient's plasma with normal plasma -
           CORRECTED.
 
 APTT Therapeutic range for IV Heparin therapy = 60-85 seconds
@@ -21276,8 +21916,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T19:26:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21359,8 +22001,10 @@ Conclusion: Common causes of macrocytosis include liver disease,
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T20:59:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21428,8 +22072,10 @@ Please contact the immunopathology registrar for further advice on 9342 8023.
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21498,8 +22144,10 @@ Lupus Inhibitor Comment:
 				<effectiveDateTime value="2012-04-05T18:02:00Z"/>
 				<issued value="2012-04-05T18:02:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21539,8 +22187,10 @@ Blank Report?
 				<effectiveDateTime value="2012-04-05T17:12:00Z"/>
 				<issued value="2012-04-05T17:12:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -21589,8 +22239,10 @@ Albumin            23     g/L    ( 35-50    )
 				<effectiveDateTime value="2012-04-05T17:30:00Z"/>
 				<issued value="2012-04-05T18:43:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 			</DiagnosticReport>
 		</resource>
@@ -21670,8 +22322,10 @@ Conclusion: Suggestive of iron deficiency anaemia. Suggest correlation
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21744,8 +22398,10 @@ Baso         0.0      0.0      0.0                     x10^9/L   0.0-0.1
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:31:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21809,8 +22465,10 @@ From 9.12.2010 APTT normal range 23 - 36 seconds.
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:36:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21882,8 +22540,10 @@ EtOH              0.02    gm%
 				<effectiveDateTime value="2012-04-05T18:00:00Z"/>
 				<issued value="2012-04-05T18:45:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -21914,8 +22574,8 @@ Iron Studies (Plasma/serum)
 Ferritin       388.0H                                     ug/L    15-200
 Iron               7L                                     umol/L  10-30
 Transferrin     2.18                                      g/L     1.9-3.2
-Transf&#39;n IBC    54.6                                      umol/L  47.6-80.2
-Transf&#39;n Sat      13L                                     %       14.7-37.4
+Transf'n IBC    54.6                                      umol/L  47.6-80.2
+Transf'n Sat      13L                                     %       14.7-37.4
 
 NOTE NEW REFERENCE RANGES FOR FOLATE
 From 27th April 2004, B12 and Folate will be performed on the Bayer Centaur
@@ -21956,8 +22616,10 @@ Old Ref Ranges prior to 27th April 2004
 				<effectiveDateTime value="2012-04-05T17:39:00Z"/>
 				<issued value="2012-04-05T21:40:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -22014,8 +22676,10 @@ TSH                       1.09       mIU/L   ( 0.1-4.0  )
 				<effectiveDateTime value="2012-04-05T17:39:00Z"/>
 				<issued value="2012-04-05T20:53:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>
@@ -22090,8 +22754,10 @@ LIPIDS
 				<effectiveDateTime value="2012-04-05T17:39:00Z"/>
 				<issued value="2012-04-05T18:17:00Z"/>
 				<performer>
-					<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-					<display value="Acme Laboratory, Inc"/>
+					<actor>
+						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+						<display value="Acme Laboratory, Inc"/>
+					</actor>
 				</performer>
 				<request>
 					<reference value="#req"/>

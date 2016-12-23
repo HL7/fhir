@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="pap"/>
 	<text>
@@ -22,6 +23,8 @@
 	<effectiveDateTime value="2013-02-11T10:33:33+11:00"/>
 	<issued value="2013-02-13T11:45:33+11:00"/>
 	<performer>
-		<reference value="Practitioner/example"/>
+		<actor>
+			<reference value="Practitioner/example"/>
+		</actor>
 	</performer>
 </DiagnosticReport>
