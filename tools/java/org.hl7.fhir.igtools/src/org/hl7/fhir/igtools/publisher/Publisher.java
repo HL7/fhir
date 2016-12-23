@@ -252,6 +252,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private NarrativeGenerator gen;
 
+  private String businessVersion;
+
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
     initialize(clearCache);
@@ -677,6 +679,9 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     if (paths.get("extension-domains") instanceof JsonArray) {
       for (JsonElement e : (JsonArray) paths.get("extension-domains"))
         validator.getExtensionDomains().add(((JsonPrimitive) e).getAsString());
+    }
+    if (configuration.has("fixed-business-version")) {
+      businessVersion = configuration.getAsJsonPrimitive("fixed-business-version").getAsString();
     }
 
     loadSpecDetails(context.getBinaries().get("spec.internals"));
@@ -1507,6 +1512,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
             }
           MetadataResource bc = (MetadataResource) r.getResource();
           boolean altered = false;
+          if (businessVersion != null) {
+            if (!bc.hasVersion()) {
+              bc.setVersion(businessVersion);
+              altered = true;
+            } else if (!bc.getVersion().equals(businessVersion))
+              throw new Exception("Business version mismatch in "+f.getName()+" - is "+bc.getVersion()+" but must be missing or equal to "+businessVersion);
+          }
           if (!bc.hasDate()) {
             altered = true;
             bc.setDateElement(new DateTimeType(execTime));
