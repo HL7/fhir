@@ -12,6 +12,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemHierarchyMeaning;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Enumerations.PublicationStatus;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.CSVReader;
@@ -54,8 +55,10 @@ public class NUCCConvertor {
       last[1] = "";
       last[0] = values[1];
       concepts[0] = new ConceptDefinitionComponent();
-      concepts[0].setDisplay(values[1]);
       cs.getConcept().add(concepts[0]);
+      concepts[0].setDisplay(values[1]);
+      concepts[0].setCode("base-"+Integer.toString(cs.getConcept().size()));
+      CodeSystemUtilities.setNotSelectable(cs, concepts[0]);
     }
     if (!values[2].equals(last[1])) {
       last[1] = values[2];
@@ -65,7 +68,7 @@ public class NUCCConvertor {
       concepts[1].setDisplay(values[2]);
       concepts[1].setDefinition(values[4]);
       if (values.length > 5 && !Utilities.noString(values[5]))
-        ToolingExtensions.addComment(concepts[1], values[5]);
+        ToolingExtensions.addCSComment(concepts[1], values[5]);
     } else if (!Utilities.noString(values[3])) {
       ConceptDefinitionComponent cc = new ConceptDefinitionComponent();
       concepts[1].getConcept().add(cc);
@@ -73,7 +76,7 @@ public class NUCCConvertor {
       cc.setDisplay(values[3]);
       cc.setDefinition(values[4]);
       if (values.length > 5 && !Utilities.noString(values[5]))
-        ToolingExtensions.addComment(cc, values[5]);
+        ToolingExtensions.addCSComment(cc, values[5]);
     }
   }
   
