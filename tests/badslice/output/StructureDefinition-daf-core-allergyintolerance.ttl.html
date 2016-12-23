@@ -1,0 +1,1023 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="http://hl7.org/fhir"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+ 
+  <link href="css/bootstrap.css" rel="stylesheet"/>
+  <link href="css/bootstrap-fhir.css" rel="stylesheet"/>
+  <link href="css/project.css" rel="stylesheet"/>
+</head>
+
+<body>
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+        <li title="Home Page"><a href="index.html"><b>Home</b></a></li>
+        <li title="Code Systems"><a href="codesystems.html"><b>Code Systems</b></a></li>
+        <li title="Value Sets"><a href="valuesets.html"><b>Value Sets</b></a></li>
+        <li title="Profile 1"><a href="profile-sd.html"><b>Profile 1</b></a></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+<div id="segment-content" class="segment">  <!-- segment-content -->
+<div class="container">  <!-- container -->
+<div class="row">
+<div class="inner-wrapper">
+<div class="col-9">
+
+
+
+
+
+<h2>Profile daf-core-allergyintolerance</h2>
+
+<pre class="rdf">
+@prefix fhir: &lt;http://hl7.org/fhir/&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+# - resource -------------------------------------------------------------------
+
+&lt;StructureDefinition/daf-core-allergyintolerance&gt; a fhir:StructureDefinition;
+  <a href="http://hl7.org/fhir/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot;
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.id">fhir:StructureDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;daf-core-allergyintolerance&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.meta">fhir:StructureDefinition.meta</a> [
+     <a href="http://hl7.org/fhir/resource.html#meta#Meta.versionId">fhir:Meta.versionId</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;3&quot; ];
+     <a href="http://hl7.org/fhir/resource.html#meta#Meta.lastUpdated">fhir:Meta.lastUpdated</a> [ <a href="http://hl7.org/fhir/datatypes.html#instant">fhir:value</a> &quot;2016-09-28T17:11:47.157-07:00&quot;^^xsd:dateTime ]
+  ];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.text">fhir:StructureDefinition.text</a> [
+     <a href="http://hl7.org/fhir/narrative.html#Narrative.status">fhir:Narrative.status</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;generated&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.url">fhir:StructureDefinition.url</a> [ <a href="http://hl7.org/fhir/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-core-allergyintolerance&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.version">fhir:StructureDefinition.version</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1.0.2&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.name">fhir:StructureDefinition.name</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Profile daf-core-allergyintolerance&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.status">fhir:StructureDefinition.status</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;draft&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.publisher">fhir:StructureDefinition.publisher</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Health Level Seven International (FHIR - Infrastructure)&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.contact">fhir:StructureDefinition.contact</a> [
+     <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.contact.telecom">fhir:StructureDefinition.contact.telecom</a> [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/datatypes.html#ContactPoint#ContactPoint.system">fhir:ContactPoint.system</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;other&quot; ];
+       <a href="http://hl7.org/fhir/datatypes.html#ContactPoint#ContactPoint.value">fhir:ContactPoint.value</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://www.healthit.gov&quot; ]     ]
+  ];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.date">fhir:StructureDefinition.date</a> [ <a href="http://hl7.org/fhir/datatypes.html#dateTime">fhir:value</a> &quot;2016-08-01T00:00:00-07:00&quot;^^xsd:dateTime];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping">fhir:StructureDefinition.mapping</a> [
+     <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.identity">fhir:StructureDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.uri">fhir:StructureDefinition.mapping.uri</a> [ <a href="http://hl7.org/fhir/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/v3&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.name">fhir:StructureDefinition.mapping.name</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;RIM Mapping&quot; ]
+  ], [
+     <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.identity">fhir:StructureDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.uri">fhir:StructureDefinition.mapping.uri</a> [ <a href="http://hl7.org/fhir/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/fhir/w5&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.name">fhir:StructureDefinition.mapping.name</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;W5 Mapping&quot; ]
+  ], [
+     <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.identity">fhir:StructureDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.uri">fhir:StructureDefinition.mapping.uri</a> [ <a href="http://hl7.org/fhir/datatypes.html#uri">fhir:value</a> &quot;http://hl7.org/v2&quot; ];
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.mapping.name">fhir:StructureDefinition.mapping.name</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;HL7 v2 Mapping&quot; ]
+  ];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.kind">fhir:StructureDefinition.kind</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;resource&quot;];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.abstract">fhir:StructureDefinition.abstract</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.snapshot">fhir:StructureDefinition.snapshot</a> [
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.snapshot.element">fhir:StructureDefinition.snapshot.element</a> [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Allergy&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Intolerance&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Adverse Reaction&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;clinical.general&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.id&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.id&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Logical id of this artifact&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The only time that a resource does not have an id is when it is being submitted to the server using a create operation. Bundles always have an id, though it is usually a generated UUID.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.id&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;id&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.meta&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.meta&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Metadata about the resource&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.meta&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Meta&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 3;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.implicitRules&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.implicitRules&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;A set of rules under which this content was created&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element as much as possible.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.implicitRules&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;uri&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 4;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.language&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.language&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Language of the resource content&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The base language in which the resource is written.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Language is provided to support indexing and accessibility (typically, services such as text to speech use the language tag). The html language tag in the narrative applies  to the narrative. The language tag on the resource may be used to specify the language of other presentations generated from the data in the resource  Not all the content has to be in the base language. The Resource.language should not be assumed to apply to the narrative automatically. If a language is specified, it should it also be specified on the div element in the html (see rules in HTML5 for information about the relationship between xml:lang and the html lang attribute).&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.language&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;A human language.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetUri</a> [ <a href="http://hl7.org/fhir/datatypes.html#uri">fhir:value</a> &quot;http://tools.ietf.org/html/bcp47&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 5;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.text&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.text&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Text summary of the resource, for human interpretation&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;A human-readable narrative that contains a summary of the resource, and may be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \&quot;clinically safe\&quot; for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Contained resources do not have narrative. Resources that are not contained SHOULD have a narrative.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;narrative&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;html&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;xhtml&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;display&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 3       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.text&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Narrative&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.condition">fhir:ElementDefinition.condition</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;dom-1&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Act.text?&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 6;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.contained&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.contained&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Contained, inline Resources&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;These resources do not have an independent existence apart from the resource that contains them - they cannot be identified independently, and nor can they have their own independent transaction scope.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;This should never be done when the content can be identified properly, as once identification is lost, it is extremely difficult (and context dependent) to restore it again.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;inline resources&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;anonymous resources&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;contained resources&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.contained&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Resource&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 7;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.extension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.extension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Additional Content defined by implementations&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the resource. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.extension&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 8;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.modifierExtension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.modifierExtension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Extensions that cannot be ignored&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the resource, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.modifierExtension&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 9;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.identifier&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.identifier&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;External ids for this item&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.identifier&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Identifier&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;IAM-7&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;.id&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;id&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 10;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.onset&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.onset&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Date(/time) when manifestations showed&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Record of the date and/or time of the onset of the Allergy or Intolerance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.onset&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;dateTime&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 11;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.recordedDate&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.recordedDate&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;When recorded&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Date when the sensitivity was recorded.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.recordedDate&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;dateTime&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;IAM-20&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;.participation[typeCode=AUT].time&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;when.recorded&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 12;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.recorder&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.recorder&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Who recorded the sensitivity&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Individual who recorded the record and takes responsibility for its conten.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Author&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.recorder&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;.participation[typeCode=AUT].role&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;who.author&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 13;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.patient&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.patient&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Who the sensitivity is for&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The patient who has the allergy or intolerance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Patient&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.patient&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;(PID-3)&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;.participation[typeCode=SBJ].role[classCode=PAT]&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;who.focus&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 14;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reporter&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reporter&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Source of the information about the allergy&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The source of the information about the allergy that is recorded.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The recorder takes repsonsibility for the content, but can reference the source from where they got it.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Source&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Informant&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reporter&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;IAM-14 (if patient) / IAM-18 (if practitioner)&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;who.source&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 15;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Substance, (or class) considered to be responsible for risk&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Agent&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.substance&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;CodeableConcept&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;extensible&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/daf-substance&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/daf-substance&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AL1-3 / IAM-3&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;what&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 16;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.status&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.status&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;active | unconfirmed | confirmed | inactive | resolved | refuted | entered-in-error&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Decision support would typically raise alerts for 'Unconfirmed', 'Confirmed', and 'Resolved' and ignore a 'Refuted' reaction. In particular, 'Refuted' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;State&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.status&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-status&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/allergy-intolerance-status&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;IAM-17&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;status&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 17;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.criticality&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.criticality&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;CRITL | CRITH | CRITU&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;The default criticality value for any propensity to an adverse reaction should be 'Low Risk', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. 'High Risk' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Severity&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Seriousness&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Contra-indication&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Risk&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 3       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.criticality&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;grade&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 18;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.type&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.type&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;allergy | intolerance - Underlying mechanism (if known)&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Identification of the underlying physiological mechanism for the reaction risk.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction. Often the term \&quot;allergy\&quot; is used rather generically and may overlap with the use of \&quot;intolerance\&quot; - in practice the boundaries between these two concepts may not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Category&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Class&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.type&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Identification of the underlying physiological mechanism for a Reaction Risk.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-type&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/allergy-intolerance-type&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;v2&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;IAM-9&quot; ]       ], [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;class&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 19;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.category&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.category&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;food | medication | environment | other - Category of Substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Category of the identified Substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Category&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Type&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Reaction Type&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Class&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 3       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.category&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Category of an identified Substance.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-category&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/allergy-intolerance-category&quot; ]         ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;w5&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;class&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 20;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.lastOccurence&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.lastOccurence&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Date(/time) of last known occurrence of a reaction&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Represents the date and/or time of the last known occurrence of a reaction event.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. 'In Childhood, '10 years ago' the Comment element should be used.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.lastOccurence&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;dateTime&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 21;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.note&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.note&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Additional text not captured in other fields&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;For example: including reason for flagging a seriousness of 'High Risk'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.note&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Annotation&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 22;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Adverse Reaction Events linked to exposure to substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Details about each adverse reaction event linked to exposure to the identified Substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;BackboneElement&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 23;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.id&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.id&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.representation">fhir:ElementDefinition.representation</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;xmlAttr&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;xml:id (or equivalent in JSON)&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;unique id for the element within a resource (for internal references).&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.id&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;id&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 24;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.extension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.extension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Additional Content defined by implementations&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.extension&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;n/a&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 25;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.modifierExtension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.modifierExtension&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Extensions that cannot be ignored&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;May be used to represent additional information that is not part of the basic definition of the element, and that modifies the understanding of the element that contains it. Usually modifier elements provide negation or qualification. In order to make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;extensions&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;user content&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;modifiers&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.modifierExtension&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Extension&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping">fhir:ElementDefinition.mapping</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.identity">fhir:ElementDefinition.mapping.identity</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;rim&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mapping.map">fhir:ElementDefinition.mapping.map</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;N/A&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 26;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Specific substance considered to be responsible for event&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Coding of the specific substance with a terminology capable of triggering decision support should be used wherever possible.  The substance field allows for the use of a specific substance or a group or class of substances, for example \&quot;Penicillins\&quot;. The specific substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the 'substance' field.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.substance&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;CodeableConcept&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Codes defining the type of the substance.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/substance-code&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/substance-code&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 27;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.certainty&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.certainty&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;unlikely | likely | confirmed - clinical certainty about the specific substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Cause&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.certainty&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Statement about the degree of clinical certainty that a Specific Substance was the cause of the Manifestation in an reaction event.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/reaction-event-certainty&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/reaction-event-certainty&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 28;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.manifestation&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.manifestation&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Clinical symptoms/signs associated with the Event&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Symptoms&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Signs&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.manifestation&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;*&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;CodeableConcept&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/manifestation-codes&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/manifestation-codes&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 29;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.description&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.description&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Description of the event as a whole&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Text description about the reaction as a whole, including details of the manifestation if required.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.alias">fhir:ElementDefinition.alias</a> [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Narrative&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0       ], [
+         <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Text&quot;;
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.description&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;string&quot; ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 30;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.onset&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.onset&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Date(/time) when manifestations showed&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Record of the date and/or time of the onset of the Reaction.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.onset&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;dateTime&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 31;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.severity&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.severity&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;mild | moderate | severe (of event as a whole)&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.severity&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/reaction-event-severity&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/reaction-event-severity&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 32;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.exposureRoute&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.exposureRoute&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;How the subject was exposed to the substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Identification of the route by which the subject was exposed to the substance.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Coding of the route of exposure with a terminology should be used wherever possible.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.exposureRoute&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;CodeableConcept&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;example&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.description">fhir:ElementDefinition.binding.description</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/route-codes&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/route-codes&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 33;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.reaction.note&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.note&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.short">fhir:ElementDefinition.short</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;Text about event not captured in other fields&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.definition">fhir:ElementDefinition.definition</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Additional text about the adverse reaction event not captured in other fields.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.comments">fhir:ElementDefinition.comments</a> [ <a href="http://hl7.org/fhir/datatypes.html#markdown">fhir:value</a> &quot;Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased.&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base">fhir:ElementDefinition.base</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.path">fhir:ElementDefinition.base.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.reaction.note&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.min">fhir:ElementDefinition.base.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;0&quot;^^xsd:int ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.base.max">fhir:ElementDefinition.base.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Annotation&quot; ]       ]     ]
+  ];
+  <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.differential">fhir:StructureDefinition.differential</a> [
+     <a href="http://hl7.org/fhir/html/structuredefinition.html#StructureDefinition.differential.element">fhir:StructureDefinition.differential.element</a> [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 1;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.patient&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.patient&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;Reference&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 2;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.substance&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;CodeableConcept&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;extensible&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/daf-substance&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/daf-substance&quot; ]         ]       ]     ], [
+       <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 3;
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.id">fhir:ElementDefinition.id</a> [ <a href="http://hl7.org/fhir/datatypes.html#id">fhir:value</a> &quot;AllergyIntolerance:dafcoreallergyintolerance.status&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.path">fhir:ElementDefinition.path</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;AllergyIntolerance.status&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.min">fhir:ElementDefinition.min</a> [ <a href="http://hl7.org/fhir/datatypes.html#integer">fhir:value</a> &quot;1&quot;^^xsd:int ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.max">fhir:ElementDefinition.max</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;1&quot; ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type">fhir:ElementDefinition.type</a> [
+         <a href="http://hl7.org/fhir/rdf.html#index">fhir:index</a> 0;
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.type.code">fhir:ElementDefinition.type.code</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;code&quot; ]       ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.mustSupport">fhir:ElementDefinition.mustSupport</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;true&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isModifier">fhir:ElementDefinition.isModifier</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.isSummary">fhir:ElementDefinition.isSummary</a> [ <a href="http://hl7.org/fhir/datatypes.html#boolean">fhir:value</a> &quot;false&quot;^^xsd:boolean ];
+       <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding">fhir:ElementDefinition.binding</a> [
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.strength">fhir:ElementDefinition.binding.strength</a> [ <a href="http://hl7.org/fhir/datatypes.html#code">fhir:value</a> &quot;required&quot; ];
+         <a href="http://hl7.org/fhir/elementdefinition.html#ElementDefinition.binding.valueSet[x]">fhir:ElementDefinition.binding.valueSetReference</a> [
+           <a href="http://hl7.org/fhir/rdf.html#reference">fhir:link</a> &lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-status&gt;;
+           <a href="http://hl7.org/fhir/references.html#reference#Reference.reference">fhir:Reference.reference</a> [ <a href="http://hl7.org/fhir/datatypes.html#string">fhir:value</a> &quot;http://hl7.org/fhir/ValueSet/allergy-intolerance-status&quot; ]         ]       ]     ]
+  ].
+
+&lt;http://hl7.org/fhir/ValueSet/daf-substance&gt; a fhir:ValueSet, fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-status&gt; a fhir:ValueSet, fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-type&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/allergy-intolerance-category&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/substance-code&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/reaction-event-certainty&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/manifestation-codes&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/reaction-event-severity&gt; a fhir:ValueSet.
+
+&lt;http://hl7.org/fhir/ValueSet/route-codes&gt; a fhir:ValueSet.
+
+</pre>
+
+
+
+</div>
+
+</div>
+<!-- /inner-wrapper -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+
+</div>
+<!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">
+    <!-- segment-footer -->
+    <div class="container">
+        <!-- container -->
+        <div class="inner-wrapper">
+            <p>
+                &copy; Test IG. FHIR STU3 Candidate (v) generated on . |
+                <!--         <a style="color: #81BEF7" rel="license" href="../license.html"><img style="border-style: none;" alt="CC0" src="../cc0.png"/></a>
+-->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhirlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png" /></a>
+
+                </span>
+            </p>
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /segment-footer -->
+<!-- disqus thread -->
+<!-- disqus -->
+<!-- end disqus -->
+
+<div id="segment-post-footer" class="segment hidden">
+    <!-- segment-post-footer -->
+    <div class="container">
+        <!-- container -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /segment-post-footer -->
+
+</body>
+
+</html>
+

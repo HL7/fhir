@@ -1,0 +1,626 @@
+body {
+    background-color: rgb(243, 243, 243);
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	font-size: 1em;
+}
+
+body.book {
+	margin: 20px;
+	padding: 20px;
+    background-color: #fff;
+}
+
+.watermark
+{
+   background-image: url(watermark.png);
+   background-position: center center;
+   s-background-size: 100%; /* CSS3 only, but not really necessary if you make a large enough image */
+   background-attachment: fixed;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   margin: 0;
+   z-index: 10;
+}
+
+i.inherited {
+        font-size: 10px;
+        opacity: 0.5;
+}
+
+p, li {
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	margin: 0 0 20px 0;
+	font-weight: normal;
+}
+
+a.cf {
+        color: red;
+}
+
+a.dict {
+        color: Purple;
+}
+
+td {
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+	vertical-align: top;
+}
+
+tr {
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+	vertical-align: top;
+	text-align: left;
+}
+table.cols {
+	width: 100%;
+}
+
+table.cols td {
+  border: 1px grey solid;
+	border-spacing: 0;
+	padding: 5px;
+	border-collapse: collapse;
+	background-color: #ffffe6;
+}
+
+table.list td {
+        border-top: 1px silver solid;
+	border-spacing: 0;
+}
+table.bare td {
+	border-spacing: 0;
+}
+
+ul.dict li {
+	font-size: 11px;
+	line-height: 1.2em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+}
+
+table.dict td {
+        padding:3px 7px 2px 7px;
+	font-size: 11px;
+	line-height: 1.2em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+	vertical-align: top;
+}
+
+table.dict p {
+	font-size: 11px;
+}
+
+table.dict td.structure {
+        padding:3px 7px 2px 7px;
+	font-size: 12px;
+	line-height: 1.2em;
+	font-family: verdana;
+	font-weight: bold;
+	padding: 3px;
+	vertical-align: top;
+	border-bottom: 1px silver solid;
+  background: #EFEFEF
+}
+
+
+table {
+	margin-bottom: 10px;
+        border-collapse:collapse;
+}
+
+table.codes{
+	margin-bottom: 10px;
+        border: 1px black solid;
+}
+
+table.codes td {
+        border:1px solid silver;
+        padding:3px 7px 2px 7px;
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+	vertical-align: top;
+}
+
+table.grid{
+	margin-bottom: 10px;
+        border: 1px black solid;
+        margin-right: auto;
+	
+}
+
+table.grid th {
+        border:1px solid silver;
+        padding:3px 7px 2px 7px;
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	font-weight: bold;
+	padding: 3px;
+	vertical-align: top;
+}
+
+
+table.grid td {
+        border:1px solid silver;
+        padding:3px 7px 2px 7px;
+	font-size: 12px;
+	line-height: 1.4em;
+	font-family: verdana;
+	font-weight: normal;
+	padding: 3px;
+	vertical-align: top;
+}
+
+ul {
+	margin: 10px 0;
+	padding: 0 0 0 25px;
+}
+
+.dense li {
+	margin: 0 0 0 0;
+}
+li {
+	margin: 0 0 5px 0;
+}
+
+h1 {
+	font-size: 16px;
+	margin: 0 0 4px 0;
+	font-family: verdana;
+	border-bottom: 1px solid #7e7e7e;
+	padding-bottom: 2px;
+}
+
+h2 {
+	font-family: verdana;
+	line-height: 1.2em;
+	font-size: 14px;
+	margin: 0 0 3px 0;
+	margin-top: 15px;
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 2px;
+}
+
+
+h3 {
+	font-family: verdana;
+	line-height: 1.2em;
+	font-size: 12px;
+	margin: 0 0 3px 0;
+	margin-top: 10px;
+}
+
+h4 {
+	font-family: verdana;
+	line-height: 1.2em;
+	font-size: 11px;
+	margin: 0 0 3px 0;
+	margin-top: 10px;
+}
+
+
+div.content {
+	background-color: #fff;
+	margin-left: 180px;
+	padding: 5px;
+	border-left: 1px solid #dcdcdc;
+}
+
+div.use {
+	border: 1px solid #dcdcdc;
+        background: #EEEEEE ; 
+	padding: 5px;
+}
+
+div.mapping {
+	border: 1px solid #dcdcdc;
+        background: #e4dbf9 ; 
+	padding: 5px;
+	margin-bottom: 10px;
+	font-size: 0.75em;
+	width: 670px;
+}
+
+
+div.example {
+	border: 1px solid #dcdcdc;
+        background: #FFECDD ; 
+	padding: 5px;
+	margin-bottom: 10px;
+	font-size: 0.75em;
+	width: 670px;
+}
+
+div.sidebar h2{
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 2px;
+	padding-top: 0px;
+	margin-top: 0px;
+	font-weight: normal;
+	margin-left: 8px;
+	margin-bottom: 0px;
+	font-size: 12px;
+}
+
+div.sidebar p {
+	padding-bottom: 0px;
+	padding-top: 10px;
+	font-weight: normal;
+	margin-left: 8px;
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+div.sidebar ul {
+	list-style: none;
+	padding: 0px;
+	margin-left: 6px;
+	font-size: 11px;
+	line-height: 2.125em; 
+}
+
+div.sidebar li {
+	margin: 0px 0px 0px 6px;
+	padding: 0px;
+	font-size: 11px;
+	line-height: 2.125m; 
+}
+
+div.sidebar {
+	position: fixed;
+	width: 180px;
+	left: 0px;
+	top: 0;
+	bottom: 0;
+	overflow-y : auto;
+}
+
+pre.spec             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #FFFFE0 ; 
+	padding: 5px;
+	width: 650px;
+}
+
+pre.json             {
+	border: 1px solid #dcdcdc;
+ 	font-size: 11px;
+        background: #EFFFEF ; 
+	padding: 5px;
+	width: 650px;
+}
+
+pre.xml              {
+	font-family: 'Courier New';
+ 	font-size: 9pt;
+        padding: 2px;
+        background: #F0FFFF ; 
+	width: 650px;
+}
+
+a.xmltag   {
+  color: Navy;
+}
+a.xmltag :visited  {
+  color: Navy;
+}
+
+a.xmltag :hover  {
+  color: Blue;
+}
+
+span.xmltag   {
+  color: Navy;
+}
+span.xmltagred  {
+  color: Maroon;
+}
+
+span.xmlcomment  {
+  color: Grey;
+}
+
+span.xmlattr  {
+  color: Maroon;
+}
+
+span.xmlattrvalue {
+  color: DarkGreen;
+}
+
+
+pre a {
+	color: darkgreen;
+	text-decoration: none;
+	border: 0;
+
+}
+
+@media all
+{
+	.page-break	{ display:none; }
+}
+
+@media print
+{
+	.page-break	{ display:block; page-break-before:always; }
+}
+
+ul.navtop 
+{
+  list-style: none outside none;
+  display: block;
+  font-family: sans serif;
+  margin: 0 0 8px 0;
+  padding:0px;
+}
+
+li.selected 
+{
+  white-space: nowrap;
+  display: inline-block;
+  background-color: white;
+  border-right: 1px solid #adcbb9;
+  margin: 0px;
+  padding: 0px;
+}
+
+li.spacerleft 
+{
+  white-space: nowrap;
+  display: inline-block;
+  background-color: white;
+  border-bottom: 1px solid #adcbb9;
+  border-right: 1px solid #adcbb9;
+  margin: 0px;
+  padding: 0px;
+}
+
+li.spacerright
+{
+  white-space: nowrap;
+  display: inline-block;
+  background-color: white;
+  border-bottom: 1px solid #adcbb9;
+  margin: 0px;
+  padding: 0px;
+  width: 160px;
+}
+
+li.nselected 
+{
+  white-space: nowrap;
+  display: inline-block;
+  background-color: #eeeeee;
+  border-right: 1px solid #adcbb9;
+  margin: 0px;
+  border-bottom: 1px solid #adcbb9;
+  padding: 0px;
+  background-image: url(strip.png);
+  background-repeat: x-repeat;
+}
+
+li.wiki 
+{
+  white-space: nowrap;
+  display: inline-block;
+  background-color: #fff;
+  margin: 0px;
+  border-bottom: 1px solid #adcbb9;
+  padding: 0px;
+}
+
+
+div.navtop 
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+ul.navtop a 
+{
+  margin: 0px;
+  padding: 0px;
+  color: black;
+  font-size: 10px;
+
+}
+
+ul.navtop span
+{
+  display: inline-block;
+  margin: 0px;
+  padding: 3px 3px 3px 3px;
+  font-size: 10px;
+}
+
+span.forprint 
+{
+  display: none;
+}
+
+p.status
+{
+  color: navy;
+  border: 1px solid navy;
+  background-color: Mistyrose;
+}
+
+
+div.sidebar p.note  
+{
+  color: maroon;
+  font-size: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+div.itoc
+{
+  margin: 4px;
+  padding: 4px;
+  float: right;
+  z-index: 10;
+  width: 150px;
+  background-color: #ffeb7e;
+  border: 1px solid navy;
+}
+
+div.itoc p
+{
+  font-size: 10px;
+  font-weight: bold;
+  margin: 5px;
+  padding: 0px;
+}
+
+div.itoc p.link
+{
+  font-size: 10px;
+  padding-left: 8px;
+  margin: 0px;
+}
+
+span.sectioncount {
+color: silver;
+x-position: absolute;
+x-right: 0;
+x-margin-right: 30px;
+}
+
+@font-face {
+    font-family: 'OpenSansCondensedLight';
+    src: url('OpenSans-CondLight-webfont.eot');
+    src: url('OpenSans-CondLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-CondLight-webfont.woff') format('woff'),
+         url('OpenSans-CondLight-webfont.ttf') format('truetype'),
+         url('OpenSans-CondLight-webfont.svg#open_sanscondensed_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'OpenSansCondensedBold';
+    src: url('OpenSans-CondBold-webfont.eot');
+    src: url('OpenSans-CondBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('OpenSans-CondBold-webfont.woff') format('woff'),
+         url('OpenSans-CondBold-webfont.ttf') format('truetype'),
+         url('OpenSans-CondBold-webfont.svg#open_sans_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.diagram-class-title {
+	font-size: 1em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-resource {
+	font-family: OpenSansCondensedBold;
+	font-weight: bold;
+}
+
+.diagram-class-title-link {
+	font-size: .9em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-class-reference {
+	fill: navy;
+}
+
+.diagram-class-detail {
+	font-size: .8em; 
+	text-anchor: left; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+}
+
+.diagram-class-linkage {
+	font-size: .9em; 
+	text-anchor: middle; 
+	font-family: OpenSansCondensedLight; 
+	font-weight: regular;
+	opacity: 1;
+}
+
+.hierarchy {
+  border: 0px;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+tr.hierarchy {
+  border: 1px #F0F0F0 solid;
+  padding:0px 4px 0px 4px;
+	font-size: 11px;
+	font-family: verdana;
+	vertical-align: top;
+}
+
+img.hierarchy {
+  border: 0px;
+  padding:0px;
+	vertical-align: top;
+  background-color: white;
+}
+
+.linecounter { 
+  counter-reset: listing 
+}
+
+
+code { 
+  counter-increment: listing; 
+}
+
+.linecounter  i:before { 
+  content: counter(listing) ". "; color: black; 
+}
+
+.linecounter i { 
+  float: left; 
+  clear: both; 
+  min-width: 2.5em; 
+}
+
+.linecounter code:before { 
+  content: counter(listing) ". "; 
+  color: black; 
+  display: inline-block; 
+  min-width: 2.5em; 
+}
+
+div.warning {
+  background-color: #FFE6E6;
+  border: 1px silver solid;
+  padding: 5px;
+}

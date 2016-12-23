@@ -1,0 +1,89 @@
+{
+  "resourceType": "ImplementationGuide",
+  "id": "ig",
+  "url": "http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig",
+  "name": "Implementation Guide Template",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "FHIR Project",
+  "package": [
+    {
+      "name": "base",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "StructureDefinition-daf-core-allergyintolerance.html"
+            }
+          ],
+          "sourceReference": {
+            "reference": "StructureDefinition/daf-core-allergyintolerance"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "ValueSet-test-ig-vs.html"
+            }
+          ],
+          "sourceReference": {
+            "reference": "ValueSet/test-ig-vs"
+          }
+        },
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "AllergyIntolerance-62d29612-802f-4233-8df2-fa85d021937b.html"
+            }
+          ],
+          "purpose": "example",
+          "sourceReference": {
+            "reference": "AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b"
+          }
+        }
+      ]
+    },
+    {
+      "name": "U.S. Data Access Framework (DAF) DiagnosticOrder Profile",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "StructureDefinition-daf-diagnosticorder.html"
+            }
+          ],
+          "name": "Profile daf-diagnosticorder",
+          "sourceReference": {
+            "reference": "StructureDefinition/daf-diagnosticorder"
+          }
+        }
+      ]
+    },
+    {
+      "name": "/Users/ehaas/Documents/FHIR/ig10/resources/badslice",
+      "resource": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+              "valueUri": "StructureDefinition-argo-immunization.html"
+            }
+          ],
+          "name": "Argonaut Immunization Profile",
+          "sourceReference": {
+            "reference": "StructureDefinition/argo-immunization"
+          }
+        }
+      ]
+    }
+  ],
+  "page": {
+    "source": "index.html",
+    "name": "Home Page",
+    "kind": "page"
+  }
+}

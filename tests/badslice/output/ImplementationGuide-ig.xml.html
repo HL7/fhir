@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="author" content="http://hl7.org/fhir"/>
+
+  <link href="fhir.css" rel="stylesheet"/>
+ 
+  <link href="css/bootstrap.css" rel="stylesheet"/>
+  <link href="css/bootstrap-fhir.css" rel="stylesheet"/>
+  <link href="css/project.css" rel="stylesheet"/>
+</head>
+
+<body>
+ <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
+  <div class="container">  <!-- container -->
+   <ul class="breadcrumb">
+        <li title="Home Page"><a href="index.html"><b>Home</b></a></li>
+        <li title="Code Systems"><a href="codesystems.html"><b>Code Systems</b></a></li>
+        <li title="Value Sets"><a href="valuesets.html"><b>Value Sets</b></a></li>
+        <li title="Profile 1"><a href="profile-sd.html"><b>Profile 1</b></a></li>
+
+   </ul>
+  </div>  <!-- /container -->
+ </div>  <!-- /segment-breadcrumb -->
+
+<div id="segment-content" class="segment">  <!-- segment-content -->
+<div class="container">  <!-- container -->
+<div class="row">
+<div class="inner-wrapper">
+<div class="col-9">
+
+
+
+
+
+<h2>Implementation Guide Template</h2>
+
+<pre class="xml">
+
+&lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide">ImplementationGuide</a> xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.id">id</a> <a href="http://hl7.org/fhir/datatypes.html#id">value</a>=&quot;ig&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.url">url</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;Implementation Guide Template&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.status">status</a> <a href="http://hl7.org/fhir/datatypes.html#code">value</a>=&quot;draft&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.experimental">experimental</a> <a href="http://hl7.org/fhir/datatypes.html#boolean">value</a>=&quot;true&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.publisher">publisher</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;FHIR Project&quot;/&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;base&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://hl7.org/fhir/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/extensibility.html#extension#Extension.value[x]">valueUri</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;StructureDefinition-daf-core-allergyintolerance.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/references.html#reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;StructureDefinition/daf-core-allergyintolerance&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://hl7.org/fhir/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/extensibility.html#extension#Extension.value[x]">valueUri</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;ValueSet-test-ig-vs.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/references.html#reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;ValueSet/test-ig-vs&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://hl7.org/fhir/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/extensibility.html#extension#Extension.value[x]">valueUri</a>
+                  <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;AllergyIntolerance-62d29612-802f-4233-8df2-fa85d021937b.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.purpose">purpose</a> <a href="http://hl7.org/fhir/datatypes.html#code">value</a>=&quot;example&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/references.html#reference#Reference.reference">reference</a>
+                   <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;U.S. Data Access Framework (DAF) DiagnosticOrder Profile&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://hl7.org/fhir/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/extensibility.html#extension#Extension.value[x]">valueUri</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;StructureDefinition-daf-diagnosticorder.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;Profile daf-diagnosticorder&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/references.html#reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;StructureDefinition/daf-diagnosticorder&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package">package</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;/Users/ehaas/Documents/FHIR/ig10/resources/badslice&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource">resource</a>&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.extension">extension</a>
+                 <a href="http://hl7.org/fhir/datatypes.html#uri">url</a>=&quot;http://hl7.org/fhir/StructureDefinition/implementationguide-page&quot;&gt;
+        &lt;<a href="http://hl7.org/fhir/extensibility.html#extension#Extension.value[x]">valueUri</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;StructureDefinition-argo-immunization.html&quot;/&gt;
+      &lt;/extension&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;Argonaut Immunization Profile&quot;/&gt;
+      &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.package.resource.source[x]">sourceReference</a>&gt;
+        &lt;<a href="http://hl7.org/fhir/references.html#reference#Reference.reference">reference</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;StructureDefinition/argo-immunization&quot;/&gt;
+      &lt;/sourceReference&gt;
+    &lt;/resource&gt;
+  &lt;/package&gt;
+  &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.page">page</a>&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.page.source">source</a> <a href="http://hl7.org/fhir/datatypes.html#uri">value</a>=&quot;index.html&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.page.name">name</a> <a href="http://hl7.org/fhir/datatypes.html#string">value</a>=&quot;Home Page&quot;/&gt;
+    &lt;<a href="http://hl7.org/fhir/html/implementationguide.html#ImplementationGuide.page.kind">kind</a> <a href="http://hl7.org/fhir/datatypes.html#code">value</a>=&quot;page&quot;/&gt;
+  &lt;/page&gt;
+&lt;/ImplementationGuide&gt;</pre>
+
+
+</div>
+
+</div>
+<!-- /inner-wrapper -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+
+</div>
+<!-- /segment-content -->
+
+
+<div id="segment-footer" class="segment">
+    <!-- segment-footer -->
+    <div class="container">
+        <!-- container -->
+        <div class="inner-wrapper">
+            <p>
+                &copy; Test IG. FHIR STU3 Candidate (v) generated on . |
+                <!--         <a style="color: #81BEF7" rel="license" href="../license.html"><img style="border-style: none;" alt="CC0" src="../cc0.png"/></a>
+-->
+                <a style="color: #81BEF7" rel="license" href="http://hl7.org/fhirlicense.html"><img style="border-style: none;" alt="CC0" src="cc0.png" /></a>
+
+                </span>
+            </p>
+        </div>
+        <!-- /inner-wrapper -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /segment-footer -->
+<!-- disqus thread -->
+<!-- disqus -->
+<!-- end disqus -->
+
+<div id="segment-post-footer" class="segment hidden">
+    <!-- segment-post-footer -->
+    <div class="container">
+        <!-- container -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /segment-post-footer -->
+
+</body>
+
+</html>
+

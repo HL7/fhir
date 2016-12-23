@@ -1,0 +1,104 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig> a fhir:ImplementationGuide;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:ImplementationGuide.id [ fhir:value "ig"];
+  fhir:ImplementationGuide.url [ fhir:value "http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig"];
+  fhir:ImplementationGuide.name [ fhir:value "Implementation Guide Template"];
+  fhir:ImplementationGuide.status [ fhir:value "draft"];
+  fhir:ImplementationGuide.experimental [ fhir:value "true"^^xsd:boolean];
+  fhir:ImplementationGuide.publisher [ fhir:value "FHIR Project"];
+  fhir:ImplementationGuide.package [
+     fhir:index 0;
+     fhir:ImplementationGuide.package.name [ fhir:value "base" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-daf-core-allergyintolerance.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-core-allergyintolerance>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/daf-core-allergyintolerance" ]
+       ]
+     ], [
+       fhir:index 1;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "ValueSet-test-ig-vs.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/test-ig-10/ValueSet/test-ig-vs>;
+         fhir:Reference.reference [ fhir:value "ValueSet/test-ig-vs" ]
+       ]
+     ], [
+       fhir:index 2;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "AllergyIntolerance-62d29612-802f-4233-8df2-fa85d021937b.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.purpose [ fhir:value "example" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/test-ig-10/AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b>;
+         fhir:Reference.reference [ fhir:value "AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b" ]
+       ]
+     ]
+  ], [
+     fhir:index 1;
+     fhir:ImplementationGuide.package.name [ fhir:value "U.S. Data Access Framework (DAF) DiagnosticOrder Profile" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-daf-diagnosticorder.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "Profile daf-diagnosticorder" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-diagnosticorder>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/daf-diagnosticorder" ]
+       ]
+     ]
+  ], [
+     fhir:index 2;
+     fhir:ImplementationGuide.package.name [ fhir:value "/Users/ehaas/Documents/FHIR/ig10/resources/badslice" ];
+     fhir:ImplementationGuide.package.resource [
+       fhir:index 0;
+       fhir:extension [
+         fhir:index 0;
+         fhir:Extension.url [ fhir:value "http://hl7.org/fhir/StructureDefinition/implementationguide-page" ];
+         fhir:Extension.valueUri [ fhir:value "StructureDefinition-argo-immunization.html" ]
+       ];
+       fhir:ImplementationGuide.package.resource.name [ fhir:value "Argonaut Immunization Profile" ];
+       fhir:ImplementationGuide.package.resource.sourceReference [
+         fhir:link <http://hl7.org/fhir/test-ig-10/StructureDefinition/argo-immunization>;
+         fhir:Reference.reference [ fhir:value "StructureDefinition/argo-immunization" ]
+       ]
+     ]
+  ];
+  fhir:ImplementationGuide.page [
+     fhir:ImplementationGuide.page.source [ fhir:value "index.html" ];
+     fhir:ImplementationGuide.page.name [ fhir:value "Home Page" ];
+     fhir:ImplementationGuide.page.kind [ fhir:value "page" ]
+  ] .
+
+<http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-core-allergyintolerance> a fhir:test-ig-10 .
+
+<http://hl7.org/fhir/test-ig-10/ValueSet/test-ig-vs> a fhir:test-ig-10 .
+
+<http://hl7.org/fhir/test-ig-10/AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b> a fhir:test-ig-10 .
+
+<http://hl7.org/fhir/test-ig-10/StructureDefinition/daf-diagnosticorder> a fhir:test-ig-10 .
+
+<http://hl7.org/fhir/test-ig-10/StructureDefinition/argo-immunization> a fhir:test-ig-10 .
+
+# -------------------------------------------------------------------------------------
+

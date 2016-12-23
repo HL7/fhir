@@ -1,0 +1,46 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "id": "62d29612-802f-4233-8df2-fa85d021937b",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2016-09-29T00:34:33.221+00:00"
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sensitivity to sulfonamide antibacterial</div>"
+  },
+  "recordedDate": "2000",
+  "patient": {
+    "reference": "Patient/1137192"
+  },
+  "substance": {
+    "coding": [
+      {
+        "system": "http://rxnav.nlm.nih.gov/REST/Ndfrt",
+        "code": "N0000175503",
+        "display": "sulfonamide antibacterial"
+      }
+    ],
+    "text": "sulfonamide antibacterial"
+  },
+  "status": "confirmed",
+  "criticality": "CRITL",
+  "category": "medication",
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "271807003",
+              "display": "skin rash"
+            }
+          ],
+          "text": "skin rash"
+        }
+      ],
+      "severity": "mild"
+    }
+  ]
+}

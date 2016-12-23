@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Hidden IG for de facto IG publishing
+-->
+<ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id value="ig"/>
+	<url value="http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig"/>
+	<name value="Implementation Guide Template"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<publisher value="FHIR Project"/>
+	<package>
+		<name value="base"/>
+		<resource>
+			<purpose value="profile"/>
+			<sourceReference>
+				<reference value="StructureDefinition/daf-core-allergyintolerance"/>
+			</sourceReference>
+		</resource>
+
+		<resource>
+			<purpose value="terminology"/>
+			<sourceReference>
+				<reference value="ValueSet/test-ig-vs"/>
+			</sourceReference>
+		</resource>
+		<resource>
+			<purpose value="example"/>
+			<sourceReference>
+				<reference value="AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b"/>
+			</sourceReference>
+		</resource>
+	</package>
+	<page>
+		<source value="index.html"/>
+		<name value="Home Page"/>
+		<kind value="page"/>
+	</page>
+</ImplementationGuide>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="ig"/>
+  <url value="http://hl7.org/fhir/test-ig-10/ImplementationGuide/ig"/>
+  <name value="Implementation Guide Template"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="FHIR Project"/>
+  <package>
+    <name value="base"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-daf-core-allergyintolerance.html"/>
+      </extension>
+      <sourceReference>
+        <reference value="StructureDefinition/daf-core-allergyintolerance"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="ValueSet-test-ig-vs.html"/>
+      </extension>
+      <sourceReference>
+        <reference value="ValueSet/test-ig-vs"/>
+      </sourceReference>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="AllergyIntolerance-62d29612-802f-4233-8df2-fa85d021937b.html"/>
+      </extension>
+      <purpose value="example"/>
+      <sourceReference>
+        <reference value="AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="U.S. Data Access Framework (DAF) DiagnosticOrder Profile"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-daf-diagnosticorder.html"/>
+      </extension>
+      <name value="Profile daf-diagnosticorder"/>
+      <sourceReference>
+        <reference value="StructureDefinition/daf-diagnosticorder"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <package>
+    <name value="/Users/ehaas/Documents/FHIR/ig10/resources/badslice"/>
+    <resource>
+      <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+        <valueUri value="StructureDefinition-argo-immunization.html"/>
+      </extension>
+      <name value="Argonaut Immunization Profile"/>
+      <sourceReference>
+        <reference value="StructureDefinition/argo-immunization"/>
+      </sourceReference>
+    </resource>
+  </package>
+  <page>
+    <source value="index.html"/>
+    <name value="Home Page"/>
+    <kind value="page"/>
+  </page>
+</ImplementationGuide>

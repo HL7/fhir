@@ -1,0 +1,56 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sct: <http://snomed.info/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://hl7.org/fhir/test-ig-10/AllergyIntolerance/62d29612-802f-4233-8df2-fa85d021937b> a fhir:AllergyIntolerance;
+  fhir:nodeRole fhir:treeRoot;
+  fhir:AllergyIntolerance.id [ fhir:value "62d29612-802f-4233-8df2-fa85d021937b"];
+  fhir:AllergyIntolerance.meta [
+     fhir:Meta.versionId [ fhir:value "1" ];
+     fhir:Meta.lastUpdated [ fhir:value "2016-09-29T00:34:33.221+00:00"^^xsd:dateTime ]
+  ];
+  fhir:AllergyIntolerance.text [
+     fhir:Narrative.status [ fhir:value "generated" ];
+     fhir:Narrative.div "<div xmlns=\"http://www.w3.org/1999/xhtml\">Sensitivity to sulfonamide antibacterial</div>"
+  ];
+  fhir:AllergyIntolerance.recordedDate [ fhir:value "2000"^^xsd:gYear];
+  fhir:AllergyIntolerance.patient [
+     fhir:link <http://hl7.org/fhir/test-ig-10/Patient/1137192>;
+     fhir:Reference.reference [ fhir:value "Patient/1137192" ]
+  ];
+  fhir:AllergyIntolerance.substance [
+     fhir:CodeableConcept.coding [
+       fhir:index 0;
+       fhir:Coding.system [ fhir:value "http://rxnav.nlm.nih.gov/REST/Ndfrt" ];
+       fhir:Coding.code [ fhir:value "N0000175503" ];
+       fhir:Coding.display [ fhir:value "sulfonamide antibacterial" ]
+     ];
+     fhir:CodeableConcept.text [ fhir:value "sulfonamide antibacterial" ]
+  ];
+  fhir:AllergyIntolerance.status [ fhir:value "confirmed"];
+  fhir:AllergyIntolerance.criticality [ fhir:value "CRITL"];
+  fhir:AllergyIntolerance.category [ fhir:value "medication"];
+  fhir:AllergyIntolerance.reaction [
+     fhir:index 0;
+     fhir:AllergyIntolerance.reaction.manifestation [
+       fhir:index 0;
+       fhir:CodeableConcept.coding [
+         fhir:index 0;
+         fhir:concept sct:271807003;
+         fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
+         fhir:Coding.code [ fhir:value "271807003" ];
+         fhir:Coding.display [ fhir:value "skin rash" ]
+       ];
+       fhir:CodeableConcept.text [ fhir:value "skin rash" ]
+     ];
+     fhir:AllergyIntolerance.reaction.severity [ fhir:value "mild" ]
+  ] .
+
+<http://hl7.org/fhir/test-ig-10/Patient/1137192> a fhir:test-ig-10 .
+
+# -------------------------------------------------------------------------------------
+

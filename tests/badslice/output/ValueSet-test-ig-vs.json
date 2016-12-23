@@ -1,0 +1,35 @@
+{
+  "resourceType": "ValueSet",
+  "id": "test-ig-vs",
+  "text": {
+    "status": "generated"
+  },
+  "url": "http://hl7.org/fhir/test-ig-10/ValueSet/test-ig-vs",
+  "version": "0.1",
+  "name": "Test IG Value Set",
+  "status": "draft",
+  "experimental": true,
+  "publisher": "HL7 International",
+  "contact": [
+    {
+      "name": "FHIR project team",
+      "telecom": [
+        {
+          "system": "other",
+          "value": "http://hl7.org/fhir"
+        }
+      ]
+    }
+  ],
+  "date": "2016-01-28T00:00:00-08:00",
+  "description": "Example value set for testing IG publication issues",
+  "immutable": false,
+  "extensible": false,
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/test/CodeSystem/test-ig-cs"
+      }
+    ]
+  }
+}
