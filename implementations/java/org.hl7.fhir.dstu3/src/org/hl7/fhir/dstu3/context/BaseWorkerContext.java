@@ -186,7 +186,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText(), TerminologyServiceErrorClass.NOSERVICE);
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText(), TerminologyServiceErrorClass.UNKNOWN);
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);

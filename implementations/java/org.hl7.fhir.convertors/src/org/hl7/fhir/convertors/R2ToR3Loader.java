@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.hl7.fhir.dstu2.formats.JsonParser;
 import org.hl7.fhir.dstu2.formats.XmlParser;
@@ -11,6 +12,7 @@ import org.hl7.fhir.dstu2.model.Resource;
 import org.hl7.fhir.dstu3.context.SimpleWorkerContext.IContextResourceLoader;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.MetadataResource;
@@ -34,7 +36,15 @@ public class R2ToR3Loader implements IContextResourceLoader, VersionConvertorAdv
     else
       r2 = new XmlParser().parse(stream);
     org.hl7.fhir.dstu3.model.Resource r3 = new VersionConvertor_10_20(this).convertResource(r2);
-    Bundle b = (Bundle) r3;
+    Bundle b;
+    if (r3 instanceof Bundle)
+      b = (Bundle) r3;
+    else {
+      b = new Bundle();
+      b.setId(UUID.randomUUID().toString().toLowerCase());
+      b.setType(BundleType.COLLECTION);
+      b.addEntry().setResource(r3).setFullUrl(r3 instanceof MetadataResource ? ((MetadataResource) r3).getUrl() : null);
+    }
     for (CodeSystem cs : cslist) {
       BundleEntryComponent be = b.addEntry();
       be.setFullUrl(cs.getUrl());

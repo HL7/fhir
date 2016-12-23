@@ -9,6 +9,7 @@ import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.Annotation;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
@@ -13208,6 +13209,7 @@ public org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionDesignationComponent c
           tgtcs.addUseContext(convertCodeableConceptToUsageContext(t));
       tgtcs.setPurpose(src.getRequirements());
       tgtcs.setCopyright(src.getCopyright());
+      tgtcs.setContent(CodeSystemContentMode.COMPLETE);
       tgtcs.setCaseSensitive(src.getCodeSystem().getCaseSensitive());
       for (org.hl7.fhir.dstu2.model.ValueSet.ConceptDefinitionComponent cs : src.getCodeSystem().getConcept())
         processConcept(tgtcs.getConcept(), cs, tgtcs);
