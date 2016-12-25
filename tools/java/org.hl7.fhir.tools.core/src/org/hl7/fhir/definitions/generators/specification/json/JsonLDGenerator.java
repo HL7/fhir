@@ -66,7 +66,7 @@ public class JsonLDGenerator  {
 		JsonObject schema = new JsonObject();
 		JsonObject context = new JsonObject();
     schema.add("@context", context);
-    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName());
+//    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName()); - this is not valid
     
 		scanTypes(root, root);
 		
