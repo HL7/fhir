@@ -865,7 +865,10 @@ func (m *MongoSearcher) createStringQueryObject(s *StringParam) bson.M {
 			if s.Name == "_id" {
 				return buildBSON(p.Path, s.String)
 			}
-			return buildBSON(p.Path, cisw(s.String))
+			// Default search (for example, address-city) does not use case-insensitive matching.
+			// This is in violation of the FHIR spec but is essential to performance by avoiding the
+			// use of regular expressions.
+			return buildBSON(p.Path, s.String)
 		}
 	}
 
@@ -908,10 +911,9 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", t.Name)))
 			}
 		case "code", "string":
-			// We do case-insensitive matching for any string parameter. The "codes" that fall-through to this case
-			// are also case-insensitive matched. In practice only the "gender" code falls into this category. Case-sensitive
-			// codes are in violation of the FHIR spec but are a necessary performance tradeoff to avoid the use of regular expressions.
-			return buildBSON(p.Path, ci(t.Code))
+			// We do case-sensitive matching for any code or string parameter. For example, gender and address-city fall into this category.
+			// Case-sensitivity is in violation of the FHIR spec but is a necessary performance tradeoff to avoid the use of regular expressions.
+			return buildBSON(p.Path, t.Code)
 
 		case "id":
 			// IDs do not need the case-insensitive match.
