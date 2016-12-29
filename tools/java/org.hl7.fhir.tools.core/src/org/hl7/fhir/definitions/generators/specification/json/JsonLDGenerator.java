@@ -31,11 +31,17 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import org.hl7.fhir.definitions.model.DefinedCode;
+import org.hl7.fhir.definitions.model.DefinedStringPattern;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
+import org.hl7.fhir.definitions.model.PrimitiveType;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -66,11 +72,11 @@ public class JsonLDGenerator  {
 		JsonObject schema = new JsonObject();
 		JsonObject context = new JsonObject();
     schema.add("@context", context);
-//    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName()); - this is not valid
+    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName()); 
     
 		scanTypes(root, root);
 		
-		generateType(root, root.getName(), root, true, context);
+		generateType(root, root.getName(), root, true, context, new HashSet<String>());
 //		for (ElementDefn e : structures) {
 //			generateType(root, types.get(e), e, false, context);
 //		}
@@ -78,7 +84,7 @@ public class JsonLDGenerator  {
 		return schema;
 	}
 
-  private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base) throws IOException, Exception {
+  private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base, Set<String> types) throws IOException, Exception {
 //    String parent = isResource ? root.typeCode() : "BackboneElement"; 
 //
 //    JsonObject r = new JsonObject();
@@ -119,7 +125,7 @@ public class JsonLDGenerator  {
 //			if (e.getName().equals("[type]"))
 //				generateAny(root, e, "", props, relative);
 //			else 
-				generateElement(root, name, e, base);
+				generateElement(root, name, e, base, types);
 		}
 //		if (required.size() > 0) {
 //		  JsonArray req = new JsonArray();
@@ -162,7 +168,7 @@ public class JsonLDGenerator  {
 //		}
 	}
 
-	private void generateElement(ElementDefn root, String name, ElementDefn e, JsonObject base) throws Exception {
+	private void generateElement(ElementDefn root, String name, ElementDefn e, JsonObject base, Set<String> types) throws Exception {
 		if (e.getTypes().size() > 1 || (e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
 //			if (!e.getName().contains("[x]"))
 //				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
@@ -202,8 +208,37 @@ public class JsonLDGenerator  {
 			JsonObject property = new JsonObject();
 			base.add(name+"."+e.getName(), property);
       property.addProperty("@id", "http://hl7.org/fhir/"+e.getPath());
-      property.addProperty("@type", "http://hl7.org/fhir/"+e.typeCode());
-//			property.addProperty("description", e.getDefinition());
+      if (e.getTypes().size() == 1) {
+        String tn = e.getTypes().get(0).getName();
+        if (tn.equals("SimpleQuantity"))
+          tn = "Quantity";
+        if (definitions.hasPrimitiveType(tn) || tn.equals("xhtml")) {
+          JsonObject pproperty = new JsonObject();
+          property.add(name+"."+e.getName(), pproperty);
+          property.addProperty("@id", "http://hl7.org/fhir/"+tn);
+          JsonObject pvalue = new JsonObject();
+          pproperty.add(tn+".value", pvalue);
+          if (tn.equals("xhtml"))
+            pvalue.addProperty("@type", "xhtml");
+          else {
+            DefinedCode dc = definitions.getPrimitives().get(tn);
+            if (dc instanceof PrimitiveType)
+              pvalue.addProperty("@type", ((PrimitiveType) dc).getSchemaType());
+            else
+              pvalue.addProperty("@type", ((DefinedStringPattern) dc).getSchema());
+          }
+        } else if (types.contains(tn)){
+          property.addProperty("@todo", "recursive - not done yet");
+        } else {
+          TypeDefn td = definitions.getElementDefn(tn);
+          Set<String> nt = new HashSet<String>(types);
+          nt.add(tn);
+          generateType(td, tn, td, false, property, nt);
+        }
+      } else
+        property.addProperty("@todo", "multiple types not done yet");
+			
+//      property.addProperty("fhir-@type", "http://hl7.org/fhir/"+e.typeCode());
 //			String tref = null;
 //			String type = null;
 //			String pattern = null;
