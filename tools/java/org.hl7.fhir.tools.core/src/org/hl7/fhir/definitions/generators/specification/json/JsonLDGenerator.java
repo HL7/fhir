@@ -231,13 +231,9 @@ public class JsonLDGenerator  {
               else
                 pvalue.addProperty("@type", ((DefinedStringPattern) dc).getSchema());
             }
-          } else if (types.contains(tn)){
-            property.addProperty("@todo", "recursive - not done yet");
           } else {
             TypeDefn td = definitions.getElementDefn(tn);
-            Set<String> nt = new HashSet<String>(types);
-            nt.add(tn);
-            generateType(td, tn, td, false, base, nt);
+            generateType(td, tn, td, false, base, types);
           }
         }
       }
