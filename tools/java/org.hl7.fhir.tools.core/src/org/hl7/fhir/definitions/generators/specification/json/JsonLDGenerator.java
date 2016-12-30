@@ -217,8 +217,8 @@ public class JsonLDGenerator  {
         if (tn.equals("SimpleQuantity"))
           tn = "Quantity";
         if (!types.contains(tn)) {
-          types.add(tn);
           if (definitions.hasPrimitiveType(tn) || tn.equals("xhtml")) {
+            types.add(tn);
             JsonObject pvalue = new JsonObject();
             base.add(tn+".value", pvalue);
             pvalue.addProperty("@id", "http://hl7.org/fhir/"+tn);
