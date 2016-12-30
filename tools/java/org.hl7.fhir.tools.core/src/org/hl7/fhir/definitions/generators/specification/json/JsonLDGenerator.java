@@ -223,13 +223,13 @@ public class JsonLDGenerator  {
             base.add(tn+".value", pvalue);
             pvalue.addProperty("@id", "http://hl7.org/fhir/"+tn);
             if (tn.equals("xhtml"))
-              pvalue.addProperty("@type", "xhtml");
+              pvalue.addProperty("@type", "http://www.w3.org/1999/xhtml");
             else {
               DefinedCode dc = definitions.getPrimitives().get(tn);
               if (dc instanceof PrimitiveType)
-                pvalue.addProperty("@type", ((PrimitiveType) dc).getSchemaType());
+                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((PrimitiveType) dc).getSchemaType());
               else
-                pvalue.addProperty("@type", ((DefinedStringPattern) dc).getSchema());
+                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((DefinedStringPattern) dc).getSchema());
             }
           } else {
             TypeDefn td = definitions.getElementDefn(tn);
