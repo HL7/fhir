@@ -3,9 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Bundle" alias BundleR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" alias Bundle as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/Resource2to3"
-imports "http://hl7.org/fhir/StructureMap/Signature2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Bundle extends Resource
   input src : BundleR2 as source
@@ -13,15 +11,58 @@ group for type+types  Bundle extends Resource
 
   "Bundle-type" : for src.type make tgt.type
   "Bundle-total" : for src.total make tgt.total
-  "Bundle-link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Bundle.link-relation" : for vs0.relation make vt0.relation
-    "Bundle.link-url" : for vs0.url make vt0.url
-  }
-
-  "Bundle-entry" : for src.entry as vs0 make tgt.entry as vt0 then {
-    "Bundle.entry-fullUrl" : for vs0.fullUrl make vt0.fullUrl
-  }
-
+  "Bundle-link" : for src.link as vs0 make tgt.link as vt0 then bundleLink(vs0, vt0)
+  "Bundle-entry" : for src.entry as vs0 make tgt.entry as vt0 then bundleEntry(vs0, vt0)
   "Bundle-signature" : for src.signature make tgt.signature
-
 endgroup
+
+group bundleLink extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Bundle.link-relation" : for src.relation make tgt.relation
+  "Bundle.link-url" : for src.url make tgt.url
+endgroup
+
+group bundleEntry extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Bundle.entry-fullUrl" : for src.fullUrl make tgt.fullUrl
+  "Bundle.entry-resource" : for src.resource make tgt.resource
+  "Bundle.entry-search" : for src.search as vs make tgt.search as vt then bundleSearch(vs, vt)
+  "Bundle.entry-request" : for src.request as vs make tgt.request as vt then bundleRequest(vs, vt)
+  "Bundle.entry-response" : for src.response as vs make tgt.response as vt then bundleResponse(vs, vt)
+endgroup
+
+group bundleSearch extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Bundle.entry.search-mode" : for src.mode make tgt.mode
+  "Bundle.entry.search-score" : for src.score make tgt.score
+endgroup
+
+group bundleRequest extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Bundle.entry.request-method" : for src.method make tgt.method
+  "Bundle.entry.request-url" : for src.url make tgt.url
+  "Bundle.entry.request-ifNoneMatch" : for src.ifNoneMatch make tgt.ifNoneMatch
+  "Bundle.entry.request-ifModifiedSince" : for src.ifModifiedSince make tgt.ifModifiedSince
+  "Bundle.entry.request-ifMatch" : for src.ifMatch make tgt.ifMatch
+  "Bundle.entry.request-ifNoneExist" : for src.ifNoneExist make tgt.ifNoneExist
+endgroup
+
+group bundleResponse extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Bundle.entry.response-status" : for src.status make tgt.status
+  "Bundle.entry.response-location" : for src.location make tgt.location
+  "Bundle.entry.response-etag" : for src.etag make tgt.etag
+  "Bundle.entry.response-lastModified" : for src.lastModified make tgt.lastModified
+  "Bundle.entry.response-outcome" : for src.outcome make tgt.outcome
+endgroup
+

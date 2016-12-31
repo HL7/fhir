@@ -329,7 +329,7 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Override
   public Base createResource(Object appInfo, Base res) {
-    if (res instanceof Resource) {
+    if (res instanceof Resource && !res.fhirType().equals("Parameters")) {
       Resource r = (Resource) res;
       extras.add(r);
       r.setId(workingid+"-"+extras.size());

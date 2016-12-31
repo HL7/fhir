@@ -72,8 +72,8 @@ public class SchemaGenerator {
 
 	  JsonObject schema = new JsonObject();
 	  schema.addProperty("$schema", "http://json-schema.org/draft-04/schema#");
-	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/fhir");
-	  schema.addProperty("$ref", "#/definitions/ResourceList");
+//	  schema.addProperty("id", "http://hl7.org/fhir/json-schema/fhir");
+//	  schema.addProperty("$ref", "#/definitions/ResourceList");
 	  schema.addProperty("description", "see http://hl7.org/fhir/json.html#schema for information about the FHIR Json Schemas");
 	  schema.add("definitions", new JsonObject());
 
@@ -95,12 +95,12 @@ public class SchemaGenerator {
     for (String name : names) {
       ResourceDefn root = definitions.getResourceByName(name);
       JsonObject s = new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, null);
-      save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
+//      save(s, xsdDir+root.getName().replace(".",  "_")+".schema.json");
       new JsonGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(root.getRoot(), version, genDate, schema);
 	  }
 
     addAllResourcesChoice(schema, names);
-  	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
+//  	save(generateAllResourceChoice(names), xsdDir+"ResourceList.schema.json");
     save(schema, xsdDir+"fhir.schema.json");
 
 	  dir = new CSFile(xsdDir);

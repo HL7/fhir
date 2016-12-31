@@ -55,7 +55,9 @@ public class ExampleInspector {
 
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
-  private static final boolean VALIDATE_BY_JSON_SCHEMA = false;
+  private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
+  private static final boolean VALIDATE_RDF = true;
+  
   
   private IWorkerContext context;
   private String rootDir;
@@ -147,7 +149,7 @@ public class ExampleInspector {
 
       validateLogical(Utilities.path(rootDir, n+".json"), profile, FhirFormat.JSON);
       validateJson(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());
-      //    validateTurtle(Utilities.path(rootDir, n+".xml"), null);
+      validateRDF(Utilities.path(rootDir, n+".xml"));
       
       checkSearchParameters(xe, e);
     } catch (Exception e) {
@@ -195,6 +197,19 @@ public class ExampleInspector {
   private void validateJson(String f, String profile) throws FileNotFoundException, IOException {
     if (VALIDATE_BY_JSON_SCHEMA) {
       jschema.validate(new CSFileInputStream(f));
+    }
+  }
+
+  private void validateRDF(String f) throws FileNotFoundException, IOException {
+    if (VALIDATE_RDF) {
+      /*
+       * - read turtle file into Jena
+       * - use ShEx to validate turtle file
+       * - read json-ld file into Jena
+       * - ask Jena to compare them (https://jena.apache.org/documentation/javadoc/arq/org/apache/jena/sparql/util/IsoMatcher.html)
+       * 
+       * There is a fully compliant JSON-LD parser for Jena: https://github.com/jsonld-java/jsonld-java
+       */
     }
   }
 

@@ -218,7 +218,11 @@ public class Element extends Base {
         child.setValue(value);
       }
     }
-    throw new Error("not done yet");
+    try {
+      setProperty(name.hashCode(), name, new StringType(value));
+    } catch (FHIRException e) {
+      throw new Error(e);
+    }
   }
 
 	public List<Element> getChildren(String name) {
@@ -333,6 +337,11 @@ public class Element extends Base {
       childForValue.type = ve.getType();
       if (childForValue.property.getName().endsWith("[x]"))
         childForValue.name = name+Utilities.capitalize(childForValue.type);
+      else if (value.isResource()) {
+        childForValue.elementProperty = childForValue.property;
+        childForValue.property = ve.property;
+        childForValue.special = SpecialElement.BUNDLE_ENTRY;
+      }
       if (ve.children != null) {
         if (childForValue.children == null)
           childForValue.children = new ArrayList<Element>();
@@ -578,20 +587,30 @@ public class Element extends Base {
           remove.add(child);
       }
       children.removeAll(remove);
-      children.sort(new ElementSortComparator(this.property));
+      children.sort(new ElementSortComparator(this, this.property));
     }
   }
 
   public class ElementSortComparator implements Comparator<Element> {
     private List<ElementDefinition> children;
-    public ElementSortComparator(Property property) {
-      children = property.getStructure().getSnapshot().getElement();
+    public ElementSortComparator(Element e, Property property) {
+      String tn = e.getType();
+      StructureDefinition sd = property.getContext().fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/"+tn);
+      if (sd != null && !sd.getAbstract())
+        children = sd.getSnapshot().getElement();
+      else
+        children = property.getStructure().getSnapshot().getElement();
     }
+    
     @Override
     public int compare(Element e0, Element e1) {
-      int i0 = children.indexOf(e0.property.getDefinition());
-      int i1 = children.indexOf(e1.property.getDefinition());
+      int i0 = find(e0);
+      int i1 = find(e1);
       return Integer.compare(i0, i1);
+    }
+    private int find(Element e0) {
+      int i =  e0.elementProperty != null ? children.indexOf(e0.elementProperty.getDefinition()) :  children.indexOf(e0.property.getDefinition());
+      return i; 
     }
 
   }

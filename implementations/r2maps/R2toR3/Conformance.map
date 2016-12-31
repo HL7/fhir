@@ -1,0 +1,183 @@
+map "http://hl7.org/fhir/StructureMap/Conformance2to3" = "R2 to R3 Conversions for Conformance"
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Conformance" alias ConformanceR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/CapabilityStatement" alias CapabilityStatement as target
+
+imports "http://hl7.org/fhir/StructureMap/*2to3"
+
+group for type+types  Conformance extends DomainResource
+  input src : ConformanceR2 as source
+  input tgt : CapabilityStatement as target
+
+  "conf-url" : for src.url make tgt.url
+  "conf-version" : for src.version make tgt.version
+  "conf-name" : for src.name make tgt.name
+  "conf-status" : for src.status make tgt.status
+  "conf-experimental" : for src.experimental make tgt.experimental
+  "conf-publisher" : for src.publisher make tgt.publisher
+  "conf-contact" : for src.contact as vs make tgt.contact as vt then contact(vs, vt)
+  "conf-date" : for src.date make tgt.date
+  "conf-description" : for src.description make tgt.description
+  "conf-requirements" : for src.requirements make tgt.purpose
+  "conf-copyright" : for src.copyright make tgt.copyright  
+  "conf-kind" : for src.kind make tgt.kind 
+  "conf-software" : for src.software as vs make tgt.software as vt then software(vs, vt)
+  "conf-implementation" : for src.implementation as vs make tgt.implementation as vt then implementation(vs, vt)
+  "conf-fhirVersion" : for src.fhirVersion make tgt.fhirVersion
+  "conf-acceptUnknown" : for src.acceptUnknown make tgt.acceptUnknown
+  "conf-format" : for src.format make tgt.format
+  "conf-profile	" : for src.profile make tgt.profile
+  "conf-rest" : for src.rest as vs make tgt.rest as vt then rest(vs, vt)
+  "conf-messaging" : for src.messaging as vs make tgt.messaging as vt then messaging(vs, vt)
+  "conf-document" : for src.document as vs make tgt.document as vt then document(vs, vt)
+endgroup
+
+group contact extends BackboneElement
+  input src as source
+  input tgt as target
+
+ "conf-name" : for src.name make tgt.name
+ "conf-telecom" : for src.telecom make tgt.telecom
+endgroup
+
+group software extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-name" : for src.name make tgt.name 
+  "conf-version" : for src.version make tgt.version 
+  "conf-releaseDate" : for src.releaseDate make tgt.releaseDate   
+endgroup
+
+group implementation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-description" : for src.description make tgt.description 
+  "conf-url" : for src.url make tgt.url 
+endgroup
+
+group rest extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-mode" : for src.mode make tgt.mode
+  "conf-documentation" : for src.documentation make tgt.documentation
+  "conf-security" : for src.security as vs make tgt.security as vt then security(vs, vt)
+  "conf-resource" : for src.resource as vs make tgt.resource as vt then resource(vs, vt)
+  "conf-interaction" : for src.interaction where code != 'transaction' as vs make tgt.interaction as vt then interaction(vs, vt)
+  "conf-transactionMode" : for src.transactionMode where $this = 'batch'  or $this = 'both' make tgt.interaction as i, i.code = 'batch'
+  "conf-transactionMode" : for src.transactionMode where $this = 'transaction'  or $this = 'both' make tgt.interaction as i, i.code = 'transaction'
+  "conf-searchParam" : for src.searchParam as vs make tgt.searchParam as vt then searchParam(vs, vt)
+  "conf-operation" : for src.operation as vs make tgt.operation as vt then operation(vs, vt)
+  "conf-compartment" : for src.compartment make tgt.compartment
+endgroup
+
+group security extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-cors" : for src.cors make tgt.cors
+  "conf-service" : for src.service make tgt.service
+  "conf-description" : for src.description make tgt.description
+  "conf-certificate*" : for src.certificate make tgt.certificate
+endgroup
+
+group certificate extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-type" : for src.type make tgt.type
+  "conf-blob" : for src.blob make tgt.blob
+endgroup
+
+group resource extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-type" : for src.type where $this != 'Conformance' make tgt.type
+  "conf-type" : for src.type where $this = 'Conformance' make tgt.type = 'CapabilityStatement'
+  "conf-profile" : for src.profile make tgt.profile
+  "conf-documentation" : for src.documentation make tgt.documentation
+  "conf-interaction" : for src.interaction as vs where code != 'validate' make tgt.interaction as vt then interaction(vs, vt)
+  "conf-versioning" : for src.versioning make tgt.versioning
+  "conf-readHistory" : for src.readHistory make tgt.readHistory
+  "conf-updateCreate" : for src.updateCreate make tgt.updateCreate
+  "conf-conditionalCreate" : for src.conditionalCreate make tgt.conditionalCreate
+  "conf-conditionalRead" : for src.conditionalRead make tgt.conditionalRead
+  "conf-conditionalUpdate" : for src.conditionalUpdate make tgt.conditionalUpdate
+  "conf-conditionalDelete" : for src.conditionalDelete make tgt.conditionalDelete
+  "conf-searchInclude" : for src.searchInclude make tgt.searchInclude
+  "conf-searchRevInclude" : for src.searchRevInclude make tgt.searchRevInclude
+  "conf-searchParam" : for src.searchParam as vs make tgt.searchParam as vt then searchParam(vs, vt)
+endgroup
+
+group interaction extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-code" : for src.code make tgt.code
+  "conf-documentation" : for src.documentation make tgt.documentation
+endgroup
+
+group searchParam extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-name" : for src.name make tgt.name
+  "conf-definition" : for src.definition make tgt.definition
+  "conf-type" : for src.type make tgt.type
+  "conf-documentation" : for src.documentation make tgt.documentation
+//?  target
+//?  modifier
+//?  chain  
+endgroup
+
+group operation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-name" : for src.name make tgt.name
+  "conf-definition" : for src.definition make tgt.definition
+endgroup
+
+group messaging extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-endpoint" : for src.endpoint as vs make tgt.endpoint as vt then endpoint(vs, vt)
+  "conf-reliableCache" : for src.reliableCache make tgt.reliableCache
+  "conf-documentation" : for src.documentation make tgt.documentation
+  "conf-event" : for src.event as vs make tgt.event as vt then event(vs, vt)
+endgroup
+
+group endpoint extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-protocol" : for src.protocol make tgt.protocol
+  "conf-address" : for src.address make tgt.address
+endgroup
+
+group event extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-code" : for src.code make tgt.code
+  "conf-category" : for src.category make tgt.category
+  "conf-mode" : for src.mode make tgt.mode
+  "conf-focus" : for src.focus make tgt.focus
+  "conf-request" : for src.request make tgt.request
+  "conf-response" : for src.response make tgt.response
+  "conf-documentation" : for src.documentation make tgt.documentation
+endgroup
+
+group document extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "conf-mode" : for src.mode make tgt.mode
+  "conf-documentation" : for src.documentation make tgt.documentation
+  "conf-profile" : for src.profile make tgt.profile
+endgroup
+  

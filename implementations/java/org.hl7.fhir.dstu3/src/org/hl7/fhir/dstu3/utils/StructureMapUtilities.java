@@ -1383,6 +1383,8 @@ public class StructureMapUtilities {
       return false;
     if (grp.getInput().size() != 2 || grp.getInput().get(0).getMode() != StructureMapInputMode.SOURCE || grp.getInput().get(1).getMode() != StructureMapInputMode.TARGET)
       return false;
+    if (!grp.getInput().get(0).hasType() || !grp.getInput().get(1).hasType())
+      return false;
     return matchesType(map, srcType, grp.getInput().get(0).getType()) && matchesType(map, tgtType, grp.getInput().get(1).getType());
   }
 
@@ -1585,7 +1587,7 @@ public class StructureMapUtilities {
 	      if (tgt.getParameter().isEmpty()) {
 	        // we have to work out the type. First, we see if there is a single type for the target. If there is, we use that
 	        String[] types = dest.getTypesForProperty(element.hashCode(), element);
-	        if (types.length == 1 && !"*".equals(types[0]))
+	        if (types.length == 1 && !"*".equals(types[0]) && !types[0].equals("Resource"))
 	          tn = types[0];
 	        else if (srcVar != null) {
 	          tn = determineTypeFromSourceType(map, group, vars.get(VariableMode.INPUT, srcVar), types);
@@ -1594,7 +1596,7 @@ public class StructureMapUtilities {
 	      } else
 	        tn = getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString());
 	      Base res = services != null ? services.createType(context.getAppInfo(), tn) : ResourceFactory.createResourceOrType(tn);
-	      if (res.isResource()) {
+	      if (res.isResource() && !res.fhirType().equals("Parameters")) {
 	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
 	        if (services != null) 
 	          res = services.createResource(context.getAppInfo(), res);

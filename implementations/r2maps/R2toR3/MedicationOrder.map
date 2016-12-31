@@ -1,0 +1,18 @@
+﻿map "http://hl7.org/fhir/StructureMap/MedicationOrder2to3" = "R2 to R3 Conversions for MedicationOrder"
+
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationOrder" alias MedicationOrderR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/MedicationRequest" alias MedicationRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/*2to3"
+
+group for type+types MedicationOrder extends DomainResource
+  input src : MedicationOrderR2 as source
+  input tgt : MedicationRequest as target
+
+  "MedicationOrder-identifier" : for src.identifier make tgt.identifier
+  "MedicationOrder-status" : for src.status make tgt.status
+  "MedicationOrder-intent" : for src make tgt.intent = "order"
+  "MedicationOrder-medication" : for src.medication make tgt.medication 
+  "MedicationOrder-subject" : for src.patient make tgt.subject
+
+endgroup
