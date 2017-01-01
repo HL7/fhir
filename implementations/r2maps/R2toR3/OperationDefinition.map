@@ -36,19 +36,25 @@ group for type+types  OperationDefinition extends DomainResource
   "OperationDefinition-type2" : for src where type.exists() make tgt.type = true
   "OperationDefinition-type2" : for src where type.empty() make tgt.type = false
   "OperationDefinition-instance" : for src.instance make tgt.instance
-  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
-    "OperationDefinition.parameter-name" : for vs0.name make vt0.name
-    "OperationDefinition.parameter-use" : for vs0.use make vt0.use
-    "OperationDefinition.parameter-min" : for vs0.min make vt0.min
-    "OperationDefinition.parameter-max" : for vs0.max make vt0.max
-    "OperationDefinition.parameter-documentation" : for vs0.documentation make vt0.documentation
-    "OperationDefinition.parameter-type" : for vs0.type make vt0.type
-    "OperationDefinition.parameter-profile" : for vs0.profile make vt0.profile
-    "OperationDefinition.parameter-part" : for vs0.part as ps0 make vt0.part as pt0 then part(ps0, pt0)
-  }
+  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then opParam(vs0, vt0)
 endgroup
 
-group part extends BackboneElement
+group opParam extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "OperationDefinition.parameter-name" : for src.name make tgt.name
+  "OperationDefinition.parameter-use" : for src.use make tgt.use
+  "OperationDefinition.parameter-min" : for src.min make tgt.min
+  "OperationDefinition.parameter-max" : for src.max make tgt.max
+  "OperationDefinition.parameter-documentation" : for src.documentation make tgt.documentation
+  "OperationDefinition.parameter-type1" : for src.type as v where ($this in ('number' | 'date' | 'string' | 'token' | 'reference' | 'composite' | 'quantity' | 'uri')).not() make tgt.type = v
+  "OperationDefinition.parameter-type2" : for src.type as v where ($this in ('number' | 'date' | 'string' | 'token' | 'reference' | 'composite' | 'quantity' | 'uri')) make tgt.searchType = v, tgt.type = 'string'
+  "OperationDefinition.parameter-profile" : for src.profile make tgt.profile
+  "OperationDefinition.parameter-part" : for src.part as ps0 make tgt.part as pt0 then opPart(ps0, pt0)
+endgroup
+
+group opPart extends BackboneElement
   input src as source
   input tgt as target
 
@@ -60,5 +66,4 @@ group part extends BackboneElement
   "OperationDefinition.parameter-part-type" : for src.type make tgt.type
   "OperationDefinition.parameter-part-profile" : for src.profile make tgt.profile
   "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then part(psrc, ptgt)
-  
 endgroup

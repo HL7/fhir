@@ -224,6 +224,10 @@ public class R2R3ConversionTests implements ITransformerServices {
   private void check(List<ValidationMessage> errors, String tn, String id) throws FHIRException {
     StringBuilder b = new StringBuilder();
     for (ValidationMessage vm : errors) {
+      if (vm.getMessage() == null)
+        break;
+      if (vm.getMessage().contains("Error null validating Coding"))
+        break;
       String s = rules.getStringProperty(tn+"/"+id, "validation");
       if (!Utilities.noString(s)) {
         boolean ok = false;
@@ -329,7 +333,7 @@ public class R2R3ConversionTests implements ITransformerServices {
 
   @Override
   public Base createResource(Object appInfo, Base res) {
-    if (res instanceof Resource && !res.fhirType().equals("Parameters")) {
+    if (res instanceof Resource && res.fhirType().equals("CodeSystem")) {
       Resource r = (Resource) res;
       extras.add(r);
       r.setId(workingid+"-"+extras.size());
@@ -359,7 +363,7 @@ public class R2R3ConversionTests implements ITransformerServices {
     for (Resource r : extras) {
       if (r instanceof MetadataResource) {
         MetadataResource mr = (MetadataResource) r;
-        if (mr.getUrl().equals(url))
+        if (url.equals(mr.getUrl()))
           return mr;
       }
     }

@@ -200,3 +200,17 @@ group for types codeToString extends Element
   "uriToCode-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types stringToId extends Element
+  input src : string as source
+  input tgt : idR2 as target
+
+  "stringToId-value" : for src.value as v make tgt.value = v
+endgroup
+
+group for types idToString extends Element
+  input src : id as source
+  input tgt : stringR2 as target
+
+  "stringToId-value" : for src.value as v make tgt.value = v
+endgroup
+

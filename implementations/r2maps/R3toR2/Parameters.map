@@ -3,66 +3,21 @@
 uses "http://hl7.org/fhir/StructureDefinition/Parameters" alias Parameters as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Parameters" alias ParametersR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/Resource3to2"
-imports "http://hl7.org/fhir/StructureMap/Meta3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/SampledData3to2"
-imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/Range3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/Signature3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
-group for type+types  Parameters extends Resource
+group for type+types Parameters extends Resource
   input src : Parameters as source
   input tgt : ParametersR2 as target
 
-  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
-    "Parameters.parameter-name" : for vs0.name make vt0.name
-    "Parameters.parameter-value-base64Binary" : for vs0.value : base64Binary as vs make vt0.value = create("base64Binary") as vt then base64Binary(vs, vt)
-    "Parameters.parameter-value-boolean" : for vs0.value : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs, vt)
-    "Parameters.parameter-value-code" : for vs0.value : code as vs make vt0.value = create("code") as vt then code(vs, vt)
-    "Parameters.parameter-value-date" : for vs0.value : date as vs make vt0.value = create("date") as vt then date(vs, vt)
-    "Parameters.parameter-value-dateTime" : for vs0.value : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs, vt)
-    "Parameters.parameter-value-decimal" : for vs0.value : decimal as vs make vt0.value = create("decimal") as vt then decimal(vs, vt)
-    "Parameters.parameter-value-id" : for vs0.value : id as vs make vt0.value = create("id") as vt then id(vs, vt)
-    "Parameters.parameter-value-instant" : for vs0.value : instant as vs make vt0.value = create("instant") as vt then instant(vs, vt)
-    "Parameters.parameter-value-integer" : for vs0.value : integer as vs make vt0.value = create("integer") as vt then integer(vs, vt)
-    "Parameters.parameter-value-markdown" : for vs0.value : markdown as vs make vt0.value = create("markdown") as vt then markdown(vs, vt)
-    "Parameters.parameter-value-oid" : for vs0.value : oid as vs make vt0.value = create("oid") as vt then oid(vs, vt)
-    "Parameters.parameter-value-positiveInt" : for vs0.value : positiveInt as vs make vt0.value = create("positiveInt") as vt then positiveInt(vs, vt)
-    "Parameters.parameter-value-string" : for vs0.value : string as vs make vt0.value = create("string") as vt then string(vs, vt)
-    "Parameters.parameter-value-time" : for vs0.value : time as vs make vt0.value = create("time") as vt then time(vs, vt)
-    "Parameters.parameter-value-unsignedInt" : for vs0.value : unsignedInt as vs make vt0.value = create("unsignedInt") as vt then unsignedInt(vs, vt)
-    "Parameters.parameter-value-uri" : for vs0.value : uri as vs make vt0.value = create("uri") as vt then uri(vs, vt)
-    "Parameters.parameter-value-Address" : for vs0.value : Address as vs make vt0.value = create("Address") as vt then Address(vs, vt)
-    "Parameters.parameter-value-Annotation" : for vs0.value : Annotation as vs make vt0.value = create("Annotation") as vt then Annotation(vs, vt)
-    "Parameters.parameter-value-Attachment" : for vs0.value : Attachment as vs make vt0.value = create("Attachment") as vt then Attachment(vs, vt)
-    "Parameters.parameter-value-CodeableConcept" : for vs0.value : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "Parameters.parameter-value-Coding" : for vs0.value : Coding as vs make vt0.value = create("Coding") as vt then Coding(vs, vt)
-    "Parameters.parameter-value-ContactPoint" : for vs0.value : ContactPoint as vs make vt0.value = create("ContactPoint") as vt then ContactPoint(vs, vt)
-    "Parameters.parameter-value-HumanName" : for vs0.value : HumanName as vs make vt0.value = create("HumanName") as vt then HumanName(vs, vt)
-    "Parameters.parameter-value-Identifier" : for vs0.value : Identifier as vs make vt0.value = create("Identifier") as vt then Identifier(vs, vt)
-    "Parameters.parameter-value-Period" : for vs0.value : Period as vs make vt0.value = create("Period") as vt then Period(vs, vt)
-    "Parameters.parameter-value-Quantity" : for vs0.value : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs, vt)
-    "Parameters.parameter-value-Range" : for vs0.value : Range as vs make vt0.value = create("Range") as vt then Range(vs, vt)
-    "Parameters.parameter-value-Ratio" : for vs0.value : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs, vt)
-    "Parameters.parameter-value-Reference" : for vs0.value : Reference as vs make vt0.value = create("Reference") as vt then Reference(vs, vt)
-    "Parameters.parameter-value-SampledData" : for vs0.value : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs, vt)
-    "Parameters.parameter-value-Signature" : for vs0.value : Signature as vs make vt0.value = create("Signature") as vt then Signature(vs, vt)
-    "Parameters.parameter-value-Timing" : for vs0.value : Timing as vs make vt0.value = create("Timing") as vt then Timing(vs, vt)
-    "Parameters.parameter-value-Meta" : for vs0.value : Meta as vs make vt0.value = create("Meta") as vt then Meta(vs, vt)
-  }
+  "Parameters-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then ParametersP(vs0, vt0)
+endgroup
 
+group ParametersP extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Parameters.parameter-name" : for src.name make tgt.name
+  "Parameters.parameter-value" : for src.value make tgt.value
+  "Parameters.parameter-resource" : for src.resource make tgt.resource
+  "Parameters.parameter-part" : for src.part as vs0 make tgt.part as vt0 then ParametersP(vs0, vt0)
 endgroup

@@ -15,6 +15,8 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.riot.RDFDataMgr;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
@@ -149,7 +151,7 @@ public class ExampleInspector {
 
       validateLogical(Utilities.path(rootDir, n+".json"), profile, FhirFormat.JSON);
       validateJson(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());
-      validateRDF(Utilities.path(rootDir, n+".xml"));
+      validateRDF(Utilities.path(rootDir, n+".ttl"), Utilities.path(rootDir, n+".jsonld"));
       
       checkSearchParameters(xe, e);
     } catch (Exception e) {
@@ -200,11 +202,15 @@ public class ExampleInspector {
     }
   }
 
-  private void validateRDF(String f) throws FileNotFoundException, IOException {
+  private void validateRDF(String fttl, String fjld) throws FileNotFoundException, IOException {
     if (VALIDATE_RDF) {
+      // read turtle file into Jena
+      Model m = RDFDataMgr.loadModel(fttl);
+
+      // use ShEx to validate turtle file - TODO
       /*
-       * - read turtle file into Jena
-       * - use ShEx to validate turtle file
+       * - 
+       * - 
        * - read json-ld file into Jena
        * - ask Jena to compare them (https://jena.apache.org/documentation/javadoc/arq/org/apache/jena/sparql/util/IsoMatcher.html)
        * 

@@ -40,7 +40,8 @@ group for type+types  OperationDefinition extends DomainResource
     "OperationDefinition.parameter-min" : for vs0.min make vt0.min
     "OperationDefinition.parameter-max" : for vs0.max make vt0.max
     "OperationDefinition.parameter-documentation" : for vs0.documentation make vt0.documentation
-    "OperationDefinition.parameter-type" : for vs0.type make vt0.type
+    "OperationDefinition.parameter-type" : for vs0.type where vs0.searchType.empty() make vt0.type
+    "OperationDefinition.parameter-type" : for vs0.searchType make vt0.type
     "OperationDefinition.parameter-profile" : for vs0.profile make vt0.profile
     "OperationDefinition.parameter-part" : for vs0.part as ps0 make vt0.part as pt0 then part(ps0, pt0)
   }

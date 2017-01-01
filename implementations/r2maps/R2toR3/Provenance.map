@@ -4,33 +4,42 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias  ProvenanceR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias  Provenance as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Coding2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Signature2to3"
-
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 
 group for type+types  Provenance extends DomainResource
   input src : ProvenanceR2 as source
   input tgt : Provenance as target
 
-  "Provenance-target" : for src.target as vs make tgt.target as vt then Reference(vs,vt)
-  "Provenance-period" : for src.period as vs make tgt.period as vt then Period(vs,vt)
-  "Provenance-recorded" : for src.recorded as vs make tgt.recorded as vt then instant(vs, vt)
-  "Provenance-activity" : for src.activity().getCoding as vs make tgt.activity as vt then Coding(vs,vt)
-  "Provenance-location" : for src.location as vs make tgt.location as vt then Reference(vs,vt)
-  "Provenance-policy" : for src.policy as vs make tgt.policy as vt then uri(vs, vt)
-  "Provenance-agent" : for src.agent as vs0 make tgt.agent as vt0 then {
-    "Provenance.agent-role" : for vs0.role as vs make vt0.role as vt then Coding(vs,vt)
-    "Provenance.agent-who" : for vs0.actor as vs make vt0.who as vt then Reference(vs,vt)
-  }
-  "Provenance-entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity-role" : for vs0.role as vs make vt0.role as vt then code(vs, vt)
-  }
-  "Provenance-signature" : for src.signature as vs make tgt.signature as vt then Signature(vs,vt)
+  "Provenance-target" : for src.target make tgt.target
+  "Provenance-period" : for src.period make tgt.period
+  "Provenance-recorded" : for src.recorded make tgt.recorded
+  "Provenance-activity" : for src.reason make tgt.reason
+  "Provenance-activity" : for src.activity make tgt.activity
+  "Provenance-location" : for src.location make tgt.location
+  "Provenance-policy" : for src.policy make tgt.policy
+  "Provenance-agent" : for src.agent as vs0 make tgt.agent as vt0 then prAgent(vs0, vt0) 
+  "Provenance-entity" : for src.entity as vs0 make tgt.entity as vt0 then prEntity(vs0, vt0)
+  "Provenance-signature" : for src.signature make tgt.signature
 endgroup
 
+group prAgent extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Provenance.agent-role" : for src.role make tgt.role 
+  "Provenance.agent-who" : for src.actor make tgt.who 
+  // "Provenance.agent-userId" : for src.userId make ??
+  // related agent ??
+endgroup
+
+group prEntity extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Provenance.entity-role" : for src.role make tgt.role
+  // "Provenance.entity-type" : for src.type make ...?
+  // "Provenance.entity-role" : for src.reference make ...?
+  // "Provenance.entity-role" : for src.display make ...?
+  "Provenance.entity-agent" : for src.agent as vs0 make tgt.agent as vt0 then prAgent(vs0, vt0) 
+endgroup

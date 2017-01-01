@@ -3,31 +3,42 @@
 uses "http://hl7.org/fhir/StructureDefinition/Provenance" alias Provenance as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Provenance" alias ProvenanceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Signature3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Provenance extends DomainResource
   input src : Provenance as source
   input tgt : ProvenanceR2 as target
 
+
   "Provenance-target" : for src.target make tgt.target
   "Provenance-period" : for src.period make tgt.period
   "Provenance-recorded" : for src.recorded make tgt.recorded
+  "Provenance-activity" : for src.reason make tgt.reason
+  "Provenance-activity" : for src.activity make tgt.activity
   "Provenance-location" : for src.location make tgt.location
   "Provenance-policy" : for src.policy make tgt.policy
-  "Provenance-agent" : for src.agent as vs0 make tgt.agent as vt0 then {
-    "Provenance.agent-role" : for vs0.role make vt0.role
-    "Provenance.agent-actor" : for vs0.whoReference make vt0.actor
-  }
-
-  "Provenance-entity" : for src.entity as vs0 make tgt.entity as vt0 then {
-    "Provenance.entity-role" : for vs0.role make vt0.role
-  }
-
+  "Provenance-agent" : for src.agent as vs0 make tgt.agent as vt0 then prAgent(vs0, vt0) 
+  "Provenance-entity" : for src.entity as vs0 make tgt.entity as vt0 then prEntity(vs0, vt0)
   "Provenance-signature" : for src.signature make tgt.signature
+endgroup
 
+group prAgent extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Provenance.agent-role" : for src.role make tgt.role 
+  "Provenance.agent-who" : for src.who make tgt.actor
+  // "Provenance.agent-userId" : for src.userId make ??
+  // related agent ??
+endgroup
+
+group prEntity extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Provenance.entity-role" : for src.role make tgt.role
+  // "Provenance.entity-type" : for src.type make ...?
+  // "Provenance.entity-role" : for src.reference make ...?
+  // "Provenance.entity-role" : for src.display make ...?
+  "Provenance.entity-agent" : for src.agent as vs0 make tgt.agent as vt0 then prAgent(vs0, vt0) 
 endgroup

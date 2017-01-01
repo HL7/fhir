@@ -9,9 +9,12 @@ OperationDefinition
 SearchParameter
 ValueSet
 StructureDefinition
+Bundle
+DataElement
 
 
-Category 2: except from Conversion
+
+Category 2: excempt from Conversion
 ----------------------------------
 * new since R2, or was never maintained (FM)
 ActivityDefinition
@@ -50,7 +53,7 @@ TestReport
 
 Category 3: Allocated to a person
 ---------------------------------
-Grahame: CapabilityStatement, DataElement, , 
+Grahame: CapabilityStatement
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)
@@ -61,8 +64,6 @@ AllergyIntolerance
 Basic
 Binary
 BodySite
-Bundle <!-- do bundle last - dependencies on lots of other things
-CapabilityStatement
 CarePlan
 CareTeam
 ClinicalImpression

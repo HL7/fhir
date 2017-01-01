@@ -338,7 +338,8 @@ public class Element extends Base {
       if (childForValue.property.getName().endsWith("[x]"))
         childForValue.name = name+Utilities.capitalize(childForValue.type);
       else if (value.isResource()) {
-        childForValue.elementProperty = childForValue.property;
+        if (childForValue.elementProperty == null)
+          childForValue.elementProperty = childForValue.property;
         childForValue.property = ve.property;
         childForValue.special = SpecialElement.BUNDLE_ENTRY;
       }

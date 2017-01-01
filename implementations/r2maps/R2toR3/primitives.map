@@ -187,6 +187,13 @@ group for types stringToId extends Element
   "stringToId-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types idToString extends Element
+  input src : idR2 as source
+  input tgt : string as target
+
+  "stringToId-value" : for src.value as v make tgt.value = v
+endgroup
+
 group for types stringToUri extends Element
   input src : stringR2 as source
   input tgt : uri as target

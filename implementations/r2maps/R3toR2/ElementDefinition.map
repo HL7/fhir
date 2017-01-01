@@ -5,11 +5,12 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ElementDefinition" alias Ele
 
 imports "http://hl7.org/fhir/StructureMap/*3to2"
 
-group for type+types  ElementDefinition extends Element
+group for type+types  ElementDefinition
   input srcR : Resource as source
   input src : ElementDefinition as source
   input tgt : ElementDefinitionR2 as target
 
+  "ElementDefinition-extensions" : for src.extension make tgt.extension
   "ElementDefinition-path" : for src.path make tgt.path
   "ElementDefinition-name" : for src.sliceName make tgt.name
   "ElementDefinition-representation" : for src.representation where $this = 'xmlAttr' make tgt.representation
@@ -58,11 +59,7 @@ group for type+types  ElementDefinition extends Element
   "ElementDefinition-isModifier" : for src.isModifier make tgt.isModifier
   "ElementDefinition-isSummary" : for src.isSummary make tgt.isSummary
   "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
-  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "ElementDefinition.mapping-identity" : for vs0.identity make vt0.identity
-    "ElementDefinition.mapping-language" : for vs0.language make vt0.language
-    "ElementDefinition.mapping-map" : for vs0.map make vt0.map
-  }
+  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then mapping(vs0, vt0)
 endgroup
 
 group binding extends Element
@@ -93,4 +90,13 @@ group constraint extends Element
   "ElementDefinition.constraint-severity" : for src.severity make tgt.severity
   "ElementDefinition.constraint-human" : for src.human make tgt.human
   "ElementDefinition.constraint-xpath" : for src.xpath make tgt.xpath
+endgroup
+
+group mapping extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.mapping-identity" : for src.identity make tgt.identity
+  "ElementDefinition.mapping-language" : for src.language make tgt.language
+  "ElementDefinition.mapping-map" : for src.map make tgt.map
 endgroup

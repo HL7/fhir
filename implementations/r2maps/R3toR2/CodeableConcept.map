@@ -23,3 +23,11 @@ group for types CodeableConceptToCoding extends Element
 
   "CodeableConcept-coding" : for src.coding only_one as vs then Coding(vs, tgt)
 endgroup
+
+group for types CodingToCodeableConcept extends Element
+  input src : Coding as source
+  input tgt : CodeableConceptR2 as target
+
+  "CodingToCodeableConcept-coding" : for src make tgt.coding as vt then Coding(src, vt)
+
+endgroup

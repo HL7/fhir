@@ -1597,7 +1597,7 @@ public class StructureMapUtilities {
 	        tn = getParamStringNoNull(vars, tgt.getParameter().get(0), tgt.toString());
 	      Base res = services != null ? services.createType(context.getAppInfo(), tn) : ResourceFactory.createResourceOrType(tn);
 	      if (res.isResource() && !res.fhirType().equals("Parameters")) {
-	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
+//	        res.setIdBase(tgt.getParameter().size() > 1 ? getParamString(vars, tgt.getParameter().get(0)) : UUID.randomUUID().toString().toLowerCase());
 	        if (services != null) 
 	          res = services.createResource(context.getAppInfo(), res);
 	      }

@@ -5,11 +5,12 @@ uses "http://hl7.org/fhir/StructureDefinition/ElementDefinition" alias ElementDe
 
 imports "http://hl7.org/fhir/StructureMap/*2to3"
 
-group for type+types  ElementDefinition extends Element
+group for type+types  ElementDefinition
   input src : ElementDefinitionR2 as source
   input tgt : ElementDefinition as target
   input first : boolean as target
 
+  "ElementDefinition-extensions" : for src.extension make tgt.extension
   "ElementDefinition-id" : for src.path make tgt.id
   "ElementDefinition-path" : for src.path make tgt.path
   "ElementDefinition-representation" : for src.representation make tgt.representation
@@ -54,11 +55,7 @@ group for type+types  ElementDefinition extends Element
   "ElementDefinition-isModifier" : for src.isModifier make tgt.isModifier
   "ElementDefinition-isSummary" : for src.isSummary make tgt.isSummary
   "ElementDefinition-binding" : for src.binding as vs0 make tgt.binding as vt0 then binding(vs0, vt0)
-  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then {
-    "ElementDefinition.mapping-identity" : for vs0.identity make vt0.identity
-    "ElementDefinition.mapping-language" : for vs0.language make vt0.language
-    "ElementDefinition.mapping-map" : for vs0.map make vt0.map
-  }
+  "ElementDefinition-mapping" : for src.mapping as vs0 make tgt.mapping as vt0 then mapping(vs0, vt0)
 endgroup
 
 group binding extends Element
@@ -90,4 +87,13 @@ group constraint extends Element
   "ElementDefinition.constraint-human" : for src.human make tgt.human
   "ElementDefinition.constraint-xpath" : for src.xpath make tgt.xpath
   "ElementDefinition.constraint-expression" : for src make tgt.expression = "todo"
+endgroup
+
+group mapping extends Element
+  input src as source
+  input tgt as target
+  
+  "ElementDefinition.mapping-identity" : for src.identity make tgt.identity
+  "ElementDefinition.mapping-language" : for src.language make tgt.language
+  "ElementDefinition.mapping-map" : for src.map make tgt.map
 endgroup

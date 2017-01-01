@@ -254,7 +254,7 @@
     "string": {},
     "example": {
       "errors": [
-        "No matches found for rule for \u0027CodeableConcept/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/StructureDefinition2to3, from rule \u0027\"StructureDefinition-jurisdiction\"\u0027"
+        "Round trip failed: Attributes differ at /StructureDefinition/snapshot/element/type/code: value Resource/DiagnosticReport"
       ]
     },
     "StructureDefinition": {},
@@ -367,10 +367,10 @@
   "BodySite": {
     "example": {
       "errors": [
-        "[R3 validation error] BodySite.code.coding: null",
-        "[R3 validation error] BodySite.modifier[1].coding: null",
-        "[R3 validation error] BodySite.modifier[2].coding: null",
-        "[R3 validation error] BodySite.modifier[3].coding: null"
+        "[R3 validation error] BodySite.code.coding: Error validating code \"53120007\" in system \"http://snomed.info/sct\": null",
+        "[R3 validation error] BodySite.modifier[1].coding: Error validating code \"419161000\" in system \"http://snomed.info/sct\": null",
+        "[R3 validation error] BodySite.modifier[2].coding: Error validating code \"261183002\" in system \"http://snomed.info/sct\": null",
+        "[R3 validation error] BodySite.modifier[3].coding: Error validating code \"255549009\" in system \"http://snomed.info/sct\": null"
       ]
     }
   },
@@ -379,7 +379,7 @@
     "bundle-response": {},
     "bundle-transaction": {
       "errors": [
-        "Round trip failed: Names differ at /Bundle/entry/resource/Patient: text/id"
+        "[R3 validation error] Bundle.entry[8].resource.parameter.valueCoding: Error null validating Coding"
       ]
     },
     "conceptmaps": {},
@@ -1841,11 +1841,7 @@
     "7546D": {}
   },
   "DataElement": {
-    "gender": {
-      "errors": [
-        "NullPointerException"
-      ]
-    },
+    "gender": {},
     "prothrombin": {},
     "dataelement-sdc-profile-example": {},
     "dataelement-sdc-profile-example-de": {
@@ -2138,21 +2134,9 @@
     "ukp": {}
   },
   "Media": {
-    "example": {
-      "errors": [
-        "Round trip failed: Attributes differ at /Media/content: missing attribute id"
-      ]
-    },
-    "1.2.840.11361907579238403408700.3.0.14.19970327150033": {
-      "errors": [
-        "[R3 validation error] Media.view.coding: null"
-      ]
-    },
-    "sound": {
-      "errors": [
-        "Round trip failed: Attributes differ at /Media/content: missing attribute id"
-      ]
-    }
+    "example": {},
+    "1.2.840.11361907579238403408700.3.0.14.19970327150033": {},
+    "sound": {}
   },
   "Medication": {
     "f001": {
@@ -2536,11 +2520,7 @@
         "Round trip failed: node mismatch - more nodes in source in children of /OperationDefinition/parameter"
       ]
     },
-    "StructureDefinition-questionnaire": {
-      "errors": [
-        "[R3 validation error] OperationDefinition.parameter[2].type: The value provided (\u0027token\u0027) is not in the value set http://hl7.org/fhir/ValueSet/all-types (http://hl7.org/fhir/ValueSet/all-types, and a code is required from this value set) (error message \u003d Unknown Code token in http://hl7.org/fhir/ValueSet/all-types)"
-      ]
-    },
+    "StructureDefinition-questionnaire": {},
     "ValueSet-expand": {},
     "ValueSet-lookup": {},
     "ValueSet-validate-code": {},
@@ -2599,11 +2579,7 @@
     "1832473e-2fe0-452d-abe9-3cdb9879522f": {}
   },
   "Parameters": {
-    "example": {
-      "errors": [
-        "[R3 validation error] Parameters.parameter[2]: A parameter must have only one of (value, resource, part) [(part.exists() and value.empty() and resource.empty()) or (part.empty() and (value.exists() xor resource.exists()))]"
-      ]
-    }
+    "example": {}
   },
   "Patient": {
     "example": {
@@ -2835,12 +2811,12 @@
   "Provenance": {
     "example": {
       "errors": [
-        "Error at 24, 7: Found \")\" expecting \":\""
+        "[R3 validation error] Provenance.reason: Error validating code \"3457005\" in system \"http://snomed.info/sct\": null"
       ]
     },
     "signature": {
       "errors": [
-        "Error at 24, 7: Found \")\" expecting \":\""
+        "Round trip failed: node mismatch - more nodes in source in children of /Provenance/agent"
       ]
     }
   },
