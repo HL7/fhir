@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/MessageHeader" alias MessageHeader as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MessageHeader" alias MessageHeaderR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  MessageHeader extends DomainResource
   input src : MessageHeader as source
@@ -15,11 +11,9 @@ group for type+types  MessageHeader extends DomainResource
 
   "MessageHeader-timestamp" : for src.timestamp make tgt.timestamp
   "MessageHeader-event" : for src.event make tgt.event
-  "MessageHeader-response" : for src.response as vs0 make tgt.response as vt0 then {
-    "MessageHeader.response-identifier" : for vs0.identifier make vt0.identifier
-    "MessageHeader.response-code" : for vs0.code make vt0.code
-    "MessageHeader.response-details" : for vs0.details make vt0.details
-  }
+  "MessageHeader-response" : for src.response as vs0 make tgt.response as vt0 then mshResponse(vs0, vt0)
+  "MessageHeader-source" : for src.source as vs0 make tgt.source as vt0 then mshSource(vs0, vt0)
+  "MessageHeader-destination" : for src.destination as vs0 make tgt.destination as vt0 then mshDestination(vs0, vt0)
 
   "MessageHeader-enterer" : for src.enterer make tgt.enterer
   "MessageHeader-author" : for src.author make tgt.author
@@ -28,4 +22,33 @@ group for type+types  MessageHeader extends DomainResource
   "MessageHeader-reason" : for src.reason make tgt.reason
   "MessageHeader-data" : for src.data make tgt.data
 
+endgroup
+
+group mshResponse extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MessageHeader.response-identifier" : for src.identifier make tgt.identifier
+  "MessageHeader.response-code" : for src.code make tgt.code
+  "MessageHeader.response-details" : for src.details make tgt.details
+endgroup
+
+group mshSource extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MessageHeader.source-name" : for src.name make tgt.name
+  "MessageHeader.source-software" : for src.software make tgt.software
+  "MessageHeader.source-version" : for src.version make tgt.version
+  "MessageHeader.source-contact" : for src.contact make tgt.contact
+  "MessageHeader.source-endpoint" : for src.endpoint make tgt.endpoint
+endgroup
+
+group mshDestination extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MessageHeader.source-name" : for src.name make tgt.name
+  "MessageHeader.source-target" : for src.target make tgt.target
+  "MessageHeader.source-endpoint" : for src.endpoint make tgt.endpoint
 endgroup

@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Composition" alias CompositionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Composition" alias Composition as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Composition extends DomainResource
   input src : CompositionR2 as source
@@ -20,20 +15,44 @@ group for type+types  Composition extends DomainResource
   "Composition-class" : for src.class make tgt.class
   "Composition-title" : for src.title make tgt.title
   "Composition-status" : for src.status make tgt.status
+  "Composition-confidentiality" : for src.confidentiality make tgt.confidentiality
   "Composition-subject" : for src.subject make tgt.subject
   "Composition-author" : for src.author make tgt.author
-  "Composition-attester" : for src.attester as vs0 make tgt.attester as vt0 then {
-    "Composition.attester-time" : for vs0.time make vt0.time
-    "Composition.attester-party" : for vs0.party make vt0.party
-  }
-
+  "Composition-attester" : for src.attester as vs0 make tgt.attester as vt0 then cmpAttester(vs0, vt0)
   "Composition-custodian" : for src.custodian make tgt.custodian
-  "Composition-event" : for src.event as vs0 make tgt.event as vt0 then {
-    "Composition.event-code" : for vs0.code make vt0.code
-    "Composition.event-period" : for vs0.period make vt0.period
-    "Composition.event-detail" : for vs0.detail make vt0.detail
-  }
-
+  "Composition-event" : for src.event as vs0 make tgt.event as vt0 then cmpEvent(vs0, vt0)
+  "Composition-section" : for src.section as vs0 make tgt.section as vt0 then cmpSection(vs0, vt0)
   "Composition-encounter" : for src.encounter make tgt.encounter
+endgroup
 
+group cmpAttester extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Composition.attester-mode" : for src.mode make tgt.mode
+  "Composition.attester-time" : for src.time make tgt.time
+  "Composition.attester-party" : for src.party make tgt.party
+endgroup
+
+group cmpEvent extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Composition.event-code" : for src.code make tgt.code
+  "Composition.event-period" : for src.period make tgt.period
+  "Composition.event-detail" : for src.detail make tgt.detail
+endgroup
+
+group cmpSection extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Composition.section-title" : for src.title make tgt.title
+  "Composition.section-code" : for src.code make tgt.code
+  "Composition.section-text" : for src.text make tgt.text
+  "Composition.section-mode" : for src.mode make tgt.mode
+  "Composition.section-orderedBy" : for src.orderedBy make tgt.orderedBy
+  "Composition.section-entry" : for src.entry make tgt.entry
+  "Composition.section-emptyReason" : for src.emptyReason make tgt.emptyReason
+  "Composition.section-section" : for src.section as vs0 make tgt.section as vt0 then cmpSection(vs0, vt0)
 endgroup

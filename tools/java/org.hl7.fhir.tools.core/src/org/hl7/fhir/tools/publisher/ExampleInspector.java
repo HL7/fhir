@@ -58,7 +58,7 @@ public class ExampleInspector {
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
-  private static final boolean VALIDATE_RDF = true;
+  private static final boolean VALIDATE_RDF = false;
   
   
   private IWorkerContext context;

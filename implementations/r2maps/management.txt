@@ -1,6 +1,8 @@
 Category 1: Passing all tests
 -----------------------------
 AuditEvent
+Binary
+BodySite
 ConceptMap
 Flag
 ImplementationGuide
@@ -11,8 +13,15 @@ ValueSet
 StructureDefinition
 Bundle
 DataElement
-
-
+Parameters
+Subscription
+List
+Media
+OperationOutcome
+MessageHeader
+DocumentReference
+DocumentManifest
+Composition
 
 Category 2: excempt from Conversion
 ----------------------------------
@@ -53,7 +62,7 @@ TestReport
 
 Category 3: Allocated to a person
 ---------------------------------
-Grahame: CapabilityStatement
+Grahame: CapabilityStatement, Provenance, Basic
 Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)
@@ -61,16 +70,11 @@ Stephen: (todo)
 Category 4: To be analysed / queued
 -----------------------------------
 AllergyIntolerance
-Basic
-Binary
-BodySite
 CarePlan
 CareTeam
 ClinicalImpression
 Communication
 CommunicationRequest
-CompartmentDefinition
-Composition
 Condition (aka Problem)
 Contract
 DetectedIssue
@@ -81,8 +85,6 @@ DeviceUseRequest
 DeviceUseStatement
 DiagnosticRequest
 DiagnosticReport
-DocumentManifest
-DocumentReference
 FamilyMemberHistory
 Flag
 Goal
@@ -90,26 +92,19 @@ Group
 ImagingStudy
 Immunization
 ImmunizationRecommendation
-List
-Media
 Medication
 MedicationAdministration
 MedicationDispense
 MedicationRequest
 MedicationStatement
-MessageHeader
 Observation
-OperationOutcome
-Parameters
 Procedure
 ProcedureRequest
-Provenance
 Questionnaire
 QuestionnaireResponse
 ReferralRequest
 RiskAssessment
 Specimen
-Subscription
 Substance
 SupplyDelivery
 SupplyRequest

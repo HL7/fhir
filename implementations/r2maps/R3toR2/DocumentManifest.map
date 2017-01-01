@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/DocumentManifest" alias DocumentManifest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentManifest" alias DocumentManifestR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DocumentManifest extends DomainResource
   input src : DocumentManifest as source
@@ -24,15 +19,21 @@ group for type+types  DocumentManifest extends DomainResource
   "DocumentManifest-source" : for src.source make tgt.source
   "DocumentManifest-status" : for src.status make tgt.status
   "DocumentManifest-description" : for src.description make tgt.description
-  "DocumentManifest-content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentManifest.content-p-Attachment" : for vs0.p : Attachment as vs make vt0.p = create("Attachment") as vt then Attachment(vs, vt)
-    "DocumentManifest.content-p-Reference" : for vs0.p : Reference as vs make vt0.p = create("Reference") as vt then Reference(vs, vt)
-  }
-
-  "DocumentManifest-related" : for src.related as vs0 make tgt.related as vt0 then {
-    "DocumentManifest.related-identifier" : for vs0.identifier make vt0.identifier
-    "DocumentManifest.related-ref" : for vs0.ref make vt0.ref
-  }
-
-
+  "DocumentManifest-content" : for src.content as src make tgt.content as vt0 then dmContent(src, vt0)
+  "DocumentManifest-related" : for src.related as src make tgt.related as vt0 then dmRelated(src, vt0)
 endgroup
+
+group dmContent extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DocumentManifest.content-p-Attachment" : for src.p make tgt.p 
+endgroup  
+  
+group dmRelated extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DocumentManifest.related-identifier" : for src.identifier make tgt.identifier
+  "DocumentManifest.related-ref" : for src.ref make tgt.ref
+endgroup  

@@ -9,7 +9,6 @@ group for type+types  Provenance extends DomainResource
   input src : Provenance as source
   input tgt : ProvenanceR2 as target
 
-
   "Provenance-target" : for src.target make tgt.target
   "Provenance-period" : for src.period make tgt.period
   "Provenance-recorded" : for src.recorded make tgt.recorded

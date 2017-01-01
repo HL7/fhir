@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/DocumentReference" alias DocumentReference as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DocumentReference" alias DocumentReferenceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Coding3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DocumentReference extends DomainResource
   input src : DocumentReference as source
@@ -28,26 +21,48 @@ group for type+types  DocumentReference extends DomainResource
   "DocumentReference-indexed" : for src.indexed make tgt.indexed
   "DocumentReference-status" : for src.status make tgt.status
   "DocumentReference-docStatus" : for src.docStatus make tgt.docStatus
-  "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then {
-    "DocumentReference.relatesTo-code" : for vs0.code make vt0.code
-    "DocumentReference.relatesTo-target" : for vs0.target make vt0.target
-  }
-
+  "DocumentReference-relatesTo" : for src.relatesTo as vs0 make tgt.relatesTo as vt0 then drRelatesTo(vs0, vt0)
   "DocumentReference-description" : for src.description make tgt.description
   "DocumentReference-securityLabel" : for src.securityLabel make tgt.securityLabel
-  "DocumentReference-content" : for src.content as vs0 make tgt.content as vt0 then {
-    "DocumentReference.content-attachment" : for vs0.attachment make vt0.attachment
-    "DocumentReference.content-format" : for vs0.format make vt0.format
-  }
-
-  "DocumentReference-context" : for src.context as vs0 make tgt.context as vt0 then {
-    "DocumentReference.context-encounter" : for vs0.encounter make vt0.encounter
-    "DocumentReference.context-event" : for vs0.event make vt0.event
-    "DocumentReference.context-period" : for vs0.period make vt0.period
-    "DocumentReference.context-facilityType" : for vs0.facilityType make vt0.facilityType
-    "DocumentReference.context-practiceSetting" : for vs0.practiceSetting make vt0.practiceSetting
-    "DocumentReference.context-sourcePatientInfo" : for vs0.sourcePatientInfo make vt0.sourcePatientInfo
-  }
+  "DocumentReference-content" : for src.content as vs0 make tgt.content as vt0 then drContent(vs0, vt0)
+  "DocumentReference-context" : for src.context as vs0 make tgt.context as vt0 then drContext(vs0, vt0)
 
 
+endgroup
+
+group drRelatesTo extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DocumentReference.relatesTo-code" : for src.code make tgt.code
+  "DocumentReference.relatesTo-target" : for src.target make tgt.target
+endgroup
+
+group drContent extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "DocumentReference.content-attachment" : for src.attachment make tgt.attachment
+  "DocumentReference.content-format" : for src.format make tgt.format
+endgroup
+
+group drContext extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "DocumentReference.context-encounter" : for src.encounter make tgt.encounter
+  "DocumentReference.context-event" : for src.event make tgt.event
+  "DocumentReference.context-period" : for src.period make tgt.period
+  "DocumentReference.context-facilityType" : for src.facilityType make tgt.facilityType
+  "DocumentReference.context-practiceSetting" : for src.practiceSetting make tgt.practiceSetting
+  "DocumentReference.context-sourcePatientInfo" : for src.sourcePatientInfo make tgt.sourcePatientInfo
+  "DocumentReference.context-related" : for src.related as vs0 make tgt.related as vt0 then drrelated(vs0, vt0)
+endgroup
+
+group drrelated extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "DocumentReference.context.related-identifier" : for src.identifier make tgt.identifier
+  "DocumentReference.context.related-ref" : for src.ref make tgt.ref
 endgroup

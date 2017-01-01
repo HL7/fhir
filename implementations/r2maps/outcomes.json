@@ -1674,11 +1674,7 @@
     "example": {}
   },
   "Composition": {
-    "example": {
-      "errors": [
-        "[R3 validation error] Composition.attester: Profile http://hl7.org/fhir/StructureDefinition/Composition, Element \u0027Composition.attester.mode\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example": {}
   },
   "ConceptMap": {
     "101": {},
@@ -2006,11 +2002,7 @@
     }
   },
   "DocumentReference": {
-    "example": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /DocumentReference/context"
-      ]
-    }
+    "example": {}
   },
   "EligibilityRequest": {
     "52345": {}
@@ -2282,11 +2274,7 @@
     "medrx009": {}
   },
   "MessageHeader": {
-    "1cbdfb97-5859-48a4-8301-d54eab818d68": {
-      "errors": [
-        "[R3 validation error] MessageHeader: Profile http://hl7.org/fhir/StructureDefinition/MessageHeader, Element \u0027MessageHeader.source\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "1cbdfb97-5859-48a4-8301-d54eab818d68": {}
   },
   "NamingSystem": {
     "example": {},
