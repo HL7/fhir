@@ -97,7 +97,7 @@
 
  -- Row 20 -----------------------------------
   Element = ConceptMap.group.source
-  Card. = 1..1
+  Card. = 0..1
   Type = uri
   Short Name = Code System (if value set crosses code systems)
   Definition = An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)
