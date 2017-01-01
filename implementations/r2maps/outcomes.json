@@ -2814,11 +2814,7 @@
         "[R3 validation error] Provenance.reason: Error validating code \"3457005\" in system \"http://snomed.info/sct\": null"
       ]
     },
-    "signature": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /Provenance/agent"
-      ]
-    }
+    "signature": {}
   },
   "Questionnaire": {
     "3141": {

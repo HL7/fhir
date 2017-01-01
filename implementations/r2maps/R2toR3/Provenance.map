@@ -29,7 +29,9 @@ group prAgent extends BackboneElement
   
   "Provenance.agent-role" : for src.role make tgt.role 
   "Provenance.agent-who" : for src.actor make tgt.who 
-  // "Provenance.agent-userId" : for src.userId make ??
+  "Provenance.agent-userId" : for src.userId as su make tgt.who as tu then {
+    "Provenance.agent-userId2" : for su make tu.identifier as tu then Identifier(su, tu)
+  }
   // related agent ??
 endgroup
 

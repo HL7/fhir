@@ -27,8 +27,10 @@ group prAgent extends BackboneElement
   input tgt as target
   
   "Provenance.agent-role" : for src.role make tgt.role 
-  "Provenance.agent-who" : for src.who make tgt.actor
-  // "Provenance.agent-userId" : for src.userId make ??
+  "Provenance.agent-who" : for src.who where display.exists() or reference.exists() make tgt.actor
+  "Provenance.agent-userId" : for src.who as su where identifier.exists() then {
+    "Provenance.agent-userId2" : for su.identifier make tgt.userId
+  }
   // related agent ??
 endgroup
 
