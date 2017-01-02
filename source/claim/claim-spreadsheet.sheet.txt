@@ -566,7 +566,7 @@
   Element = Claim.prescription
   Card. = 0..1
   Type = Reference(MedicationRequest|VisionPrescription)
-  Short Name = Prescription
+  Short Name = Prescription authorizing services or products
   Definition = Prescription to support the dispensing of Pharmacy or Vision products.
   Requirements = For type=Pharmacy and Vision only.
   Comments = Should we create a group to hold multiple prescriptions and add a sequence number and on the line items a link to the sequence.
@@ -575,7 +575,7 @@
   Element = Claim.originalPrescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
-  Short Name = Original Prescription
+  Short Name = Original prescription if superceded by fulfiller
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the \'prescription\' and that from the physician becomes the \'original prescription\'.
   Comments = as above
 
@@ -701,7 +701,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = InformationCategory
-  Short Name = Category of information
+  Short Name = General class of information
   Definition = The general class of the information supplied: information; exception; accident, employment; onset, etc.
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
 
@@ -744,7 +744,7 @@
   Card. = 0..*
   UML = 0;115
   Type = =Diagnosis
-  Short Name = Diagnosis
+  Short Name = List of Diagnosis
   Definition = List of patient diagnosis for which care is sought.
 
  -- Row 49 -----------------------------------
@@ -769,9 +769,9 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DiagnosisType
-  Short Name = Type of Diagnosis
+  Short Name = Timing or nature of the diagnosis
   Definition = The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
-  Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
+  Requirements = May be required to adjudicate services rendered.
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
 
  -- Row 52 -----------------------------------
@@ -781,7 +781,7 @@
   Binding = DiagnosisRelatedGroup
   Short Name = Package billing code
   Definition = The package billing code, for example DRG, based on the assigned grouping code system.
-  Requirements = Required to adjudicate services rendered to the mandated grouping system.
+  Requirements = May be required to adjudicate services rendered to the mandated grouping system.
 
  -- Row 53 -----------------------------------
   Element = !Procedure Information
@@ -1542,7 +1542,7 @@
  -- Row 2 -----------------------------------
   Name = General-Claim-Oral-Average
   Identity = 100151
-  Description = Average dental Claim
+  Description = Average dental Claim with Information (Missing Teeth and Student)
   Filename = claim-example-oral-average.xml
 
  -- Row 3 -----------------------------------
@@ -1588,24 +1588,30 @@
   Filename = claim-example-institutional.xml
 
  -- Row 10 -----------------------------------
+  Name = General-Claim-Institutional-Rich
+  Identity = 960151
+  Description = Rich Institutional Service Claim
+  Filename = claim-example-institutional-rich.xml
+
+ -- Row 11 -----------------------------------
   Name = General-Claim-Professional-Simple
   Identity = 860150
   Description = Simple Pharmacy Service Claim
   Filename = claim-example-professional.xml
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = General-Claim-Pharmacy-Service
   Identity = 760150
   Description = Simple Pharmacy Service Claim
   Filename = claim-example-pharmacy.xml
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = General-Claim-Pharmacy-Medication
   Identity = 760151
   Description = Simple Pharmacy Medication Claim
   Filename = claim-example-pharmacy-medication.xml
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = General-Claim-Pharmacy-Compound
   Identity = 760152
   Description = Simple Pharmacy Compound Claim

@@ -1,59 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Coverage xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
- <id value="7546D"/>
+	<id value="7546D"/>
 
- <text>
-   <status value="generated"/>
-   <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
- </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
+	</text>
 
- <identifier>
-    <system value="http://xyz.com/codes/identifier"/>
-    <value value="AB9876"/>
- </identifier>
+	<identifier>
+		<system value="http://xyz.com/codes/identifier"/>
+		<value value="AB98761"/>
+	</identifier>
 
- <status value="active"/>
+	<status value="active"/>
 
- <type>
-  <coding>
-   <system value="http://hl7.org/fhir/v3/ActCode"/>
-   <code value="EHCPOL"/>
-   <display value="extended healthcare"/>
-  </coding>
- </type>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/v3/ActCode"/>
+			<code value="EHCPOL"/>
+			<display value="extended healthcare"/>
+		</coding>
+	</type>
 
- <subscriber>
-	<reference value="Patient/5"/>
- </subscriber>
- 
- <beneficiary>
-	<reference value="Patient/5"/>
- </beneficiary>
- 
- <relationship>
-   <coding>
-     <code value="self"/>
-   </coding>	 
- </relationship>
- 
- <period> 
-   <start value="2011-03-17"/>
-   <end value="2012-03-17"/>
- </period>
+	<subscriber>
+		<reference value="Patient/5"/>
+	</subscriber>
 
- <payor>
-  <reference value="Organization/2"/>
- </payor>
- 
- <group>
-   <group value="WESTAIR" />
-   <groupDisplay value="Western Airlines" />
-   <plan value="WESTAIR" />
-   <planDisplay value="Western Airlines" />
-   <subPlan value="D15C9" />
-   <subPlanDisplay value="Platinum" />
- </group>
- 
- <dependent value="1"/>
-  
+	<subscriberId value="AB9876"/>
+
+	<beneficiary>
+		<reference value="Patient/5"/>
+	</beneficiary>
+
+	<relationship>
+		<coding>
+			<code value="self"/>
+		</coding>	 
+	</relationship>
+
+	<period> 
+		<start value="2011-03-17"/>
+		<end value="2012-03-17"/>
+	</period>
+
+	<payor>
+		<reference value="Organization/2"/>
+	</payor>
+
+	<group>
+		<group value="WESTAIR" />
+		<groupDisplay value="Western Airlines" />
+		<plan value="WESTAIR" />
+		<planDisplay value="Western Airlines" />
+		<subPlan value="D15C9" />
+		<subPlanDisplay value="Platinum" />
+	</group>
+
+	<dependent value="1"/>
+
+	<order value="2"/> <!-- Second after the national medical coverage -->
+	
+	<network value="5"/>
+
+	<contract>
+		<reference value="Contract/563818"/>
+	</contract>
+
 </Coverage>

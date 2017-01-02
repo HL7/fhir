@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-09T09:18:38Z</LastSaved>
+  <LastSaved>2016-12-31T22:26:17Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,8 +20,7 @@
   <WindowWidth>15300</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2176,7 +2175,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Prescription</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Prescription authorizing services or products</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Prescription to support the dispensing of Pharmacy or Vision products.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2211,7 +2210,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Original Prescription</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Original prescription if superceded by fulfiller</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2775,7 +2774,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Category of information</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">General class of information</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The general class of the information supplied: information; exception; accident, employment; onset, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2976,7 +2975,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Diagnosis</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">List of Diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">List of patient diagnosis for which care is sought. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3081,11 +3080,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Type of Diagnosis</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Timing or nature of the diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type of the Diagnosis, for example: admitting, primary, secondary, discharge.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Required to adjudicate services rendered to the mandated diagnosis grouping system.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">May be required to adjudicate services rendered.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Diagnosis are presented in list order to their expected importance: primary, secondary, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3121,7 +3120,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The package billing code, for example DRG, based on the assigned grouping code system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Required to adjudicate services rendered to the mandated grouping system.</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">May be required to adjudicate services rendered to the mandated grouping system.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6060,13 +6059,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Zoom>120</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>40</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>13</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6082,7 +6081,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>42</ActiveRow>
+     <ActiveRow>24</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8178,7 +8177,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s141" ss:DefaultColumnWidth="171.75"
    ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0">
@@ -8228,7 +8227,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s145"><Data ss:Type="String">General-Claim-Oral-Average</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Average dental Claim</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Average dental Claim with Information (Missing Teeth and Student)</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">100151</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-oral-average.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>
@@ -8294,6 +8293,15 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Simple Institutional Service Claim</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">960150</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-institutional.xml</Data></Cell>
+    <Cell ss:StyleID="s135"/>
+    <Cell ss:StyleID="s146"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s145"><Data ss:Type="String">General-Claim-Institutional-Rich</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Rich Institutional Service Claim</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">960151</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-institutional-rich.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>
     <Cell ss:StyleID="s146"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -8670,13 +8678,12 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -8684,15 +8691,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>4</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

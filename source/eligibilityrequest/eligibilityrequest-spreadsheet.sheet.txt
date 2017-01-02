@@ -43,7 +43,7 @@
  -- Row 1 -----------------------------------
   Element = EligibilityRequest
   Type = DomainResource
-  Short Name = Eligibility request
+  Short Name = Determine insurance validity and scope of coverage
   Definition = The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.
   w5 = financial.support
 
@@ -191,7 +191,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitCategory
-  Short Name = Benefit Category
+  Short Name = Type of services covered
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
  -- Row 21 -----------------------------------
@@ -199,7 +199,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitSubCategory
-  Short Name = Benefit SubCategory
+  Short Name = Detailed services covered within the type
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
 === Sheet Search =====================================

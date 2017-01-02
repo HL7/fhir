@@ -154,7 +154,7 @@
   Element = ClaimResponse.insurer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Insurer
+  Short Name = Insurance issuing organization
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 9 -----------------------------------
@@ -259,7 +259,7 @@
   UML = 300;390
   Type = =Adjudication
   Short Name = Adjudication details
-  Definition = The adjudications results.
+  Definition = The adjudication results.
 
  -- Row 24 -----------------------------------
   Element = ClaimResponse.item.adjudication.category
@@ -274,7 +274,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdjudicationReason
-  Short Name = Adjudication reason
+  Short Name = Explanation of Adjudication outcome
   Definition = Adjudication reason such as limit reached.
 
  -- Row 26 -----------------------------------
@@ -323,7 +323,7 @@
   Card. = 0..*
   UML = 0;450
   Type = @ClaimResponse.item.adjudication
-  Short Name = Detail adjudication
+  Short Name = Detail level adjudication details
   Definition = The adjudications results.
 
  -- Row 33 -----------------------------------
@@ -358,7 +358,7 @@
   Card. = 0..*
   UML = 0;560
   Type = @ClaimResponse.item.adjudication
-  Short Name = Subdetail adjudication
+  Short Name = Subdetail level adjudication details
   Definition = The adjudications results.
 
  -- Row 38 -----------------------------------
@@ -597,7 +597,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = PaymentAdjustmentReason
-  Short Name = Reason for Payment adjustment
+  Short Name = Explanation for the non-claim adjustment
   Definition = Reason for the payment adjustment.
 
  -- Row 70 -----------------------------------
@@ -611,14 +611,14 @@
   Element = ClaimResponse.payment.amount
   Card. = 0..1
   Type = Money
-  Short Name = Payment amount
+  Short Name = Payable amount after adjustment
   Definition = Payable less any payment adjustment.
 
  -- Row 72 -----------------------------------
   Element = ClaimResponse.payment.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = Payment identifier
+  Short Name = Identifier of the payment instrument
   Definition = Payment identifier
   Committee Notes = G01, B.23
 
@@ -651,7 +651,7 @@
   Element = ClaimResponse.note.number
   Card. = 0..1
   Type = positiveInt
-  Short Name = Note Number for this note
+  Short Name = Sequence Number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
  -- Row 77 -----------------------------------
@@ -675,7 +675,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = Language
-  Short Name = Language
+  Short Name = Language if different from the resource
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
 
  -- Row 80 -----------------------------------

@@ -1395,7 +1395,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Insurer</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Insurer issuing the coverage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The Insurer who produced this adjudicated response.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1426,7 +1426,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverage inforce</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Coverage inforce indicator</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1642,7 +1642,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Benefit Category</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Type of services covered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Dental, Vision, Medical, Pharmacy, Rehab etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1675,7 +1675,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Benefit SubCategory</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Detailed services covered within the type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Dental: basic, major, ortho; Vision exam, glasses, contacts; etc</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1773,7 +1773,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Description of the benefit</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Description of the benefit or services covered</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">A richer description of the benefit, for example 'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services'.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4423,9 +4423,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>27</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4433,6 +4433,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4440,8 +4441,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

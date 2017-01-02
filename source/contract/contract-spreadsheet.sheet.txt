@@ -179,7 +179,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractAction
-  Short Name = Contract Action
+  Short Name = Action stipulated by this Contract
   Definition = Action stipulated by this Contract.
   RIM Mapping = e.g. JURISPOL
 
@@ -188,7 +188,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractActionReason
-  Short Name = Contract Action Reason
+  Short Name = Rationale for the stiplulated action
   Definition = Reason for action stipulated by this Contract.
   RIM Mapping = e.g. QUALIMP
 
@@ -197,7 +197,7 @@
   Card. = 0..*
   UML = 530;-20
   Type = =Agent
-  Short Name = Contract Agent
+  Short Name = Entity being ascribed responsibility
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
   Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
@@ -214,7 +214,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractActorRole
-  Short Name = Contract  Agent Role
+  Short Name = Role type of the agent
   Definition = Role type of agent assigned roles in this Contract.
 
  -- Row 17 -----------------------------------
@@ -653,7 +653,7 @@
   Path = Contract.issued
 
  -- Row 10 -----------------------------------
-  Name = ttopic
+  Name = term-topic
   Type = reference
   Description = The identity of the topic of the contract terms
   Path = Contract.term.topic

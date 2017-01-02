@@ -138,7 +138,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = CoverageType
-  Short Name = Type of coverage
+  Short Name = Type of coverage such as medical or accident
   Definition = The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
   Requirements = The order of application of coverages is dependent on the types of coverage.
   v2 Mapping = IN1-15

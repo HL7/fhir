@@ -161,14 +161,14 @@
   Element = EligibilityResponse.insurer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Insurer
+  Short Name = Insurer issuing the coverage
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 14 -----------------------------------
   Element = EligibilityResponse.inforce
   Card. = 0..1
   Type = boolean
-  Short Name = Coverage inforce
+  Short Name = Coverage inforce indicator
   Definition = Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.
 
  -- Row 15 -----------------------------------
@@ -212,7 +212,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = BenefitCategory
-  Short Name = Benefit Category
+  Short Name = Type of services covered
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
  -- Row 22 -----------------------------------
@@ -220,7 +220,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitSubCategory
-  Short Name = Benefit SubCategory
+  Short Name = Detailed services covered within the type
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
  -- Row 23 -----------------------------------
@@ -241,7 +241,7 @@
   Element = EligibilityResponse.insurance.benefitBalance.description
   Card. = 0..1
   Type = string
-  Short Name = Description of the benefit
+  Short Name = Description of the benefit or services covered
   Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
 
  -- Row 26 -----------------------------------

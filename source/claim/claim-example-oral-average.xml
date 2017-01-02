@@ -57,6 +57,46 @@
        <reference value="Practitioner/example"/>
      </provider>
    </careTeam>
+   
+   <information>
+     <sequence value="1"/>
+	 <category>
+	   <coding>
+	     <system value="http://hl7.org/fhir/claiminformationcategory"/>
+		 <code value="missingtooth"/>
+	   </coding>
+	 </category>
+	 <code>
+	   <coding>
+	     <system value="http://hl7.org/fhir/ex-tooth"/>
+		 <code value="15"/>
+	   </coding>
+	 </code>
+	 <timingDate value="2012-04-07"/>
+	 <reason>
+	   <coding>
+	     <system value="http://hl7.org/fhir/missingtoothreason"/>
+		 <code value="e"/> <!-- Extraction -->
+	   </coding>
+	 </reason>
+   </information>
+
+   <information>
+     <sequence value="2"/>
+	 <category>
+	   <coding>
+	     <system value="http://hl7.org/fhir/claiminformationcategory"/>
+		 <code value="exception"/>
+	   </coding>
+	 </category>
+	 <code>
+	   <coding>
+	     <system value="http://hl7.org/fhir/claim-exception"/>
+		 <code value="student"/>
+	   </coding>
+	 </code>
+	 <valueString value="Happy Valley Community College"/>
+   </information>
 
    <diagnosis>
     <sequence value="1"/>
@@ -166,10 +206,11 @@
       </coding>
 	 </service>
      <unitPrice>
-       <value value="750.00"/>
+       <value value="1000.00"/>
        <system value="urn:iso:std:iso:4217"/>
        <code value="USD"/> 
      </unitPrice> 
+	 <factor value="0.75"/> <!-- Student discount -->
      <net>
        <value value="750.00"/>
        <system value="urn:iso:std:iso:4217"/>

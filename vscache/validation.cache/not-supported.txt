@@ -6,6 +6,7 @@ http://hl7.org/fhir/pharmacy-refill
 http://fdi.org/fhir/oralsurfacecodes
 http://snomed.info/id
 http://hl7.org/fhir/pharmacy-form
+http://hl7.org/fhir/ValueSet/claim-careteamrole
 http://snomed/sct
 http://hl7.org/fhir/sid/ndc
 https://precision.fda.gov/files/
@@ -51,6 +52,8 @@ http://acme.lab
 https://www.usps.com/
 http://acme.org/lab/codes/panels
 http://acme.org/lab/codes/tests
+http://hl7.org/fhir/ValueSet/provider-qualification
+http://hl7.org/fhir/ValueSet/ex-diagnosistype
 http://acme.org/lab/codes/organisms
 http://orionhealth.com/fhir/apps/specialties
 https://hive.biochemistry.gwu.edu
@@ -76,6 +79,7 @@ http://hl7.org/fhir/ValueSet/v3-Ethnicity
 http://hl7.org/fhir/animal-breed
 http://orionhealth.com/fhir/apps/referraltypes
 http:/acme.ped/apgarcolor
+http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup
 http://hl7.org/fhir/patient-contact-relationship
 http://hl7.org/fhir/media-method
 http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
@@ -94,6 +98,7 @@ http://example.com
 http://tools.ietf.org/html/bcp47
 http://hl7.org/fhir/service-uscls
 http://www.ama-assn.org/go/cpt
+http://hl7.org/fhir/ValueSet/v3-ActIncidentCode
 http://snomed.info
 http://hl7.org.fhir/substance-category
 http://acme.org/devices/clinical-codes
