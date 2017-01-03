@@ -260,6 +260,12 @@
   Display = Last
   Definition = when the target list is being assembled, the items for this rule go last. If more that one rule defines a last item (for a given instance of mapping) then this is an error
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = collate
+  Display = Collate
+  Definition = re-use the first item in the list, and keep adding content to it
+
 === Sheet map-group-type-mode =====================================
 
  -- Row 1 -----------------------------------
@@ -631,7 +637,7 @@
   Summary = y
   Type = code
   Binding = StructureMapTargetListMode
-  Short Name = first | share | last
+  Short Name = first | share | last | collate
   Definition = If field is a list, how to manage the list
 
  -- Row 52 -----------------------------------

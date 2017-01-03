@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Dec 22, 2016 14:49+1100 for FHIR v1.9.0
+// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -55,7 +55,7 @@ public class ConceptMap extends MetadataResource {
         /**
          * An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        @Child(name = "source", type = {UriType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "source", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)." )
         protected UriType source;
 
@@ -94,14 +94,6 @@ public class ConceptMap extends MetadataResource {
      */
       public ConceptMapGroupComponent() {
         super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ConceptMapGroupComponent(UriType source) {
-        super();
-        this.source = source;
       }
 
         /**
@@ -143,9 +135,13 @@ public class ConceptMap extends MetadataResource {
          * @param value An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
         public ConceptMapGroupComponent setSource(String value) { 
+          if (Utilities.noString(value))
+            this.source = null;
+          else {
             if (this.source == null)
               this.source = new UriType();
             this.source.setValue(value);
+          }
           return this;
         }
 
