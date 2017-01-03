@@ -1,96 +1,137 @@
 <PaymentReconciliation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
- <id value="ER2500"/>
+	<id value="ER2500"/>
 
- <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the PaymentReconciliation</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the PaymentReconciliation</div>
+	</text>
 
-  <identifier>
-    <system value="http://www.BenefitsInc.com/fhir/enrollmentresponse"/>
-    <value value="781234"/>
-  </identifier>
-  
-  <status value="active"/>
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/enrollmentresponse"/>
+		<value value="781234"/>
+	</identifier>
 
-  <created value="2014-08-16"/>
+	<status value="active"/>
 
-  <organization>
-    <reference value="Organization/2"/>
-  </organization>
+	<period>
+		<start value="2014-08-16"/>
+		<end value="2014-08-31"/>
+	</period>
+	
+	<created value="2014-08-16"/>
 
-  <request>
-	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </request>
-  
-  <outcome>
-   <coding>
-    <system value="http://hl7.org/fhir/remittance-outcome" />
-	<code value="complete" />
-   </coding>
-  </outcome>
-  
-  <disposition value="2014 August mid-month settlement."/>
- 
-  <requestOrganization>
-    <reference value="Organization/1"/>
-  </requestOrganization>
- 
-  <detail>
-	<type>
-	  <coding>
-	   <system value="http://hl7.org/fhir/paymenttype"/>
-	   <code value="payment"/>
-	 </coding>
-	</type>
+	<organization>
+		<reference value="Organization/2"/>
+	</organization>
+
 	<request>
-		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332402"/>
+		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
 	</request>
-	<date value="2014-08-16"/>
-	<amount>
-		<value value="1000.00"/>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="complete" />
+		</coding>
+	</outcome>
+
+	<disposition value="2014 August mid-month settlement."/>
+
+	<requestProvider>
+		<reference value="Practitioner/example"/>
+	</requestProvider>
+
+	<requestOrganization>
+		<reference value="Organization/1"/>
+	</requestOrganization>
+
+	<detail>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/paymenttype"/>
+				<code value="payment"/>
+			</coding>
+		</type>
+		<request>
+			<identifier>
+				<system value="http://happyvalleyclinic.com/claim"/>
+				<value value="AB12345"/>
+			</identifier>
+		</request>
+		<response>
+			<identifier>
+				<system value="http://www.BenefitsInc.com/fhir/claimresponse"/>
+				<value value="CR20140815-AB12345"/>
+			</identifier>	
+		</response>
+		<submitter>
+			<reference value="Organization/1"/>
+		</submitter>
+		<payee>
+			<reference value="Organization/1"/>
+		</payee>
+		<date value="2014-08-16"/>
+		<amount>
+			<value value="1000.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</amount>   
+	</detail>
+
+	<detail>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/paymenttype"/>
+				<code value="payment"/>
+			</coding>
+		</type>
+		<request>
+			<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
+		</request>
+		<date value="2014-08-12"/>
+		<amount>
+			<value value="4000.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</amount>   
+	</detail>
+
+	<detail>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/paymenttype"/>
+				<code value="advance"/>
+			</coding>
+		</type>
+		<date value="2014-08-16"/>
+		<amount>
+			<value value="-1500.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/>
+		</amount>   
+	</detail>
+
+	<form>
+		<coding>
+			<system value="http://ncforms.org/formid"/>
+			<code value="PAYREC/2016/01B"/>
+		</coding>
+	</form>
+
+	<total>
+		<value value="3500.00"/>
 		<system value="urn:iso:std:iso:4217"/>
 		<code value="USD"/>
-	</amount>   
-  </detail>
- 
-  <detail>
-	<type>
-	  <coding>
-	   <system value="http://hl7.org/fhir/paymenttype"/>
-	   <code value="payment"/>
-	 </coding>
-	</type>
-	<request>
-		<reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/225476332699"/>
-	</request>
-	<date value="2014-08-12"/>
-	<amount>
-		<value value="4000.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/>
-	</amount>   
-  </detail>
- 
-  <detail>
-	<type>
-	  <coding>
-	   <system value="http://hl7.org/fhir/paymenttype"/>
-	   <code value="advance"/>
-	 </coding>
-	</type>
-	<date value="2014-08-16"/>
-	<amount>
-		<value value="-1500.00"/>
-		<system value="urn:iso:std:iso:4217"/>
-		<code value="USD"/>
-	</amount>   
-  </detail>
-  
-  <total>
-	<value value="3500.00"/>
-	<system value="urn:iso:std:iso:4217"/>
-	<code value="USD"/>
-  </total>  
- 
+	</total>  
+
+	<note>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="display"/>
+			</coding>
+		</type>
+		<text value="Due to the year end holiday the cutoff for submissions for December will be the 28th."/>
+	</note>
+
 </PaymentReconciliation>

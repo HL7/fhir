@@ -72,7 +72,6 @@
   Binding = PaymentReconciliationStatus
   Short Name = active | cancelled | draft | entered-in-error
   Definition = The status of the resource instance.
-  To Do = The category of claim this is
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -146,7 +145,7 @@
   Card. = 0..*
   UML = right
   Type = =Details
-  Short Name = Details
+  Short Name = List of settlements
   Definition = List of individual settlement amounts and the corresponding transaction.
 
  -- Row 17 -----------------------------------
@@ -175,14 +174,14 @@
   Element = PaymentReconciliation.detail.submitter
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Submitter
-  Definition = The Organization which submitted the invoice or financial transaction.
+  Short Name = Organization which submitted the claim
+  Definition = The Organization which submitted the claim or financial transaction.
 
  -- Row 21 -----------------------------------
   Element = PaymentReconciliation.detail.payee
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Payee
+  Short Name = Organization which is receiving the payment
   Definition = The organization which is receiving the payment.
   w5 = who.focus
 
@@ -197,7 +196,7 @@
   Element = PaymentReconciliation.detail.amount
   Card. = 0..1
   Type = Money
-  Short Name = Detail amount
+  Short Name = Amount being paid
   Definition = Amount paid for this detail.
 
  -- Row 24 -----------------------------------
@@ -235,7 +234,7 @@
   Card. = 0..*
   UML = left
   Type = =Notes
-  Short Name = Note text
+  Short Name = Processing comments
   Definition = Suite of notes
 
  -- Row 30 -----------------------------------
@@ -250,7 +249,7 @@
   Element = PaymentReconciliation.note.text
   Card. = 0..1
   Type = string
-  Short Name = Notes text
+  Short Name = Comment on the processing
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
