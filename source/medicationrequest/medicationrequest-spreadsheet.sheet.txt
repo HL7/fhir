@@ -173,6 +173,12 @@
   Display = Order
   Definition = The request represents a request/demand and authorization for action
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = instance-order
+  Display = Instance Order
+  Definition = The request represents an instance for the particular order, for example a medication administration record.
+
 === Sheet medication-request-category =====================================
 
  -- Row 1 -----------------------------------
@@ -220,6 +226,13 @@
   Definition = The order should be acted on as soon as possible.
 
 === Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = MedicationRequest.requester
+  English = onBehalfOf can only be specified if agent is practitioner or device
+  XPath = contains(f:agent, \'/Practitioner\') or contains(f:agent, \'/Device\') or not(exists(f:onBehalfOf))
+  Expression = (agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
 
 === Sheet Data Elements =====================================
 
@@ -288,7 +301,7 @@
   Summary = y
   Type = code
   Binding = MedicationRequestIntent
-  Short Name = proposal | plan | order
+  Short Name = proposal | plan | order | instance-order
   Definition = Whether the request is a proposal, plan, or an original order
   Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
   w5 = class
@@ -385,8 +398,9 @@
 
  -- Row 16 -----------------------------------
   Element = MedicationRequest.requester.onBehalfOf
-  Card. = 1..1
+  Card. = 0..1
   Summary = y
+  Inv. = 1
   Type = Reference (Organization)
   Short Name = Organization agent is acting for
   Definition = The organization the device or practitioner was acting on behalf of.
@@ -624,6 +638,12 @@
   Type = token
   Description = Returns prescriptions with different priorities
   Path = MedicationRequest.priority
+
+ -- Row 12 -----------------------------------
+  Name = intent
+  Type = token
+  Description = Returns prescriptions with different intents
+  Path = MedicationRequest.intent
 
 === Sheet Profiles =====================================
 

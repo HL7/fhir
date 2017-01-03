@@ -252,7 +252,7 @@
   Type = SimpleQuantity
   Short Name = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
-  v2 Mapping = RXD-12-Total Daily Dose
+  v2 Mapping = TQ1.6 Timing/Quantity Segment Service Duration.\rPrior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”\rFrom v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (<Quantity (NM)> ^ <Units (CWE)>), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^\rFor backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6
   RIM Mapping = effectiveUseTime
 
  -- Row 13 -----------------------------------

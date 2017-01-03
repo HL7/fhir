@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>732</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1296,7 +1296,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">proposal | plan | order </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">proposal | plan | order | instance-order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the request is a proposal, plan, or an original order</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3849,10 +3849,11 @@
    </Print>
    <Zoom>91</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3869,8 +3870,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4409,7 +4410,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4446,39 +4446,39 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C3,R2C5:R2C7</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048574]C1=&quot;&quot;,Invariants!R[1048574]C&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048573]C1=&quot;&quot;,Invariants!R[1048573]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2,R2C7,R2C5</Range>
    <Condition>
-    <Value1>(Invariants!R[1048574]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048574]C[16382]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>(Invariants!R[1048573]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048573]C[16381]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C7</Range>
    <Condition>
-    <Value1>LEFT(Invariants!R[1048574]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(Invariants!R[1048573]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>Invariants!R[1048574]C3=&quot;0..0&quot;</Value1>
+    <Value1>Invariants!R[1048573]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(Invariants!R[1048574]C[16378]&lt;&gt;&quot;&quot;,Invariants!R[1048574]C1=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048573]C[16375]&lt;&gt;&quot;&quot;,Invariants!R[1048573]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1,R2C4</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048574]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048573]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -4596,11 +4596,11 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">Returns prescriptions with different priorities</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">intent</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">MedicationRequest.intent</Data></Cell>
+    <Cell ss:StyleID="s121"><Data ss:Type="String">Returns prescriptions with different intents</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -4762,8 +4762,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7736,6 +7736,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8431,12 +8432,13 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="medication-request-intent">
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="5" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
    <Column ss:Index="6" ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="561"/>
    <Row ss:AutoFitHeight="0">
@@ -8493,6 +8495,12 @@
     <Cell><Data ss:Type="String">The request represents a request/demand and authorization for action</Data></Cell>
     <Cell ss:StyleID="s166"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">instance-order</Data></Cell>
+    <Cell><Data ss:Type="Number">4</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">Instance Order</Data></Cell>
+    <Cell><Data ss:Type="String">The request represents an instance for the particular order, for example a medication administration record.</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -8508,11 +8516,13 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <RangeSelection>R1C1:R4C9</RangeSelection>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -8608,6 +8618,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
