@@ -430,6 +430,17 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   }
 
   @Override
+  public List<String> getTypeNames() {
+    List<String> result = new ArrayList<String>();
+    for (StructureDefinition sd : structures.values()) {
+      if (sd.getKind() != StructureDefinitionKind.LOGICAL && sd.getDerivation() == TypeDerivationRule.SPECIALIZATION)
+        result.add(sd.getName());
+    }
+    Collections.sort(result);
+    return result;
+  }
+
+  @Override
   public String getAbbreviation(String name) {
     return "xxx";
   }

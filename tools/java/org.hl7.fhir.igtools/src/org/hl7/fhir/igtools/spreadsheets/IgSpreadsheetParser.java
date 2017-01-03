@@ -272,7 +272,7 @@ public class IgSpreadsheetParser {
         sd.setBaseDefinition(sd.getDifferential().getElementFirstRep().getType().get(0).getTargetProfile());
       else
         sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+sd.getType());
-      if (!context.getResourceNames().contains(sd.getType()))
+      if (!context.getResourceNames().contains(sd.getType()) && !context.getTypeNames().contains(sd.getType()))
         throw new Exception("Unknown Resource "+sd.getType());
     }
     sd.getDifferential().getElementFirstRep().getType().clear();

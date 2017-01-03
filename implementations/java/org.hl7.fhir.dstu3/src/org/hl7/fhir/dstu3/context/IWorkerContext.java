@@ -154,6 +154,7 @@ public interface IWorkerContext {
   // -- profile services ---------------------------------------------------------
   
   public List<String> getResourceNames();
+  public List<String> getTypeNames();
   public List<StructureDefinition> allStructures();
   public List<MetadataResource> allConformanceResources();
   
@@ -349,4 +350,5 @@ public interface IWorkerContext {
   public void setLogger(ILoggingService logger);
 
   public boolean isNoTerminologyServer();
+
 }

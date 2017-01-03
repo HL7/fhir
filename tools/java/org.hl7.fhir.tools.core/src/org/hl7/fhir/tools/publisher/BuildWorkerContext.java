@@ -68,6 +68,7 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.exceptions.UcumException;
+import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.OIDUtils;
@@ -1070,6 +1071,14 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   @Override
   public boolean hasCache() {
     return true;
+  }
+
+  @Override
+  public List<String> getTypeNames() {
+    List<String> names = new ArrayList<String>();
+    for (TypeRef tr : definitions.getKnownTypes())
+      names.add(tr.getName());
+    return names;
   }
 
 
