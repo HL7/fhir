@@ -110,6 +110,7 @@ import org.hl7.fhir.dstu3.conformance.ProfileComparer;
 import org.hl7.fhir.dstu3.conformance.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
+import org.hl7.fhir.dstu3.context.IWorkerContext.ILoggingService;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
@@ -209,7 +210,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver  {
+public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService  {
 
 
   public class PageEvaluationContext implements IEvaluationContext {
@@ -7181,6 +7182,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
     workerContext = new BuildWorkerContext(definitions, client, definitions.getCodeSystems(), definitions.getValuesets(), conceptMaps, profiles);
     workerContext.setDefinitions(definitions);
+    workerContext.setLogger(this);
     workerContext.initTS(Utilities.path(folders.rootDir, "vscache"), tsServer);
     vsValidator = new ValueSetValidator(workerContext, definitions.getVsFixups(), definitions.getStyleExemptions());
     breadCrumbManager.setContext(workerContext);
@@ -8329,6 +8331,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     if (evaluationContext == null)
       evaluationContext = new PageEvaluationContext();
     return evaluationContext;
+  }
+
+  @Override
+  public void logMessage(String message) {
+    System.out.println(message);
+  }
+
+  @Override
+  public void logDebugMessage(LogCategory category, String message) {
+//     System.out.println(message);    
   }
   
   
