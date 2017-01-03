@@ -15,8 +15,22 @@
  
   <action value="poll"/>
 
+  <target>
+    <identifier>
+	  <system value="http://ninsurers.org/payorid"/>
+	  <value value="WI12345"/>
+	</identifier>
+  </target>
+  
   <created value="2014-08-16"/>
 
+  <provider>
+    <identifier>
+	  <system value="http://npid.org/providerid"/>
+	  <value value="AF12345"/>
+	</identifier>
+  </provider>
+  
   <organization>
     <reference value="Organization/1"/>
   </organization>

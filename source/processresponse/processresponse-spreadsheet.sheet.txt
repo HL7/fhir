@@ -144,8 +144,8 @@
   Element = ProcessResponse.note
   Card. = 0..*
   UML = right
-  Short Name = Notes
-  Definition = Suite of processing note or additional requirements is the processing has been held.
+  Short Name = Processing comments or additional requirements
+  Definition = Suite of processing notes or additional requirements if the processing has been held.
 
  -- Row 17 -----------------------------------
   Element = ProcessResponse.note.type
@@ -159,7 +159,7 @@
   Element = ProcessResponse.note.text
   Card. = 0..1
   Type = string
-  Short Name = Notes text
+  Short Name = Comment on the processing
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
@@ -270,5 +270,17 @@
   Identity = SR2500
   Description = General Eligibility Status Check Example
   Filename = processresponse-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = ProcessResponse-error
+  Identity = SR2349
+  Description = Sample ProcessResponse with error
+  Filename = processresponse-example-error.xml
+
+ -- Row 3 -----------------------------------
+  Name = ProcessResponse-pended
+  Identity = SR2499
+  Description = ProcessResponse with Pended status and request for additional information
+  Filename = processresponse-example-pended.xml
 
 === Sheet Examples =====================================

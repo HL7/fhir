@@ -1,0 +1,70 @@
+<ProcessResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
+	<id value="SR2349"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the ProcessResponse</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/processresponse"/>
+		<value value="ER987634"/>
+	</identifier>
+
+	<status value="active"/>
+
+	<created value="2014-07-14"/>
+
+	<organization>
+		<reference value="Organization/2"/>
+	</organization>
+
+	<request>
+		<reference value="http://happyvalley.com/fhir/claim/12204"/>
+	</request>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/processoutcomecodes"/>
+			<code value="error"/>
+		</coding>
+	</outcome>
+
+	<disposition value="Referred to claim not found on system."/>
+
+	<requestProvider>
+		<identifier>
+			<system value="http://npid.org/providerid"/>
+			<value value="AZ43258"/>
+		</identifier>
+	</requestProvider>
+
+	<requestOrganization>
+		<reference value="Organization/1"/>
+	</requestOrganization>
+
+	<form>
+		<coding>
+			<system value="http://ncforms.org/formid"/>
+			<code value="PRRESP/2016/01"/>
+		</coding>
+	</form>
+
+	<note>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/note-type"/>
+				<code value="print"/>
+			</coding>
+		</type>
+		<text value="Please check the submitted payor identification and local claim number."/>
+	</note>
+
+	<error>
+		<coding>
+			<system value="http://hl7.org/fhir/adjudication-error"/>
+			<code value="a001"/>
+		</coding>
+	</error>
+
+</ProcessResponse>

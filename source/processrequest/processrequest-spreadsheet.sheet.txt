@@ -55,7 +55,7 @@
   Element = ProcessRequest
   UML = 0;0
   Type = DomainResource
-  Short Name = Process request
+  Short Name = Request to perform some action on or in regards to an existing resource
   Definition = This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
   w5 = workflow.order
 
@@ -112,7 +112,7 @@
   Element = ProcessRequest.target
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Target of the request
+  Short Name = Party which is the target of the request
   Definition = The organization which is the target of the request.
   w5 = who.focus
 
@@ -145,21 +145,21 @@
   Element = ProcessRequest.request
   Card. = 0..1
   Type = Reference(Any)
-  Short Name = Request reference
+  Short Name = Reference to the Request resource
   Definition = Reference of resource which is the target or subject of this action.
 
  -- Row 13 -----------------------------------
   Element = ProcessRequest.response
   Card. = 0..1
   Type = Reference(Any)
-  Short Name = Response reference
+  Short Name = Reference to the Response resource
   Definition = Reference of a prior response to resource which is the target or subject of this action.
 
  -- Row 14 -----------------------------------
   Element = ProcessRequest.nullify
   Card. = 0..1
   Type = boolean
-  Short Name = Nullify
+  Short Name = Remove history
   Definition = If true remove all history excluding audit.
   Requirements = Some resources must not simply be reversed in a processing or accounting sense but rather must have all history removed, such as the accidental submission of sensitive and/or wrong information. If the receiver cannot comply with a Nullify request then they must reject the request.
 
@@ -203,7 +203,7 @@
   Element = ProcessRequest.period
   Card. = 0..1
   Type = Period
-  Short Name = Period
+  Short Name = Selection period
   Definition = A period of time during which the fulfilling resources would have been created.
 
 === Sheet Search =====================================
