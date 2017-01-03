@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Substance" alias Substance as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Substance" alias SubstanceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Substance extends DomainResource
   input src : Substance as source
@@ -18,15 +13,26 @@ group for type+types  Substance extends DomainResource
   "Substance-category" : for src.category make tgt.category
   "Substance-code" : for src.code make tgt.code
   "Substance-description" : for src.description make tgt.description
-  "Substance-instance" : for src.instance as vs0 make tgt.instance as vt0 then {
-    "Substance.instance-identifier" : for vs0.identifier make vt0.identifier
-    "Substance.instance-expiry" : for vs0.expiry make vt0.expiry
-    "Substance.instance-quantity" : for vs0.quantity make vt0.quantity
-  }
-
-  "Substance-ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then {
-    "Substance.ingredient-quantity" : for vs0.quantity make vt0.quantity
-  }
-
-
+  "Substance-instance" : for src.instance as vs0 make tgt.instance as vt0 then sbsInstance(vs0, vt0)
+  "Substance-ingredient" : for src.ingredient as vs0 make tgt.ingredient as vt0 then sbsIngredient(vs0, vt0) 
 endgroup
+
+
+group sbsInstance extends BackboneElement
+  input src : Substance as source
+  input tgt : SubstanceR2 as target
+
+  "Substance.instance-identifier" : for src.identifier make tgt.identifier
+  "Substance.instance-expiry" : for src.expiry make tgt.expiry
+  "Substance.instance-quantity" : for src.quantity make tgt.quantity
+endgroup
+
+group sbsIngredient extends BackboneElement
+  input src : Substance as source
+  input tgt : SubstanceR2 as target
+
+  "Substance.ingredient-quantity" : for src.quantity make tgt.quantity
+  "Substance.ingredient-substance" : for src.substance where $this is "Reference" make tgt.substance
+endgroup
+
+

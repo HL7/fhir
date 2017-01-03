@@ -22,6 +22,20 @@ MessageHeader
 DocumentReference
 DocumentManifest
 Composition
+Basic
+Observation
+Substance
+Group
+Flag
+Specimen
+Procedure
+Medication
+MedicationAdministration
+MedicationStatement
+MedicationDispense
+DiagnosticReport
+Account
+Appointment
 
 Category 2: excempt from Conversion
 ----------------------------------
@@ -59,15 +73,23 @@ ServiceDefinition
 StructureMap
 Task
 TestReport
+Account
+AppointmentResponse
+Encounter
+MedicationRequest
+EpisodeOfCare
+HealthcareService
+Location
 
 Category 3: Allocated to a person
 ---------------------------------
-Grahame: CapabilityStatement, Provenance, Basic
-Brian: Account, Appointment, AppointmentResponse, Encounter, EpisodeOfCare, HealthcareService, Location, Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
+Grahame: CapabilityStatement, 
+  - waiting on feedback/tasks: Provenance, DiagnosticRequest
+Brian: Organization, Patient, Person, Practitioner, PractitionerRole, RelatedPerson, Schedule, Slot
 Oliver: (todo)
 Stephen: (todo)
 
-Category 4: To be analysed / queued
+Category 4: To be analysed / queuedo
 -----------------------------------
 AllergyIntolerance
 CarePlan
@@ -83,29 +105,16 @@ DeviceComponent
 DeviceMetric
 DeviceUseRequest
 DeviceUseStatement
-DiagnosticRequest
-DiagnosticReport
 FamilyMemberHistory
-Flag
 Goal
-Group
 ImagingStudy
 Immunization
 ImmunizationRecommendation
-Medication
-MedicationAdministration
-MedicationDispense
-MedicationRequest
-MedicationStatement
-Observation
-Procedure
 ProcedureRequest
 Questionnaire
 QuestionnaireResponse
 ReferralRequest
 RiskAssessment
-Specimen
-Substance
 SupplyDelivery
 SupplyRequest
 TestScript

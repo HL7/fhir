@@ -3,15 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Patient" alias PatientR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Address2to3"
-imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
-imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Patient extends DomainResource
   input src : PatientR2 as source
@@ -23,24 +15,43 @@ group for type+types  Patient extends DomainResource
   "Patient-telecom" : for src.telecom make tgt.telecom
   "Patient-gender" : for src.gender make tgt.gender
   "Patient-birthDate" : for src.birthDate make tgt.birthDate
-  "Patient-deceased-boolean" : for src.deceased : boolean as vs make tgt.deceased = create("boolean") as vt then boolean(vs, vt)
-  "Patient-deceased-dateTime" : for src.deceased : dateTime as vs make tgt.deceased = create("dateTime") as vt then dateTime(vs, vt)
+  "Patient-deceased" : for src.deceased make tgt.deceased 
   "Patient-address" : for src.address make tgt.address
   "Patient-maritalStatus" : for src.maritalStatus make tgt.maritalStatus
-  "Patient-multipleBirth-boolean" : for src.multipleBirth : boolean as vs make tgt.multipleBirth = create("boolean") as vt then boolean(vs, vt)
-  "Patient-multipleBirth-integer" : for src.multipleBirth : integer as vs make tgt.multipleBirth = create("integer") as vt then integer(vs, vt)
+  "Patient-multipleBirth" : for src.multipleBirth make tgt.multipleBirth 
   "Patient-photo" : for src.photo make tgt.photo
-  "Patient-communication" : for src.communication as vs0 make tgt.communication as vt0 then {
-    "Patient.communication-language" : for vs0.language make vt0.language
-    "Patient.communication-preferred" : for vs0.preferred make vt0.preferred
-  }
-
+  "Patient-contact" : for src.contact as vs0 make tgt.contact as vt0 then patContact(vs0, vt0) 
+  "Patient-communication" : for src.communication as vs0 make tgt.communication as vt0 then patCommunication(vs0, vt0) 
   "Patient-generalPractitioner" : for src.careProvider make tgt.generalPractitioner
   "Patient-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
-  "Patient-link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Patient.link-other" : for vs0.other make vt0.other
-    "Patient.link-type" : for vs0.type make vt0.type
-  }
+  "Patient-link" : for src.link as vs0 make tgt.link as vt0 then patLink(vs0, vt0)
+endgroup
 
+group patContact extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Patient.contact-relationship" : for src.relationship make tgt.relationship
+  "Patient.contact-name" : for src.name make tgt.name
+  "Patient.contact-telecom" : for src.telecom make tgt.telecom
+  "Patient.contact-address" : for src.address make tgt.address
+  "Patient.contact-gender" : for src.gender make tgt.gender
+  "Patient.contact-organization" : for src.organization make tgt.organization
+  "Patient.contact-period" : for src.period make tgt.period
+endgroup
+  
+group patCommunication extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Patient.communication-language" : for src.language make tgt.language
+  "Patient.communication-preferred" : for src.preferred make tgt.preferred
+endgroup
+  
+group patLink extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Patient.link-other" : for src.other make tgt.other
+  "Patient.link-type" : for src.type make tgt.type
 endgroup

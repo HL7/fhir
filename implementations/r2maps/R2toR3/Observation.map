@@ -3,17 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Observation" alias ObservationR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Observation" alias Observation as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/SampledData2to3"
-imports "http://hl7.org/fhir/StructureMap/Ratio2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
-imports "http://hl7.org/fhir/StructureMap/Range2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Observation extends DomainResource
   input src : ObservationR2 as source
@@ -25,54 +15,47 @@ group for type+types  Observation extends DomainResource
   "Observation-code" : for src.code make tgt.code
   "Observation-subject" : for src.subject make tgt.subject
   "Observation-encounter" : for src.encounter make tgt.encounter
-  "Observation-effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs, vt)
-  "Observation-effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs, vt)
+  "Observation-effective" : for src.effective make tgt.effective
   "Observation-issued" : for src.issued make tgt.issued
   "Observation-performer" : for src.performer make tgt.performer
-  "Observation-value-Quantity" : for src.value : Quantity as vs make tgt.value = create("Quantity") as vt then Quantity(vs, vt)
-  "Observation-value-CodeableConcept" : for src.value : CodeableConcept as vs make tgt.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-  "Observation-value-string" : for src.value : string as vs make tgt.value = create("string") as vt then string(vs, vt)
-  "Observation-value-Range" : for src.value : Range as vs make tgt.value = create("Range") as vt then Range(vs, vt)
-  "Observation-value-Ratio" : for src.value : Ratio as vs make tgt.value = create("Ratio") as vt then Ratio(vs, vt)
-  "Observation-value-SampledData" : for src.value : SampledData as vs make tgt.value = create("SampledData") as vt then SampledData(vs, vt)
-  "Observation-value-Attachment" : for src.value : Attachment as vs make tgt.value = create("Attachment") as vt then Attachment(vs, vt)
-  "Observation-value-time" : for src.value : time as vs make tgt.value = create("time") as vt then time(vs, vt)
-  "Observation-value-dateTime" : for src.value : dateTime as vs make tgt.value = create("dateTime") as vt then dateTime(vs, vt)
-  "Observation-value-Period" : for src.value : Period as vs make tgt.value = create("Period") as vt then Period(vs, vt)
+  "Observation-value" : for src.value make tgt.value 
   "Observation-dataAbsentReason" : for src.dataAbsentReason make tgt.dataAbsentReason
   "Observation-interpretation" : for src.interpretation make tgt.interpretation
-  "Observation-comment" : for src.comments make tgt.comment
+  "Observation-comments" : for src.comments make tgt.comment
   "Observation-bodySite" : for src.bodySite make tgt.bodySite
   "Observation-method" : for src.method make tgt.method
   "Observation-specimen" : for src.specimen make tgt.specimen
   "Observation-device" : for src.device make tgt.device
-  "Observation-referenceRange" : for src.referenceRange as vs0 make tgt.referenceRange as vt0 then {
-    "Observation.referenceRange-low" : for vs0.low make vt0.low
-    "Observation.referenceRange-high" : for vs0.high make vt0.high
-    "Observation.referenceRange-meaning" : for vs0.meaning make vt0.meaning
-    "Observation.referenceRange-age" : for vs0.age make vt0.age
-    "Observation.referenceRange-text" : for vs0.text make vt0.text
-  }
+  "Observation-referenceRange" : for src.referenceRange as vs0 make tgt.referenceRange as vt0 then obsReferenceRange(vs0, vt0)
+  "Observation-related" : for src.related as vs0 make tgt.related as vt0 then obsRelated(vs0, vt0) 
+  "Observation-component" : for src.component as vs0 make tgt.component as vt0 then obsComponent(vs0, vt0) 
+endgroup
 
-  "Observation-related" : for src.related as vs0 make tgt.related as vt0 then {
-    "Observation.related-type" : for vs0.type make vt0.type
-    "Observation.related-target" : for vs0.target make vt0.target
-  }
+group obsReferenceRange extends BackboneElement
+  input src as source
+  input tgt as target
 
-  "Observation-component" : for src.component as vs0 make tgt.component as vt0 then {
-    "Observation.component-code" : for vs0.code make vt0.code
-    "Observation.component-value-Quantity" : for vs0.value : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs, vt)
-    "Observation.component-value-CodeableConcept" : for vs0.value : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "Observation.component-value-string" : for vs0.value : string as vs make vt0.value = create("string") as vt then string(vs, vt)
-    "Observation.component-value-Range" : for vs0.value : Range as vs make vt0.value = create("Range") as vt then Range(vs, vt)
-    "Observation.component-value-Ratio" : for vs0.value : Ratio as vs make vt0.value = create("Ratio") as vt then Ratio(vs, vt)
-    "Observation.component-value-SampledData" : for vs0.value : SampledData as vs make vt0.value = create("SampledData") as vt then SampledData(vs, vt)
-    "Observation.component-value-Attachment" : for vs0.value : Attachment as vs make vt0.value = create("Attachment") as vt then Attachment(vs, vt)
-    "Observation.component-value-time" : for vs0.value : time as vs make vt0.value = create("time") as vt then time(vs, vt)
-    "Observation.component-value-dateTime" : for vs0.value : dateTime as vs make vt0.value = create("dateTime") as vt then dateTime(vs, vt)
-    "Observation.component-value-Period" : for vs0.value : Period as vs make vt0.value = create("Period") as vt then Period(vs, vt)
-    "Observation.component-dataAbsentReason" : for vs0.dataAbsentReason make vt0.dataAbsentReason
-  }
+  "Observation.referenceRange-low" : for src.low make tgt.low
+  "Observation.referenceRange-high" : for src.high make tgt.high
+  "Observation.referenceRange-meaning" : for src.meaning make tgt.meaning
+  "Observation.referenceRange-age" : for src.age make tgt.age
+  "Observation.referenceRange-text" : for src.text make tgt.text
+endgroup
+  
+group obsRelated extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Observation.related-type" : for src.type make tgt.type
+  "Observation.related-target" : for src.target make tgt.target
+endgroup
+  
+group obsComponent extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Observation.component-code" : for src.code make tgt.code
+  "Observation.component-value" : for src.value make tgt.value 
+  "Observation.component-dataAbsentReason" : for src.dataAbsentReason make tgt.dataAbsentReason
+  "Observation.component-referenceRange" : for src.referenceRange as vs0 make tgt.referenceRange as vt0 then obsReferenceRange(vs0, vt0)
 endgroup

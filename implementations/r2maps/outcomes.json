@@ -1,10 +1,6 @@
 ﻿{
   "Account": {
-    "example": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Money2to3"
-      ]
-    }
+    "example": {}
   },
   "StructureDefinition": {
     "Account": {},
@@ -388,705 +384,8 @@
         "Attempt to read invalid property \u0027baseDefinition\u0027 on type DataElement"
       ]
     },
-    "72ac8493-52ac-41bd-8d5d-7258c289b5ea": {
-      "errors": [
-        "[R3 validation error] Bundle.entry[1].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.contained[26].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[1].resource.result[26].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[2].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[3].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[4].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[5].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[6].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[7].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[8].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[9].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[10].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.contained[25].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[11].resource.result[25].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[12].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[13].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[1].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[2].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[3].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[4].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[5].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[6].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[7].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[8].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[9].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[10].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[11].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[12].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[13].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[14].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[15].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[16].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[17].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[18].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[19].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[20].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[21].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[22].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[23].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.contained[24].code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[1].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[2].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[3].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[4].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[5].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[6].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[7].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[8].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[9].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[10].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[11].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[12].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[13].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[14].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[15].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[16].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[17].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[18].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[19].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[20].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[21].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[22].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[23].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[14].resource.result[24].contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[17].resource.contained.code.coding[2]: null",
-        "[R3 validation error] Bundle.entry[17].resource.result.contained.code.coding[2]: null"
-      ]
-    },
-    "2763c3ea-6bce-4f15-bdc9-4b41aaceee03": {
-      "errors": [
-        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": No matches found for default rule for \u0027DiagnosticOrder\u0027 from http://hl7.org/fhir/StructureMap/DomainResource2to3"
-      ]
-    },
+    "72ac8493-52ac-41bd-8d5d-7258c289b5ea": {},
+    "2763c3ea-6bce-4f15-bdc9-4b41aaceee03": {},
     "father": {
       "errors": [
         "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
@@ -1902,99 +1201,47 @@
     "example": {}
   },
   "DiagnosticOrder": {
-    "diagnosticorder-example": {},
-    "example": {},
-    "di": {},
-    "ft4": {},
+    "diagnosticorder-example": {
+      "errors": [
+        "Error at 61, 11: Found \"then\" expecting \":\""
+      ]
+    },
+    "example": {
+      "errors": [
+        "Error at 61, 11: Found \"make\" expecting \":\""
+      ]
+    },
+    "di": {
+      "errors": [
+        "Error at 61, 11: Found \"make\" expecting \":\""
+      ]
+    },
+    "ft4": {
+      "errors": [
+        "Error at 61, 11: Found \"make\" expecting \":\""
+      ]
+    },
     "do-uslab-example1": {}
   },
   "DiagnosticReport": {
-    "101": {
-      "errors": [
-        "Round trip failed: Names differ at /DiagnosticReport: id/contained"
-      ]
-    },
-    "diagnosticreport-example": {
-      "errors": [
-        "Round trip failed: Names differ at /DiagnosticReport: id/contained"
-      ]
-    },
-    "102": {
-      "errors": [
-        "[R3 validation error] DiagnosticReport.contained.bodySite.coding: null",
-        "[R3 validation error] DiagnosticReport.result.contained.bodySite.coding: null",
-        "[R3 validation error] DiagnosticReport.codedDiagnosis.coding: null"
-      ]
-    },
+    "101": {},
+    "diagnosticreport-example": {},
+    "102": {},
     "f001": {
       "errors": [
-        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": No matches found for default rule for \u0027DiagnosticOrder\u0027 from http://hl7.org/fhir/StructureMap/DomainResource2to3"
+        "Round trip failed: Names differ at /DiagnosticReport/contained/DiagnosticOrder: item/event"
       ]
     },
-    "f201": {
-      "errors": [
-        "[R3 validation error] DiagnosticReport.category.coding[1]: null",
-        "[R3 validation error] DiagnosticReport.code.coding: null",
-        "[R3 validation error] DiagnosticReport.codedDiagnosis.coding: null"
-      ]
-    },
+    "f201": {},
     "f202": {
       "errors": [
-        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": No matches found for default rule for \u0027DiagnosticOrder\u0027 from http://hl7.org/fhir/StructureMap/DomainResource2to3"
+        "Round trip failed: node mismatch - more nodes in target in children of /DiagnosticReport/contained/DiagnosticOrder"
       ]
     },
-    "ghp": {
-      "errors": [
-        "[R3 validation error] DiagnosticReport.contained[1].type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[2].type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[3].type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[4].specimen.contained.type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[22].specimen.contained.type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[23].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[24].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[25].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[26].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[27].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[28].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[29].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[30].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[31].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[32].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[33].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[34].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[35].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[36].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[37].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[38].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[39].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[40].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[41].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[42].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[43].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[44].code.coding[2]: null",
-        "[R3 validation error] DiagnosticReport.contained[45].specimen.contained.type.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[47].valueCodeableConcept.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[49].valueCodeableConcept.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[50].valueCodeableConcept.coding: null",
-        "[R3 validation error] DiagnosticReport.contained[51].valueCodeableConcept.coding: null"
-      ]
-    },
-    "lipids": {
-      "errors": [
-        "Round trip failed: Names differ at /DiagnosticReport: id/contained"
-      ]
-    },
-    "ultrasound": {
-      "errors": [
-        "[R3 validation error] DiagnosticReport.category.coding[1]: null",
-        "[R3 validation error] DiagnosticReport.code.coding: null"
-      ]
-    },
-    "micro": {
-      "errors": [
-        "Exception executing transform tgt.contained \u003d create() as vvv on Rule \"\"DomainResource-contained\"\": No matches found for default rule for \u0027DiagnosticOrder\u0027 from http://hl7.org/fhir/StructureMap/DomainResource2to3"
-      ]
-    },
+    "ghp": {},
+    "lipids": {},
+    "ultrasound": {},
+    "micro": {},
     "dr-uslab-example1": {
       "errors": [
         "[R3 validation error] DiagnosticReport.codedDiagnosis.coding: null"
@@ -2025,11 +1272,7 @@
     }
   },
   "EpisodeOfCare": {
-    "example": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /EpisodeOfCare"
-      ]
-    }
+    "example": {}
   },
   "ExplanationOfBenefit": {
     "R3500": {}
@@ -2059,7 +1302,7 @@
   "HealthcareService": {
     "example": {
       "errors": [
-        "Round trip failed: Names differ at /HealthcareService: serviceType/location"
+        "Round trip failed: node mismatch - more nodes in source in children of /HealthcareService/serviceType"
       ]
     }
   },
@@ -2131,127 +1374,29 @@
     "sound": {}
   },
   "Medication": {
-    "f001": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "f002": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "f003": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "f004": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "f005": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
+    "f001": {},
+    "f002": {},
+    "f003": {},
+    "f004": {},
+    "f005": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
     "medexample001": {},
-    "medexample011": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
+    "medexample011": {},
     "medexample012": {},
-    "medexample013": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample014": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample015": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample016": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample017": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample002": {
-      "errors": [
-        "[R3 validation error] Medication.code.coding[1]: null",
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample003": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample004": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null",
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "medexample005": {
-      "errors": [
-        "[R3 validation error] Medication.package.container.coding: null"
-      ]
-    },
-    "medexample006": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample007": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    },
-    "medexample008": {
-      "errors": [
-        "[R3 validation error] Medication.product.form.coding: null"
-      ]
-    }
+    "medexample013": {},
+    "medexample014": {},
+    "medexample015": {},
+    "medexample016": {},
+    "medexample017": {},
+    "medexample002": {},
+    "medexample003": {},
+    "medexample004": {},
+    "medexample005": {},
+    "medexample006": {},
+    "medexample007": {},
+    "medexample008": {}
   },
   "MedicationOrder": {
     "medicationorder-example": {},
@@ -2392,44 +1537,19 @@
         "[R3 validation error] Observation.extension: The extension http://hl7.org/fhir/StructureDefinition/uslab-observationkind is unknown, and not allowed here"
       ]
     },
-    "observation-example": {
-      "errors": [
-        "[R3 validation error] Observation.extension[1].valueCodeableConcept.coding: null",
-        "[R3 validation error] Observation.extension[2].valueCodeableConcept.coding: null",
-        "[R3 validation error] Observation.bodySite.coding: null",
-        "[R3 validation error] Observation.method.coding: null"
-      ]
-    },
-    "blood-pressure": {
-      "errors": [
-        "[R3 validation error] Observation.bodySite.coding: null",
-        "[R3 validation error] Observation.component[1].code.coding[2]: null"
-      ]
-    },
-    "blood-pressure-cancel": {
-      "errors": [
-        "[R3 validation error] Observation.bodySite.coding: null",
-        "[R3 validation error] Observation.component[1].code.coding[2]: null"
-      ]
-    },
+    "observation-example": {},
+    "blood-pressure": {},
+    "blood-pressure-cancel": {},
     "f001": {},
     "f002": {},
     "f003": {},
     "f004": {},
     "f005": {},
-    "glasgow": {
-      "errors": [
-        "Round trip failed: Names differ at /Observation: id/contained"
-      ]
-    },
+    "glasgow": {},
     "gcs-qa": {},
     "ekg": {},
     "satO2": {},
-    "unsat": {
-      "errors": [
-        "[R3 validation error] Observation.dataAbsentReason.coding: null"
-      ]
-    },
+    "unsat": {},
     "genetics-example3-mutationlist-1": {
       "errors": [
         "[R3 validation error] Observation.extension[1]: The extension http://hl7.org/fhir/StructureDefinition/geneticsDNASequenceVariation is unknown, and not allowed here",
@@ -2456,40 +1576,12 @@
         "[R3 validation error] Observation.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/geneticsVariationId is unknown, and not allowed here"
       ]
     },
-    "example": {
-      "errors": [
-        "[R3 validation error] Observation.code.coding[2]: null"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] Observation.code.coding[3]: null",
-        "[R3 validation error] Observation.bodySite.coding: null",
-        "[R3 validation error] Observation.method.coding: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Observation.code.coding[2]: null",
-        "[R3 validation error] Observation.interpretation.coding[1]: null"
-      ]
-    },
-    "f204": {
-      "errors": [
-        "[R3 validation error] Observation.interpretation.coding[1]: null"
-      ]
-    },
-    "f205": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /Observation/component"
-      ]
-    },
-    "f206": {
-      "errors": [
-        "[R3 validation error] Observation.valueCodeableConcept.coding: null",
-        "[R3 validation error] Observation.method.coding: null"
-      ]
-    }
+    "example": {},
+    "f202": {},
+    "f203": {},
+    "f204": {},
+    "f205": {},
+    "f206": {}
   },
   "OperationDefinition": {
     "Composition-document": {},
@@ -2551,16 +1643,8 @@
     "f001": {},
     "f002": {},
     "f003": {},
-    "f201": {
-      "errors": [
-        "[R3 validation error] Organization.type.coding[1]: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Organization.type.coding[1]: null"
-      ]
-    },
+    "f201": {},
+    "f203": {},
     "1": {},
     "2.16.840.1.113883.19.5": {},
     "2": {},
@@ -2572,88 +1656,30 @@
   "Patient": {
     "example": {
       "errors": [
-        "Round trip failed: Names differ at /Patient: contact/managingOrganization"
+        "Round trip failed: Attributes differ at /Patient/contact/name/family: value du/Marché"
       ]
     },
-    "patient-example": {
-      "errors": [
-        "[R3 validation error] Patient.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.extension[3].extension[3].valueCodeableConcept.coding: null",
-        "[R3 validation error] Patient.extension[3].extension[3].valueCodeableConcept.coding: null"
-      ]
-    },
-    "pat1": {
-      "errors": [
-        "Round trip failed: Names differ at /Patient: contact/managingOrganization"
-      ]
-    },
+    "patient-example": {},
+    "pat1": {},
     "animal": {
       "errors": [
-        "Round trip failed: Names differ at /Patient: contact/managingOrganization"
+        "Round trip failed: Names differ at /Patient: animal/managingOrganization"
       ]
     },
     "pat2": {},
     "pat3": {},
     "pat4": {},
     "dicom": {},
-    "f001": {
-      "errors": [
-        "[R3 validation error] Patient.communication.language: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d urn:ietf:bcp:47#nl)"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "[R3 validation error] Patient.maritalStatus.coding[1]: null",
-        "[R3 validation error] Patient.communication.language: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d urn:ietf:bcp:47#nl-NL)"
-      ]
-    },
+    "f001": {},
+    "f201": {},
     "ihe-pcd": {},
-    "proband": {
-      "errors": [
-        "[R3 validation error] Patient.extension[url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension.extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension.value[x]: max allowed \u003d 0, but found 1"
-      ]
-    },
-    "us01": {
-      "errors": [
-        "[R3 validation error] Patient.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.address.extension: The extension http://hl7.org/fhir/StructureDefinition/us-core-county is unknown, and not allowed here"
-      ]
-    },
+    "proband": {},
+    "us01": {},
     "xcda": {},
     "xds": {},
     "glossy": {},
-    "patient-uslab-example1": {
-      "errors": [
-        "[R3 validation error] Patient.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].value[x]: max allowed \u003d 0, but found 1"
-      ]
-    },
-    "patient-uslab-example2": {
-      "errors": [
-        "[R3 validation error] Patient.extension[1][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-race\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[1]: Profile http://hl7.org/fhir/StructureDefinition/us-core-race, Element \u0027Patient.extension[1].value[x]: max allowed \u003d 0, but found 1",
-        "[R3 validation error] Patient.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/us-core-ethnicity\u0027 definition allows for the types [] but found type CodeableConcept",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].extension[ombCategory]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Patient.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/us-core-ethnicity, Element \u0027Patient.extension[2].value[x]: max allowed \u003d 0, but found 1"
-      ]
-    }
+    "patient-uslab-example1": {},
+    "patient-uslab-example2": {}
   },
   "PaymentNotice": {
     "77654": {}
@@ -2722,65 +1748,19 @@
     "xcda1": {}
   },
   "Procedure": {
-    "example": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "procedure-example": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "biopsy": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "f001": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "f002": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "f003": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "f004": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "f201": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    },
-    "example-implant": {
-      "errors": [
-        "Error at 30, 11: Found \"CodeableConcept\" expecting \":\""
-      ]
-    }
+    "example": {},
+    "procedure-example": {},
+    "biopsy": {},
+    "f001": {},
+    "f002": {},
+    "f003": {},
+    "f004": {},
+    "f201": {},
+    "example-implant": {}
   },
   "ProcedureRequest": {
-    "example": {
-      "errors": [
-        "[R3 validation error] ProcedureRequest.code.coding: null"
-      ]
-    },
-    "procedurerequest-example": {
-      "errors": [
-        "[R3 validation error] ProcedureRequest.code.coding: null",
-        "[R3 validation error] ProcedureRequest.bodySite.coding: null",
-        "[R3 validation error] ProcedureRequest.reasonCodeableConcept.coding: null"
-      ]
-    }
+    "example": {},
+    "procedurerequest-example": {}
   },
   "ProcessRequest": {
     "1110": {},
@@ -2969,24 +1949,9 @@
         "[R3 validation error] Specimen.type.coding[1]: null"
       ]
     },
-    "101": {
-      "errors": [
-        "[R3 validation error] Specimen.type.coding: null"
-      ]
-    },
-    "specimen-example": {
-      "errors": [
-        "[R3 validation error] Specimen.type.coding: null",
-        "[R3 validation error] Specimen.container.type.coding: null"
-      ]
-    },
-    "isolate": {
-      "errors": [
-        "[R3 validation error] Specimen.contained.type.coding: null",
-        "[R3 validation error] Specimen.type.coding: null",
-        "[R3 validation error] Specimen.parent.contained.type.coding: null"
-      ]
-    },
+    "101": {},
+    "specimen-example": {},
+    "isolate": {},
     "vma-urine": {}
   },
   "Subscription": {
@@ -2995,35 +1960,11 @@
   },
   "Substance": {
     "example": {},
-    "f205": {
-      "errors": [
-        "[R3 validation error] Substance.contained[1].code.coding: null",
-        "[R3 validation error] Substance.contained[2].code.coding: null",
-        "[R3 validation error] Substance.code.coding: null",
-        "[R3 validation error] Substance.ingredient[1].substanceReference.contained.code.coding: null",
-        "[R3 validation error] Substance.ingredient[2].substanceReference.contained.code.coding: null"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "[R3 validation error] Substance.code.coding: null"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] Substance.code.coding: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Substance.code.coding: null"
-      ]
-    },
-    "f204": {
-      "errors": [
-        "[R3 validation error] Substance.code.coding: null"
-      ]
-    }
+    "f205": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
+    "f204": {}
   },
   "SupplyDelivery": {
     "example": {}
@@ -3126,104 +2067,30 @@
     }
   },
   "Encounter": {
-    "encounter-example": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "example": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f001": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f002": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f003": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "home": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    },
-    "xcda": {
-      "errors": [
-        "Unable to find map(s) for http://hl7.org/fhir/StructureMap/Duration2to3"
-      ]
-    }
+    "encounter-example": {},
+    "example": {},
+    "f001": {},
+    "f002": {},
+    "f003": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
+    "home": {},
+    "xcda": {}
   },
   "MedicationDispense": {
     "medicationdispense-example": {
       "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction.route.coding: null",
-        "[R3 validation error] MedicationDispense.substitution: Profile http://hl7.org/fhir/StructureDefinition/MedicationDispense, Element \u0027MedicationDispense.substitution.wasSubstituted\u0027: minimum required \u003d 1, but only found 0"
+        "[R3 validation error] MedicationDispense.dosageInstruction.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver\u0027 definition allows for the types [Duration] but found type Quantity",
+        "[R3 validation error] MedicationDispense.dosageInstruction.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver, Element \u0027MedicationDispense.dosageInstruction.extension[2].valueDuration\u0027: minimum required \u003d 1, but only found 0"
       ]
     },
-    "meddisp001": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction.site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction.route.coding: null"
-      ]
-    },
-    "meddisp002": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction.site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction.route.coding: null"
-      ]
-    },
-    "meddisp003": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction[1].site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[1].route.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[2].site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[2].route.coding: null"
-      ]
-    },
-    "meddisp004": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction[1].site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[1].route.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[2].site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[2].route.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[3].site.coding: null",
-        "[R3 validation error] MedicationDispense.dosageInstruction[3].route.coding: null"
-      ]
-    },
-    "meddisp006": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction.route.coding: null"
-      ]
-    },
-    "meddisp008": {
-      "errors": [
-        "[R3 validation error] MedicationDispense.dosageInstruction.route.coding: null"
-      ]
-    }
+    "meddisp001": {},
+    "meddisp002": {},
+    "meddisp003": {},
+    "meddisp004": {},
+    "meddisp006": {},
+    "meddisp008": {}
   },
   "ClinicalImpression": {
     "example": {
@@ -3253,60 +2120,18 @@
     }
   },
   "MedicationAdministration": {
-    "medadminexample01": {
-      "errors": [
-        "[R3 validation error] MedicationAdministration.dosage: SHALL have at least one of dosage.dose and dosage.rate[x] [dose.exists() or rate.exists()]",
-        "[R3 validation error] MedicationAdministration.dosage.route.coding: null"
-      ]
-    },
-    "medadminexample02": {
-      "errors": [
-        "[R3 validation error] MedicationAdministration.dosage.route.coding: null"
-      ]
-    },
-    "medadminexample03": {
-      "errors": [
-        "[R3 validation error] MedicationAdministration.dosage.route.coding: null"
-      ]
-    }
+    "medadminexample01": {},
+    "medadminexample02": {},
+    "medadminexample03": {}
   },
   "MedicationStatement": {
-    "medicationstatement-example": {
-      "errors": [
-        "[R3 validation error] MedicationStatement.dosage.route.coding: null"
-      ]
-    },
-    "example001": {
-      "errors": [
-        "[R3 validation error] MedicationStatement.dosage.route.coding: null"
-      ]
-    },
-    "example002": {
-      "errors": [
-        "[R3 validation error] MedicationStatement: Reason not taken is only permitted if notTaken is Yes [reasonNotTaken.empty() or notTaken\u003d\u0027y\u0027]",
-        "[R3 validation error] MedicationStatement.reasonNotTaken.coding: null"
-      ]
-    },
-    "example004": {
-      "errors": [
-        "[R3 validation error] MedicationStatement.dosage.route.coding: null"
-      ]
-    },
-    "example005": {
-      "errors": [
-        "[R3 validation error] MedicationStatement.dosage.route.coding: null"
-      ]
-    },
-    "example006": {
-      "errors": [
-        "[R3 validation error] MedicationStatement.dosage.route.coding: null"
-      ]
-    },
-    "example007": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationStatement: wasNotTaken/effectiveDateTime"
-      ]
-    }
+    "medicationstatement-example": {},
+    "example001": {},
+    "example002": {},
+    "example004": {},
+    "example005": {},
+    "example006": {},
+    "example007": {}
   },
   "CapabilityStatement": {
     "base": {
@@ -3852,94 +2677,52 @@
     }
   },
   "MedicationRequest": {
-    "medicationorder-example": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
+    "medicationorder-example": {},
     "f001": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
+        "No matches found for rule for \u0027Quantity/Duration\u0027 from http://hl7.org/fhir/StructureMap/MedicationOrder2to3, from rule \u0027\"MedicationOrder.dispenseRequest-expectedSupplyDuration\"\u0027"
       ]
     },
-    "f002": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f003": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f004": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f005": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
+    "f002": {},
+    "f003": {},
+    "f004": {},
+    "f005": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
     "medrx001": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
+        "Rule \"\"MedicationOrder-dispenseRequest\"\": Check condition failed"
       ]
     },
-    "medrx002": {
+    "medrx002": {},
+    "medrx003": {},
+    "medrx004": {},
+    "medrx005": {},
+    "medrx006": {},
+    "medrx007": {},
+    "medrx008": {},
+    "medrx009": {}
+  },
+  "DiagnosticRequest": {
+    "example": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
+        "Round trip failed: Attributes differ at /DiagnosticOrder/status: value received/requested"
       ]
     },
-    "medrx003": {
+    "diagnosticorder-example": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
+        "Round trip failed: Attributes differ at /DiagnosticOrder/status: value rejected/cancelled"
       ]
     },
-    "medrx004": {
+    "di": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
+        "Round trip failed: node mismatch - more nodes in source in children of /DiagnosticOrder/item"
       ]
     },
-    "medrx005": {
+    "ft4": {
       "errors": [
-        "Round trip failed: Names differ at /MedicationOrder: dateWritten/status"
-      ]
-    },
-    "medrx006": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /MedicationOrder"
-      ]
-    },
-    "medrx007": {
-      "errors": [
-        "[R3 validation error] MedicationRequest: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027MedicationRequest.subject\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "medrx008": {
-      "errors": [
-        "[R3 validation error] MedicationRequest: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027MedicationRequest.subject\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "medrx009": {
-      "errors": [
-        "[R3 validation error] MedicationRequest: Profile http://hl7.org/fhir/StructureDefinition/MedicationRequest, Element \u0027MedicationRequest.subject\u0027: minimum required \u003d 1, but only found 0"
+        "Round trip failed: Names differ at /DiagnosticOrder: specimen/status"
       ]
     }
   }

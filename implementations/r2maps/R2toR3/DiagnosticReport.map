@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticReport" alias DiagnosticReportR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/DiagnosticReport" alias DiagnosticReport as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  DiagnosticReport extends DomainResource
   input src : DiagnosticReportR2 as source
@@ -21,20 +15,23 @@ group for type+types  DiagnosticReport extends DomainResource
   "DiagnosticReport-code" : for src.code make tgt.code
   "DiagnosticReport-subject" : for src.subject make tgt.subject
   "DiagnosticReport-encounter" : for src.encounter make tgt.encounter
-  "DiagnosticReport-effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs, vt)
-  "DiagnosticReport-effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs, vt)
+  "DiagnosticReport-effective" : for src.effective make tgt.effective 
   "DiagnosticReport-issued" : for src.issued make tgt.issued
+  "DiagnosticReport-performer" : for src.performer make tgt.performer
   "DiagnosticReport-request" : for src.request make tgt.request
   "DiagnosticReport-specimen" : for src.specimen make tgt.specimen
   "DiagnosticReport-result" : for src.result make tgt.result
   "DiagnosticReport-imagingStudy" : for src.imagingStudy make tgt.imagingStudy
-  "DiagnosticReport-image" : for src.image as vs0 make tgt.image as vt0 then {
-    "DiagnosticReport.image-comment" : for vs0.comment make vt0.comment
-    "DiagnosticReport.image-link" : for vs0.link make vt0.link
-  }
-
+  "DiagnosticReport-image" : for src.image as vs0 make tgt.image as vt0 then drpImage(vs0, vt0)
   "DiagnosticReport-conclusion" : for src.conclusion make tgt.conclusion
   "DiagnosticReport-codedDiagnosis" : for src.codedDiagnosis make tgt.codedDiagnosis
   "DiagnosticReport-presentedForm" : for src.presentedForm make tgt.presentedForm
+endgroup
 
+group drpImage extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DiagnosticReport.image-comment" : for src.comment make tgt.comment
+  "DiagnosticReport.image-link" : for src.link make tgt.link
 endgroup

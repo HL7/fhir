@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Group" alias GroupR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Group" alias Group as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Quantity2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Range2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Group extends DomainResource
   input src : GroupR2 as source
@@ -22,21 +15,27 @@ group for type+types  Group extends DomainResource
   "Group-code" : for src.code make tgt.code
   "Group-name" : for src.name make tgt.name
   "Group-quantity" : for src.quantity make tgt.quantity
-  "Group-characteristic" : for src.characteristic as vs0 make tgt.characteristic as vt0 then {
-    "Group.characteristic-code" : for vs0.code make vt0.code
-    "Group.characteristic-value-CodeableConcept" : for vs0.value : CodeableConcept as vs make vt0.value = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "Group.characteristic-value-boolean" : for vs0.value : boolean as vs make vt0.value = create("boolean") as vt then boolean(vs, vt)
-    "Group.characteristic-value-Quantity" : for vs0.value : Quantity as vs make vt0.value = create("Quantity") as vt then Quantity(vs, vt)
-    "Group.characteristic-value-Range" : for vs0.value : Range as vs make vt0.value = create("Range") as vt then Range(vs, vt)
-    "Group.characteristic-exclude" : for vs0.exclude make vt0.exclude
-    "Group.characteristic-period" : for vs0.period make vt0.period
-  }
-
-  "Group-member" : for src.member as vs0 make tgt.member as vt0 then {
-    "Group.member-entity" : for vs0.entity make vt0.entity
-    "Group.member-period" : for vs0.period make vt0.period
-    "Group.member-inactive" : for vs0.inactive make vt0.inactive
-  }
-
-
+  "Group-characteristic" : for src.characteristic as vs0 make tgt.characteristic as vt0 then grpCharacteristic(vs0, vt0)
+  "Group-member" : for src.member as vs0 make tgt.member as vt0 then grpMember(vs0, vt0)
 endgroup
+
+group grpCharacteristic extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Group.characteristic-code" : for src.code make tgt.code
+  "Group.characteristic-value" : for src.value make tgt.value 
+  "Group.characteristic-exclude" : for src.exclude make tgt.exclude
+  "Group.characteristic-period" : for src.period make tgt.period
+endgroup
+
+group grpMember extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Group.member-entity" : for src.entity make tgt.entity
+  "Group.member-period" : for src.period make tgt.period
+  "Group.member-inactive" : for src.inactive make tgt.inactive
+endgroup
+
+

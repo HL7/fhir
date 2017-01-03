@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  EpisodeOfCare extends DomainResource
   input src : EpisodeOfCareR2 as source
@@ -16,11 +11,7 @@ group for type+types  EpisodeOfCare extends DomainResource
 
   "EpisodeOfCare-identifier" : for src.identifier make tgt.identifier
   "EpisodeOfCare-status" : for src.status make tgt.status
-  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
-    "EpisodeOfCare.statusHistory-status" : for vs0.status make vt0.status
-    "EpisodeOfCare.statusHistory-period" : for vs0.period make vt0.period
-  }
-
+  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then epcStatusHistory(vs0, vt0)
   "EpisodeOfCare-type" : for src.type make tgt.type
   "EpisodeOfCare-condition" : for src.condition make tgt.condition
   "EpisodeOfCare-patient" : for src.patient make tgt.patient
@@ -29,4 +20,31 @@ group for type+types  EpisodeOfCare extends DomainResource
   "EpisodeOfCare-referralRequest" : for src.referralRequest make tgt.referralRequest
   "EpisodeOfCare-careManager" : for src.careManager make tgt.careManager
 
+  "EpisodeOfCare-careteam" : for src where src.careTeam.exists() make create("CareTeam") as vt0 then epiCareTeam(src, vt0, tgt)
+endgroup
+
+group epcStatusHistory extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.statusHistory-status" : for src.status make tgt.status
+  "EpisodeOfCare.statusHistory-period" : for src.period make tgt.period
+endgroup
+
+group epiCareTeam extends BackboneElement
+  input src as source
+  input tgt as target
+  input tgtE as target
+
+  "EpisodeOfCare.careteam-link" : for src make tgtE.team = reference(tgt)
+  "EpisodeOfCare.careteam-member" : for src.careTeam as vs make tgt.participant as vt then epiCareTeamMember(vs, vt)
+endgroup
+
+group epiCareTeamMember extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.careteam-role" : for src.role make tgt.role
+  "EpisodeOfCare.careteam-period" : for src.period make tgt.period
+  "EpisodeOfCare.careteam-member" : for src.member make tgt.member
 endgroup

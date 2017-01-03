@@ -671,12 +671,16 @@ public class StructureMapUtilities {
 		  ConceptMapGroupComponent g = getGroup(map, srcs, tgts);
 			SourceElementComponent e = g.addElement();
 			e.setCode(sc);
+      if (e.getCode().startsWith("\""))
+        e.setCode(lexer.processConstant(e.getCode()));
 			TargetElementComponent tgt = e.addTarget();
 			if (eq != ConceptMapEquivalence.EQUIVALENT)
 			  tgt.setEquivalence(eq);
 			if (tgt.getEquivalence() != ConceptMapEquivalence.UNMATCHED) {
 				lexer.token(":");
 				tgt.setCode(lexer.take());
+				if (tgt.getCode().startsWith("\""))
+				  tgt.setCode(lexer.processConstant(tgt.getCode()));
 			}
 			if (lexer.hasComment())
 				tgt.setComments(lexer.take().substring(2).trim());
@@ -991,7 +995,7 @@ public class StructureMapUtilities {
 			lexer.take();
 			target.setVariable(lexer.take());
 		}
-		while (Utilities.existsInList(lexer.getCurrent(), "first", "last", "share")) {
+		while (Utilities.existsInList(lexer.getCurrent(), "first", "last", "share", "collate")) {
 			if (lexer.getCurrent().equals("share")) {
 				target.addListMode(StructureMapTargetListMode.SHARE);
 				lexer.next();
@@ -1190,7 +1194,7 @@ public class StructureMapUtilities {
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
-		if (rule.getName().contains("ElementDefinition-example-v"))
+		if (rule.getName().contains("EpisodeOfCare-careTeam"))
 		  System.out.println("debug");
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)
@@ -1830,7 +1834,7 @@ public class StructureMapUtilities {
 					message = "Concept map "+su+" found no translation for "+src.getCode();
 				else {
 					for (TargetElementComponent tgt : list.get(0).comp.getTarget()) {
-						if (tgt.getEquivalence() == null || EnumSet.of( ConceptMapEquivalence.EQUAL , ConceptMapEquivalence.RELATEDTO , ConceptMapEquivalence.EQUIVALENT  , ConceptMapEquivalence.WIDER).contains(tgt.getEquivalence())) {
+						if (tgt.getEquivalence() == null || EnumSet.of( ConceptMapEquivalence.EQUAL , ConceptMapEquivalence.RELATEDTO , ConceptMapEquivalence.EQUIVALENT, ConceptMapEquivalence.WIDER).contains(tgt.getEquivalence())) {
 							if (done) {
 								message = "Concept map "+su+" found multiple matches for "+src.getCode();
 								done = false;

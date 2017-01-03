@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Specimen" alias Specimen as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Specimen" alias SpecimenR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Specimen extends DomainResource
   input src : Specimen as source
@@ -22,30 +16,41 @@ group for type+types  Specimen extends DomainResource
   "Specimen-subject" : for src.subject make tgt.subject
   "Specimen-receivedTime" : for src.receivedTime make tgt.receivedTime
   "Specimen-parent" : for src.parent make tgt.parent
-  "Specimen-collection" : for src.collection as vs0 make tgt.collection as vt0 then {
-    "Specimen.collection-collector" : for vs0.collector make vt0.collector
-    "Specimen.collection-collected-dateTime" : for vs0.collected : dateTime as vs make vt0.collected = create("dateTime") as vt then dateTime(vs, vt)
-    "Specimen.collection-collected-Period" : for vs0.collected : Period as vs make vt0.collected = create("Period") as vt then Period(vs, vt)
-    "Specimen.collection-quantity" : for vs0.quantity make vt0.quantity
-    "Specimen.collection-method" : for vs0.method make vt0.method
-    "Specimen.collection-bodySite" : for vs0.bodySite make vt0.bodySite
-  }
+  "Specimen-collection" : for src.collection as vs0 make tgt.collection as vt0 then spmCollection(vs0, vt0, src)
+  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment as vt0 then spmTreatment(vs0, vt0)
+  "Specimen-container" : for src.container as vs0 make tgt.container as vt0 then spmContainer(vs0, vt0)
+endgroup
 
-  "Specimen-treatment" : for src.treatment as vs0 make tgt.treatment as vt0 then {
-    "Specimen.treatment-description" : for vs0.description make vt0.description
-    "Specimen.treatment-procedure" : for vs0.procedure make vt0.procedure
-    "Specimen.treatment-additive" : for vs0.additive make vt0.additive
-  }
+group spmCollection extends BackboneElement
+  input src as source
+  input tgt as target
+  input ssrc as source
 
-  "Specimen-container" : for src.container as vs0 make tgt.container as vt0 then {
-    "Specimen.container-identifier" : for vs0.identifier make vt0.identifier
-    "Specimen.container-description" : for vs0.description make vt0.description
-    "Specimen.container-type" : for vs0.type make vt0.type
-    "Specimen.container-capacity" : for vs0.capacity make vt0.capacity
-    "Specimen.container-specimenQuantity" : for vs0.specimenQuantity make vt0.specimenQuantity
-    "Specimen.container-additive-CodeableConcept" : for vs0.additive : CodeableConcept as vs make vt0.additive = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "Specimen.container-additive-Reference" : for vs0.additive : Reference as vs make vt0.additive = create("Reference") as vt then Reference(vs, vt)
-  }
+  "Specimen.collection-collector" : for src.collector make tgt.collector
+  "Specimen.collection-collected" : for src.collected make tgt.collected 
+  "Specimen.collection-quantity" : for src.quantity make tgt.quantity
+  "Specimen.collection-comment" : for ssrc.note make tgt.comment
+  "Specimen.collection-method" : for src.method make tgt.method
+  "Specimen.collection-bodySite" : for src.bodySite make tgt.bodySite
+endgroup
 
+group spmTreatment extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Specimen.treatment-description" : for src.description make tgt.description
+  "Specimen.treatment-procedure" : for src.procedure make tgt.procedure
+  "Specimen.treatment-additive" : for src.additive make tgt.additive
+endgroup
+
+group spmContainer extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Specimen.container-identifier" : for src.identifier make tgt.identifier
+  "Specimen.container-description" : for src.description make tgt.description
+  "Specimen.container-type" : for src.type make tgt.type
+  "Specimen.container-capacity" : for src.capacity make tgt.capacity
+  "Specimen.container-specimenQuantity" : for src.specimenQuantity make tgt.specimenQuantity
+  "Specimen.container-additive" : for src.additive make tgt.additive 
 endgroup

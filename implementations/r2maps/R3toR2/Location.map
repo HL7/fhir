@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Location" alias Location as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Location" alias LocationR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Location extends DomainResource
   input src : Location as source
@@ -24,13 +18,17 @@ group for type+types  Location extends DomainResource
   "Location-telecom" : for src.telecom make tgt.telecom
   "Location-address" : for src.address make tgt.address
   "Location-physicalType" : for src.physicalType make tgt.physicalType
-  "Location-position" : for src.position as vs0 make tgt.position as vt0 then {
-    "Location.position-longitude" : for vs0.longitude make vt0.longitude
-    "Location.position-latitude" : for vs0.latitude make vt0.latitude
-    "Location.position-altitude" : for vs0.altitude make vt0.altitude
-  }
-
+  "Location-position" : for src.position as vs0 make tgt.position as vt0 then locPosition(vs0, vt0)
   "Location-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
   "Location-partOf" : for src.partOf make tgt.partOf
-
 endgroup
+
+group locPosition extends BackboneElement
+  input src : Location as source
+  input tgt : LocationR2 as target
+
+  "Location.position-longitude" : for src.longitude make tgt.longitude
+  "Location.position-latitude" : for src.latitude make tgt.latitude
+  "Location.position-altitude" : for src.altitude make tgt.altitude
+endgroup
+  

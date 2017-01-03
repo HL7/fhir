@@ -3,43 +3,41 @@
 uses "http://hl7.org/fhir/StructureDefinition/MedicationStatement" alias MedicationStatement as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/MedicationStatement" alias MedicationStatementR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Ratio3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Range3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  MedicationStatement extends DomainResource
   input src : MedicationStatement as source
   input tgt : MedicationStatementR2 as target
 
   "MedicationStatement-identifier" : for src.identifier make tgt.identifier
-  "MedicationStatement-status" : for src.status make tgt.status
-  "MedicationStatement-medication-CodeableConcept" : for src.medication : CodeableConcept as vs make tgt.medication = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-  "MedicationStatement-medication-Reference" : for src.medication : Reference as vs make tgt.medication = create("Reference") as vt then Reference(vs, vt)
-  "MedicationStatement-patient" : for src.subject make tgt.patient
-  "MedicationStatement-effective-dateTime" : for src.effective : dateTime as vs make tgt.effective = create("dateTime") as vt then dateTime(vs, vt)
-  "MedicationStatement-effective-Period" : for src.effective : Period as vs make tgt.effective = create("Period") as vt then Period(vs, vt)
+  "MedicationStatement-subject" : for src.subject make tgt.patient
   "MedicationStatement-informationSource" : for src.informationSource make tgt.informationSource
-  "MedicationStatement-supportingInformation" : for src.derivedFrom make tgt.supportingInformation
   "MedicationStatement-dateAsserted" : for src.dateAsserted make tgt.dateAsserted
+  "MedicationStatement-status" : for src.status check src.status != 'stopped' and status != 'on-hold' make tgt.status
+  "MedicationStatement-wasNotTaken" : for src.notTaken as vt where $this = 'y' make tgt.wasNotTaken = true
+  "MedicationStatement-wasNotTaken" : for src.notTaken as vt where $this = 'n' make tgt.wasNotTaken = false
   "MedicationStatement-reasonNotTaken" : for src.reasonNotTaken make tgt.reasonNotTaken
-  "MedicationStatement-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then {
-    "MedicationStatement.dosage-text" : for vs0.text make vt0.text
-    "MedicationStatement.dosage-timing" : for vs0.timing make vt0.timing
-    "MedicationStatement.dosage-asNeeded-boolean" : for vs0.asNeeded : boolean as vs make vt0.asNeeded = create("boolean") as vt then boolean(vs, vt)
-    "MedicationStatement.dosage-asNeeded-CodeableConcept" : for vs0.asNeeded : CodeableConcept as vs make vt0.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "MedicationStatement.dosage-site-CodeableConcept" : for vs0.site : CodeableConcept as vs make vt0.site = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "MedicationStatement.dosage-route" : for vs0.route make vt0.route
-    "MedicationStatement.dosage-method" : for vs0.method make vt0.method
-    "MedicationStatement.dosage-rate-Ratio" : for vs0.rate : Ratio as vs make vt0.rate = create("Ratio") as vt then Ratio(vs, vt)
-    "MedicationStatement.dosage-rate-Range" : for vs0.rate : Range as vs make vt0.rate = create("Range") as vt then Range(vs, vt)
-    "MedicationStatement.dosage-maxDosePerPeriod" : for vs0.maxDosePerPeriod make vt0.maxDosePerPeriod
-  }
+  "MedicationStatement-reasonForUse" : for src.reasonForUseCodeableConcept make tgt.reasonForUse
+  "MedicationStatement-reasonForUse" : for src.reasonForUseReference make tgt.reasonForUse
+  "MedicationStatement-effective" : for src.effective make tgt.effective
+  "MedicationStatement-note" : for src.note make tgt.note
+  "MedicationStatement-supportingInformation" : for src.derivedFrom make tgt.supportingInformation
+  "MedicationStatement-medication" : for src.medication make tgt.medication
+  
+  "MedicationStatement-dosage" : for src.dosage as vs0 make tgt.dosage as vt0 then mstDosage(vs0, vt0)
+endgroup
 
+group mstDosage extends Element // BackboneElement?
+  input src as source
+  input tgt as target
 
+  "DosageInstruction-text" : for src.text make tgt.text
+  "DosageInstruction-timing" : for src.timing make tgt.timing
+  "DosageInstruction-asNeeded" : for src.asNeeded make tgt.asNeeded 
+  "DosageInstruction-site" : for src.site make tgt.site // todo: handle Reference?
+  "DosageInstruction-route" : for src.route make tgt.route
+  "DosageInstruction-method" : for src.method make tgt.method
+  "DosageInstruction-quantity" : for src.dose make tgt.quantity
+  "DosageInstruction-rate" : for src.rate make tgt.rate 
+  "DosageInstruction-maxDosePerPeriod" : for src.maxDosePerPeriod make tgt.maxDosePerPeriod
 endgroup

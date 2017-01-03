@@ -3,9 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/HumanName" alias HumanName as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HumanName" alias HumanNameR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/Element3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  HumanName extends Element
   input src : HumanName as source
@@ -18,5 +16,4 @@ group for type+types  HumanName extends Element
   "HumanName-prefix" : for src.prefix make tgt.prefix
   "HumanName-suffix" : for src.suffix make tgt.suffix
   "HumanName-period" : for src.period make tgt.period
-
 endgroup

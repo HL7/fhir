@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare" alias EpisodeOfCare as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/EpisodeOfCare" alias EpisodeOfCareR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  EpisodeOfCare extends DomainResource
   input src : EpisodeOfCare as source
@@ -16,11 +11,7 @@ group for type+types  EpisodeOfCare extends DomainResource
 
   "EpisodeOfCare-identifier" : for src.identifier make tgt.identifier
   "EpisodeOfCare-status" : for src.status make tgt.status
-  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
-    "EpisodeOfCare.statusHistory-status" : for vs0.status make vt0.status
-    "EpisodeOfCare.statusHistory-period" : for vs0.period make vt0.period
-  }
-
+  "EpisodeOfCare-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then epcStatusHistory(vs0, vt0)
   "EpisodeOfCare-type" : for src.type make tgt.type
   "EpisodeOfCare-condition" : for src.condition make tgt.condition
   "EpisodeOfCare-patient" : for src.patient make tgt.patient
@@ -28,5 +19,31 @@ group for type+types  EpisodeOfCare extends DomainResource
   "EpisodeOfCare-period" : for src.period make tgt.period
   "EpisodeOfCare-referralRequest" : for src.referralRequest make tgt.referralRequest
   "EpisodeOfCare-careManager" : for src.careManager make tgt.careManager
+  "EpisodeOfCare-careTeam" : for src.team as vs where reference.resolve().exists() make (src.team.reference.resolve()) as ct then epiCareTeam(ct, tgt)
 
+endgroup
+
+group epcStatusHistory extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.statusHistory-status" : for src.status make tgt.status
+  "EpisodeOfCare.statusHistory-period" : for src.period make tgt.period
+endgroup
+
+
+group epiCareTeam extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.careteam-member" : for src.participant as vs make tgt.careTeam as vt then epiCareTeamMember(vs, vt)
+endgroup
+
+group epiCareTeamMember extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "EpisodeOfCare.careteam-role" : for src.role make tgt.role
+  "EpisodeOfCare.careteam-period" : for src.period make tgt.period
+  "EpisodeOfCare.careteam-member" : for src.member make tgt.member
 endgroup

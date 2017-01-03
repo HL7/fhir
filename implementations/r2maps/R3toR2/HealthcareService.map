@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/HealthcareService" alias HealthcareService as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HealthcareService" alias HealthcareServiceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  HealthcareService extends DomainResource
   input src : HealthcareService as source
@@ -19,6 +12,8 @@ group for type+types  HealthcareService extends DomainResource
   "HealthcareService-identifier" : for src.identifier make tgt.identifier
   "HealthcareService-providedBy" : for src.providedBy make tgt.providedBy
   "HealthcareService-serviceCategory" : for src.serviceCategory make tgt.serviceCategory
+  "HealthcareService-serviceType" : for src.serviceType as vs make tgt.serviceType as vt, vt.type as vt then CodeableConcept(vs, vt)
+  "HealthcareService-speciality" : for src.specialty as vs make tgt.serviceType as vt first, vt.specialty as vt then CodeableConcept(vs, vt) // put all the specialties on the first type
   "HealthcareService-location" : for src.location make tgt.location
   "HealthcareService-serviceName" : for src.serviceName make tgt.serviceName
   "HealthcareService-comment" : for src.comment make tgt.comment
@@ -34,17 +29,25 @@ group for type+types  HealthcareService extends DomainResource
   "HealthcareService-referralMethod" : for src.referralMethod make tgt.referralMethod
   "HealthcareService-publicKey" : for src.publicKey make tgt.publicKey
   "HealthcareService-appointmentRequired" : for src.appointmentRequired make tgt.appointmentRequired
-  "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then {
-    "HealthcareService.availableTime-allDay" : for vs0.allDay make vt0.allDay
-    "HealthcareService.availableTime-availableStartTime" : for vs0.availableStartTime make vt0.availableStartTime
-    "HealthcareService.availableTime-availableEndTime" : for vs0.availableEndTime make vt0.availableEndTime
-  }
-
-  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then {
-    "HealthcareService.notAvailable-description" : for vs0.description make vt0.description
-    "HealthcareService.notAvailable-during" : for vs0.during make vt0.during
-  }
-
+  "HealthcareService-availableTime" : for src.availableTime as vs0 make tgt.availableTime as vt0 then hsvcAvailable(vs0, vt0)
+  "HealthcareService-notAvailable" : for src.notAvailable as vs0 make tgt.notAvailable as vt0 then hsvcNotAvailable(vs0, vt0)
   "HealthcareService-availabilityExceptions" : for src.availabilityExceptions make tgt.availabilityExceptions
+endgroup
 
+group hsvcAvailable extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "HealthcareService.availableTime-daysOfWeek" : for src.daysOfWeek make tgt.daysOfWeek
+  "HealthcareService.availableTime-allDay" : for src.allDay make tgt.allDay
+  "HealthcareService.availableTime-availableStartTime" : for src.availableStartTime make tgt.availableStartTime
+  "HealthcareService.availableTime-availableEndTime" : for src.availableEndTime make tgt.availableEndTime
+endgroup
+
+group hsvcNotAvailable extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "HealthcareService.notAvailable-description" : for src.description make tgt.description
+  "HealthcareService.notAvailable-during" : for src.during make tgt.during
 endgroup

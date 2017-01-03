@@ -121,6 +121,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   private boolean anyExtensionsAllowed;
   private boolean errorForUnknownProfiles;
   private boolean noInvariantChecks;
+  private boolean noTerminologyChecks;
   private BestPracticeWarningLevel bpWarnings;
 
   private List<String> extensionDomains = new ArrayList<String>();
@@ -593,7 +594,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private void checkCodeableConcept(List<ValidationMessage> errors, String path, Element element, StructureDefinition profile, ElementDefinition theElementCntext)  {
-    if (theElementCntext != null && theElementCntext.hasBinding()) {
+    if (!noTerminologyChecks && theElementCntext != null && theElementCntext.hasBinding()) {
       ElementDefinitionBindingComponent binding = theElementCntext.getBinding();
       if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, binding != null, "Binding for " + path + " missing (cc)")) {
         if (binding.hasValueSet() && binding.getValueSet() instanceof Reference) {
@@ -774,7 +775,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     String display = element.getNamedChildValue("display");
     rule(errors, IssueType.CODEINVALID, element.line(), element.col(), path, isAbsolute(system), "Coding.system must be an absolute reference, not a local reference");
 
-    if (system != null && code != null) {
+    if (system != null && code != null && !noTerminologyChecks) {
       try {
         if (checkCode(errors, element, path, code, system, display))
           if (theElementCntext != null && theElementCntext.hasBinding()) {
@@ -1255,6 +1256,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     if (!element.hasPrimitiveValue() || !("code".equals(type) || "string".equals(type) || "uri".equals(type))) {
       return;
     }
+    if (noTerminologyChecks)
+      return;
 
     String value = element.primitiveValue();
     // System.out.println("check "+value+" in "+path);
@@ -3413,6 +3416,15 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
   public void setNoBindingMsgSuppressed(boolean noBindingMsgSuppressed) {
     this.noBindingMsgSuppressed = noBindingMsgSuppressed;
+  }
+
+  
+  public boolean isNoTerminologyChecks() {
+    return noTerminologyChecks;
+  }
+
+  public void setNoTerminologyChecks(boolean noTerminologyChecks) {
+    this.noTerminologyChecks = noTerminologyChecks;
   }
 
   public void checkAllInvariants(){

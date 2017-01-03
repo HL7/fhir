@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Procedure" alias ProcedureR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Procedure" alias Procedure as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Procedure extends DomainResource
   input src : ProcedureR2 as source
@@ -23,14 +17,10 @@ group for type+types  Procedure extends DomainResource
   "Procedure-notPerformed" : for src.notPerformed make tgt.notPerformed
   "Procedure-reasonNotPerformed" : for src.reasonNotPerformed make tgt.reasonNotPerformed
   "Procedure-bodySite" : for src.bodySite make tgt.bodySite
-  "Procedure-reasonCode" : for src.reasonCodeableConcept make tgt.reasonCode
-  "Procedure-performer" : for src.performer as vs0 make tgt.performer as vt0 then {
-    "Procedure.performer-actor" : for vs0.actor make vt0.actor
-    "Procedure.performer-role" : for vs0.role make vt0.role
-  }
-
-  "Procedure-performed-dateTime" : for src.performed : dateTime as vs make tgt.performed = create("dateTime") as vt then dateTime(vs, vt)
-  "Procedure-performed-Period" : for src.performed : Period as vs make tgt.performed = create("Period") as vt then Period(vs, vt)
+  "Procedure-reasonCode" : for src.reason where $this is CodeableConcept make tgt.reasonCode
+  "Procedure-reasonReference" : for src.reason where $this is Reference make tgt.reasonReference
+  "Procedure-performed" : for src.performed make tgt.performed 
+  "Procedure-performer" : for src.performer as vs0 make tgt.performer as vt0 then prcPerformer(vs0, vt0)
   "Procedure-encounter" : for src.encounter make tgt.encounter
   "Procedure-location" : for src.location make tgt.location
   "Procedure-outcome" : for src.outcome make tgt.outcome
@@ -39,10 +29,23 @@ group for type+types  Procedure extends DomainResource
   "Procedure-followUp" : for src.followUp make tgt.followUp
   "Procedure-request" : for src.request make tgt.request
   "Procedure-notes" : for src.notes make tgt.notes
-  "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice as vt0 then {
-    "Procedure.focalDevice-action" : for vs0.action make vt0.action
-    "Procedure.focalDevice-manipulated" : for vs0.manipulated make vt0.manipulated
-  }
-
-
+  "Procedure-focalDevice" : for src.focalDevice as vs0 make tgt.focalDevice as vt0 then prcFocalDevice(vs0, vt0)
+  "Procedure-used" : for src.used make tgt.usedReference
 endgroup
+
+group prcPerformer extends BackboneElement
+  input src : Procedure as source
+  input tgt : ProcedureR2 as target
+
+  "Procedure.performer-actor" : for src.actor make tgt.actor 
+  "Procedure.performer-role" : for src.role make tgt.role 
+endgroup
+
+group prcFocalDevice extends BackboneElement
+  input src : Procedure as source
+  input tgt : ProcedureR2 as target
+
+  "Procedure.focalDevice-action" : for src.action make tgt.action
+  "Procedure.focalDevice-manipulated" : for src.manipulated make tgt.manipulated
+endgroup
+

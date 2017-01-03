@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Organization" alias Organization as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Organization" alias OrganizationR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Organization extends DomainResource
   input src : Organization as source
@@ -23,12 +16,15 @@ group for type+types  Organization extends DomainResource
   "Organization-telecom" : for src.telecom make tgt.telecom
   "Organization-address" : for src.address make tgt.address
   "Organization-partOf" : for src.partOf make tgt.partOf
-  "Organization-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "Organization.contact-purpose" : for vs0.purpose make vt0.purpose
-    "Organization.contact-name" : for vs0.name make vt0.name
-    "Organization.contact-telecom" : for vs0.telecom make vt0.telecom
-    "Organization.contact-address" : for vs0.address make vt0.address
-  }
+  "Organization-contact" : for src.contact as vs0 make tgt.contact as vt0 then orgContact(vs0, vt0)
+endgroup
 
+group orgContact extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Organization.contact-purpose" : for src.purpose make tgt.purpose
+  "Organization.contact-name" : for src.name make tgt.name
+  "Organization.contact-telecom" : for src.telecom make tgt.telecom
+  "Organization.contact-address" : for src.address make tgt.address
 endgroup

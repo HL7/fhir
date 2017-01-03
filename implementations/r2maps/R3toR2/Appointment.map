@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Appointment" alias Appointment as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Appointment" alias AppointmentR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Appointment extends DomainResource
   input src : Appointment as source
@@ -24,12 +20,16 @@ group for type+types  Appointment extends DomainResource
   "Appointment-minutesDuration" : for src.minutesDuration make tgt.minutesDuration
   "Appointment-slot" : for src.slot make tgt.slot
   "Appointment-comment" : for src.comment make tgt.comment
-  "Appointment-participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Appointment.participant-type" : for vs0.type make vt0.type
-    "Appointment.participant-actor" : for vs0.actor make vt0.actor
-    "Appointment.participant-required" : for vs0.required make vt0.required
-    "Appointment.participant-status" : for vs0.status make vt0.status
-  }
-
-
+  "Appointment-participant" : for src.participant as vs0 make tgt.participant as vt0 then appParticipant(vs0, vt0)
 endgroup
+
+group appParticipant extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Appointment.participant-type" : for src.type make tgt.type
+  "Appointment.participant-actor" : for src.actor make tgt.actor
+  "Appointment.participant-required" : for src.required make tgt.required
+  "Appointment.participant-status" : for src.status make tgt.status
+endgroup
+

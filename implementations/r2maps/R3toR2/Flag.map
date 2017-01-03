@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Flag" alias Flag as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Flag" alias FlagR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Flag extends DomainResource
   input src : Flag as source

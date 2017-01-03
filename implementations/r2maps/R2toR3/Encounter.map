@@ -4,26 +4,22 @@ conceptmap "ActEncounterCode" {
   prefix s = "http://hl7.org/fhir/encounter-class"
   prefix t = "http://hl7.org/fhir/v3/ActCode"
 
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
-  s:inpatient ~ t:AMB
+  s:inpatient	= t:IMP
+  s:outpatient	= t:AMB
+  s:ambulatory	= t:AMB
+  s:emergency	= t:EMER
+  s:home	= t:HH
+  s:field	= t:FLD
+  s:daytime	= t:SS
+  s:virtual	= t:VR
+  s:other	= s:other
 }
+
 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Encounter" alias EncounterR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Encounter" alias Encounter as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Duration2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Encounter extends DomainResource
   input src : EncounterR2 as source
@@ -31,49 +27,65 @@ group for type+types  Encounter extends DomainResource
 
   "Encounter-identifier" : for src.identifier make tgt.identifier
   "Encounter-status" : for src.status make tgt.status
-  "Encounter-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then {
-    "Encounter.statusHistory-status" : for vs0.status make vt0.status
-    "Encounter.statusHistory-period" : for vs0.period make vt0.period
-  }
-
-  "Encounter-class" : for src.class as v make tgt.class = translate(v, "#ActEncounterCode", "code")
+  "Encounter-statusHistory" : for src.statusHistory as vs0 make tgt.statusHistory as vt0 then encStatusHistory(vs0, vt0) 
+  "Encounter-class" : for src.class as v make tgt.class = translate(v, "#ActEncounterCode", "Coding")
   "Encounter-type" : for src.type make tgt.type
   "Encounter-priority" : for src.priority make tgt.priority
   "Encounter-patient" : for src.patient make tgt.patient
   "Encounter-episodeOfCare" : for src.episodeOfCare make tgt.episodeOfCare
   "Encounter-incomingReferral" : for src.incomingReferral make tgt.incomingReferral
-  "Encounter-participant" : for src.participant as vs0 make tgt.participant as vt0 then {
-    "Encounter.participant-type" : for vs0.type make vt0.type
-    "Encounter.participant-period" : for vs0.period make vt0.period
-    "Encounter.participant-individual" : for vs0.individual make vt0.individual
-  }
-
+  "Encounter-participant" : for src.participant as vs0 make tgt.participant as vt0 then encParticipant(vs0, vt0)
   "Encounter-appointment" : for src.appointment make tgt.appointment
   "Encounter-period" : for src.period make tgt.period
-  "Encounter-length" : for src.length make tgt.length
+  "Encounter-length" : for src.length as vs make tgt.length as vt then QuantityToDuration(vs, vt)
   "Encounter-reason" : for src.reason make tgt.reason
   "Encounter-indication" : for src.indication make tgt.indication
-  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then {
-    "Encounter.hospitalization-preAdmissionIdentifier" : for vs0.preAdmissionIdentifier make vt0.preAdmissionIdentifier
-    "Encounter.hospitalization-origin" : for vs0.origin make vt0.origin
-    "Encounter.hospitalization-admitSource" : for vs0.admitSource make vt0.admitSource
-    "Encounter.hospitalization-admittingDiagnosis" : for vs0.admittingDiagnosis make vt0.admittingDiagnosis
-    "Encounter.hospitalization-reAdmission" : for vs0.reAdmission make vt0.reAdmission
-    "Encounter.hospitalization-dietPreference" : for vs0.dietPreference make vt0.dietPreference
-    "Encounter.hospitalization-specialCourtesy" : for vs0.specialCourtesy make vt0.specialCourtesy
-    "Encounter.hospitalization-specialArrangement" : for vs0.specialArrangement make vt0.specialArrangement
-    "Encounter.hospitalization-destination" : for vs0.destination make vt0.destination
-    "Encounter.hospitalization-dischargeDisposition" : for vs0.dischargeDisposition make vt0.dischargeDisposition
-    "Encounter.hospitalization-dischargeDiagnosis" : for vs0.dischargeDiagnosis make vt0.dischargeDiagnosis
-  }
-
-  "Encounter-location" : for src.location as vs0 make tgt.location as vt0 then {
-    "Encounter.location-location" : for vs0.location make vt0.location
-    "Encounter.location-status" : for vs0.status make vt0.status
-    "Encounter.location-period" : for vs0.period make vt0.period
-  }
-
+  "Encounter-hospitalization" : for src.hospitalization as vs0 make tgt.hospitalization as vt0 then encHospitaization(vs0, vt0) 
+  "Encounter-location" : for src.location as vs0 make tgt.location as vt0 then encLocation(vs0, vt0)
   "Encounter-serviceProvider" : for src.serviceProvider make tgt.serviceProvider
   "Encounter-partOf" : for src.partOf make tgt.partOf
+endgroup
 
+group encStatusHistory extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Encounter.statusHistory-status" : for src.status make tgt.status
+  "Encounter.statusHistory-period" : for src.period make tgt.period
+endgroup
+
+group encParticipant extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Encounter.participant-type" : for src.type make tgt.type
+  "Encounter.participant-period" : for src.period make tgt.period
+  "Encounter.participant-individual" : for src.individual make tgt.individual
+endgroup
+
+group encHospitaization extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Encounter.hospitalization-preAdmissionIdentifier" : for src.preAdmissionIdentifier make tgt.preAdmissionIdentifier
+  "Encounter.hospitalization-origin" : for src.origin make tgt.origin
+  "Encounter.hospitalization-admitSource" : for src.admitSource make tgt.admitSource
+  "Encounter.hospitalization-admittingDiagnosis" : for src.admittingDiagnosis make tgt.admittingDiagnosis
+  "Encounter.hospitalization-reAdmission" : for src.reAdmission make tgt.reAdmission
+  "Encounter.hospitalization-dietPreference" : for src.dietPreference make tgt.dietPreference
+  "Encounter.hospitalization-specialCourtesy" : for src.specialCourtesy make tgt.specialCourtesy
+  "Encounter.hospitalization-specialArrangement" : for src.specialArrangement make tgt.specialArrangement
+  "Encounter.hospitalization-destination" : for src.destination make tgt.destination
+  "Encounter.hospitalization-dischargeDisposition" : for src.dischargeDisposition make tgt.dischargeDisposition
+  "Encounter.hospitalization-dischargeDiagnosis" : for src.dischargeDiagnosis make tgt.dischargeDiagnosis
+
+endgroup
+
+group encLocation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Encounter.location-location" : for src.location make tgt.location
+  "Encounter.location-status" : for src.status make tgt.status
+  "Encounter.location-period" : for src.period make tgt.period
 endgroup

@@ -10,7 +10,61 @@ group for type+types MedicationRequest extends DomainResource
   input tgt : MedicationOrderR2 as target
 
   "MedicationOrder-identifier" : for src.identifier make tgt.identifier
-  "MedicationOrder-status" : for src.status make tgt.status
+  "MedicationOrder-dateWritten" : for src.authoredOn make tgt.dateWritten
+  // dateEnded
+  // reasonEnded
+  "MedicationOrder-status" : for src.status check $this != 'cancelled' and $this != 'unknown' make tgt.status 
+  "MedicationOrder-patient" : for src.subject make tgt.patient
+  "MedicationOrder-prescriber" : for src.requester as req make tgt.prescriber as vt then medRequestor(req, vt)
+  "MedicationOrder-encounter" : for src.context make tgt.encounter
+  "MedicationOrder-reasonCode" : for src.reasonCode make tgt.reason
+  "MedicationOrder-reasonCode" : for src.reasonReference make tgt.reason
+  "MedicationOrder-note" : for src.note only_one make tgt.note
   "MedicationOrder-medication" : for src.medication make tgt.medication 
-  "MedicationOrder-subject" : for src.subject make tgt.patient
+
+  "MedicationOrder-dosageInstruction" : for src.dosageInstruction as vs make tgt.dosageInstruction as vt then medDosageInstruction(vs, vt) 
+  "MedicationOrder-dispenseRequest" : for src.dispenseRequest as vs make tgt.dispenseRequest as vt then medDispenseRequest(vs, vt) 
+  "MedicationOrder-substitution" : for src.substitution as vs make tgt.substitution as vt then medSubstitution(vs, vt) 
+  "MedicationOrder-priorPrescription" : for src.priorPrescription make tgt.priorPrescription 
+endgroup
+
+group medDosageInstruction extends Element //? BackboneElement
+  input src as source
+  input tgt as target
+
+  "MedicationOrder.dosage-text" : for src.text make tgt.text
+  "MedicationOrder.dosage-additionalInstructions" : for src.additionalInstructions	only_one make tgt.additionalInstructions
+  "MedicationOrder.dosage-timing" : for src.timing make tgt.timing
+  "MedicationOrder.dosage-asNeeded" : for src.asNeeded make tgt.asNeeded
+  "MedicationOrder.dosage-site" : for src.site make tgt.site  
+  "MedicationOrder.dosage-route" : for src.route make tgt.route
+  "MedicationOrder.dosage-method" : for src.method make tgt.method
+  "MedicationOrder.dosage-dose" : for src.dose make tgt.dose
+  "MedicationOrder.dosage-rate" : for src.rate make tgt.rate
+  "MedicationOrder.dosage-maxDosePerPeriod" : for src.maxDosePerPeriod make tgt.maxDosePerPeriod
+endgroup
+
+
+group medDispenseRequest extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MedicationOrder.dispenseRequest-validityPeriod" : for src.validityPeriod make tgt.validityPeriod
+  "MedicationOrder.dispenseRequest-numberOfRepeatsAllowed" : for src.numberOfRepeatsAllowed make tgt.numberOfRepeatsAllowed
+  "MedicationOrder.dispenseRequest-quantity" : for src.quantity make tgt.quantity
+  "MedicationOrder.dispenseRequest-expectedSupplyDuration" : for src.expectedSupplyDuration make tgt.expectedSupplyDuration
+endgroup
+
+group medSubstitution extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "MedicationOrder.substitution-reason" : for src.reason make tgt.reason
+endgroup
+
+group medRequestor 
+  input src as source
+  input tgt as target
+
+  "MedicationOrder-prescriber2" : for src.agent as sa then Reference(sa, tgt)
 endgroup
