@@ -298,4 +298,10 @@
   Description = General Person Primary Coverage Example
   Filename = eligibilityrequest-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = Detailed-Primary
+  Identity = 52346
+  Description = Primary Coverage specifying Benefit Example
+  Filename = eligibilityrequest-example-2.xml
+
 === Sheet Examples =====================================
