@@ -41,6 +41,7 @@ signatures.html
       <page title="Community and Credits" filename="credits.html"/>
       <page title="Version History" filename="history.html"/>
       <page title="Differences from DSTU Release 2" filename="diff.html"/>
+      <page title="DSTU Release 2 Transforms" filename="r2maps.html"/>
       <page title="Outstanding Issues" filename="todo.html"/>
       <page title="FHIR Timelines" filename="timelines.html"/>
       <page title="FHIRPath" filename="http://hl7.org/fluentpath"/>

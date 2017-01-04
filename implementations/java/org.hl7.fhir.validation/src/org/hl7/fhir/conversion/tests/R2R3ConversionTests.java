@@ -63,6 +63,8 @@ import com.google.gson.JsonPrimitive;
 @RunWith(Parameterized.class)
 public class R2R3ConversionTests implements ITransformerServices {
 
+  private static final boolean SAVING = false;
+
   @Parameters(name = "{index}: id {0}")
   public static Iterable<Object[]> data() throws ParserConfigurationException, SAXException, IOException {
     root = Paths.get(".").toAbsolutePath().normalize().toString();
@@ -127,6 +129,10 @@ public class R2R3ConversionTests implements ITransformerServices {
     StructureMapUtilities smu2 = new StructureMapUtilities(contextR2, library, this);
     String tn = null;
     workingid = null;
+
+    Exception executionError = null;
+    List<ValidationMessage> r3validationErrors = new ArrayList<ValidationMessage>();
+    String roundTripError = null;
     try {
       extras = new ArrayList<Resource>();
       
@@ -134,8 +140,9 @@ public class R2R3ConversionTests implements ITransformerServices {
       org.hl7.fhir.dstu3.elementmodel.Element r2 = new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).parse(new ByteArrayInputStream(content));
       tn = r2.fhirType();
       workingid = r2.getChildValue("id");
-      TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".input.xml"));
-      
+      if (SAVING)
+        TextFile.bytesToFile(content, Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".input.xml"));
+            
       // load the r2 to R3 map
       String mapFile = Utilities.path(root, "implementations", "r2maps", "R2toR3", r2.fhirType()+".map");
       if (new File(mapFile).exists()) {
@@ -148,18 +155,19 @@ public class R2R3ConversionTests implements ITransformerServices {
 
         ByteArrayOutputStream bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r3);
-        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".r3.xml"));
+        if (SAVING) {
+          TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".r3.xml"));
         for (Resource r : extras) {
           bs = new ByteArrayOutputStream();
           new org.hl7.fhir.dstu3.formats.XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, r);
           TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", r.fhirType()+"-"+r.getId()+".r3.xml"));
         }
+        }
 
         // validate against R3
         IResourceValidator validator = contextR3.newValidator();
         validator.setNoTerminologyChecks(true);
-        List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
-        validator.validate(null, errors, r3);
+        validator.validate(null, r3validationErrors, r3);
 
         // load the R3 to R2 map
         //      mapFile = Utilities.path(root, "implementations", "r2maps", "R3toR2", r2.fhirType()+".map");
@@ -175,23 +183,24 @@ public class R2R3ConversionTests implements ITransformerServices {
         // compare the XML
         bs = new ByteArrayOutputStream();
         new org.hl7.fhir.dstu3.elementmodel.XmlParser(contextR2).compose(ro2, bs, OutputStyle.PRETTY, null);
-        TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".output.xml"));
-        
+        if (SAVING)
+          TextFile.bytesToFile(bs.toByteArray(), Utilities.path(root, "implementations", "r2maps", "test-output", tn+"-"+workingid+".output.xml"));
+               
 //        check(errors, tn, workingid);
-        String s = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
-        if (s != null && !s.equals(rules.getStringProperty(tn+"/"+workingid, "roundtrip")))
-          throw new Exception("Round trip failed: "+s);
+        roundTripError = TestingUtilities.checkXMLIsSame(new ByteArrayInputStream(content), new ByteArrayInputStream(bs.toByteArray()));
+        if (roundTripError != null && roundTripError.equals(rules.getStringProperty(tn+"/"+workingid, "roundtrip")))
+          roundTripError = null;
       }
-      if (tn != null && workingid != null)
-        updateOutcomes(tn, workingid, null);
     } catch (Exception e) {
-      if (tn != null && workingid != null)
-        updateOutcomes(tn, workingid, (e.getMessage() == null ? "NullPointerException" : e.getMessage()).split("\\r?\\n"));
-      throw e;
+      executionError = e;
     }
+    if (tn != null && workingid != null)
+      updateOutcomes(tn, workingid, executionError, r3validationErrors, roundTripError);
+    if (executionError != null)
+      throw executionError;
   }
 
-  private void updateOutcomes(String tn, String id, String[] errs) throws IOException {
+  private void updateOutcomes(String tn, String id, Exception executionError, List<ValidationMessage> r3validationErrors, String roundTripError) throws IOException {
     JsonObject r = r2r3Outcomes.getAsJsonObject(tn);
     if (r == null) {
       r = new JsonObject();
@@ -202,19 +211,28 @@ public class R2R3ConversionTests implements ITransformerServices {
       i = new JsonObject();
       r.add(id, i);
     }
-    if (errs == null || errs.length == 0) {
-      if (i.has("errors"))
-        i.remove("errors");
-    } else {
-      JsonArray arr = i.getAsJsonArray("errors");
-      if (arr == null) {
-        arr = new JsonArray();
-        i.add("errors", arr);
-      }
-      while (arr.size() > 0)
-        arr.remove(0);
-      for (String e : errs)
-        arr.add(new JsonPrimitive(e));
+    // now, update with outcomes
+    // execution
+    if (i.has("execution"))
+      i.remove("execution");
+    if (executionError == null)
+      i.addProperty("execution", true);
+    else
+      i.addProperty("execution", executionError.getMessage());
+    // round-trip check  
+    if (i.has("round-trip"))
+      i.remove("round-trip");
+    if (roundTripError != null)
+      i.addProperty("round-trip", roundTripError);
+    // r3.validation errors
+    if (i.has("r3.errors")) {
+      i.remove("r3.errors");
+    }
+    if (r3validationErrors.size() > 0) {
+      JsonArray arr = new JsonArray();
+      i.add("r3.errors", arr);
+      for (ValidationMessage e : r3validationErrors)
+        arr.add(new JsonPrimitive(e.summary()));      
     }
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     String json = gson.toJson(r2r3Outcomes);

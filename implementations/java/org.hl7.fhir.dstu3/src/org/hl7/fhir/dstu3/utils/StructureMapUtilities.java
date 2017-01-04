@@ -1194,7 +1194,7 @@ public class StructureMapUtilities {
 
 	private void executeRule(String indent, TransformContext context, StructureMap map, Variables vars, StructureMapGroupComponent group, StructureMapGroupRuleComponent rule) throws FHIRException {
 		log(indent+"rule : "+rule.getName());
-		if (rule.getName().contains("EpisodeOfCare-careTeam"))
+		if (rule.getName().contains("CarePlan.participant-unlink"))
 		  System.out.println("debug");
 		Variables srcVars = vars.copy();
 		if (rule.getSource().size() != 1)

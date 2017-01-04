@@ -183,6 +183,7 @@ import org.hl7.fhir.igtools.spreadsheets.TypeParser;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.converters.MarkDownPreProcessor;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.publisher.PageProcessor.ResourceSummary;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -209,6 +210,7 @@ import com.github.rjeschke.txtmark.Processor;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 
 public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferenceResolver, ILoggingService  {
 
@@ -1078,35 +1080,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genDefaultedList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
+      else if (com[0].equals("r2maps-summary"))
+        src = s1 + genR2MapsSummary() + s3;
+      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
   }
 
-  public String r2r3StatusForResource(String name) {
-    JsonObject r = r2r3Outcomes.getAsJsonObject(name);
-    if (r == null)
-      return "Unknown";
-    int t = 0;
-    int ec = 0;
-    for (Entry<String, JsonElement> e : r.entrySet()) {
-      JsonObject el = (JsonObject) e.getValue(); 
-      t++;
-      if (el.has("errors"))
-        ec++;
-    }
-    String color;
-    if (ec == t)
-      color = "#ffcccc";
-    else if (ec == 0)
-      color = "#ccffcc";
-    else
-      color = "#ffe0b3";
-    
-    return "<span style=\"background-color: "+color+"\">Passing "+Integer.toString(t-ec)+" of "+Integer.toString(t)+" tests</span>";
-    
-  }
   private String dtR2R3Transform(String name) throws Exception {
 
     File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map"));
@@ -4815,11 +4797,14 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1 + genDefaultedList() + s3;
       else if (com[0].equals("wgreport"))
         src = s1 + genWGReport() + s3;
+      else if (com[0].equals("r2maps-summary"))
+        src = s1 + genR2MapsSummary() + s3;
       else 
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
   } 
+
 
   public class SnomedConceptUsage {
     private String code;
@@ -8343,5 +8328,141 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //     System.out.println(message);    
   }
   
+  
+  public class ResourceSummary {
+
+    boolean mapped;
+    int testCount;
+    int executeFailCount;
+    int roundTripFailCount;
+    int r3ValidationFailCount;
+    int r3ValidationErrors;
+    public boolean isMapped() {
+      return mapped;
+    }
+    public void setMapped(boolean mapped) {
+      this.mapped = mapped;
+    }
+    public int getTestCount() {
+      return testCount;
+    }
+    public void setTestCount(int testCount) {
+      this.testCount = testCount;
+    }
+    public int getExecuteFailCount() {
+      return executeFailCount;
+    }
+    public void setExecuteFailCount(int executeFailCount) {
+      this.executeFailCount = executeFailCount;
+    }
+    public int getRoundTripFailCount() {
+      return roundTripFailCount;
+    }
+    public void setRoundTripFailCount(int roundTripFailCount) {
+      this.roundTripFailCount = roundTripFailCount;
+    }
+    public int getR3ValidationFailCount() {
+      return r3ValidationFailCount;
+    }
+    public void setR3ValidationFailCount(int r3ValidationFailCount) {
+      this.r3ValidationFailCount = r3ValidationFailCount;
+    }
+    public int getR3ValidationErrors() {
+      return r3ValidationErrors;
+    }
+    public void setR3ValidationErrors(int r3ValidationErrors) {
+      this.r3ValidationErrors = r3ValidationErrors;
+    }
+    public int executePct() {
+      return (executeCount() * 100) / testCount;
+    }
+    private int executeCount() {
+      return testCount - executeFailCount;
+    }
+    public int roundTripPct() {
+      return ((executeCount() - roundTripFailCount) * 100) / executeCount();
+    }
+    public int r3ValidPct() {
+      return ((executeCount() - r3ValidationFailCount) * 100) / executeCount();
+    }
+    
+  }
+
+  private String genR2MapsSummary() {
+    StringBuilder b = new StringBuilder();
+    for (String n : definitions.sortedResourceNames()) {
+      ResourceSummary rs = getResourceSummary(n);
+      if (rs.isMapped()) {
+        b.append("<tr><td><a href=\""+n.toLowerCase()+"-version-maps.html\">"+n+"</a></td>");
+        b.append("<td>"+Integer.toString(rs.getTestCount())+"</td>");
+        b.append("<td style=\"background-color: "+mapsBckColor(rs.executePct(), "#ffaaaa", "#ffffff")+"\">"+Integer.toString(rs.executePct())+"</td>");
+        b.append("<td style=\"background-color: "+mapsBckColor(rs.roundTripPct(), "#ffcccc", "#ffffff")+"\">"+Integer.toString(rs.roundTripPct())+"</td>");
+        b.append("<td style=\"background-color: "+mapsBckColor(rs.r3ValidPct(), "#ffcccc", "#ffffff")+"\">"+Integer.toString(rs.r3ValidPct())+"</td>");
+        if (rs.getR3ValidationErrors() > 0)
+          b.append("<td>"+Integer.toString(rs.getR3ValidationErrors())+"</td>");
+        else
+          b.append("<td></td>");
+      
+      } else { 
+        b.append("<tr><td>"+n+"</td>");
+        b.append("<td colspan=\"54\" style=\"background-color: #efefef\">No r2:r3 maps available</td>");
+      }
+      b.append("</tr>");
+    }
+    return b.toString();
+  }
+
+  private ResourceSummary getResourceSummary(String n) {
+    ResourceSummary rs = new ResourceSummary(); 
+    JsonObject r = r2r3Outcomes.getAsJsonObject(n);
+    if (r != null) {
+      rs.setMapped(true);
+      for (Entry<String, JsonElement> e : r.entrySet()) {
+        JsonObject el = (JsonObject) e.getValue(); 
+        rs.testCount++;
+        JsonPrimitive p = el.getAsJsonPrimitive("execution");
+        if (!p.isBoolean())
+          rs.executeFailCount++;
+        if (el.has("r3.errors")) {
+          rs.r3ValidationFailCount++;
+          rs.r3ValidationErrors = rs.r3ValidationErrors+el.getAsJsonArray("r3.errors").size();
+        }
+        if (el.has("round-trip"))
+          rs.roundTripFailCount++;
+      }
+    } else 
+      rs.setMapped(false);
+    return rs;
+  }
+
+  private String mapsBckColor(int pct, String badColor, String goodColor) {
+    return pct == 100 ? goodColor : badColor;
+  }
+  
+  public String r2r3StatusForResource(String name) {
+    ResourceSummary rs = getResourceSummary(name);
+    if (!rs.isMapped())
+      return "Not Mapped";
+    
+    StringBuilder b = new StringBuilder();
+    b.append(rs.getTestCount());
+    b.append(rs.getTestCount() == 1 ? " test" : " tests");
+    if (rs.getExecuteFailCount() == 0)
+      b.append(" that all execute ok.");
+    else
+      b.append(" <span style=\"background-color: #ffcccc\">of which "+Integer.toString(rs.getExecuteFailCount())+" fail to execute</span>.");
+    if (rs.getTestCount() - rs.getExecuteFailCount() > 0) {
+      if (rs.getRoundTripFailCount() == 0)  
+        b.append(" All tests pass round-trip testing ");
+      else
+        b.append(" <span style=\"background-color: #ccffcc\">"+Integer.toString(rs.getRoundTripFailCount())+" fail round-trip testing</span>");
+      if (rs.getR3ValidationFailCount() == 0)  
+        b.append(" and all r3 resources are valid.");
+      else
+        b.append(" and <span style=\"background-color: #E0B0FF\">"+Integer.toString(rs.getR3ValidationFailCount())+" r3 resources are invalid ("+Integer.toString(rs.getR3ValidationErrors())+" errors).</span>");
+    }
+    return b.toString();
+    
+  }
   
 }
