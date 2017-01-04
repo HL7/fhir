@@ -1091,12 +1091,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 
   private String dtR2R3Transform(String name) throws Exception {
 
-    File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", name+".map"));
+    File f = new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
     if (!f.exists())
-       throw new Exception("No R2/R3 map exitss for "+name);
+       throw new Exception("No R2/R3 map exists for "+name);
     String n = name.toLowerCase();
     String status = r2r3StatusForResource(name);
-    String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  name+".map"));
+    String fwds = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3",  r2nameForResource(name)+".map"));
     String bcks = TextFile.fileToString(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
     String fwdsStatus =  "";
     String bcksStatus =  "";
@@ -1131,6 +1131,16 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     "</div>\r\n"+
     "\r\n"+
     bcksStatus+"\r\n";
+  }
+
+  public String r2nameForResource(String name) {
+    if ("CapabilityStatement".equals(name))
+      return "Conformance";
+    if ("DiagnosticRequest".equals(name))
+      return "DiagnosticOrder";
+    if ("MedicationRequest".equals(name))
+      return "MedicationOrder";
+    return name;
   }
 
   private String genWGReport() throws Exception {
@@ -3560,7 +3570,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
 //      b.append(makeHeaderTab("HTML Form", n+"-questionnaire.html", "questionnaire".equals(mode)));
     if (hasOps)
       b.append(makeHeaderTab("Operations", n+"-operations.html", "operations".equals(mode)));
-    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R2toR3", title+".map")).exists())
+    if (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", title+".map")).exists())
       b.append(makeHeaderTab("R2 Conversions", n+"-version-maps.html", "conversion".equals(mode)));
     b.append("</ul>\r\n");
 
@@ -8388,7 +8398,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
   }
 
-  private String genR2MapsSummary() {
+  private String genR2MapsSummary() throws IOException {
     StringBuilder b = new StringBuilder();
     for (String n : definitions.sortedResourceNames()) {
       ResourceSummary rs = getResourceSummary(n);
@@ -8412,10 +8422,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return b.toString();
   }
 
-  private ResourceSummary getResourceSummary(String n) {
+  private ResourceSummary getResourceSummary(String n) throws IOException {
     ResourceSummary rs = new ResourceSummary(); 
     JsonObject r = r2r3Outcomes.getAsJsonObject(n);
-    if (r != null) {
+    if (r != null && (new File(Utilities.path(folders.rootDir, "implementations", "r2maps", "R3toR2", n+".map")).exists())) {
       rs.setMapped(true);
       for (Entry<String, JsonElement> e : r.entrySet()) {
         JsonObject el = (JsonObject) e.getValue(); 
@@ -8439,7 +8449,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     return pct == 100 ? goodColor : badColor;
   }
   
-  public String r2r3StatusForResource(String name) {
+  public String r2r3StatusForResource(String name) throws IOException {
     ResourceSummary rs = getResourceSummary(name);
     if (!rs.isMapped())
       return "Not Mapped";

@@ -2567,13 +2567,13 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void produceMap(String name, SectionTracker st) throws Exception {
-    File f = new File(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3", name+".map"));
+    File f = new File(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map"));
     if (!f.exists())
         return;
     String n = name.toLowerCase();
     Map<String, String> values = new HashMap<String, String>();
     values.put("conv-status", page.r2r3StatusForResource(name));
-    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3",  name+".map")));
+    values.put("fwds", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R2toR3",  page.r2nameForResource(name)+".map")));
     values.put("bcks", TextFile.fileToString(Utilities.path(page.getFolders().rootDir, "implementations", "r2maps", "R3toR2", name+".map")));
     values.put("fwds-status", "");
     values.put("bcks-status", "");
