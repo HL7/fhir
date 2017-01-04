@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<DiagnosticRequest xmlns="http://hl7.org/fhir">
 	<id value="ft4"/>
 	<status value="active"/>
 	<intent value="reflex-order"/>
@@ -7,6 +7,7 @@
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="3024-7"/>
+			<display value="Thyroxine (T4) free [Mass/​volume] in Serum or Plasma"/>
 		</coding>
 		<text value="Free T4"/>
 	</code>
@@ -17,4 +18,5 @@
 	<requester>
 		<reference value="Practitioner/example"/>
 	</requester>
+
 </DiagnosticRequest>

@@ -45,6 +45,14 @@
   Definition = Identifies the level of importance to be assigned to actioning the request
   Conformance = required
 
+ -- Row 7 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality.
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -278,6 +286,30 @@
   Committee Notes = [#3113][#3739][#10296]
 
  -- Row 21 -----------------------------------
+  Element = DiagnosticRequest.specimen
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Specimen)
+  Short Name = Specimens for the requested test
+  Definition = One or more specimens that the diagnostic investigation is about.
+  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens and  the request points to the specimen it applies to.   If the request is entered first with an unknown specimen, The Specimen resource points to request when the specimen is collected and a Specimen resource created.
+  RIM Mapping = .participation[typeCode=SPC].role
+  Committee Notes = [#10589]
+
+ -- Row 22 -----------------------------------
+  Element = DiagnosticRequest.bodySite
+  Card. = 0..1
+  Aliases = location
+  Summary = Y
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Name = Location of requested test (if applicable)
+  Definition = Anatomical location where the request test should be performed.  This is the target site.
+  Comments = If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodySite](extension-procedure-targetbodysite.html)
+  RIM Mapping = targetSiteCode
+  Committee Notes = [#12505], [#12517]
+
+ -- Row 23 -----------------------------------
   Element = DiagnosticRequest.note
   Card. = 0..*
   Type = Annotation
@@ -286,13 +318,13 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147,[#10296]
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = DiagnosticRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
   Short Name = Request provenance
   Definition = Key events in the history of the request.
-  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\nThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\nAll Provenances should have some historical version of this Request as their subject.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
   Committee Notes = [#10296]
 
 === Sheet Search =====================================

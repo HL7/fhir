@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR-2/ehaas/Documents/FHIR/build/schema/bodysite.xsd">
 	<id value="lipid"/>
 	<contained>
 		<Observation>
@@ -24,6 +24,31 @@
 				</coding>
 			</valueCodeableConcept>
 		</Observation>
+	</contained>
+	<contained>
+<Specimen xmlns="http://hl7.org/fhir">
+	<id value="serum"/>
+	<identifier>
+		<system value="http://acme.org/specimens"/>
+		<value value="20150107-0012"/>
+	</identifier>
+	<type>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="119364003"/>
+			<display value="Serum sample"/>
+		</coding>
+	</type>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+
+	<collection>
+
+		<collectedDateTime value="2015-08-16T06:40:17Z"/>
+	</collection>
+
+</Specimen>
 	</contained>
 	<identifier>
 		<type>
@@ -67,7 +92,12 @@
 	</reasonCode>
 	<supportingInformation>
 		<reference value="#fasting"/>
+		<display value="Fasting status"/>
 	</supportingInformation>
+	<specimen>
+		<reference value="#serum"/>
+		<display value="Serum specimen"/>
+	</specimen>
 	<note>
 		<text value="patient is afraid of needles"/>
 	</note>

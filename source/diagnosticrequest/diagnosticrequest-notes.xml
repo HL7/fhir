@@ -6,10 +6,12 @@ Notes:
 </h2>
 <ul>
 
- <li>Many investigation requests will create a need for specimens, although the request itself is not about the specimens. The <a href="specimen.html">Specimen</a> resource may reference this resource or the laboratory tests and radiology tests embed the specimen/organ system in the test name, for example,  serum or serum/plasma glucose, or a chest xray.</li>
+ <li>Many diagnostics will create a need for specimens, although the request itself is not about the specimens. Note that laboratory tests will often embed the specimen/organ system in the test name, for example, 'serum glucose'. DiagnosticRequest can reference the <a href="specimen.html">Specimen</a> resource directly when the diagnostic investigation is requested on already existing specimens. Conversely, if the request is entered first with an uncollected specimen,  the Specimen resource references the DiagnosticRequest resource when it is created.</li>
+
+ <li>Many diagnostic requests will create a need to specify the body site or system.  The laboratory tests and radiology tests will often embed the body site/organ system in the test name, for example, 'chest xray'. Alternatively,  <code>DiagnosticRequest.bodysite</code> may be used to specify the anatomical location.</li>
 
  <li>The reason element is often for billing purposes. It may relate to the resources referred to in supportingInformation element and may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</li>
- <li>The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2) .   Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier. See the example code below:
+ <li>The identifier.type element is used to distinguish between the identifiers assigned by the requester (known as the 'Placer' in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2) .   Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier. See the example code below:
 <pre class="xml">
 
 &lt;!-- Placer identifier--&gt;
@@ -41,4 +43,3 @@ Notes:
 </ul>
 
 </div>
-

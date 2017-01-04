@@ -24,8 +24,8 @@ The diagnostic service will update the request as the work is performed, and the
 issue a report that references the requests that it fulfills.
 </p>
 <p>
-The DiagnosticRequest resource allows requesting only a single investigation. 
-If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource. 
+The DiagnosticRequest resource allows requesting only a single investigation.
+If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource.
 These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to <a href="request.html#compound">the Request pattern</a>
 </p>
 
@@ -51,7 +51,7 @@ Whether an activity is deemed to be a procedure or only a diagnostic order is ty
 			</ul>
 Irrespective of the guidance above, systems should be prepared for some degree of overlap between these resources and be prepared to execute searches against multiple resources in cases where differentiation cannot be guaranteed. As well, in some workflows more than one type of resource or even all three might exist; e.g. Upon receiving a ReferralRequest a practitioner might initiate a DiagnosticRequest. The diagnostic service might then initiate a ProcedureRequest.
 		<p>
-The DiagnosticRequest supports references to the numerous other resources that define information about the subject - the orderer, associated encounter, <!--specimen, -->body site and other supporting information.   For example, <a href = "patient.html">Patient</a>, <a href = "practitioner.html">Practitioner</a><!--, <a href="specimen.html">Specimen</a>--> and <a href="condition.html">Condition</a> are all referenced in this resource.  Some systems may choose to bundle up a DiagnosticRequest and this referenced information into a Document for delivery to the recipient. However, REST, Messaging and Services are also valid architectures for managing referrals and may be more appropriate where active workflow management is needed.
+The DiagnosticRequest supports references to the numerous other resources that define information about the subject - the requester, associated encounter, <!--specimen, -->body site and other supporting information.   For example, <a href = "patient.html">Patient</a>, <a href = "practitioner.html">Practitioner</a><!--, <a href="specimen.html">Specimen</a>--> and <a href="condition.html">Condition</a> are all referenced in this resource.  Some systems may choose to bundle up a DiagnosticRequest and this referenced information into a Document for delivery to the recipient. However, REST, Messaging and Services are also valid architectures for managing referrals and may be more appropriate where active workflow management is needed.
 </p>
 		<p>
 CarePlan typically references DiagnosticRequest with a stage of "plan" or "proposal", though the requests may have to be initiated and authorized outside of the CarePlan.  Similarly ClinicalImpression resource can reference DiagnosticRequest as part of a follow up to plan to the assessment.
