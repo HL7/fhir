@@ -14,7 +14,7 @@
       <p>This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.</p>  
     </div>
   </text>
-  <name value="SNOMED CT Form Codes"/>
+  <name value="SNOMED CT Package Form Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
