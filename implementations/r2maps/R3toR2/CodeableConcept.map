@@ -3,6 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/CodeableConcept" alias CodeableConcept as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CodeableConcept" alias CodeableConceptR2 as target
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Coding" alias CodingR2 as target
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/string" alias stringR2 as target
 
 imports "http://hl7.org/fhir/StructureMap/primitives3to2"
 imports "http://hl7.org/fhir/StructureMap/Element3to2"
@@ -29,5 +30,13 @@ group for types CodingToCodeableConcept extends Element
   input tgt : CodeableConceptR2 as target
 
   "CodingToCodeableConcept-coding" : for src make tgt.coding as vt then Coding(src, vt)
-
 endgroup
+
+
+group for types CodeableConceptToString extends Element
+  input src : CodeableConcept as source
+  input tgt : stringR2 as target
+
+  "CodeableConceptToString-text" : for src.text as vs then string(vs, tgt)
+endgroup
+

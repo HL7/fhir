@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/BackboneElement2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  OperationDefinition extends DomainResource
   input src : OperationDefinitionR2 as source
@@ -21,14 +17,11 @@ group for type+types  OperationDefinition extends DomainResource
   "OperationDefinition-experimental" : for src.experimental make tgt.experimental
   "OperationDefinition-date" : for src.date make tgt.date
   "OperationDefinition-publisher" : for src.publisher make tgt.publisher
-  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "ContactDetail-name" : for vs0.name make vt0.name
-    "ContactDetail-telecom" : for vs0.telecom make vt0.telecom
-  }
-
+  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then opdContact(vs0, vt0)
   "OperationDefinition-idempotent" : for src.idempotent make tgt.idempotent
   "OperationDefinition-code" : for src.code make tgt.code
   "OperationDefinition-comment" : for src.notes make tgt.comment
+  "OperationDefinition-requirements" : for src.requirements make tgt.purpose
   "OperationDefinition-description" : for src.description make tgt.description
   "OperationDefinition-base" : for src.base make tgt.base
   "OperationDefinition-system" : for src.system make tgt.system
@@ -37,6 +30,14 @@ group for type+types  OperationDefinition extends DomainResource
   "OperationDefinition-type2" : for src where type.empty() make tgt.type = false
   "OperationDefinition-instance" : for src.instance make tgt.instance
   "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then opParam(vs0, vt0)
+endgroup
+
+group opdContact extends Element
+  input src as source
+  input tgt as target
+
+  "OperationDefinition.contact-name" : for src.name make tgt.name
+  "OperationDefinition.contact-telecom" : for src.telecom make tgt.telecom
 endgroup
 
 group opParam extends BackboneElement

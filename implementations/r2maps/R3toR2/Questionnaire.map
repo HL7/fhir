@@ -3,10 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Questionnaire extends DomainResource
   input src : Questionnaire as source
@@ -20,4 +17,33 @@ group for type+types  Questionnaire extends DomainResource
   "Questionnaire-telecom" : for src.telecom make tgt.telecom
   "Questionnaire-subjectType" : for src.subjectType make tgt.subjectType
 
+  "Questionnaire-group" : for src.item as vs0 where type = 'group' make tgt.group as vt0 then qstGroup(vs0, vt0)  // ignore root questions? (else create a holding group?)
+endgroup
+
+group qstGroup extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Questionnaire.group-linkId" : for src.linkId make tgt.linkId
+  "Questionnaire.group-title" : for src.text make tgt.title
+  "Questionnaire.group-concept" : for src.concept make tgt.concept
+  "Questionnaire.group-required" : for src.required make tgt.required
+  "Questionnaire.group-repeats" : for src.repeats make tgt.repeats
+  "Questionnaire.group-group" : for src.item as vs0 where type = 'group' make tgt.group as vt0 then qstGroup(vs0, vt0)  
+  "Questionnaire.group-question" : for src.item as vs0 where type != 'group' make tgt.question as vt0 then qstQuestion(vs0, vt0)  
+endgroup
+
+group qstQuestion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Questionnaire.group.question-type" : for src.type make tgt.type 
+  "Questionnaire.group.question-linkId" : for src.linkId make tgt.linkId
+  "Questionnaire.group.question-concept" : for src.concept make tgt.concept
+  "Questionnaire.group.question-text" : for src.text make tgt.text
+  "Questionnaire.group.question-required" : for src.required make tgt.required
+  "Questionnaire.group.question-repeats" : for src.repeats make tgt.repeats
+  "Questionnaire.group.question-options" : for src.options make tgt.options
+  "Questionnaire.group.question-option" : for src.option make tgt.option
+  "Questionnaire.group.question-group" : for src.item as vs0 where type = 'group' make tgt.group as vt0 then qstGroup(vs0, vt0)  // ignore sub- questions? (else create a holding group?)
 endgroup

@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/VisionPrescription" alias VisionPrescription as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/VisionPrescription" alias VisionPrescriptionR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  VisionPrescription extends DomainResource
   input src : VisionPrescription as source
@@ -19,22 +14,32 @@ group for type+types  VisionPrescription extends DomainResource
   "VisionPrescription-patient" : for src.patient make tgt.patient
   "VisionPrescription-prescriber" : for src.prescriber make tgt.prescriber
   "VisionPrescription-encounter" : for src.encounter make tgt.encounter
-  "VisionPrescription-reason-CodeableConcept" : for src.reason : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-  "VisionPrescription-reason-Reference" : for src.reason : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs, vt)
-  "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense as vt0 then {
-    "VisionPrescription.dispense-sphere" : for vs0.sphere make vt0.sphere
-    "VisionPrescription.dispense-cylinder" : for vs0.cylinder make vt0.cylinder
-    "VisionPrescription.dispense-axis" : for vs0.axis make vt0.axis
-    "VisionPrescription.dispense-prism" : for vs0.prism make vt0.prism
-    "VisionPrescription.dispense-add" : for vs0.add make vt0.add
-    "VisionPrescription.dispense-power" : for vs0.power make vt0.power
-    "VisionPrescription.dispense-backCurve" : for vs0.backCurve make vt0.backCurve
-    "VisionPrescription.dispense-diameter" : for vs0.diameter make vt0.diameter
-    "VisionPrescription.dispense-duration" : for vs0.duration make vt0.duration
-    "VisionPrescription.dispense-color" : for vs0.color make vt0.color
-    "VisionPrescription.dispense-brand" : for vs0.brand make vt0.brand
-    "VisionPrescription.dispense-notes" : for vs0.note make vt0.notes
-  }
+  "VisionPrescription-reason" : for src.reason make tgt.reason
+  "VisionPrescription-dispense" : for src.dispense as vs0 make tgt.dispense as vt0 then vspDispense(vs0, vt0)
+endgroup
 
 
+group vspDispense extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "VisionPrescription.dispense-product" : for src.product make tgt.product
+  "VisionPrescription.dispense-eye1" : for src.eye as v where coding.code = 'left' make tgt.eye = "left"
+  "VisionPrescription.dispense-eye2" : for src.eye as v where coding.code = 'right' make tgt.eye = "right"
+  "VisionPrescription.dispense-sphere" : for src.sphere make tgt.sphere
+  "VisionPrescription.dispense-cylinder" : for src.cylinder make tgt.cylinder
+  "VisionPrescription.dispense-axis" : for src.axis make tgt.axis
+  "VisionPrescription.dispense-prism" : for src.prism make tgt.prism
+  "VisionPrescription.dispense-base1" : for src.base as v where coding.code = 'up' make tgt.base = 'up'
+  "VisionPrescription.dispense-base2" : for src.base as v where coding.code = 'down' make tgt.base = 'down'
+  "VisionPrescription.dispense-base3" : for src.base as v where coding.code = 'in' make tgt.base = 'in'
+  "VisionPrescription.dispense-base4" : for src.base as v where coding.code = 'out' make tgt.base = 'out'
+  "VisionPrescription.dispense-add" : for src.add make tgt.add
+  "VisionPrescription.dispense-power" : for src.power make tgt.power
+  "VisionPrescription.dispense-backCurve" : for src.backCurve make tgt.backCurve
+  "VisionPrescription.dispense-diameter" : for src.diameter make tgt.diameter
+  "VisionPrescription.dispense-duration" : for src.duration make tgt.duration
+  "VisionPrescription.dispense-color" : for src.color make tgt.color
+  "VisionPrescription.dispense-brand" : for src.brand make tgt.brand
+  "VisionPrescription.dispense-note" : for src.note make tgt.notes
 endgroup

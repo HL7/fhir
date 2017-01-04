@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistory as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/FamilyMemberHistory" alias FamilyMemberHistoryR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Range3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  FamilyMemberHistory extends DomainResource
   input src : FamilyMemberHistory as source
@@ -23,24 +16,19 @@ group for type+types  FamilyMemberHistory extends DomainResource
   "FamilyMemberHistory-name" : for src.name make tgt.name
   "FamilyMemberHistory-relationship" : for src.relationship make tgt.relationship
   "FamilyMemberHistory-gender" : for src.gender make tgt.gender
-  "FamilyMemberHistory-born-Period" : for src.born : Period as vs make tgt.born = create("Period") as vt then Period(vs, vt)
-  "FamilyMemberHistory-born-date" : for src.born : date as vs make tgt.born = create("date") as vt then date(vs, vt)
-  "FamilyMemberHistory-born-string" : for src.born : string as vs make tgt.born = create("string") as vt then string(vs, vt)
-  "FamilyMemberHistory-age-Range" : for src.age : Range as vs make tgt.age = create("Range") as vt then Range(vs, vt)
-  "FamilyMemberHistory-age-string" : for src.age : string as vs make tgt.age = create("string") as vt then string(vs, vt)
-  "FamilyMemberHistory-deceased-boolean" : for src.deceased : boolean as vs make tgt.deceased = create("boolean") as vt then boolean(vs, vt)
-  "FamilyMemberHistory-deceased-Range" : for src.deceased : Range as vs make tgt.deceased = create("Range") as vt then Range(vs, vt)
-  "FamilyMemberHistory-deceased-date" : for src.deceased : date as vs make tgt.deceased = create("date") as vt then date(vs, vt)
-  "FamilyMemberHistory-deceased-string" : for src.deceased : string as vs make tgt.deceased = create("string") as vt then string(vs, vt)
+  "FamilyMemberHistory-born" : for src.born make tgt.born
+  "FamilyMemberHistory-age" : for src.age make tgt.age  
+  "FamilyMemberHistory-deceased" : for src.deceased make tgt.deceased
   "FamilyMemberHistory-note" : for src.note make tgt.note
-  "FamilyMemberHistory-condition" : for src.condition as vs0 make tgt.condition as vt0 then {
-    "FamilyMemberHistory.condition-code" : for vs0.code make vt0.code
-    "FamilyMemberHistory.condition-outcome" : for vs0.outcome make vt0.outcome
-    "FamilyMemberHistory.condition-onset-Range" : for vs0.onset : Range as vs make vt0.onset = create("Range") as vt then Range(vs, vt)
-    "FamilyMemberHistory.condition-onset-Period" : for vs0.onset : Period as vs make vt0.onset = create("Period") as vt then Period(vs, vt)
-    "FamilyMemberHistory.condition-onset-string" : for vs0.onset : string as vs make vt0.onset = create("string") as vt then string(vs, vt)
-    "FamilyMemberHistory.condition-note" : for vs0.note make vt0.note
-  }
+  "FamilyMemberHistory-condition" : for src.condition as vs0 make tgt.condition as vt0 then fmhCondition(vs0, vt0)
+endgroup  
 
+group fmhCondition extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "FamilyMemberHistory.condition-code" : for src.code make tgt.code
+  "FamilyMemberHistory.condition-outcome" : for src.outcome make tgt.outcome
+  "FamilyMemberHistory.condition-onset" : for src.onset make tgt.onset
+  "FamilyMemberHistory.condition-note" : for src.note make tgt.note
 endgroup

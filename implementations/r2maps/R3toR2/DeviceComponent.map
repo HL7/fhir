@@ -3,16 +3,12 @@
 uses "http://hl7.org/fhir/StructureDefinition/DeviceComponent" alias DeviceComponent as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceComponent" alias DeviceComponentR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DeviceComponent extends DomainResource
   input src : DeviceComponent as source
   input tgt : DeviceComponentR2 as target
-
+  
   "DeviceComponent-type" : for src.type make tgt.type
   "DeviceComponent-identifier" : for src.identifier make tgt.identifier
   "DeviceComponent-lastSystemChange" : for src.lastSystemChange make tgt.lastSystemChange
@@ -21,12 +17,15 @@ group for type+types  DeviceComponent extends DomainResource
   "DeviceComponent-operationalStatus" : for src.operationalStatus make tgt.operationalStatus
   "DeviceComponent-parameterGroup" : for src.parameterGroup make tgt.parameterGroup
   "DeviceComponent-measurementPrinciple" : for src.measurementPrinciple make tgt.measurementPrinciple
-  "DeviceComponent-productionSpecification" : for src.productionSpecification as vs0 make tgt.productionSpecification as vt0 then {
-    "DeviceComponent.productionSpecification-specType" : for vs0.specType make vt0.specType
-    "DeviceComponent.productionSpecification-componentId" : for vs0.componentId make vt0.componentId
-    "DeviceComponent.productionSpecification-productionSpec" : for vs0.productionSpec make vt0.productionSpec
-  }
-
+  "DeviceComponent-productionSpecification" : for src.productionSpecification as vs0 make tgt.productionSpecification as vt0 then dvcProductionSpecification(vs0, vt0)
   "DeviceComponent-languageCode" : for src.languageCode make tgt.languageCode
+endgroup
 
+group dvcProductionSpecification extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DeviceComponent.productionSpecification-specType" : for src.specType make tgt.specType
+  "DeviceComponent.productionSpecification-componentId" : for src.componentId make tgt.componentId
+  "DeviceComponent.productionSpecification-productionSpec" : for src.productionSpec make tgt.productionSpec
 endgroup

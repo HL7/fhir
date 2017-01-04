@@ -5,15 +5,27 @@ uses "http://hl7.org/fhir/DSTU2/StructureDefinition/HumanName" alias HumanNameR2
 
 imports "http://hl7.org/fhir/StructureMap/*3to2"
 
-group for type+types  HumanName extends Element
+group for type+types  HumanName 
   input src : HumanName as source
   input tgt : HumanNameR2 as target
 
+  "HumanName-id" : for src.id make tgt.id
+  "HumanName-extensions" : for src.extension where url != 'http://hl7.org/fhir/StructureDefinition/HumanName-familyRepeat' make tgt.extension
+  
   "HumanName-use" : for src.use make tgt.use
   "HumanName-text" : for src.text make tgt.text
-  "HumanName-family" : for src.family make tgt.family
+  "HumanName-family" : for src.family first make tgt.family
+  "HumanName-family-rpt-ex" : for src.extension as ex where url = 'http://hl7.org/fhir/StructureDefinition/HumanName-familyRepeat' make tgt.family as f then nameRepeat(ex, f)
   "HumanName-given" : for src.given make tgt.given
   "HumanName-prefix" : for src.prefix make tgt.prefix
   "HumanName-suffix" : for src.suffix make tgt.suffix
   "HumanName-period" : for src.period make tgt.period
 endgroup
+
+group nameRepeat 
+  input src as source
+  input tgt as target
+
+  "HumanName-family-rpt-2" : for src.value as v then string(v, tgt)
+endgroup
+

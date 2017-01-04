@@ -31,7 +31,7 @@ group epcStatusHistory extends BackboneElement
   "EpisodeOfCare.statusHistory-period" : for src.period make tgt.period
 endgroup
 
-group epiCareTeam extends BackboneElement
+group epiCareTeam 
   input src as source
   input tgt as target
   input tgtE as target

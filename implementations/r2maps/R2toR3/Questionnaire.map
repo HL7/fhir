@@ -3,10 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Questionnaire" alias QuestionnaireR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Questionnaire" alias Questionnaire as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Questionnaire extends DomainResource
   input src : QuestionnaireR2 as source
@@ -20,4 +17,36 @@ group for type+types  Questionnaire extends DomainResource
   "Questionnaire-telecom" : for src.telecom make tgt.telecom
   "Questionnaire-subjectType" : for src.subjectType make tgt.subjectType
 
+  "Questionnaire-group" : for src.group as vs0 make tgt.item as vt0 then qstGroup(vs0, vt0)  
+endgroup
+
+group qstGroup extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Questionnaire.group-type" : for src make tgt.type = 'group'
+  "Questionnaire.group-linkId" : for src.linkId make tgt.linkId
+  "Questionnaire.group-title" : for src.title make tgt.text
+  "Questionnaire.group-concept" : for src.concept make tgt.concept
+  "Questionnaire.group-text" : for src.text as t where src.title.exists() and src.linkId.exists() make tgt.item as i, i.linkId = (src.linkId + '-'+'display'), i.text = t
+  "Questionnaire.group-text" : for src.text where src.title.empty() make tgt.text
+  "Questionnaire.group-required" : for src.required make tgt.required
+  "Questionnaire.group-repeats" : for src.repeats make tgt.repeats
+  "Questionnaire.group-group" : for src.group as vs0 make tgt.item as vt0 then qstGroup(vs0, vt0)  
+  "Questionnaire.group-question" : for src.question as vs0 make tgt.item as vt0 then qstQuestion(vs0, vt0)  
+endgroup
+
+group qstQuestion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Questionnaire.group.question-type" : for src.type make tgt.type 
+  "Questionnaire.group.question-linkId" : for src.linkId make tgt.linkId
+  "Questionnaire.group.question-concept" : for src.concept make tgt.concept
+  "Questionnaire.group.question-text" : for src.text make tgt.text
+  "Questionnaire.group.question-required" : for src.required make tgt.required
+  "Questionnaire.group.question-repeats" : for src.repeats make tgt.repeats
+  "Questionnaire.group.question-options" : for src.options make tgt.options
+  "Questionnaire.group.question-option" : for src.option make tgt.option
+  "Questionnaire.group.question-group" : for src.group as vs0 make tgt.item as vt0 then qstGroup(vs0, vt0)  
 endgroup

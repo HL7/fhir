@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Person" alias PersonR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Person" alias Person as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Address2to3"
-imports "http://hl7.org/fhir/StructureMap/Attachment2to3"
-imports "http://hl7.org/fhir/StructureMap/HumanName2to3"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Person extends DomainResource
   input src : PersonR2 as source
@@ -25,10 +18,14 @@ group for type+types  Person extends DomainResource
   "Person-photo" : for src.photo make tgt.photo
   "Person-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
   "Person-active" : for src.active make tgt.active
-  "Person-link" : for src.link as vs0 make tgt.link as vt0 then {
-    "Person.link-target" : for vs0.target make vt0.target
-    "Person.link-assurance" : for vs0.assurance make vt0.assurance
-  }
-
-
+  "Person-link" : for src.link as vs0 make tgt.link as vt0 then psnLink(vs0, vt0)
 endgroup
+
+group psnLink extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Person.link-target" : for src.target make tgt.target
+  "Person.link-assurance" : for src.assurance make tgt.assurance
+endgroup
+

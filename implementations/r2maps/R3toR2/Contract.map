@@ -25,7 +25,68 @@ group for type+types  Contract extends DomainResource
   "Contract-subType" : for src.subType make tgt.subType
   "Contract-action" : for src.action make tgt.action
   "Contract-actionReason" : for src.actionReason make tgt.actionReason
-  "Contract-binding-Attachment" : for src.binding : Attachment as vs make tgt.binding = create("Attachment") as vt then Attachment(vs, vt)
-  "Contract-binding-Reference" : for src.binding : Reference as vs make tgt.binding = create("Reference") as vt then Reference(vs, vt)
+  "Contract-actor" : for src.agent as vs make tgt.actor as vt then cntActor(vs, vt)
+  "Contract-valuedItem" : for src.valuedItem as vs make tgt.valuedItem as vt then cntValuedItem(vs, vt)
+  "Contract-signer" : for src.signer as vs make tgt.signer as vt then cntSigner(vs, vt)
+  "Contract-term" : for src.term as vs make tgt.term as vt then cntTerm(vs, vt)
+  "Contract-binding" : for src.binding make tgt.binding
+  "Contract-friendly" : for src.friendly as vs make tgt.friendly as vt then cntContent(vs, vt)
+  "Contract-legal" : for src.legal as vs make tgt.legal as vt then cntContent(vs, vt)
+  "Contract-rule" : for src.rule as vs make tgt.rule as vt then cntContent(vs, vt)
+endgroup
 
+group cntActor extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Contract.actor-entity" : for src.actor make tgt.entity
+  "Contract.actor-role" : for src.role make tgt.role
+endgroup
+
+group cntValuedItem extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Contract.valuedItem-entity" : for src.entity make tgt.entity
+  "Contract.valuedItem-identifier" : for src.identifier make tgt.identifier
+  "Contract.valuedItem-effectiveTime" : for src.effectiveTime make tgt.effectiveTime
+  "Contract.valuedItem-quantity" : for src.quantity make tgt.quantity
+  "Contract.valuedItem-unitPrice" : for src.unitPrice make tgt.unitPrice
+  "Contract.valuedItem-factor" : for src.factor make tgt.factor
+  "Contract.valuedItem-points" : for src.points make tgt.points
+  "Contract.valuedItem-net" : for src.net make tgt.net
+endgroup
+
+group cntSigner extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Contract.signer-type" : for src.type make tgt.type
+  "Contract.signer-party" : for src.party make tgt.party
+  "Contract.signer-signature" : for src.signature make tgt.signature
+endgroup
+
+group cntTerm extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Contract.term-identifier" : for src.identifier make tgt.identifier
+  "Contract.term-issued" : for src.issued make tgt.issued
+  "Contract.term-applies" : for src.applies make tgt.applies
+  "Contract.term-type" : for src.type make tgt.type
+  "Contract.term-subType" : for src.subType make tgt.subType
+  "Contract.term-subject" : for src.topic make tgt.subject
+  "Contract.term-action" : for src.action make tgt.action
+  "Contract.term-actionReason" : for src.actionReason make tgt.actionReason
+  "Contract.term-actor" : for src.agent as vs make tgt.actor as vt then cntActor(vs, vt)
+  "Contract.term-text" : for src.text make tgt.text
+  "Contract.term-valuedItem" : for src.valuedItem as vs make tgt.valuedItem as vt then cntValuedItem(vs, vt)
+  "Contract.term-group" : for src.group as vs make tgt.group as vt then cntTerm(vs, vt)
+endgroup
+
+group cntContent extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Contract.content-content" : for src.content make tgt.content
 endgroup

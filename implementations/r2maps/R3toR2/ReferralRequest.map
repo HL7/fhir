@@ -3,29 +3,25 @@
 uses "http://hl7.org/fhir/StructureDefinition/ReferralRequest" alias ReferralRequest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ReferralRequest" alias ReferralRequestR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ReferralRequest extends DomainResource
   input src : ReferralRequest as source
   input tgt : ReferralRequestR2 as target
 
+  "ReferralRequest-status" : for src.status check $this != 'entered-in-error' make tgt.status
   "ReferralRequest-identifier" : for src.identifier make tgt.identifier
-  "ReferralRequest-status" : for src.status make tgt.status
+  "ReferralRequest-date" : for src.authored make tgt.date
   "ReferralRequest-type" : for src.type make tgt.type
+  "ReferralRequest-specialty" : for src.specialty make tgt.specialty
   "ReferralRequest-priority" : for src.priority make tgt.priority
   "ReferralRequest-patient" : for src.patient make tgt.patient
-  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
   "ReferralRequest-requester" : for src.requester make tgt.requester
-  "ReferralRequest-specialty" : for src.specialty make tgt.specialty
   "ReferralRequest-recipient" : for src.recipient make tgt.recipient
+  "ReferralRequest-encounter" : for src.context make tgt.encounter
   "ReferralRequest-reason" : for src.reason make tgt.reason
   "ReferralRequest-description" : for src.description make tgt.description
   "ReferralRequest-serviceRequested" : for src.serviceRequested make tgt.serviceRequested
   "ReferralRequest-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
-
+  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
 endgroup

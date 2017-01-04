@@ -1,31 +1,42 @@
 ﻿map "http://hl7.org/fhir/StructureMap/ReferralRequest2to3" = "R2 to R3 Conversions for ReferralRequest"
 
+
+conceptmap "status" {
+  prefix s = "http://hl7.org/fhir/referralstatus"
+  prefix t = "http://hl7.org/fhir/referralstatus"
+
+  s:draft = t:draft
+  s:requested = t:active
+  s:active = t:active
+  s:cancelled = t:cancelled
+  s:accepted = t:active
+  s:rejected = t:cancelled
+  s:completed = t:completed
+}
+  
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ReferralRequest" alias ReferralRequestR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/ReferralRequest" alias ReferralRequest as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  ReferralRequest extends DomainResource
   input src : ReferralRequestR2 as source
   input tgt : ReferralRequest as target
 
+  "ReferralRequest-status" : for src.status as v make tgt.status = translate(v, "#status", "code")
   "ReferralRequest-identifier" : for src.identifier make tgt.identifier
-  "ReferralRequest-status" : for src.status make tgt.status
+  "ReferralRequest-date" : for src.date make tgt.authored
   "ReferralRequest-type" : for src.type make tgt.type
+  "ReferralRequest-specialty" : for src.specialty make tgt.specialty
   "ReferralRequest-priority" : for src.priority make tgt.priority
   "ReferralRequest-patient" : for src.patient make tgt.patient
-  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
   "ReferralRequest-requester" : for src.requester make tgt.requester
-  "ReferralRequest-specialty" : for src.specialty make tgt.specialty
   "ReferralRequest-recipient" : for src.recipient make tgt.recipient
+  "ReferralRequest-encounter" : for src.encounter make tgt.context
+  // drop dateSent
   "ReferralRequest-reason" : for src.reason make tgt.reason
   "ReferralRequest-description" : for src.description make tgt.description
   "ReferralRequest-serviceRequested" : for src.serviceRequested make tgt.serviceRequested
   "ReferralRequest-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
-
+  "ReferralRequest-fulfillmentTime" : for src.fulfillmentTime make tgt.fulfillmentTime
 endgroup

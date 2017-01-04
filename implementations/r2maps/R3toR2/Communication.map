@@ -18,12 +18,7 @@ group for type+types  Communication extends DomainResource
   "Communication-category" : for src.category make tgt.category
   "Communication-sender" : for src.sender make tgt.sender
   "Communication-recipient" : for src.recipient make tgt.recipient
-  "Communication-payload" : for src.payload as vs0 make tgt.payload as vt0 then {
-    "Communication.payload-content-string" : for vs0.content : string as vs make vt0.content = create("string") as vt then string(vs, vt)
-    "Communication.payload-content-Attachment" : for vs0.content : Attachment as vs make vt0.content = create("Attachment") as vt then Attachment(vs, vt)
-    "Communication.payload-content-Reference" : for vs0.content : Reference as vs make vt0.content = create("Reference") as vt then Reference(vs, vt)
-  }
-
+  "Communication-payload" : for src.payload as vs0 make tgt.payload as vt0 then cmmPayload(vs0, vt0)
   "Communication-medium" : for src.medium make tgt.medium
   "Communication-status" : for src.status make tgt.status
   "Communication-encounter" : for src.context make tgt.encounter
@@ -31,5 +26,12 @@ group for type+types  Communication extends DomainResource
   "Communication-received" : for src.received make tgt.received
   "Communication-reason" : for src.reason make tgt.reason
   "Communication-subject" : for src.subject make tgt.subject
+  "Communication-requestDetail" : for src.basedOn make tgt.requestDetail
+endgroup
 
+group cmmPayload
+  input src as source
+  input tgt as target
+  
+  "Communication.payload-content" : for src.content make tgt.content 
 endgroup

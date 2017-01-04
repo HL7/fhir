@@ -1,0 +1,54 @@
+﻿map "http://hl7.org/fhir/StructureMap/DiagnosticRequest3to2" = "R3 to R2 Conversion for DiagnosticOrder"
+
+conceptmap "status" {
+  prefix s = "http://hl7.org/fhir/diagnostic-order-status"
+  prefix t = "http://hl7.org/fhir/diagnostic-order-status"
+
+  s:draft = t:draft
+  s:active = t:requested
+  s:completed = t:completed
+  s:cancelled = t:cancelled
+  s:suspended = t:suspended
+  s:"entered-in-error" = t:cancelled
+}
+
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticRequest" alias DiagnosticRequest as source
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticOrder" alias DiagnosticOrderR2 as target
+
+imports "http://hl7.org/fhir/StructureMap/*3to2"
+
+group for type+types  DiagnosticOrder extends DomainResource
+  input src : DiagnosticRequest as source
+  input tgt : DiagnosticOrderR2 as target
+
+  "DiagnosticOrder-subject" : for src.subject make tgt.subject
+  "DiagnosticOrder-orderer" : for src.requester make tgt.orderer
+  "DiagnosticOrder-identifier" : for src.identifier make tgt.identifier
+  "DiagnosticOrder-encounter" : for src.context make tgt.encounter
+  "DiagnosticOrder-reason" : for src.reasonCode make tgt.reason
+  "DiagnosticOrder-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
+  "DiagnosticOrder-status1" : for src.status where src.intent = 'proposal' make tgt.status = 'proposed'
+  "DiagnosticOrder-status2" : for src.status where src.intent = 'plan' make tgt.status = 'planned'
+  "DiagnosticOrder-status3" : for src.status as v where src.intent != 'proposal' and src.intent != 'plan' make tgt.status = translate(v, "#status", "code")
+  "DiagnosticOrder-priority" : for src.priority make tgt.priority
+  
+  "DiagnosticOrder-event" : for src where src.authoredOn.exists() or src.requester.exists() make tgt.event as ev then doEvent(src, ev)
+  "DiagnosticOrder-item" : for src where src.code.exists() make tgt.item as it then doItem(src, it)
+  
+  "DiagnosticOrder-note" : for src.note make tgt.note
+endgroup
+
+group doEvent 
+  input src as source
+  input tgt as target
+
+  "DiagnosticOrder.event-status" : for src make tgt.status = 'requested'
+  "DiagnosticOrder.event-dateTime" : for src.authoredOn make tgt.dateTime
+endgroup
+
+group doItem 
+  input src as source
+  input tgt as target
+
+  "DiagnosticOrder.item-code" : for src.code make tgt.code
+endgroup

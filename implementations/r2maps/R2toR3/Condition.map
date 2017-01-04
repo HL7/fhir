@@ -1,48 +1,53 @@
 ﻿map "http://hl7.org/fhir/StructureMap/Condition2to3" = "R2 to R3 Conversions for Condition"
 
+conceptmap "ConditionClinicalStatus" {
+  prefix s = "http://hl7.org/fhir/condition-clinical"
+  prefix t = "http://hl7.org/fhir/condition-clinical"
+
+  s:active = t:active
+  s:relapse = t:recurrence
+  s:remission = t:remission
+  s:resolved = t:resolved
+}
+
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Condition" alias ConditionR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Condition" alias Condition as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Range2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Condition extends DomainResource
   input src : ConditionR2 as source
   input tgt : Condition as target
 
   "Condition-identifier" : for src.identifier make tgt.identifier
-  "Condition-subject" : for src.patient make tgt.subject
-  "Condition-context" : for src.encounter make tgt.context
+  "Condition-patient" : for src.patient make tgt.subject
+  "Condition-encounter" : for src.encounter make tgt.context
   "Condition-asserter" : for src.asserter make tgt.asserter
-  "Condition-assertedDate" : for src.dateRecorded make tgt.assertedDate
+  "Condition-dateRecorded" : for src.dateRecorded make tgt.assertedDate
   "Condition-code" : for src.code make tgt.code
   "Condition-category" : for src.category make tgt.category
+  "Condition-clinicalStatus" : for src.clinicalStatus as v make tgt.clinicalStatus = translate(v, "#ConditionClinicalStatus", "code")
   "Condition-verificationStatus" : for src.verificationStatus make tgt.verificationStatus
   "Condition-severity" : for src.severity make tgt.severity
-  "Condition-onset-dateTime" : for src.onset : dateTime as vs make tgt.onset = create("dateTime") as vt then dateTime(vs, vt)
-  "Condition-onset-Period" : for src.onset : Period as vs make tgt.onset = create("Period") as vt then Period(vs, vt)
-  "Condition-onset-Range" : for src.onset : Range as vs make tgt.onset = create("Range") as vt then Range(vs, vt)
-  "Condition-onset-string" : for src.onset : string as vs make tgt.onset = create("string") as vt then string(vs, vt)
-  "Condition-abatement-dateTime" : for src.abatement : dateTime as vs make tgt.abatement = create("dateTime") as vt then dateTime(vs, vt)
-  "Condition-abatement-boolean" : for src.abatement : boolean as vs make tgt.abatement = create("boolean") as vt then boolean(vs, vt)
-  "Condition-abatement-Period" : for src.abatement : Period as vs make tgt.abatement = create("Period") as vt then Period(vs, vt)
-  "Condition-abatement-Range" : for src.abatement : Range as vs make tgt.abatement = create("Range") as vt then Range(vs, vt)
-  "Condition-abatement-string" : for src.abatement : string as vs make tgt.abatement = create("string") as vt then string(vs, vt)
-  "Condition-stage" : for src.stage as vs0 make tgt.stage as vt0 then {
-    "Condition.stage-summary" : for vs0.summary make vt0.summary
-    "Condition.stage-assessment" : for vs0.assessment make vt0.assessment
-  }
-
-  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then {
-    "Condition.evidence-code" : for vs0.code make vt0.code
-    "Condition.evidence-detail" : for vs0.detail make vt0.detail
-  }
-
+  "Condition-onset" : for src.onset make tgt.onset
+  "Condition-abatement" : for src.abatement make tgt.abatement
+  "Condition-stage" : for src.stage as vs0 make tgt.stage as vt0 then cndStage(vs0, vt0)
+  "Condition-evidence" : for src.evidence as vs0 make tgt.evidence as vt0 then cndEvidence(vs0, vt0)
   "Condition-bodySite" : for src.bodySite make tgt.bodySite
+endgroup
 
+group cndStage extends BackboneElement
+  input src : ConditionR2 as source
+  input tgt : Condition as target
+
+  "Condition.stage-summary" : for src.summary make tgt.summary
+  "Condition.stage-assessment" : for src.assessment make tgt.assessment
+endgroup
+
+group cndEvidence extends BackboneElement
+  input src : ConditionR2 as source
+  input tgt : Condition as target
+
+  "Condition.evidence-code" : for src.code make tgt.code
+  "Condition.evidence-detail" : for src.detail make tgt.detail
 endgroup

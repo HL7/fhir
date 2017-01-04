@@ -214,3 +214,10 @@ group for types idToString extends Element
   "stringToId-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types positiveIntToInteger extends Element
+  input src : positiveIntR2 as source
+  input tgt : integer as target
+
+  "positiveIntToInteger-value" : for src.value as v make tgt.value = v
+endgroup
+

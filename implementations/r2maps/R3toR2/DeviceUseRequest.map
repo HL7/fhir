@@ -1,40 +1,32 @@
 ﻿map "http://hl7.org/fhir/StructureMap/DeviceUseRequest3to2" = "R3 to R2 Conversion for DeviceUseRequest"
 
-conceptmap "DeviceUseRequestStatus" {
-  prefix s = "http://hl7.org/fhir/request-status"
-  prefix t = "http://hl7.org/fhir/device-use-request-status"
+conceptmap "RequestStatus" {
+  prefix s = "http://hl7.org/fhir/device-use-request-status"
+  prefix t = "http://hl7.org/fhir/request-status"
 
-  s:draft ~ t:proposed
-  s:draft ~ t:proposed
-  s:draft ~ t:proposed
-  s:draft ~ t:proposed
-  s:draft ~ t:proposed
-  s:draft ~ t:proposed
+  s:draft = t:proposed
+  s:active = t:"in-progress"
+  s:suspended = t:suspended
+  s:completed = t:completed
+  s:cancelled = t:rejected
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseRequest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DeviceUseRequest extends DomainResource
   input src : DeviceUseRequest as source
   input tgt : DeviceUseRequestR2 as target
 
-  "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#DeviceUseRequestStatus", "code")
-  "DeviceUseRequest-encounter" : for src.context make tgt.encounter
+  "DeviceUseRequest-status" : for src.status as v check src.status != 'entered-in-error' make tgt.status = translate(v, "#RequestStatus", "code")
+  "DeviceUseRequest-device" : for src.device make tgt.device
+  "DeviceUseRequest-context" : for src.context make tgt.encounter
   "DeviceUseRequest-identifier" : for src.identifier make tgt.identifier
-  "DeviceUseRequest-indication" : for src.reasonCode make tgt.indication
-  "DeviceUseRequest-orderedOn" : for src.authored make tgt.orderedOn
+  "DeviceUseRequest-reasonCode" : for src.reasonCode make tgt.indication
+  "DeviceUseRequest-notes" : for src.note make tgt.notes
+  "DeviceUseRequest-authored" : for src.authored make tgt.orderedOn
   "DeviceUseRequest-subject" : for src.subject make tgt.subject
-  "DeviceUseRequest-timing-dateTime" : for src.occurrence : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs, vt)
-  "DeviceUseRequest-timing-Period" : for src.occurrence : Period as vs make tgt.timing = create("Period") as vt then Period(vs, vt)
-  "DeviceUseRequest-timing-Timing" : for src.occurrence : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs, vt)
-
+  "DeviceUseRequest-Timing" : for src.occurrence make tgt.timing
 endgroup

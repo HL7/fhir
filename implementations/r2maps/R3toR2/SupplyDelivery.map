@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/SupplyDelivery" alias SupplyDelivery as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/SupplyDelivery" alias SupplyDeliveryR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  SupplyDelivery extends DomainResource
   input src : SupplyDelivery as source

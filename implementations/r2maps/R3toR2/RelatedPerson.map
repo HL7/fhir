@@ -3,15 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/RelatedPerson" alias RelatedPerson as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/RelatedPerson" alias RelatedPersonR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  RelatedPerson extends DomainResource
   input src : RelatedPerson as source
@@ -20,6 +12,7 @@ group for type+types  RelatedPerson extends DomainResource
   "RelatedPerson-identifier" : for src.identifier make tgt.identifier
   "RelatedPerson-patient" : for src.patient make tgt.patient
   "RelatedPerson-relationship" : for src.relationship make tgt.relationship
+  "RelatedPerson-name" : for src.name only_one make tgt.name
   "RelatedPerson-telecom" : for src.telecom make tgt.telecom
   "RelatedPerson-gender" : for src.gender make tgt.gender
   "RelatedPerson-birthDate" : for src.birthDate make tgt.birthDate

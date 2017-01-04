@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DetectedIssue" alias DetectedIssueR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/DetectedIssue" alias DetectedIssue as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  DetectedIssue extends DomainResource
   input src : DetectedIssueR2 as source
@@ -22,11 +18,15 @@ group for type+types  DetectedIssue extends DomainResource
   "DetectedIssue-author" : for src.author make tgt.author
   "DetectedIssue-identifier" : for src.identifier make tgt.identifier
   "DetectedIssue-reference" : for src.reference make tgt.reference
-  "DetectedIssue-mitigation" : for src.mitigation as vs0 make tgt.mitigation as vt0 then {
-    "DetectedIssue.mitigation-action" : for vs0.action make vt0.action
-    "DetectedIssue.mitigation-date" : for vs0.date make vt0.date
-    "DetectedIssue.mitigation-author" : for vs0.author make vt0.author
-  }
-
-
+  "DetectedIssue-mitigation" : for src.mitigation as vs0 make tgt.mitigation as vt0 then dtiMitigation(vs0, vt0)
 endgroup
+
+group dtiMitigation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "DetectedIssue.mitigation-action" : for src.action make tgt.action
+  "DetectedIssue.mitigation-date" : for src.date make tgt.date
+  "DetectedIssue.mitigation-author" : for src.author make tgt.author
+endgroup
+  

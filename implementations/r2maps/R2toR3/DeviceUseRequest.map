@@ -4,41 +4,38 @@ conceptmap "RequestStatus" {
   prefix s = "http://hl7.org/fhir/device-use-request-status"
   prefix t = "http://hl7.org/fhir/request-status"
 
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
-  s:proposed ~ t:draft
+  s:proposed = t:draft
+  s:planned = t:draft
+  s:requested = t:active
+  s:received = t:active
+  s:accepted = t:active
+  s:"in-progress" = t:active
+  s:completed = t:completed
+  s:suspended = t:suspended
+  s:rejected = t:cancelled
+  s:aborted = t:cancelled
 }
 
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseRequest" alias DeviceUseRequestR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUseRequest" alias DeviceUseRequest as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Timing2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  DeviceUseRequest extends DomainResource
   input src : DeviceUseRequestR2 as source
   input tgt : DeviceUseRequest as target
 
+  // drop bodySite
   "DeviceUseRequest-status" : for src.status as v make tgt.status = translate(v, "#RequestStatus", "code")
+  "DeviceUseRequest-device" : for src.device make tgt.device
   "DeviceUseRequest-context" : for src.encounter make tgt.context
   "DeviceUseRequest-identifier" : for src.identifier make tgt.identifier
   "DeviceUseRequest-reasonCode" : for src.indication make tgt.reasonCode
+  "DeviceUseRequest-notes" : for src.notes make tgt.note
+  // drop prnReason
   "DeviceUseRequest-authored" : for src.orderedOn make tgt.authored
   "DeviceUseRequest-subject" : for src.subject make tgt.subject
-  "DeviceUseRequest-occurrence-Timing" : for src.timing : Timing as vs make tgt.occurrence = create("Timing") as vt then Timing(vs, vt)
-  "DeviceUseRequest-occurrence-Period" : for src.timing : Period as vs make tgt.occurrence = create("Period") as vt then Period(vs, vt)
-  "DeviceUseRequest-occurrence-dateTime" : for src.timing : dateTime as vs make tgt.occurrence = create("dateTime") as vt then dateTime(vs, vt)
+  "DeviceUseRequest-Timing" : for src.timing make tgt.occurrence
+  // drop priority
 
 endgroup

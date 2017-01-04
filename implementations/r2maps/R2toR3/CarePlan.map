@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/CarePlan" alias CarePlanR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/CarePlan" alias CarePlan as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Period2to3"
-imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  CarePlan extends DomainResource
   input src : CarePlanR2 as source
@@ -26,18 +20,66 @@ group for type+types  CarePlan extends DomainResource
   "CarePlan-description" : for src.description make tgt.description
   "CarePlan-addresses" : for src.addresses make tgt.addresses
   "CarePlan-support" : for src.support make tgt.support
-  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then {
-    "CarePlan.relatedPlan-code" : for vs0.code make vt0.code
-    "CarePlan.relatedPlan-plan" : for vs0.plan make vt0.plan
-  }
-
+  "CarePlan-relatedPlan" : for src.relatedPlan as vs0 make tgt.relatedPlan as vt0 then plnRelated(vs0, vt0)
+  "CarePlan-participant" : for src where src.participant.exists() make create("CareTeam") as vt0 then plnParticipant(src, vt0, tgt)
   "CarePlan-goal" : for src.goal make tgt.goal
-  "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then {
-    "CarePlan.activity-actionResulting" : for vs0.actionResulting make vt0.actionResulting
-    "CarePlan.activity-progress" : for vs0.progress make vt0.progress
-    "CarePlan.activity-reference" : for vs0.reference make vt0.reference
-  }
-
+  "CarePlan-activity" : for src.activity as vs0 make tgt.activity as vt0 then plnActivity(vs0, vt0)
   "CarePlan-note" : for src.note make tgt.note
-
 endgroup
+
+group plnRelated extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "CarePlan.relatedPlan-code" : for src.code make tgt.code
+  "CarePlan.relatedPlan-plan" : for src.plan make tgt.plan
+endgroup
+
+group plnActivity extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "CarePlan.activity-actionResulting" : for src.actionResulting make tgt.actionResulting
+  "CarePlan.activity-progress" : for src.progress make tgt.progress
+  "CarePlan.activity-reference" : for src.reference make tgt.reference
+  "CarePlan.activity-detail" : for src.detail as vs0 make tgt.detail as vt0 then plnDetail(vs0, vt0)
+endgroup
+
+group plnDetail extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "CarePlan.activity.detail-category" : for src.category make tgt.category
+  "CarePlan.activity.detail-code" : for src.code make tgt.code
+  "CarePlan.activity.detail-reasonCode" : for src.reasonCode make tgt.reasonCode
+  "CarePlan.activity.detail-reasonReference" : for src.reasonReference make tgt.reasonReference
+  "CarePlan.activity.detail-goal" : for src.goal make tgt.goal
+  "CarePlan.activity.detail-status" : for src.status make tgt.status
+  "CarePlan.activity.detail-statusReason" : for src.statusReason make tgt.statusReason
+  "CarePlan.activity.detail-prohibited" : for src.prohibited make tgt.prohibited
+  "CarePlan.activity.detail-scheduled" : for src.scheduled make tgt.scheduled
+  "CarePlan.activity.detail-location" : for src.location make tgt.location
+  "CarePlan.activity.detail-performer" : for src.performer make tgt.performer
+  "CarePlan.activity.detail-product" : for src.product make tgt.product
+  "CarePlan.activity.detail-dailyAmount" : for src.dailyAmount make tgt.dailyAmount
+  "CarePlan.activity.detail-quantity" : for src.quantity make tgt.quantity
+  "CarePlan.activity.detail-description" : for src.description make tgt.description 
+endgroup
+
+group plnParticipant
+  input src as source
+  input tgt as target
+  input tgtE as target
+
+  "CarePlan.participant-link" : for src make tgtE.careTeam = reference(tgt)
+  "CarePlan.participant-member" : for src.participant as vs make tgt.participant as vt then plnParticipantMember(vs, vt)
+endgroup
+
+group plnParticipantMember extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "CarePlan.participant-role" : for src.role make tgt.role
+  "CarePlan.participant-member" : for src.member make tgt.member
+endgroup
+

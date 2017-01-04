@@ -3,40 +3,53 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImagingStudy" alias ImagingStudyR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/ImagingStudy" alias ImagingStudy as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Coding2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  ImagingStudy extends DomainResource
   input src : ImagingStudyR2 as source
   input tgt : ImagingStudy as target
 
+  "ImagingStudy-started" : for src.started make tgt.started
+  "ImagingStudy-patient" : for src.patient make tgt.patient
   "ImagingStudy-uid" : for src.uid make tgt.uid
   "ImagingStudy-accession" : for src.accession make tgt.accession
   "ImagingStudy-identifier" : for src.identifier make tgt.identifier
-  "ImagingStudy-availability" : for src.availability make tgt.availability
+  // no order
   "ImagingStudy-modalityList" : for src.modalityList make tgt.modalityList
-  "ImagingStudy-patient" : for src.patient make tgt.patient
-  "ImagingStudy-started" : for src.started make tgt.started
   "ImagingStudy-referrer" : for src.referrer make tgt.referrer
-  "ImagingStudy-interpreter" : for src.interpreter make tgt.interpreter
+  "ImagingStudy-availability" : for src.availability make tgt.availability
+  "ImagingStudy-url" : for src.url as u make tgt.baseLocation as bl, bl.type = c("http://hl7.org/fhir/dWebType", "WADO-RS"), bl.url = u
   "ImagingStudy-numberOfSeries" : for src.numberOfSeries make tgt.numberOfSeries
   "ImagingStudy-numberOfInstances" : for src.numberOfInstances make tgt.numberOfInstances
   "ImagingStudy-procedure" : for src.procedure make tgt.procedure
+  "ImagingStudy-interpreter" : for src.interpreter make tgt.interpreter
   "ImagingStudy-description" : for src.description make tgt.description
-  "ImagingStudy-series" : for src.series as vs0 make tgt.series as vt0 then {
-    "ImagingStudy.series-uid" : for vs0.uid make vt0.uid
-    "ImagingStudy.series-number" : for vs0.number make vt0.number
-    "ImagingStudy.series-modality" : for vs0.modality make vt0.modality
-    "ImagingStudy.series-description" : for vs0.description make vt0.description
-    "ImagingStudy.series-numberOfInstances" : for vs0.numberOfInstances make vt0.numberOfInstances
-    "ImagingStudy.series-availability" : for vs0.availability make vt0.availability
-    "ImagingStudy.series-bodySite" : for vs0.bodySite make vt0.bodySite
-    "ImagingStudy.series-laterality" : for vs0.laterality make vt0.laterality
-    "ImagingStudy.series-started" : for vs0.started make vt0.started
-  }
+  "ImagingStudy-series" : for src.series as vs0 make tgt.series as vt0 then imgSeries(vs0, vt0) 
+endgroup
 
+group imgSeries extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "ImagingStudy.series-uid" : for src.uid make tgt.uid
+  "ImagingStudy.series-number" : for src.number make tgt.number
+  "ImagingStudy.series-modality" : for src.modality make tgt.modality
+  "ImagingStudy.series-description" : for src.description make tgt.description
+  "ImagingStudy.series-numberOfInstances" : for src.numberOfInstances make tgt.numberOfInstances
+  "ImagingStudy.series-availability" : for src.availability make tgt.availability
+  "ImagingStudy.series-url" : for src.url as u make tgt.baseLocation as bl, bl.type = c("http://hl7.org/fhir/dWebType", "WADO-RS"), bl.url = u
+  "ImagingStudy.series-bodySite" : for src.bodySite make tgt.bodySite
+  "ImagingStudy.series-laterality" : for src.laterality make tgt.laterality
+  "ImagingStudy.series-started" : for src.started make tgt.started
+  "ImagingStudy.series-instance" : for src.instance as vs0 make tgt.instance as vt0 then imgInstance(vs0, vt0) 
+endgroup
+
+group imgInstance extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ImagingStudy.series.instance-number" : for src.number make tgt.number
+  "ImagingStudy.series.instance-uid" : for src.uid make tgt.uid
+  "ImagingStudy.series.instance-sopClass" : for src.sopClass make tgt.sopClass
+  "ImagingStudy.series.instance-title" : for src.title make tgt.title
 endgroup

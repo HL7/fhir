@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/OperationDefinition" alias OperationDefinition as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/OperationDefinition" alias OperationDefinitionR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/BackboneElement3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  OperationDefinition extends DomainResource
   input src : OperationDefinition as source
@@ -20,12 +16,9 @@ group for type+types  OperationDefinition extends DomainResource
   "OperationDefinition-kind" : for src.kind make tgt.kind
   "OperationDefinition-experimental" : for src.experimental make tgt.experimental
   "OperationDefinition-publisher" : for src.publisher make tgt.publisher
-  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then {
-    "OperationDefinition.contact-name" : for vs0.name make vt0.name
-    "OperationDefinition.contact-telecom" : for vs0.telecom make vt0.telecom
-  }
-
+  "OperationDefinition-contact" : for src.contact as vs0 make tgt.contact as vt0 then opdContact(vs0, vt0)
   "OperationDefinition-date" : for src.date make tgt.date
+  "OperationDefinition-requirements" : for src.purpose make tgt.requirements
   "OperationDefinition-description" : for src.description make tgt.description
   "OperationDefinition-idempotent" : for src.idempotent make tgt.idempotent
   "OperationDefinition-code" : for src.code make tgt.code
@@ -34,19 +27,32 @@ group for type+types  OperationDefinition extends DomainResource
   "OperationDefinition-system" : for src.system make tgt.system
   "OperationDefinition-type" : for src.resource make tgt.type
   "OperationDefinition-instance" : for src.instance make tgt.instance
-  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then {
-    "OperationDefinition.parameter-name" : for vs0.name make vt0.name
-    "OperationDefinition.parameter-use" : for vs0.use make vt0.use
-    "OperationDefinition.parameter-min" : for vs0.min make vt0.min
-    "OperationDefinition.parameter-max" : for vs0.max make vt0.max
-    "OperationDefinition.parameter-documentation" : for vs0.documentation make vt0.documentation
-    "OperationDefinition.parameter-type" : for vs0.type where vs0.searchType.empty() make vt0.type
-    "OperationDefinition.parameter-type" : for vs0.searchType make vt0.type
-    "OperationDefinition.parameter-profile" : for vs0.profile make vt0.profile
-    "OperationDefinition.parameter-part" : for vs0.part as ps0 make vt0.part as pt0 then part(ps0, pt0)
-  }
+  "OperationDefinition-parameter" : for src.parameter as vs0 make tgt.parameter as vt0 then opdParameter(vs0, vt0) 
 endgroup
 
+group opdContact extends Element
+  input src as source
+  input tgt as target
+
+  "OperationDefinition.contact-name" : for src.name make tgt.name
+  "OperationDefinition.contact-telecom" : for src.telecom make tgt.telecom
+endgroup
+
+group opdParameter extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "OperationDefinition.parameter-name" : for src.name make tgt.name
+  "OperationDefinition.parameter-use" : for src.use make tgt.use
+  "OperationDefinition.parameter-min" : for src.min make tgt.min
+  "OperationDefinition.parameter-max" : for src.max make tgt.max
+  "OperationDefinition.parameter-documentation" : for src.documentation make tgt.documentation
+  "OperationDefinition.parameter-type" : for src.type where src.searchType.empty() make tgt.type
+  "OperationDefinition.parameter-type" : for src.searchType make tgt.type
+  "OperationDefinition.parameter-profile" : for src.profile make tgt.profile
+  "OperationDefinition.parameter-part" : for src.part as ps0 make tgt.part as pt0 then part(ps0, pt0)
+endgroup  
+  
 group part extends BackboneElement
   input src as source
   input tgt as target
@@ -59,5 +65,5 @@ group part extends BackboneElement
   "OperationDefinition.parameter-part-type" : for src.type make tgt.type
   "OperationDefinition.parameter-part-profile" : for src.profile make tgt.profile
   "OperationDefinition.parameter-part-part" : for src.part as psrc make tgt.part as ptgt then part(psrc, ptgt)
-  
 endgroup
+

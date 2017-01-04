@@ -215,3 +215,10 @@ group for types codeToString extends Element
   "stringToCode-value" : for src.value as v make tgt.value = v
 endgroup
 
+group for types integerToPositiveInt extends Element
+  input src : integerR2 as source
+  input tgt : positiveInt as target
+
+  "integerToPositiveInt-value" : for src.value as v make tgt.value = v
+endgroup
+

@@ -3,23 +3,19 @@
 uses "http://hl7.org/fhir/StructureDefinition/Immunization" alias Immunization as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Immunization" alias ImmunizationR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Quantity3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Immunization extends DomainResource
   input src : Immunization as source
   input tgt : ImmunizationR2 as target
 
   "Immunization-identifier" : for src.identifier make tgt.identifier
+  "Immunization-status" : for src.status make tgt.status
   "Immunization-date" : for src.date make tgt.date
   "Immunization-vaccineCode" : for src.vaccineCode make tgt.vaccineCode
   "Immunization-patient" : for src.patient make tgt.patient
   "Immunization-wasNotGiven" : for src.wasNotGiven make tgt.wasNotGiven
+  // can't translate reported
   "Immunization-performer" : for src.performer make tgt.performer
   "Immunization-requester" : for src.requester make tgt.requester
   "Immunization-encounter" : for src.encounter make tgt.encounter
@@ -31,27 +27,39 @@ group for type+types  Immunization extends DomainResource
   "Immunization-route" : for src.route make tgt.route
   "Immunization-doseQuantity" : for src.doseQuantity make tgt.doseQuantity
   "Immunization-note" : for src.note make tgt.note
-  "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation as vt0 then {
-    "Immunization.explanation-reason" : for vs0.reason make vt0.reason
-    "Immunization.explanation-reasonNotGiven" : for vs0.reasonNotGiven make vt0.reasonNotGiven
-  }
-
-  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
-    "Immunization.reaction-date" : for vs0.date make vt0.date
-    "Immunization.reaction-detail" : for vs0.detail make vt0.detail
-    "Immunization.reaction-reported" : for vs0.reported make vt0.reported
-  }
-
-  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol as vt0 then {
-    "Immunization.vaccinationProtocol-doseSequence" : for vs0.doseSequence make vt0.doseSequence
-    "Immunization.vaccinationProtocol-description" : for vs0.description make vt0.description
-    "Immunization.vaccinationProtocol-authority" : for vs0.authority make vt0.authority
-    "Immunization.vaccinationProtocol-series" : for vs0.series make vt0.series
-    "Immunization.vaccinationProtocol-seriesDoses" : for vs0.seriesDoses make vt0.seriesDoses
-    "Immunization.vaccinationProtocol-targetDisease" : for vs0.targetDisease make vt0.targetDisease
-    "Immunization.vaccinationProtocol-doseStatus" : for vs0.doseStatus make vt0.doseStatus
-    "Immunization.vaccinationProtocol-doseStatusReason" : for vs0.doseStatusReason make vt0.doseStatusReason
-  }
-
-
+  "Immunization-explanation" : for src.explanation as vs0 make tgt.explanation as vt0 then immExplanation(vs0, vt0)
+  "Immunization-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then immReaction(vs0, vt0)
+  "Immunization-vaccinationProtocol" : for src.vaccinationProtocol as vs0 make tgt.vaccinationProtocol as vt0 then immProtocol(vs0, vt0)
 endgroup
+
+group immExplanation extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Immunization.explanation-reason" : for src.reason make tgt.reason
+  "Immunization.explanation-reasonNotGiven" : for src.reasonNotGiven make tgt.reasonNotGiven
+endgroup
+
+group immReaction extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Immunization.reaction-date" : for src.date make tgt.date
+  "Immunization.reaction-detail" : for src.detail make tgt.detail
+  "Immunization.reaction-reported" : for src.reported make tgt.reported
+endgroup
+
+group immProtocol extends BackboneElement
+  input src as source
+  input tgt as target
+  
+  "Immunization.vaccinationProtocol-doseSequence" : for src.doseSequence make tgt.doseSequence
+  "Immunization.vaccinationProtocol-description" : for src.description make tgt.description
+  "Immunization.vaccinationProtocol-authority" : for src.authority make tgt.authority
+  "Immunization.vaccinationProtocol-series" : for src.series make tgt.series
+  "Immunization.vaccinationProtocol-seriesDoses" : for src.seriesDoses make tgt.seriesDoses
+  "Immunization.vaccinationProtocol-targetDisease" : for src.targetDisease make tgt.targetDisease
+  "Immunization.vaccinationProtocol-doseStatus" : for src.doseStatus make tgt.doseStatus
+  "Immunization.vaccinationProtocol-doseStatusReason" : for src.doseStatusReason make tgt.doseStatusReason
+endgroup
+  

@@ -4,31 +4,47 @@ conceptmap "ClinicalImpressionStatus" {
   prefix s = "http://hl7.org/fhir/clinical-impression-status"
   prefix t = "http://hl7.org/fhir/clinical-impression-status"
 
-  s:draft ~ t:completed
-  s:draft ~ t:completed
-  s:draft ~ t:completed
+  s:draft = t:"in-progress"
+  s:completed  = t:completed
+  s:"entered-in-error" = t:"entered-in-error"
 }
+
 
 uses "http://hl7.org/fhir/StructureDefinition/ClinicalImpression" alias ClinicalImpression as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ClinicalImpression" alias ClinicalImpressionR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ClinicalImpression extends DomainResource
   input src : ClinicalImpression as source
   input tgt : ClinicalImpressionR2 as target
 
-  "ClinicalImpression-patient" : for src.subject make tgt.patient
+  "ClinicalImpression-subject" : for src.subject make tgt.patient
   "ClinicalImpression-assessor" : for src.assessor make tgt.assessor
   "ClinicalImpression-status" : for src.status as v make tgt.status = translate(v, "#ClinicalImpressionStatus", "code")
   "ClinicalImpression-date" : for src.date make tgt.date
   "ClinicalImpression-description" : for src.description make tgt.description
   "ClinicalImpression-previous" : for src.previous make tgt.previous
   "ClinicalImpression-problem" : for src.problem make tgt.problem
+  "ClinicalImpression-investigations" : for src.investigation as vs0 make tgt.investigations as vt0 then cimInvestigation(vs0, vt0) 
+  "ClinicalImpression-protocol" : for src.protocol make tgt.protocol
   "ClinicalImpression-summary" : for src.summary make tgt.summary
-  "ClinicalImpression-finding" : for src.finding as vs0 make tgt.finding as vt0
+  "ClinicalImpression-finding" : for src.finding as vs0 make tgt.finding as vt0 then cimFinding(vs0, vt0) 
   "ClinicalImpression-action" : for src.action make tgt.action
+endgroup
 
+group cimFinding extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ClinicalImpression.finding-item" : for src.item make tgt.item
+  "ClinicalImpression.finding-reason" : for src.basis make tgt.reason
+endgroup
+
+group cimInvestigation extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ClinicalImpression.finding-code" : for src.code make tgt.code
+  "ClinicalImpression.finding-item" : for src.item make tgt.item
 endgroup

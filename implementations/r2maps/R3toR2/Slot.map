@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Slot" alias Slot as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Slot" alias SlotR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Slot extends DomainResource
   input src : Slot as source
@@ -16,6 +12,7 @@ group for type+types  Slot extends DomainResource
   "Slot-identifier" : for src.identifier make tgt.identifier
   "Slot-type" : for src.serviceType make tgt.type
   "Slot-schedule" : for src.schedule make tgt.schedule
+  "Slot-freeBusyType" : for src.status check src.status != 'entered-in-error' make tgt.freeBusyType
   "Slot-start" : for src.start make tgt.start
   "Slot-end" : for src.end make tgt.end
   "Slot-overbooked" : for src.overbooked make tgt.overbooked

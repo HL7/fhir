@@ -3,14 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/ProcedureRequest" alias ProcedureRequest as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ProcedureRequest" alias ProcedureRequestR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ProcedureRequest extends DomainResource
   input src : ProcedureRequest as source
@@ -20,17 +13,13 @@ group for type+types  ProcedureRequest extends DomainResource
   "ProcedureRequest-subject" : for src.subject make tgt.subject
   "ProcedureRequest-code" : for src.code make tgt.code
   "ProcedureRequest-bodySite" : for src.bodySite make tgt.bodySite
-  "ProcedureRequest-reason-CodeableConcept" : for src.reason : CodeableConcept as vs make tgt.reason = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-  "ProcedureRequest-reason-Reference" : for src.reason : Reference as vs make tgt.reason = create("Reference") as vt then Reference(vs, vt)
-  "ProcedureRequest-scheduled-dateTime" : for src.scheduled : dateTime as vs make tgt.scheduled = create("dateTime") as vt then dateTime(vs, vt)
-  "ProcedureRequest-scheduled-Period" : for src.scheduled : Period as vs make tgt.scheduled = create("Period") as vt then Period(vs, vt)
-  "ProcedureRequest-scheduled-Timing" : for src.scheduled : Timing as vs make tgt.scheduled = create("Timing") as vt then Timing(vs, vt)
+  "ProcedureRequest-reason" : for src.reason make tgt.reason
+  "ProcedureRequest-scheduled" : for src.scheduled make tgt.scheduled
   "ProcedureRequest-encounter" : for src.encounter make tgt.encounter
   "ProcedureRequest-performer" : for src.performer make tgt.performer
   "ProcedureRequest-status" : for src.status make tgt.status
   "ProcedureRequest-notes" : for src.notes make tgt.notes
-  "ProcedureRequest-asNeeded-boolean" : for src.asNeeded : boolean as vs make tgt.asNeeded = create("boolean") as vt then boolean(vs, vt)
-  "ProcedureRequest-asNeeded-CodeableConcept" : for src.asNeeded : CodeableConcept as vs make tgt.asNeeded = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
+  "ProcedureRequest-asNeeded" : for src.asNeeded make tgt.asNeeded
   "ProcedureRequest-orderedOn" : for src.orderedOn make tgt.orderedOn
   "ProcedureRequest-orderer" : for src.orderer make tgt.orderer
   "ProcedureRequest-priority" : for src.priority make tgt.priority

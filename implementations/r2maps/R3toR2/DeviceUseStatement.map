@@ -3,13 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement" alias DeviceUseStatement as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceUseStatement" alias DeviceUseStatementR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DeviceUseStatement extends DomainResource
   input src : DeviceUseStatement as source
@@ -23,8 +17,5 @@ group for type+types  DeviceUseStatement extends DomainResource
   "DeviceUseStatement-notes" : for src.notes make tgt.notes
   "DeviceUseStatement-recordedOn" : for src.recordedOn make tgt.recordedOn
   "DeviceUseStatement-subject" : for src.subject make tgt.subject
-  "DeviceUseStatement-timing-Timing" : for src.timing : Timing as vs make tgt.timing = create("Timing") as vt then Timing(vs, vt)
-  "DeviceUseStatement-timing-Period" : for src.timing : Period as vs make tgt.timing = create("Period") as vt then Period(vs, vt)
-  "DeviceUseStatement-timing-dateTime" : for src.timing : dateTime as vs make tgt.timing = create("dateTime") as vt then dateTime(vs, vt)
-
+  "DeviceUseStatement-timing" : for src.timing make tgt.timing
 endgroup

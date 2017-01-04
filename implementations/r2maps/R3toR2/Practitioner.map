@@ -3,16 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/Practitioner" alias Practitioner as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Practitioner" alias PractitionerR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Address3to2"
-imports "http://hl7.org/fhir/StructureMap/Attachment3to2"
-imports "http://hl7.org/fhir/StructureMap/HumanName3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Period3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Practitioner extends DomainResource
   input src : Practitioner as source
@@ -26,22 +17,29 @@ group for type+types  Practitioner extends DomainResource
   "Practitioner-gender" : for src.gender make tgt.gender
   "Practitioner-birthDate" : for src.birthDate make tgt.birthDate
   "Practitioner-photo" : for src.photo make tgt.photo
-  "Practitioner-practitionerRole" : for src.role as vs0 make tgt.practitionerRole as vt0 then {
-    "Practitioner.practitionerRole-managingOrganization" : for vs0.organization make vt0.managingOrganization
-    "Practitioner.practitionerRole-role" : for vs0.code make vt0.role
-    "Practitioner.practitionerRole-specialty" : for vs0.specialty make vt0.specialty
-    "Practitioner.practitionerRole-period" : for vs0.period make vt0.period
-    "Practitioner.practitionerRole-location" : for vs0.location make vt0.location
-    "Practitioner.practitionerRole-healthcareService" : for vs0.healthcareService make vt0.healthcareService
-  }
-
-  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then {
-    "Practitioner.qualification-identifier" : for vs0.identifier make vt0.identifier
-    "Practitioner.qualification-code" : for vs0.code make vt0.code
-    "Practitioner.qualification-period" : for vs0.period make vt0.period
-    "Practitioner.qualification-issuer" : for vs0.issuer make vt0.issuer
-  }
-
+  "Practitioner-role" : for src.role as vs0 make tgt.practitionerRole as vt0 then prcRole(vs0, vt0)
+  "Practitioner-qualification" : for src.qualification as vs0 make tgt.qualification as vt0 then prcQualification(vs0, vt0) 
   "Practitioner-communication" : for src.communication make tgt.communication
+endgroup
 
+group prcRole extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Practitioner.role-organization" : for src.organization make tgt.managingOrganization
+  "Practitioner.role-code" : for src.code make tgt.role
+  "Practitioner.role-specialty" : for src.specialty make tgt.specialty
+  "Practitioner.role-period" : for src.period make tgt.period
+  "Practitioner.role-location" : for src.location make tgt.location
+  "Practitioner.role-healthcareService" : for src.healthcareService make tgt.healthcareService
+endgroup
+  
+group prcQualification extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Practitioner.qualification-identifier" : for src.identifier make tgt.identifier
+  "Practitioner.qualification-code" : for src.code make tgt.code
+  "Practitioner.qualification-period" : for src.period make tgt.period
+  "Practitioner.qualification-issuer" : for src.issuer make tgt.issuer
 endgroup

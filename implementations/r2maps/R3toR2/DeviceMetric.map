@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/DeviceMetric" alias DeviceMetric as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DeviceMetric" alias DeviceMetricR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Timing3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  DeviceMetric extends DomainResource
   input src : DeviceMetric as source
@@ -23,11 +18,14 @@ group for type+types  DeviceMetric extends DomainResource
   "DeviceMetric-color" : for src.color make tgt.color
   "DeviceMetric-category" : for src.category make tgt.category
   "DeviceMetric-measurementPeriod" : for src.measurementPeriod make tgt.measurementPeriod
-  "DeviceMetric-calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then {
-    "DeviceMetric.calibration-type" : for vs0.type make vt0.type
-    "DeviceMetric.calibration-state" : for vs0.state make vt0.state
-    "DeviceMetric.calibration-time" : for vs0.time make vt0.time
-  }
+  "DeviceMetric-calibration" : for src.calibration as vs0 make tgt.calibration as vt0 then dvmCalibration(vs0, vt0)
+endgroup
 
+group dvmCalibration extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "DeviceMetric.calibration-type" : for src.type make tgt.type
+  "DeviceMetric.calibration-state" : for src.state make tgt.state
+  "DeviceMetric.calibration-time" : for src.time make tgt.time
 endgroup

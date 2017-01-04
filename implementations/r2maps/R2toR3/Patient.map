@@ -21,6 +21,7 @@ group for type+types  Patient extends DomainResource
   "Patient-multipleBirth" : for src.multipleBirth make tgt.multipleBirth 
   "Patient-photo" : for src.photo make tgt.photo
   "Patient-contact" : for src.contact as vs0 make tgt.contact as vt0 then patContact(vs0, vt0) 
+  "Patient-animal" : for src.animal as vs0 make tgt.animal as vt0 then patAnimal(vs0, vt0) 
   "Patient-communication" : for src.communication as vs0 make tgt.communication as vt0 then patCommunication(vs0, vt0) 
   "Patient-generalPractitioner" : for src.careProvider make tgt.generalPractitioner
   "Patient-managingOrganization" : for src.managingOrganization make tgt.managingOrganization
@@ -48,6 +49,15 @@ group patCommunication extends BackboneElement
   "Patient.communication-preferred" : for src.preferred make tgt.preferred
 endgroup
   
+group patAnimal extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "Patient.communication-species" : for src.species make tgt.species
+  "Patient.communication-breed" : for src.breed make tgt.breed
+  "Patient.communication-genderStatus" : for src.genderStatus make tgt.genderStatus
+endgroup
+    
 group patLink extends BackboneElement
   input src as source
   input tgt as target

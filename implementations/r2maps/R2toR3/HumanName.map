@@ -11,7 +11,8 @@ group for type+types  HumanName extends Element
 
   "HumanName-use" : for src.use make tgt.use
   "HumanName-text" : for src.text make tgt.text
-  "HumanName-family" : for src.family first make tgt.family // todo: if there's more than one, we want to collate them to a single family name
+  "HumanName-family" : for src.family first make tgt.family
+  "HumanName-family-rpt" : for src.family not_first as f make tgt.extension as ex, ex.url = "http://hl7.org/fhir/StructureDefinition/HumanName-familyRepeat", ex.value = f
   "HumanName-given" : for src.given make tgt.given
   "HumanName-prefix" : for src.prefix make tgt.prefix
   "HumanName-suffix" : for src.suffix make tgt.suffix

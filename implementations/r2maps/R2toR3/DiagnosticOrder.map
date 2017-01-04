@@ -1,0 +1,77 @@
+﻿map "http://hl7.org/fhir/StructureMap/DiagnosticOrder2to3" = "R2 to R3 Conversions for DiagnosticOrder"
+
+conceptmap "intent" {
+  prefix s = "http://hl7.org/fhir/diagnostic-order-status"
+  prefix t = "http://hl7.org/fhir/request-intent"
+  
+  s:proposed = t:proposal
+  s:draft = t:"original-order" 
+  s:planned = t:plan 
+  s:requested = t:"original-order" 
+  s:received = t:"original-order" 
+  s:accepted = t:"original-order" 
+  s:"in-progress" = t:"original-order" 
+  s:review = t:"original-order" 
+  s:completed = t:"original-order" 
+  s:cancelled = t:"original-order" 
+  s:suspended = t:"original-order" 
+  s:rejected = t:"original-order" 
+  s:failed = t:"original-order"
+}
+
+conceptmap "status" {
+  prefix s = "http://hl7.org/fhir/diagnostic-order-status"
+  prefix t = "http://hl7.org/fhir/diagnostic-order-status"
+
+  s:proposed = t:draft  
+  s:draft = t:draft 
+  s:planned = t:draft  
+  s:requested = t:active 
+  s:received = t:active 
+  s:accepted = t:active 
+  s:"in-progress" = t:active 
+  s:review = t:active 
+  s:completed = t:completed 
+  s:cancelled = t:cancelled 
+  s:suspended = t:suspended 
+  s:rejected = t:cancelled 
+  s:failed = t:cancelled
+}
+
+  
+uses "http://hl7.org/fhir/DSTU2/StructureDefinition/DiagnosticOrder" alias DiagnosticOrderR2 as source
+uses "http://hl7.org/fhir/StructureDefinition/DiagnosticRequest" alias DiagnosticRequest as target
+
+imports "http://hl7.org/fhir/StructureMap/*2to3"
+
+group for type+types  DiagnosticOrder extends DomainResource
+  input src : DiagnosticOrderR2 as source
+  input tgt : DiagnosticRequest as target
+
+  "DiagnosticOrder-subject" : for src.subject make tgt.subject
+  "DiagnosticOrder-orderer" : for src.orderer make tgt.requester
+  "DiagnosticOrder-identifier" : for src.identifier make tgt.identifier
+  "DiagnosticOrder-encounter" : for src.encounter make tgt.context
+  "DiagnosticOrder-reason" : for src.reason make tgt.reasonCode
+  "DiagnosticOrder-supportingInformation" : for src.supportingInformation make tgt.supportingInformation
+  "DiagnosticOrder-status" : for src.status as v make tgt.status = translate(v, "#status", "code")
+  "DiagnosticOrder-intent" : for src.status as v make tgt.intent = translate(v, "#intent", "code")
+  "DiagnosticOrder-priority" : for src.priority make tgt.priority
+  "DiagnosticOrder-event" : for src.event as vs where status = 'requested' then doEvent(vs, tgt)
+  "DiagnosticOrder-item" : for src.item only_one as vs then doItem(vs, tgt)
+  "DiagnosticOrder-note" : for src.note make tgt.note
+endgroup
+
+group doEvent 
+  input src as source
+  input tgt as target
+
+  "DiagnosticOrder.event-dateTime" : for src.dateTime make tgt.authoredOn
+endgroup
+
+group doItem 
+  input src as source
+  input tgt as target
+
+  "DiagnosticOrder.item-code" : for src.code make tgt.code
+endgroup

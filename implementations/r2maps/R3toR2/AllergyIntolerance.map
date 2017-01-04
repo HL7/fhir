@@ -4,46 +4,55 @@ conceptmap "AllergyIntoleranceCriticality" {
   prefix s = "http://hl7.org/fhir/allergy-intolerance-criticality"
   prefix t = "http://hl7.org/fhir/allergy-intolerance-criticality"
 
-  s:low ~ t:CRITL
-  s:low ~ t:CRITL
-  s:low ~ t:CRITL
+  s:low = t:CRITL
+  s:high = t:CRITH
+  s:"unable-to-assess" = t:CRITU
 }
 
 uses "http://hl7.org/fhir/StructureDefinition/AllergyIntolerance" alias AllergyIntolerance as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/AllergyIntolerance" alias AllergyIntoleranceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  AllergyIntolerance extends DomainResource
   input src : AllergyIntolerance as source
   input tgt : AllergyIntoleranceR2 as target
 
   "AllergyIntolerance-identifier" : for src.identifier make tgt.identifier
-  "AllergyIntolerance-status" : for src.clinicalStatus as vs0 make tgt.status as vt0
-  "AllergyIntolerance-type" : for src.type make tgt.type
-  "AllergyIntolerance-criticality" : for src.criticality as v make tgt.criticality = translate(v, "#AllergyIntoleranceCriticality", "code")
-  "AllergyIntolerance-substance" : for src.code make tgt.substance
-  "AllergyIntolerance-patient" : for src.patient make tgt.patient
+  "AllergyIntolerance-onset" : for src.onset make tgt.onset
   "AllergyIntolerance-recordedDate" : for src.assertedDate make tgt.recordedDate
   "AllergyIntolerance-recorder" : for src.recorder make tgt.recorder
+  "AllergyIntolerance-patient" : for src.patient make tgt.patient
   "AllergyIntolerance-reporter" : for src.asserter make tgt.reporter
-  "AllergyIntolerance-lastOccurence" : for src.lastOccurrence make tgt.lastOccurence
+  "AllergyIntolerance-substance" : for src.code make tgt.substance
+
+  "AllergyIntolerance-status-active" :           for src where src.clinicalStatus = 'active' and src.verificationStatus.empty() make tgt.status = 'active'
+  "AllergyIntolerance-status-unconfirmed" :      for src where src.clinicalStatus = 'active' and src.verificationStatus = 'confirmed' make tgt.status = 'confirmed'
+  "AllergyIntolerance-status-confirmed" :        for src where src.clinicalStatus = 'active' and src.verificationStatus = 'unconfirmed' make tgt.status = 'unconfirmed'
+  "AllergyIntolerance-status-inactive" :         for src where src.clinicalStatus = 'inactive' make tgt.status = 'inactive'
+  "AllergyIntolerance-status-resolved" :         for src where src.clinicalStatus = 'resolved' make tgt.status = 'resolved'
+  "AllergyIntolerance-status-refuted" :          for src where src.verificationStatus = 'refuted' make tgt.status = 'refuted'
+  "AllergyIntolerance-status-entered-in-error" : for src where src.verificationStatus = 'entered-in-error' make tgt.status = 'entered-in-error'
+
+  "AllergyIntolerance-criticality" : for src.criticality as v make tgt.criticality = translate(v, "#AllergyIntoleranceCriticality", "code")
+  "AllergyIntolerance-type" : for src.type make tgt.type
+  "AllergyIntolerance-category" : for src.category make tgt.category
+  "AllergyIntolerance-lastOccurrence" : for src.lastOccurrence make tgt.lastOccurence
   "AllergyIntolerance-note" : for src.note make tgt.note
-  "AllergyIntolerance-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then {
-    "AllergyIntolerance.reaction-substance" : for vs0.substance make vt0.substance
-    "AllergyIntolerance.reaction-certainty" : for vs0.certainty make vt0.certainty
-    "AllergyIntolerance.reaction-manifestation" : for vs0.manifestation make vt0.manifestation
-    "AllergyIntolerance.reaction-description" : for vs0.description make vt0.description
-    "AllergyIntolerance.reaction-onset" : for vs0.onset make vt0.onset
-    "AllergyIntolerance.reaction-severity" : for vs0.severity make vt0.severity
-    "AllergyIntolerance.reaction-exposureRoute" : for vs0.exposureRoute make vt0.exposureRoute
-    "AllergyIntolerance.reaction-note" : for vs0.note make vt0.note
-  }
+  "AllergyIntolerance-reaction" : for src.reaction as vs0 make tgt.reaction as vt0 then algReaction(vs0, vt0)
+  
+endgroup
 
+group algReaction extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "AllergyIntolerance.reaction-substance" : for src.substance make tgt.substance
+  "AllergyIntolerance.reaction-certainty" : for src.certainty make tgt.certainty
+  "AllergyIntolerance.reaction-manifestation" : for src.manifestation make tgt.manifestation
+  "AllergyIntolerance.reaction-description" : for src.description make tgt.description
+  "AllergyIntolerance.reaction-onset" : for src.onset make tgt.onset
+  "AllergyIntolerance.reaction-severity" : for src.severity make tgt.severity
+  "AllergyIntolerance.reaction-exposureRoute" : for src.exposureRoute make tgt.exposureRoute
+  "AllergyIntolerance.reaction-note" : for src.note make tgt.note
 endgroup

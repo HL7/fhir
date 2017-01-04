@@ -3,32 +3,33 @@
 uses "http://hl7.org/fhir/StructureDefinition/Device" alias Device as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Device" alias DeviceR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/ContactPoint3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/Annotation3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  Device extends DomainResource
   input src : Device as source
   input tgt : DeviceR2 as target
 
   "Device-identifier" : for src.identifier make tgt.identifier
-  "Device-status" : for src.status make tgt.status
   "Device-type" : for src.type make tgt.type
-  "Device-lotNumber" : for src.lotNumber make tgt.lotNumber
+  "Device-note" : for src.note make tgt.note
+  "Device-status" : for src.status make tgt.status
   "Device-manufacturer" : for src.manufacturer make tgt.manufacturer
-  "Device-manufactureDate" : for src.manufactureDate make tgt.manufactureDate
-  "Device-expiry" : for src.expirationDate make tgt.expiry
   "Device-model" : for src.model make tgt.model
   "Device-version" : for src.version make tgt.version
-  "Device-patient" : for src.patient make tgt.patient
+  "Device-manufactureDate" : for src.manufactureDate make tgt.manufactureDate
+  "Device-expirationDate" : for src.expirationDate make tgt.expiry
+  "Device-udi" : for src.udiCarrier as u where type.code = "UDI" then udi(u, tgt)
+  "Device-lotNumber" : for src.lotNumber make tgt.lotNumber
   "Device-owner" : for src.owner make tgt.owner
-  "Device-contact" : for src.contact make tgt.contact
   "Device-location" : for src.location make tgt.location
+  "Device-patient" : for src.patient make tgt.patient
+  "Device-contact" : for src.contact make tgt.contact
   "Device-url" : for src.url make tgt.url
-  "Device-note" : for src.note make tgt.note
+endgroup
 
+group udi 
+  input src as source
+  input tgt as target
+  
+  "udi" : for src.value make tgt.udi
 endgroup

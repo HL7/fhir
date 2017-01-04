@@ -3,10 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponse as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/QuestionnaireResponse" alias QuestionnaireResponseR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  QuestionnaireResponse extends DomainResource
   input src : QuestionnaireResponse as source
@@ -20,5 +17,35 @@ group for type+types  QuestionnaireResponse extends DomainResource
   "QuestionnaireResponse-authored" : for src.authored make tgt.authored
   "QuestionnaireResponse-source" : for src.source make tgt.source
   "QuestionnaireResponse-encounter" : for src.context make tgt.encounter
+  
+  "QuestionnaireResponse-item" : for src.item as vs0 make tgt.group as vt0 then qrGroup(vs0, vt0)
+endgroup
 
+group qrGroup extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "QuestionnaireResponse.group-linkId" : for src.linkId make tgt.linkId
+  "QuestionnaireResponse.group-text" : for src.text where item.answer.empty() make tgt.title
+  "QuestionnaireResponse.group-text" : for src.text where item.answer.exists() make tgt.text
+  "QuestionnaireResponse.group-subject" : for src.subject make tgt.subject
+  "QuestionnaireResponse.group-group" :    for src.item as vs0 where answer.empty() make tgt.group    as vt0 then qrGroup(vs0, vt0)
+  "QuestionnaireResponse.group-question" : for src.item as vs0 where answer.exists() make tgt.question as vt0 then qrQuestion(vs0, vt0)
+endgroup
+
+group qrQuestion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "QuestionnaireResponse.group.question-linkId" : for src.linkId make tgt.linkId
+  "QuestionnaireResponse.group.question-text" : for src.text make tgt.text
+  "QuestionnaireResponse.group.question-answer" : for src.answer as vs0 make tgt.answer as vt0 then qrAnswer(vs0, vt0)
+endgroup
+
+group qrAnswer extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "QuestionnaireResponse.group.question.answer-value" : for src.value make tgt.value 
+  "QuestionnaireResponse.group.question.answer-group" : for src.item as vs0 check answer.empty() make tgt.group as vt0 then qrGroup(vs0, vt0)
 endgroup

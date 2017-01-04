@@ -297,33 +297,11 @@
     "xdsdocumentreference": {}
   },
   "AllergyIntolerance": {
-    "allergyintolerance-example": {
-      "errors": [
-        "Unknown AllergyIntoleranceClinicalStatus code \u0027confirmed\u0027"
-      ]
-    },
-    "example": {
-      "errors": [
-        "Unknown AllergyIntoleranceClinicalStatus code \u0027confirmed\u0027"
-      ]
-    },
-    "allergyintolerance-example-refuted": {
-      "errors": [
-        "Unknown AllergyIntoleranceClinicalStatus code \u0027refuted\u0027"
-      ]
-    },
-    "fishallergy": {
-      "errors": [
-        "[R3 validation error] AllergyIntolerance: AllergyIntolerance.clinicalStatus SHALL be present if verificationStatus is not entered-in-error. [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] AllergyIntolerance: Profile http://hl7.org/fhir/StructureDefinition/AllergyIntolerance, Element \u0027AllergyIntolerance.verificationStatus\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] AllergyIntolerance.code.coding: Error validating code \"227037002\" in system \"http://snomed.info/sct\": null"
-      ]
-    },
-    "medication": {
-      "errors": [
-        "Unknown AllergyIntoleranceClinicalStatus code \u0027unconfirmed\u0027"
-      ]
-    }
+    "allergyintolerance-example": {},
+    "example": {},
+    "allergyintolerance-example-refuted": {},
+    "fishallergy": {},
+    "medication": {}
   },
   "Appointment": {
     "example": {},
@@ -441,17 +419,10 @@
     },
     "questionnaire-sdc-profile-example": {
       "errors": [
-        "NullPointerException"
+        "Round trip failed: Attributes differ at /Bundle/entry/resource/Questionnaire/contained/ValueSet/codeSystem: missing attribute id"
       ]
     },
-    "questionnaire-sdc-profile-example-ussg-fht": {
-      "errors": [
-        "[R3 validation error] Bundle.entry[1].resource: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] Bundle.entry[25].resource.element.binding.valueSetReference: Relative URLs must be of the format [ResourceName]/[id].  Encountered LL361-7",
-        "[R3 validation error] Bundle.entry[25].resource.element.binding.valueSetReference: Relative URLs must be of the format [ResourceName]/[id].  Encountered LL361-7",
-        "[R3 validation error] Bundle.entry[29].resource.element.extension[2]: The extension http://hl7.org/fhir/StructureDefinition/questionnaire-units is unknown, and not allowed here"
-      ]
-    },
+    "questionnaire-sdc-profile-example-ussg-fht": {},
     "searchParams": {
       "errors": [
         "[R3 validation error] Bundle.entry[118].resource.target: The value provided (\u0027MedicationOrder\u0027) is not in the value set http://hl7.org/fhir/ValueSet/resource-types (http://hl7.org/fhir/ValueSet/resource-types, and a code is required from this value set) (error message \u003d Unknown Code MedicationOrder in http://hl7.org/fhir/ValueSet/resource-types)",
@@ -855,100 +826,16 @@
     }
   },
   "CarePlan": {
-    "example": {
-      "errors": [
-        "[R3 validation error] CarePlan: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] CarePlan.contained[1]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[3]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[3].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[3].extension: Profile http://hl7.org/fhir/StructureDefinition/goal-target, Element \u0027CarePlan.contained[3].extension.extension[measure]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[3].extension: Profile http://hl7.org/fhir/StructureDefinition/goal-target, Element \u0027CarePlan.contained[3].extension.extension[detail]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.addresses.contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained.extension: Profile http://hl7.org/fhir/StructureDefinition/goal-target, Element \u0027CarePlan.goal.contained.extension.extension[measure]\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained.extension: Profile http://hl7.org/fhir/StructureDefinition/goal-target, Element \u0027CarePlan.goal.contained.extension.extension[detail]\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "gpvisit": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained[1]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[2]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[2].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.addresses.contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.activity[2]: All FHIR elements must have a @value or children [children().count() \u003e id.count()]"
-      ]
-    },
-    "f001": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "f002": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "f003": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] CarePlan: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] CarePlan.contained[1].code.coding: null",
-        "[R3 validation error] CarePlan.contained[2].code.coding: null",
-        "[R3 validation error] CarePlan.contained[3].code.coding: null",
-        "[R3 validation error] CarePlan.contained[5]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[5].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "integrate": {
-      "errors": [
-        "[R3 validation error] CarePlan.contained[1]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[2]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[3]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[4]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[4].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[5]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[5].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[6]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[6].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[7]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[7].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.contained[8]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[8].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.addresses[1].contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.addresses[2].contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.addresses[3].contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.goal[1].contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal[1].contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal[2].contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal[2].contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal[3].contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal[3].contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal[4].contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal[4].contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.goal[5].contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal[5].contained.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.activity[3]: All FHIR elements must have a @value or children [children().count() \u003e id.count()]",
-        "[R3 validation error] CarePlan.activity[6]: All FHIR elements must have a @value or children [children().count() \u003e id.count()]",
-        "[R3 validation error] CarePlan.activity[10]: All FHIR elements must have a @value or children [children().count() \u003e id.count()]"
-      ]
-    },
-    "preg": {
-      "errors": [
-        "[R3 validation error] CarePlan: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] CarePlan.contained[1]: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.contained[4]: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.contained[4].description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] CarePlan.addresses.contained: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] CarePlan.goal.contained: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027CarePlan.goal.contained.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example": {},
+    "gpvisit": {},
+    "f001": {},
+    "f002": {},
+    "f003": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
+    "integrate": {},
+    "preg": {}
   },
   "Claim": {
     "100150": {},
@@ -993,119 +880,18 @@
         "[R3 validation error] Condition.category.coding: Unknown Code diagnosis in http://hl7.org/fhir/condition-category"
       ]
     },
-    "condition-example": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.extension.valueCodeableConcept.coding: null",
-        "[R3 validation error] Condition.category.coding[1]: Unknown Code diagnosis in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.category.coding[2]: null",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null"
-      ]
-    },
-    "example": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding[1]: Unknown Code diagnosis in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.category.coding[2]: null",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null"
-      ]
-    },
-    "f001": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: null",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null",
-        "[R3 validation error] Condition.evidence.code.coding: null"
-      ]
-    },
-    "f002": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: null",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null",
-        "[R3 validation error] Condition.stage.summary.coding: null",
-        "[R3 validation error] Condition.evidence.code.coding: null"
-      ]
-    },
-    "f003": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: null",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null",
-        "[R3 validation error] Condition.evidence.code.coding: null"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding[1]: null",
-        "[R3 validation error] Condition.category.coding[2]: Unknown Code finding in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null",
-        "[R3 validation error] Condition.evidence.code.coding: null"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: Unknown Code diagnosis in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding[1]: null",
-        "[R3 validation error] Condition.category.coding[2]: Unknown Code finding in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null"
-      ]
-    },
-    "f204": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding[1]: null",
-        "[R3 validation error] Condition.category.coding[2]: Unknown Code finding in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.severity.coding: null",
-        "[R3 validation error] Condition.code.coding: null",
-        "[R3 validation error] Condition.bodySite.coding: null",
-        "[R3 validation error] Condition.stage.summary.coding: null"
-      ]
-    },
-    "f205": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.code.coding: null"
-      ]
-    },
-    "stroke": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: Unknown Code diagnosis in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.code.coding: null"
-      ]
-    },
-    "example2": {
-      "errors": [
-        "[R3 validation error] Condition: Condition.clinicalStatus SHALL be present if verificationStatus is not entered-in-error [verificationStatus\u003d\u0027entered-in-error\u0027 or clinicalStatus.exists()]",
-        "[R3 validation error] Condition.category.coding: Unknown Code finding in http://hl7.org/fhir/condition-category",
-        "[R3 validation error] Condition.severity.coding: null"
-      ]
-    }
+    "condition-example": {},
+    "example": {},
+    "f001": {},
+    "f002": {},
+    "f003": {},
+    "f201": {},
+    "f202": {},
+    "f203": {},
+    "f204": {},
+    "f205": {},
+    "stroke": {},
+    "example2": {}
   },
   "Conformance": {
     "base": {},
@@ -1154,48 +940,22 @@
     "lab": {}
   },
   "Device": {
-    "f001": {
-      "errors": [
-        "[R3 validation error] Device.type.coding: null"
-      ]
-    },
+    "f001": {},
     "ihe-pcd": {},
     "example-pacemaker": {},
     "software": {},
-    "example": {
-      "errors": [
-        "[R3 validation error] Device.type.coding: null"
-      ]
-    }
+    "example": {}
   },
   "DeviceComponent": {
-    "example": {
-      "errors": [
-        "[R3 validation error] DeviceComponent.languageCode: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d http://tools.ietf.org/html/bcp47#en-US)"
-      ]
-    },
-    "example-prodspec": {
-      "errors": [
-        "[R3 validation error] DeviceComponent.languageCode: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d http://tools.ietf.org/html/bcp47#en-US)"
-      ]
-    }
+    "example": {},
+    "example-prodspec": {}
   },
   "DeviceMetric": {
     "example": {}
   },
   "DeviceUseRequest": {
-    "example": {
-      "errors": [
-        "[R3 validation error] DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.stage\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.device[x]\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "deviceuserequest-example": {
-      "errors": [
-        "[R3 validation error] DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.stage\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] DeviceUseRequest: Profile http://hl7.org/fhir/StructureDefinition/DeviceUseRequest, Element \u0027DeviceUseRequest.device[x]\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example": {},
+    "deviceuserequest-example": {}
   },
   "DeviceUseStatement": {
     "example": {}
@@ -1283,17 +1043,8 @@
     "example-encounter": {}
   },
   "Goal": {
-    "example": {
-      "errors": [
-        "[R3 validation error] Goal: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027Goal.description\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "goal-example": {
-      "errors": [
-        "[R3 validation error] Goal: Profile http://hl7.org/fhir/StructureDefinition/Goal, Element \u0027Goal.description\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Goal.category.coding: null"
-      ]
-    }
+    "example": {},
+    "goal-example": {}
   },
   "Group": {
     "102": {},
@@ -1312,41 +1063,29 @@
   "ImagingStudy": {
     "example": {
       "errors": [
-        "[R3 validation error] ImagingStudy.series.bodySite: null"
+        "Round trip failed: node mismatch - more nodes in source in children of /ImagingStudy/series/instance"
       ]
     },
     "imagingstudy-example": {
       "errors": [
-        "[R3 validation error] ImagingStudy.extension[2][url\u003d\u0027http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration\u0027]: The Extension \u0027http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration\u0027 definition allows for the types [Duration] but found type Quantity",
-        "[R3 validation error] ImagingStudy.extension[2]: Profile http://hl7.org/fhir/StructureDefinition/imagingstudy-radiationDuration, Element \u0027ImagingStudy.extension[2].valueDuration\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] ImagingStudy.series.bodySite: null"
+        "Round trip failed: node mismatch - more nodes in source in children of /ImagingStudy/series/instance"
       ]
     }
   },
   "Immunization": {
     "example": {
       "errors": [
-        "[R3 validation error] Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.status\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.primarySource\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Immunization.explanation.reason.coding: null",
-        "[R3 validation error] Immunization.explanation.reason.coding: null",
-        "[R3 validation error] Immunization.vaccinationProtocol.targetDisease.coding: null"
+        "Round trip failed: Names differ at /Immunization: reported/performer"
       ]
     },
     "notGiven": {
       "errors": [
-        "[R3 validation error] Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.status\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] Immunization: Profile http://hl7.org/fhir/StructureDefinition/Immunization, Element \u0027Immunization.primarySource\u0027: minimum required \u003d 1, but only found 0"
+        "Round trip failed: Names differ at /Immunization: reported/explanation"
       ]
     }
   },
   "ImmunizationRecommendation": {
-    "example": {
-      "errors": [
-        "[R3 validation error] ImmunizationRecommendation.recommendation.vaccineCode.coding: null",
-        "[R3 validation error] ImmunizationRecommendation.recommendation.forecastStatus.coding: Unknown Code Not Complete in http://hl7.org/fhir/immunization-recommendation-status"
-      ]
-    }
+    "example": {}
   },
   "ImplementationGuide": {
     "example": {}
@@ -1605,11 +1344,7 @@
     "ValueSet-lookup": {},
     "ValueSet-validate-code": {},
     "example": {},
-    "patient-mpi": {
-      "errors": [
-        "Round trip failed: Names differ at /OperationDefinition: requirements/idempotent"
-      ]
-    }
+    "patient-mpi": {}
   },
   "OperationOutcome": {
     "101": {},
@@ -1654,18 +1389,10 @@
     "example": {}
   },
   "Patient": {
-    "example": {
-      "errors": [
-        "Round trip failed: Attributes differ at /Patient/contact/name/family: value du/Marché"
-      ]
-    },
+    "example": {},
     "patient-example": {},
     "pat1": {},
-    "animal": {
-      "errors": [
-        "Round trip failed: Names differ at /Patient: animal/managingOrganization"
-      ]
-    },
+    "animal": {},
     "pat2": {},
     "pat3": {},
     "pat4": {},
@@ -1702,48 +1429,15 @@
     "practitioner-example": {},
     "f001": {},
     "f002": {},
-    "f003": {
-      "errors": [
-        "[R3 validation error] Practitioner.communication: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d urn:oid:2.16.840.1.113883.6.121#nl)"
-      ]
-    },
-    "f004": {
-      "errors": [
-        "[R3 validation error] Practitioner.communication: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d urn:oid:2.16.840.1.113883.6.121#nl)"
-      ]
-    },
-    "f005": {
-      "errors": [
-        "[R3 validation error] Practitioner.communication: None of the codes provided are in the maxiumum value set http://hl7.org/fhir/ValueSet/all-languages (http://hl7.org/fhir/ValueSet/all-languages, and a code from this value set is required) (codes \u003d urn:oid:2.16.840.1.113883.6.121#fr)"
-      ]
-    },
+    "f003": {},
+    "f004": {},
+    "f005": {},
     "f006": {},
     "f007": {},
-    "f201": {
-      "errors": [
-        "[R3 validation error] Practitioner.role.code.coding: null",
-        "[R3 validation error] Practitioner.role.specialty.coding: null",
-        "[R3 validation error] Practitioner.qualification.code.coding: null"
-      ]
-    },
-    "f202": {
-      "errors": [
-        "[R3 validation error] Practitioner.role.code.coding: null",
-        "[R3 validation error] Practitioner.role.specialty.coding: null"
-      ]
-    },
-    "f203": {
-      "errors": [
-        "[R3 validation error] Practitioner.role.code.coding: null",
-        "[R3 validation error] Practitioner.role.specialty.coding: null"
-      ]
-    },
-    "f204": {
-      "errors": [
-        "[R3 validation error] Practitioner.role.code.coding: null",
-        "[R3 validation error] Practitioner.role.specialty.coding: null"
-      ]
-    },
+    "f201": {},
+    "f202": {},
+    "f203": {},
+    "f204": {},
     "xcda-author": {},
     "xcda1": {}
   },
@@ -1787,126 +1481,62 @@
   "Questionnaire": {
     "3141": {
       "errors": [
-        "NullPointerException"
+        "Round trip failed: Attributes differ at /Questionnaire/contained/ValueSet/codeSystem: missing attribute id"
       ]
     },
-    "bb": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
-      ]
-    },
+    "bb": {},
     "f201": {
       "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
+        "Round trip failed: Names differ at /Questionnaire/group/group: text/title"
       ]
     },
-    "gcs": {
-      "errors": [
-        "[R3 validation error] Questionnaire: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]"
-      ]
-    },
+    "gcs": {},
     "questionnaire-sdc-profile-example-cap": {
       "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /Questionnaire"
+        "org.hl7.fhir.dstu3.model.Coding cannot be cast to org.hl7.fhir.dstu3.model.Questionnaire$QuestionnaireItemOptionComponent"
       ]
     },
     "questionnaire-sdc-profile-example-loinc": {
       "errors": [
-        "[R3 validation error] Questionnaire: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] Questionnaire.extension: The extension http://hl7.org/fhir/StructureDefinition/questionnaire-category is unknown, and not allowed here"
+        "Round trip failed: Names differ at /Questionnaire/group/group: text/group"
       ]
     }
   },
   "QuestionnaireResponse": {
-    "3141": {
-      "errors": [
-        "[R3 validation error] QuestionnaireResponse: If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource [contained.where((\u0027#\u0027+id in %resource.descendants().reference).not()).empty()]",
-        "[R3 validation error] QuestionnaireResponse.contained[3].code.coding: null",
-        "[R3 validation error] QuestionnaireResponse.contained[3].valueCodeableConcept.coding: null"
-      ]
-    },
-    "bb": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
-      ]
-    },
-    "f201": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
-      ]
-    },
-    "gcs": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
-      ]
-    },
-    "questionnaireresponse-sdc-example-ussg-fht-answers": {
-      "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
-      ]
-    },
+    "3141": {},
+    "bb": {},
+    "f201": {},
+    "gcs": {},
+    "questionnaireresponse-sdc-example-ussg-fht-answers": {},
     "questionnaireresponse-sdc-profile-example": {
       "errors": [
-        "Round trip failed: node mismatch - more nodes in source in children of /QuestionnaireResponse"
+        "Round trip failed: Attributes differ at /QuestionnaireResponse/group/group/title: value Mandatory Diagnosis Questions/These items must be included when this data is collected for reporting."
       ]
     }
   },
   "ReferralRequest": {
     "example": {
       "errors": [
-        "Unknown ReferralStatus code \u0027requested\u0027"
+        "Round trip failed: Attributes differ at /ReferralRequest/status: value requested/active"
       ]
     },
     "referralrequest-example": {
       "errors": [
-        "Unknown ReferralStatus code \u0027rejected\u0027"
+        "Round trip failed: Attributes differ at /ReferralRequest/status: value rejected/cancelled"
       ]
     }
   },
   "RelatedPerson": {
-    "benedicte": {
-      "errors": [
-        "Round trip failed: Names differ at /RelatedPerson: name/telecom"
-      ]
-    },
-    "f001": {
-      "errors": [
-        "Round trip failed: Names differ at /RelatedPerson: name/telecom"
-      ]
-    },
-    "f002": {
-      "errors": [
-        "Round trip failed: Names differ at /RelatedPerson: name/telecom"
-      ]
-    },
-    "peter": {
-      "errors": [
-        "Round trip failed: Names differ at /RelatedPerson: name/telecom"
-      ]
-    }
+    "benedicte": {},
+    "f001": {},
+    "f002": {},
+    "peter": {}
   },
   "RiskAssessment": {
-    "genetic": {
-      "errors": [
-        "[R3 validation error] RiskAssessment: Profile http://hl7.org/fhir/StructureDefinition/RiskAssessment, Element \u0027RiskAssessment.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "cardiac": {
-      "errors": [
-        "[R3 validation error] RiskAssessment: Profile http://hl7.org/fhir/StructureDefinition/RiskAssessment, Element \u0027RiskAssessment.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "population": {
-      "errors": [
-        "[R3 validation error] RiskAssessment: Profile http://hl7.org/fhir/StructureDefinition/RiskAssessment, Element \u0027RiskAssessment.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "prognosis": {
-      "errors": [
-        "[R3 validation error] RiskAssessment: Profile http://hl7.org/fhir/StructureDefinition/RiskAssessment, Element \u0027RiskAssessment.status\u0027: minimum required \u003d 1, but only found 0",
-        "[R3 validation error] RiskAssessment.prediction.outcome.coding: null"
-      ]
-    }
+    "genetic": {},
+    "cardiac": {},
+    "population": {},
+    "prognosis": {}
   },
   "Schedule": {
     "example": {}
@@ -1916,26 +1546,10 @@
     "example-extension": {}
   },
   "Slot": {
-    "example": {
-      "errors": [
-        "[R3 validation error] Slot: Profile http://hl7.org/fhir/StructureDefinition/Slot, Element \u0027Slot.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "1": {
-      "errors": [
-        "[R3 validation error] Slot: Profile http://hl7.org/fhir/StructureDefinition/Slot, Element \u0027Slot.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "2": {
-      "errors": [
-        "[R3 validation error] Slot: Profile http://hl7.org/fhir/StructureDefinition/Slot, Element \u0027Slot.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    },
-    "3": {
-      "errors": [
-        "[R3 validation error] Slot: Profile http://hl7.org/fhir/StructureDefinition/Slot, Element \u0027Slot.status\u0027: minimum required \u003d 1, but only found 0"
-      ]
-    }
+    "example": {},
+    "1": {},
+    "2": {},
+    "3": {}
   },
   "Specimen": {
     "spec-uslab-example1": {
@@ -2055,16 +1669,8 @@
     }
   },
   "VisionPrescription": {
-    "33123": {
-      "errors": [
-        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3, from rule \u0027\"VisionPrescription.dispense-eye\"\u0027"
-      ]
-    },
-    "33124": {
-      "errors": [
-        "No matches found for rule for \u0027code/CodeableConcept\u0027 from http://hl7.org/fhir/StructureMap/VisionPrescription2to3, from rule \u0027\"VisionPrescription.dispense-eye\"\u0027"
-      ]
-    }
+    "33123": {},
+    "33124": {}
   },
   "Encounter": {
     "encounter-example": {},
@@ -2095,7 +1701,7 @@
   "ClinicalImpression": {
     "example": {
       "errors": [
-        "Exception executing transform tgt.status \u003d translate(v, \"#ClinicalImpressionStatus\", \"code\") on Rule \"\"ClinicalImpression-status\"\": Concept map http://hl7.org/fhir/StructureMap/ClinicalImpression2to3#ClinicalImpressionStatus found no usable translation for completed"
+        "Round trip failed: node mismatch - more nodes in source in children of /ClinicalImpression"
       ]
     }
   },
@@ -2103,21 +1709,9 @@
     "example": {}
   },
   "FamilyMemberHistory": {
-    "familymemberhistory-example": {
-      "errors": [
-        "[R3 validation error] FamilyMemberHistory.condition.code.coding: null"
-      ]
-    },
-    "father": {
-      "errors": [
-        "[R3 validation error] FamilyMemberHistory.condition.code.coding: null"
-      ]
-    },
-    "mother": {
-      "errors": [
-        "[R3 validation error] FamilyMemberHistory.condition.code.coding: null"
-      ]
-    }
+    "familymemberhistory-example": {},
+    "father": {},
+    "mother": {}
   },
   "MedicationAdministration": {
     "medadminexample01": {},

@@ -3,12 +3,7 @@
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/Goal" alias GoalR2 as source
 uses "http://hl7.org/fhir/StructureDefinition/Goal" alias Goal as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives2to3"
-imports "http://hl7.org/fhir/StructureMap/DomainResource2to3"
-imports "http://hl7.org/fhir/StructureMap/Identifier2to3"
-imports "http://hl7.org/fhir/StructureMap/Reference2to3"
-imports "http://hl7.org/fhir/StructureMap/Annotation2to3"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept2to3"
+imports "http://hl7.org/fhir/StructureMap/*2to3"
 
 group for type+types  Goal extends DomainResource
   input src : GoalR2 as source
@@ -16,20 +11,23 @@ group for type+types  Goal extends DomainResource
 
   "Goal-identifier" : for src.identifier make tgt.identifier
   "Goal-subject" : for src.subject make tgt.subject
-  "Goal-start-date" : for src.start : date as vs make tgt.start = create("date") as vt then date(vs, vt)
-  "Goal-start-CodeableConcept" : for src.start : CodeableConcept as vs make tgt.start = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-  "Goal-target-date" : for src.target : date as vs make tgt.target = create("date") as vt then date(vs, vt)
+  "Goal-start" : for src.start make tgt.start 
+  "Goal-target" : for src.target make tgt.target
   "Goal-category" : for src.category make tgt.category
+  "Goal-description" : for src.description make tgt.description
   "Goal-status" : for src.status make tgt.status
   "Goal-statusDate" : for src.statusDate make tgt.statusDate
   "Goal-statusReason" : for src.statusReason make tgt.statusReason
+  "Goal-author" : for src.author make tgt.expressedBy
   "Goal-priority" : for src.priority make tgt.priority
   "Goal-addresses" : for src.addresses make tgt.addresses
   "Goal-note" : for src.note make tgt.note
-  "Goal-outcome" : for src.outcome as vs0 make tgt.outcome as vt0 then {
-    "Goal.outcome-result-CodeableConcept" : for vs0.result : CodeableConcept as vs make vt0.result = create("CodeableConcept") as vt then CodeableConcept(vs, vt)
-    "Goal.outcome-result-Reference" : for vs0.result : Reference as vs make vt0.result = create("Reference") as vt then Reference(vs, vt)
-  }
+  "Goal-outcome" : for src.outcome as vs0 make tgt.outcome as vt0 then golOutcome(vs0, vt0)
+endgroup
 
+group golOutcome extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "Goal.outcome-result" : for src.result make tgt.result
 endgroup

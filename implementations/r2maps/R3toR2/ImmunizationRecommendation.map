@@ -3,11 +3,7 @@
 uses "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendation as source
 uses "http://hl7.org/fhir/DSTU2/StructureDefinition/ImmunizationRecommendation" alias ImmunizationRecommendationR2 as target
 
-imports "http://hl7.org/fhir/StructureMap/primitives3to2"
-imports "http://hl7.org/fhir/StructureMap/DomainResource3to2"
-imports "http://hl7.org/fhir/StructureMap/Identifier3to2"
-imports "http://hl7.org/fhir/StructureMap/Reference3to2"
-imports "http://hl7.org/fhir/StructureMap/CodeableConcept3to2"
+imports "http://hl7.org/fhir/StructureMap/*3to2"
 
 group for type+types  ImmunizationRecommendation extends DomainResource
   input src : ImmunizationRecommendation as source
@@ -15,14 +11,37 @@ group for type+types  ImmunizationRecommendation extends DomainResource
 
   "ImmunizationRecommendation-identifier" : for src.identifier make tgt.identifier
   "ImmunizationRecommendation-patient" : for src.patient make tgt.patient
-  "ImmunizationRecommendation-recommendation" : for src.recommendation as vs0 make tgt.recommendation as vt0 then {
-    "ImmunizationRecommendation.recommendation-date" : for vs0.date make vt0.date
-    "ImmunizationRecommendation.recommendation-vaccineCode" : for vs0.vaccineCode make vt0.vaccineCode
-    "ImmunizationRecommendation.recommendation-doseNumber" : for vs0.doseNumber make vt0.doseNumber
-    "ImmunizationRecommendation.recommendation-forecastStatus" : for vs0.forecastStatus make vt0.forecastStatus
-    "ImmunizationRecommendation.recommendation-supportingImmunization" : for vs0.supportingImmunization make vt0.supportingImmunization
-    "ImmunizationRecommendation.recommendation-supportingPatientInformation" : for vs0.supportingPatientInformation make vt0.supportingPatientInformation
-  }
+  "ImmunizationRecommendation-recommendation" : for src.recommendation as vs0 make tgt.recommendation as vt0 then imrRecommendation(vs0, vt0)
+endgroup
 
+group imrRecommendation extends BackboneElement
+  input src as source
+  input tgt as target
 
+  "ImmunizationRecommendation.recommendation-date" : for src.date make tgt.date
+  "ImmunizationRecommendation.recommendation-vaccineCode" : for src.vaccineCode make tgt.vaccineCode
+  "ImmunizationRecommendation.recommendation-doseNumber" : for src.doseNumber make tgt.doseNumber
+  "ImmunizationRecommendation.recommendation-forecastStatus" : for src.forecastStatus make tgt.forecastStatus
+  "ImmunizationRecommendation.recommendation-dateCriterion" : for src.dateCriterion as vs make tgt.dateCriterion as vt then imrDateCriterion(vs, vt)
+  "ImmunizationRecommendation.recommendation-protocol" : for src.protocol as vs make tgt.protocol as vt then imrProtocol(vs, vt)
+  "ImmunizationRecommendation.recommendation-supportingImmunization" : for src.supportingImmunization make tgt.supportingImmunization
+  "ImmunizationRecommendation.recommendation-supportingPatientInformation" : for src.supportingPatientInformation make tgt.supportingPatientInformation
+endgroup
+
+group imrDateCriterion extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ImmunizationRecommendation.recommendation.dateCriterion-date" : for src.code make tgt.code
+  "ImmunizationRecommendation.recommendation.dateCriterion-date" : for src.value make tgt.value
+endgroup
+
+group imrProtocol extends BackboneElement
+  input src as source
+  input tgt as target
+
+  "ImmunizationRecommendation.recommendation.protocol-doseSequence" : for src.doseSequence make tgt.doseSequence
+  "ImmunizationRecommendation.recommendation.protocol-description" : for src.description make tgt.description
+  "ImmunizationRecommendation.recommendation.protocol-authority" : for src.authority make tgt.authority
+  "ImmunizationRecommendation.recommendation.protocol-series" : for src.series make tgt.series
 endgroup

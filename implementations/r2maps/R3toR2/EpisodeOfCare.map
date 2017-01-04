@@ -32,7 +32,7 @@ group epcStatusHistory extends BackboneElement
 endgroup
 
 
-group epiCareTeam extends BackboneElement
+group epiCareTeam 
   input src as source
   input tgt as target
 
