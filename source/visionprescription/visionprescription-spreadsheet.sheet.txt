@@ -187,7 +187,7 @@
  -- Row 11 -----------------------------------
   Element = VisionPrescription.dispense.eye
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = VisionEyes
   Short Name = right | left
   Definition = The eye for which the lens applies.
@@ -223,7 +223,7 @@
  -- Row 16 -----------------------------------
   Element = VisionPrescription.dispense.base
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = VisionBase
   Short Name = up | down | in | out
   Definition = The relative base, or reference lens edge, for the prism.

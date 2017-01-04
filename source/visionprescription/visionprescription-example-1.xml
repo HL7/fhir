@@ -33,11 +33,7 @@
 	  <code value="contact"/>
 	 </coding>
 	</product>
-    <eye>
-      <coding>
-	    <code value="right"/>
-      </coding>
-	</eye>
+    <eye value="right"/>
     <cylinder value="-2.25"/>
     <axis value="160"/>
     <add value="1.75"/>
@@ -61,11 +57,7 @@
 	  <code value="contact"/>
      </coding>
 	</product>
-    <eye>
-      <coding>
-	    <code value="left"/>
-      </coding>
-	</eye>
+    <eye value="left"/>
     <cylinder value="-3.50"/>
     <axis value="160"/>
     <add value="1.75"/>

@@ -36,18 +36,10 @@
 	  <code value="lens"/>
 	 </coding>
 	</product>
-    <eye>
-      <coding>
-	    <code value="right"/>
-      </coding>
-	</eye>  
+    <eye value="right"/>
     <sphere value="-2.00"/>
 	<prism value="0.5"/>
-	<base>
-      <coding>
-	    <code value="down"/>
-      </coding>
-	</base>
+	<base value="down"/>
 	<add value="2.00"/>
   </dispense>
 
@@ -58,20 +50,12 @@
 	  <code value="lens"/>
 	 </coding>
 	</product>
-    <eye>
-      <coding>
-	    <code value="left"/>
-      </coding>
-	</eye>  
+    <eye value="left"/>
     <sphere value="-1.00"/>
     <cylinder value="-0.50"/>
     <axis value="180"/>
 	<prism value="0.5"/>
-    <base>
-      <coding>
-	    <code value="up"/>
-      </coding>
-	</base>  
+    <base value="up"/>
 	<add value="2.00"/>
   </dispense>
 
