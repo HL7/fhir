@@ -9,63 +9,63 @@
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = PlanActionGroupingBehavior
+  Binding Name = ActionGroupingBehavior
   Binding = code list
   Reference = #action-grouping-behavior
   Definition = Defines organization behavior of a group
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = PlanActionSelectionBehavior
+  Binding Name = ActionSelectionBehavior
   Binding = code list
   Reference = #action-selection-behavior
   Definition = Defines selection behavior of a group
   Conformance = required
 
  -- Row 4 -----------------------------------
-  Binding Name = PlanActionRequiredBehavior
+  Binding Name = ActionRequiredBehavior
   Binding = code list
   Reference = #action-required-behavior
   Definition = Defines requiredness behavior for selecting an action or an action group
   Conformance = required
 
  -- Row 5 -----------------------------------
-  Binding Name = PlanActionPrecheckBehavior
+  Binding Name = ActionPrecheckBehavior
   Binding = code list
   Reference = #action-precheck-behavior
   Definition = Defines selection frequency behavior for an action or group
   Conformance = required
 
  -- Row 6 -----------------------------------
-  Binding Name = PlanActionCardinalityBehavior
+  Binding Name = ActionCardinalityBehavior
   Binding = code list
   Reference = #action-cardinality-behavior
   Definition = Defines behavior for an action or a group for how many times that item may be repeated
   Conformance = required
 
  -- Row 7 -----------------------------------
-  Binding Name = PlanActionType
+  Binding Name = ActionType
   Binding = code list
   Reference = #action-type
   Definition = The type of action to be performed
   Conformance = required
 
  -- Row 8 -----------------------------------
-  Binding Name = PlanActionParticipantType
+  Binding Name = ActionParticipantType
   Binding = code list
   Reference = #action-participant-type
   Definition = The type of participant for the action
   Conformance = required
 
  -- Row 9 -----------------------------------
-  Binding Name = PlanActionRelationshipType
+  Binding Name = ActionRelationshipType
   Binding = code list
   Reference = #action-relationship-type
   Definition = Defines the types of relationships between actions
   Conformance = required
 
  -- Row 10 -----------------------------------
-  Binding Name = PlanActionConditionKind
+  Binding Name = ActionConditionKind
   Binding = code list
   Reference = #action-condition-kind
   Definition = Defines the kinds of conditions that can appear on actions
@@ -514,7 +514,7 @@
   Element = PlanDefinition.actionDefinition.condition.kind
   Card. = 1..1
   Type = code
-  Binding = PlanActionConditionKind
+  Binding = ActionConditionKind
   Short Name = applicability | start | stop
   Definition = The kind of condition
   Comments = Applicability criteria are used to determine immediate applicability when a plan definition is applied to a given context. Start and stop criteria are carried through application and used to describe when enter/exit criteria for an action
@@ -574,7 +574,7 @@
   Element = PlanDefinition.actionDefinition.relatedAction.relationship
   Card. = 1..1
   Type = code
-  Binding = PlanActionRelationshipType
+  Binding = ActionRelationshipType
   Short Name = before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end
   Definition = The relationship of this action to the related action
 
@@ -596,7 +596,7 @@
   Element = PlanDefinition.actionDefinition.participantType
   Card. = 0..*
   Type = code
-  Binding = PlanActionParticipantType
+  Binding = ActionParticipantType
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
@@ -604,7 +604,7 @@
   Element = PlanDefinition.actionDefinition.type
   Card. = 0..1
   Type = Coding
-  Binding = PlanActionType
+  Binding = ActionType
   Short Name = create | update | remove | fire-event
   Definition = The type of action to perform (create, update, remove)
 
@@ -612,7 +612,7 @@
   Element = PlanDefinition.actionDefinition.groupingBehavior
   Card. = 0..1
   Type = code
-  Binding = PlanActionGroupingBehavior
+  Binding = ActionGroupingBehavior
   Short Name = visual-group | logical-group | sentence-group
   Definition = Defines the grouping behavior for the action and its children
 
@@ -620,7 +620,7 @@
   Element = PlanDefinition.actionDefinition.selectionBehavior
   Card. = 0..1
   Type = code
-  Binding = PlanActionSelectionBehavior
+  Binding = ActionSelectionBehavior
   Short Name = any | all | all-or-none | exactly-one | at-most-one | one-or-more
   Definition = Defines the selection behavior for the action and its children
 
@@ -628,7 +628,7 @@
   Element = PlanDefinition.actionDefinition.requiredBehavior
   Card. = 0..1
   Type = code
-  Binding = PlanActionRequiredBehavior
+  Binding = ActionRequiredBehavior
   Short Name = must | could | must-unless-documented
   Definition = Defines the requiredness behavior for the action
 
@@ -636,7 +636,7 @@
   Element = PlanDefinition.actionDefinition.precheckBehavior
   Card. = 0..1
   Type = code
-  Binding = PlanActionPrecheckBehavior
+  Binding = ActionPrecheckBehavior
   Short Name = yes | no
   Definition = Defines whether the action should usually be preselected
 
@@ -644,7 +644,7 @@
   Element = PlanDefinition.actionDefinition.cardinalityBehavior
   Card. = 0..1
   Type = code
-  Binding = PlanActionCardinalityBehavior
+  Binding = ActionCardinalityBehavior
   Short Name = single | multiple
   Definition = Defines whether the action can be selected multiple times
 

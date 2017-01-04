@@ -21,7 +21,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>7230</WindowHeight>
-  <WindowWidth>22200</WindowWidth>
+  <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -2023,7 +2023,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionConditionKind</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionConditionKind</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2275,7 +2275,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionRelationshipType</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionRelationshipType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2369,7 +2369,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionParticipantType</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionParticipantType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2401,7 +2401,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionType</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2433,7 +2433,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionGroupingBehavior</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionGroupingBehavior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2465,7 +2465,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionSelectionBehavior</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionSelectionBehavior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2497,7 +2497,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionRequiredBehavior</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionRequiredBehavior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2529,7 +2529,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionPrecheckBehavior</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionPrecheckBehavior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2561,7 +2561,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">PlanActionCardinalityBehavior</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">ActionCardinalityBehavior</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4688,8 +4688,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>54</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7410,7 +7410,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionGroupingBehavior</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionGroupingBehavior</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines organization behavior of a group</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7426,7 +7426,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionSelectionBehavior</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionSelectionBehavior</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines selection behavior of a group</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7442,7 +7442,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionRequiredBehavior</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionRequiredBehavior</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines requiredness behavior for selecting an action or an action group</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7458,7 +7458,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionPrecheckBehavior</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionPrecheckBehavior</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines selection frequency behavior for an action or group</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7474,7 +7474,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionCardinalityBehavior</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionCardinalityBehavior</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines behavior for an action or a group for how many times that item may be repeated</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7490,7 +7490,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionType</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of action to be performed</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7506,7 +7506,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionParticipantType</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionParticipantType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of participant for the action</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7522,7 +7522,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionRelationshipType</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionRelationshipType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines the types of relationships between actions</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7538,7 +7538,7 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">PlanActionConditionKind</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">ActionConditionKind</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Defines the kinds of conditions that can appear on actions</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
