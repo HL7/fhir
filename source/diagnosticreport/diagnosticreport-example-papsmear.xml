@@ -10,7 +10,8 @@
 			<p/>
 		</div>
 	</text>
-	<status value="final"/><!--    all this report is final    --><code>
+	<status value="final"/><!--    all this report is final    -->
+	<code>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="47527-7"/>
