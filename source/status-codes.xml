@@ -1810,7 +1810,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">NutritionRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">NutritionOrder.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">proposed</Data></Cell>

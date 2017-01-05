@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Food Type Codes"/>
   <status value="draft"/>
-  <publisher value="FHIR NutritionRequest team"/>
+  <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>
       <system value="url"/>

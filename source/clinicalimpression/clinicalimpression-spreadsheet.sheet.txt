@@ -264,7 +264,7 @@
  -- Row 23 -----------------------------------
   Element = !ClinicalImpression.plan
   Card. = 0..*
-  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionRequest|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
+  Type = Reference(CarePlan|Appointment|CommunicationRequest|DeviceUseRequest|DiagnosticRequest|MedicationRequest|NutritionOrder|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription)
   Short Name = Plan of action after assessment
   Definition = Plan of action after assessment
   Committee Notes = Removed per GF#11167

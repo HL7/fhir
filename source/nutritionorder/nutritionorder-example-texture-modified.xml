@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/nutritionrequest.xsd"><!-- EH: use oral Diet element --><id value="texturemodified"/>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/nutritionorder.xsd"><!-- EH: use oral Diet element --><id value="texturemodified"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
@@ -59,4 +59,4 @@
 			</foodType>
 		</texture>
 	</oralDiet>
-</NutritionRequest>
+</NutritionOrder>

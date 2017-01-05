@@ -251,7 +251,7 @@ signatures.html
       <page type="resource" resource="DetectedIssue"/>
       <page type="resource" resource="RiskAssessment"/>
       <page type="resource" resource="FamilyMemberHistory"/>
-      <page type="resource" resource="NutritionRequest"/>
+      <page type="resource" resource="NutritionOrder"/>
       <page type="resource" resource="VisionPrescription"/>
     </page>
 

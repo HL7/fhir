@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- id = pureediet  file name = nutritionrequest-example-pureeddiet.xml Name= Pureed Diet  Description = Nutrition Order Pureed Diet Canonical Example
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- Using only instruction element in oralDiet and Supplement minimal other elements  id = pureeddiet-simple file name = nutritionorder-example-pureeddiet-simple.xml  Name= Pureed Diet Simple Description = Nutrition Order Pureed Diet with Energy/Protein Supplement Simple Example
 edited by Eric Haas Health eData Inc
---><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="pureeddiet"/>
+--><!-- EH: use oral Diet element --><id value="pureeddiet-simple"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
@@ -11,33 +11,11 @@ edited by Eric Haas Health eData Inc
 		<reference value="Patient/example"/>
 		<display value="Peter Chalmers"/>
 	</patient>
-	<encounter>
-		<reference value="Encounter/example"/>
-		<display value="Inpatient"/>
-	</encounter>
 	<dateTime value="2014-09-17"/>
 	<orderer>
 		<reference value="Practitioner/example"/>
 		<display value="Dr Adam Careful"/>
 	</orderer>
-	<allergyIntolerance>
-		<reference value="AllergyIntolerance/example"/>
-		<display value="Cashew Nuts"/>
-	</allergyIntolerance>
-	<foodPreferenceModifier>
-		<coding>
-			<system value="http://hl7.org/fhir/diet"/>
-			<code value="dairy-free"/>
-		</coding>
-	</foodPreferenceModifier>
-	<excludeFoodModifier>
-		<coding>
-			<system value="http://snomed.info/sct"/>
-			<version value="20140730"/>
-			<code value="227493005"/>
-			<display value="Cashew Nut"/>
-		</coding>
-	</excludeFoodModifier>
 	<oralDiet>
 		<!-- EH:  list type of diet showing standard code and local codes -->
 		<type>
@@ -53,7 +31,7 @@ edited by Eric Haas Health eData Inc
 			</coding>
 			<text value="Pureed diet"/>
 		</type>
-		<!-- EH example of three times a day starting on 2/10  -->
+		<!-- EH example of three times a day starting on 2/10 -->
 		<schedule>
 			<repeat>
         <boundsPeriod>
@@ -64,7 +42,6 @@ edited by Eric Haas Health eData Inc
 				<periodUnit value="d"/>
 			</repeat>
 		</schedule>
-		<!--EH: this example showing how to code for texture modification -->
 		<texture>
 			<modifier>
 				<coding>
@@ -84,4 +61,22 @@ edited by Eric Haas Health eData Inc
 			<text value="Nectar thick liquids"/>
 		</fluidConsistencyType>
 	</oralDiet>
-</NutritionRequest>
+	<supplement>
+		<type>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="442971000124100"/>
+				<display value="Adult high energy formula"/>
+			</coding>
+			<coding>
+				<system value="http://goodhealthhospital.org/supplement-type-codes"/>
+				<code value="1040"/>
+				<display value="Adult high energy pudding"/>
+			</coding>
+			<text value="Adult high energy pudding"/>
+		</type>
+		<productName value="Ensure Pudding 4 oz container"/>
+		<!--EH:  Instructions to supplement too -->
+		<instruction value="Ensure Pudding at breakfast, lunch, supper"/>
+	</supplement>
+</NutritionOrder>

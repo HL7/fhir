@@ -4,21 +4,21 @@
      There is no obligation for any implementer to use the messages contained in this file, but
      all implementers are welcome to do so. The reference platforms use these messages.
      Any implementer is welcome to add additional items or translations
-    
+
      When proposing changes, the following people have an interest in the language:
-    
+
        english: grahame@healthintersections.com.au
        dutch: Ewout, Alexander
        italian: origama
        chinese: niehongchao (at com dot foxmail)
        polish : radomski (at iehr in eu)
        french : Frederic (dot) Laurent (at gmail dot com)
-       
-    
+
+
        MSG_UNKNOWN_COMPARTMENT
-       
-    Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2 
-    language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is 
+
+    Language codes in this file are defined as ll[-CC], where ll is the lowercase ISO 639-1 alpha 2
+    language code and CC is the uppercase ISO 3166-1 alpha 2 country code. The country code is
     optional so legal codes are for example:
       de-DE  :  German German
       de-CH  :  Swiss German
@@ -26,7 +26,7 @@
       en-US  :  US American English
       en     :  English
       fr     :  French
-    
+
     NOTE: while translations on Resources are provided they should be used for rendering purposes
           only, and not in the URI, as XML node name, or JSON label.
     -->
@@ -43,7 +43,7 @@
   <item id="DecisionSupportServiceModule">
  		<translation lang="en">DecisionSupportServiceModule</translation>
 	</item>
-  
+
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>
@@ -432,8 +432,8 @@
         <translation lang="en">NamingSystem</translation>
         <translation lang="fr">SystèmeDeNommage</translation>
     </item>
-    <item id="NutritionRequest">
-        <translation lang="en">NutritionRequest</translation>
+    <item id="NutritionOrder">
+        <translation lang="en">NutritionOrder</translation>
         <translation lang="zh">为了营养</translation>
         <translation lang="es">OrdenNutrición</translation>
         <translation lang="fr">OrdreNutrition</translation>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- id = proteinsupplement  file name = nutritionrequest-example-proteinsupplement.xml  Name= Protein Supplement  Description = Nutrition Order Protein Supplement Canonical Example
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = proteinsupplement  file name = nutritionorder-example-proteinsupplement.xml  Name= Protein Supplement  Description = Nutrition Order Protein Supplement Canonical Example
 edited by Eric Haas Health eData Inc
 --><!-- EH: This example has no food exclusions or preferences --><!-- EH: use supplement element --><id value="proteinsupplement"/>
 	<identifier>
@@ -52,4 +52,4 @@ edited by Eric Haas Health eData Inc
 		<!-- EH:  use the .instructions element to list diet  supplement order-->
 		<instruction value="Beneprotein 1 scoop TID with meal.starting on  2015-02-10"/>
 	</supplement>
-</NutritionRequest>
+</NutritionOrder>

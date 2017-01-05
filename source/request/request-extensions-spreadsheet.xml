@@ -3859,7 +3859,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Appointment, CarePlan, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, ImmunizationRecommendation, MedicationRequest, NutritionRequest, ProcedureRequest, ReferralRequest, Task, SupplyRequest, VisionPrescription</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Appointment, CarePlan, CommunicationRequest, DeviceUseRequest, DiagnosticRequest, ImmunizationRecommendation, MedicationRequest, NutritionOrder, ProcedureRequest, ReferralRequest, Task, SupplyRequest, VisionPrescription</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">performer.empty() and performerType.empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

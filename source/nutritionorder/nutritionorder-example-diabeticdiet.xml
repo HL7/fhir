@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<NutritionRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionrequest.xsd"><!-- id = fiberrestricteddiet  file name = nutritionrequest-example-fiberrestricteddiet.xml Name= Low Fat and Fiber Restricted Diet Description = Nutrition Order Fiber Restricted and Low Fat Diet l Example
-edited by Eric Haas Health eData Inc
---><!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="fiberrestricteddiet"/>
+<NutritionOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///L:/HL7/FHIR/20141020Build/schema/nutritionorder.xsd"><!-- id = diabeticdiet  file name = nutritionorder-example-diabeticdiet.xml Name= Diabetic Diet  Description = Nutrition Order Diabetic Diet Canonical Example
+edited by Eric Haas Health eData Inc-->
+<!--EH  Show all the elements in this examples for preference, and intolerance --><!-- EH: use oral Diet element --><id value="diabeticdiet"/>
 	<identifier>
 		<system value="http://goodhealthhospital.org/nutrition-requests"/>
 		<value value="123"/>
@@ -43,30 +43,17 @@ edited by Eric Haas Health eData Inc
 		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
-				<code value="15108003"/>
-				<display value="Restricted fiber diet"/>
+				<code value="160670007"/>
+				<display value="Diabetic diet"/>
 			</coding>
 			<coding>
 				<system value="http://goodhealthhospital.org/diet-type-codes"/>
-				<code value="1000"/>
-				<display value="Fiber restricted"/>
+				<code value="1030"/>
+				<display value="DD - Diabetic diet"/>
 			</coding>
-			<text value="Fiber restricted diet"/>
+			<text value="DD - Diabetic diet"/>
 		</type>
-		<type>
-			<coding>
-				<system value="http://snomed.info/sct"/>
-				<code value="16208003"/>
-				<display value="Low fat diet"/>
-			</coding>
-			<coding>
-				<system value="http://goodhealthhospital.org/diet-type-codes"/>
-				<code value="1100"/>
-				<display value="Low Fat"/>
-			</coding>
-			<text value="Low fat diet"/>
-		</type>
-		<!-- EH example of three times a day starting on 2/10  -->
+		<!-- EH example of three times a day starting on 2/10 using schedule -->
 		<schedule>
 			<repeat>
         <boundsPeriod>
@@ -77,21 +64,21 @@ edited by Eric Haas Health eData Inc
 				<periodUnit value="d"/>
 			</repeat>
 		</schedule>
+		<!-- list nutrients and amounts here -->
 		<nutrient>
-			<!-- list nutrients and amounts here -->
 			<modifier>
 				<coding>
 					<system value="http://snomed.info/sct"/>
-					<code value="256674009"/>
-					<display value="Fat"/>
+					<code value="2331003"/>
+					<display value="Carbohydrate"/>
 				</coding>
 			</modifier>
 			<amount>
-				<value value="50"/>
+				<value value="75"/>
 				<unit value="grams"/>
 				<system value="http://unitsofmeasure.org"/>
 				<code value="g"/>
 			</amount>
 		</nutrient>
 	</oralDiet>
-</NutritionRequest>
+</NutritionOrder>

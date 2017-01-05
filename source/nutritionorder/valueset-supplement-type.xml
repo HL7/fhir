@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Enteral Formula Type Codes"/>
+  <name value="Supplement Type Codes"/>
   <status value="draft"/>
-  <publisher value="FHIR NutritionRequest team"/>
+  <publisher value="FHIR NutritionOrder team"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="EnteralFormulaType : Codes for type of enteral formula to be administered to patient.  This value set is is composed of SNOMED CT (US Extension) Concepts from SCTID 470581016 Enteral+supplement feeds hierarchy and is provided as a suggestive example."/>
+  <description value="SupplementType :  Codes for nutritional supplements to be provided to the patient. This value set is is composed of SNOMED CT (US Extension) Concepts from SCTID 470581016 Enteral+supplement feeds hierarchy and is provided as a suggestive example."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
       <version value="http://snomed.info/sct/731000124108"/> <!-- these use US SCT codes for now -->
+      <concept>
+        <code value="442901000124106"/>
+        <display value="Adult clear liquid supplement"/>
+      </concept>
       <concept>
         <code value="443031000124106"/>
         <display value="Adult critical care formula"/>
@@ -69,8 +73,16 @@
         <display value="Adult soy protein isolate formula"/>
       </concept>
       <concept>
+        <code value="444331000124106"/>
+        <display value="Diabetic meal replacement bar"/>
+      </concept>
+      <concept>
         <code value="443361000124100"/>
         <display value="Pediatric Formula"/>
+      </concept>
+      <concept>
+        <code value="443391000124108"/>
+        <display value="Pediatric clear liquid supplement"/>
       </concept>
       <concept>
         <code value="443401000124105"/>
@@ -99,6 +111,10 @@
       <concept>
         <code value="443451000124109"/>
         <display value="Pediatric standard formula"/>
+      </concept>
+      <concept>
+        <code value="444321000124108"/>
+        <display value="Standard pudding oral supplement"/>
       </concept>
       <concept>
         <code value="441561000124106"/>
@@ -155,6 +171,26 @@
       <concept>
         <code value="443411000124108"/>
         <display value="Elemental Formula"/>
+      </concept>
+      <concept>
+        <code value="444361000124102"/>
+        <display value="Electrolyte replacement supplement"/>
+      </concept>
+      <concept>
+        <code value="444401000124107"/>
+        <display value="Frozen electrolyte replacement supplement"/>
+      </concept>
+      <concept>
+        <code value="444381000124107"/>
+        <display value="Liquid electrolyte replacement supplement"/>
+      </concept>
+      <concept>
+        <code value="444371000124109"/>
+        <display value="Powdered electrolyte replacement supplement"/>
+      </concept>
+      <concept>
+        <code value="443441000124107"/>
+        <display value="Clear liquid supplement"/>
       </concept>
       <concept>
         <code value="442651000124102"/>
