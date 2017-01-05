@@ -43,7 +43,7 @@
                 <rules value="open"/>
             </slicing>
             <definition
-                value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-2466) such that it"
+                value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC http://loinc.org) (CONF:2219-2466) such that it"
             />
         </element>
         <element id="118932">
@@ -68,7 +68,7 @@
             <sliceName value="section_slice_pos2"/>
             <short value="code"/>
             <definition
-                value="SHALL contain exactly one [1..1] code=&quot;42348-3&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-2465)."/>
+                value="SHALL contain exactly one [1..1] code=&quot;42348-3&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-2465)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -76,7 +76,7 @@
             </type>
             <patternCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <system value="http://loinc.org"/>
                     <code value="42348-3"/>
                 </coding>
             </patternCodeableConcept>
@@ -86,7 +86,7 @@
             <sliceName value="section_slice_pos3"/>
             <short value="section"/>
             <definition
-                value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-2466) such that it"/>
+                value="SHALL contain exactly one [1..1] section (CodeSystem: LOINC http://loinc.org) (CONF:2219-2466) such that it"/>
             <min value="1"/>
             <max value="1"/>
         </element>
@@ -103,7 +103,7 @@
             <sliceName value="section_slice_pos3"/>
             <short value="code"/>
             <definition
-                value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC urn:oid:2.16.840.1.113883.6.1) (CONF:2219-2467)."/>
+                value="SHALL contain exactly one [1..1] code=&quot;48765-2&quot; (CodeSystem: LOINC http://loinc.org) (CONF:2219-2467)."/>
             <min value="1"/>
             <max value="1"/>
             <type>
@@ -111,7 +111,7 @@
             </type>
             <patternCodeableConcept>
                 <coding>
-                    <system value="urn:oid:2.16.840.1.113883.6.1"/>
+                    <system value="http://loinc.org"/>
                     <code value="48765-2"/>
                 </coding>
             </patternCodeableConcept>
