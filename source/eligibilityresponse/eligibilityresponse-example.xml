@@ -1,43 +1,37 @@
 <EligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
- <id value="E2500"/>
+	<id value="E2500"/>
 
- <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
+	</text>
 
-  <identifier>
-    <system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
-    <value value="881234"/>
-  </identifier>
-  
-  <status value="active"/>
+	<identifier>
+		<system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
+		<value value="881234"/>
+	</identifier>
 
-  <created value="2014-08-16"/>
+	<status value="active"/>
 
-  <!--
-  <requestOrganization> 
-    <reference value="Organization/1"/>
-  </requestOrganization>
- -->
- 
-  <request>
-	<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
-  </request>
-  
-  <outcome>
-   <coding>
-    <system value="http://hl7.org/fhir/remittance-outcome" />
-	<code value="complete" />
-   </coding>
-  </outcome>
-  
-  <disposition value="Policy is currently in-force."/>
- 
-  <insurer>
-    <reference value="Organization/2"/>
-  </insurer>
+	<created value="2014-08-16"/>
 
-  <inforce value="true"/>
-  
+	<request>
+		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
+	</request>
+
+	<outcome>
+		<coding>
+			<system value="http://hl7.org/fhir/remittance-outcome" />
+			<code value="complete" />
+		</coding>
+	</outcome>
+
+	<disposition value="Policy is currently in-force."/>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<inforce value="true"/>
+
 </EligibilityResponse>

@@ -437,8 +437,20 @@
 
  -- Row 2 -----------------------------------
   Name = General-Primary-B1
-  Identity = E2500
+  Identity = E2501
   Description = General Person Primary Coverage  with Benefit Details
   Filename = eligibilityresponse-example-benefits.xml
+
+ -- Row 3 -----------------------------------
+  Name = General-Primary-B2
+  Identity = E2502
+  Description = General Person Primary Coverage  with Benefit Details  and new insurance
+  Filename = eligibilityresponse-example-benefits-2.xml
+
+ -- Row 4 -----------------------------------
+  Name = General-Primary-B3
+  Identity = E2503
+  Description = General Person Primary Coverage  with error
+  Filename = eligibilityresponse-example-error.xml
 
 === Sheet Examples =====================================

@@ -1,22 +1,107 @@
 <EligibilityResponse xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
-	<id value="E2501"/>
+	<id value="E2502"/>
 
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the EligibilityResponse.</div>
 	</text>
 
+	<contained>
+		<Patient>
+			<id value="patient-1"/>
+			<name>
+				<use value="official"/>
+				<family value="Donald"/>
+				<given value="Duck"/>
+			</name>
+			<gender value="male"/>
+			<birthDate value="1986-05-17"/>
+			<address>
+				<use value="home"/>
+				<line value="1234 Main Street"/>
+				<city value="Vancouver"/>
+				<postalCode value="V2H1Y3"/>
+				<country value="CAD"/>
+			</address>
+		</Patient>
+	</contained>
+
+	<contained>
+		<Coverage>
+			<id value="coverage-1"/>
+
+			<identifier>
+				<system value="http://benefitsinc.com/certificate"/>
+				<value value="12345"/>
+			</identifier>
+
+			<status value="active"/>
+
+			<type>
+				<coding>
+					<system value="http://hl7.org/fhir/v3/ActCode"/>
+					<code value="EHCPOL"/>
+				</coding>
+			</type>
+
+			<subscriber>
+				<reference value="#patient-1"/>
+			</subscriber>
+
+			<beneficiary>
+				<reference value="#patient-1"/>
+			</beneficiary>
+
+			<relationship>
+				<coding>
+					<code value="self"/>
+				</coding>
+			</relationship>
+
+			<payor>
+				<identifier>
+					<system value="http://www.bindb.com/bin"/>
+					<value value="123456"/>
+				</identifier>
+			</payor>
+
+			<group>
+				<plan value="CBI35"/>
+				<planDisplay value="Corporate Baker's Inc. Plan#35"/>
+				<subPlan value="123"/>
+				<subPlanDisplay value="Trainee Part-time Benefits"/>
+			</group> 
+
+			<dependent value="1"/>
+			<sequence value="1"/>
+		</Coverage>
+	</contained>
+
 	<identifier>
 		<system value="http://www.BenefitsInc.com/fhir/eligibilityresponse"/>
-		<value value="881234"/>
+		<value value="8812342"/>
 	</identifier>
 
 	<status value="active"/>
 
-	<created value="2014-08-16"/>
+	<created value="2014-09-16"/>
+
+	<requestProvider>
+		<identifier>
+			<system value="http://national.org/provider"/>
+			<value value="PR9876"/>
+		</identifier>  
+	</requestProvider>
+
+	<requestOrganization> 
+		<identifier>
+			<system value="http://national.org/clinic"/>
+			<value value="OR1234"/>
+		</identifier>   
+	</requestOrganization>
 
 	<request>
-		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332402"/>
+		<reference value="http://www.BenefitsInc.com/fhir/eligibility/225476332405"/>
 	</request>
 
 	<outcome>
@@ -35,6 +120,12 @@
 	<inforce value="true"/>
 
 	<insurance>
+		<coverage>
+			<reference value="#coverage-1"/>
+		</coverage>
+		<contract>
+			<reference value="http://www.BenefitsInc.com/fhir/contract/NBU22547"/>
+		</contract>
 		<benefitBalance>
 			<category>
 				<coding>
@@ -82,8 +173,15 @@
 				<allowedMoney>
 					<value value="500000"/>
 					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<code value="USD"/> 
 				</allowedMoney>
+
+				<usedMoney>
+					<value value="3748.00"/>
+					<system value="urn:iso:std:iso:4217"/>
+					<code value="USD"/> 
+				</usedMoney>
+
 			</financial>
 
 			<financial>
@@ -96,7 +194,7 @@
 				<allowedMoney>
 					<value value="100"/>
 					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<code value="USD"/> 
 				</allowedMoney>
 			</financial>
 
@@ -158,7 +256,7 @@
 				<allowedMoney>
 					<value value="15000"/>
 					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<code value="USD"/> 
 				</allowedMoney>
 			</financial>
 
@@ -210,7 +308,7 @@
 				<allowedMoney>
 					<value value="2000"/>
 					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
+					<code value="USD"/> 
 				</allowedMoney>
 			</financial>
 
@@ -231,103 +329,18 @@
 				</coding>
 			</subCategory>
 
-			<network>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
-					<code value="in"/>
-				</coding>
-			</network>
-
-			<unit>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
-					<code value="individual"/>
-				</coding>
-			</unit>
-
-			<term>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
-					<code value="annual"/>
-				</coding>
-			</term>
-
-			<financial>
-				<type>
-					<coding>
-						<code value="benefit"/>
-					</coding>
-				</type>
-
-				<allowedMoney>
-					<value value="400"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
-				</allowedMoney>
-			</financial>
-
-		</benefitBalance>
-		<benefitBalance>
-			<category>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-category"/>
-					<code value="vision"/>
-				</coding>
-			</category>
-
-			<subCategory>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-subcategory"/>
-					<code value="49"/>
-					<display value="Hospital Room and Board"/>
-				</coding>
-			</subCategory>
-
-			<network>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-network"/>
-					<code value="in"/>
-				</coding>
-			</network>
-
-			<unit>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-unit"/>
-					<code value="individual"/>
-				</coding>
-			</unit>
-
-			<term>
-				<coding>
-					<system value="http://hl7.org/fhir/benefit-term"/>
-					<code value="day"/>
-				</coding>
-			</term>
-
-			<financial>
-				<type>
-					<coding>
-						<code value="room"/>
-					</coding>
-				</type>
-
-				<allowedString value="shared"/>
-			</financial>
-			<financial>
-				<type>
-					<coding>
-						<code value="benefit"/>
-					</coding>
-				</type>
-
-				<allowedMoney>
-					<value value="600"/>
-					<system value="urn:iso:std:iso:4217"/>
-					<code value="SAR"/> 
-				</allowedMoney>
-			</financial>
+			<excluded value="true"/> <!-- this bentfit catagory is not covered under the plan -->
+			<name value="Vision"/>
+			<description value="Vision products and services such as exams, glasses and contatc lenses."/>
 
 		</benefitBalance>
 	</insurance>
+
+	<form>
+		<coding>
+			<system value="http://national.org/form"/>
+			<code value="ELRSP/2017/01"/>
+		</coding>
+	</form>
 
 </EligibilityResponse>
