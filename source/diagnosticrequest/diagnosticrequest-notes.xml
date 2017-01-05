@@ -10,7 +10,7 @@ Notes:
 
  <li>Many diagnostic requests will create a need to specify the body site or system.  The laboratory tests and radiology tests will often embed the body site/organ system in the test name, for example, 'chest xray'. Alternatively,  <code>DiagnosticRequest.bodysite</code> may be used to specify the anatomical location.</li>
 
- <li>The reason element is often for billing purposes. It may relate to the resources referred to in supportingInformation element and may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</li>
+ <li>The reason element is often for billing purposes. It may relate to the resources referred to in supportinginfo element and may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all</li>
  <li>The identifier.type element is used to distinguish between the identifiers assigned by the requester (known as the 'Placer' in <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2) .   Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier. See the example code below:
 <pre class="xml">
 

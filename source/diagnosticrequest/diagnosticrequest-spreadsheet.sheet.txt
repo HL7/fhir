@@ -274,7 +274,7 @@
   w5 = why
 
  -- Row 20 -----------------------------------
-  Element = DiagnosticRequest.supportingInformation
+  Element = DiagnosticRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
   Type = Reference(Any)
@@ -292,19 +292,19 @@
   Type = Reference(Specimen)
   Short Name = Specimens for the requested test
   Definition = One or more specimens that the diagnostic investigation is about.
-  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens and  the request points to the specimen it applies to.   If the request is entered first with an unknown specimen, The Specimen resource points to request when the specimen is collected and a Specimen resource created.
+  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimen. This element is for when the diagnostic investigation is requested on already existing specimens and  the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource points to the DiagnosticRequest.
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589]
 
  -- Row 22 -----------------------------------
-  Element = DiagnosticRequest.bodySite
+  Element = DiagnosticRequest.bodySIte
   Card. = 0..1
   Aliases = location
   Summary = Y
   Type = CodeableConcept
   Binding = BodySite
   Short Name = Location of requested test (if applicable)
-  Definition = Anatomical location where the request test should be performed.  This is the target site.
+  Definition = Anatomical location where the requested test should be performed.  This is the target site.
   Comments = If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedure-targetBodySite](extension-procedure-targetbodysite.html)
   RIM Mapping = targetSiteCode
   Committee Notes = [#12505], [#12517]

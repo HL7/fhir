@@ -90,10 +90,10 @@
 			<display value="Fam hx-ischem heart dis"/>
 		</coding>
 	</reasonCode>
-	<supportingInformation>
+	<supportingInfo>
 		<reference value="#fasting"/>
 		<display value="Fasting status"/>
-	</supportingInformation>
+	</supportingInfo>
 	<specimen>
 		<reference value="#serum"/>
 		<display value="Serum specimen"/>
