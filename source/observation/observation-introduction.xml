@@ -6,11 +6,11 @@
 <p><strong>This resource is an <em>event</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.   It is the intent of the Orders and Observation Workgroup to align this resource with  the workflow pattern for <a href="workflow.html#event"><em>event</em> resources</a>.</strong></p>
 
 <p>
-Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns 
-and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, 
+Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns
+and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata,
 but some observations group other observations together logically, or even are multi-component observations.
-Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource 
-provides a clinical or workflow context for a set of observations. </p>
+Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource
+provides a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent lab, imaging, and other clinical and diagnostic data to form a complete report. </p>
 <p>Uses for the Observation resource include:
 </p>
 <ul>
@@ -20,14 +20,14 @@ provides a clinical or workflow context for a set of observations. </p>
 	<li>Devices Measurements such as  <a href="observation-example-sample-data.html">EKG data</a> or  <a href="observation-example-satO2.html">Pulse Oximetry data</a></li>
   <li>Clinical assessment tools such as <a href="observation-example-5minute-apgar-score.html">APGAR</a> or a <a href="observation-example-glasgow.html">Glasgow Coma Score</a> </li>
   <li>Personal characteristics: such as  <a href="observation-example-eye-color.html">eye-color</a></li>
-  <!--EH 12/7/2014 
+  <!--EH 12/7/2014
   <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
   -->
   <li>Social history like tobacco use,  family support, or cognitive status</li>
   <li>Core characteristics like pregnancy status, or a death assertion</li>
 </ul>
 <h3>Core Profiles for Observation</h3>
-<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <b>If implementations use the Observation Resource, they SHALL conform to these profiles when expressing the profile-specific concepts as structured data:</b> 
+<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <b>If implementations use the Observation Resource, they SHALL conform to these profiles when expressing the profile-specific concepts as structured data:</b>
 </p>
 <ul>
   <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
@@ -36,7 +36,7 @@ provides a clinical or workflow context for a set of observations. </p>
 	<li>Devices Measurements such as EKG data or Pulse Oximetry data</li>
   <li>Clinical assessment tools such as APGAR</li>
   <li>Personal characteristics: height, weight, eye-color</li>
-  --><!--EH 12/7/2014 
+  --><!--EH 12/7/2014
   <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
   --><!--
   <li>Social history: tobacco use, family supports, cognitive status</li>
@@ -52,7 +52,7 @@ provides a clinical or workflow context for a set of observations. </p>
 <p>In contrast to the Observation resource, the <a href="diagnosticreport.html">DiagnosticReport</a> resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations.  Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation.</p>
 <p>
     The Observation resources should not be used to record diagnosis or clinical assessments about a patient or subject that are typically captured in the <a href="condition.html">Condition</a>  resource or the <a href="clinicalimpression.html">ClinicalImpression resource</a>.  However, the Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions.  There are other resources that can be considered "specializations" of the Observation resource and should be used for those specific contexts and use cases.  They include <a href="allergyintolerance.html">AllergyIntolerance</a> resource, <a href="familymemberhistory.html"> FamilyMemberHistory</a> resource, <a href="procedure.html">Procedure</a> resource, and <a href="questionnaire.html">Questionnaire</a> resource.
-</p>  
+</p>
 <p>In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system may not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from lab, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource.</p>
 </div>
 </div>
