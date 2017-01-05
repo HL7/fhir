@@ -507,7 +507,7 @@
   Element = ExplanationOfBenefit.insurer
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Insurer
+  Short Name = Insurer responsible for the EOB
   Definition = The insurer which is responsible for the explanation of benefit.
   CDAnet v4 Mapping = B02
   w5 = who.author
@@ -618,7 +618,7 @@
   Element = ExplanationOfBenefit.prescription
   Card. = 0..1
   Type = Reference(MedicationRequest|VisionPrescription)
-  Short Name = Prescription
+  Short Name = Prescription authorizing services or products
   Definition = Prescription to support the dispensing of Pharmacy or Vision products.
   Requirements = For type=Pharmacy and Vision only.
 
@@ -626,7 +626,7 @@
   Element = ExplanationOfBenefit.originalPrescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
-  Short Name = Original Prescription
+  Short Name = Original prescription if superceded by fulfiller
   Definition = Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the \'prescription\' and that from the physician becomes the \'original prescription\'.
 
  -- Row 30 -----------------------------------
@@ -637,7 +637,7 @@
   Card. = 0..1
   UML = 50;0
   Type = =Payee
-  Short Name = Payee
+  Short Name = Party to be paid any benefits payable
   Definition = The party to be reimbursed for the services.
   CDAnet v4 Mapping = F02
 
@@ -709,7 +709,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = InformationCategory
-  Short Name = Category of information
+  Short Name = General class of information
   Definition = The general class of the information supplied: information; exception; accident, employment; onset, etc.
   Comments = This may contain the local bill type codes such as the US UB-04 bill type code.
 
@@ -802,7 +802,7 @@
   Card. = 0..*
   UML = 350;0
   Type = =Diagnosis
-  Short Name = Diagnosis
+  Short Name = List of Diagnosis
   Definition = Ordered list of patient diagnosis for which care is sought.
 
  -- Row 53 -----------------------------------
@@ -818,7 +818,7 @@
   Card. = 1..1
   Type = CodeableConcept|Reference(Condition)
   Binding = ICD10
-  Short Name = Patient\'s list of diagnosis
+  Short Name = Patient\'s diagnosis
   Definition = The diagnosis.
   Requirements = Required to adjudicate services rendered to condition presented.
 
@@ -827,7 +827,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DiagnosisType
-  Short Name = Type of Diagnosis
+  Short Name = Timing or nature of the diagnosis
   Definition = The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
   Requirements = Required to adjudicate services rendered to the mandated diagnosis grouping system.
   Comments = Diagnosis are presented in list order to their expected importance: primary, secondary, etc.
@@ -1242,7 +1242,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = AdjudicationReason
-  Short Name = Adjudication reason
+  Short Name = Explanation of Adjudication outcome
   Definition = Adjudication reason such as limit reached.
 
  -- Row 110 -----------------------------------
@@ -1393,7 +1393,7 @@
   Card. = 0..*
   UML = 300;1025
   Type = @ExplanationOfBenefit.item.adjudication
-  Short Name = Detail adjudication
+  Short Name = Detail level adjudication details
   Definition = The adjudications results.
 
  -- Row 129 -----------------------------------
@@ -1529,7 +1529,7 @@
   Card. = 0..*
   UML = 300;1250
   Type = @ExplanationOfBenefit.item.adjudication
-  Short Name = SubDetail adjudication
+  Short Name = Language if different from the resource
   Definition = The adjudications results.
 
  -- Row 146 -----------------------------------
@@ -1814,7 +1814,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = PaymentAdjustmentReason
-  Short Name = Reason for Payment adjustment
+  Short Name = Explanation for the non-claim adjustment
   Definition = Reason for the payment adjustment.
 
  -- Row 183 -----------------------------------
@@ -1828,14 +1828,14 @@
   Element = ExplanationOfBenefit.payment.amount
   Card. = 0..1
   Type = Money
-  Short Name = Payment amount
+  Short Name = Payable amount after adjustment
   Definition = Payable less any payment adjustment.
 
  -- Row 185 -----------------------------------
   Element = ExplanationOfBenefit.payment.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = Payment identifier
+  Short Name = Identifier of the payment instrument
   Definition = Payment identifer.
   CDAnet v4 Mapping = G01, B.23
 
@@ -1860,7 +1860,7 @@
   Element = ExplanationOfBenefit.note.number
   Card. = 0..1
   Type = positiveInt
-  Short Name = Note Number for this note
+  Short Name = Sequence number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
  -- Row 189 -----------------------------------
@@ -1884,7 +1884,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = Language
-  Short Name = Language
+  Short Name = Language if different from the resource
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
 
  -- Row 192 -----------------------------------
@@ -1903,7 +1903,7 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = BenefitCategory
-  Short Name = Benefit Category
+  Short Name = Type of services covered
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
  -- Row 195 -----------------------------------
@@ -1911,7 +1911,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = BenefitSubCategory
-  Short Name = Benefit SubCategory
+  Short Name = Detailed services covered within the type
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.
 
  -- Row 196 -----------------------------------
@@ -1932,7 +1932,7 @@
   Element = ExplanationOfBenefit.benefitBalance.description
   Card. = 0..1
   Type = string
-  Short Name = Description of the benefit
+  Short Name = Description of the benefit or services covered
   Definition = A richer description of the benefit, for example \'DENT2 covers 100% of basic, 50% of major but exclused Ortho, Implants and Costmetic services\'.
 
  -- Row 199 -----------------------------------
