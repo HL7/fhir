@@ -149,7 +149,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = PaymentStatus
-  Short Name = Status of the payment
+  Short Name = Whether payment has been sent or cleared
   Definition = The payment status, typically paid: payment sent, cleared: payment received.
   RIM Mapping = n/a
 

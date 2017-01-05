@@ -1,33 +1,53 @@
 <PaymentNotice xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/remittance.xsd">
- <id value="77654"/>
+	<id value="77654"/>
 
- <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the PaymentNotice</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the PaymentNotice</div>
+	</text>
 
-  <identifier>
-	<system value="http://benefitsinc.com/paymentnotice"/>
-	<value value="776543"/>
-  </identifier>
- 
-  <status value="active"/>
- 
-  <request>
-    <reference value="http://benefitsinc.com/fhir/claim/12345"/>
-  </request>
+	<identifier>
+		<system value="http://benefitsinc.com/paymentnotice"/>
+		<value value="776543"/>
+	</identifier>
 
-  <created value="2014-08-16"/>
+	<status value="active"/>
 
-  <organization>
-    <reference value="Organization/1"/>
-  </organization>
-  
-  <paymentStatus>
-   <coding>
-	<system value="http://hl7.org/fhir/paymentstatus"/>
-	<code value="paid"/>
-   </coding>
-  </paymentStatus>
+	<request>
+		<reference value="http://benefitsinc.com/fhir/claim/12345"/>
+	</request>
 
- </PaymentNotice>
+	<response>
+		<reference value="http://benefitsinc.com/fhir/claimresponse/CR12345"/>
+	</response>
+
+	<statusDate value="2014-08-15"/>
+
+	<created value="2014-08-16"/>
+
+	<target>
+		<identifier>
+			<system value="http://regulators.gov"/>
+			<value value="AB123"/>
+		</identifier>
+	</target>
+
+	<provider>
+		<identifier>
+			<system value="http://npid.org/provider"/>
+			<value value="PR957857"/>
+		</identifier>
+	</provider>
+
+	<organization>
+		<reference value="Organization/1"/>
+	</organization>
+
+	<paymentStatus>
+		<coding>
+			<system value="http://hl7.org/fhir/paymentstatus"/>
+			<code value="paid"/>
+		</coding>
+	</paymentStatus>
+
+</PaymentNotice>
