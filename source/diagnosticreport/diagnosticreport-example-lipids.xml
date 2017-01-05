@@ -1,221 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir">
-  <id value="lipids"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-
-
-      <h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>
-
-
-      <pre>
+	<id value="lipids"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<h3>Lipid Report for Wile. E. COYOTE (MRN: 23453) issued 3-Mar 2009 14:26</h3>
+			<pre>
 Test                  Units       Value       Reference Range
 Cholesterol           mmol/L      6.3         &lt;4.5
 Triglyceride          mmol/L      1.3         &lt;2.0
 HDL Cholesterol       mmol/L      1.3         &gt;1.5
 LDL Chol. (calc)      mmol/L      4.2         &lt;3.0
       </pre>
-
-
-      <p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
-
-
-    </div>
-  </text>
-  <contained>
-    <Observation>
-    <!--
+			<p>Acme Laboratory, Inc signed: Dr Pete Pathologist</p>
+		</div>
+	</text>
+	<contained>
+		<Observation><!--
 	  all the data items (= Observations) are contained
 	  in this diagnostic report. It would be equally
       valid - and normal - for them to be separate trackable
       items. However for the purposes of this example, it's
 	  more convenient to have them here. For more discussion,
 	  see under "Contained Resources" on the Resource Definitions
-	  topic page    -->
-    <!--    for users steeped in v2, each observation roughly corresponds with an
-	    OBX, and the Diagnostic Report with an ORU_R01 message    -->
-      <id value="cholesterol"/>
-      <status value="final"/>
-      <code>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="14647-2"/>
-          <display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
-        </coding>
-        <text value="Cholesterol"/>
-      </code>
-      <subject>
-        <reference value="Patient/pat2"/>
-      </subject>
-      <performer>
-        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-        <display value="Acme Laboratory, Inc"/>
-      </performer>
-      <valueQuantity>
-        <value value="6.3"/>
-        <unit value="mmol/L"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/L"/>
-      </valueQuantity>
-      <referenceRange>
-        <high>
-          <value value="4.5"/>
-          <unit value="mmol/L"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/>
-        </high>
-      </referenceRange>
-    </Observation>
-  </contained>
-  <contained>
-    <Observation>
-      <id value="triglyceride"/>
-      <status value="final"/>
-      <code>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="14927-8"/>
-          <display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
-        </coding>
-        <text value="Triglyceride"/>
-      </code>
-      <subject>
-        <reference value="Patient/pat2"/>
-      </subject>
-      <performer>
-        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-        <display value="Acme Laboratory, Inc"/>
-      </performer>
-      <valueQuantity>
-        <value value="1.3"/>
-        <unit value="mmol/L"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/L"/>
-      </valueQuantity>
-      <referenceRange>
-        <high>
-          <value value="2.0"/>
-          <unit value="mmol/L"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/>
-        </high>
-      </referenceRange>
-    </Observation>
-  </contained>
-  <contained>
-    <Observation>
-      <id value="hdlcholesterol"/>
-      <status value="final"/>
-      <code>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="2085-9"/>
-          <display value="Cholesterol in HDL [Moles/​volume] in Serum or Plasma"/>
-        </coding>
-        <text value="Cholesterol in HDL"/>
-      </code>
-      <subject>
-        <reference value="Patient/pat2"/>
-      </subject>
-      <performer>
-        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-        <display value="Acme Laboratory, Inc"/>
-      </performer>
-      <valueQuantity>
-        <value value="1.3"/>
-        <unit value="mmol/L"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/L"/>
-      </valueQuantity>
-      <referenceRange>
-        <low>
-          <value value="1.5"/>
-          <unit value="mmol/L"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/>
-        </low>
-      </referenceRange>
-    </Observation>
-  </contained>
-  <contained>
-    <Observation>
-      <id value="ldlcholesterol"/>
-      <status value="final"/>
-      <code>
-        <coding>
-          <system value="http://loinc.org"/>
-          <code value="39469-2"/>
-          <display value="Cholesterol in LDL [Moles/​volume] in Serum or Plasma by calculation"/>
-        </coding>
-        <text value="LDL Chol. (Calc)"/>
-      </code>
-      <subject>
-        <reference value="Patient/pat2"/>
-      </subject>
-      <performer>
-        <reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-        <display value="Acme Laboratory, Inc"/>
-      </performer>
-      <valueQuantity>
-        <value value="4.6"/>
-        <unit value="mmol/L"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mmol/L"/>
-      </valueQuantity>
-      <referenceRange>
-        <high>
-          <value value="3.0"/>
-          <unit value="mmol/L"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="mmol/L"/>
-        </high>
-      </referenceRange>
-    </Observation>
-  </contained>
-  <identifier>
-    <system value="http://acme.com/lab/reports"/>
-    <value value="5234342"/>
-  </identifier>
-  <status value="final"/>
-  <category>
-    <coding>
-      <system value="http://hl7.org/fhir/v2/0074"/>
-      <code value="HM"/>
-    </coding>
-  </category>
-<!--    first, various administrative/context stuff    -->
-  <code>
-    <coding>
-      <system value="http://loinc.org"/>
-      <code value="24331-1"/>
-      <display value="Lipid 1996 panel - Serum or Plasma"/>
-    </coding>
-    <text value="Lipid Panel"/>
-  </code>
-  <subject>
-    <reference value="Patient/pat2"/>
-  </subject>
-  <effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
-<!--    all this report is final    -->
-  <issued value="2013-01-27T11:45:33+11:00"/>
-  <performer>
+	  topic page    --><!--    for users steeped in v2, each observation roughly corresponds with an
+	    OBX, and the Diagnostic Report with an ORU_R01 message    --><id value="cholesterol"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14647-2"/>
+					<display value="Cholesterol [Moles/​volume] in Serum or Plasma"/>
+				</coding>
+				<text value="Cholesterol"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="6.3"/>
+				<unit value="mmol/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<high>
+					<value value="4.5"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="triglyceride"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14927-8"/>
+					<display value="Triglyceride [Moles/​volume] in Serum or Plasma"/>
+				</coding>
+				<text value="Triglyceride"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1.3"/>
+				<unit value="mmol/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<high>
+					<value value="2.0"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="hdlcholesterol"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2085-9"/>
+					<display value="Cholesterol in HDL [Moles/​volume] in Serum or Plasma"/>
+				</coding>
+				<text value="Cholesterol in HDL"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1.3"/>
+				<unit value="mmol/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="1.5"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</low>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="ldlcholesterol"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="39469-2"/>
+					<display value="Cholesterol in LDL [Moles/​volume] in Serum or Plasma by calculation"/>
+				</coding>
+				<text value="LDL Chol. (Calc)"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="4.6"/>
+				<unit value="mmol/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<high>
+					<value value="3.0"/>
+					<unit value="mmol/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<identifier>
+		<system value="http://acme.com/lab/reports"/>
+		<value value="5234342"/>
+	</identifier>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0074"/>
+			<code value="HM"/>
+		</coding>
+	</category><!--    first, various administrative/context stuff    --><code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="24331-1"/>
+			<display value="Lipid 1996 panel - Serum or Plasma"/>
+		</coding>
+		<text value="Lipid Panel"/>
+	</code>
+	<subject>
+		<reference value="Patient/pat2"/>
+	</subject>
+	<effectiveDateTime value="2011-03-04T08:30:00+11:00"/><!--    all this report is final    --><issued value="2013-01-27T11:45:33+11:00"/>
+	<performer>
 		<actor>
 			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 			<display value="Acme Laboratory, Inc"/>
 		</actor>
-	</performer>
-<!--    now the atomic results    -->
-  <result>
-    <reference value="#cholesterol"/>
-  </result>
-  <result>
-    <reference value="#triglyceride"/>
-  </result>
-  <result>
-    <reference value="#hdlcholesterol"/>
-  </result>
-  <result>
-    <reference value="#ldlcholesterol"/>
-  </result>
+	</performer><!--    now the atomic results    --><result>
+		<reference value="#cholesterol"/>
+	</result>
+	<result>
+		<reference value="#triglyceride"/>
+	</result>
+	<result>
+		<reference value="#hdlcholesterol"/>
+	</result>
+	<result>
+		<reference value="#ldlcholesterol"/>
+	</result>
 </DiagnosticReport>

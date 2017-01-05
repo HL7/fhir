@@ -22,15 +22,15 @@
 				<display value="Roel's encounter on March eleventh 2013"/>
 			</context>
 			<requester>
-				<reference value="Practitioner/f201"/>
-				<display value="Dokter Bronsig"/>
+				<agent>
+					<reference value="Practitioner/f201"/>
+					<display value="Dokter Bronsig"/>
+				</agent>
 			</requester>
 		</DiagnosticRequest>
 	</contained>
 	<status value="final"/>
-	<category>
-		<!-- Lab test -->
-		<coding>
+	<category><!-- Lab test --><coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="15220000"/>
 			<display value="Laboratory test"/>
@@ -58,9 +58,7 @@
 			<reference value="Organization/f201"/>
 			<display value="AUMC"/>
 		</actor>
-	</performer>
-	<!-- No identifier was available -->
-	<request>
+	</performer><!-- No identifier was available --><request>
 		<reference value="#req"/>
 	</request>
 	<result>

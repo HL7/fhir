@@ -123,10 +123,7 @@ GE LUNAR PRODIGY DENSITOMETER
 </pre>
 		</div>
 	</text>
-	<status value="final"/>
-	<!--      femur, laterality = left      -->
-	<!--      first, various administrative/context stuff      -->
-	<code>
+	<status value="final"/><!--      femur, laterality = left      --><!--      first, various administrative/context stuff      --><code>
 		<coding>
 			<system value="http://loinc.org"/>
 			<code value="38269-7"/>
@@ -136,19 +133,14 @@ GE LUNAR PRODIGY DENSITOMETER
 	<subject>
 		<reference value="Patient/pat2"/>
 	</subject>
-	<effectiveDateTime value="2008-06-17"/>
-	<!--      all this report is final      -->
-	<issued value="2008-06-18T09:23:00+10:00"/>
-	<!--      well, actually. this isn't the patient, but it'll do for now      -->
-	<performer>
+	<effectiveDateTime value="2008-06-17"/><!--      all this report is final      --><issued value="2008-06-18T09:23:00+10:00"/><!--      well, actually. this isn't the patient, but it'll do for now      --><performer>
 		<actor>
 			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 			<display value="Acme Imaging Diagnostics"/>
 		</actor>
 	</performer>
 	<result>
-		<reference value="Observation/bmd"/>
-<!--	 but just one for now,  but for this example there should be more as listed here 
+		<reference value="Observation/bmd"/><!--	 but just one for now,  but for this example there should be more as listed here 
 <reference value="Observation/bmd1"/>      (LEFT  24701-5  Femur DXA Bone densityO g/cm2) 
 <reference value="Observation/bmd2>      (LEFT 8263-0  Femur DXA [T-score] Bone densityO {T-score})
 
@@ -157,9 +149,7 @@ GE LUNAR PRODIGY DENSITOMETER
 
 <reference value="Observation/bmd5"/>      (24966-4  Lumbar spine DXA Bone densityO g/cm2)
 <reference value="Observation/bmd6"/>     (38267-1  Lumbar spine DXA [T-score] Bone densityO {T-score})
--->	</result>
-	<!--      the imaging service marks this to help find categories of patient      -->
-	<codedDiagnosis>
+--></result><!--      the imaging service marks this to help find categories of patient      --><codedDiagnosis>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="391040000"/>

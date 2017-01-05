@@ -34,8 +34,10 @@
 				<reference value="Encounter/f001"/>
 			</context>
 			<requester>
-				<reference value="Practitioner/f001"/>
-				<display value="E.van den Broek"/>
+				<agent>
+					<reference value="Practitioner/f001"/>
+					<display value="E.van den Broek"/>
+				</agent>
 			</requester>
 			<note>
 				<text value="patient almost fainted during procedure"/>
@@ -65,15 +67,11 @@
 			<code value="58410-2"/>
 			<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
 		</coding>
-	</code>
-	<!--  ISO 8601  -->
-	<subject>
+	</code><!--  ISO 8601  --><subject>
 		<reference value="Patient/f001"/>
 		<display value="P. van den Heuvel"/>
 	</subject>
-	<effectiveDateTime value="2013-04-02"/>
-	<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
-	<issued value="2013-05-15T19:32:52+01:00"/>
+	<effectiveDateTime value="2013-04-02"/><!--  OID: 2.16.840.1.113883.4.642.1.7  --><issued value="2013-05-15T19:32:52+01:00"/>
 	<performer>
 		<actor>
 			<reference value="Organization/f001"/>
