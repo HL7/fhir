@@ -215,16 +215,40 @@
  -- Row 15 -----------------------------------
   Element = DiagnosticRequest.requester
   Card. = 0..1
+  Aliases = author
   Summary = Y
-  Type = Reference(Device|Practitioner|Organization)
   Short Name = Who/what is requesting diagnostics
-  Definition = Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.
+  Definition = The individual who initiated the request and has responsibility for its activation
   Comments = This not the dispatcher, but rather who is authorizing
+  v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
-  Committee Notes = [#10296] originally proposed references: Reference(Device | Patient | Practitioner | RelatedPerson  | Organization?)  felt that patient and relatedPerson don’t request tests
-  w5 = who.author
+  Committee Notes = [#10296]
 
  -- Row 16 -----------------------------------
+  Element = DiagnosticRequest.requester.agent
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Device|Practitioner|Organization)
+  Short Name = Individual making the request
+  Definition = The device, practitioner or organization. who initiated the request
+  v2 Mapping = ORC.12
+  RIM Mapping = .player
+  Committee Notes = [#10296]
+  w5 = who.author
+
+ -- Row 17 -----------------------------------
+  Element = DiagnosticRequest.requester.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization agent is acting for
+  Definition = The organization the device or practitioner was acting on behalf of.
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+  Committee Notes = [#10296]
+
+ -- Row 18 -----------------------------------
   Element = DiagnosticRequest.performerType
   Card. = 0..1
   Summary = Y
@@ -236,7 +260,7 @@
   Committee Notes = [#10296]
   w5 = who.actor
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DiagnosticRequest.performer
   Card. = 0..1
   Summary = Y
@@ -248,7 +272,7 @@
   Committee Notes = [#10296]
   w5 = who.actor
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DiagnosticRequest.reasonCode
   Card. = 0..*
   Summary = Y
@@ -261,7 +285,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticRequest.reasonReference
   Card. = 0..*
   Summary = Y
@@ -273,7 +297,7 @@
   Committee Notes = 7134. [#10296]  need to add reference as another inline element
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DiagnosticRequest.supportingInfo
   Card. = 0..*
   Aliases = Ask at order entry question, AOE
@@ -285,7 +309,7 @@
   RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
   Committee Notes = [#3113][#3739][#10296]
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = DiagnosticRequest.specimen
   Card. = 0..*
   Summary = Y
@@ -296,7 +320,7 @@
   RIM Mapping = .participation[typeCode=SPC].role
   Committee Notes = [#10589]
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = DiagnosticRequest.bodySIte
   Card. = 0..1
   Aliases = location
@@ -309,7 +333,7 @@
   RIM Mapping = targetSiteCode
   Committee Notes = [#12505], [#12517]
 
- -- Row 23 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = DiagnosticRequest.note
   Card. = 0..*
   Type = Annotation
@@ -318,7 +342,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147,[#10296]
 
- -- Row 24 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = DiagnosticRequest.relevantHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -400,7 +424,7 @@
   Name = requester
   Type = reference
   Description = Who/what is requesting service 
-  Path = DiagnosticRequest.requester
+  Path = DiagnosticRequest.requester.agent
 
  -- Row 13 -----------------------------------
   Name = requisition
@@ -425,6 +449,12 @@
   Type = token
   Description = routine | urgent | asap | stat
   Path = DiagnosticRequest.priority
+
+ -- Row 17 -----------------------------------
+  Name = specimen
+  Type = reference
+  Description = One or more specimens that the diagnostic investigation is about
+  Path = DiagnosticRequest.specimen
 
 === Sheet Profiles =====================================
 

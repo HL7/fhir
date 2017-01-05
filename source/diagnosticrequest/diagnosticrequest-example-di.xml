@@ -1,11 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
+<?xml version="1.0" encoding="UTF-8"?><!--
 This example is used for DetectedIssue/Duplicate Therapy example will need to edit that as well
 
--->
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
-	<id value="di"/>
-	<!--	<extension url="http://hl7.org/fhir/StructureDefinition/bodysitecode">
+--><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="di"/><!--	<extension url="http://hl7.org/fhir/StructureDefinition/bodysitecode">
 		<valueCodeableConcept>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -14,8 +11,7 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 			</coding>
 		</valueCodeableConcept>
 </extension>
-	-->
-	<status value="active"/>
+	--><status value="active"/>
 	<intent value="original-order"/>
 	<code>
 		<coding>
@@ -29,8 +25,10 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	</subject>
 	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
 	<requester>
-		<reference value="Practitioner/example"/>
-		<display value="Dr. Adam Careful"/>
+		<agent>
+			<reference value="Practitioner/example"/>
+			<display value="Dr. Adam Careful"/>
+		</agent>
 	</requester>
 	<reasonCode>
 		<text value="Check for metastatic disease"/>

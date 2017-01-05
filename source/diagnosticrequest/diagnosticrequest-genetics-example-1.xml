@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  lab report example: a CBC  -->
-<DiagnosticRequest xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="og-example1"/>
 	<status value="active"/>
 	<intent value="original-order"/>
-
-
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -21,7 +17,9 @@
 	</context>
 	<occurrenceDateTime value="2014-05-12T16:16:00-07:00"/>
 	<requester>
-		<reference value="Practitioner/example"/>
+		<agent>
+			<reference value="Practitioner/example"/>
+		</agent>
 	</requester>
 	<performer>
 		<reference value="Practitioner/example"/>

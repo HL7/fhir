@@ -1,7 +1,8 @@
-<DiagnosticRequest  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?>
+<DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="example-pgx"/>
-	<status value = "active"/>
-	<intent value = "original-order"/>
+	<status value="active"/>
+	<intent value="original-order"/>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -14,6 +15,8 @@
 	</subject>
 	<authoredOn value="2016-10-10T15:00:00-07:00"/>
 	<requester>
-		<reference value="Practitioner/12345"/>
+		<agent>
+			<reference value="Practitioner/12345"/>
+		</agent>
 	</requester>
 </DiagnosticRequest>

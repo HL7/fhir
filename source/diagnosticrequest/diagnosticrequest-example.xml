@@ -4,11 +4,8 @@
 	<text>
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-	</text>
-	<!-- insert contents here -->
-	<status value="active"/>
-	<intent value="original-order">
-	</intent>
+	</text><!-- insert contents here --><status value="active"/>
+	<intent value="original-order"/>
 	<code>
 		<coding>
 			<code value="example"/>
