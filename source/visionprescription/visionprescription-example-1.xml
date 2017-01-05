@@ -2,76 +2,89 @@
 <VisionPrescription xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ../../schema/visionprescription.xsd">
-  <id value="33124"/>
+	<id value="33124"/>
 
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Sample Contract Lens prescription</div>
-  </text>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Sample Contract Lens prescription</div>
+	</text>
 
-  <identifier>
-    <system value="http://www.happysight.com/prescription"/>
-	<value value="15014"/>
-  </identifier>
- 
-  <status value="active"/>
- 
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
+	<identifier>
+		<system value="http://www.happysight.com/prescription"/>
+		<value value="15014"/>
+	</identifier>
 
-  <dateWritten value="2014-06-15"/>
-  
-  <prescriber>
-    <reference value="Practitioner/example"/>
-  </prescriber>
+	<status value="active"/>
 
-  <dispense>
-    <product>
-	 <coding>
-	  <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
-	  <code value="contact"/>
-	 </coding>
-	</product>
-    <eye value="right"/>
-    <cylinder value="-2.25"/>
-    <axis value="160"/>
-    <add value="1.75"/>
-    <power value="-2.75"/>
-    <backCurve value="8.7"/>
-    <diameter value="14.0"/>
-    <duration>
-      <value value="1"/>
-      <unit value="month"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="month"/>
-    </duration>
-    <color value="green"/>
-    <brand value="OphthaGuard"/>
-  </dispense>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
 
-  <dispense>
-    <product>
-	 <coding>
-	  <system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
-	  <code value="contact"/>
-     </coding>
-	</product>
-    <eye value="left"/>
-    <cylinder value="-3.50"/>
-    <axis value="160"/>
-    <add value="1.75"/>
-    <power value="-2.75"/>
-    <backCurve value="8.7"/>
-    <diameter value="14.0"/>
-    <duration>
-      <value value="1"/>
-      <unit value="month"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="month"/>
-    </duration>
-    <color value="green"/>
-    <brand value="OphthaGuard"/>
-  </dispense>
+	<encounter>
+		<reference value="Encounter/f001"/>
+	</encounter>
+
+	<dateWritten value="2014-06-15"/>
+
+	<prescriber>
+		<reference value="Practitioner/example"/>
+	</prescriber>
+
+	<reasonCodeableConcept>
+		<coding>
+			<system value="http://samplevisionreasoncodes.com"/>
+			<code value="myopia"/>
+		</coding>
+	</reasonCodeableConcept>
+
+	<dispense>
+		<product>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+				<code value="contact"/>
+			</coding>
+		</product>
+		<eye value="right"/>
+		<cylinder value="-2.25"/>
+		<axis value="160"/>
+		<add value="1.75"/>
+		<power value="-2.75"/>
+		<backCurve value="8.7"/>
+		<diameter value="14.0"/>
+		<duration>
+			<value value="1"/>
+			<unit value="month"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="month"/>
+		</duration>
+		<color value="green"/>
+		<brand value="OphthaGuard"/>
+		<note value="Shade treatment for extreme light sensitivity"/>
+	</dispense>
+
+	<dispense>
+		<product>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-visionprescriptionproduct"/>
+				<code value="contact"/>
+			</coding>
+		</product>
+		<eye value="left"/>
+		<cylinder value="-3.50"/>
+		<axis value="160"/>
+		<add value="1.75"/>
+		<power value="-2.75"/>
+		<backCurve value="8.7"/>
+		<diameter value="14.0"/>
+		<duration>
+			<value value="1"/>
+			<unit value="month"/>
+			<system value="http://unitsofmeasure.org"/>
+			<code value="month"/>
+		</duration>
+		<color value="green"/>
+		<brand value="OphthaGuard"/>
+		<note value="Shade treatment for extreme light sensitivity"/>
+	</dispense>
 
 </VisionPrescription>
