@@ -40,10 +40,10 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.convertors"/>
 	<classpathentry kind="lib" path="../imports/hapi-fhir-base-1.6.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.validation"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-arq-3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-base-3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-core-3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-iri-3.1.0.jar"/>
-	<classpathentry kind="lib" path="C:/work/org.hl7.fhir/build/tools/java/imports/jena-shaded-guava-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-arq-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-base-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-core-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-iri-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jena-shaded-guava-3.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
