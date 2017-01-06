@@ -320,7 +320,7 @@
   Card. = 0..*
   Aliases = Category; Type; Reaction Type; Class
   Summary = Y
-  Type = code
+  Type = CodeableConcept
   Binding = AllergyIntoleranceCategory
   Short Name = food | medication | biologic | environment
   Definition = Category of the identified substance
@@ -339,9 +339,10 @@
   Binding = AllergyIntoleranceCriticality
   Short Name = low | high | unable-to-assess
   Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance
-  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere).\n\nSystems that capture a severity at the condition level are actually representing the concept of criticality whereas the severity documented at the reaction level is representing the true reaction severity.  Existing systems that are capturing both condition criticality and reaction severity may use the term \"severity\" to represent both.  Criticality is the worst it could be in the future (i.e. situation-agnostic) whereas severity is situation-dependent.
   v2 Mapping = AL1-4
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
+  Committee Notes = GF#12177
   w5 = grade
 
  -- Row 8 -----------------------------------

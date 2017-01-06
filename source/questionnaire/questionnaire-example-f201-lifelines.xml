@@ -19,11 +19,11 @@
   <url value="http://hl7.org/fhir/Questionnaire/f201"/>
   <status value="published"/>
   <date value="2010"/>
-  <concept>
+  <code>
     <system value="http://example.org/system/code/lifelines/nl"/>
     <code value="VL 1-1, 18-65_1.2.2"/>
     <display value="Lifelines Questionnaire 1 part 1"/>
-  </concept>
+  </code>
   <subjectType value="Patient"/>
   <item>
     <linkId value="1"/>

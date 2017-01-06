@@ -41,6 +41,12 @@
   Display = Entered In Error
   Definition = This QuestionnaireResponse was entered in error and voided.
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = stopped
+  Display = Stopped
+  Definition = This QuestionnaireResponse has been partially filled out with answers, but it is unknown whether changes or additions are expected to be made to it.
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -111,10 +117,11 @@
   Summary = y
   Type = code
   Binding = QuestionnaireResponseStatus
-  Short Name = in-progress | completed | amended | entered-in-error
+  Short Name = in-progress | completed | amended | entered-in-error | stopped
   Definition = The lifecycle status of the questionnaire response as a whole.
   Requirements = The information on Questionnaire resources  may possibly be gathered during multiple sessions and altered after considered being finished. Questionnaire resources with just questions may serve as template forms, with the applicable publication statuses
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
+  Committee Notes = GF#12315
   w5 = status
 
  -- Row 7 -----------------------------------

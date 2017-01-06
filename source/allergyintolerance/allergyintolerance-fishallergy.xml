@@ -22,7 +22,12 @@
     redundant, but many systems collect this field anyway, since it's either 
     useful when the substance is not coded, or it's quicker to sort/filter on
     than using terminology based reasoning -->
-  <category value="food"/>
+  <category>
+     <coding>
+       <system value="http://hl7.org/fhir/allergy-intolerance-category"/>
+       <code value="food"/>
+     </coding>
+  </category>
 
   <!-- subtance - either coded, or text. A few times, 
     there's a full description of a complex substance - in these caes, use the

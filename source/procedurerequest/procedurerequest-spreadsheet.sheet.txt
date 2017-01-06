@@ -167,6 +167,18 @@
   w5 = class
 
  -- Row 5 -----------------------------------
+  Element = ProcedureRequest.doNotPerform
+  Card. = 0..1
+  Is Modifier = Y
+  Type = boolean
+  Short Name = True if procedure should not be performed
+  Definition = Set this to true if the record is saying that the procedure should NOT be performed
+  Requirements = Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm etc.
+  Comments = In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
+  Committee Notes = GF#9335
+  Default Value = False
+
+ -- Row 6 -----------------------------------
   Element = ProcedureRequest.bodySite
   Card. = 0..*
   Type = CodeableConcept
@@ -178,7 +190,7 @@
   RIM Mapping = targetSiteCode
   QUICK mapping = Procedure.targetBodySite
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = !ProcedureRequest.bodySite.site[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(BodySite)
@@ -187,7 +199,7 @@
   Requirements = Knowing where the procedure is made is important for tracking if multiple site are possible.
   Comments = Only used if not implicit in code found in ProcedureRequest.type
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = ProcedureRequest.reason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Condition)
@@ -196,7 +208,7 @@
   Definition = The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
   QUICK mapping = Action.indication.reason
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = ProcedureRequest.scheduled[x]
   Card. = 0..1
   Type = dateTime|Period|Timing
@@ -205,7 +217,7 @@
   QUICK mapping = Procedure.procedureSchedule
   w5 = when.planned
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = ProcedureRequest.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -214,7 +226,7 @@
   QUICK mapping = ClinicalStatement.encounter
   w5 = context
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ProcedureRequest.performer
   Card. = 0..1
   Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
@@ -222,7 +234,7 @@
   Definition = For example, the surgeon, anaethetist, endoscopist, etc.
   w5 = who.actor
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = ProcedureRequest.status
   Card. = 0..1
   Is Modifier = Y
@@ -233,7 +245,7 @@
   QUICK mapping = Action.currentStatus
   w5 = status
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = ProcedureRequest.supportingInfo
   Card. = 0..*
   Type = Reference (Any)
@@ -241,7 +253,7 @@
   Definition = Information that may be needed by/relevant to the performer in their execution of this request
   Committee Notes = GF#11181
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = ProcedureRequest.notes
   Card. = 0..*
   Type = Annotation
@@ -249,7 +261,7 @@
   Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
   QUICK mapping = ClinicalStatement.additionalText
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ProcedureRequest.asNeeded[x]
   Card. = 0..1
   Type = boolean|CodeableConcept
@@ -258,7 +270,7 @@
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
   QUICK mapping = Proposal.prnReason.reason
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ProcedureRequest.orderedOn
   Card. = 0..1
   Type = dateTime
@@ -267,7 +279,7 @@
   QUICK mapping = Proposal.proposedAtTime
   w5 = when.recorded
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ProcedureRequest.orderer
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson|Device)
@@ -276,7 +288,7 @@
   QUICK mapping = ClinicalStatement.statementAuthor
   w5 = who.author
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ProcedureRequest.priority
   Card. = 0..1
   Type = code

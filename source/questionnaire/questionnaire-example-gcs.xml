@@ -117,17 +117,17 @@
   <date value="2015-08-03"/>
   <publisher value="FHIR Project team"/>
   <title value="Glasgow Coma Score"/>
-  <concept>
+  <code>
     <system value="http://loinc.org"/>
     <code value="9269-2"/>
-  </concept>
+  </code>
   <subjectType value="Patient"/>
   <item>
     <linkId value="1.1"/>
-    <concept>
+    <code>
       <system value="http://loinc.org"/>
       <code value="9270-0"/>
-    </concept>
+    </code>
     <type value="choice"/>
     <options>
       <reference value="#verbal"/>
@@ -135,10 +135,10 @@
   </item>
   <item>
     <linkId value="1.2"/>
-    <concept>
+    <code>
       <system value="http://loinc.org"/>
       <code value="9268-4"/>
-    </concept>
+    </code>
     <type value="choice"/>
     <options>
       <reference value="#motor"/>
@@ -146,10 +146,10 @@
   </item>
   <item>
     <linkId value="1.3"/>
-    <concept>
+    <code>
       <system value="http://loinc.org"/>
       <code value="9267-6"/>
-    </concept>
+    </code>
     <type value="choice"/>
     <options>
       <reference value="#eye"/>

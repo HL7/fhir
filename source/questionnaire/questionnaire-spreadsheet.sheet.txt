@@ -176,9 +176,9 @@
  -- Row 3 -----------------------------------
   Id = 3
   Context = Questionnaire.item
-  English = Display items cannot have a \"concept\" asserted
-  XPath = not(f:type/@value=\'display\' and f:concept)
-  Expression = type!=\'display\' or concept.empty()
+  English = Display items cannot have a \"code\" asserted
+  XPath = not(f:type/@value=\'display\' and f:code)
+  Expression = type!=\'display\' or code.empty()
 
  -- Row 4 -----------------------------------
   Id = 4
@@ -350,7 +350,7 @@
   RIM Mapping = .title
 
  -- Row 11 -----------------------------------
-  Element = Questionnaire.concept
+  Element = Questionnaire.code
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -396,13 +396,13 @@
   Inv. = 11
   Type = uri
   Short Name = ElementDefinition - details for the item
-  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* concept (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition
+  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition
   Requirements = A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition
   Comments = The ElementDefinition must be in a [[[StructureDefinition]]] or a [[[DataElement]]], and must have a fragment identifier that identifies the specific data element by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
   RIM Mapping = Not supported
 
  -- Row 16 -----------------------------------
-  Element = Questionnaire.item.concept
+  Element = Questionnaire.item.code
   Card. = 0..*
   Summary = Y
   Inv. = 3
@@ -619,7 +619,7 @@
   Name = code
   Type = token
   Description = A code that corresponds to the questionnaire or one of its groups
-  Path = Questionnaire.item.concept
+  Path = Questionnaire.item.code
 
  -- Row 7 -----------------------------------
   Name = title

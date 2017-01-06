@@ -5,7 +5,12 @@
   <clinicalStatus value="active"/>
   <verificationStatus value="unconfirmed"/>
 
-  <category value="medication"/>
+  <category>
+     <coding>
+       <system value="http://hl7.org/fhir/allergy-intolerance-category"/>
+       <code value="medication"/>
+     </coding>
+  </category>
   
   <criticality value="high"/> 
 
