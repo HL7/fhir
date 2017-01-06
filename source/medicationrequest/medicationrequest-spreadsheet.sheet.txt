@@ -264,6 +264,7 @@
   Type = Reference(ActivityDefinition | PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
   Element = MedicationRequest.basedOn
@@ -272,6 +273,7 @@
   Type = Reference(CarePlan |DiagnosticRequest |MedicationRequest |ProcedureRequest |ReferralRequest)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 5 -----------------------------------
   Element = MedicationRequest.groupIdentifier
@@ -280,6 +282,7 @@
   Type = Identifier
   Short Name = Composite request this is part of
   Definition = Composite request this is part of
+  RIM Mapping = .outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id
 
  -- Row 6 -----------------------------------
   Element = MedicationRequest.status
@@ -304,6 +307,7 @@
   Short Name = proposal | plan | order | instance-order
   Definition = Whether the request is a proposal, plan, or an original order
   Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+  RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class
 
  -- Row 8 -----------------------------------
@@ -315,6 +319,7 @@
   Binding = MedicationRequestPriority
   Short Name = routine | urgent | stat | asap
   Definition = Indicates how quickly the Medicaiton Request should be addressed with respect to other requests.
+  RIM Mapping = .priorityCode
 
  -- Row 9 -----------------------------------
   Element = MedicationRequest.medication[x]
@@ -361,6 +366,7 @@
   Type = Reference(Any)
   Short Name = Information to support ordering of the medication
   Definition = Include additional information (for example, patient height and weight) that supports the ordering of the medication
+  RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
  -- Row 13 -----------------------------------
@@ -413,6 +419,7 @@
   Type = Reference(Practitioner)
   Short Name = Person who entered the request
   Definition = The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.
+  RIM Mapping = .participation[typeCode=TRANS].role[classCode=ASSIGNED].code (HealthcareProviderType)
 
  -- Row 18 -----------------------------------
   Element = MedicationRequest.reasonCode
@@ -521,6 +528,7 @@
   Type = Reference(Organization)
   Short Name = Intended dispenser
   Definition = Indicates the intended dispensing Organization specified by the prescriber.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=RQO]  .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who
 
  -- Row 29 -----------------------------------
@@ -570,6 +578,7 @@
   Short Name = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
   Comments = See usage notes in Request pattern in request history
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================
 

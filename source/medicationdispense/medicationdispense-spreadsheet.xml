@@ -15,8 +15,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16460</WindowHeight>
-  <WindowWidth>28560</WindowWidth>
+  <WindowHeight>15960</WindowHeight>
+  <WindowWidth>28160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <TabRatio>719</TabRatio>
@@ -1236,7 +1236,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">.outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1419,7 +1420,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:Height="409">
+   <Row ss:AutoFitHeight="0" ss:Height="409">
     <Cell ss:StyleID="s88"><Data ss:Type="String">MedicationDispense.daysSupply</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +1727,8 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">not in RIM, could be modeled in RIM using OBS act with code specified as wasSubstituted, where value of the OBS act would Boulean would be captured</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1865,7 +1867,8 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">See usage notes in Request pattern in request history</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">.inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3566,9 +3569,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>16</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3584,7 +3587,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>19</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5073,6 +5077,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -5669,6 +5674,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -7928,6 +7934,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8565,6 +8572,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

@@ -205,6 +205,7 @@
   Short Name = Fulfils plan, proposal or order
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this event.
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon.
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 4 -----------------------------------
   Element = MedicationStatement.context
@@ -213,6 +214,7 @@
   Type = Reference (Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with MedicationStatement
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=ENC, moodCode=EVN]
 
  -- Row 5 -----------------------------------
   Element = MedicationStatement.status
@@ -297,6 +299,7 @@
   Binding = MedicationStatementNotTaken
   Short Name = y | n | unk
   Definition = Indicator of the certainty of whether the medication was taken by the patient
+  RIM Mapping = .actionNegationInd
 
  -- Row 13 -----------------------------------
   Element = MedicationStatement.reasonNotTaken

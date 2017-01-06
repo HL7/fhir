@@ -197,6 +197,7 @@
   Type = Reference(Any)
   Short Name = Information that supports the dispensing of the medication
   Definition = Additional information that supports the medication being dispensed.
+  RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
  -- Row 7 -----------------------------------
@@ -330,6 +331,7 @@
   Type = boolean
   Short Name = Whether a substitution was or was not performed on the dispense
   Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
+  RIM Mapping = not in RIM, could be modeled in RIM using OBS act with code specified as wasSubstituted, where value of the OBS act would Boulean would be captured
 
  -- Row 21 -----------------------------------
   Element = MedicationDispense.substitution.type
@@ -367,6 +369,7 @@
   Short Name = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
   Comments = See usage notes in Request pattern in request history
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================
 

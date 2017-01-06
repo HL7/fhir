@@ -9,7 +9,7 @@
   <LastAuthor>Melva Peters</LastAuthor>
   <LastPrinted>2016-01-26T17:36:52Z</LastPrinted>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-09T22:40:07Z</LastSaved>
+  <LastSaved>2017-01-06T18:17:19Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -880,6 +880,16 @@
   <Style ss:ID="s166">
    <Font ss:FontName="Verdana" ss:Size="12" ss:Color="#333333"/>
   </Style>
+  <Style ss:ID="s167">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1165,7 +1175,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.outboundRelationship[typeCode=DEFN].target[classCode=unspecified]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1197,7 +1208,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">.outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1231,7 +1243,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1304,7 +1317,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1338,7 +1352,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.priorityCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1481,7 +1496,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1651,7 +1667,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.participation[typeCode=TRANS].role[classCode=ASSIGNED].code (HealthcareProviderType)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2024,7 +2041,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=RQO]  .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2192,7 +2210,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">See usage notes in Request pattern in request history</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s167"><Data ss:Type="String">.inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3853,9 +3872,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3863,6 +3882,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3870,8 +3890,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3893,6 +3913,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -4446,39 +4468,39 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C3,R2C5:R2C7</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048573]C1=&quot;&quot;,Invariants!R[1048573]C&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048572]C1=&quot;&quot;,Invariants!R[1048572]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2,R2C7,R2C5</Range>
    <Condition>
-    <Value1>(Invariants!R[1048573]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048573]C[16381]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>(Invariants!R[1048572]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048572]C[16380]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C7</Range>
    <Condition>
-    <Value1>LEFT(Invariants!R[1048573]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(Invariants!R[1048572]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>Invariants!R[1048573]C3=&quot;0..0&quot;</Value1>
+    <Value1>Invariants!R[1048572]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(Invariants!R[1048573]C[16375]&lt;&gt;&quot;&quot;,Invariants!R[1048573]C1=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048572]C[16372]&lt;&gt;&quot;&quot;,Invariants!R[1048572]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1,R2C4</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048573]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048572]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -7040,6 +7062,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
@@ -7680,6 +7704,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -8433,6 +8458,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8532,6 +8558,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="medication-request-priority">
@@ -8618,6 +8645,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
