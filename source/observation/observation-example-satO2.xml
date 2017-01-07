@@ -26,7 +26,7 @@
 		</coding>
 		<!-- Example of a translation to a more specific code  to the vitals profile LOINC code -->
 		<coding>
-			<system value="https://rtmms.nist.gov"/>
+			<system value="urn:iso:std:iso:11073:10101"/>
 			<!--    mdc    -->
 			<code value="150456"/>
 			<display value="MDC_PULS_OXIM_SAT_O2"/>

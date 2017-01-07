@@ -357,8 +357,8 @@
   To Do = do we need to say anything about method?
 
  -- Row 2 -----------------------------------
-  Element = Observation.extension
-  Profile Name = LDLCalculated
+  Element = !@Observation.extension
+  Profile Name = !LDLCalculated
   Card. = 0..1
   Type = Extension{#ldl-chol-calculated}
   Short Name = Whether LDL value is calculated
