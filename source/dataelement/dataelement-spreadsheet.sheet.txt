@@ -67,6 +67,14 @@
   Expression = slicing.empty()
   Severity = error
 
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = DataElement.mapping
+  English = At least one of  name or uri SHALL be present
+  XPath = exists(f:uri) or exists(f:name)
+  Expression = uri.exists() or name.exists()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -182,6 +190,7 @@
   Element = DataElement.mapping
   Card. = 0..*
   UML = 400;140
+  Inv. = 3
   Short Name = External specification mapped to
   Definition = Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with
   IHE DEX mapping = 100;0
