@@ -27,7 +27,8 @@
 	</qualifier>
 	<description value="7 cm maximum diameter"/>
 	<image>
+	<!--   The actual image could be anywhere. This is a WADO example using a ficitious url  -->
 		<contentType value="application/dicom"/>
-		<url value="http://10.1.2.3:1000/wado?requestType=WADO&amp;amp;wado_details…"/>
+		<url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;amp;wado_details"/>
 	</image>
 </BodySite>

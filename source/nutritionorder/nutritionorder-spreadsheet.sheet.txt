@@ -311,7 +311,7 @@
   Aliases = frequency
   Type = Timing
   Short Name = Scheduled frequency of diet
-  Definition = The time period and frequency at which the diet should be given
+  Definition = The time period and frequency at which the diet should be given.  The diet should be given for the combination of all schedules if more than one schedule is present.
   RIM Mapping = .expectedUseTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type  #8181
 
@@ -424,7 +424,7 @@
   Aliases = frequency
   Type = Timing
   Short Name = Scheduled frequency of supplement
-  Definition = The time period and frequency at which the supplement(s) should be given
+  Definition = The time period and frequency at which the supplement(s) should be given.  The supplement should be given for the combination of all schedules if more than one schedule is present.
   RIM Mapping = .effectiveTime
   Committee Notes = 2/4/2015 EH: [#3996] Remove NutritionOrder.Item and push schedule/timing down into each type.  #8181
 

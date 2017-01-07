@@ -18,7 +18,7 @@ profile:</p>
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and an <a href="#example">example</a> are provided as well.  The links to the <a href="#content">
+		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and a valid<a href="#example">example</a> are provided as well. Note that many of the examples capture more that the minimum required. The links to the <a href="#content">
 				<strong>Profile Definitions</strong>
 			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
