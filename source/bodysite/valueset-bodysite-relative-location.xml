@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Bodysite Location Modifier"/>
+  <name value="Bodysite Location Qualifier"/>
   <status value="draft"/>
   <publisher value="Order and Observation Workgroup"/>
 <!--   author Eric Haas, Health eData Inc.  -->

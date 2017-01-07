@@ -17,14 +17,14 @@
 		</coding>
 		<text value="Splenic mass"/>
 	</code>
-	<modifier>
+	<qualifier>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="78961009"/>
 			<display value="Splenic structure (body structure)"/>
 		</coding>
 		<text value="Splenic mass"/>
-	</modifier>
+	</qualifier>
 	<description value="7 cm maximum diameter"/>
 	<image>
 		<contentType value="application/dicom"/>

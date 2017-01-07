@@ -1630,7 +1630,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.treatment</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.processing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1645,9 +1645,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Treatment and processing step details</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Processing and processing step details</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Details concerning treatment and processing steps for the specimen</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Details concerning processing and processing steps for the specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1662,7 +1662,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.treatment.description</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.processing.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1693,7 +1693,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.treatment.procedure</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.processing.procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1703,14 +1703,14 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">SpecimenTreatmentProcedure</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">SpecimenProcessingProcedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the treatment or processing step  applied to the specimen</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates the treatment step  applied to the specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A coded value specifying the procedure used to process the specimen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +1726,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.treatment.additive</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.processing.additive</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1758,7 +1758,7 @@
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="14">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.treatment.time[x]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Specimen.processing.time[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
@@ -1774,9 +1774,9 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Date and time of specimen treatment</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Date and time of specimen processing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6569,11 +6569,11 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">SpecimenTreatmentProcedure</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">SpecimenProcessingProcedure</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type indicating the technique used to process the specimen</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">valueset-specimen-treatment-procedure</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">valueset-specimen-processing-procedure</Data></Cell>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s119"/>

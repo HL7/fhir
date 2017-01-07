@@ -23,7 +23,7 @@
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = BodySiteModifier
+  Binding Name = BodySiteQualifier
   Binding = value set
   Reference = valueset-bodysite-relative-location
   Definition = Concepts modifying the anatomic location
@@ -87,12 +87,12 @@
   OpenEHR mapping = Name of location
 
  -- Row 6 -----------------------------------
-  Element = BodySite.modifier
+  Element = BodySite.qualifier
   Card. = 0..*
   Type = CodeableConcept
-  Binding = BodySiteModifier
+  Binding = BodySiteQualifier
   Short Name = Modification to location code
-  Definition = Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
+  Definition = Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
   v2 Mapping = No distinct element defined in V2.x. The IHE Radiology Technical Framework directs the use of OBR-15-specimen source to contain laterality for imaging studies.
   OpenEHR mapping = Combines Side, Numerical identifier, Anatomical plane,and Aspect
 
@@ -103,7 +103,7 @@
   Type = CodeableConcept
   Binding = Laterality
   Short Name = Laterality
-  Definition = Modifier to refine the anatomical location.  This includes concepts for laterality, relative location, directionality, number, and plane.
+  Definition = Qualifier to refine the anatomical location.  This includes concepts for laterality, relative location, directionality, number, and plane.
   OpenEHR mapping = Side
 
  -- Row 8 -----------------------------------

@@ -40,7 +40,7 @@
 		<collectedDateTime value="2015-08-18T07:03:00Z"/>
 		<!-- method is usually implied by type -->
 	</collection>
-	<treatment>
+	<processing>
 		<description value="Acidify to pH &lt; 3.0 with 6 N HCl."/>
 		<procedure>
 			<coding>
@@ -48,7 +48,7 @@
 				<code value="ACID"/>
 			</coding>
 		</procedure>
-	</treatment>
+	</processing>
 	<container>
 		<type>
 			<text value="Non-sterile specimen container"/>

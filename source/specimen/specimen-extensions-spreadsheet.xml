@@ -8397,7 +8397,7 @@ See wiki</Font>
 			</Row>
 			<Row ss:AutoFitHeight="0">
 				<Cell ss:StyleID="s118">
-					<Data ss:Type="String">treatmentTime</Data>
+					<Data ss:Type="String">processingTime</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s97">
@@ -8405,11 +8405,11 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s97">
-					<Data ss:Type="String">Specimen.treatment</Data>
+					<Data ss:Type="String">Specimen.processing</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s97">
-					<Data ss:Type="String">Treatment Time</Data>
+					<Data ss:Type="String">Processing Time</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s97">
@@ -8442,11 +8442,11 @@ See wiki</Font>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s97">
-					<Data ss:Type="String">Time of treatment</Data>
+					<Data ss:Type="String">Time of processing</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s98">
-					<Data ss:Type="String">Period or duration of treatment</Data>
+					<Data ss:Type="String">Period or duration of processing</Data>
 					<NamedCell ss:Name="_FilterDatabase"/>
 				</Cell>
 				<Cell ss:StyleID="s99">
