@@ -303,6 +303,7 @@
   Definition = Measurements and simple assertions made about a patient, device or other subject.
   Requirements = Observations are a key aspect of healthcare.  This resource is used to capture those that do not require more sophisticated mechanisms.
   Comments = Used for simple observations such as device measurements, laboratory atomic results, vital signs, height, weight, smoking status, comments, etc.  Other resources are used to provide context for observations such as lab reports, etc.
+  SNOMED CT Concept Domain = < 363787002 |Observable entity|
   v2 Mapping = OBX
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   w5 = clinical.diagnostics
@@ -329,6 +330,7 @@
   Short Name = registered | preliminary | final | amended +
   Definition = The status of the result value
   Requirements = Need to track the status of individual results. Some results are finalized before the whole report is finalized
+  SNOMED CT Concept Domain = < 445584004 |Report by finality status|
   v2 Mapping = OBX-11
   RIM Mapping = status  Amended & Final are differentiated by whether it is the subject of a ControlAct event with a type of \"revise\"
   Display Hint = default: final
@@ -356,8 +358,10 @@
   Short Name = Type of observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"name\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
+  SNOMED CT Concept Domain = < 363787002 |Observable entity| OR < 386053000 |Evaluation procedure|
   v2 Mapping = OBX-3
   RIM Mapping = code
+  SNOMED CT Attribute = 116680003 |Is a|
   w5 = what
 
  -- Row 6 -----------------------------------
@@ -434,8 +438,10 @@
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
   Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).\r\r\rIf the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.  For boolean values use valueCodeableConcept and select codes from [HL7 Version 2 Table 0136](v2/0136/index.html). These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed.   For further discussion and examples see the  [notes section](observation.html#4.20.4) below.
+  SNOMED CT Concept Domain = < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
+  SNOMED CT Attribute = 363714003 |Interprets|
   To Do = verify invariant
   Committee Notes = [#3125],[#3505],[#5853],8479,{#9375]
 
@@ -462,8 +468,10 @@
   Short Name = High, low, normal, etc.
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
+  SNOMED CT Concept Domain = < 260245000 |Findings values|
   v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
+  SNOMED CT Attribute = 363713009 |Has interpretation|
 
  -- Row 14 -----------------------------------
   Element = Observation.comment
@@ -499,8 +507,10 @@
   Definition = Indicates the site on the subject\'s body where the observation was made (i.e. the target site).
   Requirements = Knowing where the observation is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html).
+  SNOMED CT Concept Domain = < 123037004 |Body structure|
   v2 Mapping = OBX-20
   RIM Mapping = targetSiteCode
+  SNOMED CT Attribute = 718497002 |Inherent location|
   Committee Notes = Is this in the 80%?
 
  -- Row 17 -----------------------------------
@@ -523,8 +533,10 @@
   Short Name = Specimen used for this observation
   Definition = The specimen that was used when this observation was made
   Comments = Should only be used if not implicit in code found in `Observation.code`.  Observations are not made on specimens themselves; they are made on a subject, but in many cases by the means of a specimen. Note that although specimens are often involved, they are not always tracked and reported explicitly. Also note that observation resources may be used in contexts that track the specimen explicitly (e.g. Diagnostic Report).
+  SNOMED CT Concept Domain = < 123038009 |Specimen|
   v2 Mapping = SPM segment
   RIM Mapping = participation[typeCode=SPC].specimen
+  SNOMED CT Attribute = 704319004 |Inherent in|
   Committee Notes = 7158
 
  -- Row 19 -----------------------------------
@@ -534,8 +546,10 @@
   Short Name = (Measurement) Device
   Definition = The device used to generate the observation data.
   Comments = An extension should be used if further typing of the device is needed.  Devices used to support obtaining an observation can be represented using either extension or through the Observation.related element.
+  SNOMED CT Concept Domain = < 49062001 |Device|
   v2 Mapping = OBX-17 / PRT -10
   RIM Mapping = participation[typeCode=DEV]
+  SNOMED CT Attribute = 424226004 |Using device|
   Committee Notes = [#3689]
 
  -- Row 20 -----------------------------------
@@ -588,6 +602,7 @@
   Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
   Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
   Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed.
+  SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \n< 365860008 |General clinical state finding| \nOR \n< 250171008 |Clinical history or observation findings| OR  \n< 415229000 |Racial group| OR \n< 365400002 |Finding of puberty stage| OR\n< 443938003 |Procedure carried out on subject|
   v2 Mapping = OBX-10?
   RIM Mapping = interpretationCode
   Committee Notes = [$8941]
@@ -676,6 +691,7 @@
   Short Name = Type of component observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"code\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
+  SNOMED CT Concept Domain = < 363787002 |Observable entity| OR \n< 386053000 |Evaluation procedure|
   v2 Mapping = OBX-3
   RIM Mapping = code
   w5 = what
@@ -689,8 +705,10 @@
   Definition = The information determined as a result of making the observation, if the information has a simple value
   Requirements = An observation exists to have a value, though it may not if it is in error, or it represents a group of observations
   Comments = Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.   For boolean values use valueCodeableConcept and select codes from <http://hl7.org/fhir/ValueSet/v2-0136> (These \"yes/no\" concepts can be mapped to the display name \"true/false\" or other mutually exclusive terms that may be needed\").  The element, Observation.value[x], has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueRatio, valueChoice, valuePeriod, valueSampleData, or valueString (The name format is \"\'value\' + the type name\" with a capital on the first letter of the type).
+  SNOMED CT Concept Domain = 363714003 |Interprets| < 441742003 |Evaluation finding|
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
+  SNOMED CT Attribute = 363714003 |Interprets|
   Committee Notes = [#3125],[#3505],[#5853]
 
  -- Row 34 -----------------------------------
@@ -717,8 +735,10 @@
   Definition = The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
   Requirements = For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.
   Comments = The component interpretation is applies only to the indivual component value.  For an overall interpretation all components together use Observation.interpretation element.
+  SNOMED CT Concept Domain = < 260245000 |Findings values|
   v2 Mapping = OBX-8
   RIM Mapping = interpretationCode
+  SNOMED CT Attribute = 363713009 |Has interpretation|
   Committee Notes = #9676
 
  -- Row 36 -----------------------------------

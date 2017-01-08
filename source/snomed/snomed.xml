@@ -649,6 +649,12 @@
     <display value="Pelvic structure"/>
     <display value="Pelvic structure (body structure)"/>
   </concept>
+  <concept id="129264002" display="Action">
+    <display value="Action"/>
+    <display value="Clinical actions"/>
+    <display value="Clinical action"/>
+    <display value="Action (qualifier value)"/>
+  </concept>
   <concept id="129300006" display="Puncture - action (qualifier value)">
     <display value="Puncture - action"/>
     <display value="Puncture - action (qualifier value)"/>
@@ -14400,6 +14406,16 @@
   <concept id="385671000" display="Unsuccessful (qualifier value)">
     <display value="Unsuccessful (qualifier value)"/>
     <display value="Unsuccessful"/>
+  </concept>
+  <concept id="386053000" display="Evaluation procedure (procedure)">
+    <display value="Patient evaluation procedure"/>
+    <display value="Clinical investigation"/>
+    <display value="Investigations"/>
+    <display value="Evaluation procedure (procedure)"/>
+    <display value="Evaluation procedure"/>
+    <display value="Assessment"/>
+    <display value="Clinical evaluation"/>
+    <display value="Determination of a value, conclusion, or inference by evaluating evidence"/>
   </concept>
   <concept id="386144009" display="Line insertion site (morphologic abnormality)">
     <display value="Line insertion site (morphologic abnormality)"/>

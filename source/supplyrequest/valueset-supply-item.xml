@@ -13,7 +13,9 @@
 		</telecom>
 	</contact>
 	<date value="2016-05-18T16:57:59+00:00"/>
-	<description value="This value set includes all substance and physical object codes from SNOMED CT and provided as an example value set."/>
+	<description value="This value set includes [SNOMED CT](http://snomed.info/sct) where concept is-a 105590001 (Substance (substance)) or
+ concept is-a 260787004 (Physical object)
+ and provided as an example value set."/>
 	<copyright value="This value set includes content from SNOMED CT, which is copyright &#169; 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
 	<compose>
 		<include>
