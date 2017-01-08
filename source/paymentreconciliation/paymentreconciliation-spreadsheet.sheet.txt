@@ -230,7 +230,7 @@
   Element = !Notes
 
  -- Row 29 -----------------------------------
-  Element = PaymentReconciliation.note
+  Element = PaymentReconciliation.processNote
   Card. = 0..*
   UML = left
   Type = =Notes
@@ -238,7 +238,7 @@
   Definition = Suite of notes
 
  -- Row 30 -----------------------------------
-  Element = PaymentReconciliation.note.type
+  Element = PaymentReconciliation.processNote.type
   Card. = 0..1
   Type = CodeableConcept
   Binding = NoteType
@@ -246,7 +246,7 @@
   Definition = The note purpose: Print/Display.
 
  -- Row 31 -----------------------------------
-  Element = PaymentReconciliation.note.text
+  Element = PaymentReconciliation.processNote.text
   Card. = 0..1
   Type = string
   Short Name = Comment on the processing

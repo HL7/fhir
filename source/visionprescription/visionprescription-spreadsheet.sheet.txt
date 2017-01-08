@@ -279,8 +279,8 @@
 
  -- Row 24 -----------------------------------
   Element = VisionPrescription.dispense.note
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = Annotation
   Short Name = Notes for coatings
   Definition = Notes for special requirements such as coatings and lens materials.
 

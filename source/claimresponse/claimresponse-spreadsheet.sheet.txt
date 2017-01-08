@@ -640,7 +640,7 @@
   CDAnet v4 Mapping = G42
 
  -- Row 75 -----------------------------------
-  Element = ClaimResponse.note
+  Element = ClaimResponse.processNote
   Card. = 0..*
   UML = 20;110
   Type = =Note
@@ -648,14 +648,14 @@
   Definition = Note text
 
  -- Row 76 -----------------------------------
-  Element = ClaimResponse.note.number
+  Element = ClaimResponse.processNote.number
   Card. = 0..1
   Type = positiveInt
   Short Name = Sequence Number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
  -- Row 77 -----------------------------------
-  Element = ClaimResponse.note.type
+  Element = ClaimResponse.processNote.type
   Card. = 0..1
   Type = CodeableConcept
   Binding = NoteType
@@ -663,7 +663,7 @@
   Definition = The note purpose: Print/Display.
 
  -- Row 78 -----------------------------------
-  Element = ClaimResponse.note.text
+  Element = ClaimResponse.processNote.text
   Card. = 0..1
   Type = string
   Short Name = Note explanatory text
@@ -671,7 +671,7 @@
   CDAnet v4 Mapping = G32
 
  -- Row 79 -----------------------------------
-  Element = ClaimResponse.note.language
+  Element = ClaimResponse.processNote.language
   Card. = 0..1
   Type = CodeableConcept
   Binding = Language

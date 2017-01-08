@@ -96,12 +96,12 @@
 	    </identifier>
       </payor>
 	  
-	  <group>
+	  <grouping>
 	    <plan value="CBI35"/>
         <planDisplay value="Corporate Baker's Inc. Plan#35" />
         <subPlan value="123"/>
         <subPlanDisplay value="Trainee Part-time Benefits" />
-	  </group> 
+	  </grouping> 
 	  	  
       <dependent value="1"/>
       <sequence value="1"/>

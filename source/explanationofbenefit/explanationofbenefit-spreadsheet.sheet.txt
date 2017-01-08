@@ -1849,7 +1849,7 @@
   CDAnet v4 Mapping = G42
 
  -- Row 187 -----------------------------------
-  Element = ExplanationOfBenefit.note
+  Element = ExplanationOfBenefit.processNote
   Card. = 0..*
   UML = 0;110
   Type = =Note
@@ -1857,14 +1857,14 @@
   Definition = Note text.
 
  -- Row 188 -----------------------------------
-  Element = ExplanationOfBenefit.note.number
+  Element = ExplanationOfBenefit.processNote.number
   Card. = 0..1
   Type = positiveInt
   Short Name = Sequence number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
  -- Row 189 -----------------------------------
-  Element = ExplanationOfBenefit.note.type
+  Element = ExplanationOfBenefit.processNote.type
   Card. = 0..1
   Type = CodeableConcept
   Binding = NoteType
@@ -1872,7 +1872,7 @@
   Definition = The note purpose: Print/Display.
 
  -- Row 190 -----------------------------------
-  Element = ExplanationOfBenefit.note.text
+  Element = ExplanationOfBenefit.processNote.text
   Card. = 0..1
   Type = string
   Short Name = Note explanitory text
@@ -1880,7 +1880,7 @@
   CDAnet v4 Mapping = G32
 
  -- Row 191 -----------------------------------
-  Element = ExplanationOfBenefit.note.language
+  Element = ExplanationOfBenefit.processNote.language
   Card. = 0..1
   Type = CodeableConcept
   Binding = Language

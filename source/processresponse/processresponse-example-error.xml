@@ -50,7 +50,7 @@
 		</coding>
 	</form>
 
-	<note>
+	<processNote>
 		<type>
 			<coding>
 				<system value="http://hl7.org/fhir/note-type"/>
@@ -58,7 +58,7 @@
 			</coding>
 		</type>
 		<text value="Please check the submitted payor identification and local claim number."/>
-	</note>
+	</processNote>
 
 	<error>
 		<coding>

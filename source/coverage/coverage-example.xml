@@ -49,7 +49,7 @@
    <reference value="Organization/2"/>
  </payor>
  
- <group>
+ <grouping>
    <group value="CBI35"/>
    <groupDisplay value="Corporate Baker's Inc. Local #35"/>
    <subGroup value="123"/>
@@ -62,7 +62,7 @@
    <classDisplay value="Silver: Family Plan spouse only"/>
    <subClass value="Tier2"/>
    <subClassDisplay value="Low deductable, max $20 copay"/>
- </group>
+ </grouping>
   
  <dependent value="0"/>
  <sequence value="9"/>

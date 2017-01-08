@@ -239,14 +239,14 @@
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 
  -- Row 15 -----------------------------------
-  Element = Coverage.group
+  Element = Coverage.grouping
   Card. = 0..1
   Type = =Group
   Short Name = Additional coverage classifications
   Definition = A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
 
  -- Row 16 -----------------------------------
-  Element = Coverage.group.group
+  Element = Coverage.grouping.group
   Card. = 0..1
   Summary = Y
   Type = string
@@ -257,7 +257,7 @@
   CPhA3 (Pharmacy) Mapping = C.31
 
  -- Row 17 -----------------------------------
-  Element = Coverage.group.groupDisplay
+  Element = Coverage.grouping.groupDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -268,7 +268,7 @@
   CPhA3 (Pharmacy) Mapping = C.31
 
  -- Row 18 -----------------------------------
-  Element = Coverage.group.subGroup
+  Element = Coverage.grouping.subGroup
   Card. = 0..1
   Summary = Y
   Type = string
@@ -277,7 +277,7 @@
   v2 Mapping = IN1-8
 
  -- Row 19 -----------------------------------
-  Element = Coverage.group.subGroupDisplay
+  Element = Coverage.grouping.subGroupDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -286,7 +286,7 @@
   v2 Mapping = IN1-8
 
  -- Row 20 -----------------------------------
-  Element = Coverage.group.plan
+  Element = Coverage.grouping.plan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -296,7 +296,7 @@
   v2 Mapping = IN1-35
 
  -- Row 21 -----------------------------------
-  Element = Coverage.group.planDisplay
+  Element = Coverage.grouping.planDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -306,7 +306,7 @@
   v2 Mapping = IN1-35
 
  -- Row 22 -----------------------------------
-  Element = Coverage.group.subPlan
+  Element = Coverage.grouping.subPlan
   Card. = 0..1
   Summary = Y
   Type = string
@@ -315,7 +315,7 @@
   v2 Mapping = IN1-10
 
  -- Row 23 -----------------------------------
-  Element = Coverage.group.subPlanDisplay
+  Element = Coverage.grouping.subPlanDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -324,7 +324,7 @@
   v2 Mapping = IN1-10
 
  -- Row 24 -----------------------------------
-  Element = Coverage.group.class
+  Element = Coverage.grouping.class
   Card. = 0..1
   Summary = Y
   Type = string
@@ -334,7 +334,7 @@
   v2 Mapping = IN1-35
 
  -- Row 25 -----------------------------------
-  Element = Coverage.group.classDisplay
+  Element = Coverage.grouping.classDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -344,7 +344,7 @@
   v2 Mapping = IN1-35
 
  -- Row 26 -----------------------------------
-  Element = Coverage.group.subClass
+  Element = Coverage.grouping.subClass
   Card. = 0..1
   Summary = Y
   Type = string
@@ -354,7 +354,7 @@
   v2 Mapping = IN1-35
 
  -- Row 27 -----------------------------------
-  Element = Coverage.group.subClassDisplay
+  Element = Coverage.grouping.subClassDisplay
   Card. = 0..1
   Summary = Y
   Type = string
@@ -456,37 +456,37 @@
   Name = plan
   Type = string
   Description = A plan or policy identifier
-  Path = Coverage.group.plan
+  Path = Coverage.grouping.plan
 
  -- Row 8 -----------------------------------
   Name = subplan
   Type = string
   Description = Sub-plan identifier
-  Path = Coverage.group.subPlan
+  Path = Coverage.grouping.subPlan
 
  -- Row 9 -----------------------------------
   Name = group
   Type = string
   Description = Group identifier
-  Path = Coverage.group.group
+  Path = Coverage.grouping.group
 
  -- Row 10 -----------------------------------
   Name = subgroup
   Type = string
   Description = Sub-group identifier
-  Path = Coverage.group.subGroup
+  Path = Coverage.grouping.subGroup
 
  -- Row 11 -----------------------------------
   Name = class
   Type = string
   Description = Class identifier
-  Path = Coverage.group.class
+  Path = Coverage.grouping.class
 
  -- Row 12 -----------------------------------
   Name = subclass
   Type = string
   Description = Sub-class identifier
-  Path = Coverage.group.subClass
+  Path = Coverage.grouping.subClass
 
  -- Row 13 -----------------------------------
   Name = dependent

@@ -124,7 +124,7 @@
 		<code value="USD"/>
 	</total>  
 
-	<note>
+	<processNote>
 		<type>
 			<coding>
 				<system value="http://hl7.org/fhir/note-type"/>
@@ -132,6 +132,6 @@
 			</coding>
 		</type>
 		<text value="Due to the year end holiday the cutoff for submissions for December will be the 28th."/>
-	</note>
+	</processNote>
 
 </PaymentReconciliation>

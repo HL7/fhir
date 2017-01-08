@@ -59,7 +59,9 @@
 		</duration>
 		<color value="green"/>
 		<brand value="OphthaGuard"/>
-		<note value="Shade treatment for extreme light sensitivity"/>
+		<note>
+			<text value="Shade treatment for extreme light sensitivity"/>
+		</note>
 	</dispense>
 
 	<dispense>
@@ -84,7 +86,9 @@
 		</duration>
 		<color value="green"/>
 		<brand value="OphthaGuard"/>
-		<note value="Shade treatment for extreme light sensitivity"/>
+		<note>
+			<text value="Shade treatment for extreme light sensitivity"/>
+		</note>
 	</dispense>
 
 </VisionPrescription>

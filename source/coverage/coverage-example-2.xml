@@ -47,14 +47,14 @@
 		<reference value="Organization/2"/>
 	</payor>
 
-	<group>
+	<grouping>
 		<group value="WESTAIR" />
 		<groupDisplay value="Western Airlines" />
 		<plan value="WESTAIR" />
 		<planDisplay value="Western Airlines" />
 		<subPlan value="D15C9" />
 		<subPlanDisplay value="Platinum" />
-	</group>
+	</grouping>
 
 	<dependent value="1"/>
 
