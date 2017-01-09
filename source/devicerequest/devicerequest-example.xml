@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR-2/ehaas/Documents/FHIR/build/schema/devicerequest.xsd">
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
+	</text>
+	<!-- insert contents here -->
+	<status value="completed"/>
+	<intent>
+		<coding>
+			<code value="original-order"/>
+		</coding>
+	</intent>
+	<codeReference>
+		<reference value="Device/example"/>
+	</codeReference>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+</DeviceRequest>

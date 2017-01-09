@@ -23,7 +23,7 @@
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-This resource is different from DeviceUseRequest which records a request to use the device. This also is distinct from the Procedure resource 
+This resource is different from DeviceRequest which records a request to use the device. This also is distinct from the Procedure resource 
 which may describe the implantation or explantation of a device.
 </p>
 </div>

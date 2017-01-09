@@ -12,7 +12,7 @@
 	</thead>
 	<tbody>
 		<tr><td>communication</td><td>CommunicationRequest</td></tr>
-		<tr><td>device</td><td>DeviceUseRequest</td></tr>
+		<tr><td>device</td><td>DeviceRequest</td></tr>
 		<tr><td>diagnostic</td><td>DiagnosticRequest</td></tr>
 		<tr><td>diet</td><td>NutritionOrder</td></tr>
 		<tr><td>drug</td><td>MedicationRequest</td></tr>

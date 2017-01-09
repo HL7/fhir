@@ -1247,8 +1247,8 @@ do the expansions or find a terminology server that supports the same version of
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="DeviceUseRequest"/>
-            <display value="DeviceUseRequest"/>
+            <code value="DeviceRequest"/>
+            <display value="DeviceRequest"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
@@ -2237,7 +2237,7 @@ The direction to use for assertions."/>
         </extension>
         <url value="http://hl7.org/fhir/ValueSet/device-use-request-priority"/>
         <version value="1.0.2"/>
-        <name value="DeviceUseRequestPriority"/>
+        <name value="DeviceRequestPriority"/>
         <status value="draft"/>
         <experimental value="false"/>
         <publisher value="HL7 (FHIR Project)"/>
@@ -7539,7 +7539,7 @@ The content type or mime type to be specified in Accept or Content-Type header."
         </extension>
         <url value="http://hl7.org/fhir/ValueSet/device-use-request-status"/>
         <version value="1.0.2"/>
-        <name value="DeviceUseRequestStatus"/>
+        <name value="DeviceRequestStatus"/>
         <status value="draft"/>
         <experimental value="false"/>
         <publisher value="HL7 (FHIR Project)"/>
@@ -8115,8 +8115,8 @@ The content type or mime type to be specified in Accept or Content-Type header."
             <definition value="Describes a measurement, calculation or setting capability of a medical device."/>
           </concept>
           <concept>
-            <code value="DeviceUseRequest"/>
-            <display value="DeviceUseRequest"/>
+            <code value="DeviceRequest"/>
+            <display value="DeviceRequest"/>
             <definition value="Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker."/>
           </concept>
           <concept>
@@ -8604,8 +8604,8 @@ The content type or mime type to be specified in Accept or Content-Type header."
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="DeviceUseRequest"/>
-            <display value="DeviceUseRequest"/>
+            <code value="DeviceRequest"/>
+            <display value="DeviceRequest"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
@@ -11133,8 +11133,8 @@ Information for which the patient seeks heightened confidentiality. Sensitive in
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>
-            <code value="DeviceUseRequest"/>
-            <display value="DeviceUseRequest"/>
+            <code value="DeviceRequest"/>
+            <display value="DeviceRequest"/>
           </contains>
           <contains>
             <system value="http://hl7.org/fhir/resource-types"/>

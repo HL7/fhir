@@ -1,0 +1,448 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = DeviceRequestStatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-status
+  Definition = Codes representing the status of the request.
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = RequestIntent
+  Binding = value set
+  Reference = http://build.fhir.org/valueset-request-intent.html
+  Definition = The kind of diagnostic request
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = DeviceRequestCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/device-kind
+  Definition = Codes for devices that can be requested
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = DeviceRequestParticipantRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participant-role
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = DeviceRequestReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = Diagnosis or problem codes justifying the reason for requesting the device.
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = RequestPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+  Conformance = required
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DeviceRequest
+  Type = DomainResource
+  Short Name = Medical device request
+  Definition = Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
+  v2 Mapping = ORC
+  RIM Mapping = Act[moodCode<=INT]
+  Committee Notes = no map to dstu element: orderedON,priority
+  w5 = workflow.order
+
+ -- Row 2 -----------------------------------
+  Element = DeviceRequest.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Name = Request identifier
+  Definition = Identifiers assigned to this order by the orderer or by the receiver.
+  v2 Mapping = ORC.2, ORC.3
+  RIM Mapping = .identifier
+  QUICK mapping = ClinicalStatement.identifier
+  Committee Notes = DeviceRequest.DeviceRequest.identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = DeviceRequest.definition
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = Protocol or definition
+  Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 4 -----------------------------------
+  Element = DeviceRequest.basedOn
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = What request fulfills
+  Definition = Plan/proposal/order fulfilled by this request
+  v2 Mapping = ORC.8 (plus others)
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+  QUICK mapping = Proposal.prnReason.reason
+  Committee Notes = DeviceRequest.prnReason
+
+ -- Row 5 -----------------------------------
+  Element = DeviceRequest.replaces
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = What request replaces
+  Definition = The request takes the place of the referenced completed or terminated request(s)
+  v2 Mapping = Handled by message location of ORC (ORC.1=RO or RU)
+  RIM Mapping = .outboundRelationship[typeCode=RPLC].target
+
+ -- Row 6 -----------------------------------
+  Element = DeviceRequest.groupIdentifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Identifier of composite request
+  Definition = Composite request this is part of
+  v2 Mapping = ORC.4
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[moodCode=INT].identifier
+
+ -- Row 7 -----------------------------------
+  Element = DeviceRequest.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = DeviceRequestStatus
+  Short Name = draft | active | suspended | completed | entered-in-error | cancelled
+  Definition = The status of the request.
+  v2 Mapping = ORC.5
+  RIM Mapping = .status
+  QUICK mapping = Action.currentStatus
+  Committee Notes = DeviceRequest.status
+  w5 = status
+
+ -- Row 8 -----------------------------------
+  Element = DeviceRequest.intent
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = CodeableConcept
+  Binding = RequestIntent
+  Short Name = proposal | plan | original-order | encoded | reflex-order
+  Definition = Whether the request is a proposal, plan, an original order or a reflex order.
+  v2 Mapping = N/A
+  RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = DeviceRequest.priority
+  Card. = 0..1
+  Summary = Y
+  Regex = routine | urgent | asap | stat
+  Type = code
+  Binding = RequestPriority
+  Short Name = Indicates how quickly the {{title}} should be addressed with respect to other requests
+  v2 Mapping = TQ1.9
+  RIM Mapping = .priorityCode
+  To Do = .priorityCode
+  Default Value = If missing, normal priority
+  w5 = grade
+
+ -- Row 10 -----------------------------------
+  Element = DeviceRequest.code[x]
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Device) | CodeableConcept
+  Binding = DeviceRequestCode
+  Short Name = Device requested
+  Definition = The details of the device to be used.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .code
+  QUICK mapping = DeviceUse.device
+  Committee Notes = DeviceRequest.device
+  w5 = what
+
+ -- Row 11 -----------------------------------
+  Element = DeviceRequest.subject
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient|Group|Location|Device)
+  Short Name = Focus of request
+  Definition = The patient who will use the device.
+  v2 Mapping = Accompanying PID segment
+  RIM Mapping = .participation[typeCode=SBJ].role
+  QUICK mapping = ClinicalStatement.subject
+  Committee Notes = DeviceRequest.subject
+  w5 = who.focus
+
+ -- Row 12 -----------------------------------
+  Element = DeviceRequest.context
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter or Episode motivating request
+  Definition = An encounter that provides additional context in which this request is made.
+  v2 Mapping = Accompanying PV1
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
+  QUICK mapping = ClinicalStatement.encounter
+  Committee Notes = DeviceRequest.encounter
+  w5 = context
+
+ -- Row 13 -----------------------------------
+  Element = DeviceRequest.occurrence[x]
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime| Period| Timing
+  Short Name = Desired time or schedule for use
+  Definition = The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
+  v2 Mapping = Accompanying TQ1/TQ2 segments
+  RIM Mapping = .effectiveTime
+  QUICK mapping = DeviceUse.applicationSchedule
+  Committee Notes = DeviceRequest.timing[x]
+  w5 = when.planned
+
+ -- Row 14 -----------------------------------
+  Element = DeviceRequest.authoredOn
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Name = When recorded
+  Definition = When the request transitioned to being actionable
+  v2 Mapping = ORC.9
+  RIM Mapping = .participation[typeCode=AUT].time
+  QUICK mapping = ClinicalStatement.statementDateTime
+  Committee Notes = DeviceRequest.recordedOn
+  w5 = when.recorded
+
+ -- Row 15 -----------------------------------
+  Element = DeviceRequest.requester
+  Card. = 0..1
+  Summary = Y
+  Short Name = Who/what is requesting diagnostics
+  Definition = The individual who initiated the request and has responsibility for its activation
+  v2 Mapping = ORC.12
+  RIM Mapping = .participation[typeCode=AUT].role
+
+ -- Row 16 -----------------------------------
+  Element = DeviceRequest.requester.agent
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Device|Practitioner|Organization)
+  Short Name = Individual making the request
+  Definition = The device, practitioner, etc. who initiated the request
+  v2 Mapping = ORC.12
+  RIM Mapping = .player
+  w5 = who.author
+
+ -- Row 17 -----------------------------------
+  Element = DeviceRequest.requester.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization agent is acting for
+  Definition = The organization the device or practitioner was acting on behalf of
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+
+ -- Row 18 -----------------------------------
+  Element = DeviceRequest.performerType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DeviceRequestParticipantRole
+  Short Name = Fille role
+  Definition = Desired type of performer for doing the diagnostic testing.
+  v2 Mapping = PRT
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=KIND].code
+  w5 = who.actor
+
+ -- Row 19 -----------------------------------
+  Element = DeviceRequest.performer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
+  Short Name = Requested Filler
+  Definition = The desired perfomer for doing the diagnostic testing.
+  v2 Mapping = PRT
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  w5 = who.actor
+
+ -- Row 20 -----------------------------------
+  Element = DeviceRequest.reasonCode
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = DeviceRequestReason
+  Short Name = Coded Reason for request
+  Definition = Reason or justification for the use of this device.
+  v2 Mapping = ORC.16
+  RIM Mapping = .reasonCode
+  QUICK mapping = Action.indication.reason
+  Committee Notes = DeviceRequest.indication
+  w5 = why
+
+ -- Row 21 -----------------------------------
+  Element = DeviceRequest.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = Linked Reason for request
+  Definition = Reason or justification for the use of this device.
+  v2 Mapping = ORC.16
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 22 -----------------------------------
+  Element = DeviceRequest.supportingInfo
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Additional clinical information
+  Definition = Additional clinical information about the patient that may influence the request fulfilment.  For example, this may includes body where on the subject\'s the device will be used ( i.e. the target site).
+  Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible.
+  v2 Mapping = Accompanying segments
+  RIM Mapping = .outboundRelationship[typeCode=PERT].target
+
+ -- Row 23 -----------------------------------
+  Element = DeviceRequest.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Notes or comments
+  Definition = Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
+  v2 Mapping = NTE
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
+  QUICK mapping = ClinicalStatement.additionalText
+  Committee Notes = DeviceRequest.notes
+
+ -- Row 24 -----------------------------------
+  Element = DeviceRequest.relevantHistory
+  Card. = 0..*
+  Type = Reference(Provenance)
+  Short Name = Request provenance
+  Definition = Key events in the history of the request.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
+  v2 Mapping = N/A
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = authored-on
+  Type = date
+  Description = When the request transitioned to being actionable
+  Path = DeviceRequest.authoredOn
+
+ -- Row 2 -----------------------------------
+  Name = based-on
+  Type = reference
+  Description = Plan/proposal/order fulfilled by this request
+  Path = DeviceRequest.basedOn
+
+ -- Row 3 -----------------------------------
+  Name = intent
+  Type = token
+  Description = proposal | plan | original-order |reflex-order
+  Path = DeviceRequest.intent
+
+ -- Row 4 -----------------------------------
+  Name = code
+  Type = token
+  Description = Code for what is being requested/ordered
+  Path = DeviceRequest.codeCodeableConcept
+
+ -- Row 5 -----------------------------------
+  Name = definition
+  Type = reference
+  Description = Protocol or definition followed by this request
+  Path = DeviceRequest.definition
+
+ -- Row 6 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = Encounter or Episode during which request was created
+  Path = DeviceRequest.context
+
+ -- Row 7 -----------------------------------
+  Name = event-date
+  Type = date
+  Description = When service should occur
+  Path = DeviceRequest.occurrenceDateTime | DeviceRequest.occurrencePeriod
+
+ -- Row 8 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Business identifier for request/order
+  Path = DeviceRequest.identifier
+
+ -- Row 9 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Individual the service is ordered for
+  Path = DeviceRequest.subject
+  Target Types = Patient
+
+ -- Row 10 -----------------------------------
+  Name = performer
+  Type = reference
+  Description = Desired performer for service
+  Path = DeviceRequest.performer
+
+ -- Row 11 -----------------------------------
+  Name = replaces
+  Type = reference
+  Description = Request takes the place of referenced completed or terminated requests
+  Path = DeviceRequest.replaces
+
+ -- Row 12 -----------------------------------
+  Name = requester
+  Type = reference
+  Description = Who/what is requesting service 
+  Path = DeviceRequest.requester.agent
+
+ -- Row 13 -----------------------------------
+  Name = group-identifier
+  Type = token
+  Description = Composite request this is part of
+  Path = DeviceRequest.groupIdentifier
+
+ -- Row 14 -----------------------------------
+  Name = status
+  Type = token
+  Description = entered-in-error | draft | active |suspended | completed 
+  Path = DeviceRequest.status
+
+ -- Row 15 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Individual the service is ordered for
+  Path = DeviceRequest.subject
+
+ -- Row 16 -----------------------------------
+  Name = device
+  Type = reference
+  Description = Reference to resource that is being requested/ordered
+  Path = DeviceRequest.codeReference
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = DeviceRequest Extensions
+  IG Name = core
+  Filename = devicerequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Wheelchair
+  Identity = example
+  Description = Wheelchair assignment
+  Filename = devicerequest-example.xml
+
+=== Sheet Examples =====================================

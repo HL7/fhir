@@ -292,7 +292,7 @@ signatures.html
       <page type="resource" resource="Slot"/>
       <page type="resource" resource="ProcessRequest"/>
       <page type="resource" resource="ProcessResponse"/>
-      <page type="resource" resource="DeviceUseRequest"/>
+      <page type="resource" resource="DeviceRequest"/>
       <page type="resource" resource="DeviceUseStatement"/>
       <page type="resource" resource="SupplyDelivery"/>
       <page type="resource" resource="SupplyRequest"/>

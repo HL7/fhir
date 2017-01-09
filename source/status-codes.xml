@@ -978,7 +978,7 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceUseRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceRequest.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s71"/>

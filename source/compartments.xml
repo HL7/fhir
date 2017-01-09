@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -10,7 +11,7 @@
   <LastAuthor>Bryn</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2016-09-19T18:59:02Z</LastSaved>
-  <Version>15.0</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -20,10 +21,11 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>15960</WindowHeight>
-  <WindowWidth>28160</WindowWidth>
-  <WindowTopX>640</WindowTopX>
-  <WindowTopY>460</WindowTopY>
+  <WindowWidth>28155</WindowWidth>
+  <WindowTopX>645</WindowTopX>
+  <WindowTopY>465</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -65,12 +67,12 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="109" ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="130"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="208"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="108.75" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="129.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="207.75"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="254.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -121,7 +123,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <PageLayoutZoom>0</PageLayoutZoom>
    <Panes>
     <Pane>
      <Number>3</Number>
@@ -130,15 +131,16 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
   <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="118" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="157"/>
+   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
-   <Column ss:Width="53"/>
-   <Column ss:Width="148"/>
+   <Column ss:Width="53.25"/>
+   <Column ss:Width="147.75"/>
    <Column ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -295,11 +297,11 @@
     <Cell ss:Index="6"><Data ss:Type="String">source</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceUseRequest</Data></Cell>
-    <Cell><Data ss:Type="String">subject | requester | filler</Data></Cell>
+    <Cell><Data ss:Type="String">DeviceRequest</Data></Cell>
+    <Cell><Data ss:Type="String">subject | requester | performer</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">encounter</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">requester |  filler</Data></Cell>
-    <Cell><Data ss:Type="String">device | subject | requester |  filler</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">requester |  performer</Data></Cell>
+    <Cell><Data ss:Type="String">device | subject | requester |  performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DeviceUseStatement</Data></Cell>
@@ -708,12 +710,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
+   <LeftColumnVisible>2</LeftColumnVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>44</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -721,12 +723,13 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>64</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

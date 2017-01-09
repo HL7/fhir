@@ -4337,7 +4337,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -6310,7 +6310,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -6602,7 +6602,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -9295,7 +9295,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -10618,7 +10618,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -12490,7 +12490,7 @@
         <target value="VisionPrescription"/>
         <target value="MedicationOrder"/>
         <target value="ProcessRequest"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="NutritionOrder"/>
         <target value="DiagnosticOrder"/>
       </SearchParameter>
@@ -13163,7 +13163,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -14654,7 +14654,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -15767,7 +15767,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -15838,14 +15838,14 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-device"/>
+    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceRequest-device"/>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseRequest-device"/>
+        <id value="DeviceRequest-device"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/searchparameter-expression">
-          <valueString value="DeviceUseRequest.device"/>
+          <valueString value="DeviceRequest.device"/>
         </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-device"/>
+        <url value="http://hl7.org/fhir/SearchParameter/DeviceRequest-device"/>
         <name value="device"/>
         <publisher value="Health Level Seven International (Clinical Decision Support)"/>
         <contact>
@@ -15862,24 +15862,24 @@
         </contact>
         <date value="2016-05-27T22:57:07+10:00"/>
         <code value="device"/>
-        <base value="DeviceUseRequest"/>
+        <base value="DeviceRequest"/>
         <type value="reference"/>
         <description value="Device requested"/>
-        <xpath value="f:DeviceUseRequest/f:device"/>
+        <xpath value="f:DeviceRequest/f:device"/>
         <xpathUsage value="normal"/>
         <target value="Device"/>
       </SearchParameter>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-patient"/>
+    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceRequest-patient"/>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseRequest-patient"/>
+        <id value="DeviceRequest-patient"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/searchparameter-expression">
-          <valueString value="DeviceUseRequest.subject"/>
+          <valueString value="DeviceRequest.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-patient"/>
+        <url value="http://hl7.org/fhir/SearchParameter/DeviceRequest-patient"/>
         <name value="patient"/>
         <publisher value="Health Level Seven International (Clinical Decision Support)"/>
         <contact>
@@ -15896,24 +15896,24 @@
         </contact>
         <date value="2016-05-27T22:57:07+10:00"/>
         <code value="patient"/>
-        <base value="DeviceUseRequest"/>
+        <base value="DeviceRequest"/>
         <type value="reference"/>
         <description value="Search by subject - a patient"/>
-        <xpath value="f:DeviceUseRequest/f:subject"/>
+        <xpath value="f:DeviceRequest/f:subject"/>
         <xpathUsage value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-subject"/>
+    <fullUrl value="http://hl7.org/fhir/SearchParameter/DeviceRequest-subject"/>
     <resource>
       <SearchParameter>
-        <id value="DeviceUseRequest-subject"/>
+        <id value="DeviceRequest-subject"/>
         <extension url="http://hl7.org/fhir/StructureDefinition/searchparameter-expression">
-          <valueString value="DeviceUseRequest.subject"/>
+          <valueString value="DeviceRequest.subject"/>
         </extension>
-        <url value="http://hl7.org/fhir/SearchParameter/DeviceUseRequest-subject"/>
+        <url value="http://hl7.org/fhir/SearchParameter/DeviceRequest-subject"/>
         <name value="subject"/>
         <publisher value="Health Level Seven International (Clinical Decision Support)"/>
         <contact>
@@ -15930,10 +15930,10 @@
         </contact>
         <date value="2016-05-27T22:57:07+10:00"/>
         <code value="subject"/>
-        <base value="DeviceUseRequest"/>
+        <base value="DeviceRequest"/>
         <type value="reference"/>
         <description value="Search by subject"/>
-        <xpath value="f:DeviceUseRequest/f:subject"/>
+        <xpath value="f:DeviceRequest/f:subject"/>
         <xpathUsage value="normal"/>
         <target value="Patient"/>
       </SearchParameter>
@@ -16773,7 +16773,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -17612,7 +17612,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -17941,7 +17941,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -20040,7 +20040,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -22374,7 +22374,7 @@
         <target value="VisionPrescription"/>
         <target value="MedicationOrder"/>
         <target value="ProcessRequest"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="NutritionOrder"/>
         <target value="DiagnosticOrder"/>
       </SearchParameter>
@@ -22604,7 +22604,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -26727,7 +26727,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -26920,7 +26920,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>
@@ -27853,7 +27853,7 @@
         <target value="Device"/>
         <target value="DeviceComponent"/>
         <target value="DeviceMetric"/>
-        <target value="DeviceUseRequest"/>
+        <target value="DeviceRequest"/>
         <target value="DeviceUseStatement"/>
         <target value="DiagnosticOrder"/>
         <target value="DiagnosticReport"/>

@@ -62467,11 +62467,11 @@ For Questionnaire:
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://hl7.org/fhir/StructureDefinition/deviceuserequest-reasonRejected"/>
+    <fullUrl value="http://hl7.org/fhir/StructureDefinition/devicerequest-reasonRejected"/>
     <resource>
       <StructureDefinition>
-        <id value="deviceuserequest-reasonRejected"/>
-        <url value="http://hl7.org/fhir/StructureDefinition/deviceuserequest-reasonRejected"/>
+        <id value="devicerequest-reasonRejected"/>
+        <url value="http://hl7.org/fhir/StructureDefinition/devicerequest-reasonRejected"/>
         <name value="If request was rejected, why?"/>
         <display value="reasonRejected"/>
         <status value="draft"/>
@@ -62489,7 +62489,7 @@ For Questionnaire:
         <constrainedType value="Extension"/>
         <abstract value="false"/>
         <contextType value="resource"/>
-        <context value="DeviceUseRequest"/>
+        <context value="DeviceRequest"/>
         <base value="http://hl7.org/fhir/StructureDefinition/Extension"/>
         <snapshot>
           <element>
@@ -62559,7 +62559,7 @@ For Questionnaire:
             <type>
               <code value="uri"/>
             </type>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/deviceuserequest-reasonRejected"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/devicerequest-reasonRejected"/>
             <mapping>
               <identity value="rim"/>
               <map value="N/A"/>
@@ -62606,7 +62606,7 @@ For Questionnaire:
             <type>
               <code value="uri"/>
             </type>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/deviceuserequest-reasonRejected"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/devicerequest-reasonRejected"/>
           </element>
           <element>
             <path value="Extension.value[x]"/>

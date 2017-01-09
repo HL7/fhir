@@ -345,7 +345,7 @@
         <ns4:element name="age" type="interval&lt;System.Quantity&gt;"/>
         <ns4:element name="text" type="System.String"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceUseRequestStatus" baseType="QUICK.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceRequestStatus" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.SlicingRules" baseType="QUICK.Element">
@@ -920,7 +920,7 @@
         <ns4:element name="Device" type="QUICK.Device"/>
         <ns4:element name="DeviceComponent" type="QUICK.DeviceComponent"/>
         <ns4:element name="DeviceMetric" type="QUICK.DeviceMetric"/>
-        <ns4:element name="DeviceUseRequest" type="QUICK.DeviceUseRequest"/>
+        <ns4:element name="DeviceRequest" type="QUICK.DeviceRequest"/>
         <ns4:element name="DeviceUseStatement" type="QUICK.DeviceUseStatement"/>
         <ns4:element name="DiagnosticOrder" type="QUICK.DiagnosticOrder"/>
         <ns4:element name="DiagnosticReport" type="QUICK.DiagnosticReport"/>
@@ -2528,11 +2528,11 @@
         <ns4:element name="patient" type="System.Any"/>
         <ns4:element name="dispense" type="list&lt;QUICK.Supply.Dispense&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceUseRequest" baseType="QUICK.DomainResource"
-                  retrievable="true" identifier="deviceuserequest-qicore-qicore-deviceuserequest" primaryCodePath="device.type">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceRequest" baseType="QUICK.DomainResource"
+                  retrievable="true" identifier="devicerequest-qicore-qicore-devicerequest" primaryCodePath="device.type">
         <ns4:element name="bodySiteCodeableConcept" type="System.Concept"/>
         <ns4:element name="bodySiteReference" type="System.Any"/>
-        <ns4:element name="status" type="QUICK.DeviceUseRequestStatus"/>
+        <ns4:element name="status" type="QUICK.DeviceRequestStatus"/>
         <ns4:element name="device" type="System.Any"/>
         <ns4:element name="encounter" type="System.Any"/>
         <ns4:element name="identifier" type="list&lt;QUICK.Identifier&gt;"/>
@@ -2545,7 +2545,7 @@
         <ns4:element name="timingTiming" type="QUICK.Timing"/>
         <ns4:element name="timingPeriod" type="interval&lt;System.DateTime&gt;"/>
         <ns4:element name="timingDateTime" type="System.DateTime"/>
-        <ns4:element name="priority" type="QUICK.DeviceUseRequestPriority"/>
+        <ns4:element name="priority" type="QUICK.DeviceRequestPriority"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.CarePlan.Detail" baseType="QUICK.BackboneElement">
         <ns4:element name="category" type="QUICK.CarePlanActivityCategory"/>
@@ -2580,7 +2580,7 @@
         <ns4:element name="description" type="System.String"/>
         <ns4:element name="fulfillment" type="list&lt;System.Any&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceUseRequestPriority" baseType="QUICK.Element">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.DeviceRequestPriority" baseType="QUICK.Element">
         <ns4:element name="value" type="System.String"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.SampledData" baseType="QUICK.Element">
