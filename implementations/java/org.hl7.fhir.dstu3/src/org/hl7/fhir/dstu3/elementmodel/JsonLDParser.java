@@ -196,7 +196,7 @@ public class JsonLDParser extends ParserBase {
     } else if (element.hasChildren() || element.hasComments() || element.hasValue()) {
 			open(en);
       if (element.getProperty().isResource()) {
-	      prop("@context", jsonLDBase+element.getType()+".jsonld");
+	      prop("@type", element.getType());
 //        element = element.getChildren().get(0);
       }
 	    if (element.isPrimitive() || isPrimitive(element.getType())) {
