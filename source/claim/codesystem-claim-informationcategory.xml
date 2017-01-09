@@ -50,6 +50,11 @@
     <definition value="Teeth which are missing for any reason, for example: prior extraction, never developed."/>
   </concept>
   <concept>
+    <code value="prosthesis"/>
+    <display value="Prosthesis"/>
+    <definition value="The type of prosthesis and date of supply if a previously supplied prosthesis."/>
+  </concept>
+  <concept>
     <code value="other"/>
     <display value="Other"/>
     <definition value="Other information identified by the type.system."/>

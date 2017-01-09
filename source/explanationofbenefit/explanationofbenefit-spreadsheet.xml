@@ -7135,7 +7135,7 @@
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ExplanationOfBenefit.item.prosthesis</Data><NamedCell
+    <Cell><Data ss:Type="String">!ExplanationOfBenefit.item.prosthesis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7149,7 +7149,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">ExplanationOfBenefit.item.prosthesis.initial</Data><NamedCell
+    <Cell><Data ss:Type="String">!ExplanationOfBenefit.item.prosthesis.initial</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7165,7 +7165,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ExplanationOfBenefit.item.prosthesis.priorDate</Data><NamedCell
+    <Cell><Data ss:Type="String">!ExplanationOfBenefit.item.prosthesis.priorDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -7181,7 +7181,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell><Data ss:Type="String">ExplanationOfBenefit.item.prosthesis.priorMaterial</Data><NamedCell
+    <Cell><Data ss:Type="String">!ExplanationOfBenefit.item.prosthesis.priorMaterial</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -10630,7 +10630,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>184</TopRowBottomPane>
+   <TopRowBottomPane>163</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -10648,7 +10648,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>189</ActiveRow>
+     <ActiveRow>171</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

@@ -43,6 +43,14 @@
 		</coding>
 	</priority>
 
+	<prescription>
+	  <reference value="http://pharmacy.org/MedicationRequest/AB1234G"/>
+	</prescription>
+
+	<originalPrescription>
+	  <reference value="http://pharmacy.org/MedicationRequest/AB1202B"/>
+	</originalPrescription>
+	
 	<payee>
 		<type>
 			<coding>

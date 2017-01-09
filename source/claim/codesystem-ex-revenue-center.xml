@@ -49,4 +49,9 @@
     <display value="Emergency Room - beyond EMTALA"/>
     <definition value="Emergency Room - beyond EMTALA"/>
   </concept>
+  <concept>
+    <code value="0010"/>
+	<display value="Vision Clinic"/>
+	<definition value="Vision Clinic"/>
+  </concept>
 </CodeSystem>

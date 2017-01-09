@@ -1684,7 +1684,7 @@
   Element = !Oral Health Specific Item Elements
 
  -- Row 166 -----------------------------------
-  Element = ExplanationOfBenefit.item.prosthesis
+  Element = !ExplanationOfBenefit.item.prosthesis
   Card. = 0..1
   UML = 0;990
   Type = =Prosthesis
@@ -1692,7 +1692,7 @@
   Definition = The materials and placement date of prior fixed prosthesis.
 
  -- Row 167 -----------------------------------
-  Element = ExplanationOfBenefit.item.prosthesis.initial
+  Element = !ExplanationOfBenefit.item.prosthesis.initial
   Card. = 0..1
   Type = boolean
   Short Name = Is this the initial service
@@ -1701,7 +1701,7 @@
   CDAnet v4 Mapping = F15/F18 Only for Denture, Crown, Bridge
 
  -- Row 168 -----------------------------------
-  Element = ExplanationOfBenefit.item.prosthesis.priorDate
+  Element = !ExplanationOfBenefit.item.prosthesis.priorDate
   Card. = 0..1
   Type = date
   Short Name = Initial service Date
@@ -1710,7 +1710,7 @@
   CDAnet v4 Mapping = F04/F19
 
  -- Row 169 -----------------------------------
-  Element = ExplanationOfBenefit.item.prosthesis.priorMaterial
+  Element = !ExplanationOfBenefit.item.prosthesis.priorMaterial
   Card. = 0..1
   Type = CodeableConcept
   Binding = OralProsthoMaterial

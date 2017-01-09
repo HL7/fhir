@@ -30,6 +30,11 @@
     <definition value="Implant or associated with an implant."/>
   </concept>
   <concept>
+    <code value="rooh"/>
+    <display value="Rush or Outside of office hours"/>
+    <definition value="A Rush service or service performed outside of normal office hours."/>
+  </concept>
+  <concept>
     <code value="x"/>
     <display value="None"/>
     <definition value="None."/>

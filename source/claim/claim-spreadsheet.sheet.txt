@@ -1369,7 +1369,7 @@
   Element = !Oral Health Specific Item Elements
 
  -- Row 132 -----------------------------------
-  Element = Claim.item.prosthesis
+  Element = !Claim.item.prosthesis
   Card. = 0..1
   UML = 0;650
   Type = =Prosthesis
@@ -1378,7 +1378,7 @@
   Committee Notes = 380;750
 
  -- Row 133 -----------------------------------
-  Element = Claim.item.prosthesis.initial
+  Element = !Claim.item.prosthesis.initial
   Card. = 0..1
   Type = boolean
   Short Name = Is this the initial service
@@ -1386,7 +1386,7 @@
   Requirements = May impact on adjudication.
 
  -- Row 134 -----------------------------------
-  Element = Claim.item.prosthesis.priorDate
+  Element = !Claim.item.prosthesis.priorDate
   Card. = 0..1
   Type = date
   Short Name = Initial service Date
@@ -1394,7 +1394,7 @@
   Requirements = May impact on adjudication.
 
  -- Row 135 -----------------------------------
-  Element = Claim.item.prosthesis.priorMaterial
+  Element = !Claim.item.prosthesis.priorMaterial
   Card. = 0..1
   Type = CodeableConcept
   Binding = OralProsthoMaterial
@@ -1564,54 +1564,66 @@
   Filename = claim-example-oral-contained-identifier.xml
 
  -- Row 6 -----------------------------------
+  Name = General-Oral-Bridge
+  Identity = 100156
+  Description = PreAuthorization with Bridge and Crown
+  Filename = claim-example-oral-bridge.xml
+
+ -- Row 7 -----------------------------------
   Name = General-PreAuth-Oral-OthoPlan
   Identity = 100153
   Description = PreAuthorization with Orthodontic Treatment Plan
   Filename = claim-example-oral-orthoplan.xml
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = General-Claim-Vision-Exam
   Identity = 660150
   Description = Simple Vision Claim
   Filename = claim-example-vision.xml
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = General-Claim-Vision-Glasses
   Identity = 660151
   Description = Glasses Claim
   Filename = claim-example-vision-glasses.xml
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
+  Name = General-Claim-Vision-Glasses-3Tier
+  Identity = 660152
+  Description = Glasses Claim, 3 Tier, Secondary Coverage
+  Filename = claim-example-vision-glasses-3tier.xml
+
+ -- Row 11 -----------------------------------
   Name = General-Claim-Institutional-Simple
   Identity = 960150
   Description = Simple Institutional Service Claim
   Filename = claim-example-institutional.xml
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = General-Claim-Institutional-Rich
   Identity = 960151
   Description = Rich Institutional Service Claim
   Filename = claim-example-institutional-rich.xml
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = General-Claim-Professional-Simple
   Identity = 860150
   Description = Simple Pharmacy Service Claim
   Filename = claim-example-professional.xml
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = General-Claim-Pharmacy-Service
   Identity = 760150
   Description = Simple Pharmacy Service Claim
   Filename = claim-example-pharmacy.xml
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = General-Claim-Pharmacy-Medication
   Identity = 760151
   Description = Simple Pharmacy Medication Claim
   Filename = claim-example-pharmacy-medication.xml
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = General-Claim-Pharmacy-Compound
   Identity = 760152
   Description = Simple Pharmacy Compound Claim
