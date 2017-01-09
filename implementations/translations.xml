@@ -185,8 +185,8 @@
         <translation lang="es">Dispositivo</translation>
         <translation lang="fr">Dispositif</translation>
     </item>
-    <item id="DeviceUseRequest">
-        <translation lang="en">DeviceUseRequest</translation>
+    <item id="DeviceRequest">
+        <translation lang="en">DeviceRequest</translation>
         <translation lang="fr">DemandeUtilisationDispositif</translation>
     </item>
     <item id="DeviceUseStatement">
