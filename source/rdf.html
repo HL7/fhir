@@ -51,6 +51,7 @@ This page describes:
  <li><a href="#class">The FHIR definitions as Turtle</a></li>
 <!-- <li><a href="#profile">RDF representation of Profiles</a></li> -->
  <li><a href="#api">How to exchange RDF using the RESTful API</a></li>
+ <li><a href="#jsonld">Experimental JSON-LD format</a></li>
 </ul>
 
 <a name="instance"> </a>
@@ -300,6 +301,27 @@ The RDF definitions are published as a series of turtle files: <a href="rim.ttl"
 <p>
 TODO
 </p>
+
+<a name="jsonld"> </a>
+<h3>Experimental JSON-LD format</h3>
+<p>
+This specification also includes JSON-LD representations of the resources. 
+</p>
+<p>
+The JSON-LD examples are provided to assist implementers to evaluate the benefits of the 
+JSON-LD format (e.g. as compared to the RDF format, and also the <a href="json.html">Primary JSON Format</a>).
+When parsing the JSON-LD format, applications should not use the literal JSON directly, but 
+use the json-ld processed form. Any json-ld that results in the same content post-processing 
+is considered equivalent.
+</p>
+<p>
+The JSON-LD format is derived from the RDF format, and processing the JSON-LD will
+result in the same set of triples as the turtle format, with the following exceptions:
+</p>
+<ul>
+  <li>There is no equivalent for the fhir:nodeRole property, since the root node is explicit in the JSON form</li>
+  <li>There is no equivalent for the fhir:index property, since the order of the nodes is explicit in the JSON form</li>
+</ul>
 
 </div>
 

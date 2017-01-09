@@ -45,5 +45,11 @@
 	<classpathentry kind="lib" path="../imports/jena-core-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../imports/jena-iri-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../imports/jena-shaded-guava-3.1.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jsonld-java-0.9.0.jar"/>
+	<classpathentry kind="lib" path="../imports/jsonld-java-jena-0.4.1.jar"/>
+	<classpathentry kind="lib" path="../imports/httpclient-cache-4.2.3.jar"/>
+	<classpathentry kind="lib" path="../imports/jackson-annotations-2.5.2.jar"/>
+	<classpathentry kind="lib" path="../imports/jackson-core-2.5.2.jar"/>
+	<classpathentry kind="lib" path="../imports/jackson-databind-2.5.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

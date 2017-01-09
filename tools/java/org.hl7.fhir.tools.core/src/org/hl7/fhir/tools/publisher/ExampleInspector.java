@@ -1,12 +1,18 @@
 package org.hl7.fhir.tools.publisher;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,8 +21,18 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.jena.graph.Triple;
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.ResIterator;
+import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.sparql.util.Context;
+import org.apache.jena.sparql.util.IsoMatcher;
 import org.everit.json.schema.loader.SchemaLoader;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
@@ -31,6 +47,7 @@ import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.rdf.ModelComparer;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Logger;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
@@ -46,6 +63,12 @@ import org.json.JSONTokener;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.github.jsonldjava.utils.JsonUtils;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
+
 public class ExampleInspector {
 
   public static class EValidationFailed extends Exception {
@@ -58,7 +81,7 @@ public class ExampleInspector {
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
-  private static final boolean VALIDATE_RDF = false;
+  private static final boolean VALIDATE_RDF = true;
   
   
   private IWorkerContext context;
@@ -133,16 +156,16 @@ public class ExampleInspector {
 //  static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
 //  static final String JAXP_SCHEMA_SOURCE = "http://java.sun.com/xml/jaxp/properties/schemaSource";
 
-  public void validate(String n, StructureDefinition profile) {
+  public void validate(String n, String rt, StructureDefinition profile) {
     if (VALIDATE_BY_PROFILE)
-      doValidate(n, profile);
+      doValidate(n, rt, profile);
   }
   
-  public void validate(String n) {
-    doValidate(n, null);    
+  public void validate(String n, String rt) {
+    doValidate(n, rt, null);    
   }
   
-  public void doValidate(String n, StructureDefinition profile) {
+  public void doValidate(String n, String rt, StructureDefinition profile) {
     errorsInt.clear();
     logger.log(" ...validate " + n, LogMessageType.Process);
     try {
@@ -151,7 +174,7 @@ public class ExampleInspector {
 
       validateLogical(Utilities.path(rootDir, n+".json"), profile, FhirFormat.JSON);
       validateJson(Utilities.path(rootDir, n+".xml"), profile == null ? null : profile.getId());
-      validateRDF(Utilities.path(rootDir, n+".ttl"), Utilities.path(rootDir, n+".jsonld"));
+      validateRDF(Utilities.path(rootDir, n+".ttl"), Utilities.path(rootDir, n+".jsonld"), rt);
       
       checkSearchParameters(xe, e);
     } catch (Exception e) {
@@ -202,24 +225,36 @@ public class ExampleInspector {
     }
   }
 
-  private void validateRDF(String fttl, String fjld) throws FileNotFoundException, IOException {
+  private void validateRDF(String fttl, String fjld, String rt) throws FileNotFoundException, IOException {
     if (VALIDATE_RDF) {
-      // read turtle file into Jena
-      Model m = RDFDataMgr.loadModel(fttl);
+      // replace @context with the contents of the right context file
+      JsonObject json = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(fjld));
+      JsonObject defn = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(rootDir, "fhir.jsonld")));
+      json.remove("@context");
+      json.add("@context", defn.get("@context"));
+      Gson gson = new GsonBuilder().setPrettyPrinting().create();
+      String jcnt = gson.toJson(json);
+      TextFile.stringToFile(jcnt, "c:\\temp\\jsonld\\"+rt+".jsonld");
+      // parse to a model
+      Model mj = ModelFactory.createDefaultModel();
+      mj.read(new StringReader(jcnt), null, "JSON-LD");
 
+      // read turtle file into Jena
+      Model mt = RDFDataMgr.loadModel(fttl);
       // use ShEx to validate turtle file - TODO
-      /*
-       * - 
-       * - 
-       * - read json-ld file into Jena
-       * - ask Jena to compare them (https://jena.apache.org/documentation/javadoc/arq/org/apache/jena/sparql/util/IsoMatcher.html)
-       * 
-       * There is a fully compliant JSON-LD parser for Jena: https://github.com/jsonld-java/jsonld-java
-       */
+
+      List<String> diffs = new ModelComparer().setModel1(mt, "ttl").setModel2(mj, "json").compare();
+      if (!diffs.isEmpty()) {
+        //System.out.println("not isomorphic");
+        //for (String s : diffs) {
+       //   System.out.println("  "+s);
+        //}
+        //RDFDataMgr.write(new FileOutputStream("c:\\temp\\json.nt"), mj, RDFFormat.NTRIPLES_UTF8);
+        //RDFDataMgr.write(new FileOutputStream("c:\\temp\\ttl.nt"), mt, RDFFormat.NTRIPLES_UTF8);
+      }
     }
   }
 
- 
   public void summarise() throws EValidationFailed {
     logger.log("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
     if (errorCount > 0)

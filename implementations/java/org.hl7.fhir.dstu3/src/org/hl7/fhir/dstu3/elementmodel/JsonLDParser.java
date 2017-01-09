@@ -70,7 +70,8 @@ public class JsonLDParser extends ParserBase {
 			json = new JsonCreatorGson(osw);
 		json.setIndent(style == OutputStyle.PRETTY ? "  " : "");
 		json.beginObject();
-    prop("@context", jsonLDBase+e.getType()+".jsonld");
+    prop("@type", "fhir:"+e.getType());
+    prop("@context", jsonLDBase+"fhir.jsonld");
     String id = e.getChildValue("id");
     if (base != null && id != null) {
        if (base.endsWith("#"))
@@ -123,22 +124,55 @@ public class JsonLDParser extends ParserBase {
       for (Element child : item.getChildren()) {
         compose(path+"."+item.getName(), item, done, child);
       }
+      if ("Coding".equals(item.getType()))
+        decorateCoding(item);
+      if ("CodeableConcept".equals(item.getType()))
+        decorateCodeableConcept(item);
+      if ("Reference".equals(item.getType()))
+        decorateReference(item);
+      
       close();
     }
     closeArray();
 	}
 
 	private void primitiveValue(Element item) throws IOException {
-		json.name(item.fhirType()+".value");
 	  String type = item.getType();
-	  if (Utilities.existsInList(type, "boolean"))
-	  	json.value(item.getValue().equals("true") ? new Boolean(true) : new Boolean(false));
-	  else if (Utilities.existsInList(type, "integer", "unsignedInt", "positiveInt"))
-	  	json.value(new Integer(item.getValue()));
-	  else if (Utilities.existsInList(type, "decimal"))
-	  	json.value(new BigDecimal(item.getValue()));
-	  else
-	  	json.value(item.getValue());	
+	  if (Utilities.existsInList(type, "date", "dateTime")) {
+      json.name("date");
+      json.beginObject();
+      json.name("@value");
+      String v = item.getValue();
+      json.value(v);
+      if (v.length() > 10) {
+        int i = v.substring(10).indexOf("-");
+        if (i == -1)
+          i = v.substring(10).indexOf("+");
+        v = i == -1 ? v : v.substring(0,  10+i);
+      }
+      json.name("@type");
+      if (v.length() > 10)
+        json.value("xsd:dateTime");
+      else if (v.length() == 10)
+        json.value("xsd:date");
+      else if (v.length() == 7)
+        json.value("xsd:gYearMonth");
+      else if (v.length() == 4)
+        json.value("xsd:gYear");
+      json.endObject();
+	  } else if (Utilities.existsInList(type, "boolean")) {
+      json.name("boolean");
+      json.value(item.getValue().equals("true") ? new Boolean(true) : new Boolean(false));
+	  } else if (Utilities.existsInList(type, "integer", "unsignedInt", "positiveInt")) {
+      json.name("integer");
+      json.value(new Integer(item.getValue()));
+    } else if (Utilities.existsInList(type, "decimal")) {
+      json.name("decimal");
+      json.value(new BigDecimal(item.getValue()));
+    } else {
+      json.name("value");
+      json.value(item.getValue());
+    }
 	}
 
 	private void compose(String path, Element element) throws IOException {
@@ -156,7 +190,10 @@ public class JsonLDParser extends ParserBase {
     if (doType)
       en = en + Utilities.capitalize(element.getType());
 
-    if (element.hasChildren() || element.hasComments() || element.hasValue()) {
+    if (element.fhirType().equals("xhtml")) {
+      json.name(en);
+      json.value(element.getValue());
+    } else if (element.hasChildren() || element.hasComments() || element.hasValue()) {
 			open(en);
       if (element.getProperty().isResource()) {
 	      prop("@context", jsonLDBase+element.getType()+".jsonld");
@@ -185,11 +222,11 @@ public class JsonLDParser extends ParserBase {
   private void decorateReference(Element element) throws IOException {
     String ref = element.getChildValue("reference");
     if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://"))) {
-      json.name("Resource.reference");
+      json.name("link");
       json.value(ref);
     } else if (base != null && ref != null && ref.contains("/")) {
-      json.name("Resource.reference");
-      json.value(base+"/"+ref);
+      json.name("link");
+      json.value(Utilities.pathReverse(base, ref));
     }
   }
 
@@ -200,10 +237,10 @@ public class JsonLDParser extends ParserBase {
     if (system == null)
       return;
     if ("http://snomed.info/sct".equals(system)) {
-      json.name("Resource.concept");
+      json.name("concept");
       json.value("http://snomed.info/sct#"+code);
     } else if ("http://loinc.org".equals(system)) {
-      json.name("Resource.concept");
+      json.name("concept");
       json.value("http://loinc.org/owl#"+code);
     }  
   }

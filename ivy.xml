@@ -23,6 +23,7 @@
         <dependency org="org.apache.httpcomponents" name="httpclient" rev="4.2.3"/>
         <dependency org="org.apache.httpcomponents" name="httpcore" rev="4.2.2"/>
         <dependency org="org.apache.httpcomponents" name="httpmime" rev="4.2.3"/>
+        <dependency org="org.apache.httpcomponents" name="httpclient-cache" rev="4.2.3"/>
         <dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore" rev="2.9.2-v20131212-0545"/>
         <dependency org="org.eclipse.emf" name="org.eclipse.emf.ecore.xmi" rev="2.9.1-v20131212-0545"/>
         <dependency org="org.eclipse.emf" name="org.eclipse.emf.common" rev="2.9.2-v20131212-0545"/>
@@ -47,6 +48,7 @@
         <dependency org="xml-apis" name="xml-apis" rev="1.4.01"/>
         <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.5.2"/>
         <dependency org="com.fasterxml.jackson.core" name="jackson-databind" rev="2.5.2"/>
+        <dependency org="com.fasterxml.jackson.core" name="jackson-annotations" rev="2.5.2"/>
         <dependency org="com.github.rjeschke" name="txtmark" rev="0.11"/>
         <dependency org="org.pegdown" name="pegdown" rev="1.5.0"/>
         <dependency org="net.sf.saxon" name="Saxon-HE" rev="9.5.1-5"/>
@@ -64,7 +66,8 @@
         <dependency org="org.json" name="json" rev="20160212"/>
         <dependency org="com.github.jsonld-java" name="jsonld-java" rev="0.8.3" />
         <dependency org="com.google.code.javaparser" name="javaparser" rev="1.0.11"/>
-
+        <dependency org="com.github.jsonld-java" name="jsonld-java" rev="0.9.0"/>
+        <dependency org="com.github.jsonld-java" name="jsonld-java-jena" rev="0.4.1"/>
         <!-- if we need to use owasp for security checking
         <dependency org="com.googlecode.owasp-java-html-sanitizer" name="owasp-java-html-sanitizer" rev="20160628.1"/>
         <dependency org="com.google.guava" name="guava" rev="19.0"/>        

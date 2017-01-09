@@ -65,80 +65,21 @@ public class JsonLDGenerator  {
 		datatypes.addAll(types);
 	}
   
-	public JsonObject generate(ElementDefn root, String version, String genDate) throws Exception {
+	public void generate(JsonObject context, ElementDefn root, String version, String genDate) throws Exception {
 		enums.clear();
 		enumDefs.clear();
+		scanTypes(root, root);		
+		generateType(context, root, root.getName(), root, true, context, new HashSet<String>());
+		for (ElementDefn e : types.keySet()) {
+	    generateType(context, root, types.get(e), e, true, context, new HashSet<String>());
 
-		JsonObject schema = new JsonObject();
-		JsonObject context = new JsonObject();
-    schema.add("@context", context);
-    schema.addProperty("@id", "http://hl7.org/fhir/"+root.getName()); 
-    
-		scanTypes(root, root);
-		
-		generateType(root, root.getName(), root, true, context, new HashSet<String>());
-//		for (ElementDefn e : structures) {
-//			generateType(root, types.get(e), e, false, context);
-//		}
-
-		return schema;
+		}
 	}
 
-  private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base, Set<String> types) throws IOException, Exception {
-    if (types.contains(root.getName()))
-      return;
-    types.add(root.getName());
-    
-//    String parent = isResource ? root.typeCode() : "BackboneElement"; 
-//
-//    JsonObject r = new JsonObject();
-//	
-//	name = name.replace(".",  "_");
-//    base.add(name, r);
-//	
-//    JsonArray ao = new JsonArray();
-//    r.add("allOf", ao);
-//	// If a root element, do not include reference
-//	if(!name.equals("Element")) {
-//		JsonObject sup = new JsonObject();
-//		ao.add(sup);
-//		// The Element is Type, Structure or blank, then it is Element
-//		if( (parent == null) || (parent.isEmpty()) || (parent.equals("Type")) || (parent.equals("Structure")))
-//			parent="Element";
-//		sup.addProperty("$ref", (relative ? "#" : parent.replace(".",  "_")+".schema.json#") +"/definitions/"+parent.replace(".",  "_"));
-//	}
-//    JsonObject self = new JsonObject();
-//    ao.add(self);
-//    self.addProperty("description", root.getDefinition());
-//    Set<String> required = new HashSet<String>();
-//    JsonObject props = new JsonObject();
-//    self.add("properties", props);
-//
-//    if (isResource && definitions.hasResource(root.getName())) {
-//      JsonObject rt = new JsonObject();
-//      props.add("resourceType", rt);
-//      rt.addProperty("description", "This is a "+root.getName()+" resource");
-//      rt.addProperty("type", "string");
-//      JsonArray enums = new JsonArray();
-//      enums.add(new JsonPrimitive(root.getName()));
-//      rt.add("enum", enums);
-//      required.add("resourceType");
-//    }
-//    
+  private void generateType(JsonObject context, ElementDefn root, String name, ElementDefn struc, boolean isResource, JsonObject base, Set<String> types) throws IOException, Exception {
 		for (ElementDefn e : struc.getElements()) {
-//			if (e.getName().equals("[type]"))
-//				generateAny(root, e, "", props, relative);
-//			else 
-				generateElement(root, name, e, base, types);
+				generateElement(root, name, e, context, types);
 		}
-//		if (required.size() > 0) {
-//		  JsonArray req = new JsonArray();
-//		  self.add("required", req);
-//		  for (String s : required) {
-//		    req.add(new JsonPrimitive(s));
-//		  }
-//		}
-//		return props;
 	}
 
 	private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
@@ -211,30 +152,30 @@ public class JsonLDGenerator  {
 		} else {
 			JsonObject property = new JsonObject();
 			base.add(name+"."+e.getName(), property);
-      property.addProperty("@id", "http://hl7.org/fhir/"+e.getPath());
+			if (e.getPath() == null)
+	      property.addProperty("@id", "http://hl7.org/fhir/"+name+"."+e.getName());
+			else
+			  property.addProperty("@id", "http://hl7.org/fhir/"+e.getPath());
       for (TypeRef tr : e.getTypes()) {
         String tn = tr.getName();
         if (tn.equals("SimpleQuantity"))
           tn = "Quantity";
         if (!types.contains(tn)) {
           if (definitions.hasPrimitiveType(tn) || tn.equals("xhtml")) {
-            types.add(tn);
-            JsonObject pvalue = new JsonObject();
-            base.add(tn+".value", pvalue);
-            pvalue.addProperty("@id", "http://hl7.org/fhir/"+tn);
-            if (tn.equals("xhtml"))
-              pvalue.addProperty("@type", "http://www.w3.org/1999/xhtml");
-            else {
-              DefinedCode dc = definitions.getPrimitives().get(tn);
-              if (dc instanceof PrimitiveType)
-                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((PrimitiveType) dc).getSchemaType());
-              else
-                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((DefinedStringPattern) dc).getSchema());
-            }
-          } else {
-            TypeDefn td = definitions.getElementDefn(tn);
-            generateType(td, tn, td, false, base, types);
-          }
+//            types.add(tn);
+//            JsonObject pvalue = new JsonObject();
+//            base.add(tn+".value", pvalue);
+//            pvalue.addProperty("@id", "http://hl7.org/fhir/"+tn);
+//            if (tn.equals("xhtml"))
+//              pvalue.addProperty("@type", "http://www.w3.org/1999/xhtml");
+//            else {
+//              DefinedCode dc = definitions.getPrimitives().get(tn);
+//              if (dc instanceof PrimitiveType)
+//                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((PrimitiveType) dc).getSchemaType());
+//              else
+//                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((DefinedStringPattern) dc).getSchema());
+//            }
+          } 
         }
       }
 			
@@ -334,12 +275,7 @@ public class JsonLDGenerator  {
   private void scanTypes(ElementDefn root, ElementDefn focus) {
 	  for (ElementDefn e : focus.getElements()) {
 	    if (e.getTypes().size() == 0 && e.getElements().size() > 0) {
-        int i = 0;
-        String tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
-        while (typenames.contains(tn)) {
-          i++;
-          tn = root.getName()+"."+upFirst(e.getName())+ (i == 0 ? "" : Integer.toString(i));
-        }
+        String tn = e.getPath();
         structures.add(e);
         typenames.add(tn);
         types.put(e, tn);

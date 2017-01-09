@@ -2556,6 +2556,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       zip.addFilesFiltered(page.getFolders().dstDir, "", ".json", new String[] {".schema.json", ".canonical.json", "expansions.json"});
       zip.close();
 
+      zip = new ZipGenerator(page.getFolders().dstDir + "examples-ttl.zip");
+      zip.addFilesFiltered(page.getFolders().dstDir, "", ".ttl", new String[0]);
+      zip.close();
+
+      zip = new ZipGenerator(page.getFolders().dstDir + "examples-jsonld.zip");
+      zip.addFilesFiltered(page.getFolders().dstDir, "", ".jsonld", new String[0]);
+      zip.close();
+
       page.log(" ...final zip", LogMessageType.Process);
       produceZip();
 
@@ -5218,7 +5226,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           ImplementationGuideDefn ig = e.getIg() == null ? null : page.getDefinitions().getIgs().get(e.getIg());
           if (ig != null)
             n = ig.getCode()+File.separator+n;
-          ei.validate(n);
+          ei.validate(n, rname);
         }
 
         for (Profile e : r.getConformancePackages()) {
@@ -5226,7 +5234,7 @@ public class Publisher implements URIResolver, SectionNumberer {
             ImplementationGuideDefn ig = en.getIg() == null ? null : page.getDefinitions().getIgs().get(en.getIg());
             String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
             String n = prefix+Utilities.changeFileExt(en.getTitle(), "");
-            ei.validate(n, e.getProfiles().get(0).getResource());
+            ei.validate(n, rname, e.getProfiles().get(0).getResource());
           }
         }
       }
@@ -5236,26 +5244,26 @@ public class Publisher implements URIResolver, SectionNumberer {
       String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode()+File.separator;
       for (Example ex : ig.getExamples()) {
         String n = ex.getTitle();
-        ei.validate(prefix+n);
+        ei.validate(prefix+n, ex.getResourceName());
       }
       for (Profile pck : ig.getProfiles()) {
         for (Example en : pck.getExamples()) {
-          ei.validate(prefix+Utilities.changeFileExt(en.getTitle(), ""), pck.getProfiles().get(0).getResource());
+          ei.validate(prefix+Utilities.changeFileExt(en.getTitle(), ""), en.getResourceName(), pck.getProfiles().get(0).getResource());
         }
       }
     }
 
     if (buildFlags.get("all")) {
-      ei.validate("profiles-resources");
-      ei.validate("profiles-types");
-      ei.validate("profiles-others");
-      ei.validate("search-parameters");
-      ei.validate("extension-definitions");
-      ei.validate("valuesets");
-      ei.validate("dataelements");
-      ei.validate("conceptmaps");
-      ei.validate("v2-tables");
-      ei.validate("v3-codesystems");
+      ei.validate("profiles-resources", "Bundle");
+      ei.validate("profiles-types", "Bundle");
+      ei.validate("profiles-others", "Bundle");
+      ei.validate("search-parameters", "Bundle");
+      ei.validate("extension-definitions", "Bundle");
+      ei.validate("valuesets", "Bundle");
+      ei.validate("dataelements", "Bundle");
+      ei.validate("conceptmaps", "Bundle");
+      ei.validate("v2-tables", "Bundle");
+      ei.validate("v3-codesystems", "Bundle");
     }
     
     if (buildFlags.get("all") && isGenerate)
