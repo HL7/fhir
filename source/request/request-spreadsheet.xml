@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-19T20:05:23Z</LastSaved>
+  <LastSaved>2017-01-09T21:49:32Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -2064,7 +2064,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -4964,11 +4963,11 @@
     <Cell><Data ss:Type="String">This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.nullified</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
+   <Row ss:Height="86.399999999999991">
     <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request</Data></Cell>
+    <Cell><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
@@ -4979,11 +4978,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>7</ActiveRow>
-     <RangeSelection>R8C1:R8C8</RangeSelection>
+     <RangeSelection>R8</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

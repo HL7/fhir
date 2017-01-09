@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-19T20:05:23Z</LastSaved>
+  <LastSaved>2017-01-09T21:49:31Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>9</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -883,6 +883,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s164">
+   <Alignment ss:Vertical="Top"/>
+  </Style>
+  <Style ss:ID="s165">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R15C1"/>
@@ -1329,7 +1335,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">draft | active | withdrawn</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">draft | active | withdrawn | unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">The current state of the {{title}}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2003,7 +2009,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
@@ -2026,7 +2031,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4813,11 +4818,11 @@
     <Cell><Data ss:Type="String">The definition should no longer be used</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.aborted</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="43.199999999999996">
+   <Row ss:Height="86.399999999999991" ss:StyleID="s164">
     <Cell><Data ss:Type="String">unknown</Data></Cell>
-    <Cell><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s165"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unknown</Data></Cell>
-    <Cell><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this definition.</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=NullFlavor.unknown</Data></Cell>
    </Row>
   </Table>
@@ -4828,11 +4833,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
