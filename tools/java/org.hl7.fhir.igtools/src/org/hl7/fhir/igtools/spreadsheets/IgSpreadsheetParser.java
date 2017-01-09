@@ -460,6 +460,7 @@ public class IgSpreadsheetParser {
         ValueSet vs = ValueSetUtilities.makeShareable(new ValueSet());
         vs.setId(ref.substring(1));
         vs.setUrl(base+"/ValueSet/"+ref.substring(1));
+        bs.setValueSet(new Reference("ValueSet/"+ref.substring(1)));
         bundle.addEntry().setResource(vs).setFullUrl(vs.getUrl());
         vs.setName(bindingName);
         String oid = sheet.getColumn(row, "Oid");
