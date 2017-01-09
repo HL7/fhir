@@ -272,8 +272,8 @@ public class ProfileUtilities {
 
 
   public static List<ElementDefinition> getChildList(StructureDefinition structure, ElementDefinition element) {
-	  	return getChildList(structure, element.getPath());
-	  }
+    return getChildList(structure, element.getPath());
+	}
 
   public void updateMaps(StructureDefinition base, StructureDefinition derived) throws DefinitionException {
     if (base == null)
@@ -395,6 +395,7 @@ public class ProfileUtilities {
           else
             // some of what's in currentBase overrides template
             template = overWriteWithCurrent(template, currentBase);
+          
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
           updateFromBase(outcome, currentBase);
@@ -579,7 +580,8 @@ public class ProfileUtilities {
             for (ElementDefinition baseItem : baseMatches)
               if (baseItem.getSliceName().equals(diffItem.getSliceName()))
                 throw new DefinitionException("Named items are out of order in the slice");
-            outcome = updateURLs(url, diffItem.copy());
+            outcome = updateURLs(url, currentBase.copy());
+//            outcome = updateURLs(url, diffItem.copy());
             outcome.setPath(fixedPath(contextPathDst, outcome.getPath()));
             updateFromBase(outcome, currentBase);
             outcome.setSlicing(null);
@@ -610,11 +612,14 @@ public class ProfileUtilities {
                   // Force URL to appear if we're dealing with an extension.  (This is a kludge - may need to drill down in other cases where we're slicing and the type has a profile declaration that could be setting the fixed value)
                   StructureDefinition dt = getProfileForDataType(outcome.getType().get(0));
                   for (ElementDefinition extEd : dt.getSnapshot().getElement()) {
-                    ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
-                    extUrlEd.setPath(fixedPath(contextPathDst, extUrlEd.getPath()));
-//                    updateFromBase(extUrlEd, currentBase);
-                    markDerived(extUrlEd);
-                    result.getElement().add(extUrlEd);
+                    // We only want the children that aren't the root
+                    if (extEd.getPath().contains(".")) {
+                      ElementDefinition extUrlEd = updateURLs(url, extEd.copy());
+                      extUrlEd.setPath(fixedPath(outcome.getPath(), extUrlEd.getPath()));
+//                      updateFromBase(extUrlEd, currentBase);
+                      markDerived(extUrlEd);
+                      result.getElement().add(extUrlEd);
+                    }
                   }                  
                 }
               }
@@ -1456,11 +1461,11 @@ public class ProfileUtilities {
 
 
     try {
-		return gen.generate(model, corePath, 0);
-	} catch (org.hl7.fhir.exceptions.FHIRException e) {
-		throw new FHIRException(e.getMessage(), e);
-	}
-    }
+      return gen.generate(model, corePath, 0);
+  	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+  		throw new FHIRException(e.getMessage(), e);
+  	}
+  }
 
   private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
     int i = ed.getSnapshot().getElement().indexOf(c) + 1;
@@ -1747,9 +1752,9 @@ public class ProfileUtilities {
     genElement(defFile == null ? null : defFile+"#", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath, imagePath, true, logicalModel, profile.getDerivation() == TypeDerivationRule.CONSTRAINT && usesMustSupport(list), allInvariants);
     try {
       return gen.generate(model, imagePath, 0);
-	} catch (org.hl7.fhir.exceptions.FHIRException e) {
-		throw new FHIRException(e.getMessage(), e);
-	}
+  	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+  		throw new FHIRException(e.getMessage(), e);
+  	}
   }
 
 
