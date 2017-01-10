@@ -1564,7 +1564,7 @@
   Filename = claim-example-oral-contained-identifier.xml
 
  -- Row 6 -----------------------------------
-  Name = !General-Oral-B+ridge
+  Name = General-Oral-Bridge
   Identity = 100156
   Description = PreAuthorization with Bridge and Crown
   Filename = claim-example-oral-bridge.xml
@@ -1588,7 +1588,7 @@
   Filename = claim-example-vision-glasses.xml
 
  -- Row 10 -----------------------------------
-  Name = !General-Claim-Vision-Glasses-3Tier
+  Name = General-Claim-Vision-Glasses-3Tier
   Identity = 660152
   Description = Glasses Claim, 3 Tier, Secondary Coverage
   Filename = claim-example-vision-glasses-3tier.xml

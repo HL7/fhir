@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+	<id value="100156"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the Oral Health Claim</div>
+	</text>
+
+	<contained>
+		<Device>
+			<id value="device-bridge"/>
+			<!-- rest of the resource ommitted for brevity -->
+		</Device>
+	</contained>
+
+	<contained>
+		<ReferralRequest>
+			<id value="referral"/>
+			<status value="active"/>
+			<category value="request"/>
+			<!-- rest of the resource ommitted for brevity -->
+		</ReferralRequest>
+	</contained>
+
+	<identifier>
+		<system value="http://happyvalley.com/claim"/>
+		<value value="123466"/>
+	</identifier>
+
+	<status value = "active"/>
+
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/ex-claimtype"/>
+			<code value="oral"/>
+		</coding>
+	</type>
+
+	<use value="complete"/>
+
+	<patient>
+		<reference value="Patient/1"/>
+	</patient>
+
+	<created value="2014-08-16"/>
+
+	<insurer>
+		<reference value="Organization/2"/>
+	</insurer>
+
+	<organization>
+		<reference value="Organization/1"/>
+	</organization>
+
+	<priority>
+		<coding>
+			<code value="normal"/>
+		</coding>
+	</priority>
+
+	<related>
+		<claim>
+			<reference value="Claim/100151"/>
+		</claim>
+		<relationship>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-relatedclaimrelationship"/>
+				<code value="associated"/>
+			</coding>
+		</relationship>
+		<reference>
+			<value value="CASE156746B"/> <!-- case number -->
+		</reference>
+	</related>
+
+	<payee>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/payeetype"/>
+				<code value="other"/>
+			</coding>
+		</type>
+		<resourceType>
+			<system value="http://hl7.org/fhir/ex-payee-resource-type"/>
+			<code value="relatedperson"/>
+		</resourceType>
+		<party>
+			<reference value="RelatedPerson/peter"/>
+		</party>
+	</payee>
+
+	<referral>
+		<reference value="#referral"/>
+	</referral>
+
+	<careTeam>
+		<sequence value="1"/>
+		<provider>
+			<reference value="Practitioner/example"/>
+		</provider>
+	</careTeam>
+
+	<information>
+		<sequence value="1"/>
+		<category>
+			<coding>
+				<system value="http://hl7.org/fhir/claiminformationcategory"/>
+				<code value="prosthesis"/>
+			</coding>
+		</category>
+		<code>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-oralprostho"/>
+				<code value="2"/>
+				<display value="Maryland Bridge"/>
+			</coding>
+		</code>
+		<timingDate value="2001-04-07"/> <!-- original placement -->
+	</information>
+
+	<procedure>
+		<sequence value="1"/>   
+		<date value="2014-07-04"/>
+		<procedureCodeableConcept>
+			<text value="Resection of gum to increase exposed tooth."/>
+		</procedureCodeableConcept>
+	</procedure>
+
+	<insurance>
+		<sequence value="1"/>
+		<focal value="true"/>
+		<coverage>
+			<reference value="Coverage/9876B1"/>
+		</coverage>
+	</insurance>
+
+	<item>
+		<sequence value="1"/>
+		<careTeamLinkId value="1"/>
+		<informationLinkId value="1"/>
+		<service>
+			<coding>
+				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<code value="67221"/>
+				<display value="Maryland Bridge"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<locationCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<code value="11"/>
+			</coding>
+		</locationCodeableConcept>
+		<unitPrice>
+			<value value="1400.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<factor value="0.75"/> <!-- student discount -->
+		<net>
+			<value value="1050.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<udi>
+			<reference value="#device-bridge"/>
+		</udi>
+		<bodySite>
+			<coding>
+				<system value="http://fdi.org/fhir/oraltoothcodes"/>
+				<code value="01"/>
+			</coding>
+		</bodySite>
+	</item>
+
+	<item>
+		<sequence value="2"/>
+		<careTeamLinkId value="1"/>
+		<service>
+			<coding>
+				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<code value="21211"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<locationCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<code value="11"/>
+			</coding>
+		</locationCodeableConcept>
+		<unitPrice>
+			<value value="105.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<net>
+			<value value="105.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<bodySite>
+			<coding>
+				<system value="http://fdi.org/fhir/oraltoothcodes"/>
+				<code value="21"/>
+			</coding>
+		</bodySite>
+		<subSite>
+			<coding>
+				<system value="http://fdi.org/fhir/oralsurfacecodes"/>
+				<code value="L"/>
+			</coding>
+		</subSite>
+	</item>
+
+	<item>
+		<sequence value="3"/>
+		<careTeamLinkId value="1"/>
+		<procedureLinkId value="1"/>
+		<service>
+			<coding>
+				<system value="http://hl7.org/fhir/oralservicecodes"/>
+				<code value="27211"/>
+			</coding>
+		</service>
+		<servicedDate value="2014-08-16"/>
+		<locationCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/ex-serviceplace"/>
+				<code value="11"/>
+			</coding>
+		</locationCodeableConcept>
+		<unitPrice>
+			<value value="1100.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</unitPrice> 
+		<net>
+			<value value="1100.00"/>
+			<system value="urn:iso:std:iso:4217"/>
+			<code value="USD"/> 
+		</net> 
+		<bodySite>
+			<coding>
+				<system value="http://fdi.org/fhir/oraltoothcodes"/>
+				<code value="24"/>
+			</coding>
+		</bodySite>
+
+		<detail>
+			<sequence value="1"/>
+			<service>
+				<coding>
+					<system value="http://hl7.org/fhir/oralservicecodes"/>
+					<code value="27211"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="1000.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<factor value="0.75"/> <!-- Student discount -->
+			<net>
+				<value value="750.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+
+		<detail>
+			<sequence value="2"/>
+			<service>
+				<coding>
+					<system value="http://hl7.org/fhir/oralservicecodes"/>
+					<code value="lab"/>
+				</coding>
+			</service>
+			<unitPrice>
+				<value value="350.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</unitPrice> 
+			<net>
+				<value value="350.00"/>
+				<system value="urn:iso:std:iso:4217"/>
+				<code value="USD"/> 
+			</net> 
+		</detail>
+	</item>
+	<total>
+		<value value="2255.00"/>
+		<system value="urn:iso:std:iso:4217"/>
+		<code value="USD"/> 
+	</total> 
+
+</Claim>
