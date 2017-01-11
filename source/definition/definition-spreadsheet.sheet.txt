@@ -41,10 +41,10 @@
   v3 = =ActStatus.aborted
 
  -- Row 4 -----------------------------------
-  Id = 7
+  Id = 4
   Code = unknown
   Display = Unknown
-  Definition = The authoring system does not know which of the status values currently applies for this definition.
+  Definition = The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
   v3 = =NullFlavor.unknown
 
 === Sheet Invariants =====================================
@@ -142,7 +142,7 @@
   Summary = Y
   Type = code
   Binding = DefinitionStatus
-  Short Name = draft | active | withdrawn
+  Short Name = draft | active | withdrawn | unknown
   Definition = The current state of the {{title}}
   Comments = A nominal state-transition diagram can be found in the [[definition.html#statemachine | Definition pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   RIM Mapping = .status

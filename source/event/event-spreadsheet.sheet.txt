@@ -71,7 +71,7 @@
   Id = 7
   Code = unknown
   Display = Unknown
-  Definition = The authoring system does not know which of the status values currently applies for this event
+  Definition = The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
   v3 = =NullFlavor.unknown
 
 === Sheet Invariants =====================================
@@ -149,7 +149,7 @@
   Summary = Y
   Type = code
   Binding = EventStatus
-  Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
+  Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
   Definition = The current state of the event
   Comments = A nominal state-transition diagram can be found in the [[event.html#statemachine | Event pattern]] documentation\n\nUnknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   v2 Mapping = Varies by domain

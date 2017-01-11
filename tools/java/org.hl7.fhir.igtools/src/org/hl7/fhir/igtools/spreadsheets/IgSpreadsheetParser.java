@@ -170,6 +170,11 @@ public class IgSpreadsheetParser {
       if (hasMetadata("published.structure")) {
         for (String n : metadata.get("published.structure")) {
           if (!Utilities.noString(n)) {
+            supplementMappings(n);
+          }
+        }
+        for (String n : metadata.get("published.structure")) {
+          if (!Utilities.noString(n)) {
             StructureDefinition sd = parseProfileSheet(n, namedSheets, f.getErrors(), false);
             if (first == null)
               first = sd;
@@ -202,6 +207,22 @@ public class IgSpreadsheetParser {
     return bundle;
   }
 
+  private void supplementMappings(String name) {
+    sheet = loadSheet(name);
+    List<String> mappingNames = sheet.getColumnNamesBySuffix(" Mapping");
+    List<String> loadedMappings = new ArrayList<String>();
+    for (MappingSpace m : mappings.values()) {
+      loadedMappings.add(m.getColumnName());
+    }
+    mappingNames.removeAll(loadedMappings);
+    int i = 0 - mappingNames.size();
+    for (String column : mappingNames) {
+      i++;
+      String mapname = column.substring(0, column.length() - 8);
+      MappingSpace m = new MappingSpace(column, mapname, mapname.toLowerCase().replace(' ',  '-'), i, true);
+      mappings.put("http://unknown.org/" + mapname, m);
+    }    
+  }
   private void processMetadata(StructureDefinition first) {
     if (hasMetadata("logical-mapping-prefix"))
       ToolingExtensions.addStringExtension(first, ToolingExtensions.EXT_MAPPING_PREFIX, metadata("logical-mapping-prefix"));

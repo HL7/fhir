@@ -87,6 +87,15 @@ public class XLSXmlParser {
       }
     }
 
+    public List<String> getColumnNamesBySuffix(String suffix)  {
+      List<String> names = new ArrayList<String>();
+      for (int i = 0; i < columns.size(); i++) {
+        if (columns.get(i).endsWith(suffix))
+          names.add(columns.get(i));
+      }
+      return names;
+    }
+
     public String getByColumnPrefix(int row, String column)  {
       int c = -1;
       String s = "";
