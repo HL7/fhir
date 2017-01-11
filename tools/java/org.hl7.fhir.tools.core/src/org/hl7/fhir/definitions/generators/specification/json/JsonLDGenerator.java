@@ -45,6 +45,7 @@ import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.igtools.spreadsheets.TypeRef;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
+import org.hl7.fhir.utilities.Utilities;
 
 import com.google.gson.JsonObject;
 
@@ -82,41 +83,22 @@ public class JsonLDGenerator  {
 		}
 	}
 
-	private void generateAny(ElementDefn root, ElementDefn e, String prefix, JsonObject props, boolean relative) throws Exception {
-//		for (TypeRef t : datatypes) {
-//			JsonObject property = new JsonObject();
-//			JsonObject property_ = null;
-//			String en = e.getName().replace("[x]",  "");
-//			props.add(en+upFirst(t.getName()), property);
-//			property.addProperty("description", e.getDefinition());
-//			String tref = null;
-//			String type = null;
-//			String pattern = null;
-//			if (definitions.getPrimitives().containsKey(t.getName())) {
-//				DefinedCode def = definitions.getPrimitives().get(t.getName());
-//				type = def.getJsonType();
-//				pattern = def.getRegex();
-//				if (!Utilities.noString(pattern))
-//					property.addProperty("pattern", pattern);
-//				
-//				property.addProperty("type", type);
-//				property_ = new JsonObject();
-//				props.add("_"+en+upFirst(t.getName()), property_);
-//				property_.addProperty("description", "Extensions for "+en+upFirst(t.getName()));
-//				tref = (relative ? "#" : "Element.schema.json#") +"/definitions/Element";
-//				property_.addProperty("$ref", tref);
-//			} else {
-//				String tn = encodeType(e, t, true);
-//				tref = (relative ? "#" : tn.replace(".",  "_")+".schema.json#") +"/definitions/"+tn.replace(".",  "_");
-//				property.addProperty("$ref", tref);
-//			}
-//		}
-	}
 
 	private void generateElement(ElementDefn root, String name, ElementDefn e, JsonObject base, Set<String> types) throws Exception {
 		if ((e.getTypes().size() == 1 && e.getTypes().get(0).isWildcardType())) {
-//			if (!e.getName().contains("[x]"))
-//				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
+			if (!e.getName().contains("[x]"))
+				throw new Exception("Element "+e.getName()+" in "+root.getName()+" has multiple types as a choice doesn't have a [x] in the element name");
+      for (TypeRef tr : datatypes) {
+        String tn = tr.getName();
+        if (tn.equals("SimpleQuantity"))
+          tn = "Quantity";
+        else
+          tn = Utilities.capitalize(tn);
+        String en = e.getName().substring(0, e.getName().length()-3)+tn;
+        JsonObject property = new JsonObject();
+        base.add(name+"."+en, property);
+        property.addProperty("@id", "http://hl7.org/fhir/"+name+"."+en);
+      }
 //			if (e.getTypes().size() == 1)
 //				generateAny(root, e, e.getName().replace("[x]", ""), props, relative);
 //			else {
@@ -149,6 +131,18 @@ public class JsonLDGenerator  {
 //					}
 //				}
 //			}
+    } else if (e.getName().endsWith("[x]")) {
+      for (TypeRef tr : e.getTypes()) {
+        String tn = tr.getName();
+        if (tn.equals("SimpleQuantity"))
+          tn = "Quantity";
+        else
+          tn = Utilities.capitalize(tn);
+        String en = e.getName().substring(0, e.getName().length()-3)+tn;
+        JsonObject property = new JsonObject();
+        base.add(name+"."+en, property);
+        property.addProperty("@id", "http://hl7.org/fhir/"+name+"."+en);
+      }
 		} else {
 			JsonObject property = new JsonObject();
 			base.add(name+"."+e.getName(), property);
@@ -156,28 +150,10 @@ public class JsonLDGenerator  {
 	      property.addProperty("@id", "http://hl7.org/fhir/"+name+"."+e.getName());
 			else
 			  property.addProperty("@id", "http://hl7.org/fhir/"+e.getPath());
-      for (TypeRef tr : e.getTypes()) {
-        String tn = tr.getName();
-        if (tn.equals("SimpleQuantity"))
-          tn = "Quantity";
-        if (!types.contains(tn)) {
-          if (definitions.hasPrimitiveType(tn) || tn.equals("xhtml")) {
-//            types.add(tn);
-//            JsonObject pvalue = new JsonObject();
-//            base.add(tn+".value", pvalue);
-//            pvalue.addProperty("@id", "http://hl7.org/fhir/"+tn);
-//            if (tn.equals("xhtml"))
-//              pvalue.addProperty("@type", "http://www.w3.org/1999/xhtml");
-//            else {
-//              DefinedCode dc = definitions.getPrimitives().get(tn);
-//              if (dc instanceof PrimitiveType)
-//                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((PrimitiveType) dc).getSchemaType());
-//              else
-//                pvalue.addProperty("@type", "http://www.w3.org/2001/XMLSchema#"+((DefinedStringPattern) dc).getSchema());
-//            }
-          } 
-        }
-      }
+//			if we're using lists:
+//			if (e.unbounded())
+//        property.addProperty("@container", "@list");
+			
 			
 //      property.addProperty("fhir-@type", "http://hl7.org/fhir/"+e.typeCode());
 //			String tref = null;

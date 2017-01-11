@@ -28,7 +28,7 @@ in order to support consistent definitions for schema and UML derived code.
  <td><img src="http://w3c-domains.com/img/w3c-96.png"/></td>
  <td>
 <p>
-This page and the RDF forms are joinlty maintained by the HL7 FHIR project and the 
+This page and the RDF forms are jointly maintained by the HL7 FHIR project and the 
 <a href="https://www.w3.org/blog/hcls/">W3C Semantic Web Health Care and Life Sciences Interest Group</a>.
 </p>
 </td></tr></table>
@@ -79,9 +79,6 @@ Turtle Template
 
 </pre>
 <p>
-<i>Note: this is a placeholder for when the proper format is defined</i>.
-</p>
-<p>
 Using this format:
 </p>
 <ul>
@@ -120,14 +117,14 @@ Some resources can contain other resources. Given that the relationships can app
 cannot be assumed that the first encountered element represents the resource of interest that is being
 represented by the set of turtle statements. The focal resource - where to start when parsing - is the 
 resource with the relationship <code>fhir:nodeRole</code> to <code>fhir:treeRoot</code>. if there is 
-more than node in a set of turtle statements, it cannot be determined how to parse them as a single
-resource.
+more than one node labelled as a 'treeRoot' in a set of turtle statements, it cannot be determined how 
+to parse them as a single resource.
 </p>
 
 <h4>Representing Repeating Elements</h4>
 
 <p>
-Elements that can repeat are represented by a relationship 
+Elements that can repeat are represented with a relationship 
 </p>
 <pre class="rdf">
   fhir:index [n]
@@ -135,6 +132,9 @@ Elements that can repeat are represented by a relationship
 <p>
 where [n] is a zero-based integer offset (ie.g the first element has an index of 0).
 Lists are never sparse; it is an error if there are missing items in the repeat sequence.
+</p>
+<p>
+Note: this measn that the rdf:list structure is not used.
 </p>
 
 <a name="primitive"> </a>
@@ -149,8 +149,22 @@ using the fhir:value predicate:
   fhir:value "[value]"^^xs:type
 </pre>
 <p>
-The value is always a literal string that contains the value, followed by a schema type as specified for the <a href="datatypes.html#primitive">primitive type</a>.
-The schema type is required, but may be omitted when the defalut value of xs:string is correct. 
+The value has two parts: a literal string that contains the value, and, if applicable, one 
+of the following schema types:
+</p>
+<ul>
+ <li>boolean</li>
+ <li>integer</li>
+ <li>decimal</li>
+ <li>base64Binary</li>
+ <li>dateTime</li>
+ <li>date</li>
+ <li>gYear</li>
+ <li>gYearMonth</li>
+ <li>time</li>
+</ul>
+<p>
+The choice is made based on the types as specified for the <a href="datatypes.html#primitive">primitive type</a>.
 Note that the correct schema type for a date/dateTime must be determined by inspecting the value of the date for precision.
 </p>
 <p>
@@ -171,9 +185,9 @@ rules as above:
 </pre>
 <p>
 This allows faithful round tripping of the resource between the Turtle
-format and the JSON and XML formats. But it's very useful for an RDF 
-processor to be able to link to the target of the reference directly. 
-This can be done using the fhir:link property:
+format and the JSON and XML formats. However it's very useful for an RDF 
+processor if the RDF graph links to the target of the reference directly. 
+This can be represented using the fhir:link property:
 </p>
 <pre class="rdf">
  fhir:Observation.subjectReference [
@@ -181,6 +195,12 @@ This can be done using the fhir:link property:
      fhir:Reference.reference [ fhir:value "Patient/example" ]
   ];
 </pre>
+<p>
+The correct value for the fhir:link relationship must be determined
+by resolving the <a href="references.html">rules for resolving references</a>
+for the various reference types to a literal URL that refers to the 
+correct content in the local RDF context.
+</p>
 <p>
 The fhir:link relationship can be added automatically 
 as part of generating the resource representation, or it
@@ -191,8 +211,7 @@ convert the raw references into RDF-suitable references.
 <a name="concept"> </a>
 <h4>Representing Concepts</h4>
 <p>
-The same logic applies to the <a href="datatypes.html#Coding">Coding</a> and 
-<a href="datatypes.html#CodeableConcept">CodeableConcept</a> data types.
+The same logic applies to the <a href="datatypes.html#Coding">Coding</a> data type.
 These are represented directly in turtle by serialising their properties
 as specified above:
 </p>
@@ -213,24 +232,21 @@ as specified above:
   ];
 </pre>
 <p>
-For reasoners using the RDF, it's very useful to make the implicit
-concept references in these Coding and CodeableConcept explicit
-using rdfs:type assertions:
+For reasoners using the RDF graph, it's very useful to make the implicit
+concept references in these Codings explicit using a fhir:concept assertion:
 </p>
 <pre class="rdf">
   fhir:Observation.code [
-     a loinc:29463-7;
-     a sct:27113001;
      fhir:CodeableConcept.coding [
        fhir:index 0;
-       a loinc:29463-7;
+       fhir:concept loinc:29463-7;
        fhir:Coding.system [ fhir:value "http://loinc.org" ];
        fhir:Coding.code [ fhir:value "29463-7" ];
        fhir:Coding.display [ fhir:value "Body Weight" ]     
      ];
      fhir:CodeableConcept.coding [
        fhir:index 2;
-       a sct:27113001;
+       fhir:concept sct:27113001;
        fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
        fhir:Coding.code [ fhir:value "27113001" ];
        fhir:Coding.display [ fhir:value "Body weight" ]     
@@ -238,9 +254,9 @@ using rdfs:type assertions:
   ];
 </pre>
 <p>
-These type assertions can be make by any agent that 
+These fhir:concept assertions can be made by any agent that 
 knows how to convert from the code system to the correct
-ontological representation of that. Note that a few 
+ontological representation on the RDF context. Note that a few 
 code systems have standard ontological representations,
 but many don't. Again, these assertions can be made by 
 the serialiser, or injected by a post-processor. 
@@ -255,25 +271,40 @@ See <a href="fhir.shex">fhir.shex</a> for definitions.
 </p>
 
 <a name="json-ld"> </a>
-<h4>JSON-LD</h4>
+<a name="jsonld"> </a>
+<h4>Experimental JSON-LD format</h4>
 <p>
-As a by-product of the RDF format, a JSON-LD format is defined
-to represent exactly the same information as the Turtle format, 
-but using the JSON-LD syntax. Some specific notes about the JSON-LD format:
+As a by-product of the RDF format, a JSON-LD format is defined to represent exactly the 
+same information as the Turtle format, but using the JSON-LD syntax. Some specific notes 
+about the JSON-LD format:
 </p>
 <ul>
- <li>There is an @context on every resource, since the resources are inherently polymorphic at the format level</li>
- <li>There is a version problem with the definitions; the definitions are generated at the version specific end-point, but the context 
-     references are not version specific. Input on the issues associated with this is welcome</li>
+ <li>There is a single FHIR context: [url]/fhir.jsonld, where [url] is the URL of the applicable version
+   (e.g. http://hl7.org/fhir/STU3). Implementers should use a version specific reference, not 
+   the current version (http://hl7.org/fhir) since the contents of this change as new full releases of FHIR are published)
+ </li>
+ <li>Each resource has @type on every resource, since the resources are inherently polymorphic at the format level. In addition, the root node 
+   explicitly carries the property "role" : "fhir:treeRoot"
+ </li>
+ <li>
+  When parsing the JSON-LD format, applications should not use the literal JSON directly, but 
+  use the json-ld processed form. Any json-ld that results in the same content post-processing 
+  is considered equivalent.
+ </li>
+ <li>
+  The JSON-LD format is derived from the RDF format, and processing the JSON-LD will
+  result in the same set of triples as the turtle format, though there may be minor differences in the types of the nodes depending on the RDF library used.
+ </li>
 </ul>
 <a name="dstu0"> </a>
 <blockquote class="dstu-note">
   <p>
     <b>STU Note:</b>
     The definition of the JSON-LD format means that the FHIR specification defines 
-    two different JSON formats. It seems unlikely that normal implementers
+    two different JSON formats, each with a different purpose. 
+    It seems unlikely that normal implementers
     will prefer the JSON-LD format over the <a href="json.html">other JSON format</a>,
-    since that is more dense, but there are other implementers who will use
+    since that is more dense, but there are other implementers who would prefer the
     the JSON-LD format. On the other hand, defining two different JSON formats 
     seems like a recipe for confusion. Feedback from implementers is welcome.
   </p>
@@ -302,26 +333,6 @@ The RDF definitions are published as a series of turtle files: <a href="rim.ttl"
 TODO
 </p>
 
-<a name="jsonld"> </a>
-<h3>Experimental JSON-LD format</h3>
-<p>
-This specification also includes JSON-LD representations of the resources. 
-</p>
-<p>
-The JSON-LD examples are provided to assist implementers to evaluate the benefits of the 
-JSON-LD format (e.g. as compared to the RDF format, and also the <a href="json.html">Primary JSON Format</a>).
-When parsing the JSON-LD format, applications should not use the literal JSON directly, but 
-use the json-ld processed form. Any json-ld that results in the same content post-processing 
-is considered equivalent.
-</p>
-<p>
-The JSON-LD format is derived from the RDF format, and processing the JSON-LD will
-result in the same set of triples as the turtle format, with the following exceptions:
-</p>
-<ul>
-  <li>There is no equivalent for the fhir:nodeRole property, since the root node is explicit in the JSON form</li>
-  <li>There is no equivalent for the fhir:index property, since the order of the nodes is explicit in the JSON form</li>
-</ul>
 
 </div>
 

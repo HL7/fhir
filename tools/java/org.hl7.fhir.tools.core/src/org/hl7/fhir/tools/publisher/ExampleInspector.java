@@ -67,6 +67,7 @@ import com.github.jsonldjava.utils.JsonUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
 
 
 public class ExampleInspector {
@@ -81,7 +82,7 @@ public class ExampleInspector {
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
-  private static final boolean VALIDATE_RDF = false;
+  private static final boolean VALIDATE_RDF = true;
   
   
   private IWorkerContext context;
@@ -93,7 +94,7 @@ public class ExampleInspector {
   private Map<String, ResourceDefn> definitions;
 
   
-  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Map<String, ResourceDefn> definitions) {
+  public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Map<String, ResourceDefn> definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();
     this.context = context;
     this.logger = logger;
@@ -102,6 +103,7 @@ public class ExampleInspector {
     this.errorsExt = errors;
     this.errorsInt = new ArrayList<ValidationMessage>();
     this.definitions = definitions;
+    jsonLdDefns = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(rootDir, "fhir.jsonld")));
   }
 
   private XmlValidator xml;
@@ -112,6 +114,7 @@ public class ExampleInspector {
 
   private org.everit.json.schema.Schema jschema;
   private FHIRPathEngine fpe;
+  private JsonObject jsonLdDefns;
   
   public void prepare() throws FileNotFoundException, IOException, SAXException {
     validator = new InstanceValidator(context);
@@ -227,14 +230,18 @@ public class ExampleInspector {
 
   private void validateRDF(String fttl, String fjld, String rt) throws FileNotFoundException, IOException {
     if (VALIDATE_RDF) {
+      FileInputStream f = new FileInputStream(fjld);
+      int size = f.available();
+      f.close();
+      if (size > 1000000)
+        return;
       // replace @context with the contents of the right context file
       JsonObject json = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(fjld));
-      JsonObject defn = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(rootDir, "fhir.jsonld")));
       json.remove("@context");
-      json.add("@context", defn.get("@context"));
+      json.add("@context", jsonLdDefns.get("@context"));
       Gson gson = new GsonBuilder().setPrettyPrinting().create();
       String jcnt = gson.toJson(json);
-      TextFile.stringToFile(jcnt, "c:\\temp\\jsonld\\"+rt+".jsonld");
+//      TextFile.stringToFile(jcnt, "c:\\temp\\jsonld\\"+rt+".jsonld");
       // parse to a model
       Model mj = ModelFactory.createDefaultModel();
       mj.read(new StringReader(jcnt), null, "JSON-LD");
@@ -245,12 +252,12 @@ public class ExampleInspector {
 
       List<String> diffs = new ModelComparer().setModel1(mt, "ttl").setModel2(mj, "json").compare();
       if (!diffs.isEmpty()) {
-        //System.out.println("not isomorphic");
-        //for (String s : diffs) {
-       //   System.out.println("  "+s);
-        //}
-        //RDFDataMgr.write(new FileOutputStream("c:\\temp\\json.nt"), mj, RDFFormat.NTRIPLES_UTF8);
-        //RDFDataMgr.write(new FileOutputStream("c:\\temp\\ttl.nt"), mt, RDFFormat.NTRIPLES_UTF8);
+        System.out.println("not isomorphic");
+        for (String s : diffs) {
+          System.out.println("  "+s);
+        }
+//        RDFDataMgr.write(new FileOutputStream("c:\\temp\\json.nt"), mj, RDFFormat.NTRIPLES_UTF8);
+//        RDFDataMgr.write(new FileOutputStream("c:\\temp\\ttl.nt"), mt, RDFFormat.NTRIPLES_UTF8);
       }
     }
   }
@@ -261,72 +268,6 @@ public class ExampleInspector {
       throw new EValidationFailed("Resource Examples failed instance validation");
   }
 
-
-//  private void validateTurtleFile(String n, InstanceValidator validator, StructureDefinition profile) throws Exception {
-//    // instance validator
-//    File f = new File(Utilities.path(page.getFolders().dstDir, n + ".ttl"));
-//    if (!f.exists())
-//      return;
-//
-////  first, ShEx validation
-//    ShExValidator shexval = new ShExValidator();
-//    shexval.validate(Utilities.path(page.getFolders().dstDir, n + ".ttl"), Utilities.path(page.getFolders().dstDir, "fhir.shex"));
-//    
-//    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-//    validator.validate(issues, new FileInputStream(f), FhirFormat.TURTLE);
-//    
-////    
-// 
-////    
-////    com.google.gson.JsonParser parser = new com.google.gson.JsonParser();
-////    JsonObject obj = parser.parse(TextFile.fileToString()).getAsJsonObject();
-////
-////    // the build tool validation focuses on codes and identifiers
-////    List<ValidationMessage> issues = new ArrayList<ValidationMessage>();
-////    validator.validate(issues, obj);
-//////    System.out.println("  -j- "+validator.reportTimes());
-////    // if (profile != null)
-////    // validator.validateInstanceByProfile(issues, root, profile);
-////    for (ValidationMessage m : issues) {
-////      if (!m.getLevel().equals(IssueSeverity.INFORMATION) && !m.getLevel().equals(IssueSeverity.WARNING))
-////        logError("  " + m.summary(), typeforSeverity(m.getLevel()));
-////
-////      if (m.getLevel() == IssueSeverity.WARNING)
-////        warningCount++;
-////      else if (m.getLevel() == IssueSeverity.INFORMATION)
-////        informationCount++;
-////      else
-////        errorCount++;
-////    }
-//  }
-//
-//
-////  
-////  StringBuilder vallog = new StringBuilder();
-////
-////  private void logError(String string, LogMessageType typeforSeverity) {
-////    page.log(string, typeforSeverity);
-////    vallog.append(string+"\r\n");
-////    try {
-////      TextFile.stringToFileNoPrefix(vallog.toString(), "validation.log");
-////    } catch (Exception e) {
-////    }
-////  }
-////
-////  private LogMessageType typeforSeverity(IssueSeverity level) {
-////    switch (level) {
-////    case ERROR:
-////      return LogMessageType.Error;
-////    case FATAL:
-////      return LogMessageType.Error;
-////    case INFORMATION:
-////      return LogMessageType.Hint;
-////    case WARNING:
-////      return LogMessageType.Warning;
-////    default:
-////      return LogMessageType.Error;
-////    }
-////  }
 
   private void checkSearchParameters(org.w3c.dom.Element xe, Element e) throws FHIRException {
     // test the base

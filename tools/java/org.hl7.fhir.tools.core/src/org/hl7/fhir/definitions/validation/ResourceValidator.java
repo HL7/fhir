@@ -171,7 +171,7 @@ public class ResourceValidator extends BaseValidator {
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Tags"), "The name 'Tags' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("MailBox"), "The name 'MailBox' is not a legal name for a resource");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !name.equals("Validation"), "The name 'Validation' is not a legal name for a resource");
-    rule(errors, IssueType.REQUIRED,  rd.getName(), translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
+    rule(errors, IssueType.REQUIRED,  rd.getName(), name.equals("Parameters") || translations.hasTranslation(name), "The name '"+name+"' is not found in the file translations.xml");
     rule(errors, IssueType.STRUCTURE, rd.getName(), name.length() > 1 && Character.isUpperCase(name.charAt(0)), "Resource Name must start with an uppercase alpha character");
     rule(errors, IssueType.STRUCTURE, rd.getName(), !Utilities.noString(rd.getFmmLevel()), "Resource must have a maturity level");
 
@@ -309,7 +309,7 @@ public class ResourceValidator extends BaseValidator {
     }
     
     for (Compartment c : definitions.getCompartments()) {
-      if (rule(errors, IssueType.STRUCTURE, rd.getName(), c.getResources().containsKey(rd), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
+      if (rule(errors, IssueType.STRUCTURE, rd.getName(), name.equals("Parameters") || c.getResources().containsKey(rd), "Resource not entered in resource map for compartment '"+c.getTitle()+"' (compartments.xml)")) {
         String param = c.getResources().get(rd);
         if (!Utilities.noString(param)) {
 //          rule(errors, IssueType.STRUCTURE, parent.getName(), param.equals("{def}") || parent.getSearchParams().containsKey(c.getName()), "Resource "+parent.getName()+" in compartment " +c.getName()+" must have a search parameter named "+c.getName().toLowerCase()+")");
@@ -328,8 +328,8 @@ public class ResourceValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         warnings++;
     }
-    if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 if it has warnings"))
-      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 if it has linked value set warnings ("+vsWarns.toString()+")");
+    if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
+      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
 
   private String listW5Elements(ResourceDefn parent, String proposedOrder) {

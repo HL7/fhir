@@ -1,10 +1,13 @@
 package org.hl7.fhir.rdf;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.jena.graph.Node;
 import org.apache.jena.graph.Node_Blank;
 import org.apache.jena.graph.Node_Literal;
 import org.apache.jena.graph.Node_URI;
@@ -12,6 +15,7 @@ import org.apache.jena.graph.Triple;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
+import org.hl7.fhir.utilities.TextFile;
 
 public class ModelComparer {
 
@@ -22,17 +26,32 @@ public class ModelComparer {
   List<Triple> tl1;
   List<Triple> tl2;
 
-  public ModelComparer setModel1(Model model, String name) {
+  public ModelComparer setModel1(Model model, String name) throws IOException {
     model1 = model;
     name1 = name;
     tl1 = listAllTriples(model1);
+//    log(tl1, "c:\\temp\\triples-"+name+".txt");
     return this;
   }
 
-  public ModelComparer setModel2(Model model, String name) {
+  private void log(List<Triple> list, String filename) throws IOException {
+    StringBuilder b = new StringBuilder();
+    for (Triple t : list) {
+      b.append(t.getSubject().toString());
+      b.append("\t");
+      b.append(t.getPredicate().toString());
+      b.append("\t");
+      b.append(t.getObject().toString());
+      b.append("\r\n");
+    }
+    TextFile.stringToFile(b.toString(), filename);
+  }
+
+  public ModelComparer setModel2(Model model, String name) throws IOException {
     model2 = model;
     name2 = name;
     tl2 = listAllTriples(model2);
+//    log(tl2, "c:\\temp\\triples-"+name+".txt");
     return this;
   }
 
@@ -69,41 +88,75 @@ public class ModelComparer {
       if (!isExpectedDifference(statedPath, pred, ml1.size(), ml2.size()))
         diffs.add("Difference at "+statedPath+" for "+pred+": "+name1+" has "+Integer.toString(ml1.size())+" values, but "+name2+" has "+Integer.toString(ml2.size())+" values");
     } else if (ml1.size() == 1) {
-      if (ml1.get(0).getObject().getClass() == Node_Blank.class && ml2.get(0).getObject().getClass() == Node_Blank.class ) {
-        // bnodes: follow the nodes
-        compare(diffs, ml1.get(0).getObject().toString(), ml2.get(0).getObject().toString(), statedPath+" / "+pred);
-      } else if (ml1.get(0).getObject().getClass() == Node_URI.class || ml2.get(0).getObject().getClass() == Node_URI.class) {
-        // if either is a url, just compare literal values
-        String u1 = ml1.get(0).getObject().toString();
-        String u2 = ml2.get(0).getObject().toString();
-        if (u1.startsWith("\"") && u1.endsWith("\""))
-          u1 = u1.substring(1, u1.length()-1);
-        if (u2.startsWith("\"") && u2.endsWith("\""))
-          u2 = u2.substring(1, u2.length()-1);
-        if (!u1.equals(u2)) 
-          diffs.add("Difference at "+statedPath+" for "+pred+": URL objects have different values: "+name1+" = "+u1+", "+name2+" = "+u2+"");
-      } else if (ml1.get(0).getObject().getClass() == Node_Literal.class && ml2.get(0).getObject().getClass() == Node_Literal.class) {
-        Node_Literal l1 = (Node_Literal) ml1.get(0).getObject();
-        Node_Literal l2 = (Node_Literal) ml2.get(0).getObject();
-        if (!l1.getLiteralDatatypeURI().equals(l2.getLiteralDatatypeURI())) {
-          diffs.add("Difference at "+statedPath+" for "+pred+": Literal objects have different types: "+name1+" = "+l1.getLiteralDatatypeURI()+", "+name2+" = "+l2.getLiteralDatatypeURI()+"");
-        } else if (!l1.getLiteralLexicalForm().equals(l2.getLiteralLexicalForm())) {
-          diffs.add("Difference at "+statedPath+" for "+pred+": Literal objects have different values: "+name1+" = "+l1.getLiteralLexicalForm()+", "+name2+" = "+l2.getLiteralLexicalForm()+"");
-        }  
-      } else if (ml1.get(0).getObject().getClass() != ml2.get(0).getObject().getClass()) {
-        diffs.add("Difference at "+statedPath+" for "+pred+": objects have different types: "+name1+" = "+ml1.get(0).getObject().getClass().getName()+", "+name2+" = "+ml2.get(0).getObject().getClass().getName()+"");
-      } else 
-        diffs.add("Difference at "+statedPath+" for "+pred+": value comparison not done yet ("+ml1.get(0).getObject().getClass().getName()+" / "+ml2.get(0).getObject().getClass().getName()+")");
-    } else {
-      diffs.add("Difference at "+statedPath+" for "+pred+": repeating properties not handled yet");
+      Node o1 = ml1.get(0).getObject();
+      Node o2 = ml2.get(0).getObject();
+      compareObjects(diffs, statedPath, pred, o1, o2);
+    } else for (int i = 0; i < ml1.size(); i++) {
+      String id = pred+"["+Integer.toString(i)+"]";
+      Node o1 = getByIndex(ml1, tl1, i, statedPath, id);
+      if (o1 == null)
+        diffs.add("Unable to find "+statedPath+" / "+id+" in "+name1);
+      else {
+        Node o2 = getByIndex(ml2, tl2, i, statedPath, id);
+        if (o2 == null)
+          diffs.add("Unable to find "+statedPath+" / "+id+" in "+name2);        
+        else
+          compareObjects(diffs, statedPath, id, o1, o2);
+      }
     }
   }
 
+  private void compareObjects(List<String> diffs, String statedPath, String pred, Node o1, Node o2) {
+    if (o1.getClass() == Node_Blank.class || o2.getClass() == Node_Blank.class ) {
+      // bnodes: follow the nodes
+      compare(diffs, o1.toString(), o2.toString(), statedPath+" / "+pred);
+    } else if (o1.getClass() == Node_URI.class && o2.getClass() == Node_URI.class) {
+      // if either is a url, just compare literal values
+      String u1 = o1.toString();
+      String u2 = o2.toString();
+      if (u1.startsWith("\"") && u1.endsWith("\""))
+        u1 = u1.substring(1, u1.length()-1);
+      if (u2.startsWith("\"") && u2.endsWith("\""))
+        u2 = u2.substring(1, u2.length()-1);
+      if (!u1.equals(u2)) 
+        diffs.add("Difference at "+statedPath+" for "+pred+": URL objects have different values: "+name1+" = "+u1+", "+name2+" = "+u2+"");
+    } else if (o1.getClass() == Node_Literal.class && o2.getClass() == Node_Literal.class) {
+      Node_Literal l1 = (Node_Literal) o1;
+      Node_Literal l2 = (Node_Literal) o2;
+      if (!l1.getLiteralDatatypeURI().equals(l2.getLiteralDatatypeURI())) {
+        diffs.add("Difference at "+statedPath+" for "+pred+": Literal objects have different types: "+name1+" = "+l1.getLiteralDatatypeURI()+", "+name2+" = "+l2.getLiteralDatatypeURI()+"");
+      } else if (l1.getLiteralValue() instanceof BigDecimal) {
+        BigDecimal d1 = (BigDecimal) l1.getLiteralValue();
+        BigDecimal d2 = new BigDecimal(l2.getLiteralValue().toString());
+        if (d1.compareTo(d2) != 0) 
+          diffs.add("Difference at "+statedPath+" for "+pred+": Literal objects have different values: "+name1+" = "+l1.getLiteralLexicalForm()+", "+name2+" = "+l2.getLiteralLexicalForm()+"");
+      } else if (!l1.getLiteralLexicalForm().equals(l2.getLiteralLexicalForm())) {
+        diffs.add("Difference at "+statedPath+" for "+pred+": Literal objects have different values: "+name1+" = "+l1.getLiteralLexicalForm()+", "+name2+" = "+l2.getLiteralLexicalForm()+"");
+      }  
+    } else if (o1.getClass() != o2.getClass()) {
+      diffs.add("Difference at "+statedPath+" for "+pred+": objects have different types: "+name1+" = "+o1.getClass().getName()+", "+name2+" = "+o2.getClass().getName()+"");
+    } else 
+      diffs.add("Difference at "+statedPath+" for "+pred+": value comparison not done yet ("+o1.getClass().getName()+" / "+o2.getClass().getName()+")");
+  }
+
+  private Node getByIndex(List<Triple> matches, List<Triple> all, int index, String statedPath, String id) {
+    for (Triple t : matches) {
+      for (Triple s : all) {
+        if (s.getSubject().toString().equals(t.getObject().toString()) && 
+            s.getPredicate().toString().equals("http://hl7.org/fhir/index") && 
+            s.getObject().toString().startsWith("\""+Integer.toString(index)+"\"")) {
+          return t.getObject();
+        }
+      }
+    }
+    return null;
+  }
+
   private boolean isExpectedDifference(String statedPath, String pred, int c1, int c2) {
-    if (pred.equals("http://hl7.org/fhir/nodeRole") && c1 == 1 && c2 == 0)
-      return true;
-    if (pred.equals("http://hl7.org/fhir/index") && c1 == 1 && c2 == 0)
-      return true;
+//    if (pred.equals("http://hl7.org/fhir/nodeRole") && c1 == 1 && c2 == 0)
+//      return true;
+//    if (pred.equals("http://hl7.org/fhir/index") && c1 == 1 && c2 == 0)
+//      return true;
     return false;
   }
 

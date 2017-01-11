@@ -38,33 +38,22 @@ public class JsonLDDefinitionsGenerator {
 	  context.addProperty("fhir", "http://hl7.org/fhir/");
 	  context.addProperty("xsd", "http://www.w3.org/2001/XMLSchema#");
 
-	  JsonObject v = new JsonObject();
-    v.addProperty("@id", "fhir:value");
-    v.addProperty("@type", "xsd:string");
-	  context.add("value", v);
-	  
-    v = new JsonObject();
-    v.addProperty("@id", "fhir:value");
-    v.addProperty("@type", "xsd:decimal");
-    context.add("decimal", v);
-    
-    v = new JsonObject();
-    v.addProperty("@id", "fhir:value");
-    v.addProperty("@type", "xsd:integer");
-    context.add("integer", v);
-    
-    v = new JsonObject();
-    v.addProperty("@id", "fhir:value");
-    v.addProperty("@type", "xsd:boolean");
-    context.add("boolean", v);
-    
-    v = new JsonObject();
-    v.addProperty("@id", "fhir:value");
-    context.add("date", v);
-    
-	  context.addProperty("link", "fhir:link");
-	  context.addProperty("concept", "fhir:concept");
+	  // properties for primitives, helpers, format features
+	  addProperty(context, "value", "fhir:value", "xsd:string");
+    addProperty(context, "decimal", "fhir:value", "xsd:decimal");
+    addProperty(context, "integer", "fhir:value", "xsd:integer");
+    addProperty(context, "boolean", "fhir:value", "xsd:boolean");
+    addProperty(context, "binary", "fhir:value", "xsd:base64Binary");
+    addProperty(context, "date", "fhir:value", "xsd:date");
+    addProperty(context, "dateTime", "fhir:value", "xsd:dateTime");
+    addProperty(context, "gYearMonth", "fhir:value", "xsd:gYearMonth");
+    addProperty(context, "gYear", "fhir:value", "xsd:gYear");
+    addProperty(context, "link", "fhir:link", "@id");
+    addProperty(context, "concept", "fhir:concept", "@id");
+    addProperty(context, "index", "fhir:index", "xsd:integer");
+    addProperty(context, "role", "fhir:nodeRole", "@id");
 
+    // elements defined in FHIR:
 	  for (TypeRef tr : definitions.getKnownTypes()) {
 	    if (!definitions.hasPrimitiveType(tr.getName()) && !tr.getName().equals("SimpleQuantity")) {
 	      TypeDefn root = definitions.getElementDefn(tr.getName());
@@ -82,6 +71,14 @@ public class JsonLDDefinitionsGenerator {
       new JsonLDGenerator(definitions, workerContext, definitions.getKnownTypes()).generate(context, root.getRoot(), version, genDate);
 	  }
     save(defn, dstDir+"fhir.jsonld");
+  }
+
+  private void addProperty(JsonObject context, String name, String id, String type) {
+    JsonObject v = new JsonObject();
+    v.addProperty("@id", id);
+    if (type != null)
+      v.addProperty("@type", type);
+    context.add(name, v);  
   }
 
   private void save(JsonObject s, String filename) throws IOException {

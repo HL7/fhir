@@ -339,8 +339,9 @@ public class TurtleParser extends ParserBase {
   }
 
   private void composeElement(Section section, Complex ctxt, Element element, Element parent) {
-    String en = "Extension".equals(element.getType())?
-            (element.getProperty().getDefinition().getIsModifier()? "modifierExtension" : "extension") : getFormalName(element);
+//    "Extension".equals(element.getType())?
+//            (element.getProperty().getDefinition().getIsModifier()? "modifierExtension" : "extension") ; 
+    String en = getFormalName(element);
 
 	  Complex t;
 	  if (element.getSpecial() == SpecialElement.BUNDLE_ENTRY && parent != null && parent.getNamedChildValue("fullUrl") != null) {
@@ -354,7 +355,7 @@ public class TurtleParser extends ParserBase {
       t.linkedPredicate("a", "fhir:"+element.fhirType(), linkResolver == null ? null : linkResolver.resolveType(element.fhirType()));
 	  if (element.hasValue())
 	  	t.linkedPredicate("fhir:value", ttlLiteral(element.getValue(), element.getType()), linkResolver == null ? null : linkResolver.resolveType(element.getType()));
-	  if (element.getProperty().isList())
+	  if (element.getProperty().isList() && (!element.isResource() || element.getSpecial() == SpecialElement.CONTAINED))
 	  	t.linkedPredicate("fhir:index", Integer.toString(element.getIndex()), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#index"));
 
 	  if ("Coding".equals(element.getType()))
@@ -397,13 +398,13 @@ public class TurtleParser extends ParserBase {
     
     if (en == null) 
       en = element.getProperty().getDefinition().getPath();
-		boolean doType = false;
-			if (en.endsWith("[x]")) {
-				en = en.substring(0, en.length()-3);
-				doType = true;				
-			}
-	   if (doType || (element.getProperty().getDefinition().getType().size() > 1 && !allReference(element.getProperty().getDefinition().getType())))
-	     en = en + Utilities.capitalize(element.getType());
+    boolean doType = false;
+      if (en.endsWith("[x]")) {
+        en = en.substring(0, en.length()-3);
+        doType = true;        
+      }
+     if (doType || (element.getProperty().getDefinition().getType().size() > 1 && !allReference(element.getProperty().getDefinition().getType())))
+       en = en + Utilities.capitalize(element.getType());
     return en;
   }
 	
@@ -420,11 +421,11 @@ public class TurtleParser extends ParserBase {
 	  if (type.equals("boolean"))
 	    xst = "^^xsd:boolean";
     else if (type.equals("integer"))
-      xst = "^^xsd:int";
+      xst = "^^xsd:integer";
     else if (type.equals("unsignedInt"))
-      xst = "^^xsd:nonNegativeInteger";
+      xst = "^^xsd:integer";
     else if (type.equals("positiveInt"))
-      xst = "^^xsd:positiveInteger";
+      xst = "^^xsd:integer";
     else if (type.equals("decimal"))
       xst = "^^xsd:decimal";
     else if (type.equals("base64Binary"))
