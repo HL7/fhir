@@ -278,7 +278,11 @@ signatures.html
     </page>
 
     <page title="Workflow" filename="workflow-module.html" icon="workflow.png">
-      <page title="Workflow Description" filename="workflow.html"/>
+      <page title="Workflow Overview" filename="workflow.html"/>
+      <page title="Workflow Communication Patterns" filename="workflow-communications.html"/>
+      <page title="Workflow Ad-Hoc Patterms" filename="workflow-ad-hoc.html"/>
+      <page title="Workflow Management Patterns" filename="workflow-management.html"/>
+      <page title="Workflow Overview" filename="workflow-examples.html"/>
       <page title="Definition Pattern" filename="definition.html"/>
       <page title="Request Pattern" filename="request.html"/>
       <page title="Event Pattern" filename="event.html"/>

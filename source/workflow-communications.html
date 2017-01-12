@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+
+[%settitle Workflow Description%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    [%file newheader%]
+</head>
+
+<body>
+    [%file newnavbar%]
+
+    <div class="col-9">
+        <!-- Tabs for navigation -->
+        <ul class="nav nav-tabs">
+            <li><a href="workflow.html">Overview</a></li>
+            <li class="active"><a href="#">Communication Patterns</a></li>
+            <li><a href="workflow-ad-hoc.html">Ad-hoc Workflow Patterns</a></li>
+            <li><a href="workflow-management.html">Workflow Management Patterns</a></li>
+            <li><a href="workflow-examples.html">Examples</a></li>
+        </ul>
+
+        <table class="cols">
+            <tr>
+                <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+                <td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td>
+                <td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td>
+            </tr>
+        </table>
+
+        <a name="root"> </a>
+        <h2>Workflow Execution and Communication Patterns</h2>
+        <p>
+            As described earlier, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there is a number of mechanisms available. In addition to managing
+            workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource paterns</a> in an ad-hoc fashion.
+            In deciding how best to interoperate around workflow with FHIR, there are a number of considerations:
+        </p>
+        <ul>
+            <li>Is sharing of the state of the workflow necessary among the participants?</li>
+            <li>Which paradigm do you want to use (REST, messaging, services, a mix)?</li>
+            <li>Who owns/manages the various resources involved in the workflow (placer, filler, another participant)?</li>
+            <li>Is there infrastructure in place to support polling, push notifications via subscriptions or both?</li>
+            <li>Is there a need for confirmation that the desired performer agrees to act, or can that be presumed?</li>
+            <li>Is there a need to negotiate whether/how the requested action will be performed?</li>
+            <li>Can the requesting and performing system communicate directly? Are they able to post to each other's servers (if using REST)?</li>
+            <li>Is there an ability/need to have a queue server to facilitate workflow execution?</li>
+            <li>How many potential actors are involved?</li>
+            <li>Will the workflow always be directed or is there a pool of potential performers who could choose to perform the requested action?</li>
+        </ul>
+        <p>
+            The answers to these (and other) questions will guide the selection of communication patterns to be used for a specific interoperability use case. It is recommended that domain workgroups analyze the support for workflow execution within their domains
+            and provide recommendations for an appropriate subset of patterns, with a discussion on where and how to use them. Implementation guides, by their nature, should prescribe which patterns to use for workflow execution management.
+        </p>
+        <a name="commpatternsoverview"> </a>
+        <h4>Communication Patterns Conventions and Overview</h4>
+        <p>
+            This section highlights some of the more common patterns and identifies their characteristics and limitations and provides recommendations on when each approach may be most useful or relevant. Please note that this list of patterns is not exhaustive.
+            Patterns can be combined in various ways and there are likely some possibilities we haven't thought about yet (feel free to submit additional patterns using the 'submit a change' link at the bottom of the page). As well, the recommendations
+            given here are just that - recommendations. Implementers are free to choose which patterns they wish to support. Because of this, tight interoperability around workflow execution (as with any other tight interoperability using FHIR) will depend
+            on communicating participants doing some up-front negotiation around how they plan to support workflow execution or all communicating partners will need to adhere to an implementation guide that sets out clear interoperability expectations.
+        </p>
+        <p>
+            Prior to reviewing this list of options, readers are encouraged to be familiar with the following pages and resources: <a href="http.html">REST</a>,
+            <a href="messaging.html">messaging</a>, <a href="operations.html">operations</a>, <a href="services.html">services</a> and the <a href="subscription.html">Subscription</a> resource.
+        </p>
+        <p>
+            The scenarios used to illusttrate the patterns below make use of a few conventions:
+        </p>
+        <ul>
+            <li>The focus here is on a "request" and the actioning of that request. Almost all workflows can be broken down to a sequence of these steps, though the responsibilities of the different parties may shift for each interaction and there can be
+                more than two parties involved in the overall workflow</li>
+            <li>The request could be as simple as "please look at this information" and the response could be as simple as an implicit "it's been looked at" or the request could be for some more involved action that may include reporting back multiple interim
+                and final steps</li>
+            <li>The requester is referred to as the "placer" and the performer is referred to as the "filler", which are often seen as order-specific terms. However, in this context, the terms hold whether the request is expressed as a proposal, plan or full-blown
+                order
+            </li>
+            <li>Each of the patterns defines the set of steps involved in processing the request, lists some of the benefits and limitations associated with the approach, provides a scenario to illutrate the use of the pattern, and then makes recommendations
+                about when the pattern is most appropriate</li>
+            <li>The descriptions of these patterns focuses on the notion of requesting fulfillment of a request. However most of these patterns are also applicable to requests for status change, requests for information, etc. If a pattern is limited in the
+                types of execution it can trigger, this will be noted in the "limitations" section.</li>
+        </ul>
+
+        <p>
+            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource, as hown the the state diagram, which is alo presented here:
+        </p>
+        <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+        <p>
+            The patterns that facilitate the execution of workflow using the <a href="task.html">Task</a> resource are grouped in the Workflow Execution Patterns section. The patterns where no Task resource is used are grouped in the Ad-hoc Workflow Patterns
+            section. The list of patterns is as follows:
+        </p>
+        <table>
+            <tbody>
+                <tr>
+                    <th>
+                        <a href="workflow-ad-hoc.html">Ad-Hoc Workflow Patterns</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#optiona">Option A: Simple RESTful POST or PUT</a>
+                        <!-- <a href="#optiona">Option A: Creation of Task on placer's system</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#optionb">Option B: Direct POST of request to fulfiller's system</a>
+                        <!-- <a href="#optionb">Option B: POST of Task on fulfiller's system</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#optionc">Option C: POST of request to placer/queue server system, receiver uses polling or subscription</a>
+                        <!-- <a href="#optionc">Option C: POST of Task to a workflow broker</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#optiond">Option D: Messaging request from placer to filler &amp; acknowledgment</a>
+                        <!-- <a href="#optiond">Option D: Messaging Task from placer to fulfiller</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#optione">Option E: Services request from placer to filler &amp; acknowledgment</a>
+                        <!-- <a href="#optione">Option E: Service request referencing Task from placer to fullfiller</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <a href="workflow-management.html">Workflow Management Patterns</a>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-management.html#optionf">Option F: Creation of Task on placer's system</a>
+                        <!-- <a href="#optionf">Option F: Simple RESTful POST or PUT</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-management.html#optiong">Option G: POST of Task on fulfiller's system</a>
+                        <!-- <a href="#optiong">Option G: Direct POST of request to fulfiller's system</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href=workflow-management.html "#optionh">Option H: POST of Task to a workflow broker</a>
+                        <!-- <a href="#optionh">Option H: POST of request to placer/queue server system, receiver uses polling or subscription</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-management.html#optioni">Option I: Messaging Task from placer to fulfiller</a>
+                        <!-- <a href="#optioni">Option I: POST of "request" resource for filler system, response via Task</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-management.html#optionj">Option J: Service request referencing Task from placer to fullfiller</a>
+                        <!-- <a href="#optionj">Option J: Messaging request from placer to filler &amp; acknowledgment</a> -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="workflow-ad-hoc.html#additional">Additional Scenarios</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            TODO: Insert Jose's decision tree here?
+        </p>
+
+    </div>
+
+    [%file newfooter%]
+</body>
+
+</html>

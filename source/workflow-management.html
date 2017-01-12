@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+
+<!--
+These elements SHALL always appear in this order. These basic elements shared by all resources come first
+in order to support consistent definitions for schema and UML derived code.
+-->
+
+[%settitle Workflow Description%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    [%file newheader%]
+</head>
+
+<body>
+    [%file newnavbar%]
+
+    <div class="col-9">
+        <!-- Tabs for navigation -->
+        <ul class="nav nav-tabs">
+            <li><a href="workflow.html">Overview</a></li>
+            <li><a href="workflow-communications.html">Communication Patterns</a></li>
+            <li><a href="workflow-ad-hoc.html">Ad-hoc Workflow Patterns</a></li>
+            <li class="active"><a href="#">Workflow Management Patterns</a></li>
+            <li><a href="workflow-examples.html">Examples</a></li>
+        </ul>
+
+        <table class="cols">
+            <tr>
+                <td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td>
+                <td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td>
+                <td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td>
+            </tr>
+        </table>
+
+        <a name="root"> </a>
+        <h2>Workflow Management Communication Patterns</h2>
+        <p><i>TODO: Discussiion (or reference to one) on Polling and Subscription</i></p>
+        <a name="optionf"> </a>
+        <h3>Option F: Creation of Task on placer's system</h3>
+        <img alt="Diagram showing creation of Task on placer system workflow" src="workflow-optionf.png" />
+        <h4>Steps</h4>
+        <ol>
+            <li>Placer creates the request in its own system via POST or an internal action, or POSTs it to a queue server system</li>
+            <li>Placer creates a Task resource in its own system via POST or an internal action, or POSTs it to a queue server system, pointing to the request resource and seeking fulfillment.<br/> The Task may have a specified performer, in which case step
+                3 is expected to be done by that performer.<br/> If the Task does not have a specified "performer" (although may have performer type), then this is a case of an "open" task, where any number of fulfillers may attempt to "claim" the task.
+                Who succeeds is determined by local policies and procedures.</li>
+            <li>Fulfiller system uses either polling or pub/sub to become aware of the existence of the task
+                <ol style="list-style:lower-alpha">
+                    <li>A common case may be the conveyance of the Task id to a fullfiller by other means. For example, a lab test is ordered, and the patient takes a requisition to the lab of his choice. The requisition contains the Task id (as a bar code,
+                        or stored in the patient's healthcre smart card), and the lab system can execute a direct GET for the Task, thus eliminating the need for subscription or polliing.</li>
+                </ol>
+            </li>
+            <li>Fulfiller system queries to retrieve the referenced request, and updates the Task to indicate "acceptance" and agreement to fulfill </li>
+            <li>Fulfiller may update the Task to indicate interim progress notes</li>
+            <li>Placer is aware of the acceptance of and changes to the Task either through the ownership of the resource, or using polling or a subscription to a queue server system to determine the same</li>
+            <li>Fulfiller creates an event resource in its own system via POST or internal action, or POSTs it to a queue server system</li>
+            <li>Fulfiller PUTs an update to the Task resource to change its status to completed and to point to the event resource</li>
+            <li>Placer is aware of the completion of the Task either through the ownership of the resource, or via polling or subscription to a queue server system, and retrieves the referenced event resource</li>
+            <li>Placer updates the request resource to indicate completion via PUT or an internal action, or PUTs the update to a queue server system</li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>Uses the FHIR REST API for managing the workflow</li>
+            <li>Both placer and fulfiller can track the state of the workflow</li>
+            <li>Can use this approach for request other than just fulfillment (e.g. to request status change or other updates)</li>
+            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Additional complexity of using Task</li>
+            <li>Additional complexity of setting up and maintaining a subscription or polling infrastructure</li>
+            <li>Placer and fulfiller must have a FHIR server, and placer's FHIR server pust allow "write" updates to the Task resource</li>
+            <li>
+                <p>Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)</p>
+                <ul>
+                    <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
+                    <li>Placer and fulfiller must know where to subscribe for content - this could be a large number of systems</li>
+                    <li>May not apply if there's a queue server</li>
+                </ul>
+            </li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <ul>
+            <li>When following the state of the workflow is important
+                <ul>
+                    <li>When there is a need to know that a fulfiller has accepted to perform the request</li>
+                    <li>When there is a need to be able to change the performance of the request</li>
+                    <li>When there are multiple steps in fulfilling the request</li>
+                </ul>
+            </li>
+            <li>When requests are not (always) directed to a specific filler</li>
+            <li>When the placer needs to manage the Task resource</li>
+        </ul>
+
+        <h4>Usage examples</h4>
+        <p><b>Lab order to known performer</b></p>
+        <p>A provider orders a bilirubin test for a patient, to be done at the provider's facility lab....</p>
+        <p><b>"Open" lab order</b></p>
+        <p>
+            A patient is scheduled for their physical, and the provider sends her a secure message to have a fasting blood test performed before the office visit. The message has a link to a requisition, and a list of possible lab loacations where the test can be
+            done. The patient chooses a lab location near her place of employment, and a test is scheduled. The lab gets the requisition from the patient, and using the information on how to retrieve the Task from the provider's system, claims the test
+            to be performed...
+        </p>
+
+        <a name="optiong"> </a>
+        <h3>Option G: POST of Task on fulfiller's system</h3>
+        <img alt="Diagram showing POST of Task to filler system workflow" src="workflow-optiong.png" />
+        <h4>Steps</h4>
+        <ol>
+            <li>Placer creates the request in its own system via POST or an internal action, or POSTs it to a queue server system</li>
+            <li>Placer POSTs a Task resource to the filler system, pointing to the request resource and seeking fulfillment</li>
+            <li>Fulfiller system GETs the referenced request</li>
+            <li>Fulfiller updates the Task to indicate acceptance of the task</li>
+            <li>Placer either polls the Task to note acceptance or uses a subscription to determine the same</li>
+            <li>Fulfiller may further update the Task to reflect the progeess made. Using the same method as in step 5, the placer becomes aware of these updates</li>
+            <li>Fulfiller creates an event resource in its own system via POST or an internal action, or POSTs it to a queue server system </li>
+            <li>Fulfiller Updates the Task resource to change its status to completed and to point to the event resource</li>
+            <li>Placer either polls the Task to note completion and changes or uses a subscription to determine the same</li>
+            <li>Placer system queries to retrieve the referenced event resource</li>
+            <li>Placer updates the request resource to indicate completion via PUT or an internal action, or PUTs the update to a queue server system</li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>Uses the FHIR REST API for managing the workflow</li>
+            <li>Subscription/polling is targeted to a specific resource instance - much simpler than general subscription/polling infrastructure</li>
+            <li>Both placer and fulfiller can track the state of the workflow</li>
+            <li>Can use this approach for request other than just when requesting fulfillment (e.g. to request status change or other updates)</li>
+            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Explicit acknowledgement that filler has received and agreed to act on the request</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Additional complexity of using Task</li>
+            <li>Additional complexity of using subscription or polling</li>
+            <li>Placer and fulfiller must have a FHIR server, and fulfiller's FHIR server must allow "write" creation of the Task resource by the placer</li>
+            <li>
+                Placer and filler may need to be able to communicate directly (i.e. know each other's respective endpoints)
+                <ul>
+                    <li>This could become unmanageable if there are a large (or dynamic) number of placers and fillers that need to communicate</li>
+                    <li>May not apply if there's a queue server</li>
+                </ul>
+            </li>
+            <li>Placer may not know immediately when filler system has retrieved the request</li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <ul>
+            <li>When following the state of the workflow is important
+                <ul>
+                    <li>When there is a need to know that a fulfiller has accepted to perform the request</li>
+                    <li>When there is a need to be able to change the status of the workflow by either the placer or the fulfiller</li>
+                    <li>When there are multiple steps in fulfilling the request</li>
+                </ul>
+            </li>
+            <li>When the fulfiller needs to manage the Task resource</li>
+        </ul>
+        <h4>Usage Examples</h4>
+        <p><b>Outpatient prescription</b></p>
+        <p>
+            A patient is suffering from a poison ivy rash, and he is prescribed a steroid medication to manage the reaction. The provider asks the patient for his preferred pharmacy and creates the Task at the specified pharmacy's system. The patient is running late
+            and by the time he arrives at the pharmacy, it is closed. He calls the clinic where the provider practices, and requests that the pharmacy where the order is to be fulfilled is changed to one that is open around the clock. The staff at the
+            clinic cancels the Task at the original pharmacy, and creeates a new Task at the requested new one. By the time the patient arrives at the new pharmacy, the medicatin is ready for pickup. Once the request is fulfilled, the clinic receives
+            the notification that the Task is complete, and the prescription is also marked as complete.
+        </p>
+
+        <a name="optionh"> </a>
+        <h3>Option H: POST of Task to a workflow broker </h3>
+        <p>
+            <i>TODO: Still needs review and update</i>
+        </p>
+        <img alt="Diagram showing workflow broker workflow" src="workflow-optionh.png" />
+        <h4>Steps</h4>
+        <ol>
+            <li>Placer POSTs the request to its own system or to a queue server system</li>
+            <li>Broker detects that new un-assigned request (without a Task yet created and falling within the scope of the Broker to ensure fulfillment) via polling or subscription</li>
+            <li>Broker POSTs a Task resource to its own system or a queue server system, pointing to the request resource and seeking fulfillment from a specific filler<br/> Task does not have a specified "performer" (but may have performer type)</li>
+            <li>If the Task is rejected by one potential recipient, the broker may create a new task to seek fulfillment from others</li>
+            <li>Continue as per <a href="#optiong">Option G</a></li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>Offloads responsibility for seeking fulfillment from the placer system, but more actively solicits fulfillment than a simple "post the task and see who takes it". Also allows prioritized assignment of tasks (i.e. some fillers may be preferred
+                over others)</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Requires a broker to exist</li>
+            <li>Broker must know all available fillers and their capabilities to allow appropriate assignment</li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <p>
+            Appropriate in environments that have a workflow engine that takes on responsibility for ensuring fulfillment
+        </p>
+        <h4>Usage Examples</h4>
+        <p>
+        </p>
+
+        <a name="optioni"> </a>
+        <h3>Option I: Messaging Task from placer to fulfiller</h3>
+        <p>
+            <i>TODO: needs more details</i>
+        </p>
+        <h4>Steps</h4>
+        <ol>
+            <li>Placer sends message to filler with a MessageHeader, where the "data" element points to the Taks resource, also contained in the message. The massage may or may not contain any other relevant resources (e.g the actual request resource), or
+                an "event" code saying "please fulfill"</li>
+            <li>Filler system sends a response containing the same Task resource, indicating receipt of the message and, optionally an indication of their intention to fulfill the request</li>
+            <li>Filler system may send incremental messages to the placer showing progress (e.g. specimen collected, preliminary results, final results) by including an updated Task resource</li>
+            <li>Placer system may also send messages to the fulfiller conatining the Task resource and updatingh the state of the workflow</li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>Reduced number of communications</li>
+            <li>All relevant data can be sent in one package</li>
+            <li>Responses can be asynchronous and content may be routed</li>
+            <li>There's an ability to negotiate fulfillment - i.e. the ability to say "no"</li>
+            <li>Can request things other than just fulfillment (e.g. please suspend)</li>
+            <li>Explicit acknowledgement that filler has received and agreed to act on the request (though no need for the placer to check)</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>Messaging is "heavy"</li>
+            <li>Need to negotiate what allowed responses are and what data can be present in request and response messages</li>
+            <li>Additional complexity of using Task</li>
+            <li>Need message delivery infrastructure in place</li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <p>
+            Appropriate when existing messaging infrastructure can be used (e.g. HL7 over HTTP, v2 LTP, MLTP, WSI Web Services, Direct, VISA, REST, etc.), and a need to stay consistent with that architecture.
+        </p>
+        <h4>Usage examples</h4>
+        <p>
+        </p>
+        <a name="optionj"> </a>
+        <h3>Option J: Service request referencing Task from placer to fullfiller</h3>
+        <p>
+            <i>TODO: This scenario needs work - there's not a lot of experience using FHIR services to manage the fulfillment process</i>
+        </p>
+        <h4>Steps</h4>
+        <ol>
+            <li>Placer creates a request resource on their own system or a queue server</li>
+            <li>Placer may create a Task resource on their own system or a queue server</li>
+            <li>Placer invokes a service on the filler system saying "please fulfill this order", including the content or a reference to the request resource and any other relevant data
+            </li>
+            <li>Filler system responds (synchronously if using HTTP, but may be asynchronous if using SOAP or other transport mechanisms) with conformation of receipt and, optionally indication of intention to fulfill and/or results</li>
+            <li></li>
+        </ol>
+        <h4>Benefits</h4>
+        <ul>
+            <li>???</li>
+        </ul>
+        <h4>Limitations</h4>
+        <ul>
+            <li>???</li>
+        </ul>
+        <h4>Usage Recommendations</h4>
+        <p>
+            TBD
+        </p>
+        <h4>Usage examples</h4>
+        <p>
+        </p>
+
+    </div>
+
+    [%file newfooter%]
+</body>
+
+</html>
