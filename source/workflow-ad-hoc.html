@@ -36,6 +36,7 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="root"> </a>
         <h2>Ad-Hoc Workflow Communication Patterns</h2>
         <p><i>TODO: Discussiion (or reference to one) on Polling and Subscription</i></p>
+
         <a name="optiona"> </a>
         <h3>Option A: Simple RESTful POST or PUT</h3>
         <h4>Steps</h4>
@@ -58,11 +59,11 @@ in order to support consistent definitions for schema and UML derived code.
         </ul>
         <h4>Usage Recommendations</h4>
         <p>
-            This is by far the most common pattern in FHIR for simple changes as it requires the least overhead. However, it covers only automated responses, and does not support any ctual workflows of more than one step. If human processing is involved in the request
+            This is by far the most common pattern in FHIR for simple changes as it requires the least overhead. However, it covers only automated responses, and does not support any actual workflows of more than one step. If human processing is involved in the request
             execution, then this approach won't suffice. This approach is listed here to make sure that implementers consider whether they can make this one work first before falling back to one of the more sophisticated patterns.
         </p>
         <h4>Usage Examples</h4>
-        <p><i>Can't think of any</i></p>
+        <p><i>???</i></p>
 
         <a name="optionb"> </a>
         <h3>Option B: Direct POST of request to fulfiller's system</h3>
