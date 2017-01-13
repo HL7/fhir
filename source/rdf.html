@@ -289,11 +289,15 @@ about the JSON-LD format:
  <li>
   When parsing the JSON-LD format, applications should not use the literal JSON directly, but 
   use the json-ld processed form. Any json-ld that results in the same content post-processing 
-  is considered equivalent.
+  is considered conformant.
  </li>
  <li>
   The JSON-LD format is derived from the RDF format, and processing the JSON-LD will
   result in the same set of triples as the turtle format, though there may be minor differences in the types of the nodes depending on the RDF library used.
+ </li>
+ <li>
+   For booleans and integers, JSON boolean and numbers are used. However for decimal values, a JSON string must
+   be used.
  </li>
 </ul>
 <a name="dstu0"> </a>
