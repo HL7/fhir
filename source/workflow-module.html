@@ -7,121 +7,115 @@ in order to support consistent definitions for schema and UML derived code.
 
 [%settitle Workflow Module%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
 <head>
-[%file newheader%]
+    [%file newheader%]
 </head>
+
 <body>
-[%file newnavbar%]
+    [%file newnavbar%]
 
-<div class="col-9">
-<table class="cols"><tr><td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td></tr></table>
+    <div class="col-9">
+        <table class="cols">
+            <tr>
+                <td id="wg">Work Group <a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> </td>
+                <td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a</a></td>
+            </tr>
+        </table>
 
-<a name="root"> </a>
-<h2>Workflow Module</h2>
-<p>
-The workflow module focuses on the coordination of activities within and across systems.  This includes three primary aspects:
-</p>
-<ul>
-  <li>How do we ask for another person, device or system to do something?</li>
-  <li>How do we track the linkages and dependencies between activities - actions to their authorizations, complex activities to individual steps, protocols to plans to orders, etc.?</li>
-  <li>How do we define what activities are possible and the expected order and dependencies of the steps within those activities?  I.e. process/orchestration definition</li>
-</ul>
-<p>
-In addition, this module supports resources to support two specific workflows - the requesting and delivery of supplies and the requesting and delivery of information.
-</p>
+        <a name="root"> </a>
+        <h2>Workflow Module</h2>
+        <p>
+            The workflow module focuses on the coordination of activities within and across systems. This includes three primary aspects:
+        </p>
+        <ul>
+            <li>How do we ask for another person, device or system to do something?</li>
+            <li>How do we track the linkages and dependencies between activities - actions to their authorizations, complex activities to individual steps, protocols to plans to orders, etc.?</li>
+            <li>How do we define what activities are possible and the expected order and dependencies of the steps within those activities? I.e. process/orchestration definition</li>
+        </ul>
+        <p>
+            In addition, this module supports resources to support two specific workflows - the requesting and delivery of supplies and the requesting and delivery of information.
+        </p>
 
-<a name="intro"> </a>
-<h3>Introduction</h3>
-<p>
-Workflows can be performed using the <a href="task.html">Task</a> resource, <a href="messaging.html">messaging</a> or <a href="services.html">services</a>.  This specification
-includes a <a href="workflow.html">workflow</a> page that describes a number of different communication and architectural <a href="workflow.html#commpatterns">workflow patterns</a>.
-</p>
-<p>
-This specification defines three logical models - <a href="definition.html">Definition</a>, <a href="request.html">Request</a> and <a href="event.html">Event</a> that define the
-patterns for resources that are typically involved in workflow.  These patterns include elements defining relationships between requests, between events across requests and events.
-These relationships are summarized on the <a href="workflow.html#relationships">workflow</a> page, along with a complete <a href="workflow.html#list">list</a> of resources that follow
-(or are hoped to soon follow) the request and event patterns.
-</p>
-<p>Finally the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources combine to support the creation of protocols,
-orders sets, guidelines and other workflow definitions.</p>
+        <a name="intro"> </a>
+        <h3>Introduction</h3>
+        <p>
+            Workflows can be performed using the <a href="task.html">Task</a> resource, <a href="messaging.html">messaging</a> or <a href="services.html">services</a>. This specification includes a <a href="workflow.html">workflow</a> page that describes
+            the concepts underlying the discussion of workflows, and points to a number of different communication and architectural <a href="workflow-communications.html">workflow patterns</a>.
+        </p>
+        <p>
+            In addition to the <a href="task.html">Task</a> resource, this specification defines three logical models - <a href="definition.html">Definition</a>, <a href="request.html">Request</a> and <a href="event.html">Event</a> that define the patterns
+            for resources that are typically involved in workflow. These patterns include elements defining relationships between requests, between events, and across requests and events. These relationships are summarized on the <a href="workflow.html#relationships">workflow</a>            page, along with a complete <a href="workflow.html#list">list</a> of resources that follow (or are hoped to soon follow) the request and event patterns.
+        </p>
+        <p>Finally the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources combine to support the creation of protocols, orders sets, guidelines and other workflow definitions.</p>
 
-<a name="uses"> </a>
-<h3>Common use Cases</h3>
-<p>
-Workflow manifests in many places in the healthcare environment:
-</p>
-<ul>
-  <li>Creating a <a href="diagnosticrequest.html">lab order</a>, <a href="medicationrequest.html">drug prescription</a>, <a href="referralrequest.html">referral</a> or other
-  order clinical order or a <a href="claim.html">insurance claim</a>, <a href="enrollmentrequest.html">EnrollmentRequest</a> or similar administrative request and asking
-  for it to be actioned by a specific organization or practitioner</li>
-  <li>Negotiating a fulfillment process, such as requesting further information before accepting a claim or referral or proposing an alternative therapy when processing an
-  order</li>
-  <li>Letting an ordering physician know what the current progress is in fulfilling an order (e.g. Blood has been drawn, sample is being processed, preliminary results are
-  in, etc.)</li>
-  <li>Defining a <a href="careplan.html">plan</a> or recommendation for a set of clinical and/or administrative activities to manage a patient's care and then tracking
-  how those plans and recommendations are (or are not) acted upon over time.</li>
-  <li>Communicating a state change to a request or order (e.g. suspension, update, cancellation, etc.) to a filling system so that they can take appropriate action</li>
-  <li>Asking for a state change, merge of a couple of patients or the invoking of some operation or decision supporting an asynchronous manner - for example, one where human
-  intervention is required</li>
-  <li>Designing or adhering to a study protocol, chemotherapy protocol, instantiating an order set or other <a href="plandefinition.html">plan definition</a></li>
-</ul>
-<p>
-FHIR provides multiple ways to enable all of these scenarios (and many others).  Common mechanisms, along with their pros and cons can be found in the workflow
-section on <a href="workflow.html#commpatterns">patterns</a>.
-</p>
+        <a name="uses"> </a>
+        <h3>Common use Cases</h3>
+        <p>
+            Workflow manifests in many places in the healthcare environment:
+        </p>
+        <ul>
+            <li>Creating a <a href="diagnosticrequest.html">lab order</a>, <a href="medicationrequest.html">drug prescription</a>, <a href="referralrequest.html">referral</a> or other clinical order or an <a href="claim.html">insurance claim</a>, <a href="enrollmentrequest.html">EnrollmentRequest</a>                or similar administrative request and asking for it to be actioned by a specific organization or practitioner</li>
+            <li>Negotiating a fulfillment process, such as requesting further information before accepting a claim or referral or proposing an alternative therapy when processing an order
+            </li>
+            <li>Letting an ordering physician know what the current progress is in fulfilling an order (e.g. Blood has been drawn, sample is being processed, preliminary results are in, etc.)</li>
+            <li>Defining a <a href="careplan.html">plan</a> or recommendation for a set of clinical and/or administrative activities to manage a patient's care and then tracking how those plans and recommendations are (or are not) acted upon over time.</li>
+            <li>Communicating a state change to a request or order (e.g. suspension, update, cancellation, etc.) to a filling system so that they can take appropriate action</li>
+            <li>Asking for a state change, merge of a couple of patients or the invoking of some operation or decision supporting an asynchronous manner - for example, one where human intervention is required</li>
+            <li>Designing or adhering to a study protocol, chemotherapy protocol, instantiating an order set or other <a href="plandefinition.html">plan definition</a></li>
+        </ul>
+        <p>
+            FHIR provides multiple ways to enable all of these scenarios (and many others). Common mechanisms, along with their pros and cons can be found in the workflow sections on <a href="workflow-communications.html#commpatternslist">patterns</a>.
+        </p>
 
-<a name="secpriv"> </a>
-<h3>Security and Privacy</h3>
-<p>
-Resources related to workflow need to adhere to the same <a href="security.html">security and privacy guidelines</a> that apply to all FHIR resource, including specific
-considerations for those that may contain personally-identifying information.  There are a couple of additional security and privacy considerations specific to workflow:
-</p>
-<p>
-1. Some workflows are ad-hoc without pre-defined participants or flows.  These can be challenging for security and privacy processes to manage appropriately</p>
-<p>
-2. Workflow can drive automated behavior.  I.e. The mere existence of an electronic record can cause information to flow, procedures to be performed, records to be changed
-and money to be transferred, potentially without any intervention, oversight or sanity checking by a human being.  As such, even greater care must be taken to ensure that:
-</p>
-<ul>
-  <li>constraints are placed on what systems (and users) can initiate workflow processes</li>
-  <li>requests for action are appropriately authenticated before action is taken</li>
-  <li>patient consents and other relevant policies are enforced either by the system storing the request or the system acting upon it (and that if enforcement is not performed
-  by the actor, that they are confident that relevant policies have been enforced on the request prior to action)</li>
-</ul>
-<p>
-For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
-</p>
+        <a name="secpriv"> </a>
+        <h3>Security and Privacy</h3>
+        <p>
+            Resources related to workflow need to adhere to the same <a href="security.html">security and privacy guidelines</a> that apply to all FHIR resource, including specific considerations for those that may contain personally-identifying information.
+            There are a couple of additional security and privacy considerations specific to workflow:
+        </p>
+        <p>
+            1. Some workflows are ad-hoc without pre-defined participants or flows. These can be challenging for security and privacy processes to manage appropriately</p>
+        <p>
+            2. Workflow can drive automated behavior. I.e. The mere existence of an electronic record can cause information to flow, procedures to be performed, records to be changed and money to be transferred, potentially without any intervention, oversight or
+            sanity checking by a human being. As such, even greater care must be taken to ensure that:
+        </p>
+        <ul>
+            <li>constraints are placed on what systems (and users) can initiate workflow processes</li>
+            <li>requests for action are appropriately authenticated before action is taken</li>
+            <li>patient consents and other relevant policies are enforced either by the system storing the request or the system acting upon it (and that if enforcement is not performed by the actor, that they are confident that relevant policies have been
+                enforced on the request prior to action)</li>
+        </ul>
+        <p>
+            For more general considerations, see <a href="secpriv-module.html">the Security and Privacy module</a>.
+        </p>
 
-<a name="roadmap"> </a>
-<h3>Developmental Roadmap</h3>
-<p>
-The principles of requesting action and reporting results have been present in FHIR since its initial version.  However, significant work has happened (or is planned) as
-part of this STU 3 release to increase the consistency of resources involved in workflow and to improve the documentation expressing the different ways workflow can be
-managed depending on architectural and other constraints.  This has included the introduction of the <a href="task.html">Task</a> resource (which replaced the old
-Order and OrderResponse resources), the definition of the <a href="workflow.html#request">Request</a> and <a href="workflow.html#event">Event</a> patterns and the creation of
-the <a href="plandefinition.html">PlanDefinition</a> and <a href="activitydefinition.html">ActivityDefinition</a> resources.  Some of this work has had preliminary testing at
-connectathon but has had little production experience as yet.  Most of the discussion has been on how workflow is best managed from a <a href="http.html">RESTful</a>
-paradigm perspective.
-</p>
-<p>
-Looking forward to the next release, we'll be seeking and incorporating feedback from the implementer community about both the workflow resources as well as the patterns and
-architectural approaches documented in this specification.  We'll also be increasing focus on the messaging and services paradigms and seeing how much consistency in approach
-is possible/desirable across REST, messaging and services.  Finally we'll be working with the workgroups responsible for the <a href="administration-module.html">Administration</a>
-and <a href="financial-module.html">Financial</a> modules to increase the consistency of approach to the design of workflow-related resources, regardless of domain.  Whether
-any of the resources defined beneath this module will be candidates for normative status in the next release of FHIR will depend on the degree and type of implementer feedback
-between now and that release.
-</p>
-<p>Additional topics for future work include:</p>
-<ul>
-  <li>Resolving the overlap between the <a href="supplyrequest.html">SupplyRequest</a>, <a href="devicerequest.html">DeviceRequest</a> and
-  <a href="visionprescription.html">VisionPrescription</a> resources</li>
-  <li>Improving mapping and alignment of the elements and status codes of the <a href="task.html">Task</a> resource with the WS-HumanTask specification</li>
-  <li>Creating "best practice" guides for how to implement workflow for different business patterns</li>
-  <li>Examining how workflow is used for "compensating actions", for example account transactions and reversals</li>
-</ul>
+        <a name="roadmap"> </a>
+        <h3>Developmental Roadmap</h3>
+        <p>
+            The principles of requesting action and reporting results have been present in FHIR since its initial version. However, significant work has happened (or is planned) as part of this STU 3 release to increase the consistency of resources involved in workflow
+            and to improve the documentation expressing the different ways workflow can be managed depending on architectural and other constraints. This has included the introduction of the <a href="task.html">Task</a> resource (which replaced
+            the old Order and OrderResponse resources), the definition of the <a href="workflow.html#request">Request</a> and <a href="workflow.html#event">Event</a> patterns and the creation of the <a href="plandefinition.html">PlanDefinition</a> and
+            <a href="activitydefinition.html">ActivityDefinition</a> resources. Some of this work has had preliminary testing at connectathon but has had little production experience as yet. Most of the discussion has been on how workflow is best managed
+            from a <a href="http.html">RESTful</a> paradigm perspective.
+        </p>
+        <p>
+            Looking forward to the next release, we'll be seeking and incorporating feedback from the implementer community about both the workflow resources as well as the patterns and architectural approaches documented in this specification. We'll also be increasing
+            focus on the messaging and services paradigms and seeing how much consistency in approach is possible/desirable across REST, messaging and services. Finally we'll be working with the workgroups responsible for the <a href="administration-module.html">Administration</a>            and <a href="financial-module.html">Financial</a> modules to increase the consistency of approach to the design of workflow-related resources, regardless of domain. Whether any of the resources defined beneath this module will be candidates
+            for normative status in the next release of FHIR will depend on the degree and type of implementer feedback between now and that release.
+        </p>
+        <p>Additional topics for future work include:</p>
+        <ul>
+            <li>Resolving the overlap between the <a href="supplyrequest.html">SupplyRequest</a>, <a href="devicerequest.html">DeviceRequest</a> and
+                <a href="visionprescription.html">VisionPrescription</a> resources</li>
+            <li>Improving mapping and alignment of the elements and status codes of the <a href="task.html">Task</a> resource with the WS-HumanTask specification</li>
+            <li>Creating "best practice" guides for how to implement workflow for different business patterns</li>
+            <li>Examining how workflow is used for "compensating actions", for example account transactions and reversals</li>
+        </ul>
 
-</div>
+    </div>
 
-[%file newfooter%]
+    [%file newfooter%]
 </body>
+
 </html>

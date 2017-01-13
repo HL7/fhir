@@ -37,9 +37,9 @@ in order to support consistent definitions for schema and UML derived code.
         </table>
 
         <p>
-            As described earlier, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there is a number of mechanisms available. In addition to managing
-            workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource paterns</a> in an ad-hoc fashion.
-            In deciding how best to interoperate around workflow with FHIR, there are a number of considerations:
+            As described in previous sections, many FHIR resources can be used within workflows without using FHIR to manage the execution of the workflows. When we want to manage workflow execution with FHIR, there is a number of mechanisms available. In addition
+            to managing workflow with FHIR, there are also cases where management of workflow execution is not necessary, and supporting workflow becomes simply the use of the <a href="workflow.html#respatterns">resource paterns</a> in an
+            ad-hoc fashion. In deciding how best to interoperate around workflow with FHIR, there are a number of considerations:
         </p>
         <ul>
             <li>Is sharing of the state of the workflow necessary among the participants?</li>
@@ -58,7 +58,7 @@ in order to support consistent definitions for schema and UML derived code.
             and provide recommendations for an appropriate subset of patterns, with a discussion on where and how to use them. Implementation guides, by their nature, should prescribe which patterns to use for workflow execution management.
         </p>
         <a name="commpatternsoverview"> </a>
-        <h4>Communication Patterns Conventions and Overview</h4>
+        <h3>Communication Patterns Conventions and Overview</h3>
         <p>
             This section highlights some of the more common patterns and identifies their characteristics and limitations and provides recommendations on when each approach may be most useful or relevant. Please note that this list of patterns is not exhaustive.
             Patterns can be combined in various ways and there are likely some possibilities we haven't thought about yet (feel free to submit additional patterns using the 'submit a change' link at the bottom of the page). As well, the recommendations
@@ -90,9 +90,12 @@ in order to support consistent definitions for schema and UML derived code.
             One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource, as hown the the state diagram, which is alo presented here:
         </p>
         <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+
+        <a name="commpatternslist"> </a>
+        <h3>List of patterns</h3>
         <p>
-            The patterns that facilitate the execution of workflow using the <a href="task.html">Task</a> resource are grouped in the Workflow Execution Patterns section. The patterns where no Task resource is used are grouped in the Ad-hoc Workflow Patterns
-            section. The list of patterns is as follows:
+            The patterns that facilitate the execution of workflow using the <a href="task.html">Task</a> resource are grouped in the Workflow Management Patterns section. The patterns where no Task resource is used are grouped in the Ad-hoc Workflow
+            Patterns section. The list of patterns is as follows:
         </p>
         <table>
             <tbody>
