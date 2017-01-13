@@ -103,6 +103,9 @@
     <item id="CareTeam">
         <translation lang="en">CareTeam</translation>
     </item>
+    <item id="Catalog">
+        <translation lang="en">Catalog</translation>
+    </item>
     <item id="Claim">
         <translation lang="en">Claim</translation>
         <translation lang="zh">声称</translation>

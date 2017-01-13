@@ -1,0 +1,220 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Catalog
+  UML = 0;0
+  Type = DomainResource
+  Short Name = Catalog document
+  Definition = A document that bundles a set of catalog entries: items (that can be ordered or referenced) and their characteristics.
+  w5 = workflow.order
+
+ -- Row 2 -----------------------------------
+  Element = Catalog.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Name = Unique identifier for the  catalog resource
+  Definition = Unique for each resource instance
+
+ -- Row 3 -----------------------------------
+  Element = Catalog.document
+  Card. = 1..1
+  Short Name = Properties of the document - authorship, versions, etc
+
+ -- Row 4 -----------------------------------
+  Element = Catalog.document.status
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = Status of the catalog document: pre-submission, pending, approved, draft
+  Definition = Used for presenting
+
+ -- Row 5 -----------------------------------
+  Element = Catalog.document.provider
+  Card. = 1..1
+  Type = Reference(Organization)
+  Short Name = The entity that is issuing (sending, submitting, publishing) the catalog
+  Definition = The entity that is issuing (sending, submitting, publishing) the catalog
+
+ -- Row 6 -----------------------------------
+  Element = Catalog.document.contentType
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of content in the document
+  Definition = For example FormularyOnly items, or Full Catalog, or SingleSubmission, or others
+
+ -- Row 7 -----------------------------------
+  Element = Catalog.document.updateMode
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = How the content is intended to be used - overwriting, appending, complementing existing items
+  Definition = Used to define a full update, or appending information (e.g. sending the catalog of substances does not replace the catalog of medications, but rather updates the characteristics)
+
+ -- Row 8 -----------------------------------
+  Element = Catalog.document.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Unique identifier for the catalog document
+  Definition = Uniquely identifies the catalog for archiving, versioning, duplicate checking, etc
+
+ -- Row 9 -----------------------------------
+  Element = Catalog.document.contentVersion
+  Card. = 0..1
+  Type = Identifier
+  Short Name = The version of the catalog content
+  Definition = To support versioning and deciding when to overwrite /update content
+
+ -- Row 10 -----------------------------------
+  Element = Catalog.document.issueDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date when the catalog document is issued
+
+ -- Row 11 -----------------------------------
+  Element = Catalog.document.validFrom
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date from which the catalog content is expected to be active
+  Definition = To support delayed or timed activation of items, e.g. \"next year this product will be available\"
+
+ -- Row 12 -----------------------------------
+  Element = Catalog.document.validTo
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date until which the catalog content is expected to be active
+  Definition = To support delayed or timed deactivation of items, e.g. \"next year this product will no longer be available\"
+
+ -- Row 13 -----------------------------------
+  Element = Catalog.item
+  Card. = 1..*
+  Short Name = Each item of the catalog
+
+ -- Row 14 -----------------------------------
+  Element = Catalog.item.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The type of item - medication, device, service, protocol or other
+
+ -- Row 15 -----------------------------------
+  Element = Catalog.item.referencedItem
+  Card. = 0..1
+  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
+  Short Name = The item itself
+  Definition = Content of the catalog
+
+ -- Row 16 -----------------------------------
+  Element = Catalog.item.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Unique identifier of the catalog item
+  Definition = Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code
+
+ -- Row 17 -----------------------------------
+  Element = Catalog.item.additionalIdentifier
+  Card. = 0..*
+  Type = Identifier
+  Short Name = Any additional identifier(s) for the catalog item, in the same granularity or concept
+  Definition = Used in supporting related concepts, e.g. NDC to RxNorm
+
+ -- Row 18 -----------------------------------
+  Element = Catalog.item.classification
+  Card. = 0..*
+  Type = Identifier
+  Short Name = Classification of the item
+  Definition = Classes of devices, or ATC for medication
+
+ -- Row 19 -----------------------------------
+  Element = Catalog.item.status
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The status of the item, e.g. active, approved…
+  Definition = Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
+
+ -- Row 20 -----------------------------------
+  Element = Catalog.item.validFrom
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date from which this catalog entry is expected to be active
+
+ -- Row 21 -----------------------------------
+  Element = Catalog.item.validTo
+  Card. = 0..1
+  Type = dateTime
+  Short Name = The date until which this catalog entry is expected to be active
+
+ -- Row 22 -----------------------------------
+  Element = Catalog.item.lastUpdated
+  Card. = 0..1
+  Type = dateTime
+  Short Name = Perhaps not needed
+
+ -- Row 23 -----------------------------------
+  Element = Catalog.item.additionalCharacteristic
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Additional characteristics of the catalog entry
+  Definition = Used for examplefor Out of Formulary, or any specifics
+
+ -- Row 24 -----------------------------------
+  Element = Catalog.item.additionalClassification
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Additional classification of the catalog entry
+  Definition = User for example for ATC classification, or
+
+ -- Row 25 -----------------------------------
+  Element = Catalog.item.relatedItem
+  Card. = 0..*
+  Short Name = An item that this catalog entry is related to
+  Definition = Used for example,  to point to a substance, or to a device used to administer a medication
+
+ -- Row 26 -----------------------------------
+  Element = Catalog.item.relatedItem.relationtype
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Name = The type of relation to the related item
+  Definition = The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc
+
+ -- Row 27 -----------------------------------
+  Element = Catalog.item.relatedItem.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Short Name = The type of related item
+  Definition = The type of related item
+
+ -- Row 28 -----------------------------------
+  Element = Catalog.item.relatedItem.identifier
+  Card. = 1..1
+  Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
+  Short Name = The reference to the related item
+  Definition = The reference to the related item
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Catalog.identifier
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !CCDA Non-Medicinal Supply Activity
+  IG Name = ccda
+  Filename = supply-ccda-nonmedsupplyactivity.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Catalog Example
+  Identity = example
+  Description = Descriptive example
+  Filename = catalog-example.xml
+
+=== Sheet Examples =====================================
