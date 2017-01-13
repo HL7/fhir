@@ -98,60 +98,54 @@
   Parent = #17
 
  -- Row 9 -----------------------------------
-  Id = 6
-  Code = instant
-  Definition = Question with a system timestamp answer
-  Parent = #17
-
- -- Row 10 -----------------------------------
   Id = 8
   Code = time
   Definition = Question with a time (hour/minute/second) answer independent of date.
   Parent = #17
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Id = 8
   Code = string
   Definition = Question with a short (few words to short sentence) free-text entry answer
   Parent = #17
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Id = 9
   Code = text
   Definition = Question with a long (potentially multi-paragraph) free-text entry (still captured as a string) answer
   Parent = #17
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Id = 16
   Code = url
   Definition = Question with a url (website, FTP site, etc.) answer
   Parent = #17
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Id = 10
   Code = choice
   Definition = Question with a Coding drawn from a list of options as an answer
   Parent = #17
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Id = 11
   Code = open-choice
   Definition = Answer is a Coding drawn from a list of options or a free-text entry captured as Coding.display
   Parent = #17
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Id = 12
   Code = attachment
   Definition = Question with binary content such as a image, PDF, etc. as an answer
   Parent = #17
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Id = 13
   Code = reference
   Definition = Question with a reference to another resource (practitioner, organization, etc.) as an answer
   Parent = #17
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Id = 14
   Code = quantity
   Definition = Question with a combination of a numeric value and unit, potentially with a comparator (<, >, etc.) as an answer.
@@ -481,7 +475,7 @@
   Element = Questionnaire.item.enableWhen.answer[x]
   Card. = 0..1
   Inv. = 7
-  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Type = boolean | decimal | integer | date | dateTime | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Short Name = Value question must have
   Definition = If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer
   Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
@@ -565,7 +559,7 @@
   Element = Questionnaire.item.initial[x]
   Card. = 0..1
   Inv. = 8
-  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Type = boolean | decimal | integer | date | dateTime | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Short Name = Default value when item is first rendered
   Definition = The value that should be defaulted when rendering the questionnaire for user input
   Requirements = In some workflows, having defaults saves time.

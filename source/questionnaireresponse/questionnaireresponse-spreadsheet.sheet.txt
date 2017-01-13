@@ -245,7 +245,7 @@
  -- Row 18 -----------------------------------
   Element = QuestionnaireResponse.item.answer.value[x]
   Card. = 0..1
-  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Type = boolean | decimal | integer | date | dateTime | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
   Binding = QuestionnaireAnswer
   Short Name = Single-valued answer to the question
   Definition = The answer (or one of the answers) provided by the respondent to the question

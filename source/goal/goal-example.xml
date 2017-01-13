@@ -7,33 +7,6 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
-		<extension url="measure">
-			<valueCodeableConcept>
-				<coding>
-					<system value="http://loinc.org"/>
-					<code value="3141-9"/>
-					<display value="Weight Measured"/>
-				</coding>
-			</valueCodeableConcept>
-		</extension>
-		<extension url="detail">
-			<valueRange>
-				<low>
-					<value value="160"/>
-					<unit value="lbs"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="[lb_av]"/>
-				</low>
-				<high>
-					<value value="180"/>
-					<unit value="lbs"/>
-					<system value="http://unitsofmeasure.org"/>
-					<code value="[lb_av]"/>
-				</high>
-			</valueRange>
-		</extension>
-	</extension>
 	<status value="in-progress"/>
 	<description>
     		<text value="Target weight is 160 to 180 lbs."/>
@@ -42,6 +15,29 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
+	<target>
+		<measure>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="3141-9"/>
+				<display value="Weight Measured"/>
+			</coding>
+		</measure>
+		<detailRange>
+			<low>
+				<value value="160"/>
+				<unit value="lbs"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="[lb_av]"/>
+			</low>
+			<high>
+				<value value="180"/>
+				<unit value="lbs"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="[lb_av]"/>
+			</high>
+		</detailRange>
+	</target>
 	<addresses>
 		<reference value="Condition/12345"/>
 		<display value="obesity"/>

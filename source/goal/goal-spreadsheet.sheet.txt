@@ -46,6 +46,16 @@
   Binding = unbound
   Definition = Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used.
 
+ -- Row 8 -----------------------------------
+  Binding Name = GoalTargetMeasure
+  Binding = unbound
+  Definition = Codes to identify the value being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.
+
+ -- Row 9 -----------------------------------
+  Binding Name = GoalTargetDetail
+  Binding = unbound
+  Definition = Codes to identify the target value of the focus to be achieved to signify the fulfillment of the goal.
+
 === Sheet goal-status =====================================
 
  -- Row 1 -----------------------------------
@@ -226,7 +236,34 @@
   w5 = when.planned
 
  -- Row 9 -----------------------------------
-  Element = Goal.target[x]
+  Element = Goal.target
+  Card. = 0..1
+  Type = Backbone Element
+  Short Name = Target outcome for the goal
+  Definition = Indicates what should be done by when
+  Requirements = Allows the progress of the goal to be monitored against an observation or due date
+  Committee Notes = GF#12090
+
+ -- Row 10 -----------------------------------
+  Element = Goal.target.measure
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = GoalTargetMeasure
+  Short Name = The parameter whose value is being tracked
+  Definition = The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.
+
+ -- Row 11 -----------------------------------
+  Element = Goal.target.detail[x]
+  Card. = 0..1
+  Summary = Y
+  Type = Quantity | Range | CodeableConcept
+  Binding = GoalTargetDetail
+  Short Name = The target value to be achieved
+  Definition = The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
+
+ -- Row 12 -----------------------------------
+  Element = Goal.target.due[x]
   Card. = 0..1
   Summary = Y
   Type = date | Duration
@@ -235,7 +272,7 @@
   Requirements = Identifies when the goal should be evaluated.
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Goal.statusDate
   Card. = 0..1
   Summary = Y
@@ -245,7 +282,7 @@
   Comments = To see the date for past statuses, query history
   w5 = when.recorded
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Goal.statusReason
   Card. = 0..*
   Type = CodeableConcept
@@ -254,7 +291,7 @@
   Definition = Captures the reason for the current status.
   Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Goal.expressedBy
   Card. = 0..1
   Summary = Y
@@ -264,7 +301,7 @@
   Comments = This is the individual reponsible for establishing the goal, not necessarily who recorded it.  (For that, use the Provenance resource.)
   w5 = who.source
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Goal.addresses
   Card. = 0..*
   Type = Reference(Condition | Observation | MedicationStatement | NutritionOrder | ProcedureRequest | RiskAssessment)
@@ -274,7 +311,7 @@
   RIM Mapping = .outboundRelationship[typeCode=SUBJ].target[classCode=CONC]
   w5 = why
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Goal.note
   Card. = 0..*
   Type = Annotation
@@ -285,7 +322,7 @@
   v2 Mapping = GOL-16-goal evaluation + NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Goal.outcome
   Card. = 0..*
   UML = 400;100
@@ -295,7 +332,7 @@
   Comments = Note that this should not duplicate the goal status.
   To Do = Define a proper value set for this
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Goal.outcome.result[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Observation)
@@ -322,9 +359,9 @@
   Path = Goal.category
 
  -- Row 4 -----------------------------------
-  Name = targetdate
+  Name = target-date
   Type = date
-  Path = Goal.targetDate
+  Path = Goal.target.dueDate
 
  -- Row 5 -----------------------------------
   Name = identifier

@@ -29,24 +29,6 @@
   <contained>
     <Goal>
       <id value="goal"/>
-      <extension url="http://hl7.org/fhir/StructureDefinition/goal-target">
-        <extension url="measure">
-          <valueCodeableConcept>
-            <coding>
-              <system value="http://loinc.org"/>
-              <code value="29463-7"/>
-              <display value="Body weight"/>
-            </coding>
-          </valueCodeableConcept>
-        </extension>
-        <extension url="detail">
-          <valueQuantity>
-            <value value="80"/>
-            <system value="http://units-of-measure.org"/>
-            <code value="kg"/>
-          </valueQuantity>
-        </extension>
-      </extension>
       <status value="planned"/>
       <description>
         <text value="Target weight is 80 kg"/>
@@ -55,6 +37,20 @@
         <reference value="Patient/example"/>
         <display value="Peter James Chalmers"/>
       </subject>
+	  <target>
+		<measure>
+			<coding>
+              <system value="http://loinc.org"/>
+              <code value="29463-7"/>
+              <display value="Body weight"/>
+            </coding>
+		</measure>
+		<detailQuantity>
+			<value value="80"/>
+            <system value="http://units-of-measure.org"/>
+            <code value="kg"/>
+		</detailQuantity>
+	  </target>
     </Goal>
   </contained>
   <status value="active"/>
