@@ -98,10 +98,9 @@ in order to support consistent definitions for schema and UML derived code.
             the mechanism for tracking the workflow state. The following two examples illustrate how that could be accomplished with regards of specific workflows. Note that these examples avoid any specificity on where the described resources exist,
             or any reference to a specific communication pattern. The goal of the examples is to demostrate the use of the Task attributes to represent the workflow state.
         </p>
-        <h4>Workflow state for a lab order for a blood test</h4>
-        <p>The following table shows the steps for a simple blood test order, and the corresponding values of the Task attributes.</p>
-        <!--<table style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;">
-            <tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"> -->
+        <h4>Example: Workflow states for a lab order for a blood test</h4>
+        <p>The following table shows the steps for a simple blood test order, and the corresponding values of the Task attributes. A lot of details on other attributes have been omitted in order to focus on the state changes.</p>
+
         <table class="grid">
             <tr>
                 <th>
@@ -116,10 +115,13 @@ in order to support consistent definitions for schema and UML derived code.
                 <th>
                     <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a>
                 </th>
+                <th>
+                    <a href="task-operations.html">Task operation</a>
+                </th>
             </tr>
             <tr>
                 <td>
-                    Provider orders a blood test for a patient. A <a href="diagnosticrequest.html">DiagnosticRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request for the
+                    Provider orders a blood test for a patient. A <a href="diagnosticrequest.html">DiagnosticRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request to the
                     lab. <a href="task-definitions.html#Task.basedOn">Task.baasedOn</a> points to the DiagnsticRequest instance.
                 </td>
                 <td>
@@ -130,6 +132,9 @@ in order to support consistent definitions for schema and UML derived code.
                 </td>
                 <td>
                     Ordered
+                </td>
+                <td>
+                    N/A
                 </td>
             </tr>
             <tr>
@@ -145,6 +150,9 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Accepted
                 </td>
+                <td>
+                    N/A
+                </td>
             </tr>
             <tr>
                 <td>
@@ -159,6 +167,9 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Specimen available
                 </td>
+                <td>
+                    <a href="task-operations.html#start">Start Task</a>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -171,12 +182,15 @@ in order to support consistent definitions for schema and UML derived code.
                     Preliminary results available
                 </td>
                 <td>
-                    Preliminray results
+                    Preliminary results
+                </td>
+                <td>
+                    <a href="task-operations.html#set-output">Set Task Output</a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Fianl results are available
+                    Final results are available
                 </td>
                 <td>
                     Complete
@@ -187,10 +201,255 @@ in order to support consistent definitions for schema and UML derived code.
                 <td>
                     Final results
                 </td>
+                <td>
+                    <a href="task-operations.html#finish">Finish Task</a>
+                </td>
             </tr>
         </table>
-        <h4>Workflow state for a referral from a PCP to a specialist</h4>
-        <p> </p>
+        <h4>Example: Workflow states for a referral from a PCP to a specialist</h4>
+        <p>The following table shows the steps for a referral workflow, and the corresponding values of the Task attributes. A lot of details on other attributes have been omitted in order to focus on the state changes.</p>
+
+        <table class="grid">
+            <tr>
+                <th>
+                    Workflow step
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.status">Task.status</a>
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.statusReason">Task.statusReason</a>
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a>
+                </th>
+                <th>
+                    <a href="task-operations.html">Task operation</a>
+                </th>
+            </tr>
+            <tr>
+                <td>Provider A is seeing a patient with a specific complaint. Based on the exam, Provider A refers the patient to a specialist at clinic B. It is an urgent referral, requesting to see the specialist within 4 days. A <a href="referralrequest.html">ReferralRequest</a>                    resource is created to represent the referral order, and a <a href="task.html">Task</a> resource is created with <a href="task-definitions.html#Task.priority">Task.priority</a> set to Urgent, and <a href="task-definitions.html#Task.restriction.period">Task.restriction.period.end</a>                    set to 4 days in the future.
+                </td>
+                <td>
+                    Requested
+                </td>
+                <td>
+                    New referral
+                </td>
+                <td>
+                    Referred
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clinic B receives the referral and puts it on the urgent queue to be reviewd.
+                </td>
+                <td>
+                    Received
+                </td>
+                <td>
+                    Received by organization
+                </td>
+                <td>
+                    Pending
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Upon reviewing the referral, the clinic determines they have no capacity to see the patient within the specified time period, and they decline the referral.
+                </td>
+                <td>
+                    Rejected
+                </td>
+                <td>
+                    Provider unavailable
+                </td>
+                <td>
+                    Declined
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Provider A changes the referral request to clinic C. This creates a new <a href="task.html">Task</a> resource, with the appropriate information
+                </td>
+                <td>
+                    Requested
+                </td>
+                <td>
+                    Changed the referred to provider
+                </td>
+                <td>
+                    Referred
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clinic C accepts the referral and it is placed on a schedular's queue.
+                </td>
+                <td>
+                    Accepted
+                </td>
+                <td>
+                    Able to provide the service.
+                </td>
+                <td>
+                    Accepted
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    An appointment is scheduled for the patient at Clinic C.
+                </td>
+                <td>
+                    In progress
+                </td>
+                <td>
+                    Appointment scheduled
+                </td>
+                <td>
+                    Scheduled
+                </td>
+                <td>
+                    <a href="task-operations.html#start">Start Task</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Soon after the appointment is scheduled, the patient calls provider A to ask for a different location for the referral appointment, as he lost his transportation, and he cannot reach Clinic C. The provider requests a cancel for the referral.
+                </td>
+                <td>
+                    Suspended
+                </td>
+                <td>
+                    Patient unable to make appointment.
+                </td>
+                <td>
+                    Cancel requested
+                </td>
+                <td>
+                    <a href="task-operations.html#suspend">Suspend Task</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clinic C confirms tha cancelation of the existing task.
+                </td>
+                <td>
+                    In progress<br /> Failed
+                </td>
+                <td>
+                    Referral cancelled
+                </td>
+                <td>
+                    Cancelled as requested
+                </td>
+                <td>
+                    <a href="task-operations.html#resume">Resume Task</a> followed by <a href="task-operations.html#fail">Fail Task</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Provider A changes the referral to Clinic D, which is located close to where the patient lives, and can be conveniently reached using public transportation. This creates a new <a href="task.html">Task</a> resource, wioth the appropriate
+                    information.
+                </td>
+                <td>
+                    Requested
+                </td>
+                <td>
+                    Changed the referred to provider
+                </td>
+                <td>
+                    Referred
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Clinic D accepts the referral and it is placed on a schedular's queue.
+                </td>
+                <td>
+                    Accepted
+                </td>
+                <td>
+                    Able to provide the service.
+                </td>
+                <td>
+                    Accepted
+                </td>
+                <td>
+                    N/A
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    An appointment is scheduled for the patient at Clinic D.
+                </td>
+                <td>
+                    In progress
+                </td>
+                <td>
+                    Appointment scheduled
+                </td>
+                <td>
+                    Scheduled
+                </td>
+                <td>
+                    <a href="task-operations.html#start">Start Task</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Patient is seen at Clinic D. A diagnosis is made by the specialist, a prescription is given, and a follow-up appointment is made at clinic D. <a href="task-definitions.html#Task.output.value_x_">Task.output.value[1]</a> references
+                    a <a href="composition.html">Compositions</a> resource, which contains the encounter summary.
+                </td>
+                <td>
+                    In progress
+                </td>
+                <td>
+                    Intermediary consultation note available
+                </td>
+                <td>
+                    Preliminary notes
+                </td>
+                <td>
+                    <a href="task-operations.html#set-output">Set Task Output</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Patient comes for follow-up appointment at clinic D. The specialist is satisfied by the progress the patient has made and creates the final consultation note. <a href="task-definitions.html#Task.output.value_x_">Task.output.value[2]</a>                    references a <a href="composition.html">Compositions</a> resource, which contains consultation note.
+                </td>
+                <td>
+                    Completed
+                </td>
+                <td>
+                    Final consultation note available
+                </td>
+                <td>
+                    Final notes
+                </td>
+                <td>
+                    <a href="task-operations.html#finish">Finish Task</a>
+                </td>
+            </tr>
+        </table>
 
 
         <a name="commpatternslist"> </a>
