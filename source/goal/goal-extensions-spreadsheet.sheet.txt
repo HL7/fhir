@@ -41,7 +41,7 @@
 
  -- Row 4 -----------------------------------
   Id = 5
-  Code = component
+  Code = milestone
   Definition = Indicates that the target goal is considered to be a \"piece\" of attaining this goal.
 
  -- Row 5 -----------------------------------

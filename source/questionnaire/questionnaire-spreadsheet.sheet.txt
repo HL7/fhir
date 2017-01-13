@@ -436,7 +436,7 @@
 
  -- Row 19 -----------------------------------
   Element = Questionnaire.item.type
-  Card. = 0..1
+  Card. = 1..1
   Inv. = 11
   Type = code
   Binding = QuestionnaireItemType

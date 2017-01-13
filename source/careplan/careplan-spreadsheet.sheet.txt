@@ -704,6 +704,11 @@
   Type = token
   Path = CarePlan.identifier
 
+ -- Row 16 -----------------------------------
+  Name = status
+  Type = token
+  Path = CarePlan.status
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

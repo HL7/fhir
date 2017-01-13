@@ -336,6 +336,11 @@
   Type = token
   Path = Goal.status
 
+ -- Row 7 -----------------------------------
+  Name = start-date
+  Type = date
+  Path = Goal.startDate
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
