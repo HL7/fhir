@@ -58,7 +58,7 @@ in order to support consistent definitions for schema and UML derived code.
             and provide recommendations for an appropriate subset of patterns, with a discussion on where and how to use them. Implementation guides, by their nature, should prescribe which patterns to use for workflow execution management.
         </p>
         <a name="commpatternsoverview"> </a>
-        <h3>Communication Patterns Conventions and Overview</h3>
+        <h3>Communication Patterns Conventions</h3>
         <p>
             This section highlights some of the more common patterns and identifies their characteristics and limitations and provides recommendations on when each approach may be most useful or relevant. Please note that this list of patterns is not exhaustive.
             Patterns can be combined in various ways and there are likely some possibilities we haven't thought about yet (feel free to submit additional patterns using the 'submit a change' link at the bottom of the page). As well, the recommendations
@@ -86,10 +86,110 @@ in order to support consistent definitions for schema and UML derived code.
                 types of execution it can trigger, this will be noted in the "limitations" section.</li>
         </ul>
 
+        <h3>Workflow State</h3>
         <p>
-            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource, as hown the the state diagram, which is alo presented here:
+            One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource. The <a href="task.html#statemachine">Task state machune</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastrcuture state of the Task resource.
         </p>
-        <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+        <p>
+            <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+        </p>
+        <p>The combination of <a href="task-definitions.html#Task.status">Task.status</a>, <a href="task-definitions.html#Task.statusReason">Task.statusReason</a> and <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a> provide the
+            mechanism for tracking the workflow state. The following two examples illustrate how that could be accomplished with regards of specific workflows. Note that these examples avoid any specificity on where the described resources exist, or any
+            reference to a specific communication pattern. The goal of the examples is to demostrate the use of the Task attributes to represent the workflow state.</p>
+        <h4>Workflow state for a lab order for a blood test</h4>
+        <p>The following table shows the steps for a simple blood test order, and the corresponding values of the Task attributes.</p>
+        <!--<table style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;">
+            <tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"> -->
+        <table class="grid">
+            <tr>
+                <th>
+                    Workflow step
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.status">Task.status</a>
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.statusReason">Task.statusReason</a>
+                </th>
+                <th>
+                    <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Provider orders a blood test for a patient. A <a href="diagnosticrequest.html">DiagnosticRequest</a> resource is created to represent the order, and a <a href="task.html">Task</a> resource is created to represent the request for the
+                    lab. <a href="task-definitions.html#Task.basedOn">Task.baasedOn</a> points to the DiagnsticRequest instance.
+                </td>
+                <td>
+                    Requested
+                </td>
+                <td>
+                    New order
+                </td>
+                <td>
+                    Ordered
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The lab accepts the order.
+                </td>
+                <td>
+                    Accepted
+                </td>
+                <td>
+                    Able to perform the test.
+                </td>
+                <td>
+                    Accepted
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    The patient is at the lab, and blood is drawn.
+                </td>
+                <td>
+                    In progress
+                </td>
+                <td>
+                    Obtained the specimen
+                </td>
+                <td>
+                    Specimen available
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Work on the blood sample is in progress, preliminary results are available, a <a href="diagnosticreport.html">DiagnosticReport</a> resource is created, and <a href="task-definitions.html#Task.output.value_x_">Task.output.value[1]</a>                    references the DiagnosticReport resource.
+                </td>
+                <td>
+                    In progress
+                </td>
+                <td>
+                    Preliminary results available
+                </td>
+                <td>
+                    Preliminray results
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Fianl results are available
+                </td>
+                <td>
+                    Complete
+                </td>
+                <td>
+                    Final results are available
+                </td>
+                <td>
+                    Final results
+                </td>
+            </tr>
+        </table>
+        <h4>Workflow state for a referral from a PCP to a specialist</h4>
+        <p> </p>
+
 
         <a name="commpatternslist"> </a>
         <h3>List of patterns</h3>
@@ -171,7 +271,7 @@ in order to support consistent definitions for schema and UML derived code.
                 </tr>
                 <tr>
                     <td>
-                        <a href="workflow-ad-hoc.html#additional">Additional Scenarios</a>
+                        <a href="workflow-ad-hoc.html#additional">Additional Scenarios and Variations</a>
                     </td>
                 </tr>
             </tbody>
