@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","concept":[{"code":"399166001","display":"fatal"},{"code":"255604002","display":"mild"},{"code":"371923003","display":"mild to moderate"},{"code":"6736007","display":"moderate"},{"code":"371924009","display":"moderate to severe"},{"code":"24484000","display":"severe"}]}]}}

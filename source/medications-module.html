@@ -143,10 +143,10 @@ This module is concerned with resources and functionality in 2 main domains:
 		<a href="list-operations.html#find">operation</a> to retrieve it. Note that FHIR does not describe how the
 		list should be maintained by the individual system, as that will vary widely between implementations.
 	</li>
-	<li>Retrieving a list of Immunizations. This can be achieved using a <a href="http://hl7-fhir.github.io/http.html#search">simple query</a>
-		against the <a href="http://hl7-fhir.github.io/immunization.html">Immunization</a> resource type. Note that an Immunization resource can specifically state that it was not given,
+	<li>Retrieving a list of Immunizations. This can be achieved using a <a href="http.html#search">simple query</a>
+		against the <a href="immunization.html">Immunization</a> resource type. Note that an Immunization resource can specifically state that it was not given,
 		as well as any reactions that occurred. Note that if the reaction is considered to be an indication of an allergy
-		or intolerance, then a separate <a href="http://hl7-fhir.github.io/allergyintolerance.html">AllergyIntolerance</a>  resource should be created.
+		or intolerance, then a separate <a href="allergyintolerance.html">AllergyIntolerance</a>  resource should be created.
 	</li>
 	<li>Retrieving recommendations for a specific patient at a point in time. The recommendation for immunizations to give
 		would be represented by an ImmunizationRecommendation resource, but the determination of that recommendation is a

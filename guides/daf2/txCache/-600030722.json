@@ -1,1 +1,0 @@
-{"resourceType":"ValueSet","compose":{"include":[{"system":"http://snomed.info/sct","version":"http://snomed.info/sct/US1000124/version/20140901","concept":[{"code":"449868002"},{"code":"428041000124106"},{"code":"8517006"},{"code":"266919005"},{"code":"77176002"},{"code":"266927001"},{"code":"428071000124103"},{"code":"428061000124105"}]}]}}
