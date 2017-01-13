@@ -90,12 +90,14 @@ in order to support consistent definitions for schema and UML derived code.
         <p>
             One of the key distinguishing characteristics in the patterns below is whether the pattern supports the tracking of the wrokflow's state by both the placer and the filler. The workflow state is represented by the <a href="task.html">Task</a>            resource. The <a href="task.html#statemachine">Task state machune</a>, which is also presented here, shows the use of <a href="task-definitions.html#Task.status">Task.status</a> to represent the general infrastrcuture state of the Task resource.
         </p>
+
+        <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+
         <p>
-            <img src="task-state-machine.svg" alt="Diagram showing typical state machine for the Task resource" />
+            The combination of <a href="task-definitions.html#Task.status">Task.status</a>, <a href="task-definitions.html#Task.statusReason">Task.statusReason</a> and <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a> provide
+            the mechanism for tracking the workflow state. The following two examples illustrate how that could be accomplished with regards of specific workflows. Note that these examples avoid any specificity on where the described resources exist,
+            or any reference to a specific communication pattern. The goal of the examples is to demostrate the use of the Task attributes to represent the workflow state.
         </p>
-        <p>The combination of <a href="task-definitions.html#Task.status">Task.status</a>, <a href="task-definitions.html#Task.statusReason">Task.statusReason</a> and <a href="task-definitions.html#Task.businessStatus">Task.businessStatus</a> provide the
-            mechanism for tracking the workflow state. The following two examples illustrate how that could be accomplished with regards of specific workflows. Note that these examples avoid any specificity on where the described resources exist, or any
-            reference to a specific communication pattern. The goal of the examples is to demostrate the use of the Task attributes to represent the workflow state.</p>
         <h4>Workflow state for a lab order for a blood test</h4>
         <p>The following table shows the steps for a simple blood test order, and the corresponding values of the Task attributes.</p>
         <!--<table style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;">
