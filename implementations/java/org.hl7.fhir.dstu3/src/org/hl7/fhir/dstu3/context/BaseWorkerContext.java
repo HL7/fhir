@@ -112,7 +112,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         } catch (Exception e) {
           if (canRunWithoutTerminology) {
             noTerminologyServer = true;
-            logger.logMessage("==============!! Running without terminology server !!==============");
+            log("==============!! Running without terminology server !!==============");
             return false;
           } else
             throw new TerminologyServiceException(e);
@@ -136,6 +136,8 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private void log(String message) {
     if (logger != null)
       logger.logMessage(message);
+    else
+      System.out.println(message);
   }
 
   @Override
