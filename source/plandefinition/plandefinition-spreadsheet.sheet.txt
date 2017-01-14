@@ -329,20 +329,24 @@
   Type = MetadataResource
   Short Name = The definition of a plan for a series of actions, independent of any specific patient or context
   Definition = This resource allows for the definition of various types of plans as a sharable, consumable, and executable artifact. The resource is general enough to support the description of a broad range of clinical artifacts such as clinical decision support rules, order sets and protocols
+  Workflow Mapping = Definition
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = PlanDefinition.url
+  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = PlanDefinition.identifier
   Card. = 0..*
+  Workflow Mapping = Definition.identifier
   To Do = Add constraint to require an identifier for non-experimental active artifacts
   w5 = id
 
  -- Row 4 -----------------------------------
   Element = PlanDefinition.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active artifacts
+  Workflow Mapping = Definition.version
   To Do = Add constraint to require a version for non-experimental active artifacts
 
  -- Row 5 -----------------------------------
@@ -350,6 +354,7 @@
 
  -- Row 6 -----------------------------------
   Element = PlanDefinition.title
+  Workflow Mapping = Definition.title
 
  -- Row 7 -----------------------------------
   Element = PlanDefinition.type
@@ -362,18 +367,23 @@
 
  -- Row 8 -----------------------------------
   Element = PlanDefinition.status
+  Workflow Mapping = Definition.status (different ValueSet)
 
  -- Row 9 -----------------------------------
   Element = PlanDefinition.experimental
+  Workflow Mapping = Definition.experimental
 
  -- Row 10 -----------------------------------
   Element = PlanDefinition.date
+  Workflow Mapping = Definition.date
 
  -- Row 11 -----------------------------------
   Element = PlanDefinition.description
+  Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------
   Element = PlanDefinition.purpose
+  Workflow Mapping = Definition.purpose
 
  -- Row 13 -----------------------------------
   Element = PlanDefinition.usage
@@ -384,18 +394,23 @@
 
  -- Row 14 -----------------------------------
   Element = PlanDefinition.approvalDate
+  Workflow Mapping = Definition.approvalDate
 
  -- Row 15 -----------------------------------
   Element = PlanDefinition.lastReviewDate
+  Workflow Mapping = Definition.lastReviewDate
 
  -- Row 16 -----------------------------------
   Element = PlanDefinition.effectivePeriod
+  Workflow Mapping = Definition.effectivePeriod
 
  -- Row 17 -----------------------------------
   Element = PlanDefinition.useContext
+  Workflow Mapping = Definition.useContext
 
  -- Row 18 -----------------------------------
   Element = PlanDefinition.jurisdiction
+  Workflow Mapping = Definition.jurisdiction
 
  -- Row 19 -----------------------------------
   Element = PlanDefinition.topic
@@ -404,6 +419,7 @@
   Short Name = Descriptional topics for the asset
   Definition = Clinical topics related to the content of the asset
   Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
+  Workflow Mapping = Definition.subjectCodableConcept
 
  -- Row 20 -----------------------------------
   Element = PlanDefinition.contributor
@@ -415,13 +431,16 @@
 
  -- Row 21 -----------------------------------
   Element = PlanDefinition.publisher
+  Workflow Mapping = Definition.publisher (as string instead of Reference)
   To Do = Add constraint to require a publisher for non-experimental active artifacts
 
  -- Row 22 -----------------------------------
   Element = PlanDefinition.contact
+  Workflow Mapping = Definition.contact
 
  -- Row 23 -----------------------------------
   Element = PlanDefinition.copyright
+  Workflow Mapping = Definition.copyright
 
  -- Row 24 -----------------------------------
   Element = PlanDefinition.relatedArtifact
@@ -445,6 +464,7 @@
   UML = 310;0
   Short Name = Action defined by the plan
   Definition = An action to be taken as part of the plan
+  Workflow Mapping = Is a contained Definition
 
  -- Row 27 -----------------------------------
   Element = PlanDefinition.actionDefinition.actionIdentifier
@@ -452,6 +472,7 @@
   Type = Identifier
   Short Name = Unique identifier
   Definition = A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique
+  Workflow Mapping = Definition.identifier
 
  -- Row 28 -----------------------------------
   Element = PlanDefinition.actionDefinition.label
@@ -466,6 +487,7 @@
   Type = string
   Short Name = User-visible title
   Definition = The title of the action displayed to a user
+  Workflow Mapping = Definition.title
 
  -- Row 30 -----------------------------------
   Element = PlanDefinition.actionDefinition.description
@@ -473,6 +495,7 @@
   Type = string
   Short Name = Short description of the action
   Definition = A short description of the action used to provide a summary to display to the user
+  Workflow Mapping = Definition.description
 
  -- Row 31 -----------------------------------
   Element = PlanDefinition.actionDefinition.textEquivalent
@@ -480,6 +503,7 @@
   Type = string
   Short Name = Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system
   Definition = A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically
+  Workflow Mapping = Definition.description
 
  -- Row 32 -----------------------------------
   Element = PlanDefinition.actionDefinition.code
@@ -655,6 +679,7 @@
   Short Name = Description of the activity to be performed
   Definition = A reference to an ActivityDefinition that describes the action to be taken in detail
   Comments = Note that the resource is optional, and if no resource is specified, a dynamicValue with a root (/) path can be used to define the entire resource dynamically
+  Workflow Mapping = Definition.definition
 
  -- Row 55 -----------------------------------
   Element = PlanDefinition.actionDefinition.transform
@@ -705,6 +730,7 @@
   Type = @PlanDefinition.actionDefinition
   Short Name = A sub-action
   Definition = Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition
+  Workflow Mapping = InverseRelationship of Definition.partOf
 
 === Sheet Search =====================================
 
