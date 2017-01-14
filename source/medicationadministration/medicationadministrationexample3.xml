@@ -19,13 +19,13 @@
   <medicationReference>
     <reference value="#med0303"/> 
   </medicationReference>
- <patient>
+ <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
-  </patient>
-<encounter>
+  </subject>
+<context>
   <reference value="Encounter/f001"></reference>
-</encounter>
+</context>
 <supportingInformation>
   <reference value ="Condition/f204"></reference>
 </supportingInformation>

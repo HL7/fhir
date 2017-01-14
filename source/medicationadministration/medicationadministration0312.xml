@@ -16,17 +16,19 @@
       <display value="Fentanyl 25micrograms/hour patch (product)"/>
     </coding>
   </medicationCodeableConcept>
- <patient>
+ <subject>
    <reference value="Patient/pat1"/>
    <display value="Donald Duck"/> 
-  </patient>
+  </subject>
  <effectivePeriod>
   <start value="2015-01-15T22:03:00+01:00"/>
    <end value="2015-01-16T02:03:00+01:00"/>
 </effectivePeriod>
   <performer>
-    <reference value="Practitioner/f007"/>
-    <display value="Patrick Pump"/>
+<actor>
+  <reference value="Practitioner/f007"/>
+  <display value="Patrick Pump"/>
+</actor>
   </performer>
   <prescription>
     <reference value="MedicationRequest/medrx0305"/>

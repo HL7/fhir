@@ -61,6 +61,13 @@
   Binding = unbound
   Definition = A coded concept describing the reason for an action taken on a medication administration.
 
+ -- Row 10 -----------------------------------
+  Binding Name = MedicationAdministrationPerformerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = A coded concept describing the role of the performer
+  Conformance = example
+
 === Sheet medication-admin-status =====================================
 
  -- Row 1 -----------------------------------
@@ -97,6 +104,12 @@
   Display = Stopped
   Definition = Actions implied by the administration have been permanently halted, before all of them occurred.
   v3 = ActStatus.aborted
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
 
 === Sheet Invariants =====================================
 
@@ -142,19 +155,35 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MedicationAdministration.definition
+  Card. = 0..*
+  Summary = y
+  Type = Reference (PlanDefinition | ActivityDefinition)
+  Short Name = Instantiates protocol or definition
+  Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
+
+ -- Row 4 -----------------------------------
+  Element = MedicationAdministration.partOf
+  Card. = 0..*
+  Summary = y
+  Type = Reference (MedicationAdministration | Procedure)
+  Short Name = Part of referenced event
+  Definition = A larger event of which this particular event is a component or step.
+
+ -- Row 5 -----------------------------------
   Element = MedicationAdministration.status
   Card. = 1..1
   Is Modifier = Y
   Summary = y
   Type = code
   Binding = MedicationAdministrationStatus
-  Short Name = in-progress | on-hold | completed | entered-in-error | stopped
+  Short Name = in-progress | on-hold | completed | entered-in-error | stopped | unknown
   Definition = Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
   v2 Mapping = RXA-20-Completion Status
   RIM Mapping = statusCode
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationAdministration.medication[x]
   Card. = 1..1
   Summary = y
@@ -167,28 +196,28 @@
   RIM Mapping = Consumeable->AdministerableMedication
   w5 = what
 
- -- Row 5 -----------------------------------
-  Element = MedicationAdministration.patient
+ -- Row 7 -----------------------------------
+  Element = MedicationAdministration.subject
   Card. = 1..1
   Summary = y
-  Type = Reference(Patient)
+  Type = Reference(Patient | Group)
   Short Name = Who received medication
-  Definition = The person or animal receiving the medication.
+  Definition = The person or animal or group receiving the medication.
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject->Patient
   w5 = who.focus
 
- -- Row 6 -----------------------------------
-  Element = MedicationAdministration.encounter
+ -- Row 8 -----------------------------------
+  Element = MedicationAdministration.context
   Card. = 0..1
-  Type = Reference(Encounter)
-  Short Name = Encounter administered as part of
+  Type = Reference(Encounter | EpisodeOfCare)
+  Short Name = Encounter or Episode of Care administered as part of
   Definition = The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = component->EncounterEvent
   w5 = context
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationAdministration.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
@@ -197,7 +226,7 @@
   RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationAdministration.effective[x]
   Card. = 1..1
   Summary = y
@@ -209,17 +238,41 @@
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
   w5 = when.done
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationAdministration.performer
-  Card. = 0..1
-  Type = Reference(Practitioner | Patient | RelatedPerson)
+  Card. = 0..*
+  Summary = y
   Short Name = Who administered substance
   Definition = The individual who was responsible for giving the medication to the patient.
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
   RIM Mapping = performer->Role
   w5 = who.actor
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = MedicationAdministration.performer.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = MedicationAdministrationPerformerRole
+  Short Name = Type of performer
+  Definition = Describes the type of performer of the administration (e.g. nurse, physician, etc)
+
+ -- Row 13 -----------------------------------
+  Element = MedicationAdministration.performer.actor
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Practitioner | Patient | RelatedPerson | Device)
+  Short Name = Individual who was performing
+  Definition = The device, practitioner, etc. who performed the action.
+
+ -- Row 14 -----------------------------------
+  Element = MedicationAdministration.onBehalfOf
+  Card. = 0..1
+  Type = Reference (Organization)
+  Short Name = Organization organization was acting for
+  Definition = The organization the device or practitioner was acting on behalf of.
+
+ -- Row 15 -----------------------------------
   Element = MedicationAdministration.reasonReference
   Card. = 0..*
   Type = Reference(Condition |Observation)
@@ -230,7 +283,7 @@
   Prov Mapping = no mapping
   w5 = why
 
- -- Row 11 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationAdministration.prescription
   Card. = 0..1
   Type = Reference(MedicationRequest)
@@ -239,7 +292,7 @@
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
- -- Row 12 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationAdministration.notGiven
   Card. = 0..1
   Is Modifier = Y
@@ -251,7 +304,7 @@
   RIM Mapping = actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
- -- Row 13 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..*
   Inv. = 2
@@ -262,7 +315,7 @@
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
- -- Row 14 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationAdministration.reasonGiven
   Card. = 0..*
   Inv. = 3
@@ -273,7 +326,7 @@
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = . reasonCode
 
- -- Row 15 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationAdministration.device
   Card. = 0..*
   Type = Reference(Device)
@@ -282,7 +335,7 @@
   v2 Mapping = PRT-10 Participation Device / RXR-3 Administrative Device
   RIM Mapping = device->Access  OR device->AssignedDevice
 
- -- Row 16 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationAdministration.note
   Card. = 0..*
   Type = Annotation
@@ -290,7 +343,7 @@
   Definition = Extra information about the medication administration that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 17 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationAdministration.dosage
   Card. = 0..1
   UML = right
@@ -298,7 +351,7 @@
   Definition = Describes the medication dosage information details e.g. dose, rate, site, route, etc.
   RIM Mapping = component->SubstanceAdministrationEvent
 
- -- Row 18 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationAdministration.dosage.text
   Card. = 0..1
   Type = string
@@ -306,7 +359,7 @@
   Definition = Free text dosage can be used for cases where the dosage administered is too complex to code. When coded dosage is present, the free text dosage may still be present for display to humans.\r\rThe dosage instructions should reflect the dosage of the medication that was administered.
   RIM Mapping = .text
 
- -- Row 19 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationAdministration.dosage.site
   Card. = 0..1
   Type = CodeableConcept
@@ -317,7 +370,7 @@
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
   RIM Mapping = approachSiteCode
 
- -- Row 20 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationAdministration.dosage.route
   Card. = 0..1
   Type = CodeableConcept
@@ -327,7 +380,7 @@
   v2 Mapping = RXR-1-Route
   RIM Mapping = routeCode
 
- -- Row 21 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationAdministration.dosage.method
   Card. = 0..1
   Type = CodeableConcept
@@ -338,7 +391,7 @@
   v2 Mapping = RXR-4-Administration Method
   RIM Mapping = methodCode
 
- -- Row 22 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationAdministration.dosage.dose
   Card. = 0..1
   Type = SimpleQuantity
@@ -348,7 +401,7 @@
   v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
   RIM Mapping = doseQuantity
 
- -- Row 23 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
   Type = Ratio| SimpleQuantity
@@ -358,7 +411,7 @@
   v2 Mapping = RXA-12-Administered Per (Time Unit)
   RIM Mapping = rateQuantity
 
- -- Row 24 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationAdministration.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -376,10 +429,10 @@
   Path = MedicationAdministration.device
 
  -- Row 2 -----------------------------------
-  Name = encounter
+  Name = context
   Type = reference
-  Description = Return administrations that share this encounter
-  Path = MedicationAdministration.encounter
+  Description = Return administrations that share this encounter or episode of care
+  Path = MedicationAdministration.context
 
  -- Row 3 -----------------------------------
   Name = identifier
@@ -409,7 +462,8 @@
   Name = patient
   Type = reference
   Description = The identity of a patient to list administrations  for
-  Path = MedicationAdministration.patient
+  Path = MedicationAdministration.subject
+  Target Types = Patient
 
  -- Row 8 -----------------------------------
   Name = prescription
@@ -433,7 +487,7 @@
   Name = performer
   Type = reference
   Description = The identify of the individual who administered the medication
-  Path = MedicationAdministration.performer
+  Path = MedicationAdministration.performer.actor
 
  -- Row 12 -----------------------------------
   Name = reason-given
@@ -446,6 +500,12 @@
   Type = token
   Description = Reasons for not administering the medication
   Path = MedicationAdministration.reasonNotGiven
+
+ -- Row 14 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The identify of the individual or group to list administrations for
+  Path = MedicationAdministration.subject
 
 === Sheet Profiles =====================================
 

@@ -385,6 +385,7 @@
   Element = MedicationRequest.requester
   Card. = 0..1
   Summary = y
+  Type = CodeableConcept
   Short Name = Who/What requested the Request
   Definition = The individual, organization or device that initiated the request and has responsibility for its activation.
   RIM Mapping = .participation[typeCode=AUT].role

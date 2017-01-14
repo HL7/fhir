@@ -208,6 +208,13 @@
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 4 -----------------------------------
+  Element = MedicationStatement.partOf
+  Card. = 0..*
+  Type = Reference (MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
+  Short Name = Part of referenced event
+  Definition = A larger event of which this particular event is a component or step.
+
+ -- Row 5 -----------------------------------
   Element = MedicationStatement.context
   Card. = 0..1
   Summary = y
@@ -216,7 +223,7 @@
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=ENC, moodCode=EVN]
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationStatement.status
   Card. = 1..1
   Is Modifier = Y
@@ -229,7 +236,7 @@
   RIM Mapping = .statusCode
   w5 = status
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationStatement.medication[x]
   Card. = 1..1
   Summary = y
@@ -241,7 +248,7 @@
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
   w5 = what
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationStatement.subject
   Card. = 1..1
   Summary = y
@@ -252,18 +259,18 @@
   RIM Mapping = SubstanceAdministration->subject->Patient
   w5 = who.focus
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationStatement.effective[x]
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
   Short Name = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
-  Comments = If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
+  Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
   RIM Mapping = SubstanceAdministration.effectiveTime
   w5 = when.done
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationStatement.informationSource
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
@@ -272,7 +279,7 @@
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationStatement.derivedFrom
   Card. = 0..*
   Type = Reference(Any)
@@ -281,7 +288,7 @@
   Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationStatement.dateAsserted
   Card. = 0..1
   Summary = y
@@ -290,7 +297,7 @@
   Definition = The date when the medication statement was asserted by the information source.
   RIM Mapping = .participation[typeCode=AUT].time
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.notTaken
   Card. = 0..1
   Is Modifier = y
@@ -301,7 +308,7 @@
   Definition = Indicator of the certainty of whether the medication was taken by the patient
   RIM Mapping = .actionNegationInd
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationStatement.reasonNotTaken
   Card. = 0..*
   Inv. = 1
@@ -311,7 +318,7 @@
   Definition = A code indicating why the medication was not taken.
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationStatement.reasonForUseCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
@@ -321,7 +328,7 @@
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference.
   RIM Mapping = .reasonCode
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationStatement.reasonForUseReference
   Card. = 0..*
   Type = Reference(Condition | Observation)
@@ -330,7 +337,7 @@
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
   RIM Mapping = not mapped
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationStatement.note
   Card. = 0..*
   Type = Annotation
@@ -338,7 +345,7 @@
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationStatement.category
   Card. = 0..1
   Type = code
@@ -347,13 +354,14 @@
   Definition = Indicates where type of medication statement and where the medication is expected to be consumed or administered
   RIM Mapping = not mapped
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right
   Type = DosageInstruction
   Short Name = Details of how medication was taken
   Definition = Indicates how the medication is/was used by the patient
+  Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.
   RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
@@ -406,6 +414,12 @@
   Type = token
   Description = Returns statements of this category of medicationstatement
   Path = MedicationStatement.category
+
+ -- Row 9 -----------------------------------
+  Name = part-of
+  Type = reference
+  Description = Returns statements that are part of another event.
+  Path = MedicationStatement.partOf
 
 === Sheet Profiles =====================================
 
