@@ -25,22 +25,32 @@ At its core, FHIR contains two primary components:
  <li>APIs – a collection of well-defined interfaces for interoperating between two applications. Although not required, the FHIR specification targets RESTful interfaces for API implementation. See <a href="http.html">details on FHIR RESTful interfaces</a>.</li>
 </ol>
 <p>
-In the healthcare domain, the set of “business objects” is not universally defined, but there is a notional and ongoing evolutionary, consensus-based process for standardizing on a core set of common business objects including things like “a patient”, “a procedure”, “an observation”, “an order”, etc. (see <a href="resourcelist.html">a list of defined resources</a>). The FHIR specification provides a framework for defining these healthcare business objects (“resources”), for relating them together in a compositional manner, for implementing them in a computable form, and for sharing them across well-defined interfaces. The framework contains a verifiable and testable syntax, a set of rules and constraints, methods and interface signatures for “FHIR-aware” APIs, and specifications for the implementation of a server capable of requesting and delivering FHIR business objects.
+In the healthcare domain, the set of “business objects” is not universally defined, but there is a notional and ongoing evolutionary, 
+consensus-based process for standardizing on a core set of common business objects including things like “a patient”, “a procedure”, 
+“an observation”, “an order”, etc. (see <a href="resourcelist.html">a list of defined resources</a>). The FHIR specification provides 
+a framework for defining these healthcare business objects (“resources”), for relating them together in a compositional manner, for 
+implementing them in a computable form, and for sharing them across well-defined interfaces. The framework contains a verifiable and 
+testable syntax, a set of rules and constraints, methods and interface signatures for “FHIR-aware” APIs, and specifications for the 
+implementation of a server capable of requesting and delivering FHIR business objects.
 </p>
 <p>
-From an operational perspective, HL7’s internal standards development and governance processes determine what constitutes a resource and which resources exist. However, the FHIR specification also provides a mechanism for contextualizing resources for specific needs within specific bounds (see <a href="profiling.html">Profiling Resources</a>).
+From an operational perspective, HL7’s internal standards development and governance processes determine what constitutes a 
+resource and which resources exist. In addition, the FHIR specification also provides a mechanism for contextualizing resources for 
+specific needs within specific bounds (see <a href="profiling.html">Profiling Resources</a>).
 </p>
 <h3>
 Architecture Frameworks and FHIR Alignment
 </h3>
 <p>
-FHIR resources fit firmly within the information architecture domain and the FHIR APIs for data exchange address aspects of application architecture.
+FHIR resources fit firmly within the information architecture domain and the FHIR APIs for data exchange 
+address aspects of application architecture.
 </p>
 <table class="none">
 <tr>
 <td>
 <p>
-From a <a href="http://www.opengroup.org/subjectareas/enterprise/togaf">TOGAF perspective</a>, FHIR address aspects architecture views related information model definition and data exchange in the Information Systems Architectures portion of the TOGAF Architecture Development Method.
+From a <a href="http://www.opengroup.org/subjectareas/enterprise/togaf">TOGAF perspective</a>, FHIR address aspects architecture 
+views related information model definition and data exchange in the Information Systems Architectures portion of the TOGAF Architecture Development Method.
 </p>
 </td>
 <td>
@@ -52,7 +62,8 @@ From a <a href="http://www.opengroup.org/subjectareas/enterprise/togaf">TOGAF pe
 <tr>
 <td>
 <p>
-With regards to the <a href="https://www.zachman.com">Zachman Framework</a>, FHIR fits within the What and the How dimensions of the Architect, Engineer and Technician Perspectives
+With regards to the <a href="https://www.zachman.com">Zachman Framework</a>, FHIR fits 
+within the What and the How dimensions of the Architect, Engineer and Technician Perspectives
 </p>
 </td>
 <td>
@@ -64,7 +75,9 @@ With regards to the <a href="https://www.zachman.com">Zachman Framework</a>, FHI
 <tr>
 <td>
 <p>
-When considering the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3">HL7 Services Aware Interoperability Framework (SAIF)</a>, FHIR resources and RESTful APIs represent the “Physical Models” and “Interface Implementations” within the Platform Specific Specifications layer of the Information Models and the Behavioral Models Viewpoints, respectively.
+When considering the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=3">HL7 Services Aware Interoperability Framework (SAIF)</a>, 
+FHIR resources and RESTful APIs represent the “Physical Models” and “Interface Implementations” within the Platform Specific Specifications layer of the 
+Information Models and the Behavioral Models Viewpoints, respectively.
 </p>
 </td>
 <td>
@@ -78,31 +91,45 @@ When considering the <a href="http://www.hl7.org/implement/standards/product_bri
 FHIR and Architectural Principles
 </h3>
 <p>
-FHIR’s primary purpose is to address interoperability with well-structured, expressive data models and simple, efficient data exchange mechanisms. In addition, FHIR aligns to the following architectural principles:
+FHIR’s primary purpose is to address interoperability with well-structured, expressive data models and simple, efficient data exchange mechanisms. 
+In addition, FHIR aligns to the following architectural principles:
 </p>
 <ol>
 <li>
-Reuse and Composability – FHIR resources are designed with the 80/20 rule in mind – focus on the 20% of resources that satisfy 80% of the interoperability needs. To this end, resources are designed to meet the general or common data requirements of many use cases to avoid the proliferation of numerous, overlapping and redundant resources. Extension and customizations exist
-(see <a href="profiling.html">FHIR Profiles</a>) to allow common, somewhat generic resources to be adopted and adapted as needed for specific use case requirements. In addition, FHIR resources are highly composable in that resources are commonly composed of other resources. This further promotes reuse and allows for complex resources to be built from more atomic resources.
+Reuse and Composability – FHIR resources are designed with the 80/20 rule in mind – focus 
+on the 20% of requirements that satisfy 80% of the interoperability needs. To this end, 
+resources are designed to meet the general or common data requirements of many use cases 
+to avoid the proliferation of numerous, overlapping and redundant resources. Extension and customizations exist
+(see <a href="profiling.html">FHIR Profiles</a>) to allow common, somewhat generic resources to be adopted 
+and adapted as needed for specific use case requirements. In addition, FHIR resources are highly composable 
+in that resources commonly refer to other resources. This further promotes reuse and allows for complex structures
+to be built from more atomic resources.
 </li>
 <li>
-Scalability – Aligning FHIR APIs to the REST architectural style ensure that all transactions are stateless which reduces memory usage, eliminates the needs for “sticky” sessions within a server farm and therefore supports horizontal scalability.
+Scalability – Aligning FHIR APIs to the REST architectural style ensure that all transactions are stateless which 
+reduces memory usage, eliminates the needs for “sticky” sessions within a server farm and therefore supports horizontal scalability.
 </li>
 <li>
-Performance – FHIR resources are lean and optimized for exchange across the network. This has the potential to improve performance in complex transactions across multiple systems connected via a shared and finite network.
+Performance – FHIR resources are lean and optimized for exchange across the network. This has the potential to 
+improve performance in complex transactions across multiple systems connected via a shared and finite network.
 </li>
 <li>
-Usability – FHIR resources are understood by technical experts and non-technical people alike. Even if the details of XML or JSON syntax are not understood, non-technical people can view these in any browser or text reader and understand the contents within them.
+Usability – FHIR resources are understood by technical experts and non-technical people alike. Even if the details of 
+XML or JSON syntax are not understood, non-technical people can view these in any browser or text reader and understand the contents within them.
 </li>
 <li>
-Data Fidelity – FHIR is strongly typed and has mechanisms built in for clinical terminology linkage and validation. In addition, XML and JSON documents can be validated syntactically as well as against a defined set of business rules. This promotes high data fidelity and goes a long way towards using FHIR to achieve semantic interoperability.
+Data Fidelity – FHIR is strongly typed and has mechanisms built in for clinical terminology linkage and validation. In addition, 
+XML and JSON documents can be validated syntactically as well as against a defined set of business rules. This promotes high data 
+fidelity and goes a long way towards using FHIR to achieve semantic interoperability.
 </li>
 <li>
-Implementability – One of the driving forces for FHIR is the need to create a standard with high adoption across disparate developer communities. FHIR is easily understood and readily implemented using industry standards and common mark-up and data exchange technologies.
+Implementability – One of the driving forces for FHIR is the need to create a standard with high adoption across disparate developer communities. 
+FHIR is easily understood and readily implemented using industry standards and common mark-up and data exchange technologies.
 </li>
 </ol>
 <p>
-There are additional architecture principles related to consistency, granularity, referential integrity, and others that are not as well established or proven. See the section below on Outstanding Issues for details.
+There are additional architecture principles related to consistency, granularity, referential integrity, and others that are not as 
+well established or proven. See the section below on Outstanding Issues for details.
 </p>
 <h3>
 FHIR Decomposition
@@ -112,7 +139,11 @@ As discussed, FHIR’s principle components are resources and RESTful APIs. Howe
 </p>
 <blockquote>
 <p>
-NOTE: The term “component” is used loosely to mean a part of something and does not intend to carry the specific meanings for this term provided by rigorous ontologies, modeling frameworks, or other architectural and organizational constructs. Diagrammatically, the components below are depicted below as UML classes. This is done purely to take advantage of the semantics afforded using this notation. FHIR is neither objected oriented in its modelling approach not are the component that make up the FHIR specification UML classes or objects in the formal sense. Likewise, the UML packages shown below are notional and used for organizational purposes only.
+NOTE: The term “component” is used loosely to mean a part of something and does not intend to carry the specific meanings for this term 
+provided by rigorous ontologies, modeling frameworks, or other architectural and organizational constructs. Diagrammatically, the components 
+below are depicted below as UML classes. This is done purely to take advantage of the semantics afforded using this notation. FHIR is neither 
+objected oriented in its modelling approach nor are the component that make up the FHIR specification UML classes or objects in the formal sense. 
+Likewise, the UML packages shown below are notional and used for organizational purposes only.
 </p>
 </blockquote>
 <p>
@@ -166,16 +197,99 @@ Component definitions:
 </ul>
 
 <h3>
+Creating Resources – Architectural Considerations
+</h3>
+
+<p>
+The following list provides general guidelines that apply when FHIR resources are defined. Most of these items are not enforced programmatically 
+requiring human due diligence and governance to ensure adherence.
+</p>
+<ul>
+<li>Resources should have a clear boundary; one that matches one or more logical transaction scopes</li>
+<li>Resources should differ from each other in meaning, not just in usage (e.g., each different way to use a lab report should not result in a different resource)</li>
+<li>Resources need to have a natural identity</li>
+<li>Most resources should be very common and used in many different business transactions</li>
+<li>Resources should not be specific or detailed enough to preclude support for a wide range of business transactions</li>
+<li>Resources should be mutually exclusive [this is a very important consideration that helps to reduce redundancy and ambiguity]</li>
+<li>Resources should use other resources, but they should be more than just compositions of other resources; each resource should introduce novel content</li>
+<li>Resources should be organized into a logical framework based on the commonality of the resource and what it links to (see resource framework below)</li>
+<li>Resources should be large enough to provide meaningful context; resources that contain only a few attributes are likely too small to provide meaningful business value</li>
+<li>Resources should reflect general usage:
+<li>if most systems treat something as a single concept, that suggests a single resource; if most systems treat something as a distinct concepts, then that suggests multiple resources</li>
+<li>if two different uses of a "resource" would result in wildly different interpretations of what constitutes "core" then that suggests two resources might be appropriate.</li>
+</li>
+<li>There is a bias towards fewer resources rather than more</li>
+</ul>
+
+<h3>
 Organizing FHIR Resources
 </h3>
 <p>
-It is impractical to model the entirety of health data in a single information model. Every modeling initiative in healthcare from HL7 version 2 message specifications, to the CIMI clinical models, to the domains within the FHIM, to FHIR resources decomposes the healthcare domain into smaller, more manageable sub-domains or information model snippets. With FHIR, each resource is essentially a snippet of the larger healthcare information domain. With this approach, it is important to have a framework or set of guidelines in place to assemble the snippets to reconstitute the business domain when needed and to ensure that the snippets are logically congruent with each other.
+It is impractical to model the entirety of health data in a single information model. Every modeling initiative in healthcare from HL7 version 2 
+message specifications, to the CIMI clinical models, to the domains within the FHIM, to FHIR resources decomposes the healthcare domain into 
+smaller, more manageable sub-domains or information model snippets. With FHIR, each resource is essentially a snippet of the larger healthcare 
+information domain. With this approach, it is important to have a framework or set of guidelines in place to assemble the snippets to 
+reconstitute the business domain when needed and to ensure that the snippets are logically congruent with each other.
 </p>
 <p>
-To this end, FHIR has an informative (non-normative) part of the specification that describes how to organize FHIR resources into logical packages or sub-domains in a manner that promotes the reuse and consistency of resources such that they can be assembled to reconstitute the health data domain in a logical, non-duplicative, unambiguous and non-conflicting manner. The fact that there is not a normative framework and set of constraints in place to guarantee this speaks to more to the variability that exists in healthcare practice today than it does to the ability of the FHIR specification to define such rules. See the section below on Outstanding Issues for more on this topic.
+To this end, FHIR has an informative (non-normative) part of the specification that describes how to organize FHIR resources into logical 
+packages or sub-domains in a manner that promotes the reuse and consistency of resources such that they can be assembled to reconstitute 
+the health data domain in a logical, non-duplicative, unambiguous and non-conflicting manner. The fact that there is not a normative framework 
+and set of constraints in place to guarantee this speaks to more to the variability that exists in healthcare practice today than it does to 
+the ability of the FHIR specification to define such rules. 
 </p>
 <p>
-The non-normative information model organization framework currently in place for suggesting how resources should be organized relative to each other can be found on the <a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Considerations">FHIR Resource Considerations page</a>.
+The framework is based on the following premise:
+</p>
+<ul>
+<li>Separation of Concerns – it is important to break large healthcare concepts into their constituent parts ensuring that each sub-part has a unique and dedicated purpose.</li>
+<li>Reuse – design resources with reuse in mind based. The more common a resource, the more important it is to design the resource for reuse</li>
+</ul>
+<p>
+<img src="framework.png"/>
+</p>
+<p> 
+This framework shows a collection of health information model sub-domains relative to each other based on their degree of commonness. 
+The domains depicted (e.g., Medications, Urology, etc.) are representative of logical sub-groupings within the larger healthcare 
+data domain and are not prescriptive. Nonetheless, this notional sub-domain depiction is useful for identifying which types of 
+healthcare information is the most common and therefore the best candidate for a FHIR resource. In the framework, the domains at 
+the top are the most common meaning that they contain the data elements (and therefore the FHIR resources) that support the largest 
+number of common healthcare transactions. It stands to reason that nearly every healthcare transaction should have knowledge of the 
+medical encounter (or event) where health information was collected, the people involved (e.g., patient, provider, next of kin, etc.) 
+and the organization where the health encounter took place. The domains on the top most layer are referred to as “attribution” because 
+they describe the attributes included in most healthcare business objects (e.g., an observation, an order event, a medication 
+dispensation event, etc.). 
+</p>
+<p>
+The framework includes 4 additional layers that include domains that are increasingly less common 
+across typical healthcare business transactions as you proceed down the layers. For instance, domains in the “core business” layer 
+are mostly like less common that domains in the “attribution layer”, but more common than the domains in the “specialized business” layer. 
+Therefore, FHIR resources that logically belong in one the “core business” domains are most likely going to be used more than FHIR resources 
+that logically belong in one of the “specialized business” domains. Thus, from an architectural perspective, it is a higher priority to create 
+FHIR resources from domains such as “medications”, pathology” and “procedures” than it is to create FHIR resource for things like “urology”, 
+“geriatrics” or “maternity”. This is not to say that the business transactions needed for the practice of urology are not important, it’s just 
+that they are not as common across the whole healthcare space that all the business transactions (including urology transactions) 
+that require knowledge of the patient’s medications. Mostly, the business transactions for specific the practice of urology are based
+on collections of the resources defined in the higher higher level domains.
+</p>
+<p>
+Based on the reasoning above and layers of commonality in the framework, it is important to note that the more common the domain that 
+a FHIR resource is logically part of, the higher the degree of expected reuse across business transactions. Further, resources that are 
+reused the most require the greatest level of governance to ensure consistency and remove ambiguity and duplication. The relative 
+relationships between commonality, reuse and governance across the domain framework are depicted as arrows on the right side of the 
+framework diagram.
+</p>
+<p>
+There are several benefits expected from aligning the creation of FHIR resources to this framework, including:
+</p>
+<ul>
+<li>Organization and manageability of health domains - the framework provides a basis for decomposition and modularity</li>
+<li>Identifying commonality - the framework teases out the common areas from the less common areas</li>
+<li>FHIR resources prioritization - the framework provides a structure for determining priorities and delegating work</li>
+<li>Tiered governance levels - the framework separates the areas needing the most stringent and universal governance from those that require more context-specific governance</li>
+</ul>
+<p>
+The framework is further elaborated in the <a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Considerations">FHIR Resource Considerations page</a>.
 </p>
 <p>
 Another useful tool for visualizing how FHIR resources are organized relative to each other can be found using the Resource Reference Visualization tool on <a href="https://fhirblog.com/2016/06/14/resource-reference-visualization-in-clinfhir/">clinFHIR</a>.
@@ -228,7 +342,8 @@ Security
 Example Use Cases Using FHIR
 </p>
 <p>
-For illustrative purposes, the following diagram depicts a simple use case of a patient accessing their personal health record (portal) enabled by an underlying electronic medical record (EMR) system. The EMR plays the role of the FHIR server in this example.
+For illustrative purposes, the following diagram depicts a simple use case of a patient accessing their personal health record 
+(portal) enabled by an underlying electronic medical record (EMR) system. The EMR plays the role of the FHIR server in this example.
 </p>
 <p>
 The pre-conditions for this use case are:
@@ -245,7 +360,10 @@ the patient is successfully authenticated and authorized to access FHIR resource
 </li>
 </ul>
 <p>
-The basic flow of the use case is that the patient registers (if required), logs in, enters search criteria to identify a patient or patients of interest (the patient is most like themselves in this use case), retrieves clinical documents for the patient and retrieves clinical resources for the patient. The use cases utilizes the GET methods on the iServeInstance interface and works with the following types of FHIR resources:
+The basic flow of the use case is that the patient registers (if required), logs in, enters search criteria to identify a patient or 
+patients of interest (the patient is most like themselves in this use case), retrieves clinical documents for the patient and 
+retrieves clinical resources for the patient. The use cases utilizes the GET methods on the iServeInstance interface and works 
+with the following types of FHIR resources:
 </p>
 <ul>
 <li>
@@ -269,26 +387,37 @@ Outstanding Issues
 </h3>
 <ul>
 <li>
-<b>Resource Consistency and Granularity</b> – there is nothing intrinsically prohibiting one resource from duplicating the same information as another resource. Further, there is nothing prohibiting resources with the same information from defining and modeling the data elements differently.
-HL7 has a number of processes to ensure that resources are consistently designed, but the question is when to be consistent within the specification, and when to be consistent with the real world practices of healthcare - these are sometimes in conflict with each other. 
+<b>Resource Consistency and Granularity</b> – there is nothing intrinsically prohibiting one resource from duplicating the same information 
+as another resource. Further, there is nothing prohibiting resources with the same information from defining and modeling the data elements 
+differently.
+HL7 has a number of processes to ensure that resources are consistently designed, but the question is when to be consistent within the 
+specification, and when to be consistent with the real world practices of healthcare - these are sometimes in conflict with each other. 
 Resource granularity is a related potential problem as there are variations in the size, complexity and comprehensiveness of the existing resources.
 <br/>
+<br/>
 Further, the degree to which the FHIR specification can impose consistency is limited to how much agreement can be gained across various communities.
-While the <a href="safety.html">Implementers Safety Check List</a> and the Considerations for <a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Considerations">FHIR Resource Considerations</a> provide guidance and promote consistency,
-rules for achieving complete consistency of both content and granularity amongst resources are neither completely defined nor completely enforced. Considering that FHIR is still a new and emerging standard, an over-abundance of constraint and rigor has been avoided to maximize
-initial adoption. Further, there is a natural tension between consistency and an architectural virtue and the practicalities of supporting the real practice of health care. Considering that FHIR ultimately is a reflection of the health
-business processes it supports, FHIR will always carry forward some of the data discrepancies, inconsistencies and gaps that are present in the practice of healthcare across different organizations and practitioners. Nonetheless, the
-issues of resource consistency and granularity is a topic that gets considerable ongoing discussion, and may change as FHIR approaches a final normative standard and as FHIR adoption approaches a level
+While the <a href="safety.html">Implementers Safety Check List</a> and the Considerations for 
+<a href="http://wiki.hl7.org/index.php?title=FHIR_Resource_Considerations">FHIR Resource Considerations</a> provide guidance and promote consistency,
+rules for achieving complete consistency of both content and granularity amongst resources are neither completely defined nor completely enforced. 
+Considering that FHIR is still a new and emerging standard, an over-abundance of constraint and rigor has been avoided to maximize
+initial adoption. Further, there is a natural tension between consistency and an architectural virtue and the practicalities of supporting the real 
+practice of health care. Considering that FHIR ultimately is a reflection of the health
+business processes it supports, FHIR will always carry forward some of the data discrepancies, inconsistencies and gaps that are present in the 
+practice of healthcare across different organizations and practitioners. Nonetheless, the
+issues of resource consistency and granularity is a topic that gets considerable ongoing discussion, and may change as FHIR approaches a final 
+normative standard and as FHIR adoption approaches a level
 where more control is warranted, or a more information/process consistency emerges in the existing healthcare systems.
 </li>
 <li>
 <b>Resource References</b> – there are currently a lack of strict rules for what resources should be referenced by other resources and under what circumstance.
 There is potential for ambiguity, duplication, inaccurate and/or conflicting information communicated by a resource graph (a collection of linked resources).
-Imagine the scenario where Resource A (e.g., procedure) references Resource B (e.g., encounter) and Resource C (e.g., patient), and Resource B (e.g., encounter)
-also references Resource C (e.g., patient). In this scenario, is the reference to Resource A to Resource C meant to provide the same information as the reference
+Imagine the scenario where Resource Type A (e.g., procedure) references Resource Type B (e.g., encounter) and Resource Type C (e.g., patient), and Resource Type B (e.g., encounter)
+also references Resource Type C (e.g., patient). In this scenario, is a reference to Resource A to Resource C meant to provide the same information as the reference
 from Resource B to Resource C? If so, is this duplication of information problematic? Note that this is not unique to FHIR - it is an innate property of information systems.
-If the references to Resource C are actually to different instances of Resource C, how does the system know that the references are intentionally different versus an error or data anomaly? The problem is that there is limited ability to describe the
-intent of the reference which leads to the possibility of ambiguity and error. The <a href="linkage.html">Linkage resource</a> can be used to help with this problem, but additional capabilities may be considered in the future to allow systems to address referential integrity.
+If an actual instances of A, and the B that a references, reference different instances of Resource C (e.g. the procedure references patient X and an encounter for patient Y), 
+how does the system know that the references are intentionally different versus an error or data anomaly? The problem is that there is limited ability to describe the
+intent of the reference which leads to the possibility of ambiguity and error. The <a href="linkage.html">Linkage resource</a> can be used to help with this problem, 
+but additional capabilities may be considered in the future to allow systems to address referential integrity. 
 </li>
 <li>
 <b>Conditional Semantics</b> – Currently, the constraints for element definitions including things like data types, value sets, optionality and cardinality are
