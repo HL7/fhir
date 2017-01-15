@@ -2735,7 +2735,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">element.exists() implies context.exists()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">not(f:/element)) or (f:/context)</Data><NamedCell
+    <Cell ss:StyleID="s99"><Data ss:Type="String">not(f:/element) or (f:/context)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2746,7 +2746,7 @@
     <Cell ss:StyleID="s84"><Data ss:Type="String">StructureMap.group.rule.target</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Must have a contextType if you have a context</Data></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">context.exists() implies contextType.exists()</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">not(f:/context)) or (f:/contextType)</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">not(f:/context) or (f:/contextType)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s100"><NamedCell ss:Name="Invariantids"/></Cell>

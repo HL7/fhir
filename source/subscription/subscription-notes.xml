@@ -72,7 +72,7 @@ are available - POST to [base]/Subscription:
 <pre class="json" fragment="Subscription">
 {
   "resourceType": "Subscription",
-  "criteria": "/Observation?name=http://loinc.org|1975-2&amp;_format=json",
+  "criteria": "Observation?name=http://loinc.org|1975-2&amp;_format=json",
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://biliwatch.com/customers/mount-auburn-miu/on-result",

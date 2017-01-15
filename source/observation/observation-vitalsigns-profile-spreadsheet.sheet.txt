@@ -71,7 +71,7 @@
   Id = vs-2
   Context = Observation
   English = If there is no component or related element then either a value[x] or a data absent reason must be present
-  XPath = exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), \'value)]) or exists(f:dataAbsentReason)
+  XPath = exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:dataAbsentReason)
   Expression = component.exists() or value.exists() or dataAbsentReason.exists() or related.exists()
   Severity = error
 
@@ -79,7 +79,7 @@
   Id = vs-3
   Context = Observation.component
   English = If there is no a value a data absent reason must be present
-  XPath = exists(f:*[starts-with(local-name(.), \'value)]) or exists(f:dataAbsentReason)
+  XPath = exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:dataAbsentReason)
   Expression = value.exists() or dataAbsentReason.exists()
   Severity = error
 

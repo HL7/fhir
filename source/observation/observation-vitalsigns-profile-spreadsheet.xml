@@ -4093,7 +4093,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">If there is no component or related element then either a value[x] or a data absent reason must be present</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">component.exists() or value.exists() or dataAbsentReason.exists() or related.exists()</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), 'value)]) or exists(f:dataAbsentReason)</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">exists(f:component) or exists(f:related) or exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s124"><Data ss:Type="String">vs-3</Data></Cell>
@@ -4102,7 +4102,7 @@
     <Cell ss:StyleID="s125"><Data ss:Type="String">Observation.component</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">If there is no a value a data absent reason must be present</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">value.exists() or dataAbsentReason.exists()</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">exists(f:*[starts-with(local-name(.), 'value)]) or exists(f:dataAbsentReason)</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:dataAbsentReason)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s128"/>
