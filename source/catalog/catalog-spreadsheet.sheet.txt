@@ -12,7 +12,7 @@
   UML = 0;0
   Type = DomainResource
   Short Name = Catalog document
-  Definition = A document that bundles a set of catalog entries: items (that can be ordered or referenced) and their characteristics.
+  Definition = A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
