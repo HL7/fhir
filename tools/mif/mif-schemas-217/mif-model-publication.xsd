@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Jan. 2006
+(c) 2005-2008 by HL7 Inc.
+
+Purpose:
+	This schema defines a publication package such as a ballot, a normative release,
+	etc.  Also includes "pieces" of publications.  The primary distinction is that
+	a publication does not define normative content, but rather references them.
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-core-base.xsd"/>
+  <xs:element name="publication" type="GlobalPublicationPackage">
+    <xs:annotation>
+      <xs:documentation>Represents a particular organization and rendering of a collection of artifacts.</xs:documentation>
+      <xs:documentation>UML: An instance of a Package stereotype</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalPublicationPackage">
+    <xs:annotation>
+      <xs:documentation>Extends publication package for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PublicationPackage">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PublicationPackage">
+    <xs:annotation>
+      <xs:documentation>Represents a particular organization and rendering of a collection of artifacts.</xs:documentation>
+      <xs:documentation>UML: An instance of a Package stereotype</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="annotations" type="PublicationAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the publication.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a publication package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:group ref="PublicationContent" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:group name="PublicationContent">
+    <xs:annotation>
+      <xs:documentation>Defines the possible content to be included in a publication</xs:documentation>
+      <xs:documentation>UML: An elements within the package</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="publishedItem" type="PublicationItem">
+        <xs:annotation>
+          <xs:documentation>References a particular element to publish within the package</xs:documentation>
+          <xs:documentation>UML: An owned element within the package</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="publishedGroup" type="PublicationGroup">
+        <xs:annotation>
+          <xs:documentation>Defines a sub-hierarchy of elements to appear within the publication</xs:documentation>
+          <xs:documentation>UML: An owned element within the package</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PublicationGroup">
+    <xs:annotation>
+      <xs:documentation>A collection of artifacts to be published as a group</xs:documentation>
+      <xs:documentation>UML: A stereotype of Package</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PublicationBase">
+        <xs:sequence>
+          <xs:group ref="PublicationContent" maxOccurs="unbounded"/>
+          <xs:group ref="FollowingText"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PublicationItem">
+    <xs:annotation>
+      <xs:documentation>References a specific item to be published within the publication</xs:documentation>
+      <xs:documentation>UML: A ModelElement imported into the package</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PublicationBase">
+        <xs:sequence>
+          <xs:element name="itemReference" type="PackageOrArtifactRef">
+            <xs:annotation>
+              <xs:documentation>The item to be published</xs:documentation>
+              <xs:documentation>UML: The imported element.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="filter" type="ItemFilter" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates what content from the referenced item should be included (for 'include') and excluded for 'exclude'.  Includes are processed first.  If no includes are specified, the base content is all content.</xs:documentation>
+              <xs:documentation>UML: A tag on the PublicationItem stereotype</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:group ref="FollowingText"/>
+        </xs:sequence>
+        <xs:attribute name="renderingStyle" type="ArtifactRenderingStyleKind" use="optional">
+          <xs:annotation>
+            <xs:documentation>Provides guidance on how the referenced artifact should be rendered</xs:documentation>
+            <xs:documentation>UML: A tag on the PublicationItem stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ItemFilter">
+    <xs:complexContent>
+      <xs:extension base="PackageOrArtifactRef">
+        <xs:attribute name="filterType" type="FilterKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Indicates whether the specified element should be included or excluded</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag</xs:documentation>
+          </xs:annotation>
+          <!-- Todo: May need to add additional elements to filter -->
+        </xs:attribute>
+        <xs:attribute name="expression" type="LongDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies an x-path filter to be applied against the context of the selected elements to determine whether they are to be included/excluded.</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PublicationBase" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Defines elements common to all published items</xs:documentation>
+      <xs:documentation>UML: A stereotype on Model Element</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="BusinessName"/>
+      <xs:element name="renderedText" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>A fully-rendered version of the content as pubMarkup.  (This may reference external graphics or other files.)</xs:documentation>
+          <xs:documentation>UML: A tag on the PublicationBase stereotype</xs:documentation>
+          <xs:documentation>Derive: Generated by full rendering software.</xs:documentation>
+          <!-- Todo: Add constraint that each repetition must have distinct language -->
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="precedingText" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Text to appear before the referenced element.</xs:documentation>
+          <xs:documentation>UML: A tag on the PublicationBase stereotype</xs:documentation>
+          <!-- Todo: Add constraint that each repetition must have distinct language -->
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="ShortDescriptiveName" use="optional">
+      <xs:annotation>
+        <xs:documentation>A unique name for the element within the publication package allowing it to be referenced from elsewhere within the package or from other packages</xs:documentation>
+        <xs:documentation>UML: ModelElement.name</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="title" type="ShortDescriptiveName" use="optional">
+      <xs:annotation>
+        <xs:documentation>A descriptive label to be rendered when presenting the item</xs:documentation>
+        <xs:documentation>UML: tag on the Publication Base stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="SortKeyOptional"/>
+    <xs:attribute name="contentsLevel" type="ContentsLevelKind" use="optional" default="None">
+      <xs:annotation>
+        <xs:documentation>Indicates whether the business name for this element should appear in the detailed, summary or no contents</xs:documentation>
+        <xs:documentation>UML: </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="renderToLocation" type="LocalFileReference" default="false">
+      <xs:annotation>
+        <xs:documentation>If true, causes the specified item to be included as a link in its current location and rendered into the specified file location instead.</xs:documentation>
+        <xs:documentation>UML: A tag on the PublicationItem stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:group name="FollowingText">
+    <xs:sequence>
+      <xs:element name="followingText" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Text to appear after the referenced element.</xs:documentation>
+          <xs:documentation>UML: A tag on the PublicationBase stereotype</xs:documentation>
+          <!-- Todo: Add constraint that each repetition must have distinct language -->
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="PublicationAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing publication.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentation" type="PublicationDocumentation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Documentation related to the publication</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appInfo" type="PublicationAppInfo" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PublicationDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to a publication.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="Description" minOccurs="0"/>
+      <xs:group ref="DesignComment" minOccurs="0"/>
+      <xs:group ref="StabilityRemarks" minOccurs="0"/>
+      <xs:group ref="Walkthrough" minOccurs="0"/>
+      <xs:group ref="OpenIssue" minOccurs="0"/>
+      <xs:group ref="Appendix" minOccurs="0"/>
+      <xs:group ref="OtherAnnotation" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PublicationAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to a publication.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="BallotComment" minOccurs="0"/>
+      <xs:group ref="ChangeRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

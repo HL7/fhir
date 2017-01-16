@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Jan. 2006
+(c) 2005-2008 by HL7 Inc.
+
+Purpose:
+	This schema provides a flat (non-serialized) view of a static data model
+	expressed as a set of changes made to a base model.
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-staticBase.xsd"/>
+  <xs:include schemaLocation="mif-core-changes.xsd"/>
+  <xs:element name="derivedStaticModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="derivedStaticModel" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="SchemaVersion"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="derivedStaticModel" type="GlobalDerivedStaticModel">
+    <xs:annotation>
+      <xs:documentation>A static Model in standard (flat) notation expressed as a set of changes applied to a prior static model.  Used for RIM, CIM, LIM, etc.</xs:documentation>
+      <xs:documentation>UML: An instance of a StaticModel stereotype</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalDerivedStaticModel">
+    <xs:annotation>
+      <xs:documentation>Extends static model for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DerivedStaticModel">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DerivedStaticModel">
+    <xs:annotation>
+      <xs:documentation>A static Model in standard (flat) notation expressed as a set of changes applied to a prior static model.  Used for RIM, CIM, LIM, etc.</xs:documentation>
+      <xs:documentation>UML: An instance of a StaticModel stereotype</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate DerivedStaticModel type">
+          <sch:rule context="element(*, mif:DerivedStaticModel)">
+            <sch:report test="mif:originalArtifact[contains('RIM','DIM','CIM','LIM','DMIM','RM','HD','MT'), @artifact)">
+							ERROR: Can only derive a static model from another static model.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="StaticModelBase">
+        <xs:sequence>
+          <xs:element name="originalArtifact" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>The staticModel that is treated as the 'original' for the derivation (the model from which things were added, removed or changed to produce this model.)</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="change" type="ElementChange" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The changes to be applied to the root element of the original artifact.  (If not specified, it means the two elements are identical.)</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

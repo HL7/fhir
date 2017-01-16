@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Jan. 2006
+(c) 2005-2008 by HL7 Inc.
+
+Purpose:
+	This schema defines a set of test-cases for use in validating behavior of
+	HL7-compliant applications
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-dynamic.xsd"/>
+  <xs:element name="testScenario" type="GlobalTestScenario">
+    <xs:annotation>
+      <xs:documentation>Represents a sequence of tests intended to verify a particular set of behavior</xs:documentation>
+      <xs:documentation>UML: Does not directly correspond to UML.  It would be a complex tag, except that it's a stand-alone artifact . . .</xs:documentation>
+    </xs:annotation>
+    <xs:unique name="TestSystemNameInTestScenario">
+      <xs:selector xpath="testSystem"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+    <xs:unique name="TestNameInTestScenario">
+      <xs:selector xpath="test/*"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="GlobalTestScenario">
+    <xs:annotation>
+      <xs:documentation>Extends test scenario for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="TestScenario">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TestScenario">
+    <xs:annotation>
+      <xs:documentation>Represents a sequence of tests intended to verify a particular set of behavior</xs:documentation>
+      <xs:documentation>UML: Does not directly correspond to UML.  It would be a complex tag, except that it's a stand-alone artifact . . .</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="objective" type="ComplexMarkupWithLanguage">
+            <xs:annotation>
+              <xs:documentation>Describes what the test scenario is intended to check.</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="testSystem" type="TestSystem" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates one of the systems involved in the test scenario.</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="test" type="Test" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies the tests to be performed</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TestSystem">
+    <xs:sequence>
+      <xs:element name="preConditions" type="ComplexMarkupWithLanguage" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Describes the state the system must be in prior executing the test cases.  May include database setup, configuration, etc.</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="expectedPostConditions" type="ComplexMarkupWithLanguage" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Describes the state the system should be in after executing the test cases.  E.g. End state of the database, etc.</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="testedApplicationRole" type="PackageOrArtifactRef" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates one of the application roles implemented by the system which is participating in the test.</xs:documentation>
+          <xs:documentation>UML: Base interface(s) implemented by the ClassifierRole</xs:documentation>
+          <!-- Todo: restrict reference to be of the correct type -->
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="testedProfile" type="PackageOrArtifactRef" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates one of the conformance profiles implemented by the system which is participating in the test.</xs:documentation>
+          <xs:documentation>UML: Base interface(s) implemented by the ClassifierRole</xs:documentation>
+          <!-- Todo: restrict reference to be of the correct type -->
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="ShortDescriptiveName" use="required">
+      <xs:annotation>
+        <xs:documentation>The name of the system for the purposes of this set of test cases</xs:documentation>
+        <xs:documentation>UML: Part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="underTest" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>If true indicates that the system is intended to be tested by the this scenario, otherwise it is a system intended to assist in the testing.</xs:documentation>
+        <xs:documentation>UML: Part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="Test">
+    <xs:annotation>
+      <xs:documentation>Represents an individual test as part of a scenario.</xs:documentation>
+      <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="interactionTest" type="InteractionTest">
+        <xs:annotation>
+          <xs:documentation>Represents an interaction that should be sent between two system</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="documentTest" type="DocumentTest">
+        <xs:annotation>
+          <xs:documentation>Represents a document that should be created or consumed by a system</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="TestBase" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Common information gathered for all test cases</xs:documentation>
+      <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="objective" type="ComplexMarkupWithLanguage">
+        <xs:annotation>
+          <xs:documentation>Identifies what the specific intent of this particular step in the test-case is.</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dataVariation" type="ComplexMarkupWithLanguage" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Describes specific data elements whose contents is expected to vary each time the test is run.  I.e. Data which must be specifically modified when sending or which should be expected to vary at run-time.  (Some of this may be handled by comments in the example instance.)</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="sequence" type="SmallPositiveInteger" use="required">
+      <xs:annotation>
+        <xs:documentation>Indicates the relative timing with which the test should be performed.  If two sequence numbers are equal, then the relative order does not matter.</xs:documentation>
+        <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="name" type="ShortDescriptiveName" use="required">
+      <xs:annotation>
+        <xs:documentation>A short descriptive name for the individual test, unique within the scenario.  (Allows referencing.)</xs:documentation>
+        <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="InteractionTest">
+    <xs:annotation>
+      <xs:documentation>Defines a test interaction sent between two systems</xs:documentation>
+      <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="TestBase">
+        <xs:sequence>
+          <xs:element name="interaction" type="PackageOrArtifactRef">
+            <xs:annotation>
+              <xs:documentation>Indicates the interaction being transmitted by this test.</xs:documentation>
+              <xs:documentation>UML: Base interface(s) implemented by the ClassifierRole</xs:documentation>
+              <!-- Todo: restrict reference to be of the correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="exampleContent" type="ExampleType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Defines the actual content that should go over the wire in this test</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="exampleFile" type="LocalFileReference" use="optional">
+          <xs:annotation>
+            <xs:documentation>References a file which contains the actual content that should go over the wire in this test</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sendingSystem" type="ShortDescriptiveName" use="required">
+          <xs:annotation>
+            <xs:documentation>The system in this test responsible for sending the interaction</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="receivingSystem" type="ShortDescriptiveName" use="required">
+          <xs:annotation>
+            <xs:documentation>The system in this test responsible for receiving the interaction</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+      <!-- Todo: constrain that either exampleFile or exampleContent must be present, but not both -->
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ExampleType">
+    <xs:sequence>
+      <xs:any namespace="urn:hl7-org:v3" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentTest">
+    <xs:annotation>
+      <xs:documentation/>
+      <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="TestBase">
+        <xs:sequence>
+          <xs:element name="document" type="PackageOrArtifactRef">
+            <xs:annotation>
+              <xs:documentation>Indicates the document being created or consumed by this test.</xs:documentation>
+              <xs:documentation>UML: Base interface(s) implemented by the ClassifierRole</xs:documentation>
+              <!-- Todo: restrict reference to be of the correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="exampleContent" type="ExampleType" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Defines the actual content of the document to be created or consumed</xs:documentation>
+              <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="exampleFile" type="LocalFileReference" use="optional">
+          <xs:annotation>
+            <xs:documentation>References a file which contains the actual content of the document to be created or consumed</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="creatingSystem" type="ShortDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>The system in this test responsible for creating the document</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="consumingSystem" type="ShortDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>The system in this test responsible for consuming the document</xs:documentation>
+            <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+      <!-- Todo: Constrain that either exampleFile or exampleContent must be present, but not both -->
+      <!-- Todo: Constrain that one and only one of creatingSystem and consumingSystem are present -->
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

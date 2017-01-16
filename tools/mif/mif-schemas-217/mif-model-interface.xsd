@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Lloyd McKenzie (HL7) -->
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Nov. 2003
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema provides definitions for CMET and Class Stub interfaces
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-staticBase.xsd"/>
+  <xs:element name="staticModelInterfacePackage" type="GlobalStaticModelInterfacePackage">
+    <xs:annotation>
+      <xs:documentation>Defines the set of CMETs and stubs available to a StaticModel that imports it.  Equivalent to pre-MIF concept of "CMETInfo.txt" file</xs:documentation>
+      <xs:documentation>UML: A package of Common model element and stub interfaces.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalStaticModelInterfacePackage">
+    <xs:annotation>
+      <xs:documentation>Extends static model interface package for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="StaticModelInterfacePackage">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StaticModelInterfacePackage">
+    <xs:annotation>
+      <xs:documentation>UML: A package of Common Model Element interfaces that can be imported into StaticModels for reference</xs:documentation>
+      <!-- Todo: Add a constraint that we must have at least one stub or CMET -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="importedVocabularyModelPackage" type="PackageRef" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The vocabulary model that is used in defining the interfaces by this model</xs:documentation>
+              <xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="importStaticModelInterfacePackage" type="ArtifactDependency" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies other static model interface packages that are being 'included' in the current one.  Packages are processed in the order listed, with dulicate context interfaces in subsequent packages (or the current package) overriding interfaces imported from prior packages.  I.e. later imports and the current package take priority over prior imports.</xs:documentation>
+              <xs:documentation>UML: Another Static Model Interface package that is imported into the current package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="commonModelElementDefinition" type="CommonModelElementDefinition" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>One of the CMET definitions included in the static model interface package</xs:documentation>
+              <xs:documentation>UML: Bound interfaces defined within the package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="stubDefinition" type="StubDefinition" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>One of the stub definitions included in the static model interface package</xs:documentation>
+              <xs:documentation>UML: Unbound interfaces defined within the package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonModelElementDefinition">
+    <xs:annotation>
+      <xs:documentation>Used to define CMETs.</xs:documentation>
+      <xs:documentation>UML: CommonModelElement stereotype on Interface</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Check classTypeRef information">
+          <sch:rule context="mif:classTypeRef">
+            <sch:report test="count(ancestor::mif:staticModel//mif:classTypeRef[@typeId=current()/@typeId])!=1">
+										ERROR: Only one classTypeRef may exist in an staticModel with a given typeId.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ClassifierBase">
+        <xs:sequence>
+          <xs:element name="annotations" type="StaticModelInterfaceAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the containing element.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="boundStaticModel" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>The modelId of the model that implements this Common Model Element.</xs:documentation>
+              <xs:documentation>UML: The StaticModel subsystem that specializes this interface</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="templateParameter" type="StaticModelClassTemplateParameter" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies the parameters associated with the CMET that must be bound if the CMET is referenced.</xs:documentation>
+              <xs:documentation>UML: The TemplateParameters associated with the Interface (if any)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="entryClass" type="SpecializationClass" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates the name of the root class of the CMET (and any descendant classes)</xs:documentation>
+              <xs:documentation>UML: The name of the class pointed to by the entry-point for the static model that specializes this interface</xs:documentation>
+            </xs:annotation>
+            <!-- Todo: Make required as soon as tooling supports it. -->
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="PrefixedUpperCamelCase" use="required">
+          <xs:annotation>
+            <xs:documentation>The identifier of the CMET.</xs:documentation>
+            <xs:documentation>UML: Inherited from modelElement</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributionLevel" type="CMETAttributionType" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the level of detail associated with the CMET</xs:documentation>
+            <xs:documentation>UML: Tag on CommonModelElement stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="entryKind" type="CMETEntryKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Identifies the means by which the CMET can be entered</xs:documentation>
+            <xs:documentation>UML: Tag value on CommonModelElement</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="otherClassName" type="UpperCamelCase" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the RIM type of "Other class" serving as the base for the CMET</xs:documentation>
+            <xs:documentation>UML: Tag value on CommonModel Element</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <!--
+    see gForge proposal http://hl7projects.hl7.nscee.edu/tracker/index.php?func=detail&aid=307&group_id=18&atid=156   
+   -->
+  <xs:simpleType name="CMETAttributionType">
+    <xs:annotation>
+      <xs:documentation>Allows both a pre-constrained list and free-hand content</xs:documentation>
+      <xs:documentation>UML: Stub property</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="CMETAttributionString CMETAttributionKind"/>
+  </xs:simpleType>
+  <xs:complexType name="StubDefinition">
+    <xs:annotation>
+      <xs:documentation>Used to define types for unbound 'stubs' in models.</xs:documentation>
+      <xs:documentation>UML: Stub stereotype on Interface</xs:documentation>
+      <!-- Todo: Enforce that names are unique across all stubs and cmets -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ClassifierBase">
+        <xs:sequence>
+          <xs:element name="annotations" type="StaticModelInterfaceAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the containing element.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="typeStaticModel" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>The modelId of the model that represents the 'outer boundaries' of the elements that can bind to the stub.</xs:documentation>
+              <xs:documentation>UML: The StaticModel subsystem that specializes this interface</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="entryClass" type="AllClassName" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates the name of the root class of the type model which should be used as the entry-point.  (Necessary when the typeStaticModel is the RIM or a DIM having multiple entry-points.)</xs:documentation>
+              <xs:documentation>UML: The name of the class pointed to by the entry-point for the static model that specializes this interface</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="constraintStaticModel" type="PackageRef" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The modelId of the model that represents the 'minimum' of the elements that can bind to the stub.</xs:documentation>
+              <xs:documentation>UML: The StaticModel subsystem that acts as a 'constraint' on the models that can bind to this interface</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="PrefixedUpperCamelCase" use="required">
+          <xs:annotation>
+            <xs:documentation>The identifier of the stub.</xs:documentation>
+            <xs:documentation>UML: Inherited from modelElement</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="entryKind" type="CMETEntryKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Identifies the means by which the stub can be entered</xs:documentation>
+            <xs:documentation>UML: Tag value on CommonModelElement</xs:documentation>
+            <!-- Todo: enforce that if entry kind is Role, it must be exactly "Role" no constraint on played or scoped entry -->
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="otherClassName" type="UpperCamelCase" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the RIM type of "Other class" serving as the base for the CMET</xs:documentation>
+            <xs:documentation>UML: Tag value on CommonModel Element</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StaticModelInterfaceAnnotations">
+    <xs:annotation>
+      <xs:documentation>Comments relating to a Common Model Element</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a Common Model Element or stub interface.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Annotations">
+        <xs:sequence>
+          <xs:element name="documentation" type="StaticModelInterfaceDocumentation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Documentation related to the model element</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="appInfo" type="StaticModelInterfaceAppInfo" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StaticModelInterfaceDocumentation">
+    <xs:annotation>
+      <xs:documentation>Comments relating to a Common Model Element or stub interface</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a Common Model Element or stub interface.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Documentation">
+        <xs:sequence>
+          <xs:group ref="Description" minOccurs="0"/>
+          <xs:group ref="UsageNotes" minOccurs="0"/>
+          <xs:group ref="Rationale" minOccurs="0"/>
+          <xs:group ref="Requirements" minOccurs="0"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StaticModelInterfaceAppInfo">
+    <xs:annotation>
+      <xs:documentation>Comments relating to a Common Model Element</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a Common Model Element interface.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="AppInfo">
+        <xs:sequence>
+          <xs:group ref="BallotComment"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SpecializationClass">
+    <xs:annotation>
+      <xs:documentation>UML: A class that is a specialization of another class and which may itself have specializations</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="class" type="SpecializationClass" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates any classes that specialize the current class (if the current class is a Choice).</xs:documentation>
+          <xs:documentation>UML: Points to classes of which the current class is a generalization.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" type="AllClassName" use="required">
+      <xs:annotation>
+        <xs:documentation>The name of the class, CMET or Stub</xs:documentation>
+        <xs:documentation>UML: The name of the class</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+</xs:schema>

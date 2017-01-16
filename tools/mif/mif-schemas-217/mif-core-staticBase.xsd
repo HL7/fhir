@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema defines elements that are common to static models and to datatypes.
+	
+Programatic rules (rules that apply but are not schema or schematron-enforced):
+  - Default values, fixed values and minimumSupportedLength may only be specified for code values and datatypes that are convertable to String
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-core-base.xsd"/>
+  <xs:complexType name="VocabularyValueSetBinding">
+    <xs:annotation>
+      <xs:documentation>Identifies the vocabulary concept that is the 'root' for the content of this element.</xs:documentation>
+      <xs:documentation>UML: DomainSpecification</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="VocabularyValueSetRef">
+        <xs:attribute name="codingStrength" type="CodingStrengthKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Identifies the level of flexibility the constructor of a model instance has in using coded values.</xs:documentation>
+            <xs:documentation>UML: tag on DomainSpecification</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="revisionFrequency" type="RevisionFrequencyKind" use="optional">
+          <xs:annotation>
+            <xs:documentation>Indicates how often applications are expected to update their codes to reflect changes to the value-set associated with the attribute</xs:documentation>
+            <xs:documentation>UML: tag on DomainSpecification</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minimumValueSet" type="Oid" use="optional">
+          <xs:annotation>
+            <xs:documentation>Defines the set of codes within the overall value set that must be supported by an implementer to be considered compliant</xs:documentation>
+            <xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ignoredValueSet" type="Oid" use="optional">
+          <xs:annotation>
+            <xs:documentation>Defines the set of codes within the overall valueset that the implementer is willing to accept without raising an error, but whose content will be ignored and not processed in any useful manner</xs:documentation>
+            <xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rootCode" type="ShortDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>For value sets of the form "&lt;= OBS", allows conveying the root code of the value set.  Only usable for key structural attributes - classCode, moodCode, determinerCode and typeCode.</xs:documentation>
+            <xs:documentation>UML: Part of complex tag</xs:documentation>
+            <xs:documentation>Derived: This is the "code" attribute on the codeBasedContentDefinition for the value set being referenced</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="VocabularySpecification">
+    <xs:annotation>
+      <xs:documentation>Used to reference a domain associated with another element</xs:documentation>
+      <xs:documentation>UML: DomainSpecification</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate DomainSpecification type">
+          <sch:rule abstract="true" id="DomainSpecification">
+            <!-- Todo: Check that package refs are appropriately populated based on type -->
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Dependency">
+        <xs:choice>
+          <xs:element name="conceptDomain" type="ConceptDomainRef">
+            <xs:annotation>
+              <xs:documentation>The vocabulary domain from which content may be drawn.</xs:documentation>
+              <xs:documentation>UML: DomainSpecification supplier association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="valueSet" type="VocabularyValueSetBinding">
+            <xs:annotation>
+              <xs:documentation>The vocabulary value-set from which content may be drawn.</xs:documentation>
+              <xs:documentation>UML: ValueSetSpecification supplier association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="code" type="VocabularyCodeRef">
+            <xs:annotation>
+              <xs:documentation>The specific fixed-value code that must be used.</xs:documentation>
+              <xs:documentation>UML: Code supplier association</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:attributeGroup name="GeneralizableElement">
+    <xs:annotation>
+      <xs:documentation>Common ancestor of all types that can be abstract</xs:documentation>
+      <xs:documentation>UML: Maps to GeneralizableElement.  (We only include it in those types that we want to allow to be abstract)</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="isAbstract" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>Indicates that the specified element is not intended to appear directly in an instance.  Only derivations of the element may appear.</xs:documentation>
+        <xs:documentation>UML: inherited from GeneralizableElement</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:complexType name="Classifier">
+    <xs:annotation>
+      <xs:documentation>UML: Corresponds to Classifier element</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ModelElement">
+        <xs:sequence>
+          <xs:group ref="BusinessName"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="SortKeyOptional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Interface">
+    <xs:annotation>
+      <xs:documentation>UML: Corresponds to Interface element</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Classifier"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Feature">
+    <xs:annotation>
+      <xs:documentation>Common ancestor for attributes and datatype properties</xs:documentation>
+      <xs:documentation>UML: Corresponds to Feature stereotype</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate Feature type">
+          <sch:rule abstract="true" id="Feature">
+            <sch:extends rule="Presence"/>
+            <sch:report test="@fixedValue and @defaultValue">
+							ERROR: Can't have both a 'fixed' value and a 'default' value for a single element ABC.</sch:report>
+            <sch:report test="@defaultFrom and not(@defaultValue)">
+							ERROR: Can't have both a 'defaultFrom' value and a 'default' value for a single element.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ModelElement">
+        <xs:sequence>
+          <xs:element name="enumerationValue" type="ShortDescriptiveName" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates one of the allowed values for the element.  If enumerationValues are specified, the value of the attribute must match one of the specified enumerationValues.  If there is only one enumerationValue, then the property has a fixed value.</xs:documentation>
+              <xs:documentation>UML: EnumerationLiteral (sort of - we have a datatype in addition to the enumerationValues)</xs:documentation>
+              <!-- Todo - Constraint to only be allowed for 'simple' datatypes, prevent duplicate enumerationValues
+                   Todo - Constraint that if present, there must be at least 2
+                   Todo - Ensure that if there's an enumerationValue present, fixedValue is present -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="allowedRange" type="RangeDefinition" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates a range of values the attribute or property can be drawn from.  If any allowed ranges, and the attribute or property is not null, it must be contained by at least one of the identified allowed ranges</xs:documentation>
+              <xs:documentation>UML: allowedRange tag on Feature stereotype</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="defaultValue" type="ShortDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the default value for the element if it is not present in an instance of the model.</xs:documentation>
+            <xs:documentation>UML: defaultValue tag on Feature stereotype</xs:documentation>
+          </xs:annotation>
+          <!-- TODO: Figure out what 'defaults' mean for properties.  I think they are defaults for the 'constructor'.  Should we model constructor explicitly?  Ask Gunther. 
+               Todo: Ensure that if there are enumerationValues present, the defaultValue matches one of the enumeration values -->
+        </xs:attribute>
+        <xs:attribute name="fixedValue" type="ShortDescriptiveName" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the fixed value for the element if it is not present in an instance of the model.</xs:documentation>
+            <xs:documentation>UML: fixedValue tag on Feature stereotype</xs:documentation>
+          </xs:annotation>
+          <!-- TODO: Figure out what 'defaults' mean for properties.  I think they are defaults for the 'constructor'.  Should we model constructor explicitly?  Ask Gunther. -->
+        </xs:attribute>
+        <xs:attribute name="defaultFrom" type="DefaultDeterminerKind" use="optional">
+          <xs:annotation>
+            <xs:documentation>Indicates how the default should be inferred FUTURE_USE</xs:documentation>
+            <xs:documentation>UML: defaultFrom tag on Feature stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minimumLength" type="SmallPositiveInteger" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the minimum number of characters that must be present. FUTURE_USE</xs:documentation>
+            <xs:documentation>UML: minimumLength tag on Feature stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maximumLength" type="SmallPositiveInteger" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the maximum number of characters that are permitted to be present.</xs:documentation>
+            <xs:documentation>UML: maximumSupportedLength tag on Feature stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attributeGroup ref="Presence"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RangeDefinition">
+    <xs:annotation>
+      <xs:documentation>UML: Type for the RangeDefinition complex tag</xs:documentation>
+      <!-- Todo: constrain that you need at least one of low or high -->
+      <!-- Todo: can't have low closed if don't have low.  Ditto for high. -->
+    </xs:annotation>
+    <xs:attribute name="lowValue" type="Decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation>Indicates the minimum value for the range.  If not specified, assumption is negative infinity</xs:documentation>
+        <xs:documentation>UML: part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="highValue" type="Decimal" use="optional">
+      <xs:annotation>
+        <xs:documentation>Indicates the maximum value for the range.  If not specified, assumption is positive infinity</xs:documentation>
+        <xs:documentation>UML: part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="lowClosed" type="xs:boolean" use="optional" default="true">
+      <xs:annotation>
+        <xs:documentation>If true, indicates that the low value is included in the range (&gt;=).  If false, the value must not exactly match the low value (&gt;)</xs:documentation>
+        <xs:documentation>UML: part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="highClosed" type="xs:boolean" use="optional" default="true">
+      <xs:annotation>
+        <xs:documentation>If true, indicates that the high value is included in the range (&lt;=).  If false, the value must not exactly match the low value (&lt;)</xs:documentation>
+        <xs:documentation>UML: part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:attributeGroup name="UpdateMode">
+    <xs:annotation>
+      <xs:documentation>Those types related to update mode</xs:documentation>
+      <xs:documentation>UML: Corresponds to UpdateMode stereotype</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate UpdateMode type">
+          <sch:rule abstract="true" id="UpdateMode">
+            <sch:report test="@updateModeDefault and not(contains(concat(';', translate(@allowedUpdateModes, ' ', ';'), ';'), concat(';', @updateModeDefault, ';')))">
+							ERROR: DefaultUpdateMode must be part of allowedUpdateModes.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:attribute name="updateModeDefault" type="UpdateModeKind" use="optional">
+      <xs:annotation>
+        <xs:documentation>Identifies the update mode that should be assumed if no updateMode is specified.</xs:documentation>
+        <xs:documentation>UML: tag from UpdateMode stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="updateModesAllowed" type="UpdateModeCodes" use="optional">
+      <xs:annotation>
+        <xs:documentation>Identifies the list of update modes that may be used for this element.</xs:documentation>
+        <xs:documentation>UML: tag from UpdateMode stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:simpleType name="UpdateModeCodes">
+    <xs:annotation>
+      <xs:documentation>A list of update modes</xs:documentation>
+      <xs:documentation>UML: Complex type used as tag value</xs:documentation>
+    </xs:annotation>
+    <xs:list itemType="UpdateModeKind"/>
+  </xs:simpleType>
+  <xs:attributeGroup name="Presence">
+    <xs:annotation>
+      <xs:documentation>Those attributes that define whether an element must be present</xs:documentation>
+      <xs:documentation>UML: Corresponds to Presence stereotype</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate Presence type">
+          <sch:rule abstract="true" id="Presence">
+            <sch:report test="@isMandatory='true' and @conformance!='R'">
+							ERROR: Conformance must be 'R' for mandatory elements.</sch:report>
+            <sch:report test="@isMandatory='true' and @minimumMultiplicity=0 and not(@defaultValue)">
+							ERROR: MinimumMultiplicity must be at least 1 or there must be a default value when 'mandatory' is true.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:attribute name="isMandatory" type="xs:boolean" use="optional" default="false">
+      <xs:annotation>
+        <xs:documentation>If true, null values may not be sent for this element.</xs:documentation>
+        <xs:documentation>UML: Tag value on Feature stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="conformance" type="ConformanceKind" default="U">
+      <xs:annotation>
+        <xs:documentation>Identifies whether the element must be supported by implementors or not.  If not present, indicates that support is optional.</xs:documentation>
+        <xs:documentation>UML: Tag value on Feature stereotype</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>

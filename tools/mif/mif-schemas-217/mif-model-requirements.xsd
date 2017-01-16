@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xhtml="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:xmi="http://www.eclipse.org/uml2/1.0.0/UML" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Nov. 2005
+(c) 2005-2008 by HL7 Inc.
+
+Purpose:
+	This schema allows storage of a set of ad-hoc annotations to be associated with
+	elements in another package.
+	
+	NOTE: Many of these artifacts (with the exception of storyboards) are new to the
+    methodology and their usage is not well understood.  Constraints may be subject to change.
+    
+Programatic rules (rules that apply but are not schema or schematron-enforced):
+- "See Also" references must exist either in the current glossary or in one of the imported glossaries.
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="xhtml1-strict.xsd"/>
+	<xs:include schemaLocation="mif-core-base.xsd"/>
+	<xs:element name="domainAnalysisModel" type="GlobalDomainAnalysisModel">
+		<xs:annotation>
+			<xs:documentation>A representation of an information model in terms familiar to business experts</xs:documentation>
+			<xs:documentation>UML: A stereotype on Model</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="domainInstanceExample" type="GlobalDomainInstanceExample">
+		<xs:annotation>
+			<xs:documentation>A set of abstract examples identifying the types of data that might be exchanged</xs:documentation>
+			<xs:documentation>UML: A stereotype on Instance</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="glossary" type="GlobalGlossary">
+		<xs:annotation>
+			<xs:documentation>Contains a set of terms and definitions used within HL7 or within a particular domain</xs:documentation>
+			<xs:documentation>UML: Stereotype on Package</xs:documentation>
+		</xs:annotation>
+		<xs:unique name="TermDefinitionTermInGlossary">
+			<xs:selector xpath="."/>
+			<xs:field xpath="termDefinition/@term"/>
+		</xs:unique>
+		<xs:unique name="TermDefinitionTranslationInGlossary">
+			<xs:selector xpath="."/>
+			<xs:field xpath="termDefinition/termTranslation/@name"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="storyboard" type="GlobalStoryboard">
+		<xs:annotation>
+			<xs:documentation>Descriptions of scenarios intended to be addressed by standards</xs:documentation>
+			<xs:documentation>UML: A stereotype on UseCase</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="GlobalDomainAnalysisModel">
+		<xs:annotation>
+			<xs:documentation>Extends domain analysis model for use as a stand-alone XML document</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DomainAnalysisModel">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalDomainInstanceExample">
+		<xs:annotation>
+			<xs:documentation>Extends domain instance example for use as a stand-alone XML document</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DomainInstanceExample">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalGlossary">
+		<xs:annotation>
+			<xs:documentation>Extends glossary for use as a stand-alone XML document</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Glossary">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalStoryboard">
+		<xs:annotation>
+			<xs:documentation>Extends storyboard for use as a stand-alone XML document</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Storyboard">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="XMIContent">
+		<xs:annotation>
+			<xs:documentation>Used to reference UML content directly.  Tighter specifications are not possible because the XMI2 schema is not actually intended to validate using standard schema tools.  (It does multiple inheritance and other goofy things.)</xs:documentation>
+			<xs:documentation>UML: Direct translation</xs:documentation>
+			<!-- Todo: Enforce that you either have an href or node content, but not both -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:any namespace="http://www.eclipse.org/uml2/1.0.0/UML http://www.omg.org/XMI" processContents="lax" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Allow any XMI, XMI-DI content.  Note: MIF and XHTML can be embedded in the XMI extensions element to allow for things like annotations if desired (and if the tools support them)</xs:documentation>
+				</xs:annotation>
+			</xs:any>
+		</xs:sequence>
+		<xs:attribute name="href" type="LocalFileReference" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the file in which the XMI content can be found</xs:documentation>
+				<xs:documentation>UML: Tag metadata referencing data</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DomainAnalysisModel">
+		<xs:annotation>
+			<xs:documentation>A plain UML class diagram intended for capturing user requirements</xs:documentation>
+			<xs:documentation>UML: Class Diagram</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageArtifact">
+				<xs:sequence>
+					<xs:element name="annotations" type="DomainAnalysisModelAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with an entry point.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="model" type="XMIContent">
+						<xs:annotation>
+							<xs:documentation>The actual UML diagram content, possibly extended with MIF annotations</xs:documentation>
+							<xs:documentation>UML: UML class diagram.</xs:documentation>
+							<!-- Todo: Restrict the allowed root content to allowed values -->
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DomainAnalysisModelAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the domain analysis model.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="documentation" type="DomainAnalysisModelDocumentation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Documentation related to the domain analysis model</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appInfo" type="DomainAnalysisModelAppInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supporting programmatic information related to the domain analysis model which has descriptive componenents</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainAnalysisModelDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a domain analysis model.  Note: Description corresponds to the storyboard 'purpose'.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="Description" minOccurs="0"/>
+			<xs:group ref="Requirements" minOccurs="0"/>
+			<xs:group ref="DesignComment" minOccurs="0"/>
+			<xs:group ref="StabilityRemarks" minOccurs="0"/>
+			<xs:group ref="Walkthrough" minOccurs="0"/>
+			<xs:group ref="OpenIssue" minOccurs="0"/>
+			<xs:group ref="OtherAnnotation" minOccurs="0"/>
+			<xs:group ref="Appendix" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainAnalysisModelAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a domain analysis model.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="Mapping" minOccurs="0"/>
+			<xs:group ref="FormalConstraint" minOccurs="0"/>
+			<xs:group ref="StaticExample" minOccurs="0"/>
+			<xs:group ref="BallotComment" minOccurs="0"/>
+			<xs:group ref="ChangeRequest" minOccurs="0"/>
+			<xs:group ref="DeprecationInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainInstanceExample">
+		<xs:annotation>
+			<xs:documentation>A plain UML instance diagram intended for capturing sample data instances expressed in an abstract way</xs:documentation>
+			<xs:documentation>UML: Instance Diagram</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageArtifact">
+				<xs:sequence>
+					<xs:element name="annotations" type="DomainInstanceExampleAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with an entry point.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="model" type="XMIContent">
+						<xs:annotation>
+							<xs:documentation>The actual UML diagram content, possibly extended with MIF annotations</xs:documentation>
+							<xs:documentation>UML: UML instance diagram.</xs:documentation>
+							<!-- Todo: Restrict the allowed root content to allowed values -->
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DomainInstanceExampleAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the domain instance example.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="documentation" type="DomainInstanceExampleDocumentation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Documentation related to the domain instance example</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appInfo" type="DomainInstanceExampleAppInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supporting programmatic information related to the domain instance example which has descriptive componenents</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainInstanceExampleDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a domain instance example.  Note: Description corresponds to the storyboard 'purpose'.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="Definition" minOccurs="0"/>
+			<xs:group ref="Rationale" minOccurs="0"/>
+			<xs:group ref="Requirements" minOccurs="0"/>
+			<xs:group ref="DesignComment" minOccurs="0"/>
+			<xs:group ref="StabilityRemarks" minOccurs="0"/>
+			<xs:group ref="Walkthrough" minOccurs="0"/>
+			<xs:group ref="OpenIssue" minOccurs="0"/>
+			<xs:group ref="OtherAnnotation" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DomainInstanceExampleAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a domain instance example.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="BallotComment" minOccurs="0"/>
+			<xs:group ref="ChangeRequest" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Glossary">
+		<xs:complexContent>
+			<xs:extension base="Package">
+				<xs:sequence>
+					<xs:element name="importedGlossary" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates a glossary upon which the current glossary is based.  (Definitions in the current glossary override imported definitions of the same term).</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="termDefinition" type="TermDefinition" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Describes the meaning of a particular term.  The same term may be defined in multiple glossaries to provide additional interpretation specific to a particular domain.  Such definitions should always contain a reference to the 'base' term.</xs:documentation>
+							<xs:documentation>UML: EnumerationLiterals contained within the package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TermDefinition">
+		<xs:annotation>
+			<xs:documentation>Provides a definition for a single concept</xs:documentation>
+			<xs:documentation>UML: Stereotype of EnumerationLiteral</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate TermDefinition type">
+					<sch:rule context="element(*, mif:TermDefinition)">
+						<sch:report test="count(seeAlso)+count(definition)=0">
+              ERROR: Must have at least one of 'seeAlso' or 'definition'.</sch:report>
+						<sch:report test="count(termTranslations[@name=current()/@term])!=0">
+              ERROR: Cannot have a term translation with the same name as the term.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="termTranslation" type="BusinessName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Provides alternative expressions of the same term in different languages</xs:documentation>
+					<xs:documentation>UML: Complex tag on TermDefinition</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="definition" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Provides the detailed definition on a per realm/language basis</xs:documentation>
+					<xs:documentation>UML: Complex tag on TermDefinition</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="seeAlso" type="ShortDescriptiveName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies an equivalent term whose definition should be used in place of (where this element has no definition) or as a supplement to the definition of this element.</xs:documentation>
+					<xs:documentation>UML: Complex tag on TermDefinition</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="term" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The formal name for the term being defined.</xs:documentation>
+				<xs:documentation>UML: the 'name' of the EnumerationLiteral</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Storyboard">
+		<xs:annotation>
+			<xs:documentation>A set of narrative and diagrams that describes a business flow of interest to HL7</xs:documentation>
+			<xs:documentation>UML: UseCase? Collaboration? ActivityGraph? (really a little bit of all 3 . . .)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageArtifact">
+				<xs:sequence>
+					<xs:element name="annotations" type="StoryboardAnnotations">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the storyboard.  The 'description' annotation corresponds to the concept of "storyboard purpose".</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a static model package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="correspondingArtifacts" type="StoryboardArtifactReferences" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Shows the specific application roles, trigger events and interactions involved in the storyboard.</xs:documentation>
+							<xs:documentation>UML: InteractionDiagram</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="activityDiagramFigure" type="xhtml:Img" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A graphical representation of the activity diagram for the storyboard.</xs:documentation>
+							<xs:documentation>UML: figure tag on Storyboard stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- todo: consider allowing multiple occurrences and/or tying to graphicRepresentation -->
+					</xs:element>
+					<xs:element name="parentStoryboard" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifes the storyboard this storyboard is a further refinement of.  Useful when there are highlevel storyboards supplemented by additionsl storyboards which expose further details.</xs:documentation>
+							<xs:documentation>UML: Include relationship from one use-case to another</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="narrative" type="StoryboardNarrative" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Provides a walkthrough of the interaction pattern described by the storyboard.  Multiple narratives for the same pattern are possible, showing how multiple business circumstances might be handled by a single interaction pattern.</xs:documentation>
+							<xs:documentation>UML: Tag on storyboard.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="activityDiagram" type="XMIContent" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Provides a graphical representation of the activities occurring as part of the storyboard.</xs:documentation>
+							<xs:documentation>UML: Activity Diagram</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!-- Todo: embed instance examples here instead? -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StoryboardNarrative">
+		<xs:annotation>
+			<xs:documentation>A description of how the set of interactions described by the storyboard might look in a particular business environment.</xs:documentation>
+			<xs:documentation>UML: Tag on Storyboard</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Allows indication of what realms a particular narrative applies to (if different from the realm associated with the overall storyboard)</xs:documentation>
+						</xs:annotation>
+					</xs:group>
+					<xs:element name="deprecatedPackageLocation" type="PackageRef">
+						<xs:annotation>
+							<xs:documentation>Provides a package style identifier for the storyboard.  No longer required as storyboard narratives exist inside storyboard artifacts and Identifies where (within the 'repository' package hierarchy) this package resides</xs:documentation>
+							<xs:documentation>UML: Identifies the namespace the package is part of</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate packageLocation element">
+									<sch:rule context="mif:packageLocation">
+										<sch:extends rule="PackageRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="text" type="ComplexMarkupWithLanguage">
+						<xs:annotation>
+							<xs:documentation>The actual text of the storyboard narrative</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attributeGroup ref="Title"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StoryboardArtifactReferences">
+		<xs:annotation>
+			<xs:documentation>The set of artifacts used by the storyboard</xs:documentation>
+			<xs:documentation>UML: </xs:documentation>
+			<!-- Todo: Question: Do we need more sophistication than that listed here, such as differentiating interaction types, allowing for "or", etc.? -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="system" type="ExampleSystem" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of all the example systems involved in the storyboard</xs:documentation>
+					<xs:documentation>UML: ClassifierRoles involved in the collaboration</xs:documentation>
+					<!-- Todo: Consider making this minOccurs=2 as soon as tooling supports capturing it -->
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="interaction" type="ExampleInteraction" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>List of the interactions exchanged in the storyboard</xs:documentation>
+					<xs:documentation>UML: Message (not sure how this relates to Interaction which is a CallAction)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="graphicRepresentation" type="DiagramGraphicInformation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the display shape(s) associated with the interaction diagram</xs:documentation>
+					<xs:documentation>UML: association from ModelElement to SemanticModelBridge for a diagram</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="figure" type="xhtml:Img" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A graphical representation of the interaction diagram.</xs:documentation>
+					<xs:documentation>UML: figure tag on Storyboard stereotype</xs:documentation>
+				</xs:annotation>
+				<!-- todo: consider allowing multiple occurrences and/or tying to graphicRepresentation -->
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExampleSystem">
+		<xs:annotation>
+			<xs:documentation>Represents a system involved in sending or receiving interactions within the storyboard</xs:documentation>
+			<xs:documentation>UML: ClassifierRole</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="applicationRole" type="PackageOrArtifactRef" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates one of the application roles implemented by the system and which is relevant in this interaction diagram.</xs:documentation>
+					<xs:documentation>UML: Base interface(s) implemented by the ClassifierRole</xs:documentation>
+					<!-- Todo: restrict reference to be of the correct type -->
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The 'business' name for the application involved in the interaction</xs:documentation>
+				<xs:documentation>UML: ClassifierRole.name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ExampleInteraction">
+		<xs:annotation>
+			<xs:documentation>This is one of the interactions communicated as part of the storyboard</xs:documentation>
+			<xs:documentation>UML: Message</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="interaction" type="PackageRef">
+				<xs:annotation>
+					<xs:documentation>The actual interaction being referenced</xs:documentation>
+					<xs:documentation>UML: CallAction.  (Not sure how to tie this to Message)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="sequence" type="SmallPositiveInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>The relative position of this interaction in the sequence of interactions exchanged</xs:documentation>
+				<xs:documentation>UML: order implied by predecessor/successor relationship of messages</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="sendingSystem" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The system which originates the interaction</xs:documentation>
+				<xs:documentation>UML: ClassifierRole sender</xs:documentation>
+				<!-- Todo: Make thse required as soon as capturing them is supported -->
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="receivingSystem" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The system which receives the interaction.</xs:documentation>
+				<xs:documentation>UML: ClassifierRole receiver</xs:documentation>
+				<!-- Todo: Make thse required as soon as capturing them is supported -->
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="StoryboardAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the storyboard.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="documentation" type="StoryboardDocumentation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Documentation related to the storyboard</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appInfo" type="StoryboardAppInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supporting programmatic information related to the storyboard which has descriptive componenents</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoryboardDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a Storyboard.  Note: Description corresponds to the storyboard 'purpose'.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="Description"/>
+			<xs:group ref="Rationale" minOccurs="0"/>
+			<xs:group ref="DesignComment" minOccurs="0"/>
+			<xs:group ref="StabilityRemarks" minOccurs="0"/>
+			<xs:group ref="OpenIssue" minOccurs="0"/>
+			<xs:group ref="OtherAnnotation" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StoryboardAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a storyboard.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="BallotComment" minOccurs="0"/>
+			<xs:group ref="ChangeRequest" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

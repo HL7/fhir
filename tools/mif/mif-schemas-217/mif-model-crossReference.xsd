@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema targetNamespace="urn:hl7-org:v3/mif2" xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema represents a 'summary' of a set of artifacts, and particularly the
+	relationships between the artifact and the dependencies of those artifacts.
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="mif-core-base.xsd"/>
+	<xs:element name="artifactXrefSummary" type="GlobalArtifactXRefSummary">
+		<xs:annotation>
+			<xs:documentation>Represents a set of cross-references .</xs:documentation>
+			<xs:documentation>UML: An instance of a Package stereotype</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+  <xs:complexType name="GlobalArtifactXRefSummary">
+    <xs:annotation>
+      <xs:documentation>Extends artifact cross-reference summary for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ArtifactXRefSummary">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+	<xs:complexType name="ArtifactXRefSummary">
+    <xs:annotation>
+			<xs:documentation>Represents a set of cross-references .</xs:documentation>
+			<xs:documentation>UML: An instance of a Package stereotype</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="renderingInformation" type="RenderingInformation">
+        <xs:annotation>
+          <xs:documentation>Provides information about the creation of this particular (XML, XMI or other) representation of the package</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="artifact" type="ArtifactCrossReference">
+        <xs:annotation>
+          <xs:documentation>Indicates the package which is the root of the summary</xs:documentation>
+          <xs:documentation>UML: ModelElement</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+	<xs:complexType name="ArtifactCrossReference">
+    <xs:annotation>
+			<xs:documentation>Represents a "collection" of artifacts within a particular namespace.</xs:documentation>
+			<xs:documentation>UML: An instance of a Package stereotype</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="derivedFrom" type="ElementDerivation" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies artifacts from which the current artifact is derived</xs:documentation>
+              <xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="importedPackage" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The datatype, vocabulary, common element, annotations or other libraries this package uses</xs:documentation>
+              <xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="dependentOnElement" type="PackageOrArtifactRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies packages and/or artifacts defined in other packages on which the current artifact depends.</xs:documentation>
+              <xs:documentation>UML: Elements which a supply a direct or implicit dependency to the current element</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="containedElements" type="ArtifactCrossReference" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies packages and/or artifacts defined within the scope of this package or artifact.</xs:documentation>
+              <xs:documentation>UML: </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ElementDerivation">
+    <xs:complexContent>
+      <xs:extension base="Derivation">
+        <xs:sequence>
+          <xs:element name="sourceArtifact" type="PackageOrArtifactRef">
+            <xs:annotation>
+              <xs:documentation>The identifier of the artifact from which the current element is derived.</xs:documentation>
+              <xs:documentation>UML: Absolute package path (using package names)to the client model element on the derivationSupplier dependency.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

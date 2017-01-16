@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema targetNamespace="urn:hl7-org:v3/mif2" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema provides a serialized (hierarchical) view of a static data model
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="mif-model-staticBase.xsd"/>
+	<xs:element name="serializedStaticModels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="serializedStaticModel" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="SchemaVersion"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="serializedStaticModel" type="GlobalSerializedStaticModel">
+		<xs:annotation>
+			<xs:documentation>A static Model in standard (flat) notation.  Used for CIM, LIM, etc.</xs:documentation>
+			<xs:documentation>UML: An instance of a SerializedStaticModel stereotype</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+  <xs:complexType name="GlobalSerializedStaticModel">
+    <xs:annotation>
+      <xs:documentation>Extends serialized static model for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="SerializedStaticModel">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+	<xs:complexType name="SerializedStaticModel">
+		<xs:complexContent>
+			<xs:extension base="StaticModelBase">
+				<xs:sequence>
+					<xs:element name="entryPoint" type="SerializedEntryPoint">
+						<xs:annotation>
+							<xs:documentation>Identifies a class within the model that may be used as the initial class in a serializable representation of the model.</xs:documentation>
+							<xs:documentation>UML: An interface that is implemented by the SubSystem</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SerializedEntryPoint">
+		<xs:annotation>
+			<xs:documentation>EntryPoint stereotype for a 'serialized' model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="EntryPointBase">
+				<xs:sequence>
+					<xs:element name="entryClass" type="SerializedClasses">
+						<xs:annotation>
+							<xs:documentation>The class pointed to by the entry-point</xs:documentation>
+							<xs:documentation>UML: The Class that specializes (implements) the Entry Point interface</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="SerializedClasses">
+		<xs:choice>
+			<xs:element name="class" type="SerializedClass">
+				<xs:annotation>
+					<xs:documentation>A set of attributes and associations representing a single instance.</xs:documentation>
+					<xs:documentation>UML: Class</xs:documentation>
+				</xs:annotation>
+				<!-- Todo: handle this
+				<xs:unique name="subjectAreaUniqueInClass">
+					<xs:selector xpath="primarySubjectArea|additionalSubjectArea"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+				<xs:key name="attributeKey">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="@name"/>
+				</xs:key>
+				<xs:unique name="attributeBusinessNameUniqueInClass">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="businessName/@name"/>
+				</xs:unique>
+				<xs:unique name="associationNameUniqueInClass">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+				<xs:unique name="associationBusinessNameUniqueInClass">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="businessName/@name"/>
+				</xs:unique>
+				<xs:unique name="attributeSequenceUnique">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="@sortKey"/>
+				</xs:unique>
+				<xs:unique name="associationSequenceUnique">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="@sortKey"/>
+				</xs:unique>-->
+			</xs:element>
+			<xs:element name="commonModelElementRef" type="SerializedCommonModelElementRef">
+				<xs:annotation>
+					<xs:documentation>A reference to an external model intended to be imported and re-used at this point.</xs:documentation>
+					<xs:documentation>UML: Another subsystem that is referenced via an interface</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="templateParameter" type="StaticModelClassTemplateParameter">
+				<xs:annotation>
+					<xs:documentation>A point in the model at which a 'sub-model' may be placed that corresponds to the identified contentType.  The specific model to be included may vary and is determined at runtime.</xs:documentation>
+					<xs:documentation>UML: A Class that represents one of the Template Parameters of a template Static Model</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="SerializedClasses">
+		<xs:annotation>
+			<xs:appinfo>
+				<sch:pattern name="Validate class constraints">
+					<sch:rule context="mif:class|mif:classTypeRef|mif:classStub">
+						<sch:report test="count(ancestor::mif:staticModel/descendant::mif:*[@name=current()/@name and (self::mif:class or self::mif:classTypeRef or self::mif:classStub)])&gt;1">
+							ERROR: Only one class, classTypeRef or classStub may exist with a given name inside an staticModel.</sch:report>
+						<sch:report test="count(ancestor::mif:staticModel/descendant::mif:*[mif:businessName/@name=current()/mif:businessName/@name and (self::mif:class or self::mif:classTypeRef or self::mif:classStub)])&gt;1">
+							ERROR: Only one class, classTypeRef or classStub may exist with a given business name inside an staticModel.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:group ref="SerializedClasses"/>
+	</xs:complexType>
+	<xs:complexType name="SerializedClass">
+		<xs:annotation>
+			<xs:documentation>UML: Class within a 'serialized' model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassBase">
+				<xs:sequence>
+					<xs:element name="childClass" type="SerializedClassGeneralization" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies classes that are descended from the current class (as part of a generalization-specialization hierarchy).</xs:documentation>
+							<xs:documentation>UML: The children of the Generalization of this class</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="parentClass" type="LocalClassRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies classes that are parents of the current class (as part of a generalization-specialization hierarchy).</xs:documentation>
+							<xs:documentation>UML: The parents of the Specialization of this class</xs:documentation>
+							<xs:documentation>Derive: todo - all classes which list the current class as a childClass</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="association" type="SerializedAssociationEnd" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The associations for the class</xs:documentation>
+							<xs:documentation>UML: Association coming from the class</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SerializedClassGeneralization">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to Generalization for a 'serialized' model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassGeneralizationBase">
+				<xs:sequence>
+					<xs:element name="specializedClass" type="ClassOrReference">
+						<xs:annotation>
+							<xs:documentation>A class that is a specialization</xs:documentation>
+							<xs:documentation>UML: The class that is the specialization</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndWithClass">
+		<xs:annotation>
+			<xs:documentation>UML: an AssociationEnd that points to a Class</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AssociationEndBase">
+				<xs:sequence>
+					<xs:element name="participantClass" type="ClassOrReference">
+						<xs:annotation>
+							<xs:documentation>The class to which the association end is attached</xs:documentation>
+							<xs:documentation>UML: The name of the participant class for the association end (used for recursion)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!-- Todo: Enforce that either element or attribute is present, not both -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndWithClassRef">
+		<xs:annotation>
+			<xs:documentation>UML: an AssociationEnd that points to a Class</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AssociationEndBase">
+				<xs:attribute name="participantClassName" type="AllClassName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the class to which the association end is attached</xs:documentation>
+						<xs:documentation>UML: The name of the participant class for the association end (used for recursion)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassOrReference">
+		<xs:annotation>
+			<xs:documentation>UML: A full-blown class, or a reference to an already described class.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="SerializedClasses"/>
+			<xs:element name="reference" type="LocalClassReference" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The class to which the association end is attached</xs:documentation>
+					<xs:documentation>UML: The name of the participant class for the association end (used for recursion)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="LocalClassReference">
+		<xs:annotation>
+			<xs:documentation>A reference (by name) to a class within the same package</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="FormalProperName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the class being referenced</xs:documentation>
+				<xs:documentation>UML: the name of the class being referenced within the package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SerializedAssociationEnd">
+		<xs:annotation>
+			<xs:documentation>UML: An Association that points to an association end attached to a class</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AssociationBase">
+				<xs:sequence>
+					<xs:element name="targetConnection" type="AssociationEndWithClass">
+						<xs:annotation>
+							<xs:documentation>The end at the opposite end of the association</xs:documentation>
+							<xs:documentation>UML: The connection association to the Association</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sourceConnection" type="SerializedAssociationEnds">
+						<xs:annotation>
+							<xs:documentation>The details of the association in the opposite direction.</xs:documentation>
+							<xs:documentation>UML: The associationEnd on the near side of the association.  Only present if the association is traversable in the opposite direction</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SerializedAssociationEnds">
+		<xs:annotation>
+			<xs:documentation>UML: Handles associations that can be traversable or not.</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0">
+			<xs:element name="traversableConnection" type="AssociationEndWithClassRef" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A connection that can be traversed.</xs:documentation>
+					<xs:documentation>UML: An AssociationEnd that is traversable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="nonTraversableConnection" type="NonTraversableAssociationEnd">
+				<xs:annotation>
+					<xs:documentation>A connection that cannot be traversed</xs:documentation>
+					<xs:documentation>UML: An AssociationEnd that is not traversable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="SerializedCommonModelElementRef">
+		<xs:annotation>
+			<xs:documentation>UML: SubSystem referencing a particular CommonModelElement Interface in a 'flat' static model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CommonModelElementRefBase">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="argument" type="SerializedClassBindingArgument" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a the classes that are to be 'bound' to a parametericed Common Model Element</xs:documentation>
+							<xs:documentation>UML: Indicates the arguments of the supplier binding dependency for the Common Model Element</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SerializedClassBindingArgument">
+		<xs:annotation>
+			<xs:documentation>UML: A binding to a parameterized serialized Static Model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassBindingArgumentBase">
+				<xs:sequence>
+					<xs:element name="argumentClass" type="ClassOrReference">
+						<xs:annotation>
+							<xs:documentation>The class bound to the argument.</xs:documentation>
+							<xs:documentation>UML: The class that is bound as an argument</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

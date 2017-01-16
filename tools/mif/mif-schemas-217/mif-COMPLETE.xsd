@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Jan. 2006
+(c) 2006-2008 by HL7 Inc.
+
+Purpose:
+	A comprehensive schema which includes all MIF elements, used to allow validation
+	of any arbitrary MIF file.
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-package.xsd"/>
+  <xs:include schemaLocation="mif-model-crossReference.xsd"/>
+</xs:schema>

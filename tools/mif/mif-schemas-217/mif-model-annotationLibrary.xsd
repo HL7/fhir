@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Nov. 2005
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema allows storage of a set of ad-hoc annotations to be associated with
+	elements in another package.
+
+Programatic rules (rules that apply but are not schema or schematron-enforced):
+  - Ensure that all 'prepend' and 'append' annotation references actually exist in the current model or the transitive closure of one of the imported models.
+  - Ensure that there is never recusion when tracking through all 'prepend' and 'append' annotation references.  I.e. Tracing through all prepend and append references will never contain a given annotation more than once.
+  - Enforce that annotation ids are unique across the transitive closure of all included models
+
+  - 'prepended' and 'appended' annotations must have the same cascadeInfo.elementType, across imports
+  - Enforce rules from document
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-core-base.xsd"/>
+  <xs:element name="annotationLibrary" type="GlobalAnnotationLibrary">
+    <xs:annotation>
+      <xs:documentation>Defines the content of a set of annotations intended to be cascaded into other artifacts.</xs:documentation>
+      <xs:documentation>UML: A stereotype of Package.</xs:documentation>
+    </xs:annotation>
+    <xs:key name="AnnotationLibrary-annotations-annotation.id">
+      <xs:selector xpath="annotations/*/*"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+  </xs:element>
+  <xs:complexType name="GlobalAnnotationLibrary">
+    <xs:annotation>
+      <xs:documentation>Extends annotation library for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AnnotationLibrary">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AnnotationLibrary">
+    <xs:annotation>
+      <xs:documentation>A collection of unique annotations of one or more types</xs:documentation>
+      <xs:documentation>UML: A stereotype on package</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="importAnnotationLibrary" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies other annotation libraries that are being 'included' in the current one.  Libraries are processed in the order listed, with dulicate context annotations in subsequent libraries (or the current library) overriding annotations imported from prior libraries.  I.e. later imports and the current library take priority over prior imports.</xs:documentation>
+              <xs:documentation>UML: Another AnnotationLibrary package that is imported into the current package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="annotations" type="LibraryAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>The set of all annotations contained in the library.</xs:documentation>
+              <xs:documentation>UML: All annotation model elements 'owned' by the package.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LibraryAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about various model elements.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated various model elements.</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate LibraryAnnotations element">
+          <sch:rule context="element(*, mif:LibraryAnnotations">
+            <sch:report test="*/*[not(cascadeInfo)]">
+							ERROR: 'cascadeInfo' must be specified on all annotations inside an annotation library.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentation" type="DocumentationLibrary" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Documentation related to a model element</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appInfo" type="AppInfoLibrary" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Supporting programmatic information related to model elements which has descriptive componenents</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AbstractAnnotationLibrary">
+    <xs:annotation>
+      <xs:appinfo>
+        <sch:pattern name="Validate AppInfoLibrary element">
+          <sch:rule context="element(*, mif:AppInfoLibrary">
+            <sch:report test="*[preceding-sibling::*[name(.)=name(current())][deep-equals(cascadeInfo, current()/cascadeInfo)]]">
+							ERROR: 'cascadeInfo' must be unique across all annotations of the same type within an appInfo library.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:complexType>
+  <xs:complexType name="DocumentationLibrary">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to model elements.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with model elements.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AbstractAnnotationLibrary">
+        <xs:sequence>
+          <xs:group ref="Definition" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="Description" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="UsageConstraint" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="UsageNotes" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="Rationale" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="Requirements" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="DesignComment" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="StabilityRemarks" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="Walkthrough" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="Appendix" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AppInfoLibrary">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to model elements.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with model elements.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AbstractAnnotationLibrary">
+        <xs:sequence>
+          <xs:group ref="Mapping" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="FormalConstraint" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="OpenIssue" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="StaticExample" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="BallotComment" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="ChangeRequest" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:group ref="DeprecationInfo" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	Defines the various simple type patterns used by mif elements.
+	This file may be overridden to 'bypass' some of the enforced rules.
+********************************************************************************
+		</xs:documentation>
+		<xs:documentation>
+			UML: **ALL** types defined in this package are handled as datatypes. 
+			There is a mapping from some schema datatypes directly to existing UML datatypes:
+				xs:boolean -> Boolean
+				xs:integer -> Integer
+				xs:string -> String
+ 			Most of the types defined here will be new datatypes (some may be restrictions of the above).
+ 			Where there is a mapping to an existing UML datatype, this will be documented.
+ 		</xs:documentation>
+		<xs:appinfo>
+			<sch:ns prefix="mif" uri="urn:hl7-org:v3/mif"/>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:include schemaLocation="mif-core-enumerations.xsd"/>
+	<xs:simpleType name="RoleKind">
+		<xs:annotation>
+			<xs:documentation>Role names can be pre-defined or unrestricted</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="DefinedRoleKind ShortDescriptiveName"/>
+	</xs:simpleType>
+	<xs:simpleType name="MappingSourceKind">
+		<xs:annotation>
+			<xs:documentation>Allows for mappings to arbitrary standards, as well as 'pre-defined' standards</xs:documentation>
+			<xs:documentation>UML: type for an object-typed stereotype tag</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="DefinedMappingSourceKind ShortDescriptiveName"/>
+	</xs:simpleType>
+	<xs:simpleType name="DateOrTimestamp">
+		<xs:annotation>
+			<xs:documentation>Used when we might have just a date, or a full-blown timestamp.  Format is YYYY-MM-DD['T'HH:MM:SS[('-'|'+')ZZ:ZZ]]</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="xs:dateTime xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="Years">
+		<xs:annotation>
+			<xs:documentation>A list of years</xs:documentation>
+		</xs:annotation>
+		<xs:list itemType="Year"/>
+	</xs:simpleType>
+	<xs:simpleType name="Year">
+		<xs:annotation>
+			<xs:documentation>A year (restricted to 20th and 21st century)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:pattern value="(19|20)\d{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SingleNonNegativeInteger">
+		<xs:annotation>
+			<xs:documentation>An integer that is greater than or equal to zero, with a maximum length of 1 character</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxExclusive value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SmallNonNegativeInteger">
+		<xs:annotation>
+			<xs:documentation>An integer that is greater than or equal to zero, with a maximum length of 6 characters</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxExclusive value="1000000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SmallPositiveInteger">
+		<xs:annotation>
+			<xs:documentation>An integer that is greater than or equal to 1, with a maximum length of 6 characters</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:positiveInteger">
+			<xs:maxExclusive value="1000000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GraphicMeasurement">
+		<xs:annotation>
+			<xs:documentation>A real number that is greater than or equal to 0. Used when you want a positive number that can be fractional.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:maxExclusive value="1000000"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PositiveDecimal">
+		<xs:annotation>
+			<xs:documentation>A real number greater than 0 that is restricted to a maximum of 10 characters, and may have no more than 3 decimal places.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:maxExclusive value="1000000"/>
+			<xs:minInclusive value=".001"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NonNegativeDecimal">
+		<xs:annotation>
+			<xs:documentation>A real number that is restricted to a maximum of 10 characters, and may have no more than 3 decimal places.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:maxExclusive value="1000000"/>
+			<xs:minInclusive value="0"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Decimal">
+		<xs:annotation>
+			<xs:documentation>A real number that is restricted to a maximum of 10 characters, and may have no more than 3 decimal places.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:maxExclusive value="1000000"/>
+			<xs:minInclusive value=".001"/>
+			<xs:fractionDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Simple types used in defining various attributes -->
+	<xs:simpleType name="Uuid">
+		<xs:annotation>
+			<xs:documentation>Universal Unique Identifier (aka GUID).  Used for identifiers</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Uuid type">
+					<sch:rule context="mif:Uuid">
+						<!-- Exclude guiids in graphicIds because these are referencing a guid elsewhere in the document -->
+						<sch:report test="count(//attribute(*, mif:Uuid)[count(parent::element(*,mif:GraphicInformation))=0][.=current()]|//element(*, mif:Uuid)[.=current()])&gt;1">
+							ERROR: UUIDs should never be duplicated within a document.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:length value="36"/>
+			<xs:pattern value="[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HashCode">
+		<xs:annotation>
+			<xs:documentation>Base64 representation of a SHA-256 hashcode</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([A-Za-z0-9/+]){27}="/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Oid">
+		<xs:annotation>
+			<xs:documentation>ISO Object Identifier.  Used for identifiers</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="255"/>
+			<xs:pattern value="[1-9][0-9]*(\.[0-9]+)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RealmNamespaceKind">
+		<xs:annotation>
+			<xs:documentation>Allows affiliate and free-form as well as OID-based namespaces to be identified for keeping content distinct</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="RealmKind Oid"/>
+	</xs:simpleType>
+	<xs:simpleType name="Uri">
+		<xs:annotation>
+			<xs:documentation>Used for references to some external resource.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Url">
+		<xs:annotation>
+			<xs:documentation>Used for hypertext references.  (Must be prefixed by "http://")</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:maxLength value="255"/>
+			<xs:pattern value="http(s)?://.+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EMail">
+		<xs:annotation>
+			<xs:documentation>Used for email references.  (Must be prefixed by "mailto://")</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:maxLength value="255"/>
+			<xs:pattern value="mailto:.+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LocalFileReference">
+		<xs:annotation>
+			<xs:documentation>Used for file references.  (Must be prefixed by "file://")</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:maxLength value="255"/>
+			<xs:pattern value="(file://)?([A-Za-z0-9_\-\.]+/)*[A-Za-z0-9_\-\.]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NonEmptyString">
+		<xs:annotation>
+			<xs:documentation>Used as the base for most string datatypes.  (Ensures that empty strings are not allowed.).  Should never be implemented directly because it has no length limits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CMETAttributionString">
+		<xs:annotation>
+			<xs:documentation>Type for CMET attribution types.  Basically a length-limited lowerCamelCase string that allows dashes and has a length limit.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:maxLength value="50"/>
+			<xs:pattern value="[a-z][a-z0-9A-Z\-]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LowerCamelCase">
+		<xs:annotation>
+			<xs:documentation>Type for attribute and association type names.  Should never be implemented directly because it has no length limits.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:pattern value="[a-z][a-z0-9_]*([A-Z][a-z0-9_]*)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UpperCamelCase">
+		<xs:annotation>
+			<xs:documentation>Type for class and type names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:pattern value="([A-Z][a-z0-9_\-]*)+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PrefixedUpperCamelCase">
+		<xs:annotation>
+			<xs:documentation>Used for CMET type names.  (Basically class names with a prefix separated by an underscore)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:maxLength value="50"/>
+			<xs:pattern value="[A-Z]+_([A-Z][a-z0-9_\-]*)+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BasicFormalName">
+		<xs:annotation>
+			<xs:documentation>Used for formal names and short descriptions</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="NonEmptyString">
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FormalProperName">
+		<xs:annotation>
+			<xs:documentation>Used for class and type names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="UpperCamelCase">
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AllClassName">
+		<xs:annotation>
+			<xs:documentation>Choice of a class name or a CMET name</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="FormalProperName PrefixedUpperCamelCase"/>
+	</xs:simpleType>
+	<xs:simpleType name="FormalPropertyName">
+		<xs:annotation>
+			<xs:documentation>Used for attribute, association and property names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="LowerCamelCase">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ShortDescriptiveName">
+		<xs:annotation>
+			<xs:documentation>Used when descriptions are intended to be very short</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="NonEmptyString">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="LongDescriptiveName">
+		<xs:annotation>
+			<xs:documentation>Used when descriptions can be potentially quite long</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="NonEmptyString">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="XDomainName">
+		<xs:annotation>
+			<xs:documentation>Used for x-domains</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:maxLength value="50"/>
+			<xs:pattern value="(x_)?([A-Z][a-z0-9_]*)+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatatypeName">
+		<xs:annotation>
+			<xs:documentation>Used for datatype names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:maxLength value="60"/>
+			<xs:pattern value="[A-Z_]+(.[A-Za-z]+)*(.diffType)?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MimeType">
+		<xs:annotation>
+			<xs:documentation>Used to filter MIME type names</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="40"/>
+			<xs:pattern value="[a-z]+/[a-z0-9\-]+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Version">
+		<xs:annotation>
+			<xs:documentation>Used for version numbers</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ShortString">
+		<xs:annotation>
+			<xs:documentation>Used for very short strings</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CollapsedPackageId">
+		<xs:restriction base="xs:token">
+			<xs:pattern value="([A-Za-z,0-9,_,\-]{1,80}=){0,7}[A-Za-z,0-9,_,\-,\.]{1,80}">
+				<xs:annotation>
+					<xs:documentation>Allows between 1 and 7 strings of length 1 to 80 characters (uppercase alpha, digits, underscore and space) where strings are separated by "="</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TemplateId">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:pattern value="([A-Z0-9_\-]{1,80}=){0,6}[A-Z0-9_\-]{1,80}#([A-Z][a-z0-9_\-]*)+(\.[a-z][a-z0-9]*([A-Z][a-z0-9]*)*)?">
+				<xs:annotation>
+					<xs:documentation>TemplateId followed by "#" followed by a class name followed by an optional "." and attribute name</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BasicId">
+		<xs:annotation>
+			<xs:documentation>Used for generic identifiers</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="MultiplicityRangeRequired">
+		<xs:annotation>
+			<xs:appinfo>
+				<sch:pattern name="Validate MultiplicityRange type">
+					<sch:rule abstract="true" id="MultiplicityRange">
+						<sch:report test="@maximumMultiplicity!='*' and number(@minimumMultiplicity)&gt;number(@maximumMultiplicity)">
+							ERROR: MinimumMultiplicity must be less than or equal to maximumMultiplicity.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+			<xs:documentation>Used to define multiplicty</xs:documentation>
+			<xs:documentation>UML: Corresponds to UML type MultiplicityRange, with exception that upper boundary cannot be 0</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="minimumMultiplicity" type="SmallNonNegativeInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the minimum number of repetitions of this element that may occur within the containing element.</xs:documentation>
+				<xs:documentation>UML: multiplicity (lower-bound)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="maximumMultiplicity" type="UnlimitedInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the maximum number of repetitions of this element that may occur within the containing element.</xs:documentation>
+				<xs:documentation>UML: multiplicity (upper-bound)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="MultiplicityRangeOptional">
+		<xs:annotation>
+			<xs:appinfo>
+				<sch:pattern name="Validate MultiplicityRange type">
+					<sch:rule abstract="true" id="MultiplicityRange">
+						<sch:report test="@maximumMultiplicity!='*' and number(@minimumMultiplicity)&gt;number(@maximumMultiplicity)">
+							ERROR: MinimumMultiplicity must be less than or equal to maximumMultiplicity.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+			<xs:documentation>Used to define multiplicty</xs:documentation>
+			<xs:documentation>UML: Corresponds to UML type MultiplicityRange, with exception that upper boundary cannot be 0</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="minimumMultiplicity" type="SmallNonNegativeInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the minimum number of repetitions of this element that may occur within the containing element.</xs:documentation>
+				<xs:documentation>UML: multiplicity (lower-bound)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="maximumMultiplicity" type="UnlimitedInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the maximum number of repetitions of this element that may occur within the containing element.</xs:documentation>
+				<xs:documentation>UML: multiplicity (upper-bound)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:simpleType name="UnlimitedInteger">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to UnlimitedInteger.  (Only distinction is that this type does not allow 0 while UML does)</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="SmallPositiveInteger UnlimitedMultiplicity"/>
+	</xs:simpleType>
+	<xs:simpleType name="UnlimitedMultiplicity">
+		<xs:annotation>
+			<xs:documentation>Used as a 'part' of the UnlimitedInteger type</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="*">
+				<xs:annotation>
+					<xs:documentation>Unlimited</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

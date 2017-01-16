@@ -1,0 +1,1212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--$Id:-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mif="urn:hl7-org:v3/mif2" xmlns="urn:hl7-org:v3/mif2" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+WARNING: This schema was auto-generated from HL7 Vocabulary version 1206-20130318.  It should not be edited
+
+Author: Initial development              by Lloyd McKenzie,   July 2010
+			Revision for use with 2.1.x  by George Beeler,     May 2013
+			
+           (c) 2002-2013 by HL7 International
+
+Purpose:
+	This schema provides includes 'enumeration types' which are extracted from the vocabulary database and are used in defining types within the MIF.
+	
+Note:
+  This schema may be replaced with a more current version (based on a newer version of the HL7 vocabulary) at any time, independent of a formal release of the MIF schemas.
+
+********************************************************************************
+        </xs:documentation>
+		<xs:documentation>UML: **ALL** types defined in this package are handled as datatypes that are enumerations.</xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="EnumerationToken">
+		<xs:annotation>
+			<xs:documentation>Used as the base class for all 'codes' which qualify or must be handled as NMTOKEN</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EnumerationString">
+		<xs:annotation>
+			<xs:documentation>Used as the base class for all 'codes' which cannot be handled as NMTOKEN</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ITSKind">
+		<xs:annotation>
+			<xs:documentation>Provides alternate type name (for use in versions 2.1.x)  for a following generated type used in 2.2.0 and above.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="ITSTypeKind"/>
+	</xs:simpleType>
+	<xs:simpleType name="DomainKind">
+		<xs:annotation>
+			<xs:documentation>Provides alternate type name (for use in versions 2.1.x)  for a following generated type used in 2.2.0 and above.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PublishingDomainKind"/>
+	</xs:simpleType>
+	<xs:simpleType name="SectionKind">
+		<xs:annotation>
+			<xs:documentation>Provides alternate type name (for use in versions 2.1.x)  for a following generated type used in 2.2.0 and above.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PublishingSectionKind"/>
+	</xs:simpleType>
+	<xs:simpleType name="SubSectionKind">
+		<xs:annotation>
+			<xs:documentation>Provides alternate type name (for use in versions 2.1.x)  for a following generated type used in 2.2.0 and above.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="PublishingSubSectionKind"/>
+	</xs:simpleType>
+	<xs:simpleType name="AffiliateKind">
+		<xs:annotation>
+			<xs:documentation>The list of HL7 affiliates.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="AR">
+				<xs:annotation>
+					<xs:documentation>Argentina - Description: Realm code for use of Argentina</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AT">
+				<xs:annotation>
+					<xs:documentation>Austria - Description: Realm code for use of Austria</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AU">
+				<xs:annotation>
+					<xs:documentation>Australia - Description: Realm code for use of Australia</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BR">
+				<xs:annotation>
+					<xs:documentation>Brazil - Description: Realm code for use of Brazil</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CA">
+				<xs:annotation>
+					<xs:documentation>Canada - Description: Realm code for use of Canada</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CH">
+				<xs:annotation>
+					<xs:documentation>Switzerland - Description: Realm code for use of Switzerland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CL">
+				<xs:annotation>
+					<xs:documentation>Chile - Description: Realm code for use of Chile</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CN">
+				<xs:annotation>
+					<xs:documentation>China - Description: Realm code for use of China</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CO">
+				<xs:annotation>
+					<xs:documentation>Columbia - Description: Realm code for use of Localized Version</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CZ">
+				<xs:annotation>
+					<xs:documentation>Czech Republic - Description: Realm code for use of Czech Republic</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DE">
+				<xs:annotation>
+					<xs:documentation>Germany - Description: Realm code for use of Germany</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DK">
+				<xs:annotation>
+					<xs:documentation>Denmark - Description: Realm code for use of Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ES">
+				<xs:annotation>
+					<xs:documentation>Spain - Description: Realm code for use of Spain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FI">
+				<xs:annotation>
+					<xs:documentation>Finland - Description: Realm code for use of Finland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FR">
+				<xs:annotation>
+					<xs:documentation>France - Description: Realm code for use of France</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GR">
+				<xs:annotation>
+					<xs:documentation>Greece - Description: Realm code for use of Greece</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HR">
+				<xs:annotation>
+					<xs:documentation>Croatia - Description: Realm code for use of Croatia</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IE">
+				<xs:annotation>
+					<xs:documentation>Ireland - Description: Realm code for use of Ireland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IN">
+				<xs:annotation>
+					<xs:documentation>India - Description: Realm code for use of India</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IT">
+				<xs:annotation>
+					<xs:documentation>Italy - Description: Realm code for use of Italy</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="JP">
+				<xs:annotation>
+					<xs:documentation>Japan - Description: Realm code for use of Japan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KR">
+				<xs:annotation>
+					<xs:documentation>Korea - Description: Realm code for use of Korea</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LT">
+				<xs:annotation>
+					<xs:documentation>Lithuania - Description: Realm code for use of Lithuania</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MX">
+				<xs:annotation>
+					<xs:documentation>Mexico - Description: Realm code for use of Mexico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NL">
+				<xs:annotation>
+					<xs:documentation>The Netherlands - Description: Realm code for use of The Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NZ">
+				<xs:annotation>
+					<xs:documentation>New Zealand - Description: Realm code for use of New Zealand</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RO">
+				<xs:annotation>
+					<xs:documentation>Romania - Description: Realm code for use of Romania</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RU">
+				<xs:annotation>
+					<xs:documentation>Russian Federation - Description: Realm code for use of Russian Federation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SE">
+				<xs:annotation>
+					<xs:documentation>Sweden - Description: Realm code for use of Sweden</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SG">
+				<xs:annotation>
+					<xs:documentation>Singapore - Description: Realm code for use of Localized Version</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SOA">
+				<xs:annotation>
+					<xs:documentation>Southern Africa - Description: Realm code for use of Southern Africa</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TR">
+				<xs:annotation>
+					<xs:documentation>Turkey - Description: Realm code for use of Turkey</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TW">
+				<xs:annotation>
+					<xs:documentation>Taiwan - Description: Realm code for use of Taiwan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UK">
+				<xs:annotation>
+					<xs:documentation>United Kingdom - Description: Realm code for use of United Kingdom</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="US">
+				<xs:annotation>
+					<xs:documentation>United States of America - Description: Realm code for use of United States of America</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UV">
+				<xs:annotation>
+					<xs:documentation>Universal - Description: Realm code for use of Universal realm or context, used in every instance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UY">
+				<xs:annotation>
+					<xs:documentation>Uruguay - Description: Realm code for use of Uruguay</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="BindingRealmBaseKind">
+		<xs:annotation>
+			<xs:documentation>The list of binding realms in addition to affiliates.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="C1">
+				<xs:annotation>
+					<xs:documentation>Unclassified Realm - Description: Realm code for use of Unclassified Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GB">
+				<xs:annotation>
+					<xs:documentation>Great Britain - Description: Realm code for use of Great Britain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R1">
+				<xs:annotation>
+					<xs:documentation>Representative Realm - Description: Realm code for use of Representative Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X1">
+				<xs:annotation>
+					<xs:documentation>Example Realm - Description: Realm code for use of Example Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NamespaceRealmBaseKind">
+		<xs:annotation>
+			<xs:documentation>The list of namespace realms in addition to affiliates.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="GB">
+				<xs:annotation>
+					<xs:documentation>Great Britain - Description: Realm code for use of Great Britain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZZ">
+				<xs:annotation>
+					<xs:documentation>Localized Version - Description: An artifact created for local use only. This realm namespace has no owning affiliate. Its use is uncontrolled, i.e. anyone can create artifacts using this realm namespace. Because of this, there is a significant likelihood of artifact identifier collisions. Implementers are encouraged to register their artifacts under an affiliate owned and controlled namespace to avoid such collision problems where possible.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContextConductionStyleKind">
+		<xs:annotation>
+			<xs:documentation>The styles of context conduction usable by relationships within a static model derived from tyhe HL7 Reference Information Model.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="C">
+				<xs:annotation>
+					<xs:documentation>conduction-indicator-based - Definition: Context conduction is defined using the contextConductionCode and contextConductionInd attributes on ActRelationship and Participation. UsageNotes: This approach is deprecated as of March, 2010.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>inferred - Definition: Context conduction is not explicitly defined. The recipient of an instance must infer conduction based on the semantics of the model and what is deemed "reasonable". UsageNotes: Because this approach can lead to variation in instance interpretation, its use is discouraged.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="V">
+				<xs:annotation>
+					<xs:documentation>vocabulary-based - Definition: Context conduction is defined using the ActRelationship.blockedContextActRelationshipType and blockedContextParticipationType attributes and the "conductible" property on the ActRelationshipType and ParticipationType code systems.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UpdateModeKind">
+		<xs:annotation>
+			<xs:documentation>The possible modes of updating that occur when an attribute is received by a system that already contains values for that attribute.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="A">
+				<xs:annotation>
+					<xs:documentation>Add - Description:The item was (or is to be) added, having not been present immediately before. (If it is already present, this may be treated as an error condition.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AR">
+				<xs:annotation>
+					<xs:documentation>Add or Replace - Description:The item was (or is to be) either added or replaced.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation>Remove - Description:The item was (or is to be) removed (sometimes referred to as deleted). If the item is part of a collection, delete any matching items.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="K">
+				<xs:annotation>
+					<xs:documentation>Key - Description:This item is part of the identifying information for this object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="N">
+				<xs:annotation>
+					<xs:documentation>No Change - Description:There was (or is to be) no change to the item. This is primarily used when this element has not changed, but other attributes in the instance have changed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R">
+				<xs:annotation>
+					<xs:documentation>Replace - Description:The item existed previously and has (or is to be) revised. (If an item does not already exist, this may be treated as an error condition.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="REF">
+				<xs:annotation>
+					<xs:documentation>Reference - Description:This item provides enough information to allow a processing system to locate the full applicable record by identifying the object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:documentation>Unknown - Description:Description:&lt;/b&gt;It is not specified whether or what kind of change has occurred to the item, or whether the item is present as a reference or identifying property.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+ 
+********************************************************************************************************************
+*  The following simpleType  (ApprovalStatusKind) MUST NOT be used from this file for MIF             *
+*  releases 2.1.x.  It is intended only for releases 2.2.x                                                                  *  
+*                                                                                                                                               *
+*  For the 2.1.x releases, a simpleType of this name already exists in mif-core-enumerations.xsd.    *  
+*  The type in this file (mif-core-enumerationsVocab.xsd) should be removed or "commented out".    * 
+*            (GW Beeler 20130527)                                                                                                  *
+********************************************************************************************************************
+>
+	<xs:simpleType name="ApprovalStatusKind">
+		<xs:annotation>
+			<xs:documentation>Description: Codes for concepts describing the approval level of HL7 artifacts. This code system reflects the concepts expressed in HL7's Governance &amp; Operations Manual (GOM) past and present.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="affd">
+				<xs:annotation>
+					<xs:documentation>affiliate ballot - DSTU - Description: Content that is being presented to an international affiliate for consideration as a realm-specific draft standard for trial use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="affi">
+				<xs:annotation>
+					<xs:documentation>affiliate ballot - informative - Description: Content that is being presented to an international affiliate for consideration as a realm-specific informative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="affn">
+				<xs:annotation>
+					<xs:documentation>affiliate ballot - normative - Description: Content that is being presented to an international affiliate for consideration as a realm-specific normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appad">
+				<xs:annotation>
+					<xs:documentation>approved affiliate DSTU - Description: Content that has passed ballot as a realm-specific draft standard for trial use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appai">
+				<xs:annotation>
+					<xs:documentation>approved affiliate informative - Description: Content that has passed ballot as a realm-specific informative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appan">
+				<xs:annotation>
+					<xs:documentation>approved affiliate normative - Description: Content that has passed ballot as a realm-specific normative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appd">
+				<xs:annotation>
+					<xs:documentation>approved DSTU - Description: Content that has passed ballot as a draft standard for trial use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appi">
+				<xs:annotation>
+					<xs:documentation>approved informative - Description: Content that has passed ballot as a normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appn">
+				<xs:annotation>
+					<xs:documentation>approved normative - Description: Content that has passed ballot as a normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="comi">
+				<xs:annotation>
+					<xs:documentation>committee ballot - informative - Description: Content prepared by a committee and submitted for internal consideration as an informative standard. Deprecation Comment No longer supported as ballot statuses within the HL7 Governance and Operations Manual. Use normative or informative variants instead.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="comn">
+				<xs:annotation>
+					<xs:documentation>committee ballot - normative - Description: Content prepared by a committee and submitted for internal consideration as an informative standard. Deprecation Comment No longer supported as ballot statuses within the HL7 Governance and Operations Manual. Use normative or informative variants instead.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="draft">
+				<xs:annotation>
+					<xs:documentation>draft - Description: Content that is under development and is not intended to be used.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="loc">
+				<xs:annotation>
+					<xs:documentation>localized adaptation - Description: Content that represents an adaption of a implementable balloted material to represent the needs or capabilities of a particular installation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="memd">
+				<xs:annotation>
+					<xs:documentation>membership ballot - DSTU - Description: Content prepared by a committee and submitted for membership consideration as a draft standard for trial use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="memi">
+				<xs:annotation>
+					<xs:documentation>membership ballot - informative - Description: Content prepared by a committee and submitted for membership consideration as an informative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="memn">
+				<xs:annotation>
+					<xs:documentation>membership ballot - normative - Description: Content prepared by a committee and submitted for membership consideration as a normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ns">
+				<xs:annotation>
+					<xs:documentation>non-standard - available for use - Description: Content developed independently by an organization or individual that is declared to be 'usable' but for which there is no present intention to submit through the standards submission and review process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="prop">
+				<xs:annotation>
+					<xs:documentation>proposal - Description: Content submitted to a committee for consideration for future inclusion in the standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ref">
+				<xs:annotation>
+					<xs:documentation>reference - Description: Content intended to support other content that is subject to approval, but which is not itself subject to formal approval.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="wd">
+				<xs:annotation>
+					<xs:documentation>withdrawn - Description: Content that represents an item that was at one point a normative or informative standard, but was subsequently withdrawn.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType-->
+	<xs:simpleType name="CMETAttributionKind">
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="contact">
+				<xs:annotation>
+					<xs:documentation>contact - Description: Provides sufficient information to allow the object identified to be contacted. This is likely to have the content of identified and confirmable plus telephone number.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="identified">
+				<xs:annotation>
+					<xs:documentation>identified - Description: This variant is a proper subset of universal and is intended to provide sufficient information to identify the object(s) modeled by the CMET. This variant is only suitable for use within TIGHTLY COUPLED SYSTEMS ONLY. This variant provides ONLY the ID (and code where applicable) and Name. Other variants may not be substituted at runtime.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="identified-confirmable">
+				<xs:annotation>
+					<xs:documentation>identified-confirmable - Description: This extends the identified variant by adding just sufficient additional information to allow the identity of object modeled to be confirmed by a number of corroborating items of data; for instance a patient's date of birth and current address. However, specific contact information, such as telephone number, are not viewed as confirming information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="identified-informational">
+				<xs:annotation>
+					<xs:documentation>identified-informational - Description: Generally the same information content as "contactable" but using new "informational" CMETs as dependant CMETs. This flavor allows expression of the CMET when non-focal class information is not known.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="informational">
+				<xs:annotation>
+					<xs:documentation>informational - Description: Generally the same information content as "contactable", but with required (not mandatory) ids on entry point class. This flavor allows expression of the CMET even when mandatory information is not known.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="minimal">
+				<xs:annotation>
+					<xs:documentation>minimal - Description: Provides more than identified, but not as much as universal. There are not expected to be many of these.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="universal">
+				<xs:annotation>
+					<xs:documentation>universal - Description: This variant includes all attributes and associations present in the R-MIM. Any of non-mandatory and non-required attributes and/or associations may be present or absent, as permitted in the cardinality constraints.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ITSTypeKind">
+		<xs:annotation>
+			<xs:documentation>Description: Codes identifying types of HL7 Implementation Technology Specifications</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="UML">
+				<xs:annotation>
+					<xs:documentation>universal modeling language - Description: ITS based on the Universal Modeling Language.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="XML">
+				<xs:annotation>
+					<xs:documentation>extensible markup language - Description: ITS based on the Extensible Markup Language.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PublishingDomainKind">
+		<xs:annotation>
+			<xs:documentation>Description: Codes for HL7 publishing domains (specific content area)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="AB">
+				<xs:annotation>
+					<xs:documentation>accounting &amp; billing - Description: Represents the HL7 content "domain" that supports accounting and billing functions - and "provides support for the creation and management of patient billing accounts and the post of financial transactions against patient billing accounts for the purpose of aggregating financial transactions that will be submitted as claims or invoices for reimbursemen" UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section FI</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AI">
+				<xs:annotation>
+					<xs:documentation>trigger event control act infrastructure - Description: Represents the HL7 content "domain" that supports trigger event control act infrastructure - and "covers the alternate structures of the message Trigger Event Control Acts in the HL7 Composite Message." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section MC</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AL">
+				<xs:annotation>
+					<xs:documentation>artificial listing for test purposes - faux Domain for testing - Description: Represents the HL7 content "domain" that was defined as an "artificial listing" domain to support publication testing.</xs:documentation>
+					<xs:documentation>Part of sub-section RE</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BB">
+				<xs:annotation>
+					<xs:documentation>blood tissue and organ - Description: Represents the HL7 content "domain" that supports blood tissue and organ domain - and "comprises the models, messages, and other artIfacts that are needed to support messaging related to the process of blood, tissue, and organ banking operations such as donations, eligibility, storage, dispense, administration/transfusion, explantation, and implantation. " UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CD">
+				<xs:annotation>
+					<xs:documentation>clinical document architecture - Description: Represents the HL7 content "domain" that supports the clinical document architecture. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CG">
+				<xs:annotation>
+					<xs:documentation>clinical genomics - Description: Represents the HL7 content "domain" that supports clinical genomics - and includes " standards to enable the exchange of interrelated clinical and personalized genomic data between interested parties." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CI">
+				<xs:annotation>
+					<xs:documentation>transmission infrastructure - Description: Represents the HL7 content "domain" that supports transmission infrastructure - and " is primarily concerned with the data content of exchanges between healthcare applications, the sequence or interrelationships in the flow of messages and the communication of significant application level exceptions or error conditions." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section MC</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CO">
+				<xs:annotation>
+					<xs:documentation>coverage - Description: Represents the HL7 content "domain" that supports Coverage - and provides support for managing health care coverage in the reimbursement system(s). UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section FI</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CP">
+				<xs:annotation>
+					<xs:documentation>common product model - Description: Represents the HL7 content "domain" that supports the common product model - which "is used to improve the alignment between the different representations of products used within the body of HL7 Version 3 models." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CR">
+				<xs:annotation>
+					<xs:documentation>claims and reimbursement - Description: Represents the HL7 content "domain" that supports Claims and Reimbursement - and "provides support for Generic, Pharmacy, Preferred Accommodation, Physician, Oral Health Vision Care and Hospital claims for eligibility, authorization, coverage extension, pre-determination, invoice adjudication, payment advice and Statement of Financial Activity (SOFA) Release 3 of this document adds claims messaging support for Physician, Oral Health Vision Care and Hospital claims." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section FI</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CS">
+				<xs:annotation>
+					<xs:documentation>clinical statement - Description: Represents the HL7 content "domain" that supports a common clinical statement pattern - and "is a 'pattern' designed to be used within multiple HL7 Version 3 domain models. This pattern is intended to facilitate the consistent design of communications that convey clinical information to meet specific use cases." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section CO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CT">
+				<xs:annotation>
+					<xs:documentation>common types - Description: Represents the HL7 content "domain" that supports common model types - and "are a work product produced by a particular committee for expressing a common, useful and reusable concept." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section CO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DD">
+				<xs:annotation>
+					<xs:documentation>dummy domain - Description: Represents the HL7 content "domain" that was created to support testing and initial set-up functions.</xs:documentation>
+					<xs:documentation>Part of sub-section UU</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DI">
+				<xs:annotation>
+					<xs:documentation>diagnostic imaging - Description: This domain has been retired in favor of "imaging integration" (II).</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DS">
+				<xs:annotation>
+					<xs:documentation>decision support - Description: Represents the HL7 content "domain" that provides decision support. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section RE</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EM">
+				<xs:annotation>
+					<xs:documentation>emergency medical services - Description: Represents the HL7 content "domain" that supports Emergency Medical Services. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="II">
+				<xs:annotation>
+					<xs:documentation>imaging integration - Description: Represents the HL7 content "domain" that supports imaging integration - and is "comprises the models, implementation guides, sample documents and images that are needed to illustrate the transformation of DICOM structured reports to CDA Release 2 as well as the creation of CDA diagnostic imaging reports." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IZ">
+				<xs:annotation>
+					<xs:documentation>immunization - Description: Represents the HL7 content "domain" that supports immunization - and "describes communication of information about immunization: the administration of vaccines (and/or antisera) to individuals to prevent infectious disease." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LB">
+				<xs:annotation>
+					<xs:documentation>laboratory - Description: Represents the HL7 content "domain" that supports clinical laboratory functions - and is "comprises the models, messages, and other artifacts that are needed to support messaging related to laboratory tests or observations. " UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ME">
+				<xs:annotation>
+					<xs:documentation>medication - Description: Represents the HL7 content "domain" that supports medication - and "deals with the description of a medicine for the purposes of messaging information about medicines" and the applications of these descriptions. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MI">
+				<xs:annotation>
+					<xs:documentation>masterfile infrastructure - Description: Represents the HL7 content "domain" that supports master file infrastructure - and is "comprises the classes and attributes needed to support Master Files and Registries." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section MF</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MM">
+				<xs:annotation>
+					<xs:documentation>materials management - Description: Represents the HL7 content "domain" that supports Materials Management - and is "supports the simple scenario of a Materials Management application sending requests, notifications and queries to an auxiliary application. The intent is to establish a standard for the minimum functionality that is useful and comprehensive enough to explore the important concepts relative to inventory management." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MR">
+				<xs:annotation>
+					<xs:documentation>medical records - Description: Represents the HL7 content "domain" that supports medical records - and is "supports clinical document management, and document querying." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section RC</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MT">
+				<xs:annotation>
+					<xs:documentation>shared messages - Description: Represents the HL7 content "domain" that supports shared messages - and "are a work product produced for expressing common, useful and reusable message types." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section CO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OB">
+				<xs:annotation>
+					<xs:documentation>observations - Description: Represents the HL7 content "domain" that supports observations - and is "comprises the models, messages, and other artifacts that are needed to support messaging related to resulting basic healthcare diagnostic services. " UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OO">
+				<xs:annotation>
+					<xs:documentation>orders &amp; observations - Description: Represents the HL7 content "domain" that supports orders and observations - and will provide over-arching support information for the "Orders" (OR) and "Observations" (OB) domains. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OR">
+				<xs:annotation>
+					<xs:documentation>orders - Description: Represents the HL7 content "domain" that supports orders - and "comprises the models, messages, and other artifacts that are needed to support messaging related to ordering basic healthcare services." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PA">
+				<xs:annotation>
+					<xs:documentation>patient administration - Description: Represents the HL7 content "domain" that supports Patient Administration - and "defines person and patient demographics and visit information about patients" UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PC">
+				<xs:annotation>
+					<xs:documentation>care provision - Description: Represents the HL7 content "domain" that supports Care Provision - and "addresses the information that is needed for the ongoing care of individuals, populations, and other targets of care." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section RE</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PH">
+				<xs:annotation>
+					<xs:documentation>public health - Description: Represents the HL7 content "domain" that supports public health - and is "the source of a number of Common Model Element Types (CMET) designed to meet the needs of public health data exchange." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PM">
+				<xs:annotation>
+					<xs:documentation>personnel management - Description: Represents the HL7 content "domain" that supports Personnel Management - and "spans a variety of clinical-administrative information functions associated with the organizations, individuals, animals and devices involved in the delivery and support of healthcare services." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QI">
+				<xs:annotation>
+					<xs:documentation>query infrastructure - Description: Represents the HL7 content "domain" that supports query infrastructure - and "specifies the formation of information queries and the responses to these queries to meet the needs of healthcare applications using the HL7 version 3 messaging standard." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section QU</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QM">
+				<xs:annotation>
+					<xs:documentation>quality measures - Description: Represents the HL7 content "domain" that supports Quality Measures - and "is a standard for representing a health quality measure as an electronic document." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RG">
+				<xs:annotation>
+					<xs:documentation>registries - Description: Represents the HL7 content "domain" that supports Registries - and "collects HL7 artifacts for administrative registries." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RI">
+				<xs:annotation>
+					<xs:documentation>informative public health - Description: Represents the HL7 content "domain" that supports Informative Public Health. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RP">
+				<xs:annotation>
+					<xs:documentation>regulated products - Description: Represents the HL7 content "domain" that supports Regulated Products - and "includes standards developed as part of the family of messages targeted for the exchange of information about regulated products and the exchange of the data needed to provide approval for such products." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RR">
+				<xs:annotation>
+					<xs:documentation>public health reporting - Description: Represents the HL7 content "domain" that supports Public Health Reporting - and "includes messages and documents that are specifically designed to support managment, reporting and investigation in the public health context." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RT">
+				<xs:annotation>
+					<xs:documentation>regulated studies - Description: Represents the HL7 content "domain" that supports Regulated Studies - and is "includes standards developed as part of the family of messages targeted for the exchange of information about the conduct of regulated studies, and the exchange of the data collected during those studies." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RX">
+				<xs:annotation>
+					<xs:documentation>pharmacy - Description: Represents the HL7 content "domain" that supports pharmacy - and is a "model used to derive message patterns to describe and communicate processes related to medication." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SC">
+				<xs:annotation>
+					<xs:documentation>scheduling - Description: Represents the HL7 content "domain" that supports Scheduling - and "offers a generic set of messages and behavior to implement any number of Scheduling scenarios." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PR</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SP">
+				<xs:annotation>
+					<xs:documentation>specimen - Description: Represents the HL7 content "domain" that supports Specimen - and "comprises the models and artifacts that are needed to support the creation of messaging related to specimen." UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TD">
+				<xs:annotation>
+					<xs:documentation>therapeutic devices - Description: Represents the HL7 content "domain" that supports Therapeutic Devices - and is "comprises the models, messages, and other artifacts that are needed to support messaging related to therapy delivery and observations made by a medical device. " UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications.</xs:documentation>
+					<xs:documentation>Part of sub-section PO</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PublishingSectionKind">
+		<xs:annotation>
+			<xs:documentation>Description: Codes for HL7 publishing sections (major business categories)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="AM">
+				<xs:annotation>
+					<xs:documentation>administrative management - Description: Represents the HL7 V3 publishing section that deals with the administration and management of health care activities and organizations. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HM">
+				<xs:annotation>
+					<xs:documentation>health and clinical management - Description: Represents the HL7 V3 publishing section that deals with the health care provision and clinical management. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IM">
+				<xs:annotation>
+					<xs:documentation>infrastructure management - Description: Represents the HL7 V3 publishing section that deals with the definition and management of the computing and communication infrastructure necessary to support health care. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UU">
+				<xs:annotation>
+					<xs:documentation>unknown - Description: Represents the HL7 V3 publishing section that holds specifications that are unassigned - that have not yet been assigned to one of the formal publishing sections. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PublishingSubSectionKind">
+		<xs:annotation>
+			<xs:documentation>Description: Codes for HL7 publishing sub-sections (business sub-categories)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="CO">
+				<xs:annotation>
+					<xs:documentation>common - Description: Represents the HL7 V3 publishing sub-section that holds common or shared specifications within the Infrastructure Management (IM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section IM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FI">
+				<xs:annotation>
+					<xs:documentation>financial information - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to the management of financial information within the Administrative Management (AM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section AM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MC">
+				<xs:annotation>
+					<xs:documentation>message control - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to the definition and control of interoperability messages within the Infrastructure Management (IM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section IM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MF">
+				<xs:annotation>
+					<xs:documentation>master file - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to master file and registry management activities within the Infrastructure Management (IM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section IM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PO">
+				<xs:annotation>
+					<xs:documentation>operations - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to managing clinical operations within the Health and Clinical Management (HM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section HM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PR">
+				<xs:annotation>
+					<xs:documentation>practice - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to the management of practice settings within the Administrative Management (AM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section AM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QU">
+				<xs:annotation>
+					<xs:documentation>query - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to query/response activities within the Infrastructure Management (IM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section IM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RC">
+				<xs:annotation>
+					<xs:documentation>records - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to the definition and communication of records of clinical care within the Health and Clinical Management (HM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section HM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RE">
+				<xs:annotation>
+					<xs:documentation>reasoning - Description: Represents the HL7 V3 publishing sub-section that holds specifications related to the definition and communication of reasoning (knowledge) within the Health and Clinical Management (HM) section. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section HM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UU">
+				<xs:annotation>
+					<xs:documentation>unknown - Description: Represents the HL7 V3 publishing sub-section that holds specifications that are unassigned - that have not yet been assigned to one of the formal publishing sections. UsageNote: V3 Specifications are published in a set of "domains", which contain interactions and related specifications for a single area of health care within which can be supported by a single, coherent set of interoperability specifications. For publishing purposes, these domains are aggregated into sub-sections of related health care areas and these sub-sections are further aggregated into three major sets.</xs:documentation>
+					<xs:documentation>Part of section UU</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RealmKind">
+		<xs:annotation>
+			<xs:documentation>Description: Coded concepts representing Binding Realms (used for Context Binding of terminology in HL7 models) and/or Namespace Realms (used to help ensure unique identification of HL7 artifacts). This code system is partitioned into three sections: Affiliate realms, Binding realms and Namespace realms. All affiliate realm codes may automatically be used as both binding realms and namespace realms. Furthermore, affiliate realms are the only realms that have authority over the creation of binding realms. (Note that 'affiliate' includes the idea of both international affiliates and the HL7 International organization.) All other codes must be associated with an owning affiliate realm and must appear as a specialization of _BindingRealm or _NamespaceRealm. For affiliates whose concepts align with nations, the country codes from ISO 3166-1 2-character alpha are used for the code when possible so these codes should not be used for other realm types. It is recommended that binding realm and namespace codes submitted by affiliates use the realm code as a prefix to avoid possible collisions with ISO codes. However, tooling does not currently support namepace realm codes greater than 2 characters. Open Issue: The name of the concept property "owningAffiliate" should be changed to better reflect that the property value is the human readable name of the organizational entity that manages the Realm identified by the Realm Code. Open Issue: In spite of the inability of tooling to process codes longer than 2 characters, there is at least one realm codes ('SOA') that was added that is 3 characters in length.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="AR">
+				<xs:annotation>
+					<xs:documentation>Argentina - Description: Realm code for use of Argentina</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AT">
+				<xs:annotation>
+					<xs:documentation>Austria - Description: Realm code for use of Austria</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AU">
+				<xs:annotation>
+					<xs:documentation>Australia - Description: Realm code for use of Australia</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BR">
+				<xs:annotation>
+					<xs:documentation>Brazil - Description: Realm code for use of Brazil</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CA">
+				<xs:annotation>
+					<xs:documentation>Canada - Description: Realm code for use of Canada</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CH">
+				<xs:annotation>
+					<xs:documentation>Switzerland - Description: Realm code for use of Switzerland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CL">
+				<xs:annotation>
+					<xs:documentation>Chile - Description: Realm code for use of Chile</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CN">
+				<xs:annotation>
+					<xs:documentation>China - Description: Realm code for use of China</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CO">
+				<xs:annotation>
+					<xs:documentation>Columbia - Description: Realm code for use of Localized Version</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CZ">
+				<xs:annotation>
+					<xs:documentation>Czech Republic - Description: Realm code for use of Czech Republic</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DE">
+				<xs:annotation>
+					<xs:documentation>Germany - Description: Realm code for use of Germany</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DK">
+				<xs:annotation>
+					<xs:documentation>Denmark - Description: Realm code for use of Denmark</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ES">
+				<xs:annotation>
+					<xs:documentation>Spain - Description: Realm code for use of Spain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FI">
+				<xs:annotation>
+					<xs:documentation>Finland - Description: Realm code for use of Finland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FR">
+				<xs:annotation>
+					<xs:documentation>France - Description: Realm code for use of France</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GR">
+				<xs:annotation>
+					<xs:documentation>Greece - Description: Realm code for use of Greece</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HR">
+				<xs:annotation>
+					<xs:documentation>Croatia - Description: Realm code for use of Croatia</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IE">
+				<xs:annotation>
+					<xs:documentation>Ireland - Description: Realm code for use of Ireland</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IN">
+				<xs:annotation>
+					<xs:documentation>India - Description: Realm code for use of India</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IT">
+				<xs:annotation>
+					<xs:documentation>Italy - Description: Realm code for use of Italy</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="JP">
+				<xs:annotation>
+					<xs:documentation>Japan - Description: Realm code for use of Japan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KR">
+				<xs:annotation>
+					<xs:documentation>Korea - Description: Realm code for use of Korea</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LT">
+				<xs:annotation>
+					<xs:documentation>Lithuania - Description: Realm code for use of Lithuania</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MX">
+				<xs:annotation>
+					<xs:documentation>Mexico - Description: Realm code for use of Mexico</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NL">
+				<xs:annotation>
+					<xs:documentation>The Netherlands - Description: Realm code for use of The Netherlands</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NZ">
+				<xs:annotation>
+					<xs:documentation>New Zealand - Description: Realm code for use of New Zealand</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RO">
+				<xs:annotation>
+					<xs:documentation>Romania - Description: Realm code for use of Romania</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RU">
+				<xs:annotation>
+					<xs:documentation>Russian Federation - Description: Realm code for use of Russian Federation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SE">
+				<xs:annotation>
+					<xs:documentation>Sweden - Description: Realm code for use of Sweden</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SG">
+				<xs:annotation>
+					<xs:documentation>Singapore - Description: Realm code for use of Localized Version</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SOA">
+				<xs:annotation>
+					<xs:documentation>Southern Africa - Description: Realm code for use of Southern Africa</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TR">
+				<xs:annotation>
+					<xs:documentation>Turkey - Description: Realm code for use of Turkey</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TW">
+				<xs:annotation>
+					<xs:documentation>Taiwan - Description: Realm code for use of Taiwan</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UK">
+				<xs:annotation>
+					<xs:documentation>United Kingdom - Description: Realm code for use of United Kingdom</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="US">
+				<xs:annotation>
+					<xs:documentation>United States of America - Description: Realm code for use of United States of America</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UV">
+				<xs:annotation>
+					<xs:documentation>Universal - Description: Realm code for use of Universal realm or context, used in every instance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UY">
+				<xs:annotation>
+					<xs:documentation>Uruguay - Description: Realm code for use of Uruguay</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="C1">
+				<xs:annotation>
+					<xs:documentation>Unclassified Realm - Description: Realm code for use of Unclassified Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GB">
+				<xs:annotation>
+					<xs:documentation>Great Britain - Description: Realm code for use of Great Britain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R1">
+				<xs:annotation>
+					<xs:documentation>Representative Realm - Description: Realm code for use of Representative Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="X1">
+				<xs:annotation>
+					<xs:documentation>Example Realm - Description: Realm code for use of Example Realm</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ZZ">
+				<xs:annotation>
+					<xs:documentation>Localized Version - Description: An artifact created for local use only. This realm namespace has no owning affiliate. Its use is uncontrolled, i.e. anyone can create artifacts using this realm namespace. Because of this, there is a significant likelihood of artifact identifier collisions. Implementers are encouraged to register their artifacts under an affiliate owned and controlled namespace to avoid such collision problems where possible.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="V3ConformanceKind">
+		<xs:annotation>
+			<xs:documentation>Description: Identifies allowed codes for HL7aTMs v3 conformance property.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>ignored - Description: Implementers receiving this property must not raise an error if the data is received, but will not perform any useful function with the data. This conformance level is not used in profiles or other artifacts that are specific to the "sender" or "initiator" of a communication.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NP">
+				<xs:annotation>
+					<xs:documentation>not permitted - Description: All implementers are prohibited from transmitting this content, and may raise an error if they receive it.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R">
+				<xs:annotation>
+					<xs:documentation>required - Description: All implementers must support this property. I.e. they must be able to transmit, or to receive and usefully handle the concept.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RC">
+				<xs:annotation>
+					<xs:documentation>required for consumer - Description: The element is considered "required" (i.e. must be supported) from the perspective of systems that consume instances, but is "undetermined" for systems that generate instances. Used only as part of specifications that define both initiator and consumer expectations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RI">
+				<xs:annotation>
+					<xs:documentation>required for initiator - Description: The element is considered "required" (i.e. must be supported) from the perspective of systems that generate instances, but is "undetermined" for systems that consume instances. Used only as part of specifications that define both initiator and consumer expectations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:documentation>undetermined - Description: The conformance expectations for this element have not yet been determined.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoteResolutionKind">
+		<xs:annotation>
+			<xs:documentation>Description: Based on concepts for resolutions from HL7 ballot spreadsheet according to HL7's Governance &amp; Operations Manual (GOM).</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="affdef">
+				<xs:annotation>
+					<xs:documentation>affirmative-deferred - Description: The recommended change has been deferred to consideration for a future release.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="affi">
+				<xs:annotation>
+					<xs:documentation>affirmative-incorporated - Description: The recommended change has been incorporated or identified issue has been answered.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="affr">
+				<xs:annotation>
+					<xs:documentation>affirmative-rejected - Description: The recommended change has been refused and is not expected to be incorporated.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="nonsubp">
+				<xs:annotation>
+					<xs:documentation>non-substantive proposed - Description: Responsible group has recommended that the negative vote be considered non-substantive. (Issue raised does not provide sufficiently convincing reason to make changes to the item under ballot, or otherwise impede its adoption.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="nonsubv">
+				<xs:annotation>
+					<xs:documentation>non-substantive voted - Description: Ballot group has voted and declared the negative vote non-substantive.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="notrelp">
+				<xs:annotation>
+					<xs:documentation>not related proposed - Description: Responsible group has recommended that the negative vote be considered not-related. (Issue raised is not related to the current scope of the item under ballot, or does not prevent the item under ballot for being used for its defined intent. Recommended changes may be considered as part of future versions.) (Perhaps after further reading or explanation).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="notrelv">
+				<xs:annotation>
+					<xs:documentation>not related voted - Description: Ballot group has voted and declared the negative vote non-related.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="prevcons">
+				<xs:annotation>
+					<xs:documentation>previously considered - Description: Committee identifies that the same issue has been raised as part of a previous ballot on the same element version and was found by the ballot group to be non-substantive or not related.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="retract">
+				<xs:annotation>
+					<xs:documentation>retracted - Description: Voter has formally withdrawn their vote or comment as having been in error. (Perhaps after further reading or explanation).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="unresolved">
+				<xs:annotation>
+					<xs:documentation>unresolved - Description: Vote has not yet gone through resolution.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="withdraw">
+				<xs:annotation>
+					<xs:documentation>withdrawn - Description: Voter has formally withdrawn their vote or comment on the basis of agreed changes or proposed future changes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

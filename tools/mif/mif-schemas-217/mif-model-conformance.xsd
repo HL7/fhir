@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Nov. 2005
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema allows representation of various types of conformance profiles,
+	identifying what aspects of a standard an application claims support for or
+	is desired to support.
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-dynamic.xsd"/>
+  <xs:include schemaLocation="mif-model-requirements.xsd"/>
+  <xs:include schemaLocation="mif-model-staticSerialized.xsd"/>
+  <xs:element name="conformanceProfile" type="GlobalConformanceProfile">
+    <xs:annotation>
+      <xs:documentation>A definition of the set of behaviors a particular system or type of system has or is expected to have.</xs:documentation>
+      <xs:documentation>UML: A stereotype of Package.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="interactionProfile" type="GlobalInteractionProfile">
+    <xs:annotation>
+      <xs:documentation>A definition of how a particular system or type of system supports a specific interaction including both static and dynamic behavior.</xs:documentation>
+      <xs:documentation>UML: A stereotype of Package.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalConformanceProfile">
+    <xs:annotation>
+      <xs:documentation>Extends conformance profile for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ConformanceProfile">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalInteractionProfile">
+    <xs:annotation>
+      <xs:documentation>Extends interaction profile for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="InteractionProfile">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConformanceProfile">
+    <xs:annotation>
+      <xs:documentation>Describes the artifacts supported by a system, as well as any constraints on that support</xs:documentation>
+      <xs:documentation>UML: A stereotype on package</xs:documentation>
+      <!-- Todo: Add constraint that at least one applicationRole or 'extra' interaction or document must be included -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="annotations" type="ConformanceProfileAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the conformanceProfile.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a static model package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="storyboards" type="Storyboard" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Storyboards which are specifically supported by (or which help describe the capabilities supported by) the profile</xs:documentation>
+              <xs:documentation>UML: A stereotype on UseCase</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="implementationConstraints" type="ImplementationMessageConstraints" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifies general restrictions on the ability to support HL7 elements including realms, datatypes, vocabulary, ITSs, etc.  These restrictions apply to all interactions unless specifically overridden in a particular interaction profile.</xs:documentation>
+              <xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="supportedApplicationRoles" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates the application roles supported or which should be supported by a system.  Note: If not all component application roles are supported, support for the overall application role cannot be declared.</xs:documentation>
+              <xs:documentation>UML: Interfaces supported by this interface</xs:documentation>
+              <!-- Todo: Verify that the package type is correct -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="supportedTriggerEvents" type="ConformanceTriggerEvents" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates the trigger events implemented as well as any constraints on them</xs:documentation>
+              <xs:documentation>UML: A stereotype on Event</xs:documentation>
+              <!-- Todo: Constrain that no trigger exists that doesn't correspond to an identified interaction -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="supportedAppRoleInteractions" type="InteractionProfile" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Defines static and dynamic behavior for an interaction that is referenced by one or more of the application roles included in the profile and is supported by the system.</xs:documentation>
+              <xs:documentation>UML: Operations supported by this Interface inherited from other interfaces</xs:documentation>
+              <!-- Todo: Ensure that all interactions listed in any supported application roles are listed as either supported or unsupported, and that there are no interactions in either that aren't part of application roles -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="unsupportedAppRoleInteractions" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Defines a static and dynamic behavior for an interaction that is referenced by one or more of the application roles included in the profile and is not supported by the system.  Note: If there are any interactions listed here, the profile is non-conformant.</xs:documentation>
+              <xs:documentation>UML: Operations supported by this Interface inherited from other interfaces that are not supported</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="extraInteractions" type="InteractionProfile" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Defines a static and dynamic behavior for an interaction that is NOT referenced by any of the application roles included in the profile</xs:documentation>
+              <xs:documentation>UML: A stereotype on Operation</xs:documentation>
+              <!-- Todo: Ensure that interactions are marked as extra if not part of listed application roles and vice versa -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="supportedAppRoleDocuments" type="DocumentProfile" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Defines constraints on ability to read and/or create a document that is referenced by one or more of the application roles included in the profile and is supported by the system.</xs:documentation>
+              <xs:documentation>UML: Operations supported by this Interface inherited from other interfaces</xs:documentation>
+              <!-- Todo: Ensure that all interactions listed in any supported application roles are listed as either supported or unsupported, and that there are no interactions in either that aren't part of application roles -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="unsupportedAppRoleDocuments" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies documents which are claimed to be supported by listed application roles, but which are not in fact supported by this application.</xs:documentation>
+              <xs:documentation>UML: Operations supported by this Interface inherited from other interfaces that are not supported</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="extraDocuments" type="DocumentProfile" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Defines constraints on ability to read and/or create a document that is NOT referenced by any of the application roles included in the profile</xs:documentation>
+              <xs:documentation>UML: A stereotype on Operation</xs:documentation>
+              <!-- Todo: Ensure that interactions are marked as extra if not part of listed application roles and vice versa -->
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ImplementationConstraints">
+    <xs:sequence>
+      <xs:element name="supportedReleases" type="ReleaseList" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Identifies a set of supported releases for this element.  Influences what datatypes, vocabulary and RIM version is supported</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="supportedITS" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates one of the implementation technology specifications supported by the system.  If version is not specified, the assumption is that all versions present in the supported releases are supported</xs:documentation>
+          <xs:documentation>UML: Tag on InteractionProfile</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="additionalDatatypeModel" type="DatatypeModelLibrary" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Identifies any additional datatype flavors required to express limitations in ability to express datatypes</xs:documentation>
+          <xs:documentation>UML: Datatypes used by Classes within the models used by this artifact</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="datatypeLimitation" type="DatatypeLimitation" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates datatypes not fully supported and what the limitations on those datatypes are.  Cascades through all static models supported by this element.</xs:documentation>
+          <xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
+        </xs:annotation>
+        <!-- Todo: Translation of datatype to actually interpretted flavor -->
+      </xs:element>
+      <xs:element name="additionalVocabularyModel" type="VocabularyModel" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Identifies any additional tables, domains, valuesets or bindings required to express limitations in ability to express datatypes</xs:documentation>
+          <xs:documentation>UML: VocabularyDependencies of attributes and datatype properties within the models used by this artifact</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vocabularyLimitation" type="VocabularyLimitation" minOccurs="0" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Indicates domains, valuesets and code systems not fully supported and what the limitations on those vocabulary elements are.  Cascades through all static models supported by this element.</xs:documentation>
+          <xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
+        </xs:annotation>
+        <!-- Todo: Translation of datatype to actually interpretted flavor -->
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReleaseList">
+    <xs:annotation>
+      <xs:documentation>Identifies a set of supported releases</xs:documentation>
+      <xs:documentation>UML: Part of a complex tag</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="release" type="Release">
+        <xs:annotation>
+          <xs:documentation>Identifies a single supported release</xs:documentation>
+          <xs:documentation>UML: Part of a complex tag</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Release">
+    <xs:annotation>
+      <xs:documentation>Defines how to communicate a release</xs:documentation>
+      <xs:documentation>UML: Part of a complex tag</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="EnumerationToken" use="required">
+      <xs:annotation>
+        <xs:documentation>The actual name of the supported release</xs:documentation>
+        <xs:documentation>UML: Part of a complex tag</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+  <xs:complexType name="ImplementationMessageConstraints">
+    <xs:complexContent>
+      <xs:extension base="ImplementationConstraints">
+        <xs:sequence>
+          <xs:element name="supportedTransport" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates one of the transport specifications supported by the system.  If version is not specified, the assumption is that all versions present in the supported releases are supported</xs:documentation>
+              <xs:documentation>UML: Tag on ImplementationMessageConstraints</xs:documentation>
+            </xs:annotation>
+            <!-- Todo: check that package type is correct -->
+          </xs:element>
+          <xs:element name="timingBackground" type="ComplexMarkupWithLanguage" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Defines the criteria and assumptions used when defining the timing specifications for interactions.  (e.g. average load, processor size, inclusion or exclusion of tranmission time, etc.).  NOTE: Because the criteria and assumptions may vary from profile to profile, automated comparison of timing data is not recommended.</xs:documentation>
+              <xs:documentation>UML: Tag on ImplementationMessageConstraints</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="expectedResponseTime" type="DurationUnitsKind" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates the duration between the receipt of a message and the transmission of the associated response message.  Approximately 80% of the messages processed by the system should meet this response time (under the conditions documented in 'timingBackground')</xs:documentation>
+              <xs:documentation>UML: Tag on ImplementationMessageConstraints</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="retryTime" type="DurationUnitsKind" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates the recommended duration between the transmission of a message and the time when the sender should re-transmit if they have not yet had a response</xs:documentation>
+              <xs:documentation>UML: Tag on ImplementationMessageConstraints</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="maximumRetryCount" type="SmallNonNegativeInteger" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Indicates the recommended maximum number of retries an application should perform before reporting a failure to the calling service.</xs:documentation>
+              <xs:documentation>UML: Tag on ImplementationMessageConstraints</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConformanceTriggerEvents">
+    <xs:annotation>
+      <xs:documentation>Expresses how trigger events are or should be implemented in applications claiming compliance to the conformance profile</xs:documentation>
+      <xs:documentation>UML: Constraints on the Event representing the trigger.</xs:documentation>
+      <!-- Todo: Ensure that package ref is correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageRef">
+        <xs:sequence>
+          <xs:element name="internalMapping" type="ComplexMarkupWithLanguage">
+            <xs:annotation>
+              <xs:documentation>Provides a detailed indication of the circumstances in which the trigger event fires (e.g. What screen is the button on for a user-invoked environmental trigger), as well as any information on ability to configure or otherwise control the trigger event.  May also give an idea of how 'real-time' the firing is.</xs:documentation>
+              <xs:documentation>UML: Part of complex tag</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:group ref="TriggeringEvent" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Defines differences in the the underlying system action which causes the trigger event.  If not present, the standard definition for the referenced trigger applies.</xs:documentation>
+              <xs:documentation>UML: Identifies which specialization of Event the trigger represents</xs:documentation>
+            </xs:annotation>
+          </xs:group>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InteractionProfile">
+    <xs:annotation>
+      <xs:documentation>Describes how a system supports or should support a particular interaction</xs:documentation>
+      <xs:documentation>UML: A stereotype on package</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="annotations" type="InteractionProfileAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the interaction profile.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a static model package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+<!--          <xs:element name="interaction" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>Identifies the interaction being profiled</xs:documentation>
+              <xs:documentation>UML: The operation the profile is constraining</xs:documentation>-->
+              <!-- Todo: Check that reference type is correct -->
+<!--            </xs:annotation>
+          </xs:element>-->
+          <xs:element name="implementationConstraints" type="ImplementationMessageConstraints" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifies general restrictions on the ability to support HL7 elements including realms, datatypes, vocabulary, ITSs, etc.  Any specified here override those specified at the conformance profile level.</xs:documentation>
+              <xs:documentation>UML: Tag on DocumentProfile</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="argumentMessage" type="BoundStaticModel">
+            <xs:annotation>
+              <xs:documentation>Indicates the fully-bound static model which defines the type for the content transmitted by the interaction.</xs:documentation>
+              <xs:documentation>UML: The Classifier bound as a Parameter to the Operation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="effectiveStaticModel" type="SerializedStaticModel">
+            <xs:annotation>
+              <xs:documentation>Shows the static model fully expanded including the contents of all models bound to stubs, expanding CMETs, etc.</xs:documentation>
+              <xs:documentation>UML: The type for the parameter</xs:documentation>
+              <xs:documentation>Derive: Fully unroll the static model, substituting all datatype and vocabulary substitutions</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="receiverResponsibilities" type="ReceiverResponsibility" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies one of the responsibilities the receiver actually supports and provides details about how the responsibility is actually chosen, including any ability to configure system behavior relating to the receiver responsibility.</xs:documentation>
+              <xs:documentation>UML: Describes the internal state machine associated with the CallEvent triggered by invoking this operation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="internalMapping" type="ComplexMarkupWithLanguage">
+            <xs:annotation>
+              <xs:documentation>Provides a detailed indication of the circumstances in which the interaction is sent, and particularly the determination process for which system(s) the interaction is sent to, including an ability to configure or provide real-time control over recipients.</xs:documentation>
+              <xs:documentation>UML: Part of complex tag</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="profileType" type="InteractionProfileKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Indicates whether the profile relates to sent interactions, received interactions or both</xs:documentation>
+            <xs:documentation>UML Tag on DocumentProfile</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DocumentProfile">
+    <xs:annotation>
+      <xs:documentation>Describes how a particular document is used or should be used by a system.</xs:documentation>
+      <xs:documentation>UML: A stereotype on package</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Package">
+        <xs:sequence>
+          <xs:element name="annotations" type="DocumentProfileAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Descriptive information about the document profile.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a static model package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="document" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>Identifies the interaction being profiled</xs:documentation>
+              <xs:documentation>UML: The operation the profile is constraining</xs:documentation>
+              <!-- Todo: Check that reference type is correct -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="implementationConstraints" type="ImplementationConstraints" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Identifies general restrictions on the ability to support HL7 elements including realms, datatypes, vocabulary, ITSs, etc.  Any specified here override those specified at the conformance profile level.</xs:documentation>
+              <xs:documentation>UML: Tag on DocumentProfile</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="effectiveStaticModel" type="SerializedStaticModel">
+            <xs:annotation>
+              <xs:documentation>Shows the static model fully expanded including the contents of all models bound to stubs, expanding CMETs, etc.</xs:documentation>
+              <xs:documentation>UML: The type for the parameter</xs:documentation>
+              <xs:documentation>Derive: Fully unroll the static model, substituting all datatype and vocabulary substitutions</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="profileType" type="DocumentProfileKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Indicates whether the profile relates to received documents, created documents or both</xs:documentation>
+            <xs:documentation>UML Tag on DocumentProfile</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ConformanceProfileAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentation" type="ConformanceProfileDocumentation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Documentation related to the conformance profile</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appInfo" type="ConformanceProfileAppInfo" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Supporting programmatic information related to the conformance profile which has descriptive componenents</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConformanceProfileDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to a conformance profile.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="Description"/>
+      <xs:group ref="UsageConstraint" minOccurs="0"/>
+      <xs:group ref="UsageNotes" minOccurs="0"/>
+      <xs:group ref="Rationale" minOccurs="0"/>
+      <xs:group ref="Requirements" minOccurs="0"/>
+      <xs:group ref="DesignComment" minOccurs="0"/>
+      <xs:group ref="StabilityRemarks" minOccurs="0"/>
+      <xs:group ref="Walkthrough" minOccurs="0"/>
+      <xs:group ref="OpenIssue" minOccurs="0"/>
+      <xs:group ref="OtherAnnotation" minOccurs="0"/>
+      <xs:group ref="Appendix" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConformanceProfileAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to a conformance profile.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ChangeRequest" minOccurs="0"/>
+      <xs:group ref="DeprecationInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InteractionProfileAnnotations" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing interaction profile.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentation" type="InteractionProfileDocumentation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Documentation related to the interaction profile</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appInfo" type="InteractionProfileAppInfo" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Supporting programmatic information related to the interaction profile which has descriptive componenents</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InteractionProfileDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to an interaction profile.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="Description"/>
+      <xs:group ref="UsageConstraint" minOccurs="0"/>
+      <xs:group ref="UsageNotes" minOccurs="0"/>
+      <xs:group ref="Rationale" minOccurs="0"/>
+      <xs:group ref="Requirements" minOccurs="0"/>
+      <xs:group ref="DesignComment" minOccurs="0"/>
+      <xs:group ref="StabilityRemarks" minOccurs="0"/>
+      <xs:group ref="Walkthrough" minOccurs="0"/>
+      <xs:group ref="OpenIssue" minOccurs="0"/>
+      <xs:group ref="OtherAnnotation" minOccurs="0"/>
+      <xs:group ref="Appendix" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InteractionProfileAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to an interaction profile.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ChangeRequest" minOccurs="0"/>
+      <xs:group ref="DeprecationInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentProfileAnnotations" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing document profile.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="documentation" type="DocumentProfileDocumentation" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Documentation related to the document profile</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appInfo" type="DocumentProfileAppInfo" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Supporting programmatic information related to the document profile which has descriptive componenents</xs:documentation>
+          <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentProfileDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to an document profile.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="Description"/>
+      <xs:group ref="UsageConstraint" minOccurs="0"/>
+      <xs:group ref="UsageNotes" minOccurs="0"/>
+      <xs:group ref="Rationale" minOccurs="0"/>
+      <xs:group ref="Requirements" minOccurs="0"/>
+      <xs:group ref="DesignComment" minOccurs="0"/>
+      <xs:group ref="StabilityRemarks" minOccurs="0"/>
+      <xs:group ref="Walkthrough" minOccurs="0"/>
+      <xs:group ref="OpenIssue" minOccurs="0"/>
+      <xs:group ref="OtherAnnotation" minOccurs="0"/>
+      <xs:group ref="Appendix" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DocumentProfileAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to an document profile.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="ChangeRequest" minOccurs="0"/>
+      <xs:group ref="DeprecationInfo" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema provides a flat (non-serialized) view of a static data model
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-staticBase.xsd"/>
+  <!-- Todo: strip this
+		<xs:simpleType name="StaticModelRepresentationKind">
+			<xs:restriction base="StaticModelRepresentationKind">
+				<xs:enumeration value="flat">
+					<xs:annotation>
+						<xs:documentation>The model is represented as a list of class definitions, not necessarily in the order they will appear when communicated, and not organized in a hierarchy for exchange.</xs:documentation>
+					</xs:annotation>
+				</xs:enumeration>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:complexType name="StaticModel">
+			<xs:annotation>
+				<xs:appinfo>
+					<sch:pattern name="Check for duplicate attributes or associations in parent or child classes">
+						<p>This check only works with the Saxon (6.5.2) or Xalan (2.4.1 or newer) because it makes use of the 'closure' functions</p>
+						<sch:rule context="attribute|association">
+							<sch:report test="(function-available('saxon:closure') and count(saxon:closure(parent::class, saxon:expression('
+											ancestor::staticModel//*[self::class or self::classTypeRef or self::classStub or self::localClassReference]
+											[@name=current()/descendant/@className]'))/*[self::attribute or self::association][@name=current()/@name])!=1) or
+											(function-available('dyn:closure') and count((parent::class|dyn:closure(parent::class, 
+											'ancestor::staticModel//*[self::class or self::classTypeRef or self::classStub or self::localClassReference]
+											[@name=current()/descendant/@className]'))/*[self::attribute or self::association][@name=current()/@name])!=1)">
+								ERROR: Class descendant (or descendant thereof) has an attribute or association with the same name.</sch:report>
+						</sch:rule>
+					</sch:pattern>
+				</xs:appinfo>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="StaticModel">
+					<xs:group ref="ClassGroup" maxOccurs="unbounded"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="EntryPoint">
+			<xs:annotation>
+				<xs:appinfo>
+					<sch:pattern name="Check entry point">
+						<sch:rule context="entryPoint">
+							<sch:report test="count(ancestor::staticModel/descendant::class[@name=current()/@className])=0">
+								ERROR: Entry-point className must match the name of an existing 'class' element.</sch:report>
+							<sch:report test="count(displayInfo)!=0 and count(ancestor::staticModel/*[self::class or self::classRefType or self::classStub]
+											[displayInfo[@shapeId=current()/displayInfo/@connectionShapeId]][@name=current()/@className])=0">
+								ERROR: Class associated with specified shapeId does not match the specified className.</sch:report>
+						</sch:rule>
+					</sch:pattern>
+				</xs:appinfo>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="EntryPoint">
+					<xs:attribute name="specializationChildClassName" type="FormalProperName" use="required">
+						<xs:annotation>
+							<xs:documentation>The name of the class that is the model entry point.</xs:documentation>
+							<xs:documentation>UML: The name of the specialization class that 'implements' the EntryPoint interface.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="ClassBindingArgument">
+			<xs:complexContent>
+				<xs:extension base="ClassBindingArgument">
+					<xs:attribute name="argumentClassName" type="AllClassName" use="required">
+						<xs:annotation>
+							<xs:documentation>The name of the Class, Common Model Element or Template Parameter being bound</xs:documentation>
+							<xs:documentation>UML: The argument modelElement (Class, Common Model Element or Template Parameter) being bound to</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="AssociationEndBase">
+			<xs:annotation>
+				<xs:appinfo>
+					<sch:pattern name="Check staticModel associations">
+						<sch:rule context="association">
+							<sch:report test="@linkClassName and count(ancestor::staticModel/*[@name=current()/@linkClassName and (self::class or self::classTypeRef or self::classStub)])=0">
+								ERROR: Linked class does not exist.</sch:report>
+							<sch:report test="count(preceding-sibling::association[@linkClassName=current()/@linkClassName and @linkAssociationName=current()/@linkAssociationName])!=0">
+								ERROR: A class may only be referenced by another class once with the same association name.</sch:report>
+							<sch:report test="@linkAssociationName and count(ancestor::staticModel/descendant::association[@linkClassName=current()/@linkClassName and 
+											@linkAssociationName=current()/@linkAssociationName])!=1">
+								ERROR: A specific association may only be linked to once within a model.</sch:report>
+							<sch:report test="@linkAssociationName and count(ancestor::staticModel//*[@name=current()/@linkClassName and (self::class or self::classTypeRef or self::classStub)
+											 and count(association[@name=current()/@linkAssociationName])!=0])=0">
+								ERROR: Linked association does not exist in the specified class.</sch:report>
+							<sch:report test="not(@linkAssociationName) and count(ancestor::staticModel//*[@name=current()/@linkClassName and (self::class or self::classTypeRef or self::classStub)
+											 and count(blockedAssociation[@linkAssociationName=current()/@name])!=0])=0">
+								ERROR: No linked association specified and no linked blocked association exists.</sch:report>
+							<sch:report test="@isAggregate='true' and @linkAssociationName and count(ancestor::staticModel//*[@name=current()/@linkClassName and (self::class or self::classTypeRef or self::classStub)
+											 and count(association[@name=current()/@linkAssociationName])!=0 and @isAggregate='true'])!=0">
+								ERROR: The two ends of an association must not both be marked as being an aggregate.</sch:report>
+						</sch:rule>
+					</sch:pattern>
+				</xs:appinfo>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="AssociationEndBase">
+					<xs:attribute name="associationConnectionClassName" type="AllClassName" use="required">
+						<xs:annotation>
+							<xs:documentation>The name of the distal class for the association.</xs:documentation>
+							<xs:documentation>UML: The name of the class attached to the distal AssociationEnd for the Association</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+		<xs:complexType name="ClassGeneralization">
+			<xs:annotation>
+				<xs:appinfo>
+					<sch:pattern name="Check descendant types">
+						<sch:rule context="descendant">
+							<sch:report test="parent::*/@name=current()/@className">
+								ERROR: Classes must not be descended from a class with the same name.</sch:report>
+							<sch:report test="count(ancestor::staticModel//*[@name=current()/@className and (self::class or self::classTypeRef or self::classStub)])=0">
+								ERROR: Descendant name must match the name of an existing class/classTypeRef/classStub element.</sch:report>
+							<sch:report test="count(preceding-sibling::descendant[@className=current()/@className])!=0">
+								ERROR: One class may not have more than one descendant of the same name.</sch:report>
+							<sch:report test="count(parent::class/classCode)!=0 and 
+											count(ancestor::staticModel//class[@name=current()/@className][count(classCode)=0][@abstract!='true'])!=0">
+								ERROR: If current class has a classCode, its descendants must have a class code (unless they are abstract).</sch:report>
+							<sch:report test="count(parent::class/classCode)=0 and @abstract!='true' and 
+											count(ancestor::staticModel//class[@name=current()/@className][count(classCode)!=0])!=0">
+								ERROR: If current class does not have a classCode and is not abstract, its descendants must not have a class code.</sch:report>
+						</sch:rule>
+					</sch:pattern>
+				</xs:appinfo>
+			</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="ClassGeneralization">
+					<xs:attribute name="name" type="AllClassName" use="required">
+						<xs:annotation>
+							<xs:documentation>The name of the class that is descended from the current class.</xs:documentation>
+							<xs:documentation>UML: The name of the class that is specialized from the current class</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>-->
+  <xs:element name="staticModels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="staticModel" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="SchemaVersion"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="staticModel" type="GlobalStaticModel">
+    <xs:annotation>
+      <xs:documentation>A static Model in standard (flat) notation.  Used for RIM, CIM, LIM, etc.</xs:documentation>
+      <xs:documentation>UML: An instance of a StaticModel stereotype</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Check for duplicate attributes or associations in parent or child classes">
+          <p>This check only works with the Saxon (6.5.2) or Xalan (2.4.1 or newer) because it makes use of the 'closure' functions</p>
+          <sch:rule context="mif:attribute|mif:association">
+            <sch:report test="(function-available('saxon:closure') and count(saxon:closure(parent::mif:class, saxon:expression('
+                    ancestor::mif:staticModel//*[self::mif:hl7Class or self::mif:classTypeRef or self::mif:classStub or self::mif:localClassReference]
+                    [@name=current()/mif:descendant/@className]'))/*[self::mif:attribute or self::mif:association][@name=current()/@name])!=1) or
+                    (function-available('dyn:closure') and count((parent::mif:class|dyn:closure(parent::mif:class, 
+                    'ancestor::mif:staticModel//*[self::mif:class or self::mif:classTypeRef or self::mif:classStub or self::mif:localClassReference]
+                    [@name=current()/mif:descendant/@className]'))/*[self::mif:attribute or self::mif:association][@name=current()/@name])!=1)">
+              ERROR: Class descendant (or descendant thereof) has an attribute or association with the same name.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalStaticModel">
+    <xs:annotation>
+      <xs:documentation>Extends static model for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="StaticModel">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StaticModel">
+    <xs:complexContent>
+      <xs:extension base="StaticModelBase">
+        <xs:sequence>
+          <xs:element name="entryPoint" type="EntryPoint" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies a class within the model that may be used as the initial class in a serializable representation of the model.</xs:documentation>
+              <xs:documentation>UML: An interface that is implemented by the SubSystem</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="containedClass" type="ClassElement" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The classes that are part of the model</xs:documentation>
+              <xs:documentation>UML: A class owned by the package</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="association" type="Association" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The associations that are part of the static model</xs:documentation>
+              <xs:documentation>UML: The associations that are part of the static model</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="EntryPoint">
+    <xs:annotation>
+      <xs:documentation>EntryPoint stereotype for a 'flat' model</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="EntryPointBase">
+        <xs:attribute name="className" type="AllClassName" use="required">
+          <xs:annotation>
+            <xs:documentation>The name of the class that is the entry-point</xs:documentation>
+            <xs:documentation>UML: The name of the class that specializes the EntryPoint interface</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ClassElement">
+    <xs:annotation>
+      <xs:appinfo>
+        <sch:ns uri="urn:hl7-org:v3/mif" prefix="mif"/>
+        <sch:pattern name="Validate class constraints">
+          <sch:rule context="mif:class|mif:classTypeRef|mif:classStub">
+            <sch:report test="count(ancestor::mif:staticModel/descendant::mif:*[@name=current()/@name and (self::mif:class or self::mif:classTypeRef or self::mif:classStub)])&gt;1">
+							ERROR: Only one class, classTypeRef or classStub may exist with a given name inside an staticModel.</sch:report>
+            <sch:report test="count(ancestor::mif:staticModel/descendant::mif:*[mif:businessName/@name=current()/mif:businessName/@name and (self::mif:class or self::mif:classTypeRef or self::mif:classStub)])&gt;1">
+							ERROR: Only one class, classTypeRef or classStub may exist with a given business name inside an staticModel.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="class" type="FlatClass">
+        <xs:annotation>
+          <xs:documentation>A set of attributes and associations representing a single instance.</xs:documentation>
+          <xs:documentation>UML: Class</xs:documentation>
+        </xs:annotation>
+        <!-- Todo: Handle this
+				<xs:unique name="subjectAreaUniqueInClass">
+					<xs:selector xpath="primarySubjectArea|additionalSubjectArea"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+				<xs:key name="attributeKey">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="@name"/>
+				</xs:key>
+				<xs:unique name="attributeBusinessNameUniqueInClass">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="businessName/@name"/>
+				</xs:unique>
+				<xs:unique name="associationNameUniqueInClass">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="@name"/>
+				</xs:unique>
+				<xs:unique name="associationBusinessNameUniqueInClass">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="businessName/@name"/>
+				</xs:unique>
+				<xs:unique name="attributeSequenceUnique">
+					<xs:selector xpath="attribute"/>
+					<xs:field xpath="@sortKey"/>
+				</xs:unique>
+				<xs:unique name="associationSequenceUnique">
+					<xs:selector xpath="associations/association"/>
+					<xs:field xpath="@sortKey"/>
+				</xs:unique>-->
+      </xs:element>
+      <xs:element name="commonModelElementRef" type="CommonModelElementRef">
+        <xs:annotation>
+          <xs:documentation>A reference to an external model intended to be imported and re-used at this point.</xs:documentation>
+          <xs:documentation>UML: Another subsystem that is referenced via an interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="templateParameter" type="StaticModelClassTemplateParameter">
+        <xs:annotation>
+          <xs:documentation>A point in the model at which a 'sub-model' may be placed that corresponds to the identified contentType.  The specific model to be included may vary and is determined at runtime.</xs:documentation>
+          <xs:documentation>UML: A Class that represents one of the Template Parameters of a template Static Model</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="FlatClass">
+    <xs:annotation>
+      <xs:documentation>UML: Class within a 'flat' model</xs:documentation>
+      <xs:appinfo>
+        <sch:pattern name="Validate Class type">
+          <sch:rule abstract="true" id="Class">
+            <sch:extends rule="ClassBase"/>
+            <sch:report test="count(mif:specialization)!=0 and count(mif:attribute)!=0">
+							ERROR: Must not have both specializations and attributes for a class.</sch:report>
+          </sch:rule>
+        </sch:pattern>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ClassBase">
+        <xs:sequence>
+          <xs:element name="childClass" type="ClassGeneralization" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies classes that are descended from the current class (as part of a generalization-specialization hierarchy).</xs:documentation>
+              <xs:documentation>UML: The children of the Generalization of this class</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="parentClass" type="ClassGeneralization" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies classes that are parents of the current class (as part of a generalization-specialization hierarchy).</xs:documentation>
+              <xs:documentation>UML: The parents of the Specialization of this class</xs:documentation>
+              <xs:documentation>Derive: todo - all classes which list the current class as a childClass</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ClassGeneralization">
+    <xs:annotation>
+      <xs:documentation>UML: Corresponds to Generalization for a 'flat' model</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ClassGeneralizationBase">
+        <xs:attribute name="name" type="AllClassName" use="required">
+          <xs:annotation>
+            <xs:documentation>UML: Used to reference the Class that is the child of the generalization</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CommonModelElementRef">
+    <xs:annotation>
+      <xs:documentation>UML: SubSystem referencing a particular CommonModelElement Interface in a 'flat' static model</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="CommonModelElementRefBase">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="argument" type="ClassBindingArgument" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies a the classes that are to be 'bound' to a parametericed Common Model Element</xs:documentation>
+              <xs:documentation>UML: Indicates the arguments of the supplier binding dependency for the Common Model Element</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ClassBindingArgument">
+    <xs:annotation>
+      <xs:documentation>UML: A binding to a parameterized flat Static Model</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ClassBindingArgumentBase">
+        <xs:attribute name="className" type="AllClassName" use="required">
+          <xs:annotation>
+            <xs:documentation>UML: A reference to the class being bound</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Association">
+    <xs:annotation>
+      <xs:documentation>A relationship between two classes</xs:documentation>
+      <xs:documentation>UML: Association</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AssociationBase">
+        <xs:choice minOccurs="2" maxOccurs="2">
+          <xs:element name="traversableConnection" type="AssociationEnd">
+            <xs:annotation>
+              <xs:documentation>The ends of the association</xs:documentation>
+              <xs:documentation>UML: The connection association for each association end</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="nonTraversableConnection" type="NonTraversableAssociationEnd">
+            <xs:annotation>
+              <xs:documentation>The ends of the association</xs:documentation>
+              <xs:documentation>UML: The connection association for each association end</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:choice>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AssociationEnd">
+    <xs:annotation>
+      <xs:documentation>UML: Corresponds to AssociationEnd</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AssociationEndBase">
+        <xs:attribute name="participantClassName" type="AllClassName" use="required">
+          <xs:annotation>
+            <xs:documentation>The name of the class to which the association end is attached</xs:documentation>
+            <xs:documentation>UML: The name of the participant class for the association end</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

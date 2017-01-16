@@ -1,0 +1,2345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Lloyd McKenzie (HL7) -->
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xhtml="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	The purpose of this schema is to provide a common XML format for the documentation and exchange of *all* static data models.
+	For MDF based designs, this includes RIMs, D-MIMs, R-MIMs, CMETs, HMDs and Message Types
+	For HDF based designs, it includes RIMs, DIMs, CIMs and LIMs (defined a little later :>)
+
+Programatic rules (rules that apply but are not schema or schematron-enforced):
+  - Validate contents against external file of datatypes, vocabulary and CMET values
+  - Subject Area and class name must not be same as any name in parent hierarchy
+  - For models that are serializable, at least one direction of every relationship should be blocked, unless there is a loop
+  - Ensure that classCode is present for classes that are descended from a vocab-extensible class (ancestor-or-self has an attribute called classCode), and is not present otherwise
+  - Ensure entire model is interconnected (all classes a reachable by a path from all other classes
+  - Ensure there is a traversal path to all classes from at least one entry-point
+  - Classes should not have a subject area that is the ancestor of another subject area they are also a part of.
+  - In it's serialized form, an 'extended' model must not have any extended classes (those with no 'derived-from' for a given modelId) have children which have a derivationSupplier of that modelId
+  - All of the derivation rules should be enforced 'as if' the model were in it's hierarchical form.  (I.e. what derivation types are allowed inside other types)
+  - Can't have a class name that is the same as any datatype name or CMET name in existence in the datatype models and CMET models imported.
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="xhtml1-strict.xsd"/>
+	<xs:include schemaLocation="mif-model-datatype.xsd"/>
+	<xs:include schemaLocation="mif-model-vocabulary.xsd"/>
+	<!-- Todo: Strip these comments
+	<xs:element name="staticModel" type="StaticModel">
+		<xs:annotation>
+			<xs:documentation>This describes a data model intended for the exchange of healthcare information.  It may have one of two representations: Flat or Serializable.</xs:documentation>
+			<xs:documentation>UML: staticModel descended from Package</xs:documentation>
+		</xs:annotation>
+		<xs:key name="restrictionModelKey">
+			<xs:selector xpath="derivationSupplier"/>
+			<xs:field xpath="@modelId"/>
+		</xs:key>
+		<xs:key name="subjectAreaKey">
+			<xs:selector xpath=".//subjectArea"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+		<xs:unique name="historyIdUnique">
+			<xs:selector xpath=".//historyItem"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	-->
+	<xs:complexType name="SubSystem">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to 'SubSystem'.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate SubSystem type">
+					<sch:rule abstract="true" id="SubSystem">
+						<sch:extends rule="Package"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Package"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelBase">
+		<xs:annotation>
+			<xs:documentation>Basic content for defining static models and subject areas</xs:documentation>
+			<xs:documentation>UML: StaticModel stereotype</xs:documentation>
+			<xs:appinfo>
+				<!-- Todo: Enforce that conformance profiles do not contain stubs. -->
+				<sch:pattern name="Validate StaticModelBase type">
+					<sch:rule abstract="true" id="StaticModelBase">
+						<sch:extends rule="SubSystem"/>
+						<sch:report test="@isSerializable='true' and ancestor-or-self::mif:*/mif:packageLocation[contains(';RIM;DIM;DMIM-deprecated;', concat(';', @artifactKind, ';'))]">
+							WARNING: RIM, DMIM and DIM models are not serializable.</sch:report>
+						<sch:report test="@isSerializable='true' and ancestor-or-self::mif:*[contains(';RIM;DIM;DMIM-deprecated;', concat(';', @packageKind, ';'))]">
+							WARNING: RIM, DMIM and DIM models are not serializable.</sch:report>
+						<sch:report test="@isSerializable='false' and ancestor-or-self::mif:*/mif:packageLocation[contains(';RIM;DIM;DMIM-deprecated;', concat(';', @artifactKind, ';'))]">
+							WARNING: All model types except RIM, DMIM and DIM models are serializable.</sch:report>
+						<sch:report test="@isSerializable='false' and ancestor-or-self::mif:*[contains(';RIM;DIM;DMIM-deprecated;', concat(';', @packageKind, ';'))]">
+							WARNING: All model types except RIM, DMIM and DIM models are serializable.</sch:report>
+						<sch:report test="@isSerializable='false' and @representationKind='serialized'">
+							ERROR: Can't have a serialized representation of a non-serializable model.</sch:report>
+						<sch:report test="@isSerializable='true' and @representationKind='flat' and 
+												count(association/connections[count(traversableConnection)!=1])!=0">
+							ERROR: Serializable model associations must be traverable in one and only one direction..</sch:report>
+						<sch:report test="ancestor-or-self::mif:*[mif:packageLocation/@artifactKind='RIM' or @packageKind='RIM'] and count(mif:subjectArea)=0">
+							GUIDELINE: RIM models must have at least one subjectArea.</sch:report>
+						<sch:report test="@isSerializable='true' and count(mif:entryPoint)!=1">
+							ERROR: Serializable models must have exactly one entry point.</sch:report>
+						<sch:report test="ancestor-or-self::mif:*[mif:packageLocation/@artifactKind='RIM' or @packageKind='RIM'] and count(mif:derivationSupplier)!=0">
+							ERROR: A RIM cannot be derived from another model.</sch:report>
+						<sch:report test="not(ancestor-or-self::mif:*[mif:packageLocation/@artifactKind='RIM' or @packageKind='RIM']) and count(mif:derivationSupplier[mif:targetStaticModel/@artifactKind='RIM'])=0">
+							ERROR: Non-RIM models must be derived from at least one other model (one of which must have a type of 'RIM').</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+			<xs:appinfo>
+				<sch:pattern name="Check model annotations">
+					<sch:rule context="mif:annotations/*">
+						<sch:report test="count(mif:presentation)!=0 and not(parent::mif:annotations[parent::mif:class or parent::mif:classTypeRef or parent::mif:classStub or parent::mif:attribute or parent::mif:association])">
+							ERROR: Annotations may only have presentation information when associated with a class, classTypeRef, classStub, attribute or association.</sch:report>
+						<sch:report test="count(mif:presentation)!=0 and 
+										((not(parent::mif:annotations[parent::mif:attribute or parent::mif:association]) and 
+											count(parent::mif:annotations/parent::mif:*/mif:presentation[@shapeId=current()/mif:presentation/@connectionShapeId])=0) or
+										(parent::mif:annotations/parent::mif:attribute and 
+											count(parent::mif:annotations/parent::mif:attribute/parent::mif:*/mif:presentation[@shapeId=current()/mif:presentation/@connectionShapeId])=0) or
+										(parent::mif:annotations/parent::mif:association and 
+											count(parent::mif:annotations/parent::mif:association/parent::mif:*/mif:presentation[@shapeId=current()/mif:presentation/@connectionShapeId])=0))">
+							ERROR: Connection shapeId on annotation does not point to a shape associated with the annotated class.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="Check displayInfo constraints">
+					<sch:rule context="mif:staticModel">
+						<sch:report test="count(.//mif:displayInfo[@representationType='UML'])!=0 and count(.//mif:subjectArea) != count(.//mif:subjectArea[count(mif:displayInfo[@representationType='UML'])!=0])">
+							ERROR: If any elements have UML displayInfo, all subjectAreas must have UML displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='UML'])!=0 and count(.//mif:entryPoint) != count(.//mif:entryPoint[count(mif:displayInfo[@representationType='UML'])!=0])">
+							ERROR: If any elements have UML displayInfo, all entryPoints must have UML displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='UML'])!=0 and count(.//mif:class) != count(.//mif:class[count(mif:displayInfo[@representationType='UML'])!=0])">
+							ERROR: If any elements have UML displayInfo, all classes must have UML displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='UML'])!=0 and count(.//mif:classTypeRef) != count(.//mif:classTypeRef[count(mif:displayInfo[@representationType='UML'])!=0])">
+							ERROR: If any elements have UML displayInfo, all classTypeRefs must have UML displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='UML'])!=0 and count(.//mif:classStub) != count(.//mif:classStub[count(mif:displayInfo[@representationType='UML'])!=0])">
+							ERROR: If any elements have UML displayInfo, all classStubs must have UML displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='HL7Visio'])!=0 and count(.//mif:subjectArea) != count(.//mif:subjectArea[count(mif:displayInfo[@representationType='HL7Visio'])!=0])">
+							ERROR: If any elements have HL7Visio displayInfo, all subjectAreas must have HL7Visio displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='HL7Visio'])!=0 and count(.//mif:entryPoint) != count(.//mif:entryPoint[count(mif:displayInfo[@representationType='HL7Visio'])!=0])">
+							ERROR: If any elements have HL7Visio displayInfo, all entryPoints must have HL7Visio displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='HL7Visio'])!=0 and count(.//mif:class) != count(.//mif:class[count(mif:displayInfo[@representationType='HL7Visio'])!=0])">
+							ERROR: If any elements have HL7Visio displayInfo, all classes must have HL7Visio displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='HL7Visio'])!=0 and count(.//mif:classTypeRef) != count(.//mif:classTypeRef[count(mif:displayInfo[@representationType='HL7Visio'])!=0])">
+							ERROR: If any elements have HL7Visio displayInfo, all classTypeRefs must have HL7Visio displayInfo.</sch:report>
+						<sch:report test="count(.//mif:displayInfo[@representationType='HL7Visio'])!=0 and count(.//mif:classStub) != count(.//mif:classStub[count(mif:displayInfo[@representationType='HL7Visio'])!=0])">
+							ERROR: If any elements have HL7Visio displayInfo, all classStubs must have HL7Visio displayInfo.</sch:report>
+					</sch:rule>
+					<sch:rule context="mif:displayInfo">
+						<sch:report test="preceding-sibling::mif:displayInfo[@representationType=current()/@representationType] and not(parent::mif:class or parent::mif:classTypeRef or parent::mif:classStub)">
+							ERROR: Only classes may have more than one display info for a given representationType.  (Classes may have 'shadow' shapes for hl7 representations).</sch:report>
+						<sch:report test="count(parent::mif:*/mif:displayInfo[@representationType='UML'])&gt;1">
+							ERROR: There may not be more than one set of UML display info for a given element.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="Validate derivationSupplier constraints">
+					<sch:rule context="mif:staticModel/mif:derivationSupplier[@derivationType!='extension' and @derivationType='incompatible']">
+						<sch:report test="count(parent::mif:staticModel//mif:*[mif:derivationSupplier[@className]/@modelId=current()/@modelId])!=
+													count(parent::mif:staticModel//*[self::mif:class or self::mif:classTypeRef or self::mif:classStub])">
+										ERROR: If a derivationSupplier' element exists for a staticModel, all classes within that model must also have a derivationSupplier for the same modelId, unless the derivation type is 'extension'.</sch:report>
+					</sch:rule>
+					<sch:rule context="mif:derivationSupplier[parent::mif:class or parent::mif:classTypeRef or parent::mif:classStub][@derivationType!='extension' and @derivationType='incompatible']">
+						<sch:report test="count(parent::mif:*/mif:attribute[mif:derivationSupplier/@modelId=current()/@modelId])!=count(parent::mif:*/mif:attribute)">
+										ERROR: If a 'derivationSupplier' element exists for a staticModel, all attributes within that model must also have a derivationSupplier for the same modelId.</sch:report>
+						<sch:report test="count(parent::mif:*/mif:association[mif:derivationSupplier/@modelId=current()/@modelId])!=count(parent::mif:*/mif:association)">
+										ERROR: If a 'derivationSupplier' element exists for a staticModel, all associations within that model must also have a derivationSupplier for the same modelId.</sch:report>
+						<sch:report test="count(parent::mif:*/mif:stateMachine/mif:state[mif:derivationSupplier/@modelId=current()/@modelId])!=count(parent::mif:*/mif:stateMachine/mif:state)">
+										ERROR: If a 'derivationSupplier' element exists for a staticModel, all states within that model must also have a derivationSupplier for the same modelId.</sch:report>
+						<sch:report test="count(parent::mif:*/mif:stateMachine/mif:transition[mif:derivationSupplier/@modelId=current()/@modelId])!=count(parent::mif:*/mif:stateMachine/mif:transition)">
+										ERROR: If a 'derivationSupplier' element exists for a staticModel, all transitions within that model must also have a derivationSupplier for the same modelId.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="Validate additional derivationSupplier constraints">
+					<sch:rule context="mif:derivationSupplier">
+						<sch:report test="count(preceding-sibling::mif:derivationSupplier[@modelId=current()/@modelId])!=0">
+										GUIDELINE: An element may not be derived from two different elements within the same model.</sch:report>
+						<sch:report test="@derivationType='unchanged' and count(parent::mif:*//mif:derivationSupplier[@modelId=current()/@modelId][@derivationType!='unchanged'])">
+										ERROR: An element derivation may not be marked as 'unchanged' unless all child elements are marked as 'unchanged'.</sch:report>
+						<sch:report test="@derivationType='annotation' and count(parent::mif:*//mif:derivationSupplier[@modelId=current()/@modelId][@derivationType!='unchanged' and @derivationType!='annotation'])">
+										ERROR: An element derivation may not be marked as 'annotation' unless all child elements are marked as 'annotation' or 'unchanged'.</sch:report>
+						<sch:report test="@derivationType='restriction' and count(parent::mif:*//mif:derivationSupplier[@modelId=current()/@modelId][@derivationType!='unchanged' and @derivationType!='annotation' and @derivationType!='restriction'])">
+										ERROR: An element derivation may not be marked as 'restriction' unless all child elements are marked as 'restriction', 'annotation' or 'unchanged'.</sch:report>
+						<sch:report test="@derivationType='extention' and count(parent::mif:*//mif:derivationSupplier[@modelId=current()/@modelId][@derivationType!='unchanged' and @derivationType!='annotation' and @derivationType!='restriction' and @derivationType!='extention'])">
+										ERROR: An element derivation may not be marked as 'extention' unless all child elements are marked as 'extention', 'restriction', 'annotation' or 'unchanged'.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+				<sch:pattern name="Validate still more derivationSupplier constraints">
+					<sch:rule context="mif:derivationSupplier[@stateName or @stateTransitionName]">
+						<sch:report test="count(parent::mif:stateMachine/parent::mif:*/mif:derivationSupplier[@modelId=current()/@modelId])=0">
+										ERROR: An element may only be derived from a model that its parent is also derived from</sch:report>
+					</sch:rule>
+					<sch:rule context="mif:derivationSupplier[@attributeName|@associationName|@className]">
+						<sch:report test="count(parent::mif:*/mif:derivationSupplier[@staticModelDerivationId=current()/@staticModelDerivationId])=0">
+										ERROR: An element may only be derived from a model that its parent is also derived from</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+			<!-- Todo: Enforce that datatype and vocabulary limitations are only allowed to be specified for LIMs -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="SubSystem">
+				<xs:sequence>
+					<xs:element name="annotations" type="StaticModelAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a static model package.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="graphicRepresentation" type="StaticPackageDiagramGraphicInformation" minOccurs="0" maxOccurs="2">
+						<xs:annotation>
+							<xs:documentation>Indicates the display shape(s) associated with the static package</xs:documentation>
+							<xs:documentation>UML: association from ModelElement to SemanticModelBridge for a diagram</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="figure" type="xhtml:Img" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A graphical representation of the classes in a static package model.</xs:documentation>
+							<xs:documentation>UML: figure tag on StaticPackage stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- todo: consider allowing multiple occurrences and/or tying to graphicRepresentation -->
+					</xs:element>
+					<xs:element name="derivedFrom" type="StaticModelDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies static models from which the current model is derived</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="hasDerivations" type="StaticModelDerivationSource" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies static models derived from the current model</xs:documentation>
+							<xs:documentation>UML: client association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+							<xs:documentation>Derivation: Todo</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="importedDatatypeModelPackage" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The datatype model that is used by this model</xs:documentation>
+							<xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="importedVocabularyModelPackage" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The vocabulary model that is used by this model</xs:documentation>
+							<xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="importedCommonModelElementPackage" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The CMET model that is used by this model</xs:documentation>
+							<xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="importedStubPackage" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The stub set that is used by this model</xs:documentation>
+							<xs:documentation>UML: A package that is imported into the current data model</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="importAnnotationLibrary" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies the annotation library that is used to supplement the annotations defined in this model.  Annotations in this model with no 'cascade' information take precedence over annotations defined in the annoation library</xs:documentation>
+							<xs:documentation>UML: AnnotationLibrary package that is imported into the model package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="additionalDatatypeModel" type="DatatypeModelLibrary" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies any additional datatype flavors required to express limitations in ability to express datatypes</xs:documentation>
+							<xs:documentation>UML: Datatypes used by Classes within the models used by this artifact</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="datatypeLimitation" type="DatatypeLimitation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates datatypes not fully supported and what the limitations on those datatypes are.  Cascades through all static models supported by this element.</xs:documentation>
+							<xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Translation of datatype to actually interpretted flavor -->
+					</xs:element>
+					<xs:element name="additionalVocabularyModel" type="VocabularyModel" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies any additional tables, domains, valuesets or bindings required to express limitations in ability to express datatypes</xs:documentation>
+							<xs:documentation>UML: VocabularyDependencies of attributes and datatype properties within the models used by this artifact</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vocabularyLimitation" type="VocabularyLimitation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates domains, valuesets and code systems not fully supported and what the limitations on those vocabulary elements are.  Cascades through all static models supported by this element.</xs:documentation>
+							<xs:documentation>UML: Tag on ConformanceProfile</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Translation of datatype to actually interpretted flavor -->
+					</xs:element>
+					<xs:element name="subjectAreaPackage" type="SubjectAreaPackage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a 'sub-package' owned by the current static package.  All classes within the 'sub-packages' are always imported into their parent static package.  This means the names of all classes within a static package must be unique.  Graphically it represents a grouping of classes that may be represented on a separate page.</xs:documentation>
+							<xs:documentation>UML: SubjectAreaPackage stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Handle varying presentations for wrap-arround boxes and 'fill-in' shapes.  Also, enforce rules that contained elements don't appear for fill-in shapes unless they appear in two. -->
+					</xs:element>
+					<xs:element name="definitionalCode" type="VocabularyCodeRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a concept which the static model represents or defines.  E.g. A template that 'defines' the concept of blood-pressure.</xs:documentation>
+							<xs:documentation>UML: A tag on the HL7StaticModel</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="representationKind" type="StaticModelRepresentationKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies whether the model is represented in its flat or serializable form.</xs:documentation>
+						<xs:documentation>UML: Not exposed.  All models will be represented in UML as 'flat'</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isSerializable" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies whether this model can be represented in a serialized form.</xs:documentation>
+						<xs:documentation>UML: isSerializable tag on staticModel stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="conformanceLevel" type="ModelConformanceKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates what sort of conformance rules to enforce on the model</xs:documentation>
+						<xs:documentation>UML: A tag on HL7StaticModel</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="GeneralizableElement"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DatatypeLimitation">
+		<xs:annotation>
+			<xs:documentation>Identifies a datatype which is not fully supported, along with the datatype flavor that will be implemented in place of the full datatype.</xs:documentation>
+			<xs:documentation>UML: Complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="definedDatatype" type="DatatypeRef">
+				<xs:annotation>
+					<xs:documentation>Indicates the datatype that is not fully supported</xs:documentation>
+					<xs:documentation>UML: Complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substituteDatatype" type="DatatypeRef">
+				<xs:annotation>
+					<xs:documentation>Indicates the datatype or datatype flavor that should be interpretted in place of the non-supported datatype</xs:documentation>
+					<xs:documentation>UML: Complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VocabularyLimitation">
+		<xs:annotation>
+			<xs:documentation>Identifies a vocabulary domain, code-system or value-set which is not fully supported, along with a different domain, code-system or value-set which should be interpretted in its place.</xs:documentation>
+			<xs:documentation>UML: Complex tag</xs:documentation>
+			<!-- Todo: Ensure that packagetypes are vocabulary and that package types are the same (i.e. both domains, both value-sets, etc.) -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="definedVocabularyElement" type="PackageRef">
+				<xs:annotation>
+					<xs:documentation>Indicates the domain, code-system or value-set that is not fully supported</xs:documentation>
+					<xs:documentation>UML: Complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="substituteVocabularyElement" type="PackageRef" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the domain, code-system or value-set that should be interpretted in place of the non-supported vocabulary element</xs:documentation>
+					<xs:documentation>UML: Complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="minimumUpdateTime" type="DurationUnitsKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the maximum amount of time that may elapse between a change in the contents of the specified domain, code-system or value-set and the time the system is expected to reflect the change (by accepting and being able to send new codes and not sending deprecated ones).</xs:documentation>
+				<xs:documentation>UML: Complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SubjectAreaPackage">
+		<xs:annotation>
+			<xs:documentation>Defines the content for subject areas</xs:documentation>
+			<xs:documentation>UML: SubjectAreaPackage stereotype</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate SubjectAreaPackage type">
+					<sch:rule abstract="true" id="SubjectAreaPackage">
+						<sch:report test="count(mif:subjectAreaPackage|mif:class)=0">
+							WARNING: SubjectAreaPackages must contain either other subject areas or classes.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="approvalInfo" type="ApprovalInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Describes the ballot or other approval status and information associated with the subject area</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate ballotInfo element">
+									<sch:rule context="mif:ballotInfo">
+										<sch:extends rule="BallotInfo"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="graphicRepresentation" type="StaticPackageDiagramGraphicInformation" minOccurs="0" maxOccurs="2">
+						<xs:annotation>
+							<xs:documentation>Indicates the display shape(s) associated with the static package</xs:documentation>
+							<xs:documentation>UML: association from ModelElement to SemanticModelBridge for a diagram</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="figure" type="xhtml:Img" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A graphical representation of the classes in a static package model.</xs:documentation>
+							<xs:documentation>UML: figure tag on StaticPackage stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- todo: consider allowing multiple occurrences and/or tying to graphicRepresentation -->
+					</xs:element>
+					<xs:element name="annotations" type="SubjectAreaAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the subject area.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a subject area.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="subjectAreaPackage" type="SubjectAreaPackage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a 'sub-package' owned by the current static package.  All classes within the 'sub-packages' are always imported into their parent static package.  This means the names of all classes within a static package must be unique.  Graphically it represents a grouping of classes that may be represented on a separate page.</xs:documentation>
+							<xs:documentation>UML: SubjectAreaPackage stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Handle varying presentations for wrap-arround boxes and 'fill-in' shapes.  Also, enforce rules that contained elements don't appear for fill-in shapes unless they appear in two. -->
+					</xs:element>
+					<xs:element name="containedClass" type="LocalClassRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Classes (including CMETs and stubs) that are part of the subject area.  Includes CMETs and stubs as well.</xs:documentation>
+							<xs:documentation>UML: Classes accessed by the SubjectAreaPackage</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!-- Todo: A subject area must either own classes or other subject areas -->
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LocalClassRef">
+		<xs:annotation>
+			<xs:documentation>UML: A reference to a class imported into the current package</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="AllClassName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the class</xs:documentation>
+				<xs:documentation>UML: The name of the referenced Class</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SubjectAreaAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a subject area</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a subject area.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="SubjectAreaDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="SubjectAreaAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SubjectAreaDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple comments relating to a subject area</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a subject area.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Description" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Walkthrough" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SubjectAreaAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex comments relating to a subject area</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a static model</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a static model.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="StaticModelDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="StaticModelAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple comments relating to a static model</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a static model.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Description" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Walkthrough" minOccurs="0"/>
+					<xs:group ref="Appendix" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex comments relating to a static model</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a static model.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to a StaticModel</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Derivation">
+				<xs:sequence>
+					<xs:element name="targetStaticModel" type="PackageRef">
+						<xs:annotation>
+							<xs:documentation>The package name of the static model from which the current model is derived.</xs:documentation>
+							<xs:documentation>UML: Absolute package path (using package names)to the supplying model on the derivationSupplier dependency.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="staticModelDerivationId" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>A unique identifier for the static model derivation for reference by other derivations within the model.</xs:documentation>
+						<xs:documentation>UML: No mapping.  This is internal XML shorthand to avoid copying the package reference each time a class, association or element is derived.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelDerivationSource">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to a StaticModel</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Derivation">
+				<xs:sequence>
+					<xs:element name="sourceStaticModel" type="PackageRef" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The package name of the static model derived from the current model.</xs:documentation>
+							<xs:documentation>UML: Absolute package path (using package names)to the client model on the derivationSupplier dependency.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntryPointBase">
+		<xs:annotation>
+			<xs:documentation>UML: Stereotype of Interface</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate entry-point constraints">
+					<sch:rule context="mif:entryPoint">
+						<sch:report test="parent::mif:staticModel/@serializable='true' and count(mif:annotations)!=0">
+							ERROR: Annotations are only permitted on entry points for non-serializable models.  (For serializable models, the entry point and model are 1..1)</sch:report>
+						<sch:report test="parent::mif:staticModel/@serializable='true' and count(mif:businessName/@name)!=0">
+							ERROR: Names are only permitted on entry points for non-serializable models.  (For serializable models, the entry point and model are 1..1)</sch:report>
+					</sch:rule>
+					<!-- Todo: Ensure entrypoint name is unique within a model -->
+					<!-- Todo: Don't allow abstract to be populated - we inherit it, but don't want it here -->
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Interface">
+				<xs:sequence>
+					<xs:element name="annotations" type="EntryPointAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with an entry point.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="useKind" type="StaticModelUseKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the type of content represented by the model when entered from this entry point.  The contentType determines whether the model is legitimate content for a classStub from another model.</xs:documentation>
+						<xs:documentation>UML: Corresponds to the name (inherited from ModelElement) of the interface being implemented</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Make this repeatable -->
+				</xs:attribute>
+				<xs:attribute name="id" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>Deprecated: The 'old'-style identifier associated with the model that is tied to the entry-point</xs:documentation>
+						<xs:documentation>UML: Would be an attribute on the stereotype, but it's going away soon.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="name" type="BasicFormalName" use="required">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the entry-point</xs:documentation>
+						<xs:documentation>UML: Would an attribute on the stereotype.</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Do we need this?  Can we get rid of it? -->
+				</xs:attribute>
+				<xs:attribute name="graphicLinkId" type="Uuid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the entry-point for the purpose of linking it to its graphical rendering information.  Note: This id will not necessarily be consistent each time the artifact is persisted and must never be used to reference the element from outside the model.</xs:documentation>
+						<xs:documentation>UML: Links the ModelElement to its corresponding UML1GraphicInformation.</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: enforce that graphicLinkIds exist if the containing static model has graphic information -->
+				</xs:attribute>
+			</xs:extension>
+			<!-- Todo: We should have derivation here too, no? -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntryPointAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to an Entry Point</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Entry Point.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="EntryPointDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="EntryPointAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntryPointDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple comments relating to an Entry Point</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Entry Point.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Description" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="EntryPointAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex comments relating to an Entry Point</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassifierBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Common content shared by classes and class-interfaces</xs:documentation>
+			<xs:documentation>UML: A restriction on Classifier</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate common class constraints">
+					<sch:rule context="mif:class|mif:classTypeRef|mif:classStub">
+						<sch:report test="@sortKey and count(ancestor::mif:staticModel/descendant::mif:*[self::mif:class or self::mif:classTypeRef or self::mif:classStub][@sortKey=current()/@sortKey])!=1">
+							ERROR: Sequence number must be unique across all classes in a model.</sch:report>
+						<sch:report test="not(@sortKey) and count(ancestor::mif:staticModel/descendant::mif:*[self::mif:class or self::mif:classTypeRef or self::mif:classStub][@sortKey])!=0">
+							ERROR: Sequence number must present on all classes in a model if it is present in any.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Classifier">
+				<xs:sequence>
+					<xs:element name="derivedFrom" type="ClassDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding class in a model from which the current model has been derived.</xs:documentation>
+							<xs:documentation>UML: derivationSupplier relationship</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Check class derivationSupplier constraints">
+									<sch:rule context="mif:derivationSupplier[@className]">
+										<sch:report test="@className!=parent::mif:*/@name and count(ancestor::mif:model//mif:derivationSupplier[@className=current()/@className and @modelId=current()/@modelId and not(@attributeName or @stateName or @stateTransitionName)])=1">
+											GUIDELINE: A class derivation must reference the same name as the derived-from class *unless* there are multiple classes derived from the same model class.</sch:report>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="definingVocabulary" type="VocabularySpecification" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>For classes whose type heirarchy is extended through vocabulary, this identifies the concept that corresponds to this physical class.</xs:documentation>
+							<xs:documentation>UML: supplier association to a StructuralDomain dependency to a vocabulary reference</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="graphicLinkId" type="Uuid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the class, stub or CMET for the purpose of linking it to its graphical rendering information.  Note: This id will not necessarily be consistent each time the artifact is persisted and must never be used to reference the element from outside the model.</xs:documentation>
+						<xs:documentation>UML: Links the ModelElement to its corresponding UML1GraphicInformation.</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: enforce that graphicLinkIds exist if the containing static model has graphic information -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to a Class</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ClassDerivation type">
+					<sch:rule abstract="true" id="ClassDerivation">
+						<sch:report test="count(ancestor::mif:*/mif:derivedFrom[@staticModelDerivationId=current()/@staticModelDerivationId])=0">
+							ERROR: Current derivation refers to a dervationId that is not found on the parent static model.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="staticModelDerivationId" type="BasicId" use="required">
+			<xs:annotation>
+				<xs:documentation>Refers to the staticModelDerivationId on the parent static model which points to the model in which the derived class is found.</xs:documentation>
+				<xs:documentation>UML: This is a shortcut to an absolute packageref for the SubSystem in which the derived class is found.  The shortcut is resolved by looking on the current class's parent static model, and finding a derivation with a matching derivationModelId.</xs:documentation>
+			</xs:annotation>
+			<!-- Todo: Enforce that this must match a staticModelDerivationId on one of the ancestor static model's derivations -->
+		</xs:attribute>
+		<xs:attribute name="className" type="AllClassName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the corresponding class in the 'parent' model.</xs:documentation>
+				<xs:documentation>UML: derivationSupplier supplier</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="withinCMET" type="PrefixedUpperCamelCase" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of CMET within which the class was originally found (used when deriving from a model where a CMET is being fully expanded)</xs:documentation>
+				<xs:documentation>UML: Reference to the model interface in which the derivation supplier is found</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ClassBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to 'Class'</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Check class attributes and elements">
+					<sch:rule context="mif:class">
+						<sch:report test="@abstract='true' and count(mif:*)=0">
+							ERROR: Abstract classes must have descendants.</sch:report>
+						<sch:report test="count(ancestor::mif:staticModel/mif:subjectArea)!=0 and not(mif:primarySubjectArea)">
+							ERROR: PrimarySubjectArea is required if a model contains subjectAreas.</sch:report>
+						<sch:report test="count(mif:attribute)=0 and count(mif:associations)=0 and count(mif:*)=0">
+							WARNING: Classes should have at least one attribute, association or descendant.</sch:report>
+						<sch:report test="contains(@name, '_') and count(mif:*)=0">
+							WARNING: Class names should only contain '_' if they have descendants.</sch:report>
+						<!-- Todo: Add rule that classes with a "choice" display variation must have specializations.  Also, need to decide if "conformance" applies to specialization relationships.  I.e. can some specializations be optional? -->
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassifierBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ClassAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="behavior" type="StateMachine" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Defines the set of available states and transitions available for the class.</xs:documentation>
+							<xs:documentation>UML: StateMachine that is the 'behavior' for the Class.  HL7 allows a maximum of one stateMachine per class.  Note: The 'top' state is implicit and never modeled.</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Handle this
+            <xs:key name="stateKey">
+							<xs:selector xpath="state"/>
+							<xs:field xpath="@name"/>
+						</xs:key>
+						<xs:keyref name="stateParentNameKeyRef" refer="stateKey">
+							<xs:selector xpath="state"/>
+							<xs:field xpath="@parentStateName"/>
+						</xs:keyref>
+						<xs:keyref name="transitionStartStateNameKeyRef" refer="stateKey">
+							<xs:selector xpath="transition"/>
+							<xs:field xpath="@startStateName"/>
+						</xs:keyref>
+						<xs:keyref name="transitionEndStateNameKeyRef" refer="stateKey">
+							<xs:selector xpath="transition"/>
+							<xs:field xpath="@endStateName"/>
+						</xs:keyref>
+						<xs:keyref name="stateAttributeNameKeyRef" refer="attributeKey">
+							<xs:selector xpath="."/>
+							<xs:field xpath="@stateAttributeName"/>
+						</xs:keyref>
+						<xs:unique name="transitionNameAndStatesUnique">
+							<xs:selector xpath="transition"/>
+							<xs:field xpath="@name"/>
+							<xs:field xpath="@startStateName"/>
+							<xs:field xpath="@endStateName"/>
+						</xs:unique>
+						<xs:unique name="stateBusinessNameUnique">
+							<xs:selector xpath="state"/>
+							<xs:field xpath="businessName/@name"/>
+						</xs:unique>
+						<xs:unique name="transitionBusinessNameUnique">
+							<xs:selector xpath="transition"/>
+							<xs:field xpath="businessName/@name"/>
+						</xs:unique>-->
+					</xs:element>
+					<xs:element name="stewardCommittee" type="CommitteeReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the group with which this class is predominantly associated.</xs:documentation>
+							<xs:documentation>UML: Reference to tagged element on an ancestor package in which the class is defined.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="interestedCommittee" type="CommitteeReference" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the non-predominant group(s) with which this class is also associated.</xs:documentation>
+							<xs:documentation>UML: Reference to tagged element on an ancestor package in which the class is defined.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:group ref="TemplateInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies templates available for and/or required for use that may be applied starting at this class.</xs:documentation>
+							<xs:documentation>UML: Identifies classes that specialize the paricipant class for this association end</xs:documentation>
+						</xs:annotation>
+					</xs:group>
+					<xs:element name="attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>An independently modifiable or static characteristic of a class.</xs:documentation>
+							<xs:documentation>UML: Attribute that is a feature of the class</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Check attribute information.">
+									<sch:rule context="mif:attribute">
+										<sch:extends rule="Attribute"/>
+									</sch:rule>
+								</sch:pattern>
+								<!-- Todo: Handle this
+								<sch:pattern name="Check codingStrength and default attributes.">
+									<sch:rule context="mif:attribute">
+										<sch:extends rule="CodeValidation"/>
+									</sch:rule>
+								</sch:pattern>-->
+								<sch:pattern name="Check for attribute/association duplication.">
+									<sch:rule context="mif:attribute">
+										<sch:report test="count(following-sibling::mif:associations/mif:association[@name=current()/@name])!=0">
+											ERROR: May not have attribute with the same name as a association in a single class.</sch:report>
+									</sch:rule>
+								</sch:pattern>
+								<sch:pattern name="Check attribute derivations">
+									<sch:rule context="mif:attribute">
+										<sch:report test="mif:derivedFrom[@attributeName!=current()/@attributeName]">
+											GUIDELINE: Attribute names must be the same as the names of the attribute being derived from.</sch:report>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attributeGroup ref="GeneralizableElement"/>
+				<xs:attribute name="name" type="FormalProperName" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique, formal name for the class within the model.</xs:documentation>
+						<xs:documentation>UML: ModelElement.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="nameLocked" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that the name should not be changed when the renaming algorithm is run.</xs:documentation>
+						<xs:documentation>UML: Tag on HL7Class stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isComplete" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that the set of attributes and associations described for the class is the complete set permitted - no others are allowed.  If false, additional attributes and associations from the RIM not described are also allowed</xs:documentation>
+						<xs:documentation>UML: Tag on HL7Class stereotype</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Ensure this is always true on the RIM -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommitteeReference">
+		<xs:annotation>
+			<xs:documentation>UML: part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="BasicId" use="required">
+			<xs:annotation>
+				<xs:documentation>The identifier assigned to the committee</xs:documentation>
+				<xs:documentation>UML: part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the committee</xs:documentation>
+				<xs:documentation>UML: part of a complex tag</xs:documentation>
+			</xs:annotation>
+			<!-- Todo: Consider removing this once we have a place to store committee definitions -->
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ClassAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a class</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ClassDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ClassAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple comments relating to a class</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex comments relating to a class</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommonModelElementRefBase">
+		<xs:annotation>
+			<xs:documentation>A reference to a CMET (possibly binding CMET parameters)</xs:documentation>
+			<xs:documentation>UML: SubSystem referencing a particular CommonModelElement Interface</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Check classTypeRef information">
+					<sch:rule context="mif:classTypeRef">
+						<sch:report test="count(ancestor::mif:staticModel//mif:classTypeRef[@typeId=current()/@typeId])!=1">
+										ERROR: Only one classTypeRef may exist in an staticModel with a given typeId.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassifierBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ClassAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="cmetName" type="PrefixedUpperCamelCase" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the CMET reference.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Make this required if there are bound parameters, not permitted otherwise -->
+					<!-- Todo: Confirm the 'type' of this attribute (may need to allow for multiple underscores - and add to AllClassName) -->
+				</xs:attribute>
+				<xs:attribute name="name" type="PrefixedUpperCamelCase" use="optional">
+					<xs:annotation>
+						<xs:documentation>The unique name for this cmet reference within the model.  (This is usually the same as the CMET name.  However, where a CMET has exit points and different occurrences have different bindings, each separately bound occurrence must have its own name.  In this case, a suffix will be added to the base referenced CMET name.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Confirm the 'type' of this attribute (may need to allow for multiple underscores - and add to AllClassName) -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelRefBase">
+		<xs:annotation>
+			<xs:documentation>A reference to a specific static model (possibly binding model parameters).  This is used when explicit references to non-CMET models are required, e.g. when binding static models for conformance profiles.</xs:documentation>
+			<xs:documentation>UML: Reference to another subsystem</xs:documentation>
+			<!-- Todo: Check that this works -->
+			<xs:appinfo>
+				<sch:pattern name="Check classTypeRef information">
+					<sch:rule context="mif:classTypeRef">
+						<sch:report test="count(ancestor::mif:staticModel//mif:classTypeRef[@typeId=current()/@typeId])!=1">
+										ERROR: Only one classTypeRef may exist in an staticModel with a given typeId.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassifierBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ClassAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="modelReference" type="PackageRef">
+						<xs:annotation>
+							<xs:documentation/>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="PrefixedUpperCamelCase" use="optional">
+					<xs:annotation>
+						<xs:documentation>The internal name for the static model reference.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Make this required if there are bound parameters, not permitted otherwise -->
+					<!-- Todo: Confirm the 'type' of this attribute (may need to allow for multiple underscores - and add to AllClassName) -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommonModelElementRefAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a common model element reference</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a common model element reference.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="CommonModelElementRefDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="CommonModelElementRefAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommonModelElementRefDocumentation">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a common model element reference</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a common model element reference.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CommonModelElementRefAppInfo">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a common model element reference</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassBindingArgumentBase">
+		<xs:annotation>
+			<xs:documentation>UML: A binding to a parameterized Static Model.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="templateParameterName" type="FormalProperName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the argument being bound.</xs:documentation>
+				<xs:documentation>UML: Used to identify which parameter is being bound (because sequence is not used)</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="StateMachine">
+		<xs:annotation>
+			<xs:documentation>UML: StateMachine</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="annotations" type="StateMachineAnnotations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+					<xs:documentation>UML: A collector for the comments and constraints associated with a state machine.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="figure" type="xhtml:Img" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>A graphical representation of the states and state transitions in a state engine.</xs:documentation>
+					<xs:documentation>UML: Tag on StateMachine stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subState" type="State" minOccurs="2" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies a 'mode' in which instantiations of the class can exist.</xs:documentation>
+					<xs:documentation>UML: The subVertexes of the 'Top' state (which we don't bother to model)</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Check state information">
+							<sch:rule context="mif:state">
+								<sch:report test="mif:derivedFrom[@stateName!=current()/@name]">
+														GUIDELINE: State names must be the same as the state names of the state being derived from.</sch:report>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transition" type="Transition" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Defines a permitted movement between states of a class object.  States may only shift along defined states.</xs:documentation>
+					<xs:documentation>UML: Transition</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Check state information">
+							<sch:rule context="mif:transition">
+								<sch:report test="mif:derivedFrom[@stateTransitionName!=current()/@name]">
+														GUIDELINE: State transition names must be the same as the state names of the state being derived from.</sch:report>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="stateAttributeName" type="FormalPropertyName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the class attribute which represent's the state of the class (and whose value set is drawn from the list of states in the class state engine.)</xs:documentation>
+				<xs:documentation>UML: A the name of the target 'StateAttribute' dependency between the attribute and the stateMachine</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="StateMachineAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing state machine.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with the state machine.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="StateMachineDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="StateMachineAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateMachineDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing state machine.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with the state machine.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Description" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Walkthrough" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateMachineAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing state machine.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with the state machine.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Vertex" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to 'Vertex'</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="State">
+		<xs:annotation>
+			<xs:documentation>UML: Represents both SimpleStates (no states point to this state as parent) and CompositeStates (at least one state points to this state as parent)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Vertex">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="StateAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a state.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="derivedFrom" type="StateDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding state in a model from which the current model has been derived.</xs:documentation>
+							<xs:documentation>UML: A derivationSupplier dependency associated with the state</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="containedStates" type="FormalPropertyName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the sub-states for this state</xs:documentation>
+							<xs:documentation>UML: Name of the state along the 'subvertex' association to the State which contains this CompositeVertex contains.</xs:documentation>
+							<xs:documentation>Derive: Todo - All states within this state-machine listing the current state as parentStateName</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The formal name for the state.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="parentStateName" type="FormalPropertyName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the name of the state of which this is a 'sub-state'</xs:documentation>
+						<xs:documentation>UML: Name of the state along the 'container' association to the CompositeState which contains this one.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing State.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a State.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="StateDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="StateAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing State.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a State.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing State.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StateDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to a State</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassDerivation">
+				<xs:attribute name="stateName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the corresponding state in the 'parent' model.</xs:documentation>
+						<xs:documentation>UML: Name of the supplier state</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Transition">
+		<xs:annotation>
+			<xs:documentation>UML: Transition</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="TransitionAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a transition.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="derivedFrom" type="TransitionDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding state transition in a model from which the current model has been derived.</xs:documentation>
+							<xs:documentation>UML: A derivationSupplier dependency associated with the transition</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The formal name for the transition.</xs:documentation>
+						<xs:documentation>UML: inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="startStateName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the original state which is transitioned from.</xs:documentation>
+						<xs:documentation>UML: Name of the source StateVertex</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="endStateName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the target state which is transitioned to.  (It is possible for the start and end state to bethe same.</xs:documentation>
+						<xs:documentation>UML: Name of the target StateVertex</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TransitionAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing transition.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a transition.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="TransitionDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="TransitionAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TransitionDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing transition.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a transition.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Walkthrough" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TransitionAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing transition.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TransitionDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to a Transition</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassDerivation">
+				<xs:attribute name="startStateName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the corresponding start state in the 'parent' model.</xs:documentation>
+						<xs:documentation>UML: Name of the supplier transition's source StateVertex</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="stateTransitionName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the corresponding state transition in the 'parent' model.</xs:documentation>
+						<xs:documentation>UML: Name of the supplier transition's target StateVertex</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StructuralFeature" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to StructuralFeature</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate StructuralFeature type">
+					<sch:rule abstract="true" id="StructuralFeature">
+						<sch:extends rule="Feature"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Feature"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Attribute">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to Attribute</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Attribute type">
+					<sch:rule abstract="true" id="Attribute">
+						<sch:extends rule="StructuralFeature"/>
+						<sch:extends rule="UpdateMode"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="StructuralFeature">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="AttributeAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with an attribute.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="derivedFrom" type="AttributeDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding attribute in a model from which the current model has been derived.  NOTE: When deriving from the RIM, reference the class in which the attribute is defined, not the class to which it is inherited</xs:documentation>
+							<xs:documentation>UML: A derivationSupplier dependency associated with the attribute</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="type" type="DatatypeRef">
+						<xs:annotation>
+							<xs:documentation>Identifies the structure that may be used to convey the information in an attribute.</xs:documentation>
+							<xs:documentation>UML: The 'type' association of the structural feature.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vocabulary" type="VocabularySpecification" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates the vocabulary constraints that apply to the attribute</xs:documentation>
+							<xs:documentation>UML: A vocabularySupplier dependency associated with the attribute</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="property" type="AttributeProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<!-- Todo: Enforce that these can only appear at the RIM level, or must correspond to one defined at the RIM level for a derived model -->
+							<xs:documentation>Indicates supplemental properties associated with the attribute</xs:documentation>
+							<xs:documentation>UML: A tag on the Attribute class</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique formal name used to identify the attribute within the class and its ancestors.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="MultiplicityRangeRequired"/>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+				<xs:attributeGroup ref="UpdateMode"/>
+				<xs:attributeGroup ref="Extensibility"/>
+				<xs:attribute name="isImmutable" type="xs:boolean" use="optional" default="false">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the attribute is permitted to change after the object has been instantiated.  If true, changes are not permitted.  May also affect how the attribute appears in some ITSs.</xs:documentation>
+						<xs:documentation>UML: Tag on Attribute</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Add constraint: if immutable is true and a domain link is present revisionFrequency must be Edition -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeProperty">
+		<xs:annotation>
+			<xs:documentation>A property of a static model attribute as a coded name with an associated value.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			<!-- Todo: ensure propertyName is unique within a code -->
+		</xs:annotation>
+		<xs:attribute name="name" type="AttributePropertyKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the property being specified</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="LongDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the value of the property for this attribute</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:attributeGroup name="Extensibility">
+		<xs:annotation>
+			<xs:documentation>Those types related to localization and extensibility</xs:documentation>
+			<xs:documentation>UML: Corresponds to tags on Feature and Relationship</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="extensionOID" type="Oid">
+			<xs:annotation>
+				<xs:documentation>The OID which is to act as a namespace for the extension element.  Should correspond to the OID for the conformance profile with which the extension element is associated</xs:documentation>
+				<xs:documentation>UML: Corresponds to tag on Attribute and AssociationEnd</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="AttributeAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing attribute.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Attribute.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="AttributeDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="AttributeAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing attribute.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Attribute.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing attribute.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="StaticExample" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to an Attribute</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassDerivation">
+				<xs:attribute name="attributeName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the attribute in the corresponding model.</xs:documentation>
+						<xs:documentation>UML: The name of the sourcing attribute</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationBase">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds with Association</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Relationship">
+				<xs:sequence>
+					<xs:element name="annotations" type="AssociationAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with an attribute.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="graphicLinkId" type="Uuid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the asssociation for the purpose of linking it to its graphical rendering information.  Note: This id will not necessarily be consistent each time the artifact is persisted and must never be used to reference the element from outside the model.</xs:documentation>
+						<xs:documentation>UML: Links the ModelElement to its corresponding UML1GraphicInformation.</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: enforce that graphicLinkIds exist if the containing static model has graphic information -->
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Association.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="AssociationDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="AssociationAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Association.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndBase">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to AssociationEnd</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Check association information in a class">
+					<sch:rule context="mif:association">
+						<sch:report test="ancestor::mif:staticModel/@type='RIM' and not(@linkAssociationName)">
+							GUIDELINE: RIM models must not have blocked associations (linkAssociationName must always be specified).</sch:report>
+						<sch:report test="@name=@linkAssociationName">
+							ERROR: The name of a association and the association linked to must not be the same.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Relationship">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="AssociationEndAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a association end.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="derivedFrom" type="AssociationEndDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding association in a model from which the current model has been derived.  NOTE: When deriving from the RIM, reference the class in which the association is defined, not the class to which it is inherited</xs:documentation>
+							<xs:documentation>UML: derivationSupplier dependency</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Check association derivationSupplier constraints">
+									<sch:rule context="mif:derivedFrom[@associationName]">
+										<sch:report test="@associationName!=parent::mif:*/@name and count(ancestor::mif:model//mif:derivedFrom[@className=current()/@className and @associationName=current()/@associationName and @modelId=current()/@modelId])=1">
+											GUIDELINE: An association derivation must reference the same name as the derived-from association *unless* there are multiple classes derived from the same model class.</sch:report>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="choiceItem" type="AssociationEndSpecialization" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>For association ends pointing to CMETs whose root is a choice, identifies the classes within the choice and the association names tied to those classes.</xs:documentation>
+							<xs:documentation>UML: Identifies classes that specialize the paricipant class for this association end</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique formal name for the association.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="nameLocked" type="xs:boolean" default="false">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that the name should not be changed when the renaming algorithm is run.</xs:documentation>
+						<xs:documentation>UML: Tag on HL7AssociationEnd stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="maximumRecursionDepth" type="SmallPositiveInteger" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the maximum number of times the class may appear in the a descendant hierarchy.  Used to place physical limits on the recursive depth applications must cope with.</xs:documentation>
+						<xs:documentation>UML: Tag on HL7AssociationEnd stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="MultiplicityRangeRequired"/>
+				<xs:attributeGroup ref="Presence"/>
+				<xs:attributeGroup ref="UpdateMode"/>
+				<xs:attribute name="referenceHistory" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates that the element can include a reference to its history LLOYD DEFINTION SHOULD TO THE HIST PARAMETERIZED TYPE _ TALK TO GRIEVE</xs:documentation>
+						<xs:documentation>Deprecated: Simply use HIST_X as your type.  This will be supported in Datatypes R2.</xs:documentation>
+						<xs:documentation>UML: tag from UpdateMode stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="Extensibility"/>
+				<xs:attributeGroup ref="SortKeyRequired"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndSpecialization">
+		<xs:annotation>
+			<xs:documentation>UML: Identifies a class that specialize the paricipant class for this association end</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="choiceItem" type="AssociationEndSpecialization" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>For specializations that are choices or CMETs whose root is a choice, identifies the classes within the choice and the association names tied to those classes.</xs:documentation>
+					<xs:documentation>UML: Identifies classes that specialize this generalized class</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="className" type="AllClassName" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the class</xs:documentation>
+				<xs:documentation>UML: Name of the specializing class</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="traversalName" type="FormalPropertyName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Name of the element when traversing from the association end directly to this specialized class</xs:documentation>
+				<xs:documentation>UML: tagged element on the specialized class</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Todo: enforce that you either have a traversalName or children, not both -->
+		<!-- Todo: enforce that specializations correspond to actual specialization classes -->
+	</xs:complexType>
+	<xs:complexType name="NonTraversableAssociationEnd">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to an AssociationEnd where 'isTraversable' is false</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Relationship">
+				<xs:sequence>
+					<xs:element name="derivedFrom" type="AssociationEndDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the corresponding association in a model from which the current model has been derived.</xs:documentation>
+							<xs:documentation>UML: derivationSupplier dependency</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Check association derivationSupplier constraints">
+									<sch:rule context="mif:derivedFrom[@associationName]">
+										<sch:report test="@associationName!=parent::mif:*/@name and count(ancestor::mif:model//mif:derivedFrom[@className=current()/@className and @associationName=current()/@associationName and @modelId=current()/@modelId])=1">
+											GUIDELINE: An association derivation must reference the same name as the derived-from association *unless* there are multiple classes derived from the same model class.</sch:report>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="participantClassName" type="AllClassName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the class to which the association end is attached</xs:documentation>
+						<xs:documentation>UML: The name of the participant class for the association end</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Association.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="AssociationEndDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="AssociationEndAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndDocumentation">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with an Association.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Definition" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndAppInfo">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing association.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AssociationEndDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: A Derivation stereotype to an Association</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassDerivation">
+				<xs:attribute name="associationEndName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the association in the other model.</xs:documentation>
+						<xs:documentation>UML: Name of 'supplier' association end</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassGeneralizationBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to Generalization</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Check descendant constraints">
+					<sch:rule context="descendant">
+						<sch:report test="preceding-sibling::descendant[@sortKey = current()/@sortKey]">
+							ERROR: Sequence number must be unique across all descendants in a model.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Relationship">
+				<xs:sequence>
+					<xs:element name="annotations" type="GeneralizationAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a Generalization.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="conformance" type="ConformanceKind" default="U">
+					<xs:annotation>
+						<xs:documentation>Identifies whether the element must be supported by implementors or not.  If not present, indicates that support is optional.</xs:documentation>
+						<xs:documentation>UML: Tag value on Feature stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="graphicLinkId" type="Uuid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the generalization for the purpose of linking it to its graphical rendering information.  Note: This id will not necessarily be consistent each time the artifact is persisted and must never be used to reference the element from outside the model.</xs:documentation>
+						<xs:documentation>UML: Links the ModelElement to its corresponding UML1GraphicInformation.</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: enforce that graphicLinkIds exist if the containing static model has graphic information AND is a UML diagram -->
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+		<!-- Todo: 19/12/2003, Charlie McCay.  Should use the uniqueness constraints; should be enforced used schema, not schematron. -->
+	</xs:complexType>
+	<xs:complexType name="GeneralizationAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing generalization.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a generalization.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="GeneralizationDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="GeneralizationAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GeneralizationDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple descriptive information about the containing generalization.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a generalization.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GeneralizationAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex descriptive information about the containing generalization.</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StaticModelClassTemplateParameter">
+		<xs:annotation>
+			<xs:documentation>A class 'stub' that will be bound to another model of the appropriate type at runtime</xs:documentation>
+			<xs:documentation>UML: A TemplateParameter connected to a static model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassifierBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ClassAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalProperName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the stub.</xs:documentation>
+						<xs:documentation>UML: Name tag on TemplateParameter stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="interface" type="FormalProperName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the 'type' associated with the parameter</xs:documentation>
+						<xs:documentation>UML: Identifies an interface implemented by the parameter (and thereby restricts the models that can be substituted for the parameter)</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Make required as soon as this is supported -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassStubInterface">
+		<xs:annotation>
+			<xs:documentation>Defines an allowed 'kind' for a stub within a static model.  Similar to CMETs, but not bound to a single model</xs:documentation>
+			<xs:documentation>UML: An interface that defines the allowed content types for class TemplateParameters within static models.  Note: Inherit from ClassRoot instead of Interface for simplicity</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassifierBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ClassStubInterfaceAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the containing element.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a class.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="StaticModelUseKind" use="required">
+					<xs:annotation>
+						<xs:documentation>The type of content that may be included at this point.  The sub-model must be rooted in an entry-point having an identical contentType.</xs:documentation>
+						<xs:documentation>UML: Inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassStubInterfaceAnnotations">
+		<xs:annotation>
+			<xs:documentation>Comments relating to a class stub type</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a Class Stub interface.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ClassStubInterfaceDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the model element</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ClassStubInterfaceAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassStubInterfaceDocumentation">
+		<xs:annotation>
+			<xs:documentation>Simple comments relating to a class stub type</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a Class Stub interface.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="Description" minOccurs="0"/>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassStubInterfaceAppInfo">
+		<xs:annotation>
+			<xs:documentation>Complex comments relating to a class stub type</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="TemplateInfo">
+		<xs:annotation>
+			<xs:documentation>Provides information about the templates that must be enforced or which can be enforced at this point in the model</xs:documentation>
+			<xs:documentation>UML: Complex tags on HL7Attribute and HL7AssociationEnd stereotypes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="requiredTemplateGroup" type="AppliedTemplateGroup" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies a set of templates which must be true for this attribute or association.  If multiple sets requiredTemplateGroups are specified, then the complete set of templates in at least one of the groups must be true.</xs:documentation>
+					<xs:documentation>UML: Complex tag on HL7Attribute and HL7AssociationEnd stereotypes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supportedTemplate" type="TemplateId" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies a template that is known to be applicable for this attribute or association.  Essentially this is providing a 'hint' about possible templates that can be used.  However, it does not require the use of any of the listed templates and is not necessarily an exhaustive list of templates that could be valid.</xs:documentation>
+					<xs:documentation>UML: Complex tag on HL7Attribute and HL7AssociationEnd stereotypes</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="AppliedTemplateGroup">
+		<xs:annotation>
+			<xs:documentation>A group of one or more templates that must be true for elements instantiated from a particular attribute or association</xs:documentation>
+			<xs:documentation>UML: Type for a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="templateId" type="TemplateId" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>This indicates one of the templates that must be true for the template group to be true.</xs:documentation>
+					<xs:documentation>UML: Element within a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StaticPackageDiagramGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a UML concept that corresponds to a complete diagram</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting SemanticModelBridge to a Diagram</xs:documentation>
+			<xs:appinfo>
+				<!-- Todo: update this to reflect revised organization -->
+				<!-- Todo: Add rules tying this graphic information to the corresponding model elements -->
+				<sch:pattern name="Check class presentation constraints">
+					<sch:rule context="mif:presentation[@shapeId]">
+						<sch:report test="count(ancestor::mif:staticModel//mif:presentation[@shapeId=current()/@shapeId])!=1">
+              ERROR: Only one shape within a model can have a given shapeId.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DiagramGraphicInformation">
+				<xs:sequence>
+					<xs:element name="entryPoint" type="NodeWithConnectionGraphicInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>This defines information about how an entry point is represented when displayed graphically.</xs:documentation>
+							<xs:documentation>UML: association from ModelElement to SemanticModelBridge</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="class" type="ClassGraphicInformation" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>This defines information about how a class is represented when displayed graphically.</xs:documentation>
+							<xs:documentation>UML: Stereotype restricting SemanticModelBridge to have graphicRepresentations associated with classes</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="association" type="GraphEdgeGraphicInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the display shape(s) associated with an association</xs:documentation>
+							<xs:documentation>UML: association from ModelElement to SemanticModelBridge for an association</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="generalization" type="GraphEdgeGraphicInformation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the display shape(s) associated with the static package</xs:documentation>
+							<xs:documentation>UML: association from ModelElement to SemanticModelBridge for an association end</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="annotation" type="NodeWithConnectionGraphicInformation" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="presentation" type="StaticModelDiagramPresentationKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates the diagramming format used to display the element.</xs:documentation>
+						<xs:documentation>UML: presentation element on ModelElementBridge</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a class</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting SemanticModelBridge to have graphicRepresentations associated with classes</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="NodeGraphicInformation">
+				<xs:attribute name="presentation" type="ClassPresentationKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the diagramming format used to display the element.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+		<!-- Todo ensure that graphicRepresentation is not populated for UML diagrams -->
+	</xs:complexType>
+</xs:schema>

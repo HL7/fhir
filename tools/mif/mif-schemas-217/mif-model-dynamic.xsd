@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Nov. 2005
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema allows for representation of dynamic model content including
+	trigger events, application roles, interactions and structured documents.
+********************************************************************************
+		</xs:documentation>
+  </xs:annotation>
+  <xs:include schemaLocation="mif-model-staticBase.xsd"/>
+  <xs:element name="triggerEvent" type="GlobalTriggerEvent">
+    <xs:annotation>
+      <xs:documentation>Indicates the reasons why information is exchanged</xs:documentation>
+      <xs:documentation>UML: A stereotype on Event</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="interaction" type="GlobalInteraction">
+    <xs:annotation>
+      <xs:documentation>Defines a transmission of data for a particular reason with a set of expected behaviors</xs:documentation>
+      <xs:documentation>UML: A stereotype on Operation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="structuredDocument" type="GlobalStructuredDocument">
+    <xs:annotation>
+      <xs:documentation>Defines a transmission of data for a particular reason with a set of expected behaviors</xs:documentation>
+      <xs:documentation>UML: A stereotype on Operation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="applicationRole" type="GlobalApplicationRole">
+    <xs:annotation>
+      <xs:documentation>Defines a system capable of sending and/or receiving HL7 interactions</xs:documentation>
+      <xs:documentation>UML: A stereotype on Interface</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GlobalTriggerEvent">
+    <xs:annotation>
+      <xs:documentation>Extends trigger event for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="TriggerEvent">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalInteraction">
+    <xs:annotation>
+      <xs:documentation>Extends interaction for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Interaction">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalStructuredDocument">
+    <xs:annotation>
+      <xs:documentation>Extends structured document for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="StructuredDocument">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlobalApplicationRole">
+    <xs:annotation>
+      <xs:documentation>Extends application role for use as a stand-alone XML document</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ApplicationRole">
+        <xs:attributeGroup ref="SchemaVersion"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TriggerEvent">
+    <xs:annotation>
+      <xs:documentation>Indicates a reason for the exchange of information</xs:documentation>
+      <xs:documentation>UML: stereotype on Event</xs:documentation>
+      <!-- Todo: Ensure that packageLocation has correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="annotations" type="TriggerEventAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Comments associated with a trigger event.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a trigger event.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:group ref="TriggeringEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:group name="TriggeringEvent">
+    <xs:annotation>
+      <xs:documentation>Indicates the actual event which fired the trigger event</xs:documentation>
+      <xs:documentation>UML: Identifies which specialization of Event the trigger represents</xs:documentation>
+    </xs:annotation>
+    <xs:choice>
+      <xs:element name="interaction" type="PackageRef">
+        <xs:annotation>
+          <xs:documentation>Indicates the interaction which causes this trigger event</xs:documentation>
+          <xs:documentation>UML: CallEvent associated operation</xs:documentation>
+          <!-- Todo: Enforce that package ref has correct type -->
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stateTransition" type="TransitionRef">
+        <xs:annotation>
+          <xs:documentation>Indicates the state transition which causes this trigger event</xs:documentation>
+          <xs:documentation>UML: ChangeEvent with a changeExpression identifying the state transition</xs:documentation>
+          <!-- Todo: Enforce that package ref has correct type -->
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="environmentalOccurrence" type="EnvironmentalOccurrence">
+        <xs:annotation>
+          <xs:documentation>Describes the nature of the environmental occurrence which causes this trigger event</xs:documentation>
+          <xs:documentation>UML: description of SignalEvent or TimeEvent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="EnvironmentalOccurrence">
+    <xs:annotation>
+      <xs:documentation>Describes the nature of the environmental occurrence which causes this trigger event</xs:documentation>
+      <xs:documentation>UML: description of SignalEvent or TimeEvent</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="text" type="ComplexMarkupWithLanguage">
+        <xs:annotation>
+          <xs:documentation>Describes the nature of the environmental occurrence which causes this trigger event</xs:documentation>
+          <xs:documentation>UML: description of SignalEvent or TimeEvent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relatedStateTransition" type="TransitionRef">
+        <xs:annotation>
+          <xs:documentation>Indicates the state transition which is associated with this environmental occurrence (e.g. being requested, for which fulfillment is requested, etc.)</xs:documentation>
+          <xs:documentation>UML: Complex tag.</xs:documentation>
+          <!-- Todo: Enforce that package ref has correct type -->
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Interaction">
+    <xs:annotation>
+      <xs:documentation>A single exchange of data between systems for a particular reason with a set of expected response behaviors</xs:documentation>
+      <xs:documentation>UML: stereotype on Operation</xs:documentation>
+      <!-- Todo: Ensure that packageLocation has correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="annotations" type="InteractionAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Comments associated with an interaction.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with an interaction.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="invokingTriggerEvent" type="PackageRef">
+            <xs:annotation>
+              <xs:documentation>Identifies the trigger event which causes the interaction to be sent.</xs:documentation>
+              <xs:documentation>UML: Identifies the event causing the 'internal' state-transition which in turn fires the ActionSequence containing the CallAction for this operation</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="argumentMessage" type="BoundStaticModel">
+            <xs:annotation>
+              <xs:documentation>Indicates the fully-bound static model which defines the type for the content transmitted by the interaction.</xs:documentation>
+              <xs:documentation>UML: The Classifier bound as a Parameter to the Operation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="receiverResponsibilities" type="ReceiverResponsibility" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies the behaviors the receiver has the choice to choose between when receiving this interaction.  One and only one of the listed receiver responsibilities must be executed</xs:documentation>
+              <xs:documentation>UML: Describes the internal state machine associated with the CallEvent triggered by invoking this operation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sendingApplication" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>A type of system which is capable of sending the interaction</xs:documentation>
+              <xs:documentation>UML: Interfaces which have behaviors which invoke the operation</xs:documentation>
+              <xs:documentation>Derive: Todo - All ApplicationRoles which identify this interaction as a 'sends' interaction</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="receivingApplication" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>A type of system which is capable of receiving the interaction</xs:documentation>
+              <xs:documentation>UML: Interfaces which contain the operation</xs:documentation>
+              <xs:documentation>Derive: Todo - All ApplicationRoles which identify this interaction as a 'receives' interaction</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="interactionType" type="InteractionKind">
+          <xs:annotation>
+            <xs:documentation>Identifies the general pattern this interaction conforms to</xs:documentation>
+            <xs:documentation>UML: Tag on Interaction stereotype</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StructuredDocument">
+    <xs:annotation>
+      <xs:documentation>A description of a document intended to be authenticated and persisted</xs:documentation>
+      <xs:documentation>UML: ?????</xs:documentation>
+      <!-- Todo: Ensure that packageLocation has correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="annotations" type="StructuredDocumentAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Comments associated with a structured document.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with a structured document.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="DocumentDefinition" type="BoundStaticModel">
+            <xs:annotation>
+              <xs:documentation>Indicates the fully-bound static model which defines the type for the content persisted by the document.</xs:documentation>
+              <xs:documentation>UML: The Classifier bound as a Parameter to the Operation</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BoundStaticModel">
+    <xs:annotation>
+      <xs:documentation>Identifies a root static model as well as any models bound to parameterized stubs within the model.</xs:documentation>
+      <xs:documentation>UML: SubSystem, possibly with bound parameters</xs:documentation>
+      <!-- Todo: Enforce that package ref has correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageRef">
+        <xs:sequence>
+          <xs:element name="parameterModel" type="ParameterModel" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies all 'payload' models for the current wrapper model.</xs:documentation>
+              <xs:documentation>UML: Any TemplateParameter bindings to the model</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="entryPointUseKind" type="StaticModelUseKind" use="optional">
+          <xs:annotation>
+            <xs:documentation>Identifies the type of content represented by the model when entered from this entry point.  The contentType determines whether the model is legitimate content for a classStub from another model.</xs:documentation>
+            <xs:documentation>UML: Corresponds to the name (inherited from ModelElement) of the interface being implemented</xs:documentation>
+            <xs:documentation>Derived: The useKind of the entryPoint of the referenced static model</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ParameterModel">
+    <xs:annotation>
+      <xs:documentation>Identifies a parameter and the static model it is bound to.</xs:documentation>
+      <xs:documentation>UML: TemplateArgument</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BoundStaticModel">
+        <xs:sequence>
+          <xs:element name="specialization" type="AssociationEndSpecialization" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>For specializations that are choices or CMETs whose root is a choice, identifies the classes within the choice and the association names tied to those classes.</xs:documentation>
+              <xs:documentation>UML: Identifies classes that specialize this generalized class</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="parameterName" type="FormalProperName" use="required">
+          <xs:annotation>
+            <xs:documentation>The name of the stub parameter being bound</xs:documentation>
+            <xs:documentation>UML: Name of the Parameter</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="traversalName" type="FormalPropertyName" use="optional">
+          <xs:annotation>
+            <xs:documentation>Name of the element when traversing from the association end directly to this specialized class</xs:documentation>
+            <xs:documentation>UML: tagged element on the specialized class</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReceiverResponsibility">
+    <xs:annotation>
+      <xs:documentation>Identifies a possible set of actions to be taken in response to the receipt of an interaction.</xs:documentation>
+      <xs:documentation>UML: An internal state that can be entered because of the CallEvent, and the ActionSequence resulting from entering that state.</xs:documentation>
+      <!-- Todo: Enforce that any invoked interactions have an interaction-based trigger event whose interaction is the interaction this is a receiver responsibility for -->
+      <!-- Todo: Enforce rules about content of receiverResponsibility based on interactionType -->
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="reason" type="ComplexMarkupWithLanguage">
+        <xs:annotation>
+          <xs:documentation>Indicates the conditions under which this receiver responsibility should be chosen.  Should be mutually exclusive with the conditions of all other receiver responsibilities for this interaction.  Also, the combined reasons for all receiver responsibilities should be complete.  I.e. There should be no circumstance that doesn't fit into the reason of one and one receiver responsibility.</xs:documentation>
+          <xs:documentation>UML: A description of the guard conditions governing the entering of the internal state represented by this responsibility.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="invokeInteraction" type="PackageRef" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates an interaction that should be returned to the sender (or respond to) of the original interaction as an application acknowledgement.</xs:documentation>
+          <xs:documentation>UML: Indicates a CallAction as part of the ActionSequence</xs:documentation>
+          <!-- Todo: Enforce that package ref has correct type -->
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="invokeTriggerEvent" type="PackageRef" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Indicates that the specified trigger event should be fired, along with any interactions associated with that trigger event and supported by any of the receiving system's application roles.</xs:documentation>
+          <xs:documentation>UML: Indicates a TriggerEvent ActionSequence as part of the ActionSequence</xs:documentation>
+          <!-- Todo: Enforce that package ref has correct type -->
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ApplicationRole">
+    <xs:annotation>
+      <xs:documentation>Identifies the capabilities of a system or part of a system</xs:documentation>
+      <xs:documentation>UML: stereotype on Interaction</xs:documentation>
+      <!-- Todo: Question: Do we want the structured document stuff here?  Is there other stuff we want too for CCOW, services? -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageArtifact">
+        <xs:sequence>
+          <xs:element name="annotations" type="ApplicationRoleAnnotations" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Comments associated with an interaction.</xs:documentation>
+              <xs:documentation>UML: A collector for the comments and constraints associated with an interaction.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="relatedApplicationRoles" type="RelatedAppRole" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies other application roles that may form part of the current role</xs:documentation>
+              <xs:documentation>UML: Generalized interfaces and specialized interfaces</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sendsInteractions" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies all interactions for which this system can be the sender</xs:documentation>
+              <xs:documentation>UML: Operations the interface has the behavior to invoke</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="receivesInteractions" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies all interactions for which this system can be the receiver</xs:documentation>
+              <xs:documentation>UML: Operations on the interface</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="createsDocuments" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies all documents which this system can create</xs:documentation>
+              <xs:documentation>UML: 'createDocument' operation with the return type of the specified model</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="consumesDocuments" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Identifies all documents which this system can process</xs:documentation>
+              <xs:documentation>UML: 'consumeDocument' operation with the parameter type of the specified model</xs:documentation>
+              <!-- Todo: Enforce that package ref has correct type -->
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RelatedAppRole">
+    <xs:annotation>
+      <xs:documentation/>
+      <xs:documentation>UML: </xs:documentation>
+      <!-- Todo: Enforce that package ref has correct type -->
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PackageRef">
+        <xs:attribute name="relationshipType" type="ApplicationRoleRelationshipKind" use="required">
+          <xs:annotation>
+            <xs:documentation>Indicates the kind of relationship between the current application role and the referenced role</xs:documentation>
+            <xs:documentation>UML: Indicates whether the relationship is generalization or specialization</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TriggerEventAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Annotations">
+        <xs:sequence>
+          <xs:element name="documentation" type="TriggerEventDocumentation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Documentation related to the model element</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="appInfo" type="TriggerEventAppInfo" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TriggerEventDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to a trigger event.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a trigger event.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Documentation">
+        <xs:sequence>
+          <xs:group ref="Description" minOccurs="0"/>
+          <xs:group ref="UsageConstraint" minOccurs="0"/>
+          <xs:group ref="UsageNotes" minOccurs="0"/>
+          <xs:group ref="Rationale" minOccurs="0"/>
+          <xs:group ref="Requirements" minOccurs="0"/>
+          <xs:group ref="DesignComment" minOccurs="0"/>
+          <xs:group ref="StabilityRemarks" minOccurs="0"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TriggerEventAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to a trigger event.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a trigger event.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="AppInfo">
+        <xs:sequence>
+          <xs:group ref="Mapping" minOccurs="0"/>
+          <xs:group ref="OpenIssue" minOccurs="0"/>
+          <xs:group ref="BallotComment" minOccurs="0"/>
+          <xs:group ref="ChangeRequest" minOccurs="0"/>
+          <xs:group ref="DeprecationInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InteractionAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Annotations">
+        <xs:sequence>
+          <xs:element name="documentation" type="InteractionDocumentation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Documentation related to the model element</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="appInfo" type="InteractionAppInfo" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InteractionDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to an interaction.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with an interaction.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Documentation">
+        <xs:sequence>
+          <xs:group ref="Description" minOccurs="0"/>
+          <xs:group ref="UsageConstraint" minOccurs="0"/>
+          <xs:group ref="UsageNotes" minOccurs="0"/>
+          <xs:group ref="Rationale" minOccurs="0"/>
+          <xs:group ref="Requirements" minOccurs="0"/>
+          <xs:group ref="DesignComment" minOccurs="0"/>
+          <xs:group ref="StabilityRemarks" minOccurs="0"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InteractionAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to an interaction.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with an interaction.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="AppInfo">
+        <xs:sequence>
+          <xs:group ref="Mapping" minOccurs="0"/>
+          <xs:group ref="OpenIssue" minOccurs="0"/>
+          <xs:group ref="StaticExample" minOccurs="0"/>
+          <xs:group ref="BallotComment" minOccurs="0"/>
+          <xs:group ref="ChangeRequest" minOccurs="0"/>
+          <xs:group ref="DeprecationInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StructuredDocumentAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Annotations">
+        <xs:sequence>
+          <xs:element name="documentation" type="StructuredDocumentDocumentation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Documentation related to the model element</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="appInfo" type="StructuredDocumentAppInfo" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StructuredDocumentDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to a structured document.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with a structured document.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Documentation">
+        <xs:sequence>
+          <xs:group ref="Description" minOccurs="0"/>
+          <xs:group ref="UsageConstraint" minOccurs="0"/>
+          <xs:group ref="UsageNotes" minOccurs="0"/>
+          <xs:group ref="Rationale" minOccurs="0"/>
+          <xs:group ref="Requirements" minOccurs="0"/>
+          <xs:group ref="DesignComment" minOccurs="0"/>
+          <xs:group ref="StabilityRemarks" minOccurs="0"/>
+          <xs:group ref="Walkthrough" minOccurs="0"/>
+          <xs:group ref="Appendix" minOccurs="0"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StructuredDocumentAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to a structured document.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with a structured document.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="AppInfo">
+        <xs:sequence>
+          <xs:group ref="Mapping" minOccurs="0"/>
+          <xs:group ref="OpenIssue" minOccurs="0"/>
+          <xs:group ref="StaticExample" minOccurs="0"/>
+          <xs:group ref="BallotComment" minOccurs="0"/>
+          <xs:group ref="ChangeRequest" minOccurs="0"/>
+          <xs:group ref="DeprecationInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ApplicationRoleAnnotations">
+    <xs:annotation>
+      <xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+      <xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Annotations">
+        <xs:sequence>
+          <xs:element name="documentation" type="ApplicationRoleDocumentation" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Documentation related to the model element</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="appInfo" type="ApplicationRoleAppInfo" minOccurs="0">
+            <xs:annotation>
+              <xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+              <xs:documentation>UML: Component of the Annotation object</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ApplicationRoleDocumentation">
+    <xs:annotation>
+      <xs:documentation>Contains 'plain' comments relating to an interaction.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'plain' commments associated with an interaction.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="Documentation">
+        <xs:sequence>
+          <xs:group ref="Description" minOccurs="0"/>
+          <xs:group ref="UsageConstraint" minOccurs="0"/>
+          <xs:group ref="UsageNotes" minOccurs="0"/>
+          <xs:group ref="Rationale" minOccurs="0"/>
+          <xs:group ref="Requirements" minOccurs="0"/>
+          <xs:group ref="DesignComment" minOccurs="0"/>
+          <xs:group ref="StabilityRemarks" minOccurs="0"/>
+          <xs:group ref="OtherAnnotation" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ApplicationRoleAppInfo">
+    <xs:annotation>
+      <xs:documentation>Contains complex comments relating to an interaction.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+      <xs:documentation>UML: A collector for 'complex' commments associated with an interaction.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:restriction base="AppInfo">
+        <xs:sequence>
+          <xs:group ref="Mapping" minOccurs="0"/>
+          <xs:group ref="OpenIssue" minOccurs="0"/>
+          <xs:group ref="BallotComment" minOccurs="0"/>
+          <xs:group ref="ChangeRequest" minOccurs="0"/>
+          <xs:group ref="DeprecationInfo" minOccurs="0"/>
+        </xs:sequence>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

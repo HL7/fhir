@@ -1,0 +1,2485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Lloyd McKenzie (HL7) -->
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xhtml="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:mif="urn:hl7-org:v3/mif2" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:include schemaLocation="xhtml1-strict.xsd"/>
+	<xs:include schemaLocation="mif-core-base.xsd"/>
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+Revision by David Markwell, Oct 2003
+Conversion to MIF 2.0, May 2007
+(c) 2002-2008 by HL7 Inc.
+
+
+Purpose:
+	Defines concepts related to vocabulary.
+
+Designed to allow representation as multiple separate packages each containing one or more:
+	- value set
+	- vocabulary domain
+	- code system
+	Each of these sub-elements has a packageLocation allowing the individual components to be referenced and repackaged as necessary.
+
+Considerations
+- moved licensing information up to CodeSystem instead of on version to be consistent with general use of package.  The information can differentiate between versions if desired
+- dropped internalIds (not clear that they're needed in LexGrid, still have GUIDs on HistoryItem)
+- Look at adding static model bindings as derived component to vocabModel (as a future TODO)
+
+Differences from CTS for CodeSystem
+- Not capturing inUMLS
+- Not capturing supportedLanguages
+- Not capturing supportedMimeTypes
+
+Programatic rules (rules that apply but are not schema or schematron-enforced):
+	- domain/implementedByValueSet must be unique by context + relativePreference
+	- codeSystem/usesCode/relatedCode must not recurse.  (I.e. tracing path from usesCode to relatedCodes should never loop.)
+	- valueSet/referencedValueSet must not recurse.  (I.e. tracing path from valueSet to referencedValueSet should never loop.)
+	- valuesets should use 'definingExpressions' if they are drawn from 'external' code systems
+	- validation that codes exist when the CodeSystem is defined by reference
+	
+Todo: Need to figure out how to handle code systems with an unbounded number of constructed codes such as UCUM
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="vocabularyModel" type="GlobalVocabularyModel">
+		<xs:annotation>
+			<xs:documentation>Information about one or more vocabulary domains, code systems and/or value sets.</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:key name="conceptDomainNameUnique">
+			<xs:selector xpath="mif:conceptDomain"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+		<xs:key name="codeSystemName">
+			<xs:selector xpath="mif:codeSystem"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+		<xs:key name="codeSystemId">
+			<xs:selector xpath="mif:codeSystem"/>
+			<xs:field xpath="@codeSystemId"/>
+		</xs:key>
+		<xs:unique name="valueSetName">
+			<xs:selector xpath="mif:valueSet"/>
+			<xs:field xpath="@name"/>
+		</xs:unique>
+		<xs:key name="valueSetId">
+			<xs:selector xpath="mif:valueSet"/>
+			<xs:field xpath="@id"/>
+		</xs:key>
+		<xs:unique name="contextBinding">
+			<xs:selector xpath="mif:contextBinding"/>
+			<xs:field xpath="@conceptDomain"/>
+			<xs:field xpath="@valueSet"/>
+			<xs:field xpath="@bindingRealmName"/>
+			<xs:field xpath="@effectiveDate"/>
+			<xs:field xpath="@bindingPriority"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="valueSet" type="GlobalValueSet">
+		<xs:annotation>
+			<xs:documentation>Information about a value set that implements a vocabulary domain in one or more contexts.  Created to allow value sets to be maintained as separate files</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="codeSystem" type="GlobalCodeSystem">
+		<xs:annotation>
+			<xs:documentation>Information about a code system that is referenced by one or mode value sets.  Created to allow code systems to be maintained as separate files</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="codeSystemSupplement" type="GlobalCodeSystemSupplement">
+		<xs:annotation>
+			<xs:documentation>Information about an extension to a code system that is referenced by one or mode value sets.  Created to allow code system extensions to be maintained as separate files</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="GlobalVocabularyModel">
+		<xs:annotation>
+			<xs:documentation>Extends vocabulary model for use as a stand-alone XML document</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VocabularyModel">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalValueSet">
+		<xs:annotation>
+			<xs:documentation>Extends value set for use as a stand-alone XML document</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ValueSet">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalCodeSystem">
+		<xs:annotation>
+			<xs:documentation>Extends code system for use as a stand-alone XML document</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystem">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GlobalCodeSystemSupplement">
+		<xs:annotation>
+			<xs:documentation>Extends code system supplement for use as a stand-alone XML document</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystemSupplement">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VocabularyModel">
+		<xs:annotation>
+			<xs:documentation>A package containing information about the vocabulary artifacts defined by or used within a namespace realm.  May include vocabulary domains, code systems, value sets and/or runtime binding definitions.</xs:documentation>
+			<xs:documentation>UML: A stereotype on Package</xs:documentation>
+			<!-- Todo: 
+        - Assert that codeSystem and conceptDomain are only permitted for UV vocabulary or representationKind is 'Used'
+        - Assert what sorts of binding realms are allowed for the UV realm
+        - Assert that all concept domains, code systems, value sets and binding realms referenced must exist in this model or in one of the models on which this one depends
+        - Assert that runtime bindings correspond to a binding realm whose namespace realm doesn't correspond to the namespace realm of another affiliate?
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Package">
+				<xs:sequence>
+					<xs:element name="annotations" type="VocabularyModelAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the vocabulary model.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a vocabulary model.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="dependsOnVocabModel" type="ArtifactDependency" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a vocabulary model on whose contents the corrent model depends</xs:documentation>
+							<xs:documentation>UML: Identifies a package from whom elements are auto-imported</xs:documentation>
+							<!-- Todo: Enforce that dependency model is a vocab model -->
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="conceptDomain" type="ConceptDomain" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information about a vocabulary domain that constrains the value of one or more coded attributes in a static model.</xs:documentation>
+							<xs:documentation>UML: ownedElement packages within the Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codeSystem" type="CodeSystem" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information about a code system that is referenced by one or more value sets.</xs:documentation>
+							<xs:documentation>UML: ownedElement packages within the Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="valueSet" type="ValueSet" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information about a value set that implements one or more vocabulary domains in a specified context.</xs:documentation>
+							<xs:documentation>UML: ownedElement packages within the Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bindingRealm" type="BindingRealm" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A collection of binding realms relevant to this vocabulary model</xs:documentation>
+							<xs:documentation>UML: Stereotype on Enumeration</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="contextBinding" type="ContextBinding" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information about a value set that implements one or more vocabulary domains in a specified context.</xs:documentation>
+							<xs:documentation>UML: ownedElement dependencies within the Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codeTranslations" type="CodeTranslationCollection" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Captures known translations between codes from different code systems</xs:documentation>
+							<xs:documentation>UML: ownedElement dependencies within the Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codeSystemSupplement" type="CodeSystemSupplement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Information about an extension to a code system that is referenced by one or mode value sets.  Created to allow code system extensions to be maintained as separate files</xs:documentation>
+							<xs:documentation>UML: Stereotype on package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="definitionKind" type="VocabularyModelDefinitionKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies whether this rendering of the model represents a complete definition, a partial definition or merely "used vocabulary" associated with the underlying model</xs:documentation>
+						<xs:documentation>UML: Tag on VocabularyModel</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VocabularyModelAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing VocabularyModel.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a VocabularyModel.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="VocabularyModelDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the VocabularyModel</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="VocabularyModelAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the VocabularyModel which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VocabularyModelDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a VocabularyModel.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a VocabularyModel.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Appendix" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VocabularyModelAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a VocabularyModel.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a VocabularyModel.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueSetSupplement">
+		<xs:annotation>
+			<xs:documentation>Defines additional annotations on an imported value set</xs:documentation>
+			<xs:documentation>UML: No equivalent</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="VocabularyValueSetRef">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="ValueSetAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supplemental annotations about the imported value set.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a value set.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Enforce that if definition is present, it only provides translations of the base definition -->
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomain">
+		<xs:annotation>
+			<xs:documentation>Information about a vocabulary domain that constrains the semantic values of one or more coded attributes or datatype properties.</xs:documentation>
+			<xs:documentation>UML: Stereotype on package</xs:documentation>
+			<!-- Todo: Ensure that domain dependencies exists
+            Ensure that domain hierarchy is non-recursive
+            Ensure domain name is unique
+            Enforce that definition is present for concept domains when not providing a "summary" view -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="ConceptDomainAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about this vocabulary domain.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a concept domain.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="specializesDomain" type="ConceptDomainRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to another domain that is a proper superset of this domain.</xs:documentation>
+							<xs:documentation>UML: A stereotype on dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="exampleConcept" type="ShortDescriptiveName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A textual description of a concept considered to be part of the domain.  Used when domains are not bound to a universal, representative or example value set</xs:documentation>
+							<xs:documentation>UML: Tag on ConceptDomain stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="property" type="ConceptDomainProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to a property associated with the domain.</xs:documentation>
+							<xs:documentation>UML: A stereotype on dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="specializedByDomain" type="ConceptDomainRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A reference to another domain that is a proper subset of this domain.</xs:documentation>
+							<xs:documentation>UML: A stereotype on dependency</xs:documentation>
+							<xs:documentation>Derive: Todo</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="FormalProperName" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique name of the concept domain</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isBindable" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Indicates whether this domain can be bound to a value-set as part of a context binding.  If false, the domain can't be bound directly, though specializations might be bound.  Direct substitution with valuesets in derived static models is still possible.</xs:documentation>
+						<xs:documentation>UML: tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomainAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing ConceptDomain.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a ConceptDomain.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ConceptDomainDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the ConceptDomain</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: Enforce that this is required when not dealing with a "lite" model -->
+					</xs:element>
+					<xs:element name="appInfo" type="ConceptDomainAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the ConceptDomain which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomainDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a ConceptDomain.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a ConceptDomain.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Definition"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomainAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a ConceptDomain.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a ConceptDomain.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomainProperty">
+		<xs:annotation>
+			<xs:documentation>A property of a concept domain expressed as a coded name with an associated value.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			<!-- Todo: ensure propertyName is unique within a code -->
+		</xs:annotation>
+		<xs:attribute name="name" type="ConceptDomainPropertyKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the property being specified</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="LongDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the value of the property for this concept domain</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Properties to capture include:
+      - ActClassCode - FormalName, ActCodeDomain
+      - EntityClassCode - FormalName, EntityCodeDomain
+      - RoleClassCode - FormalName, RoleCodeDomain, PlayerEntityRolePrefix, PlayerRoleEntityPrefix, scoperEntityRolePrefix, scoperRoleEntityPrefix
+      - ActRelationship - sourceNamePrefix, targetNamePrefix, isTransitive, isCommutative, isReflexive, . . .
+      - RoleLink - sourceNamePrefix, targetNamePrefix, isTransitive, isCommutative, isReflexive, . . .
+      - Participation - sourceNamePrefix, targetNamePrefix
+      -->
+	</xs:complexType>
+	<xs:complexType name="CodeSystemBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Information about a code system or code system supplement</xs:documentation>
+			<xs:documentation>UML: A stereotype of Package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="header" type="Header" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>General metadata information about the package</xs:documentation>
+							<xs:documentation>UML: complex tag value on Package stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="annotations" type="CodeSystemAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the code system.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a code system.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="propertyGroup" type="PropertyGroup" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Defines a group of properties and their values that commonly appear together to simplify serialization of code systems by minimizing repetition of property values</xs:documentation>
+							<xs:documentation>UML: N/A.  Purely a serialization shortcut</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="title" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name for the package in circumstances where the 'name' is more of an identifier.</xs:documentation>
+						<xs:documentation>UML: title tag on Package stereotype</xs:documentation>
+						<xs:documentation>DublinCore: Equivalent to 'title'</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="codeSystemId" type="Oid" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique OID by which the code system is identified within HL7 message instances</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="approxCodeCount" type="SmallNonNegativeInteger" use="optional">
+					<xs:annotation>
+						<xs:documentation>An estimate (order of magnitude only) of the number of codes in a code system.  Used for quick determination of how best to display or navigate the codes.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="primaryLanguage" type="xs:language" use="optional">
+					<xs:annotation>
+						<xs:documentation>The language in which the code system is primarily maintained.  This is the language from which other values were translated.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="primaryRealm" type="RealmKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>The realm in which the code system is primarily maintained.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="hasSynonymy" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that some concepts have more than one code.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="hasHomonymy" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that some codes exist for more than one concept.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isCaseSensitive" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>If false, indicates comparisons to codes are independent of whether characters are upper-case or lower-case.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isWhitespaceSensitive" type="xs:boolean" use="optional">
+					<xs:annotation>
+						<xs:documentation>If false, indicates that whitespace may be ignored when comparing codes.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing CodeSystem.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a CodeSystem.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="CodeSystemDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the CodeSystem</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="CodeSystemAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the CodeSystem which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a CodeSystem.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a CodeSystem.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Appendix" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a CodeSystem.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a CodeSystem.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PropertyGroup">
+		<xs:annotation>
+			<xs:documentation>Defines a group of properties and their values that commonly appear together to simplify serialization of code systems by minimizing repetition of property values</xs:documentation>
+			<xs:documentation>UML: N/A.  Purely a serialization shortcut</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="property" type="ConceptProperty" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates a property and value that forms part of the group</xs:documentation>
+					<xs:documentation>UML: N/A.  Purely a serialization shortcut</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the group so it can be referenced</xs:documentation>
+				<xs:documentation>UML: N/A.  Purely a serialization shortcut</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CodeSystem">
+		<xs:annotation>
+			<xs:documentation>Information about a code system that has been registered for potential use by HL7</xs:documentation>
+			<xs:documentation>UML: A stereotype of Package</xs:documentation>
+			<!-- Todo:
+        - Ensure that codeSystem name and id are unique
+        -->
+			<!--
+        - Note: "inUMLS" is not supported as the decision was that UMLS is no more important than any other code system.  The mapping construct can be used to check whether a corresponding UMLS concept exists for any given concept.
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystemBase">
+				<xs:sequence>
+					<xs:element name="releasedVersion" type="CodeSystemVersion" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a particular release associated with the code system.</xs:documentation>
+							<xs:documentation>UML: A package contained within the current package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersionAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing CodeSystemVersion.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a CodeSystemVersion.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="CodeSystemVersionDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the CodeSystemVersion</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="CodeSystemVersionAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the CodeSystemVersion which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersionDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a CodeSystemVersion.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a CodeSystemVersion.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersionAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a CodeSystemVersion.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a CodeSystemVersion.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TerminologyServer">
+		<xs:annotation>
+			<xs:documentation>Defines information about a specific terminology server</xs:documentation>
+			<xs:documentation>UML: Part of complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="url" type="Uri" use="required">
+			<xs:annotation>
+				<xs:documentation>The web address at which the server can be found</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="TerminologyServerKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the representation of the terminology exposed at the URL</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersionBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Identifies a specific published version of a code system or code system supplement</xs:documentation>
+			<xs:documentation>UML: A stereotype on Enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:element name="annotations" type="CodeSystemVersionAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the code system version.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a code system version.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="publicTerminologyServer" type="TerminologyServer" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Reference to an external server able to access the contents of this code system.</xs:documentation>
+							<xs:documentation>UML: Tag on CodeSystem stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supportedLanguage" type="xs:language" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates one of the languages supported by the specified value-set (a language for which print names for all included concepts is available.)</xs:documentation>
+							<xs:documentation>Derived: Find the codes referenced that all have printNames for a given language.</xs:documentation>
+							<xs:documentation>UML: Tag on stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="releaseDate" type="xs:date" use="required">
+					<xs:annotation>
+						<xs:documentation>The date on which this particular version of the code system was published, as recognized by HL7.</xs:documentation>
+						<xs:documentation>UML: Corresponds to the 'name' of this ModelElement.  (It's what uniquely defines the code system version within the code system package.)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="hl7ApprovedIndicator" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the code system version has been approved for use in HL7.  Reasons for lack of approval should be captured in an annotation.  Non-endorsed code systems should not be used in HL7 bindings.</xs:documentation>
+						<xs:documentation>UML: Tag on Code System Version stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="hl7MaintainedIndicator" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies whether HL7 international or an HL7 affiliate has responsibility for maintaining the code system version</xs:documentation>
+						<xs:documentation>UML: Tag on Code System Version stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="publisherVersionId" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Version included here as version id of external code system</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersion">
+		<xs:annotation>
+			<xs:documentation>Identifies a specific published version of a code system</xs:documentation>
+			<xs:documentation>UML: A stereotype on Enumeration</xs:documentation>
+			<!-- Todo: 
+        - Enforce that completeCodesIndicator must be true if hl7MaintainedIndicator is true
+        - Ensure that relationships, properties and URIs are unique for code system
+        - ensure concept code is unique, including synonyms
+        - ensure print names are unique by language
+        - ensure release date and publisher version id is unique across code system versions
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystemVersionBase">
+				<xs:sequence>
+					<xs:element name="supportedConceptRelationship" type="SupportedConceptRelationship" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of relationship between codes that is supported by this code system versionontaining coded concept and another concep.</xs:documentation>
+							<xs:documentation>UML: Identifies dependencies allowed for components of this package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supportedConceptProperty" type="SupportedConceptProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of supplemental property that may/must be associated with a code system concept.</xs:documentation>
+							<xs:documentation>UML: Tag on CodeSystem stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supportedCodeProperty" type="SupportedProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of supplemental property that may/must be associated with a code system code.</xs:documentation>
+							<xs:documentation>UML: Tag on CodeSystem stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="concept" type="Concept" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A single encoded concept that is represented in the code system</xs:documentation>
+							<xs:documentation>UML: Complex grouper.  (Not sure how to put something between enumeration and its enumeration items</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="completeCodesIndicator" type="xs:boolean" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the complete set of codes are documented here or whether the listed codes represent only a partial set (those relevant to HL7 or presented as a representative subset)</xs:documentation>
+						<xs:documentation>UML: Tag on Code System Version stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+			<!--        <xs:attribute name="internalId" type="Uuid" use="optional"/>-->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SupportedConceptRelationship">
+		<xs:annotation>
+			<xs:documentation>A type of concept relationship supported by the containing code system.</xs:documentation>
+			<xs:documentation>Identifies an allowed kind of dependency between enumeration literals</xs:documentation>
+			<!-- Todo: Ensure that name is unique within a code system
+         - Ensure that name and target code are unique for a given code
+         - Ensure that source and target constraints are drawn from the same code system for which the concept relationship is defined
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xhtml:Inline">
+				<xs:annotation>
+					<xs:documentation>Describes how the relationship is intended to be used and what it's for</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="allowedForSources" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If present, indicates that only codes within the defined value set are allowed to be the source of this type of relationship</xs:documentation>
+					<xs:documentation>UML: Tag on SupportedRelationship dependency stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="allowedForTargets" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If present, indicates that only codes within the defined value set are allowed to be the target of this type of relationship</xs:documentation>
+					<xs:documentation>UML: Tag on SupportedRelationship dependency stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requiredForSources" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If present, indicates that codes meeting the requirements of this value set specification must be the source of a relationship of this type to be valid</xs:documentation>
+					<xs:documentation>UML: Tag on SupportedRelationship dependency stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="requiredForTargets" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>If present, indicates that codes meeting the requirements of this value set specification must be the target of a relationship of this type to be valid</xs:documentation>
+					<xs:documentation>UML: Tag on SupportedRelationship dependency stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supportedProperty" type="SupportedProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation/>
+					<xs:documentation>UML: Tag on SupportedRelationship dependency stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="definingConcept" type="ConceptRef" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the concept within the vocabulary that is considered to define this particular relationship</xs:documentation>
+					<xs:documentation>UML: Supplier dependency for the relationship</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="relationshipKind" type="ConceptRelationshipKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the stereotypical behavior associated with the relationship</xs:documentation>
+				<xs:documentation>UML: tag on SupportedRelationship dependency stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="FormalProperName" use="required">
+			<xs:annotation>
+				<xs:documentation>The label for the specific type of concept relationship supported by the code system</xs:documentation>
+				<xs:documentation>UML: Dependency.name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="inverseName" type="FormalProperName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the relationship that references the inverse of the current relationship.  Allows linking a relationship and its derived inverse.</xs:documentation>
+				<xs:documentation>UML: Dependency.name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>A unique identifier within the code system for this particular relationship type</xs:documentation>
+				<xs:documentation>UML: Tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isNavigable" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>Indicates whether the relationship is intended to be navigated when selecting a code.</xs:documentation>
+				<xs:documentation>UML: Tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="functionalism" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates whether codes are limited to only one out-going relationship (functional), only one incoming relationship (reverse-functional) or both.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="reflexivity" type="Reflexivity" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates if the association always holds for a concept with itself (refexive), never holds for a concept with itself (irreflexive)</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="symmetry" type="Symmetry" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates if the relationship always holds in the reverse direction as well (symetric), never holds in the reverse direction as well (antisymetric)</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="transitivity" type="Transitivity" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates whether the relationship always (transitive) or never (antitransitive) propagates such that if the association exists from A to B and from B to C that the relationship can be inferred to exist from A to C.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:simpleType name="Functionalism">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="functional"/>
+			<xs:enumeration value="reverse-functional"/>
+			<xs:enumeration value="functional-reverse-functional"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Reflexivity">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="reflexive"/>
+			<xs:enumeration value="irreflexive"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Symmetry">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="symmetric"/>
+			<xs:enumeration value="antisymmetric"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Transitivity">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="transitive"/>
+			<xs:enumeration value="antitransitive"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="SupportedProperty">
+		<xs:annotation>
+			<xs:documentation>A type of concept property supported both by the containing code system either for concepts or for codes.</xs:documentation>
+			<xs:documentation>UML: A tag on the CodeSystem stereotype</xs:documentation>
+			<!-- Todo: ensure property names are unique
+        - ensure that enumeration values are present (and only present) when type is Enumeration
+        - ensure that all codes, including synonyms are unique in code system
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xhtml:Inline">
+				<xs:annotation>
+					<xs:documentation>Describes how the property is intended to be used and what it's for</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="enumerationValue" type="EnumerationToken" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies the allowed values for a property with a type of 'Enumeration'</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="propertyName" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies what sort of relationship is supported</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="type" type="ConceptPropertyTypeKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the allowed content type for the property</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isMandatoryIndicator" type="xs:boolean" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies whether the property must be specified for all concepts within the code system</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="defaultValue" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the default value for the property if it is not specified.  (The interpretation of whether a default applies depends on the value of defaultHandlingCode for concepts.  For codes, the default simply applies to all codes independent of hierarchy.)</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="SupportedConceptProperty">
+		<xs:annotation>
+			<xs:documentation>A type of concept property supported by the containing code system for concepts.</xs:documentation>
+			<xs:documentation>UML: A tag on the CodeSystem stereotype</xs:documentation>
+			<!-- Todo: ensure property names are unique
+        - ensure that enumeration values are present (and only present) when type is Enumeration
+        - ensure that all codes, including synonyms are unique in code system
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="SupportedProperty">
+				<xs:attribute name="applyToValueSetsIndicator" type="xs:boolean" use="optional" default="false">
+					<xs:annotation>
+						<xs:documentation>Identifies whether the property may be (or must be - for mandatory properties) specified by non-codeBasedContent value sets whose entire content is drawn from this code system</xs:documentation>
+						<xs:documentation>UML: Part of complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="defaultHandlingCode" type="PropertyDefaultHandlingKind" use="optional" default="Flat">
+					<xs:annotation>
+						<xs:documentation>Indicates whether a property value should default based on properties specified further up the subsumption hierarchy, or whether they should always default to the defaultValue specified for the property definition.</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemRef">
+		<xs:annotation>
+			<xs:documentation>Reference to a coding system including its package location and OID.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="oid" type="Oid" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="ConceptBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>A single concept or supplemental information-therefore represented in the containing code system.</xs:documentation>
+			<xs:documentation>UML: A grouping of enumeration items within a broader enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="historyItem" type="HistoryItem" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Tracking information about previous versions of this concept.</xs:documentation>
+					<xs:documentation>UML: Tag on CodedConcept</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="effectiveDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the first date on which the concept is expected to be used.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Concept">
+		<xs:annotation>
+			<xs:documentation>A single concept represented in the containing code system.</xs:documentation>
+			<xs:documentation>UML: A grouping of enumeration items within a broader enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ConceptBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ConceptAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the coded concept.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a coded concept.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="intendedUse" type="ConceptUse" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates how the concept is intended to be used.</xs:documentation>
+							<xs:documentation>UML: Tag on CodedConcept</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="conceptRelationship" type="ConceptRelationship" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A relationship between this concept and another coded concept in the same code system.</xs:documentation>
+							<xs:documentation>UML: Dependency between two Concept Code stereotypes</xs:documentation>
+							<!-- Todo: Enforce that definitional concept relationships never include NonDefinitionalQualifiers -->
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="conceptProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>An additional property of the concept expressed as a coded name with an associated value.</xs:documentation>
+							<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="printName" type="PrintName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Preferred and alternative print names for this concept that are independent of code in a specified language.</xs:documentation>
+							<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="code" type="ConceptCode" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the codes that may be used to represent the concept</xs:documentation>
+							<xs:documentation>UML: enumeration items within the code system</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="isSelectable" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>If true, indicates that the concept is intended for use in communication.  If false, indicates that the concept is NOT intended for use in communication, but rather only exists for semantic or navigational purposes.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="propertyGroup" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>A reference to a pre-defined group of property values that apply to this concept</xs:documentation>
+						<xs:documentation>UML: N/A - this is a serialization shortcut</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+			<!-- Todo:
+          - Ensure relationships and properties are unique within the code
+          -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing Concept.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a Concept.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ConceptDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the Concept</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ConceptAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the Concept which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a Concept.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a Concept.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Definition"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a Concept.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a Concept.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptUse">
+		<xs:annotation>
+			<xs:documentation>One of the possible uses for a concept</xs:documentation>
+			<xs:documentation>UML: Tag on stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="value" type="ConceptUseKind" use="required">
+			<xs:annotation>
+				<xs:documentation>One of the possible uses for a concept</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ConceptProperty">
+		<xs:annotation>
+			<xs:documentation>A property of a concept expressed as a coded name with an associated value.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			<!-- Todo: ensure propertyName is unique within a code -->
+		</xs:annotation>
+		<xs:attribute name="name" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the property being specified</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="LongDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the value of the property for this specific code system</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Properties to capture include:
+      - ActClassCode - FormalName, ActCodeDomain
+      - EntityClassCode - FormalName, EntityCodeDomain
+      - RoleClassCode - FormalName, RoleCodeDomain, PlayerEntityRolePrefix, PlayerRoleEntityPrefix, scoperEntityRolePrefix, scoperRoleEntityPrefix
+      - ActRelationship - sourceNamePrefix, targetNamePrefix, isTransitive, isCommutative, isReflexive, . . .
+      - RoleLink - sourceNamePrefix, targetNamePrefix, isTransitive, isCommutative, isReflexive, . . .
+      - Participation - sourceNamePrefix, targetNamePrefix
+      -->
+	</xs:complexType>
+	<xs:complexType name="ConceptRelationship">
+		<xs:annotation>
+			<xs:documentation>A relationship between the containing coded concept and another concept in the same or another code system.</xs:documentation>
+			<xs:documentation>UML: Stereotype on dependency between two codes</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="property" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A property associated with this particular relationship.  (E.g. multiplier for UCUM)</xs:documentation>
+					<xs:documentation>UML: Complex tag on stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="targetConcept" type="ConceptRef">
+				<xs:annotation>
+					<xs:documentation>Identifies the concept to which the relationship is being asserted</xs:documentation>
+					<xs:documentation>UML: Identifies the client of the dependency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="relationshipName" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies what kind of relationship is being asserte</xs:documentation>
+				<xs:documentation>UML: Specialization of the dependency stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isDerived" type="xs:boolean" use="optional" default="false">
+			<xs:annotation>
+				<xs:documentation>If true, indicates that the relationship is derivable by a corresponding reverse relationship from the relationship target.  Derived relations may be included for publishing or processing efficiency purposes but should not be present in definitional packages</xs:documentation>
+				<xs:documentation>UML: Complex tag on dependency stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ConceptRef">
+		<xs:annotation>
+			<xs:documentation>Used to reference one concept from another</xs:documentation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="codeProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates a property the code must have to be considered a match for the reference.  Used when a code system has homonymy and the code value alone is not sufficient to reference the concept.  If multiple code properties are specified, all must be true to be considered a match.</xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<!-- Todo: Explore whether codeProperty is enough to always provide uniqueness.  If not, we may need to add relationship as well -->
+		</xs:sequence>
+		<xs:attribute name="code" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies one of the codes associated with the concept being referenced</xs:documentation>
+				<xs:documentation>UML: Identifies the client of the dependency</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="codeSystem" type="Oid" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the code system of the code associated with the concept.  If not present, the code system is assumed to be the code system within which the reference occurs</xs:documentation>
+				<xs:documentation>UML: Identifies the package of the client of the dependency</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ConceptCode">
+		<xs:annotation>
+			<xs:documentation>A specific code or mnemonic that is part of a code system</xs:documentation>
+			<xs:documentation>UML: EnumerationItem</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="printName" type="PrintName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Preferred and alternative print names for this particular code in a specified language.</xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="codeProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional property of the concept expressed as a coded name with an associated value.</xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="code" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The mnemonic or id of the code that is supported by the code system.</xs:documentation>
+				<xs:documentation>UML: Corresponds to EnumerationItem.name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="effectiveDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the first date on which the code is expected to be used.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="retirementDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the last date on which the code is considered valid to be used.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="status" type="CodeStatusKind" default="active">
+			<xs:annotation>
+				<xs:documentation>Indicates whether the concept is intended to be currently used.</xs:documentation>
+				<xs:documentation>UML: Tag on stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="propertyGroup" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>A reference to a pre-defined group of property values that apply to this code</xs:documentation>
+				<xs:documentation>UML: N/A - this is a serialization shortcut</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PrintName">
+		<xs:annotation>
+			<xs:documentation>A preferred or alternative designation for a concept in a specified language.</xs:documentation>
+			<xs:documentation>UML: Complex tag on Concept Code stereotype</xs:documentation>
+			<!-- Todo - enforce that only one preferred for language
+        - Enforce that printName + language is unique
+        - Enforce that either the text of the name or the icon for the name is present, but not both
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="icon" type="CodeIcon" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Communicates an icon representation of the code </xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="language" type="xs:language" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the language in which the print name is expressed</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="preferredForLanguage" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>Identifies whether this is the preferred print name for the specified language</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="text" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The text representation of the print name</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CodeIcon">
+		<xs:annotation>
+			<xs:documentation>Represents a single icon representation of a code</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="content" type="xs:anyType">
+				<xs:annotation>
+					<xs:documentation>The SVG or mime-encoded other format of the actual icon</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="IconFormatKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the format in which the image is being conveyed</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemSupplement">
+		<xs:annotation>
+			<xs:documentation>Defines a set of extensions to the semantics of an existing code system created by someone other than the author of the code system</xs:documentation>
+			<xs:documentation>UML: A stereotype of Package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystemBase">
+				<xs:sequence>
+					<xs:element name="codeSystemVersionSupplement" type="CodeSystemVersionSupplement" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies extensions to a particular release associated with the code system.</xs:documentation>
+							<xs:documentation>UML: A package contained within the current package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="SupplementId" type="Oid" use="required">
+					<xs:annotation>
+						<xs:documentation>The identifier for the extension</xs:documentation>
+						<xs:documentation>UML: Package.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSystemVersionSupplement">
+		<xs:annotation>
+			<xs:documentation>Identifies a specific published version of a code system supplement</xs:documentation>
+			<xs:documentation>UML: A stereotype on Package</xs:documentation>
+			<!-- Todo: 
+        - ensure that all referenced codes exist in the referenced code system
+        - ensure that supplements don't duplicate or conflict (e.g. multiple outgoing functional relationships of the same type) with what's in the base code system
+        - ensure that all uniqueness and other constraints work when code system and supplement are combined
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CodeSystemVersionBase">
+				<xs:sequence>
+					<xs:element name="supplementalSupportedConceptRelationship" type="SupportedConceptRelationship" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of supplemental relationship between codes that is supported by this code system version.</xs:documentation>
+							<xs:documentation>UML: Identifies dependencies allowed for components of this package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supplementalSupportedConceptProperty" type="SupportedProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of supplemental property that may/must be associated with a code system concept.</xs:documentation>
+							<xs:documentation>UML: Tag on CodeSystem stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supplementalSupportedCodeProperty" type="SupportedProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a type of supplemental property that may/must be associated with a code system code.</xs:documentation>
+							<xs:documentation>UML: Tag on CodeSystem stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="conceptSupplement" type="ConceptSupplement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A supplement to single encoded concept that is represented in the code system</xs:documentation>
+							<xs:documentation>UML: Complex grouper.  (Not sure how to put something between enumeration and its enumeration items)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="appliesToReleaseDate" type="xs:date" use="required">
+					<xs:annotation>
+						<xs:documentation>The date on which the particular version of the code system being supplemented was published, as recognized by HL7.</xs:documentation>
+						<xs:documentation>UML: Corresponds to the 'name' of this ModelElement.  (It's what uniquely defines the code system version within the code system package.)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptSupplement">
+		<xs:annotation>
+			<xs:documentation>An extension to a single concept represented in the referenced code system.</xs:documentation>
+			<xs:documentation>UML: A grouping of tags to an existing enumeration items within a broader enumeration</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ConceptBase">
+				<xs:sequence>
+					<xs:element name="annotations" type="ConceptSupplementAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the coded concept.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a coded concept.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supplementalConceptRelationship" type="ConceptRelationship" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>An additional relationship between this concept and another coded concept in the same code system.</xs:documentation>
+							<xs:documentation>UML: Dependency between two Concept Code stereotypes</xs:documentation>
+							<!-- Todo: Enforce that definitional concept relationships never include NonDefinitionalQualifiers -->
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supplementalConceptProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>An additional property of the concept expressed as a coded name with an associated value.</xs:documentation>
+							<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="printName" type="PrintName" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Preferred and alternative print names for this concept that are independent of code in a specified language.</xs:documentation>
+							<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="codeSupplement" type="CodeSupplement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies supplements to the codes that may be used to represent the concept</xs:documentation>
+							<xs:documentation>UML: enumeration items within the code system</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="code" type="ShortDescriptiveName" use="required">
+					<xs:annotation>
+						<xs:documentation>Specifies one of the codes for the concept in the code system, allowing the concept to be referenced.</xs:documentation>
+						<xs:documentation>UML: Tag on stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+			<!-- Todo:
+          - Ensure relationships and properties are unique within the code
+          -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptSupplementAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing ConceptSupplement.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a ConceptSupplement.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ConceptSupplementDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the ConceptSupplement</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ConceptSupplementAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the ConceptSupplement which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptSupplementDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a ConceptSupplement.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a ConceptSupplement.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ConceptSupplementAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a ConceptSupplement.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a ConceptSupplement.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeSupplement">
+		<xs:annotation>
+			<xs:documentation>A supplement to a specific code or mnemonic that is part of a code system</xs:documentation>
+			<xs:documentation>UML: EnumerationItem</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="printName" type="PrintName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<!-- Ensure that there aren't more than one print names that are preferred for a given language for a given concept -->
+					<xs:documentation>Additional alternative print names for this particular code in a specified language.</xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="supplementalCodeProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An additional property of the concept expressed as a coded name with an associated value.</xs:documentation>
+					<xs:documentation>UML: tag on Concept Code stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="code" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The mnemonic or id of the code being supplemented.</xs:documentation>
+				<xs:documentation>UML: Corresponds to EnumerationItem.name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ValueSet">
+		<xs:annotation>
+			<xs:documentation>Information about a value set that drawn from one or more code systems.</xs:documentation>
+			<xs:documentation>UML: A stereotype on Package</xs:documentation>
+			<!--
+        - Ensure valueSetId and name are unique across all valuesets
+        - Ensure valueset version is unique within a valueset
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="annotations" type="ValueSetAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about this value set.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a Value Set.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="version" type="ValueSetVersion" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a specific version of the value set</xs:documentation>
+							<xs:documentation>UML: A contained package within the ValueSet stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="id" type="Oid" use="required">
+					<xs:annotation>
+						<xs:documentation>A unique identifier for the value-set.</xs:documentation>
+						<xs:documentation>UML: Corresponds to Package.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isImmutable" type="xs:boolean" use="optional" default="false">
+					<xs:annotation>
+						<xs:documentation>Indicates that the value set cannot be revised</xs:documentation>
+						<xs:documentation>UML: Tag on ValueSet stereotype</xs:documentation>
+					</xs:annotation>
+					<!-- TODO: If isImmutable = true, there can only be one valueSetVersion -->
+				</xs:attribute>
+				<xs:attribute name="name" type="LongDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>A unique descriptive name for the value set</xs:documentation>
+						<xs:documentation>UML: Tag on ValueSet stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+			<!--        <xs:attribute name="isTaxonomicSet" type="xs:boolean" use="optional" default="true"/>
+        <xs:attribute name="internalId" type="Uuid" use="optional"/>-->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueSetAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing ValueSet.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a ValueSet.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ValueSetDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the ValueSet</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ValueSetAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the ValueSet which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueSetDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a ValueSet.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a ValueSet.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueSetAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a ValueSet.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a ValueSet.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ValueSetVersion">
+		<xs:annotation>
+			<xs:documentation>Identifes a specific version of a given value set</xs:documentation>
+			<xs:documentation>UML: Stereotype on Package</xs:documentation>
+			<!--
+        - Ensure the code system for each content is unique
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:element name="usesCodeSystemSupplement" type="Oid" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Lists code system extensions used by this value-set</xs:documentation>
+							<xs:documentation>UML: packages that have elements imported into this package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supportedCodeSystem" type="Oid" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Lists code systems used by this value-set</xs:documentation>
+							<xs:documentation>UML: packages that have elements imported into this package</xs:documentation>
+							<xs:documentation>Derived: Extract the list of code systems referenced by content</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="supportedLanguage" type="xs:language" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Lists languages fully supported (print names for all concepts exist in the language) used by this value-set</xs:documentation>
+							<xs:documentation>UML: Tag on stereotype</xs:documentation>
+							<xs:documentation>Derived: Extract the list of languages that have print names for all concepts</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="associatedConceptProperty" type="ConceptProperty" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Concept Properties that are associated with this Value Set Version because the property is DECLARED as value-set associatable by the Code System from which this value set draws its enumerated content.</xs:documentation>
+							<xs:documentation>UML: Tag on stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="content" type="ContentDefinition">
+						<xs:annotation>
+							<xs:documentation>Defines the codes from a given code system allowed as part of the value set version</xs:documentation>
+							<xs:documentation>UML: Identifies what EnumerationItems should be imported into this Package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nonSelectableContent" type="ContentDefinition" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>If present, overrides the default "selectable" characteristic of the codes defined by 'content' such that all codes are selectable with the exception of those found within this value-set.</xs:documentation>
+							<xs:documentation>UML: Tag on stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!-- Todo: Need to add some ability to define sort orders for navigation of codes, particularly when drawn from multiple code systems -->
+					<!--          <xs:element name="constrainedCodeDisplays" type="ConstrainedCodeDisplay" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Asserts constraints on what print names and/or icons are supported</xs:documentation>
+              <xs:documentation>UML: Tag on stereotype</xs:documentation>
+            </xs:annotation>
+          </xs:element>-->
+					<xs:element name="enumeratedContent" type="VocabularyCodeRefs" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Provides an explicit enumeration of the codes from a given code system associated with the value set version based on its definition</xs:documentation>
+							<xs:documentation>UML: Identifies what EnumerationItems have been imported into this Package</xs:documentation>
+							<xs:documentation>Derive: Todo - explicit enumeration of all codes in this value set version based on the expressions within 'content'</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="exampleContent" type="VocabularyCodeRefs" minOccurs="0">
+						<xs:annotation>
+							<!-- Todo: Add a constraint that a the exampleContent must be a subset of content and must be an enumerated list of codes -->
+							<xs:documentation>A subset of the content of the value-set for publication purposes to provide an example of the codes available in the value-set</xs:documentation>
+							<xs:documentation>UML: Tag on complex stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="versionDate" type="xs:date" use="required">
+					<xs:annotation>
+						<xs:documentation>The date on which this particular value set version came into being</xs:documentation>
+						<xs:documentation>UML: Corresponds to Package.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="versionTime" type="xs:time" default="00:00:00">
+					<xs:annotation>
+						<xs:documentation>The time on which this particular value set version came into being.  Only needed when multiple versions of a value-set are created on a given day.</xs:documentation>
+						<xs:documentation>UML: Corresponds to Package.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VocabularyCodeRefs">
+		<xs:annotation>
+			<xs:documentation>Represents an enumeration of codes from a valueset</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="code" type="VocabularyCodeRef" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Represents a single sample code</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Represents a value set built up of the inclusion, exclusion and/or union of multiple other value sets.  If no constraints are specified, then the content is the complete set of codes in the referenced code system.</xs:documentation>
+			<xs:documentation>UML: Defines the code enumerations imported into this package</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="annotations" type="ContentDefinitionAnnotations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Descriptive information about the content definition.</xs:documentation>
+					<xs:documentation>UML: A collector for the comments and constraints associated with a vocabulary model.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice minOccurs="0">
+				<xs:element name="combinedContent" type="CombinedContentDefinition">
+					<xs:annotation>
+						<xs:documentation>Content derived from multiple other value sets</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codeBasedContent" type="CodeBasedContentDefinition" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Content based on a code and its related codes</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+						<!-- Todo: Enforce that codeSystem is defined for this content definition or an ancestor contentDefinition -->
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="propertyBasedContent" type="PropertyBasedContentDefinition">
+					<xs:annotation>
+						<xs:documentation>Content derived through constraints on the properties of allowed codes</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+						<!-- Todo: Enforce that codeSystem is defined for this content definition or an ancestor contentDefinition -->
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="codeFilterContent" type="CodeFilterContentDefinition">
+					<xs:annotation>
+						<xs:documentation>Content derived through explic filters on code mnemonics</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+						<!-- Todo: Enforce that codeSystem is defined for this content definition or an ancestor contentDefinition -->
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="nonComputableContent" type="NonComputableContentDefinition">
+					<xs:annotation>
+						<xs:documentation>Defines a value-set in a non-computable manner (or at least a manner that is not supported by MIF representation).  This may include free-hand descriptions, pseudo-expressions or even formal expressions against some local terminology data model.  NOTE: It is an error for structural domains and attributes to be bound to a value-set with non-computable content.</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="valueSetRef" type="VocabularyValueSetRef">
+					<xs:annotation>
+						<xs:documentation>Content imported from another value set reference</xs:documentation>
+						<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="allowedQualifiers" type="RelationshipBasedContentDefinition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies any constraints on qualifiers for codes associated with this value-set.  (The default set of qualifiers is all of those supported by the code system.  Presence of this element reduces those allowed to only those allowed by the value-set, though rules about what qualifiers apply for which codes are still valid.)</xs:documentation>
+					<xs:documentation>UML: Tag on complex stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="prohibitedQualifiers" type="RelationshipBasedContentDefinition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies any constraints on qualifiers for codes associated with this value-set.  (The default set of qualifiers is all of those supported by the code system.  Presence of this element reduces those allowed to only those allowed by the value-set, though rules about what qualifiers apply for which codes are still valid.)</xs:documentation>
+					<xs:documentation>UML: Tag on complex stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="codeSystem" type="Oid" use="optional">
+			<xs:annotation>
+				<xs:documentation>The code system from which the codes are drawn.</xs:documentation>
+				<xs:documentation>UML: References the package from which the EnumerationItems should be imported</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="versionDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>If present, identifies the code system version from which the codes are drawn.  If not specified, the current version of the code system is assumed.</xs:documentation>
+				<xs:documentation>UML: References the package from which the EnumerationItems should be imported</xs:documentation>
+				<!-- Todo: Enforce that versionDate is only present if codeSystem is present -->
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="areBaseQualifiersUnlimited" type="xs:boolean" default="false">
+			<xs:annotation>
+				<xs:documentation>If true, indicates that there are no constraints on qualifiers.  If false, only those qualifiers found in allowedQualifiers and not found in prohibitedQualifiers are permitted.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Todo: Enforce that allowedQualifiers are only allowed if areQualifiersUnlimited is false -->
+	</xs:complexType>
+	<xs:complexType name="ContentDefinitionAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing ContentDefinition.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a ContentDefinition.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ContentDefinitionDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the ContentDefinition</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ContentDefinitionAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the ContentDefinition which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContentDefinitionDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a ContentDefinition.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a ContentDefinition.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContentDefinitionAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a ContentDefinition.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a ContentDefinition.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CombinedContentDefinition">
+		<xs:annotation>
+			<xs:documentation/>
+			<xs:documentation>UML: Defines the code enumerations imported into this package</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="unionWithContent" type="ContentDefinition" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies that the referenced content definitions are all considered to be part of this content definition</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="intersectionWithContent" type="ContentDefinition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates that the overall content definition should be considered to be the combination of all "unioned" value sets intersected with each of the 'intersection with' content definitions</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="excludeContent" type="ContentDefinition" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies codes that should be removed from the set of codes resulting from the previous unions and intersections</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<!-- Has to contain at least one of includes, excludes and unionOf -->
+	</xs:complexType>
+	<xs:complexType name="CodeBasedContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Identifies a specific code to include, possibly with related codes</xs:documentation>
+			<xs:documentation>UML: Defines the code enumerations imported into this package</xs:documentation>
+			<!-- Todo:
+        - includeHeadCode must be true if there are no includeRelatedCodes
+        - Ensure relatedCode relationship types are legal for the code system
+        - Ensure the referenced code exists in the code system version
+        - Ensure that you have either headCodes or code, but not both
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="headCodes" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Defines the "set" of codes for which related codes should be included.  May only appear (and must appear) if "code" does not appear.  Used when you want to walk a particular relationship type from a whole group of codes rather than just a single code.</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeRelatedCodes" type="IncludeRelatedCodes" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies relationship types from the current code to other codes that should also be included</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="includeHeadCode" type="xs:boolean" use="optional" default="true">
+			<xs:annotation>
+				<xs:documentation>If true, the specified code should be included, if false, only related codes should be included</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="code" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the specific code to be included in the value set.  Note: Codes for synonyms must be explicitly listed to be considered part of the value set.</xs:documentation>
+				<xs:documentation>UML: References a specific Enumeration Item</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="codeLabel" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Provides a descriptive label to be used for value set publishing purposes when the actual display name of the referenced code cannot be resolved.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>				
+	</xs:complexType>
+	<xs:complexType name="IncludeRelatedCodes">
+		<xs:annotation>
+			<xs:documentation>Defines related codes to be included in a valueset</xs:documentation>
+			<xs:documentation>UML: Part of complex tag</xs:documentation>
+			<!-- Todo: ensure that relationshipName maps to a relationship within the code system. -->
+		</xs:annotation>
+		<xs:attribute name="relationshipName" type="FormalProperName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the type of relationship to trace when including codes</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="relationshipTraversal" type="RelationshipTraversalKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies what set of codes to include when traversing the relationship</xs:documentation>
+				<xs:documentation>UML: Part of complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="PropertyBasedContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Filters the codes to include based on properties.  If includeProperties are specified, only those having all of the 'included' properties and not having any of the 'excluded' properties are included.  Otherwise all those codes without any of the 'excluded' properties are included.</xs:documentation>
+			<xs:documentation>UML: Defines the code enumerations imported into this package</xs:documentation>
+			<!-- Todo:
+        - Ensure the properties referenced are legal for the specified code system
+        - Ensure at least one of include and exclude are present
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="includeWithConceptProperty" type="ConceptPropertyRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates that the value set should be filtered to only include codes for concepts from the code system with the specified property</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="excludeWithConceptProperty" type="ConceptPropertyRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates that the value set should be filtered to only include codes for concepts from the code system that do not have the specified property</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="includeWithCodeProperty" type="ConceptPropertyRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates that the value set should be filtered to only include codes from the code system with the specified property</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="excludeWithCodeProperty" type="ConceptPropertyRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates that the value set should be filtered to only include codes from the code system that do not have the specified property</xs:documentation>
+					<xs:documentation>UML: Part of complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ConceptPropertyRef">
+		<xs:annotation>
+			<xs:documentation>Used to reference a coded concept property, possibly with a specific value or matching a given expression.  If neither value nor expresson are specified, the reference will match all concepts with the specified property regardless of value.</xs:documentation>
+			<xs:documentation>UML: Reference to a stereotype property</xs:documentation>
+			<!-- Todo:
+        - Ensure the value corresponds to the datatype associated with the property
+        - Ensure that there's never both value and expression
+        - Ensure the expression is a valid regex
+        -->
+		</xs:annotation>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the property being referenced</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the value the referenced property must have.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="expression" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies a regular expression that must be matched by the referenced property</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="RelationshipBasedContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Allows referencing a relationship to a code or group of codes</xs:documentation>
+			<xs:documentation>UML: Mechanism for defining imported contents</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="targetConcepts" type="ContentDefinition" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the list of codes where at least one of the codes must exist for the relationship to be true.  If not specified, then the valueset is considered unbounded.  I.e. The relationship may exist for any code.</xs:documentation>
+					<xs:documentation>UML: Defines a set of code enumerations at the end of the dependency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="relationshipName" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies what kind of relationship is being referenced</xs:documentation>
+				<xs:documentation>UML: Specialization of the dependency stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="CodeFilterContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Identifies the codes to be included by describing characteristics of the code mnemonic.  Codes must match all of the characteristics specified.</xs:documentation>
+			<xs:documentation>UML: Defines the code enumerations imported into this package</xs:documentation>
+			<!-- Todo:
+        - Ensure that at least one attribute is present
+        -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="expression" type="xs:anyType">
+				<xs:annotation>
+					<xs:documentation>Defines a regular expression that must be true when applied to a code for it to be included in the allowed content.  Content MUST be a valid regular expression, as used in 23c schema definition.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="expressionType" type="CodeFilterExpressionKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Indicates the type of expression to be used to select the codes.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="NonComputableContentDefinition">
+		<xs:annotation>
+			<xs:documentation>Represents a value-set definition expressed in a way that is not computationally resolvable</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="text" type="ComplexMarkupWithLanguage" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A description, pseudo expression or other representation of what codes are part of the value-set.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="BindingRealm">
+		<xs:annotation>
+			<xs:documentation>Identifies a particular binding realm</xs:documentation>
+			<xs:documentation>UML: A stereotype on EnumerationItem.  (The enumeration itself is implicit)</xs:documentation>
+			<!-- Todo: 
+        - Ensure that name is unique
+        - Ensure that for UV, only Universal, Example, Represenative and Unassigned exist
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:element name="description" type="xhtml:Inline" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>A description of the purpose and scope of the binding realm</xs:documentation>
+							<xs:documentation>UML: ModelElement.Comment</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="EnumerationToken" use="required">
+					<xs:annotation>
+						<xs:documentation>The formal name for the binding realm</xs:documentation>
+						<xs:documentation>UML: EnumerationItem.name</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="owningAffiliate" type="AffiliateKind" use="required">
+					<xs:annotation>
+						<xs:documentation>The affiliate responsible for the binding realm</xs:documentation>
+						<xs:documentation>UML: Tag on BindingRealm stereotype</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Ensure affiliate list is up-to-date -->
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContextBinding">
+		<xs:annotation>
+			<xs:documentation>Defines a binding between a value set and a concept domain for resolution based on the realm-based context of the instance.</xs:documentation>
+			<xs:documentation>UML: Stereotype on dependency</xs:documentation>
+			<!-- Todo:
+        - Ensure conceptDomain, valueSet, valueSetVersion, bindingRealm exist
+        - Ensure combo of conceptDomain, bindingRealm, bindingPriority and effectiveDate are unique
+        - Ensure combo of conceptDomain, bindingRealm, bindingPriority effectiveDate-expiryDate range doesn't overlap
+        - ensure expiryDate >= effectiveDate, if present
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:attribute name="conceptDomain" type="FormalProperName" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies the concept domain being bound to</xs:documentation>
+						<xs:documentation>UML: Reference to a ModelElement that is the client of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="valueSet" type="Oid" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies the overall value set being bound to the concept domain.  This defines the overall set of codes that are available for use, though not all might necessarily be supported.</xs:documentation>
+						<xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="minimumValueSet" type="Oid" use="optional">
+					<xs:annotation>
+						<xs:documentation>Defines the set of codes within the overall value set that must be supported by an implementer to be considered compliant</xs:documentation>
+						<xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="ignoredValueSet" type="Oid" use="optional">
+					<xs:annotation>
+						<xs:documentation>Defines the set of codes within the overall valueset that the implementer is willing to accept without raising an error, but whose content will be ignored and not processed in any useful manner</xs:documentation>
+						<xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="versionDate" type="xs:date" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the specific version of the value set being bound.  If missing, this is a dynamic binding.  If present, this is a static binding.</xs:documentation>
+						<xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="versionTime" type="xs:time" use="optional">
+					<xs:annotation>
+						<xs:documentation>Supplements the versionDate to distingish value set versions where multiples occur on a single date</xs:documentation>
+						<xs:documentation>UML: Reference to a Package that is the supplier of the dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="bindingRealmName" type="ShortDescriptiveName" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies the binding realm in whose context the binding is occurring</xs:documentation>
+						<xs:documentation>UML: Reference to an Enumeration Item</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="codingStrength" type="CodingStrengthKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies whether codes are restricted to those expressed in the value set or not</xs:documentation>
+						<xs:documentation>UML: Tag on a the RuntimeBinding dependency stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="bindingPriority" type="xs:integer" use="optional" default="1">
+					<xs:annotation>
+						<xs:documentation>Identifies the relative preference for the coding system within the context.  Lower numbers indicate higher preference.  Implementors are strongly encouraged to use the 'most preferred' coding system.</xs:documentation>
+						<xs:documentation>UML: Tag on a the RuntimeBinding dependency stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="effectiveDate" type="xs:date" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates when this particular binding first takes effect</xs:documentation>
+						<xs:documentation>UML: Tag on the RuntimeBinding dependency stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="expiryDate" type="xs:date" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the date on which this binding is no longer effective.  (This will generally be the same as the effectiveDate of a new replacement binding)</xs:documentation>
+						<xs:documentation>UML: Tag on the RuntimeBinding dependency stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+			<!-- Todo: Enforce that the minimumValueSet and ignoredValueSet don't intersect and are each proper subsets of valueSet -->
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationCollection">
+		<xs:annotation>
+			<xs:documentation>A collection of translations, created by a particular group</xs:documentation>
+			<xs:documentation>UML: Package of translations</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="header" type="Header" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>General metadata information about the package</xs:documentation>
+							<xs:documentation>UML: complex tag value on Package stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="annotations" type="CodeTranslationCollectionAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the CodeTranslationCollection.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a CodeTranslationCollection.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="translation" type="CodeTranslation" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies a translation created within the translation package</xs:documentation>
+							<xs:documentation>UML: Dependency Model element within the package</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="title" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name for the package in circumstances where the 'name' is more of an identifier.</xs:documentation>
+						<xs:documentation>UML: title tag on Package stereotype</xs:documentation>
+						<xs:documentation>DublinCore: Equivalent to 'title'</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationCollectionAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing CodeTranslationCollection.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a CodeTranslationCollection.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="CodeTranslationCollectionDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the CodeTranslationCollection</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="CodeTranslationCollectionAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the CodeTranslationCollection which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationCollectionDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a CodeTranslationCollection.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a CodeTranslationCollection.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Appendix" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationCollectionAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a CodeTranslationCollection.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a CodeTranslationCollection.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslation">
+		<xs:annotation>
+			<xs:documentation>Identifies a known translation between two code systems</xs:documentation>
+			<xs:documentation>UML: A stereotype on dependency</xs:documentation>
+			<!-- Todo: 
+        - Ensure sourceCode and targetCode exist
+        - Ensure combination of sourceCode + targetCode translation is unique
+        -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:element name="annotations" type="CodeTranslationAnnotations" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Descriptive information about the CodeTranslation.</xs:documentation>
+							<xs:documentation>UML: A collector for the comments and constraints associated with a CodeTranslation.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sourceConcept" type="ConceptRef">
+						<xs:annotation>
+							<xs:documentation>The code for which the translation exists</xs:documentation>
+							<xs:documentation>UML: A reference to the Enumeration Item that is the client of the dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="targetConcept" type="ConceptRef">
+						<xs:annotation>
+							<xs:documentation>The code being translated to</xs:documentation>
+							<xs:documentation>UML: A reference to the Enumeration Item that is the supplier of the dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="quality" type="MapRelationshipKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>An indication of the semantic relationship between the source and target code expressed in terms of the target.  E.g. "broader than" means target is broader than source.</xs:documentation>
+						<xs:documentation>UML: A tag on the CodeTranslation dependency stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="translatableDirection" type="TranslatableDirectionKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates in which direction code translation is being asserted to be permissable (if any)</xs:documentation>
+						<xs:documentation>UML: Tag on CodeTranslation dependency</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing CodeTranslation.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a CodeTranslation.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="CodeTranslationDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the CodeTranslation</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="CodeTranslationAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the CodeTranslation which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a CodeTranslation.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a CodeTranslation.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CodeTranslationAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a CodeTranslation.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a CodeTranslation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

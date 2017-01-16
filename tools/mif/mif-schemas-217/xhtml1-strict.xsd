@@ -1,0 +1,1961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="urn:hl7-org:v3/mif2" xmlns:hl7="urn:hl7-org:xhtml1-hl7-types" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified" version="1.0" xml:lang="en">
+	<xs:annotation>
+		<xs:documentation>HL7 Modification:  Customized for HL7 use by by Lloyd McKenzie, Dec. 2005 and Paul Biron, Apr. 2009
+
+					Customizations (c) 2005-2009 by HL7 Inc.
+
+					Purpose:
+
+						Defines the available text markup for use in various descriptive elements
+						in various artifacts.  The contents of this schema are owned and defined by
+						the publishing committee.  I.e. They decide what sorts of markup are allowed
+
+					This schema is a modification of the W3C XHTML 1.0 strict schema located described
+					in http://www.w3.org/TR/2002/NOTE-xhtml1-schema-20020902/ and located at
+					http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd.  This modification complies
+					with the W3C Software License, located at http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231.
+
+						This work (and included software, documentation such as READMEs, or other
+						related items) is being provided by the copyright holders under the
+						following license. By obtaining, using and/or copying this work, you
+						(the licensee) agree that you have read, understood, and will comply with the
+						following terms and conditions.
+
+						Permission to copy, modify, and distribute this software and its documentation,
+						with or without modification, for any purpose and without fee or royalty is
+						hereby granted, provided that you include the following on ALL copies of the
+						software and documentation or portions thereof, including modifications:
+
+						   1. The full text of this NOTICE in a location viewable to users of the
+						   redistributed or derivative work.
+						   2. Any pre-existing intellectual property disclaimers, notices, or terms
+						   and conditions. If none exist, the W3C Software Short Notice should be
+						   included (hypertext is preferred, text is permitted) within the body of
+						   any redistributed or derivative code.
+						   3. Notice of any changes or modifications to the files, including the
+						   date changes were made. (We recommend you provide URIs to the location
+						   from which the code is derived.)
+
+						THIS SOFTWARE AND DOCUMENTATION IS PROVIDED "AS IS," AND COPYRIGHT HOLDERS
+						MAKE NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT
+						NOT LIMITED TO, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR
+						PURPOSE OR THAT THE USE OF THE SOFTWARE OR DOCUMENTATION WILL NOT INFRINGE
+						ANY THIRD PARTY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+
+						COPYRIGHT HOLDERS WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL OR
+						CONSEQUENTIAL DAMAGES ARISING OUT OF ANY USE OF THE SOFTWARE OR DOCUMENTATION.
+
+						The name and trademarks of copyright holders may NOT be used in advertising
+						or publicity pertaining to the software without specific, written prior
+						permission. Title to copyright in this software and any associated documentation
+						will at all times remain with copyright holders.
+
+					The main structural difference between this schema and the W3C schema
+					is that this schema has NO global element declarations (and hence, no
+					element references).  Instead, named complex types definitions are provided,
+					based on the annoymous complex types of the corresponding global element
+					declarations.
+
+					All HL7 modifications are noted in xs:annotations, preceded with the phrase
+					"HL7 Modification: ".  All xs:annotations without this phrase
+					are from the W3C schema document.
+
+					The following elements allowed in the W3C Schema are not allowed:
+					html, head, title, base, meta, link, style, script, noscript, body, h1, h2, h3, h4, h5, h6, address, ins, del, bdo, map, area, form, label, input, select, optgroup, option, textarea, fieldset, legend, button
+
+
+					This schema document was produced by applying a specific transformation
+					on the W3C schema document, therefore, DO NOT EDIT THIS	SCHEMA DOCUMENT!
+					Rather, change the transformation and reapply it.
+				</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="urn:hl7-org:xhtml1-hl7-types" schemaLocation="xhtml1-hl7-types.xsd">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  import HL7 defined types that are used throughout
+					</xs:documentation>
+		</xs:annotation>
+	</xs:import>
+	<xs:annotation>
+		<xs:documentation>
+    XHTML 1.0 (Second Edition) Strict in XML Schema
+
+    This is the same as HTML 4 Strict except for
+    changes due to the differences between XML and SGML.
+
+    Namespace = http://www.w3.org/1999/xhtml
+
+    For further information, see: http://www.w3.org/TR/xhtml1
+
+    Copyright (c) 1998-2002 W3C (MIT, INRIA, Keio),
+    All Rights Reserved. 
+
+    The DTD version is identified by the PUBLIC and SYSTEM identifiers:
+
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+
+    $Id: xhtml1-strict.xsd,v 1.2 2002/08/28 08:05:44 mimasa Exp $
+    </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
+	<xs:annotation>
+		<xs:documentation>
+    ================ Character mnemonic entities =========================
+
+    XHTML entity sets are identified by the PUBLIC and SYSTEM identifiers:
+  
+    PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN"
+    SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent"
+
+    PUBLIC "-//W3C//ENTITIES Special for XHTML//EN"
+    SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent"
+
+    PUBLIC "-//W3C//ENTITIES Symbols for XHTML//EN"
+    SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml-symbol.ent"
+    </xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>
+    ================== Imported Names ====================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="ContentType">
+		<xs:annotation>
+			<xs:documentation>
+      media type, as per [RFC2045]
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="hl7:MediaType xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="Character">
+		<xs:annotation>
+			<xs:documentation>
+      a single character, as per section 2.2 of [XML]
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:length value="1" fixed="true"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Number">
+		<xs:annotation>
+			<xs:documentation>
+      one or more digits
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxExclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="URI">
+		<xs:annotation>
+			<xs:documentation>
+      a Uniform Resource Identifier, see [RFC2396]
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:anyURI">
+			<xs:minLength value="5"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StyleSheet">
+		<xs:annotation>
+			<xs:documentation>
+      style sheet data
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Requirement">
+				<xs:annotation>
+					<xs:documentation>Indented on a coloured background.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Indent">
+				<xs:annotation>
+					<xs:documentation>Indented (based on stylesheet indent scheme).  Indents nest.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Note">
+				<xs:annotation>
+					<xs:documentation>Prefixed with 'Note:' and a hanging indent.  May be alternatively formatted.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NonNumbered">
+				<xs:annotation>
+					<xs:documentation>Indicates that the specified division should not have numbers.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Background:Aqua">
+				<xs:annotation>
+					<xs:documentation>Sets the background color of the text to Aqua</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Background:Lime">
+				<xs:annotation>
+					<xs:documentation>Sets the background color of the text to Lime</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Background:Pink">
+				<xs:annotation>
+					<xs:documentation>Sets the background color of the text to Pink</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Background:Yellow">
+				<xs:annotation>
+					<xs:documentation>Sets the background color of the text to Yellow</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Text">
+		<xs:annotation>
+			<xs:documentation>
+      used for titles etc.
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Length">
+		<xs:annotation>
+			<xs:documentation>
+      nn for pixels or nn% for percentage length
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+			<xs:pattern value="[\-+]?(\d+|\d+(\.\d+)?%)">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification: This pattern is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+					<xs:documentation>HL7 Modification: 
+					The regular expression in the pattern has been modified to
+					be acceptable to some processors that don't correctly implement
+					the XML Schema Specification: the modification results in the
+					same value space.
+				</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MultiLength">
+		<xs:annotation>
+			<xs:documentation>
+      pixel, percentage, or relative
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+			<xs:pattern value="[\-+]?(\d+|\d+(\.\d+)?%)|[1-9]?(\d+)?\*">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification: This pattern is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+					<xs:documentation>HL7 Modification: 
+					The regular expression in the pattern has been modified to
+					be acceptable to some processors that don't correctly implement
+					the XML Schema Specification: the modification results in the
+					same value space.
+				</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Pixels">
+		<xs:annotation>
+			<xs:documentation>
+      integer representing length in pixels
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:maxExclusive value="10000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>
+    these are used for image maps
+    </xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="Shape">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="rect"/>
+			<xs:enumeration value="circle"/>
+			<xs:enumeration value="poly"/>
+			<xs:enumeration value="default"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Coords">
+		<xs:annotation>
+			<xs:documentation>
+      comma separated list of lengths
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This simple type definition is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="500"/>
+			<xs:pattern value="[\-+]?(\d+|\d+(\.\d+)?%)(,\s*[\-+]?(\d+|\d+(\.\d+)?%))*">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification: This pattern is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+					<xs:documentation>HL7 Modification: 
+					The regular expression in the pattern has been modified to
+					be acceptable to some processors that don't correctly implement
+					the XML Schema Specification: the modification results in the
+					same value space.
+				</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Generic Attributes ===============================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:attributeGroup name="coreattrs">
+		<xs:annotation>
+			<xs:documentation>
+      core attributes common to most elements
+      id       document-wide unique id
+      class    space separated list of classes
+      style    associated style info
+      title    advisory title/amplification
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This attribute group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: id, title.
+						Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="class" type="hl7:MifClassType">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					The type of the attribute has been changed to an HL7 defined
+					type that is a restriction of the W3C defined type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="style" type="StyleSheet"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="i18n">
+		<xs:annotation>
+			<xs:documentation>
+      internationalization attributes
+      lang        language code (backwards compatible)
+      xml:lang    language code (as per XML 1.0 spec)
+      dir         direction for weak/neutral text
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This attribute group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: lang, dir.
+						Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:attribute ref="xml:lang"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="attrs">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This attribute group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attribute groups allowed in the W3C Schema are not allowed: events.
+</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="coreattrs"/>
+		<xs:attributeGroup ref="i18n"/>
+	</xs:attributeGroup>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Text Elements ====================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:group name="special.pre">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: bdo, map.
+						Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="br" type="Br">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="span" type="Span">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="special">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="special.pre"/>
+			<xs:element name="object" type="Object">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="img" type="Img">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="fontstyle">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="tt" type="Tt">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="i" type="I">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="b" type="B">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="big" type="Big">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="small" type="Small">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="phrase">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="em" type="Em">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="strong" type="Strong">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dfn" type="Dfn">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="code" type="Code">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="q" type="Q">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="samp" type="Samp">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kbd" type="Kbd">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="var" type="Var">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cite" type="Cite">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="abbr" type="Abbr">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="acronym" type="Acronym">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sub" type="Sub">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sup" type="Sup">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="inline">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following model groups referenced in the W3C Schema are not allowed: inline.forms.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="a" type="A">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="special"/>
+			<xs:group ref="fontstyle"/>
+			<xs:group ref="phrase"/>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="Inline" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      "Inline" covers inline or "text-level" elements
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This complex type is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following model groups referenced in the W3C Schema are not allowed: misc.inline.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="inline"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:group name="lists">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="ul" type="Ul">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ol" type="Ol">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dl" type="Dl">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="blocktext">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: address.
+						Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="pre" type="Pre">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hr" type="Hr">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="blockquote" type="Blockquote">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:group name="block">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This named model group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: fieldset.
+						Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+The following model groups referenced in the W3C Schema are not allowed: heading.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="p" type="P">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="div" type="Div">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="lists"/>
+			<xs:group ref="blocktext"/>
+			<xs:element name="table" type="Table">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="Block">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification: This complex type is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: form.
+						Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+The following model groups referenced in the W3C Schema are not allowed: misc.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="block"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Flow" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      "Flow" mixes block and inline and is used for list items etc.
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This complex type is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: form.
+						Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+The following model groups referenced in the W3C Schema are not allowed: misc.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="block"/>
+			<xs:group ref="inline"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    ================== Content models for exclusions =====================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="a.content" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      a elements use "Inline" excluding a
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This complex type is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following model groups referenced in the W3C Schema are not allowed: inline.forms, misc.inline.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="special"/>
+			<xs:group ref="fontstyle"/>
+			<xs:group ref="phrase"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="pre.content" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      pre uses "Inline" excluding big, small, sup or sup
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This complex type is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+			<xs:documentation>HL7 Modification: The following model groups referenced in the W3C Schema are not allowed: misc.inline, inline.forms.
+						Other model groups referenced in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="a" type="A">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="fontstyle"/>
+			<xs:group ref="phrase"/>
+			<xs:group ref="special.pre"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Div" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      generic language/style container      
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="hl7Id" type="xs:NCName">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification: This attribute declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+						<xs:documentation>HL7 Modification: 
+					Provides a unique identifier for the element within the context of
+					the element containing the markup, not necessarily the entire
+					document.
+				</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="title" type="Text" use="required">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification: This attribute declaration is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+						<xs:documentation>HL7 Modification: 
+						In the W3C schema this attribute declaration is obtain thru
+						the coreattrs attribute group and we've removed it from there
+						and included directly here.  Also, it's use in the W3C schema
+						is optional and we've made it required.
+					</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Paragraphs =======================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="P" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Lists ============================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Ul">
+		<xs:annotation>
+			<xs:documentation>
+      Unordered list
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="li" type="Li" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+	</xs:complexType>
+	<xs:complexType name="Ol">
+		<xs:annotation>
+			<xs:documentation>
+      Ordered (numbered) list
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="li" type="Li" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+	</xs:complexType>
+	<xs:complexType name="Li" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      list item
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    definition lists - dt for term, dd for its definition
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Dl">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="dt" type="Dt">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="dd" type="Dd">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrs"/>
+	</xs:complexType>
+	<xs:complexType name="Dt" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Dd" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Horizontal Rule ==================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Hr">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="attrs"/>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Preformatted Text ================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Pre" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      content is "Inline" excluding "img|object|big|small|sub|sup"
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="pre.content">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute ref="xml:space" fixed="preserve"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Block-like Quotes ================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Blockquote">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Block">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="cite" type="URI"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    ================== The Anchor Element ================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="A" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      content is "Inline" except that anchors shouldn't be nested
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: charset, hreflang, rel, rev.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+HL7 Modification: The following attribute groups allowed in the W3C Schema are not allowed: focus.
+</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="a.content">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="type" type="ContentType"/>
+				<xs:attribute name="name" type="xs:NMTOKEN"/>
+				<xs:attribute name="href" type="URI"/>
+				<xs:attribute name="shape" type="Shape" default="rect"/>
+				<xs:attribute name="coords" type="Coords"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    ===================== Inline Elements ================================
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Span" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      generic language/style container
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Br">
+		<xs:annotation>
+			<xs:documentation>
+      forced line break
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="coreattrs"/>
+	</xs:complexType>
+	<xs:complexType name="Em" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      emphasis
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Strong" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      strong emphasis
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Dfn" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      definitional
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Code" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      program code
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Samp" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      sample
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Kbd" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      something user would type
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Var" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      variable
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Cite" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      citation
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Abbr" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      abbreviation
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Acronym" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      acronym
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Q" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      inlined quote
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="cite" type="URI"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Sub" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      subscript
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Sup" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      superscript
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Tt" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      fixed pitch font
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="I" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      italic font
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="B" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      bold font
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Big" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      bigger font
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Small" mixed="true">
+		<xs:annotation>
+			<xs:documentation>
+      smaller font
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    ==================== Object ======================================
+
+    object is used to embed objects as part of HTML pages.
+    param elements should precede other content. Parameters
+    can also be expressed as attribute/value pairs on the
+    object element itself when brevity is desired.
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Object" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following child elements allowed in the W3C Schema are not allowed: form.
+							Other child elements allowed in the W3C Schema may also be disallowed if they are disallowed in a model group referenced in this type.
+HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: declare, classid, codebase, data, type, codetype, archive, standby, height, width, usemap, tabindex.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern xmlns:sch="http://www.ascc.net/xml/schematron" name="Validate Object type">
+					<sch:rule context="element(*, xhtml:Object)">
+						<sch:report test="@name='divRef' and (count(xhtml:param)!=1 or count(xhtml:param[@name='id'])!=1)">
+											ERROR: divRef must have exactly one parameter which must have a type of 'id'.</sch:report>
+						<sch:report test="@name='figureRef' and (count(xhtml:param)!=1 or count(xhtml:param[@name='id'])!=1)">
+											ERROR: divRef must have exactly one parameter which must have a type of 'id'.</sch:report>
+						<sch:report test="@name='tableRef' and (count(xhtml:param)!=1 or count(xhtml:param[@name='id'])!=1)">
+											ERROR: divRef must have exactly one parameter which must have a type of 'id'.</sch:report>
+						<sch:report test="@name='itemName' and (count(xhtml:param)&gt;1 or count(xhtml:param[@name!='item'])!=0)">
+											ERROR: itemName is only allowed one parameter, which must be of type 'item' (if present)</sch:report>
+						<sch:report test="@name='annotationRef' and (count(xhtml:param[@name='annotationKind'])=0 or count(xhtml:param[not(contains('annotationKind','item','id'),@name)])!=0)">
+											ERROR: annotationRef must have an annotationKind parameter.  Only other allowed parameters are 'item' and 'id'</sch:report>
+						<sch:report test="(@name='itemName' or @name='') and not(xhtml:Param[@name='item']) and (not(                 ancestor::mif:datatypeDefinition or ancestor::mif:property or ancestor::mif:class or ancestor::mif:attribute or                 ancestor::mif:relationship or ancestor::mif:triggerEvent or ancestor::mif:applicationRole))">
+										ERROR: There is no ancestor of an appropriate type having a name.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="param" type="Param">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="block"/>
+			<xs:group ref="inline"/>
+		</xs:choice>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attribute name="name" type="hl7:ObjectName">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					The type of the attribute has been changed to an HL7 defined
+					type that is a restriction of the W3C defined type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="hl7Id" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					Provides a unique identifier for the element within the context of
+					the element containing the markup, not necessarily the entire
+					document.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Param">
+		<xs:annotation>
+			<xs:documentation>
+      param is used to supply a named property value.
+      In XML it would seem natural to follow RDF and support an
+      abbreviated syntax where the param elements are replaced
+      by attribute value pairs on the object start tag.
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: id, valuetype, type.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern xmlns:sch="http://www.ascc.net/xml/schematron" name="Validate Param type">
+					<sch:rule context="element(*, xhtml:Param)">
+						<sch:report test="@name='id' and not(@value castable as mif:BasicId)">
+											ERROR: 'id' parameter must restricted to alpha-numeric with a limited set of punctuation and must be between 1 and 40 characters in length.</sch:report>
+						<sch:report test="@name='item' and not(@value castable as mif:ItemName)">
+											ERROR: 'item' parameter must be drawn from the set of allowed item values (refer to mif:referencedCodes.xsd/ParentArtifactKind)</sch:report>
+						<sch:report test="@name='annotationKind' and not(@value castable as mif:AnnotationKind)">
+											ERROR: 'annotationKind' parameter must be drawn from the set of allowed annotation types (refer to mif:referencedCodes.xsd/AnnotationKind)</sch:report>
+						<sch:report test="@name='item' and (           (@value='datatype' and not(ancestor::mif:datatypeDefinition)) or                 (@value='property' and not(ancestor::mif:property)) or                 (@value='class' and not(ancestor::mif:class)) or                 (@value='attribute' and not(ancestor::mif:attribute)) or                 (@value='relationship' and not(ancestor::mif:relationship)) or                 (@value='trigger' and not(ancestor::mif:triggerEvent)) or                 (@value='appRole' and not(ancestor::mif:applicationRole))">
+										ERROR: There is no ancestor of the specified type.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="name" type="hl7:ParamName">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					The type of the attribute has been changed to an HL7 defined
+					type that is a restriction of the W3C defined type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="value" type="hl7:ParamValue">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					The type of the attribute has been changed to an HL7 defined
+					type that is a restriction of the W3C defined type.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    =================== Images ===========================================
+
+    To avoid accessibility problems for people who aren't
+    able to see the image, you should provide a text
+    description using the alt and longdesc attributes.
+    In addition, avoid the use of server-side image maps.
+    Note that in this DTD there is no name attribute. That
+    is only available in the transitional and frameset DTD.
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Img">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: 
+						It is both an extension	and a restriction of the corresponding declaration
+						in the W3C XHTML 1.0 schema document.  The extensions are described in annotations below.
+					The following attributes allowed in the W3C Schema are not allowed: longdesc, usemap, ismap.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="thumbnail" type="Img" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification: This local element declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+					<xs:documentation>HL7 Modification: 
+							It represents a small rendition of the pixmap image intended to
+							be used as a place-holder (often with a hyperlink to the larger
+							pixmap image) when space constraints prevent the display of the
+							full-size image.
+						</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attribute name="src" type="URI" use="required"/>
+		<xs:attribute name="alt" type="Text" use="required"/>
+		<xs:attribute name="height" type="Length"/>
+		<xs:attribute name="width" type="Length"/>
+		<xs:attribute name="hl7Id" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					Provides a unique identifier for the element within the context of
+					the element containing the markup, not necessarily the entire
+					document.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="imageType" type="hl7:ImageType" use="required">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+						Defines what format the image is stored in.
+					</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    ======================= Tables =======================================
+
+    Derived from IETF HTML table standard, see [RFC1942]
+    </xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="TFrame">
+		<xs:annotation>
+			<xs:documentation>
+      The border attribute sets the thickness of the frame around the
+      table. The default units are screen pixels.
+
+      The frame attribute specifies which parts of the frame around
+      the table should be rendered. The values are not the same as
+      CALS to avoid a name clash with the valign attribute.
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="void"/>
+			<xs:enumeration value="above"/>
+			<xs:enumeration value="below"/>
+			<xs:enumeration value="hsides"/>
+			<xs:enumeration value="lhs"/>
+			<xs:enumeration value="rhs"/>
+			<xs:enumeration value="vsides"/>
+			<xs:enumeration value="box"/>
+			<xs:enumeration value="border"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TRules">
+		<xs:annotation>
+			<xs:documentation>
+      The rules attribute defines which rules to draw between cells:
+
+      If rules is absent then assume:
+          "none" if border is absent or border="0" otherwise "all"
+      </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="none"/>
+			<xs:enumeration value="groups"/>
+			<xs:enumeration value="rows"/>
+			<xs:enumeration value="cols"/>
+			<xs:enumeration value="all"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attributeGroup name="cellhalign">
+		<xs:annotation>
+			<xs:documentation>
+      horizontal alignment attributes for cell contents
+
+      char        alignment char, e.g. char=':'
+      charoff     offset for alignment char
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This attribute group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="align">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="left"/>
+					<xs:enumeration value="center"/>
+					<xs:enumeration value="right"/>
+					<xs:enumeration value="justify"/>
+					<xs:enumeration value="char"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="char" type="Character"/>
+		<xs:attribute name="charoff" type="Length"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="cellvalign">
+		<xs:annotation>
+			<xs:documentation>
+      vertical alignment attributes for cell contents
+      </xs:documentation>
+			<xs:documentation>HL7 Modification: This attribute group is a restriction of the corresponding component in the W3C XHTML 1.0 schema.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="valign">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="top"/>
+					<xs:enumeration value="middle"/>
+					<xs:enumeration value="bottom"/>
+					<xs:enumeration value="baseline"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="Table">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: summary.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="caption" type="Caption" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="col" type="Col" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="colgroup" type="Colgroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:element name="thead" type="Thead" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="tfoot" type="Tfoot" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="tbody" type="Tbody" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="tr" type="Tr" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attribute name="width" type="Length"/>
+		<xs:attribute name="border" type="Pixels"/>
+		<xs:attribute name="frame" type="TFrame"/>
+		<xs:attribute name="rules" type="TRules"/>
+		<xs:attribute name="cellspacing" type="Length"/>
+		<xs:attribute name="cellpadding" type="Length"/>
+		<xs:attribute name="hl7Id" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>HL7 Modification: This attribute declaration is an extension of the parent component in the W3C XHTML 1.0 schema.</xs:documentation>
+				<xs:documentation>HL7 Modification: 
+					Provides a unique identifier for the element within the context of
+					the element containing the markup, not necessarily the entire
+					document.
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Caption" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Inline">
+				<xs:attributeGroup ref="attrs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    Use thead to duplicate headers when breaking table
+    across page boundaries, or for static headers when
+    tbody sections are rendered in scrolling panel.
+
+    Use tfoot to duplicate footers when breaking table
+    across page boundaries, or for static footers when
+    tbody sections are rendered in scrolling panel.
+
+    Use multiple tbody sections when rules are needed
+    between groups of table rows.
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Thead">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tr" type="Tr" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:complexType name="Tfoot">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tr" type="Tr" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:complexType name="Tbody">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tr" type="Tr" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:complexType name="Colgroup">
+		<xs:annotation>
+			<xs:documentation>
+      colgroup groups a set of col elements. It allows you to group
+      several semantically related columns together.
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="col" type="Col" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attribute name="span" type="Number" default="1"/>
+		<xs:attribute name="width" type="MultiLength"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:complexType name="Col">
+		<xs:annotation>
+			<xs:documentation>
+      col elements define the alignment properties for cells in
+      one or more columns.
+
+      The width attribute specifies the width of the columns, e.g.
+
+          width=64        width in screen pixels
+          width=0.5*      relative width of 0.5
+
+      The span attribute causes the attributes of one
+      col element to apply to more than one column.
+      </xs:documentation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attribute name="span" type="Number" default="1"/>
+		<xs:attribute name="width" type="MultiLength"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:complexType name="Tr">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="th" type="Th">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="td" type="Td">
+				<xs:annotation>
+					<xs:documentation>HL7 Modification:  In the W3C XHTML 1.0 schema document,
+					this local element declaration was a reference to a global
+					element	declaration of the same name
+				</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+		<xs:attributeGroup ref="attrs"/>
+		<xs:attributeGroup ref="cellhalign"/>
+		<xs:attributeGroup ref="cellvalign"/>
+	</xs:complexType>
+	<xs:annotation>
+		<xs:documentation>
+    th is for headers, td for data and for cells acting as both
+    </xs:documentation>
+	</xs:annotation>
+	<xs:complexType name="Th" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: abbr, axis, headers, scope.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="rowspan" type="Number" default="1"/>
+				<xs:attribute name="colspan" type="Number" default="1"/>
+				<xs:attributeGroup ref="cellhalign"/>
+				<xs:attributeGroup ref="cellvalign"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Td" mixed="true">
+		<xs:annotation>
+			<xs:documentation>HL7 Modification:  This complex type is based on the annonymous complex type
+					used for the global element of the same name (lower cased, of course)
+					in the W3C XHTML 1.0 schema document.
+				</xs:documentation>
+			<xs:documentation>HL7 Modification: The following attributes allowed in the W3C Schema are not allowed: abbr, axis, headers, scope.
+							Other attributes allowed in the W3C Schema may also be disallowed if they are disallowed in an attribute group referenced in this type.
+</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attributeGroup ref="attrs"/>
+				<xs:attribute name="rowspan" type="Number" default="1"/>
+				<xs:attribute name="colspan" type="Number" default="1"/>
+				<xs:attributeGroup ref="cellhalign"/>
+				<xs:attributeGroup ref="cellvalign"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+	This schema provides includes all of the 'enumeration types' which are extracted from the vocabulary database and are used in defining types within the MIF.
+
+Todo:
+   Extract this from the vocabulary database.
+********************************************************************************
+		</xs:documentation>
+		<xs:documentation>UML: **ALL** types defined in this package are handled as datatypes that are enumerations.</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="mif-core-enumerationsVocab.xsd"/>
+	<xs:simpleType name="AffirmativeVoteResolutionKind">
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Affirmative-Incorporated">
+				<xs:annotation>
+					<xs:documentation>The recommended change has been incorporated or identified issue has been answered.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affirmative-Rejected">
+				<xs:annotation>
+					<xs:documentation>The recommended change has been refused and is not expected to be incorporated.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affirmative-Deferred">
+				<xs:annotation>
+					<xs:documentation>The recommended change has been deferred to consideration for a future release.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AnnotationKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the kinds of annotations that can be referenced</xs:documentation>
+			<xs:documentation>UML: Used to reference a tagged item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Definition">
+				<xs:annotation>
+					<xs:documentation>Definition annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Description">
+				<xs:annotation>
+					<xs:documentation>Description annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UsageNotes">
+				<xs:annotation>
+					<xs:documentation>UsageNotes annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UsageConstraint">
+				<xs:annotation>
+					<xs:documentation>UsageConstraint annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Rationale">
+				<xs:annotation>
+					<xs:documentation>Rationale annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Requirements">
+				<xs:annotation>
+					<xs:documentation>Requirements annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Walkthrough">
+				<xs:annotation>
+					<xs:documentation>Walkthrough annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Appendix">
+				<xs:annotation>
+					<xs:documentation>Appendix annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OtherAnnotation">
+				<xs:annotation>
+					<xs:documentation>OtherAnnotation annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Mapping">
+				<xs:annotation>
+					<xs:documentation>Mapping annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FormalConstraint">
+				<xs:annotation>
+					<xs:documentation>Constraint annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OpenIssue">
+				<xs:annotation>
+					<xs:documentation>OpenIssue annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DesignComment">
+				<xs:annotation>
+					<xs:documentation>DesignComments annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StabilityRemarks">
+				<xs:annotation>
+					<xs:documentation>StabilityRemarks annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StaticExample">
+				<xs:annotation>
+					<xs:documentation>StaticExample annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BallotComment">
+				<xs:annotation>
+					<xs:documentation>BallotComment annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ChangeRequest">
+				<xs:annotation>
+					<xs:documentation>ChangeRequest annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DeprecationInfo">
+				<xs:annotation>
+					<xs:documentation>DeprecationInfo annotation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ApplicationRoleRelationshipKind">
+		<xs:annotation>
+			<xs:documentation>Possible relationships between application roles</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="AtLeastOne">
+				<xs:annotation>
+					<xs:documentation>The container application role must implement at least one, possibly more (including all) contained application roles.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Includes">
+				<xs:annotation>
+					<xs:documentation>Defines the relationship where the container contains the contents.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ApprovalStatusKind">
+		<xs:annotation>
+			<xs:documentation>List of allowed ballot statuses</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="Draft">
+				<xs:annotation>
+					<xs:documentation>Content that is under development and is not intended to be used..</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Non-standard - Available for use">
+				<xs:annotation>
+					<xs:documentation>Content developed independently by an organization or individual that is declared to be 'usable' but for which there is no present intention to submit through the standards submission and review process.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Proposal">
+				<xs:annotation>
+					<xs:documentation>Content submitted to a committee for consideration for future inclusion in the standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Committee Ballot - Normative">
+				<xs:annotation>
+					<xs:documentation>Content prepared by a committee and submitted for internal consideration as a normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Committee Ballot - Informative">
+				<xs:annotation>
+					<xs:documentation>Content prepared by a committee and submitted for internal consideration as an informative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Membership Ballot - Normative">
+				<xs:annotation>
+					<xs:documentation>Content prepared by a committee and submitted for membership consideration as a normative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Membership Ballot - Informative">
+				<xs:annotation>
+					<xs:documentation>Content prepared by a committee and submitted for membership consideration as an informative standard.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Membership Ballot - DSTU">
+				<xs:annotation>
+					<xs:documentation>Content prepared by a committee and submitted for membership consideration as a draft standard for trial use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved Normative Standard">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a normative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved Informative Standard">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a normative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved DSTU">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a draft standard for trial use</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affiliate Ballot - Normative">
+				<xs:annotation>
+					<xs:documentation>Content that is being presented to an international affiliate for consideration as a realm-specific normative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affiliate Ballot - Informative">
+				<xs:annotation>
+					<xs:documentation>Content that is being presented to an international affiliate for consideration as a realm-specific informative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Reference">
+				<xs:annotation>
+					<xs:documentation>Content that is not intended to be balloted, but which exists to support other balloted content</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved Affiliate Normative Standard">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a realm-specific normative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved Affiliate Informative Standard">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a realm-specific informative standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved Affiliate DSTU">
+				<xs:annotation>
+					<xs:documentation>Content that has passed ballot as a realm-specific draft standard for trial use</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Localized Adaptation">
+				<xs:annotation>
+					<xs:documentation>Content that represents an adaption of a implementable balloted material to represent the needs or capabilities of a particular installation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Withdrawn">
+				<xs:annotation>
+					<xs:documentation>Content that represents an item that was at one point a normative or informative standard, but was subsequently withdrawn.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArtifactGroupKind">
+		<xs:annotation>
+			<xs:documentation>A list of the types of groups of artifacts that can be referenced</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Footnotes">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the footnotes defined within the artifact.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Packages">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the packages defined within the artifact.  Only applies to packages.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Header">
+				<xs:annotation>
+					<xs:documentation>A reference to the header information associated with the artifact.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Annotations">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the annotations defined within the artifact.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="History">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the history associated with the artifact.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Derivation">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the derivations associated with the artifact.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Properties">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the properties within the artifact.  (Only applies to DatatypeDefinitions.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StaticModels">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the static models defined within the artifact.  (Only applies to Packages.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SubjectAreas">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the subject areas defined within the artifact.  (Only applies to static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Classes">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the classes defined within the artifact.  (Only applies to static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StateEngines">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the state engines defined within the artifact.  (Only applies to static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="States">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the states defined within the class.  (Only applies to classes within static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StateTransitions">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the state transitions defined within the class.  (Only applies to classes within static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Associations">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the associations defined within the class.  (Only applies to classes within static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Attributes">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the attributes defined within the class.  (Only applies to classes within static models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TriggerEvents">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the trigger events defined within the artifact.  (Only applies to dynamic models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ApplicationRoles">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the application roles defined within the artifact.  (Only applies to dynamic models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Interactions">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the interactions defined within the artifact.  (Only applies to dynamic models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReceiverResponsibilities">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the xxx defined within the artifact.  (Only applies to interactions.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ConceptDomains">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the vocabulary domains defined within the artifact.  (Only applies to vocabulary models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VocabularyCodes">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the vocabulary codes defined within the artifact.  (Only applies to vocabulary models.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Templates">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the templates defined within the artifact.  (Only applies to packages.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CommunicationProtocols">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the communication protocols defined within the artifact.  (Only applies to packages.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ImplementationTechnologySpecifications">
+				<xs:annotation>
+					<xs:documentation>A reference to all of the implementation technology specifications defined within the artifact.  (Only applies to implementation technology specifications.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArtifactKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the kind of artifacts that can be packaged</xs:documentation>
+			<xs:documentation>UML: The name for a package in the package hierarchy</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="IFC">
+				<xs:annotation>
+					<xs:documentation>Interface (CMET and STUB) definition</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RIM">
+				<xs:annotation>
+					<xs:documentation>Reference Information Model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DIM">
+				<xs:annotation>
+					<xs:documentation>Domain Information Model (supercedes D-MIM)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CIM">
+				<xs:annotation>
+					<xs:documentation>Constrained Information Model (supercedes R-MIM, HMD and Message Type)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LIM">
+				<xs:annotation>
+					<xs:documentation>Localized Information Model (a.k.a. message profile)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DAM">
+				<xs:annotation>
+					<xs:documentation>Document Analysis Model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TP">
+				<xs:annotation>
+					<xs:documentation>Template</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DT">
+				<xs:annotation>
+					<xs:documentation>Datatype Model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ITS">
+				<xs:annotation>
+					<xs:documentation>Implementation Technology Specification</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DC">
+				<xs:annotation>
+					<xs:documentation>Document</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GL">
+				<xs:annotation>
+					<xs:documentation>Glossary</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SB">
+				<xs:annotation>
+					<xs:documentation>Story Board</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VO">
+				<xs:annotation>
+					<xs:documentation>Vocabulary Model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AR">
+				<xs:annotation>
+					<xs:documentation>Application Role</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TE">
+				<xs:annotation>
+					<xs:documentation>Trigger Event</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="IN">
+				<xs:annotation>
+					<xs:documentation>Interaction</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DMIM">
+				<xs:annotation>
+					<xs:documentation>Domain Message Information Model</xs:documentation>
+					<xs:documentation>Deprecated ?/?/?: DMIM is replaced by DIM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RM">
+				<xs:annotation>
+					<xs:documentation>Refined Message Information Model</xs:documentation>
+					<xs:documentation>Deprecated ?/?/?: RMIM is replaced by CIM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HD">
+				<xs:annotation>
+					<xs:documentation>Hierarchical Message Descriptor</xs:documentation>
+					<xs:documentation>Deprecated ?/?/?: HMD is replaced by CIM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MT">
+				<xs:annotation>
+					<xs:documentation>Message Type</xs:documentation>
+					<xs:documentation>Deprecated ?/?/?: MT is replaced by CIM</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ArtifactRenderingStyleKind">
+		<xs:annotation>
+			<xs:documentation>Defines the types of renderings that can occur for artifacts</xs:documentation>
+			<xs:documentation>UML: Used to reference a tagged item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="GraphicalDetailed">
+				<xs:annotation>
+					<xs:documentation>A full-blown graphical rendition of the content</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GraphicalSummary">
+				<xs:annotation>
+					<xs:documentation>A high-level graphical rendition of the key elements within the content</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TableView">
+				<xs:annotation>
+					<xs:documentation>A table rendering of the content</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ExcelView">
+				<xs:annotation>
+					<xs:documentation>A specialized static-model rendering using an Excel-type view</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TextView">
+				<xs:annotation>
+					<xs:documentation>Marked-up text rendering of the content.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AttributePropertyKind">
+		<xs:annotation>
+			<xs:documentation>Possible types of attribute properties</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="isDocumentCharacteristic">
+				<xs:annotation>
+					<xs:documentation>If true, indicates that the specified attribute is a characteristic of the document (order, definition, criterion, etc.) rather than the described event.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="conductible">
+				<xs:annotation>
+					<xs:documentation>If true, this attribute may conduct.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CascadingAnnotationElementKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the kinds of elements against which cascading annotations can be created</xs:documentation>
+			<xs:documentation>UML: Used to reference a tagged item</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="StaticModel">
+				<xs:annotation>
+					<xs:documentation>Static models (serialized or unserialized)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Class">
+				<xs:annotation>
+					<xs:documentation>Classes in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Stub">
+				<xs:annotation>
+					<xs:documentation>Stub references in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CMET">
+				<xs:annotation>
+					<xs:documentation>CMET references in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EntryPoint">
+				<xs:annotation>
+					<xs:documentation>Entry-points in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Attribute">
+				<xs:annotation>
+					<xs:documentation>Attributes in a static model class</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Association">
+				<xs:annotation>
+					<xs:documentation>Associations in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AssociationEnd">
+				<xs:annotation>
+					<xs:documentation>Ends of an association in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Generalization">
+				<xs:annotation>
+					<xs:documentation>Generalizations in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StateMachine">
+				<xs:annotation>
+					<xs:documentation>State machines in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="State">
+				<xs:annotation>
+					<xs:documentation>States in a state machine in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="StateTransition">
+				<xs:annotation>
+					<xs:documentation>State transitions in a state machine in a static model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Datatype">
+				<xs:annotation>
+					<xs:documentation>Datatypes in a datatype model</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DatatypeOperation">
+				<xs:annotation>
+					<xs:documentation>Operations within a datatype</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ChangeRequestStatus">
+		<xs:annotation>
+			<xs:documentation>Provides the different 'types' of diagrams</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Proposed">
+				<xs:annotation>
+					<xs:documentation>Change request has been submitted for consideration</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Approved">
+				<xs:annotation>
+					<xs:documentation>There is agreement to proceed with the change or some subset thereof</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Rejected">
+				<xs:annotation>
+					<xs:documentation>The decision has been made to not proceed with the change</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Implemented">
+				<xs:annotation>
+					<xs:documentation>The requested change (or agreed subset thereof) has been implemented</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ClassPresentationKind">
+		<xs:annotation>
+			<xs:documentation>A list of the 'styles' of graphic images that can be associated with a class</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="HL7">
+				<xs:annotation>
+					<xs:documentation>Standard HL7 Visio representation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HL7Shadow">
+				<xs:annotation>
+					<xs:documentation>HL7 Visio shadow representation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UML">
+				<xs:annotation>
+					<xs:documentation>Traditional UML representation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConceptDomainPropertyKind">
+		<xs:annotation>
+			<xs:documentation>A list of the types of properties a concept domain may have</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="ConceptualSpaceForClassCodeSystem">
+				<xs:annotation>
+					<xs:documentation>Specifies the code system for the classCode for which the domain defines the conceptual space</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ConceptualSpaceForClassCode">
+				<xs:annotation>
+					<xs:documentation>Specifies the classCode for which the domain defines the conceptual space</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CMETEntryKind">
+		<xs:annotation>
+			<xs:documentation>Defines how the CMET may be entered</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Act">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET or stub is a kind of Act, and may be entered via Participation or ActRelationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Entity">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET or stub is a kind of Entity and may be entered via Role</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Role">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET or stub is a Role.  May be entered via participation or along plays or scopes association from an Entity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RolePlayedOrPerformed">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET is a Role whose 'Scoping' association is already used or not intended to be used.  May be entered via participation or along plays association from an Entity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RoleScopedOrPerformed">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET is a Role whose 'Playing' association is already used or not intended to be used.  May be entered via participation or along scopes association from an Entity</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RolePerformedOnly">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET is a Role whose 'Playing' and 'Scoping' associations are already used or not intended to be used.  May be entered via participation.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>The base of the CMET or stub is one of the "Dark Blue" non-backbone classes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeFilterExpressionKind">
+		<xs:annotation>
+			<xs:documentation>Identifies a type of expression used to select a set of codes from a code-system</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="regex">
+				<xs:annotation>
+					<xs:documentation>The expression is a regular expression that must be true when applied to a code for it to be included.  Expression MUST be a valid regular expression, as used in w3c schema definition.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="tql">
+				<xs:annotation>
+					<xs:documentation>The expression is a Terminology Query Language (TQL) expression as defined in http://www.amia.org/pubs/symposia/D200562.PDF</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodeStatusKind">
+		<xs:annotation>
+			<xs:documentation>Defines whether the concept is intended to be currently used.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="active">
+				<xs:annotation>
+					<xs:documentation>The code is currently available for use.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="proposed">
+				<xs:annotation>
+					<xs:documentation>The code is under consideration for approval, but should not be used in production systems.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="retired">
+				<xs:annotation>
+					<xs:documentation>The code should no longer be used by compliant systems except in "transitional" situations.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CodingStrengthKind">
+		<xs:annotation>
+			<xs:documentation>Defines whether the specified element is restricted to only using the identified coding system for the element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="CNE">
+				<xs:annotation>
+					<xs:documentation>If not null, the element must be coded and must be drawn from the value set specified in the binding.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CWE">
+				<xs:annotation>
+					<xs:documentation>If not null, the element must be coded if there is an appropriate value in the value set specified in the binding.  If no appropriate code is available, a local code may be used, or the value may be populated with only original text.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConceptPropertyTypeKind">
+		<xs:annotation>
+			<xs:documentation>Indicates what types a CodedConcept property may have</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Boolean">
+				<xs:annotation>
+					<xs:documentation>Restricted to 'true' or 'false'</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Enumeration">
+				<xs:annotation>
+					<xs:documentation>Restricted to the values in the specified enumeration</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Integer">
+				<xs:annotation>
+					<xs:documentation>Restricted to integer values</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Real">
+				<xs:annotation>
+					<xs:documentation>Restricted to real (decimal) number values</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="String">
+				<xs:annotation>
+					<xs:documentation>Restricted to any character string</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Token">
+				<xs:annotation>
+					<xs:documentation>Restricted the contents allowed for xs:NMTOKEN</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConceptRelationshipKind">
+		<xs:annotation>
+			<xs:documentation>Code representing a type of relationship between concepts or vocabulary domains.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Specializes">
+				<xs:annotation>
+					<xs:documentation>The child code is a more narrow version of concept represented by the parent code.  I.e. Every child concept is also a valid parent concept.  Used to allow determination of subsumption.  Must be transitive, irreflexive, antisymetric.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ComponentOf">
+				<xs:annotation>
+					<xs:documentation>The child code is a part of the concept represented by the parent code.  Used to determine allowed nesting, for example of address components.  Must be transitive, irreflexive, antisymetric.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GroupedBy">
+				<xs:annotation>
+					<xs:documentation>The child code is a part of a grouping represented by the parent code.  Used to determine navigational hierarchy not based on a specializes or component relationship.  E.g. ICD9 hierarchy.  Is transitive, irreflexive and antisymetric</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LessThan">
+				<xs:annotation>
+					<xs:documentation>For coded ordeinal code systems, indicates that the specified code is considered less than the related code.  Used to determine relationships for coded ordinals.  Must be transitive, irreflexive, antisymetric.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DefinitionallyQualifies">
+				<xs:annotation>
+					<xs:documentation>Identifies a code that can act as a qualifier for the referenced code, both as part of concept definition within the code system and as part of run-time concept definition to determine concepts allowed for use as qualifiers for a concept within a CD datatype.  Must be non-transitive, irreflexive.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NonDefinitionallyQualifies">
+				<xs:annotation>
+					<xs:documentation>Same as definitionally qualifies, but restricted to only being used at run-time.  Must be non-transitive, irreflexive.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Generalizes">
+				<xs:annotation>
+					<xs:documentation>Inverse of Specializes.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Component">
+				<xs:annotation>
+					<xs:documentation>Inverse of ComponentOf.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="InGroup">
+				<xs:annotation>
+					<xs:documentation>Inverse of GroupedBy.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="GreaterThan">
+				<xs:annotation>
+					<xs:documentation>Inverse of LessThan.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DefinitionallyQualifiedBy">
+				<xs:annotation>
+					<xs:documentation>Inverse of DefinitionallyQualifies.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NonDefinitionallyQualifiedBy">
+				<xs:annotation>
+					<xs:documentation>Inverse of NonDefinitionallyQualifies.  Only included as a derived relationship</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Other">
+				<xs:annotation>
+					<xs:documentation>The child code has a relationship with the parent that does not follow one of the pre-defined stereotypical patterns.  Any application behavior based on the relationship must be custom-coded.  Transitivity, Reflexivity and Symmetry must be asserted</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConceptUseKind">
+		<xs:annotation>
+			<xs:documentation>Indicates allowed values to identify how a concept can be used.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Analysis">
+				<xs:annotation>
+					<xs:documentation>Indicates that the concept is not "selectible" nor intended to be displayed to users when navigating the code system.  Its sole purpose is to support analysis by grouping like concepts for semantic reasons.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Communication">
+				<xs:annotation>
+					<xs:documentation>Indicates that the concept is "selectable"  It is used to communicate or persist information.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Navigation">
+				<xs:annotation>
+					<xs:documentation>Indicates that the concept is not "selectable", but is displayable to users to help them users navigate a hierarchy of concepts to find a concept that can be selected.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConformanceKind">
+		<xs:annotation>
+			<xs:documentation>Indicates allowed values to constrain whether vendors must implement the specific element.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="I">
+				<xs:annotation>
+					<xs:documentation>ignored - Implementers receiving this property must not raise an error if the data is received, but will not perform any useful function with the data.  This conformance level is not used in profiles or other artifacts that are specific to the ‘sender’ or ‘initiator’ of a communication.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R">
+				<xs:annotation>
+					<xs:documentation>required - All implementors must support this property.  I.e. they must be able to transmit, or to receive and usefully handle the concept.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NP">
+				<xs:annotation>
+					<xs:documentation>not permitted - All implementors are prohibited from transmitting this content, and may raise an error if they receive it.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="U">
+				<xs:annotation>
+					<xs:documentation>undefined - All implementors are prohibited from transmitting this content, and may raise an error if they receive it.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConstructedElementKind">
+		<xs:annotation>
+			<xs:documentation>Indicates the type of element to construct.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="DatatypeSummary">
+				<xs:annotation>
+					<xs:documentation>A summary table of the primary datatypes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ContentsLevelKind">
+		<xs:annotation>
+			<xs:documentation>Indicates how the element should appear in the table of contents</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="None">
+				<xs:annotation>
+					<xs:documentation>The element will not appear in the table of contents</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Detailed">
+				<xs:annotation>
+					<xs:documentation>The element will only appear in the 'detailed' table of contents</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Summary">
+				<xs:annotation>
+					<xs:documentation>The element will appear in both summary and detailed table of contents</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatatypeKind">
+		<xs:annotation>
+			<xs:documentation>The list of allowed kinds of datatype definitions</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Definition">
+				<xs:annotation>
+					<xs:documentation>A universal datatype definition that defines new properties or semantics</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Binding">
+				<xs:annotation>
+					<xs:documentation>A universal datatype definition that asserts additional characterstics against at templated datatype when it has a particular binding</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flavor">
+				<xs:annotation>
+					<xs:documentation>A constraint on a datatype definition</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatatypeQualifierKind">
+		<xs:annotation>
+			<xs:documentation>The list of qualifiers for datatype references</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="datatype">
+				<xs:annotation>
+					<xs:documentation>Indicates that the referenced name is a datatype</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="parameter">
+				<xs:annotation>
+					<xs:documentation>Indicates that the referenced name is the name of one of the parent datatype's parameters</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="baseDiff">
+				<xs:annotation>
+					<xs:documentation>Indicates that the reference is to the "difference type" of the parent datatype</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="parameterDiff">
+				<xs:annotation>
+					<xs:documentation>Indicates that the reference is to the "difference type" of the parent's datatype parameter specified in "name"</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DatatypeOperationKind">
+		<xs:annotation>
+			<xs:documentation>The list of allowed datatype property kinds</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="promotion">
+				<xs:annotation>
+					<xs:documentation>The property converts a simpler datatype into a more complex datatype</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="demotion">
+				<xs:annotation>
+					<xs:documentation>The property exposes the datatype as a simpler datatype by defaulting properties of the new datatype and/or constraining the properties of the original datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="literal">
+				<xs:annotation>
+					<xs:documentation>The property exposes the datatype as a string representation</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="variableProperty">
+				<xs:annotation>
+					<xs:documentation>A property whose value may vary from instance to instance.  Variable properties will need to be comunicated or persisted by an ITS unless they can be inferred from the value of other properties.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<!-- Todo: Original enumeration.  Retain until Gunther gives approval over new enumeration.
+			<xs:enumeration value="basic">
+				<xs:annotation>
+					<xs:documentation>The property is a fundamental characteristic of the datatype.  Basic properties are generally exposed for communication or persistance using an ITS.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="literal">
+				<xs:annotation>
+					<xs:documentation>The string representation for the datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="promotion">
+				<xs:annotation>
+					<xs:documentation>The property exposes the datatype as converted into a more complex datatype through the defaulting of some of the new datatype's properties.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="demotion">
+				<xs:annotation>
+					<xs:documentation>The property exposes the datatype as converted into a simpler datatype through the constraining or suppression of some properties.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="homomorphism">
+				<xs:annotation>
+					<xs:documentation>A property that indicates the specified datatype can be freely interchanged with the 'result' datatype, without extending or constraining the datatype's properties.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="operation">
+				<xs:annotation>
+					<xs:documentation>A property that makes use of other values (with type and number specified by the property parameters) to produce a result.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DefaultDeterminerKind">
+		<xs:annotation>
+			<xs:documentation>Indicates places defaults can be drawn from</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="ITS">
+				<xs:annotation>
+					<xs:documentation>The value is determined by the Implementation Technology Specification used to encode the model referencing the datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ReferencingAttribute">
+				<xs:annotation>
+					<xs:documentation>The value is determined by the definition of the attribute that references the datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Realm">
+				<xs:annotation>
+					<xs:documentation>The value is determined by the realm in which the model instance is constructed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PropertyDefaultHandlingKind">
+		<xs:annotation>
+			<xs:documentation>Indicates code system properties are defaulted when not declared for a given concept.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Hierarchical">
+				<xs:annotation>
+					<xs:documentation>Non-specified properties are inherited from the nearest ancestor in the subsumption hierarchy.  If no ancestor has a declared value for the property, the concept property takes on the value of the property definition's default value, if any.  In circumstances of multiple inheritance where the different ancestors have a different property value, the property will be considered non-defined.  If the properity is mandatory, this would result in an error.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Flat">
+				<xs:annotation>
+					<xs:documentation>Non-specified properties are assumed to have the value declared in the property definition, if any.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DefinedContextKind">
+		<xs:annotation>
+			<xs:documentation>Defines pre-defined 'contexts'.  At present these consist primarily of realms.</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="AffiliateKind"/>
+	</xs:simpleType>
+	<xs:simpleType name="DefinedMappingSourceKind">
+		<xs:annotation>
+			<xs:documentation>Lists 'pre-defined' standards that can be mapped to.  (Predefinition helps ensure consistency of spelling, capitalization, etc.)</xs:documentation>
+			<xs:documentation>UML: type for an object-typed stereotype tag</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="HL7v2">
+				<xs:annotation>
+					<xs:documentation>mapping to the HL7 version 2.x messaging standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DICOM">
+				<xs:annotation>
+					<xs:documentation>mapping to the DICOM standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Analysis Model">
+				<xs:annotation>
+					<xs:documentation>mapping to HL7 version 2.3 messaging standard</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DefinedRoleKind">
+		<xs:annotation>
+			<xs:documentation>Lists pre-defined roles that will commonly be used. (Ensures consistency of spelling, capitalization, etc.)</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="Committee co-chair">
+				<xs:annotation>
+					<xs:documentation>A person who was a co-chair of one of the contributing committees at the time of ballot.  (Identify the committee in brackets following the person's name)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Contact">
+				<xs:annotation>
+					<xs:documentation>A person to contact with questions about the ballot or its contents.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Editor">
+				<xs:annotation>
+					<xs:documentation>A person with responsibility for the consolidation and organization of the ballot material.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Primary Contributor">
+				<xs:annotation>
+					<xs:documentation>An individual who made substantial content contributions to the ballot material.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DerivationRelationshipKind">
+		<xs:annotation>
+			<xs:documentation>The allowed derivation relationships between two artifacts</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="restriction">
+				<xs:annotation>
+					<xs:documentation>The current element is a proper subset of the element it was derived from, but is not identical.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="extension">
+				<xs:annotation>
+					<xs:documentation>The element derived from is a proper subset of this element, but is not identical.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="conflicting">
+				<xs:annotation>
+					<xs:documentation>Neither the element nor the element derived from are proper subsets of the other.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="annotated">
+				<xs:annotation>
+					<xs:documentation>The element is unchanged from the element it is derived from with the exception of descriptive annotations.  For datatype derivations, this effectively creates an Alias for an existing type.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="unchanged">
+				<xs:annotation>
+					<xs:documentation>The element is unchanged from the element it is derived from.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DesignCommentTagKind">
+		<xs:annotation>
+			<xs:documentation>Flags allowed for design comments</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="TODO">
+				<xs:annotation>
+					<xs:documentation>Indicates additional actions which need to be taken.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="FIXME">
+				<xs:annotation>
+					<xs:documentation>Indicates a situation where the existing content is known to be incomplete or incorrect.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NOTE">
+				<xs:annotation>
+					<xs:documentation>Indicates a generic comment about the design of the artifact.  E.g. Internal design rationale.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DocumentProfileKind">
+		<xs:annotation>
+			<xs:documentation>Indicates the scope of the document profile</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Create">
+				<xs:annotation>
+					<xs:documentation>Profile relates to documents "as created".  Constraints reflect what sorts of documents can be constructed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Read">
+				<xs:annotation>
+					<xs:documentation>Profile relates to documents "as interpreted".  Constraints reflect what sorts of information the system can actually extract and use from a document.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Both">
+				<xs:annotation>
+					<xs:documentation>Profile relates to both how documents are created and read.  Constraints reflect the ability to both construct as well as extract and use data elements from the document</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DurationUnitsKind">
+		<xs:annotation>
+			<xs:documentation>Allowed units for measuring duration</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="ms">
+				<xs:annotation>
+					<xs:documentation>millisecond</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="s">
+				<xs:annotation>
+					<xs:documentation>second</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="min">
+				<xs:annotation>
+					<xs:documentation>minute</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="h">
+				<xs:annotation>
+					<xs:documentation>hour</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="d">
+				<xs:annotation>
+					<xs:documentation>day</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EffortQuantifierKind">
+		<xs:annotation>
+			<xs:documentation>Identifies language that constraints can be expressed in.  (Excludes OCL, which is the default)</xs:documentation>
+			<xs:documentation>UML: Type used by a complex stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="PersonHour">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in number of hours worked times number of people expending those hours</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PersonDay">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in number of regular days worked times number of people expending those hours</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PersonYear">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in number of years worked times number of people expending those hours</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HourDuration">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in total length of calendar time in hours to be expended, independent of number of people</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DayDuration">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in total length of calendar time in days to be expended, independent of number of people</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MonthDuration">
+				<xs:annotation>
+					<xs:documentation>The quantity is expressed in total length of calendar time in months to be expended, independent of number of people</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExpressionLanguageKind">
+		<xs:annotation>
+			<xs:documentation>Identifies language that constraints can be expressed in.  (Excludes OCL, which is the default)</xs:documentation>
+			<xs:documentation>UML: Type used by a complex stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="XPath">
+				<xs:annotation>
+					<xs:documentation>An XPath expression that assumes the use of the XML ITS, and which evaluates to a boolean</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HL7DatatypeDefinitionLanguage">
+				<xs:annotation>
+					<xs:documentation>Gunther's formal assertion language</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RegularExpression">
+				<xs:annotation>
+					<xs:documentation>An expression using the "regular expression" language as used by the unix 'grep' utility and many others</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FilterKind">
+		<xs:annotation>
+			<xs:documentation>Indicates whether the filter refers to content to be included or excluded</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Include">
+				<xs:annotation>
+					<xs:documentation>The referenced data should be included</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Exclude">
+				<xs:annotation>
+					<xs:documentation>The referenced data should be excluded</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="IconFormatKind">
+		<xs:annotation>
+			<xs:documentation>Identifies types of image formats usable for icons</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="JPEG"/>
+			<xs:enumeration value="GIF"/>
+			<xs:enumeration value="SVG"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InteractionKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the allowed types of interactions</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Query">
+				<xs:annotation>
+					<xs:documentation>Solicits data from the receiver</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QueryResponse">
+				<xs:annotation>
+					<xs:documentation>Returns requested data to the query initiator, or an indication that requested data is unavailable.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="EventNotification">
+				<xs:annotation>
+					<xs:documentation>Informs the receiver about the occurrence of a trigger event, along with full or partial data related to that trigger event.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RequestForAction">
+				<xs:annotation>
+					<xs:documentation>Solicits a specific action (trigger event) from the receiver.  Must be an action the receiving Role is theoretically capable of performing.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RequestResponseAccept">
+				<xs:annotation>
+					<xs:documentation>Notification of the agreement or conditional agreement to perform the requested action (trigger event) or a varient thereof.  I.e. the accept may propose an alternative to the initial request.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RequestResponseRefuse">
+				<xs:annotation>
+					<xs:documentation>Notification of the refusal to perform the requested action (trigger event).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UntriggeredNotification">
+				<xs:annotation>
+					<xs:documentation>Transmission of data that is independent of the occurrence of any state-transition event or other interaction.E.g. auto-publish, broadcast, backload</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InteractionProfileKind">
+		<xs:annotation>
+			<xs:documentation>Indicates the scope of the interaction profile</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="R">
+				<xs:annotation>
+					<xs:documentation>Required - All implementors must support this property.  I.e. they must be able to transmit, or to receive and usefully handle the concept.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Send">
+				<xs:annotation>
+					<xs:documentation>Profile relates to interactions "as transmitted".  Constraints reflect what sorts of content can be constructed and sent over the wire.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Receive">
+				<xs:annotation>
+					<xs:documentation>Profile relates to interactions "as interpreted".  Constraints reflect what sorts of information the system can actually extract and use from an interaction.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Both">
+				<xs:annotation>
+					<xs:documentation>Profile relates to both how interactions are sent and received.  Constraints reflect the ability to both construct as well as extract and use data elements from the interaction</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MapRelationshipKind">
+		<xs:annotation>
+			<xs:documentation>The possible relationships between two mapped elements</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="BT">
+				<xs:annotation>
+					<xs:documentation>Broader Than - The first concept is at a more abstract level than the second concept.  For example, Hepatitis is broader than Hepatitis A, and endocrine disease is broader than Diabetes Mellitus.  Broader than is the opposite of the narrower than relationship.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="E">
+				<xs:annotation>
+					<xs:documentation>Exact - The two concepts have identical meaning.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NT">
+				<xs:annotation>
+					<xs:documentation>Narrower Than - The first concept is at a more detailed level than the second concept.  For example, Pennicillin G is narrower than Pennicillin, and vellus hair is narrower than hair.  Narrower than is the opposite of broader than.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NC">
+				<xs:annotation>
+					<xs:documentation>Not Comparable - The first concept cannot be mapped in any way to the second concept.  For example Blue cannot be mapped to Orange.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ModelConformanceKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the type of conformance rules the model is subject to.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="International">
+				<xs:annotation>
+					<xs:documentation>The model is an international standard - no extensions allowed.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RealmExtension">
+				<xs:annotation>
+					<xs:documentation>Realm specific extensions allowed in the primary namespace.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Localization">
+				<xs:annotation>
+					<xs:documentation>Non-balloted specification.  Extensions allowed, but only in discrete namespaces</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NegativeVoteResolutionKind">
+		<xs:annotation>
+			<xs:documentation>List of allowed resolutions to a formal ballot (based on HL7 bylaws)</xs:documentation>
+			<xs:documentation>UML: Type for a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="Unresolved">
+				<xs:annotation>
+					<xs:documentation>Vote has not yet gone through resolution.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Non-Substantive Proposed">
+				<xs:annotation>
+					<xs:documentation>Responsible group has recommended that the negative vote be considered non-substantive.  (Issue raised does not provide sufficiently convincing reason to make changes to the item under ballot, or otherwise impede its adoption.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Non-Substantive Voted">
+				<xs:annotation>
+					<xs:documentation>Ballot group has voted and declared the negative vote non-substantive.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Not Related Proposed">
+				<xs:annotation>
+					<xs:documentation>Responsible group has recommended that the negative vote be considered not-related.  (Issue raised is not related to the current scope of the item under ballot, or does not prevent the item under ballot for being used for its defined intent.  Recommended changes may be considered as part of future versions.)  (Perhaps after further reading or explanation).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Not Related Voted">
+				<xs:annotation>
+					<xs:documentation>Ballot group has voted and declared the negative vote non-related.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Previously Considered">
+				<xs:annotation>
+					<xs:documentation>Committee identifies that the same issue has been raised as part of a previous ballot on the same element version and was found by the ballot group to be non-substantive or not related.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Retracted">
+				<xs:annotation>
+					<xs:documentation>Voter has formally withdrawn their vote or comment as having been in error.  (Perhaps after further reading or explanation).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Withdrawn">
+				<xs:annotation>
+					<xs:documentation>Voter has formally withdrawn their vote or comment on the basis of agreed changes or proposed future changes.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NodeOrientation">
+		<xs:annotation>
+			<xs:documentation>List of allowed values to reflect the orientation of graphic node elements, including ChoiceBox alignment and the four, flip-orientations for a Role.</xs:documentation>
+			<xs:documentation>UML: Type for a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Portrait">
+				<xs:annotation>
+					<xs:documentation>Applied to ChoiceBox, asserts that choice elements are arranged vertically.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Landscape">
+				<xs:annotation>
+					<xs:documentation>Applied to ChoiceBox, asserts that choice elements are arranged horizontally.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Left">
+				<xs:annotation>
+					<xs:documentation>Applied to an 'Arrow' shape, asserts that the arrow points towards the left edge of the diagram.  (This must be consistent with the relative connection points of the associations to the shape, if any)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Right">
+				<xs:annotation>
+					<xs:documentation>Applied to an 'Arrow' shape, asserts that the arrow points towards the right edge of the diagram.  (This must be consistent with the relative connection points of the associations to the shape, if any)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Up">
+				<xs:annotation>
+					<xs:documentation>Applied to an 'Arrow' shape, asserts that the arrow points towards the top edge of the diagram.  (This must be consistent with the relative connection points of the associations to the shape, if any)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Down">
+				<xs:annotation>
+					<xs:documentation>Applied to an 'Arrow' shape, asserts that the arrow points towards the bottom edge of the diagram.  (This must be consistent with the relative connection points of the associations to the shape, if any)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UpRight">
+				<xs:annotation>
+					<xs:documentation>Applied to Role shape, represents orientation in which the "player" association departs from the upper-right corner of the box.  Applied to a recursive arrow shape, indicates that the shape is positioned to connect to the top-right-hand corner of a rectangular class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="UpLeft">
+				<xs:annotation>
+					<xs:documentation>Applied to Role shape, represents orientation in which the "player" association departs from the upper-left corner of the box.  Applied to a recursive arrow shape, indicates that the shape is positioned to connect to the top-left-hand corner of a rectangular class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DownRight">
+				<xs:annotation>
+					<xs:documentation>Applied to Role shape, represents orientation in which the "player" association departs from the lower-right corner of the box.  Applied to a recursive arrow shape, indicates that the shape is positioned to connect to the bottom-right-hand corner of a rectangular class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DownLeft">
+				<xs:annotation>
+					<xs:documentation>Applied to Role shape, represents orientation in which the "player" association departs from the lower-left corner of the box.  Applied to a recursive arrow shape, indicates that the shape is positioned to connect to the bottom-left-hand corner of a rectangular class.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OwnerScopeKind">
+		<xs:annotation>
+			<xs:documentation>Indicates the scope of a property on a datatype</xs:documentation>
+			<xs:documentation>UML: Type for a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="instance">
+				<xs:annotation>
+					<xs:documentation>The property value can change for each datatype instance</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="classifier">
+				<xs:annotation>
+					<xs:documentation>The property value is the same for all instances of a given datatype and can be invoked against the type definition itself</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PackageKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the 'level' associated with a particular package</xs:documentation>
+			<xs:documentation>UML: stored in a tag on Package stereotypes</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="root">
+				<xs:annotation>
+					<xs:documentation>Indicates the fundamental categorization of the package</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="section">
+				<xs:annotation>
+					<xs:documentation>Indicates a broad categorization of the business area</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subSection">
+				<xs:annotation>
+					<xs:documentation>Indicates a more specific categorization of the business area</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="domain">
+				<xs:annotation>
+					<xs:documentation>Indicates a specific business area</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="realmNamespace">
+				<xs:annotation>
+					<xs:documentation>Provides a means for partitioning artifacts developed by the international organization, regional affiliates and member organizations</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="version">
+				<xs:annotation>
+					<xs:documentation>Indicates the iteration or revision number of a set of content</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="artifact">
+				<xs:annotation>
+					<xs:documentation>Indicates the type of business-object stored in the package</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="subArtifact">
+				<xs:annotation>
+					<xs:documentation>Indicates the sub-type of business-object stored in the package</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="name">
+				<xs:annotation>
+					<xs:documentation>A descriptive label for a particular artifact</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="id">
+				<xs:annotation>
+					<xs:documentation>A numeric label for a particular artifact</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PackageRootKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the primary 'purpose' of the packaged content</xs:documentation>
+			<xs:documentation>UML: The name for the initial set of packages within the 'HL7v3' package</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="DEFN">
+				<xs:annotation>
+					<xs:documentation>The package represents the artifacts being defined.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BAL">
+				<xs:annotation>
+					<xs:documentation>The package groups a set of content defined elsewhere intended to be submitted for ballot</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PUB">
+				<xs:annotation>
+					<xs:documentation>The package groups a set of content defined elsewhere as a formal publication</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<!--      <xs:enumeration value="PROF">
+        <xs:annotation>
+          <xs:documentation>The package represents a particular implementation's capabilities or requirements within a specific business area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ParentArtifactKind">
+		<xs:annotation>
+			<xs:documentation>A list of the types of artifacts that can be referenced</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="datatype">
+				<xs:annotation>
+					<xs:documentation>A 'datatypeDefinition' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="property">
+				<xs:annotation>
+					<xs:documentation>A datatype 'property' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="class">
+				<xs:annotation>
+					<xs:documentation>A 'class' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="attribute">
+				<xs:annotation>
+					<xs:documentation>A class 'attribute' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="relationship">
+				<xs:annotation>
+					<xs:documentation>A class 'relationship' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="trigger">
+				<xs:annotation>
+					<xs:documentation>A 'triggerEvent' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="appRole">
+				<xs:annotation>
+					<xs:documentation>An 'applicationRole' element</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RelationshipTraversalKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the filter to apply when selecting codes by traversing a relationship</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="DirectRelationsOnly">
+				<xs:annotation>
+					<xs:documentation>Only those codes with a direct relationship to the selected code are included.  E.g. Direct children of this code</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TransitiveClosure">
+				<xs:annotation>
+					<xs:documentation>All codes walking the transitive closure of the specified relationship are included.  E.g. Descendants of this code.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TransitiveClosureLeaves">
+				<xs:annotation>
+					<xs:documentation>All codes walking the transitive closure of the specified relationship where the code has no outbound relationship of the specified type.  E.g. descendants, leaf nodes only</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RevisionFrequencyKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the update frequency expectations for systems which reference a vocabulary domain</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Edition">
+				<xs:annotation>
+					<xs:documentation>The value-set associated with the domain is 'frozen' at the set of codes available at the time the Edition referenced by the interaction was published.  I.e. The codes which were published by HL7 as part of the edition for 'internal' code systems and the codes which were available in external code systems at the time the edition was published</xs:documentation>
+					<!-- Todo: Figure out what the ramifications are for structured documents, which don't have a place to reference edition . . . -->
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CodeSystem">
+				<xs:annotation>
+					<xs:documentation>The value-set associated with the domain changes with the underlying cod-system.  Applications are expected to support codes from the current version of the code system, regardless of declared edition.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StaticModelDiagramPresentationKind">
+		<xs:annotation>
+			<xs:documentation>Provides the different 'types' of diagrams</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="UML">
+				<xs:annotation>
+					<xs:documentation>Standard UML format</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="HL7">
+				<xs:annotation>
+					<xs:documentation>HL7's "customized" diagramming format (aka R-MIM format)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StaticModelRepresentationKind">
+		<xs:annotation>
+			<xs:documentation>The allowed mechanisms by which a static can be serialized</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="flat">
+				<xs:annotation>
+					<xs:documentation>The model is represented as a list of class definitions, not necessarily in the order they will appear when communicated, and not organized in a hierarchy for exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="serialized">
+				<xs:annotation>
+					<xs:documentation>The model is represented as a hierarchical list of classes and associations ordered in the way they would appear in an instance for exchange..</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StaticModelUseKind">
+		<xs:annotation>
+			<xs:documentation>The allowed uses for a particular static model</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="CommunicationWrapper">
+				<xs:annotation>
+					<xs:documentation>Defines a communication structure for other content.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ControlActWrapper">
+				<xs:annotation>
+					<xs:documentation>Defines common information regarding Acts upon a particular payload.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SemanticPayload">
+				<xs:annotation>
+					<xs:documentation>A set of content that is the 'focus' of a message or document.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PresentationStructure">
+				<xs:annotation>
+					<xs:documentation>Defines the organization and appearance of an underlying model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="QueryDefinition">
+				<xs:annotation>
+					<xs:documentation>Defines a set of data being solicited.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CMET">
+				<xs:annotation>
+					<xs:documentation>A re-usable static structure component.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Template">
+				<xs:annotation>
+					<xs:documentation>A pattern that can be applied to other models.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubArtifactKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the kind of sub artifacts that can be packaged within an artifact</xs:documentation>
+			<xs:documentation>UML: The name for a package in the package hierarchy</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="VD">
+				<xs:annotation>
+					<xs:documentation>Vocabulary Domain</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VC">
+				<xs:annotation>
+					<xs:documentation>Vocabulary Code System</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="VS">
+				<xs:annotation>
+					<xs:documentation>Value Set</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TerminologyServerKind">
+		<xs:annotation>
+			<xs:documentation>Indicates the formats in which terminologies can be made available in.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="CTS1.0">
+				<xs:annotation>
+					<xs:documentation>Compliant with Common Terminology Services version 1.0.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CTS2.0">
+				<xs:annotation>
+					<xs:documentation>Compliant with Common Terminology Services version 2.0.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="MIF">
+				<xs:annotation>
+					<xs:documentation>HL7 Model Interchange Format.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Rendered">
+				<xs:annotation>
+					<xs:documentation>A human-readable rendered form (e.g. HTML, PDF).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Custom">
+				<xs:annotation>
+					<xs:documentation>A custom computable format (e.g. ASCII text files, Access databases)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TranslatableDirectionKind">
+		<xs:annotation>
+			<xs:documentation>Indicates in which translation can occur.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="sourceToTarget">
+				<xs:annotation>
+					<xs:documentation>Translation can occur from the source concept to the target concept.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="targetToSource">
+				<xs:annotation>
+					<xs:documentation>Translation can occur from the target concept to the source concept.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="bi-directional">
+				<xs:annotation>
+					<xs:documentation>Translation can occur both from from the source concept to target concept and from target to source.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VisibilityKind">
+		<xs:annotation>
+			<xs:documentation>The allowed levels of exposure for an element</xs:documentation>
+			<xs:documentation>UML: Restriction on UML's VisibilityKind (excludes 'package' visibility)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="private">
+				<xs:annotation>
+					<xs:documentation>The datatype is strictly for use in deriving other datatypes or constructing formal constraints.  It will never appear as the datatype for an attribute or as an exposed property of another datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="protected">
+				<xs:annotation>
+					<xs:documentation>The datatype is only for use in defining other datatypes.  It may never be used as the datatype for an attribute, though it may appear through exposed properties of a datatype.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="public">
+				<xs:annotation>
+					<xs:documentation>The datatype may be freely used, including as the datatype associated with an attribute.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VocabularyModelDefinitionKind">
+		<xs:annotation>
+			<xs:documentation>Indicates whether a vocabulary model is a complete model or a subset, and if so, what kind of subset</xs:documentation>
+			<xs:documentation>UML: Enumeration defining values for a tag</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="complete">
+				<xs:annotation>
+					<xs:documentation>Indicates that the content of the model rendition represents a complete definition of the vocabulary artifacts present within that model.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="partial-validation">
+				<xs:annotation>
+					<xs:documentation>Indicates that the content of the model rendition represents a subset as required for validation of static model definitions.  This representation may include artifacts defined within other models rather than referencing them as dependent models for simplicity of exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="partial-publishing">
+				<xs:annotation>
+					<xs:documentation>Indicates that the content of the model rendition represents a subset as required to expose the vocabulary model for publishing</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="partial-implementation">
+				<xs:annotation>
+					<xs:documentation>Indicates that the content of the model rendition represents the subset needed to perform implementation of a particular set of static artifacts.  This representation may include artifacts defined within other models rather than referencing them as dependent models for simplicity of exchange.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoteKind">
+		<xs:annotation>
+			<xs:documentation>Identifies the allowed types of individual responses within a ballot response.</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationToken">
+			<xs:enumeration value="Affirmative">
+				<xs:annotation>
+					<xs:documentation>The voter wants the ballot to pass</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Abstain">
+				<xs:annotation>
+					<xs:documentation>The voter is not expressing an opinion on whether the ballot should pass</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Negative">
+				<xs:annotation>
+					<xs:documentation>The voter does *not* want the ballot to pass</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="VoteCommentKind">
+		<xs:annotation>
+			<xs:documentation>List of allowed votes</xs:documentation>
+			<xs:documentation>UML: Type for a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="EnumerationString">
+			<xs:enumeration value="Affirmative - Typo">
+				<xs:annotation>
+					<xs:documentation>Vote is in favour of adoption of the balloted item, though spelling or grammar error that doesn not affect semantic needs to be </xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affirmative - Suggestion">
+				<xs:annotation>
+					<xs:documentation>The voter is recommending a change to the content, but they are in favour of adoption of the balloted item regardless of whether the change is made.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Affirmative - Question">
+				<xs:annotation>
+					<xs:documentation>The voter has a question with respect to the content, however they are in favour of adoption of the balloted item regardless of whether or how the question is answered.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Negative - Minor">
+				<xs:annotation>
+					<xs:documentation>Vote is opposed to the adoption of the balloted item, with a need for minor changes in the item needed to resolve the negative.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Negative - Major">
+				<xs:annotation>
+					<xs:documentation>Vote is opposed to the adoption of the balloted item, with a need for significant changes or complete redevelopment of the item needed to resolve the negative.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

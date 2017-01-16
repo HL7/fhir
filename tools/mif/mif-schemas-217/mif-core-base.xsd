@@ -1,0 +1,2776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Dec. 2002
+(c) 2002-2008 by HL7 Inc.
+
+Purpose:
+  This schema defines types that are re-used throughout other v3 schemas.  No specific elements are defined by this schema
+
+Todo:
+  - Enforce that 'underscores' only appear in class names if the class has descendants.
+  - Ensure that all 'prepend' and 'append' annotation references actually exist in the current model or the transitive closure of one of the imported annotation libraries.
+  - Ensure that all 'prepend' and 'append' annotation references refer to annotations of the same type and elementType in the current model or the transitive closure of one of the imported annotation libraries.
+
+Future todo:
+  - More restriction on definition of formal part of constraint (once we come up with what the formal language will be)
+  - More rigourous definition for static example content (i.e. a more formal definition of example content, possibly using nested elements)
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="xhtml1-strict.xsd"/>
+	<xs:include schemaLocation="mif-core-patterns.xsd"/>
+	<xs:complexType name="DatatypeRef">
+		<xs:annotation>
+			<xs:documentation>A reference to a datatype definition.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="argumentDatatype" type="DatatypeRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies a datatype to bind to one of the referenced datatypes templateParameters</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="DatatypeName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the datatype being referenced</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="qualifier" type="DatatypeQualifierKind" default="datatype">
+			<xs:annotation>
+				<xs:documentation>Identifiers whether the reference is to a datatype, parameter, difference datatype for the parameter or difference datatype for the base datatype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Todo: Enforce that name must not be present when qualifier is "baseDiff", required otherwise -->
+		<!--    <xs:attribute name="typeSpecialisation" type="DatatypeName" use="optional">
+      <xs:annotation>
+        <xs:documentation>The name of the datatype specialisation being used</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>-->
+		<!-- Added by Grahame Grieve 8-Oct 2007. For CfH. Refer to gForge bug at 
+     http://hl7projects.hl7.nscee.edu/tracker/index.php?func=detail&aid=306&group_id=18&atid=156
+     -->
+	</xs:complexType>
+	<xs:complexType name="PackageOrArtifactRef">
+		<xs:annotation>
+			<xs:documentation>References to generic elements that could be packages or artifacts</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageRef">
+				<xs:attribute name="artifactName" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the referenced artifact within the package</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PackageDefId">
+		<xs:annotation>
+			<xs:documentation>Used to define the identification information for a package</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageRef">
+				<xs:attribute name="secondaryId" type="Oid" use="optional">
+					<xs:annotation>
+						<xs:documentation>An object identifier issued to the package or model as a supplementary id used for locating the object in registries, etc.</xs:documentation>
+						<xs:documentation>UML: Tag on HL7Package.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PackageRef">
+		<xs:annotation>
+			<xs:documentation>Used to make absoloute references to other packages.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate PackageRef type">
+					<sch:rule context="element(*, mif:PackageRef)">
+						<sch:report test="contains(concat(';', @artifact, ';'), ';RIM;ITS;DT;VO;') and @domain">
+							ERROR: RIM, ITS, Vocabulary and Datatypes must be global (they may not be within a domain).</sch:report>
+						<sch:report test="contains(concat(';', @artifact, ';'), ';DIM;CIM;LIM;AR;TE;IN;TP;DAM;') and not(@domain)">
+							ERROR: DIMs, DAMs, CIMs, LIMs, Application Roles, Trigger Events, Interactions and Templates may only be defined in a domain.</sch:report>
+						<!-- DC, GL, IFC, SB can be domain or non-domain -->
+						<sch:report test="@subArtifact and @artifact!='VO'">
+							ERROR: Only vocabulary artifacts may have sub-artifact types.</sch:report>
+						<sch:report test="contains(concat(';', @artifact, ';'), ';RIM;ITS;') and not(@realmNamespace)">
+							ERROR: All artifacts except RIM and ITS must be specific to a particular realm namespace (even if universal).</sch:report>
+						<sch:report test="@root!='PROF' and not(@artifact)">
+							ERROR: Must specify an artifact unless package represents a profile.</sch:report>
+						<sch:report test="@root='PROF' and not(@artifact)">
+							ERROR: Must specify an artifact unless package represents a profile.</sch:report>
+						<sch:report test="@id and @name">
+							ERROR: Artifacts can't have both name and id.</sch:report>
+						<!-- Todo: Add more constraints -->
+						<!-- Todo: Can only have identifierId if realm is ZZ -->
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="combinedId" type="CollapsedPackageId" use="optional">
+			<xs:annotation>
+				<xs:documentation>The concatenated "complete" identifier for the package including all packages in the package hierarchy</xs:documentation>
+				<xs:documentation>UML: tag made of concatenated package names for entire package hierarchy.</xs:documentation>
+				<xs:documentation>Derive: Todo - concatenate the other id parts</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="root" type="PackageRootKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Indicates the fundamental categorization of the package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="section" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Added by Eclipse for backwards compatibility (Grahame 9-Oct 2007). To be removed later</xs:documentation>
+				<xs:documentation>Deprecated: This element isn't really part of the id, but rather is used for publishing</xs:documentation>
+				<xs:documentation>UML: no mapping</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="subSection" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Added by Eclipse for backwards compatibility (Grahame 27-Nov 2007). To be removed later</xs:documentation>
+				<xs:documentation>Deprecated: This element isn't really part of the id, but rather is used for publishing</xs:documentation>
+				<xs:documentation>UML: no mapping</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="artifact" type="ArtifactKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the category of the artifacts in the package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="subArtifact" type="SubArtifactKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the sub-category of the artifacts in the package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="domain" type="DomainKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the name of the domain package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="realmNamespace" type="RealmNamespaceKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the geopolitical area covered by the package.  Also used to distinguish "local" artifacts.</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="version" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the name of the version package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the name of the package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="SmallNonNegativeInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the identifier number of the package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="releaseDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the release date of a non-versioned package</xs:documentation>
+				<xs:documentation>UML: ModelElement.name, inherited by package</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ArtifactDependency">
+		<xs:annotation>
+			<xs:documentation>Identifies a vocabulary model to import, and optionally, additional documentation to supplement existing artifacts with.</xs:documentation>
+			<xs:documentation>UML: Imported model</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageRef">
+				<xs:sequence>
+					<xs:element name="supplementArtifact" type="ArtifactSupplement" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Defines additional characteristics on a specific artifact imported from the referenced vocab model</xs:documentation>
+							<xs:documentation>UML: No equivalent - adding additional properties to an existing artifact on import</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ArtifactSupplement">
+		<xs:annotation>
+			<xs:documentation>Defines additional annotations on an imported concept domain</xs:documentation>
+			<xs:documentation>UML: No equivalent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="supplementedObject" type="Object">
+				<xs:annotation>
+					<xs:documentation>Identifies the object to which the supplements are to be applied.</xs:documentation>
+					<xs:documentation>UML: No equivalent</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:group ref="BusinessName"/>
+			<xs:element name="annotations" type="ArtifactSupplementAnnotations" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supplemental annotations about the imported artifact.</xs:documentation>
+					<xs:documentation>UML: A collector for the comments and constraints associated with a concept domain.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+				</xs:annotation>
+				<!-- Todo: Enforce that if definition is present, it only provides translations of the base definition -->
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ArtifactSupplementAnnotations">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing ArtifactSupplement.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a ArtifactSupplement.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Annotations">
+				<xs:sequence>
+					<xs:element name="documentation" type="ArtifactSupplementDocumentation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Documentation related to the ArtifactSupplement</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="appInfo" type="ArtifactSupplementAppInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Supporting programmatic information related to the ArtifactSupplement which has descriptive componenents</xs:documentation>
+							<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ArtifactSupplementDocumentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a ArtifactSupplement.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a ArtifactSupplement.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="Documentation">
+				<xs:sequence>
+					<xs:choice minOccurs="0">
+						<xs:group ref="Definition"/>
+						<xs:group ref="Description"/>
+					</xs:choice>
+					<xs:group ref="UsageConstraint" minOccurs="0"/>
+					<xs:group ref="UsageNotes" minOccurs="0"/>
+					<xs:group ref="Rationale" minOccurs="0"/>
+					<xs:group ref="Requirements" minOccurs="0"/>
+					<xs:group ref="DesignComment" minOccurs="0"/>
+					<xs:group ref="StabilityRemarks" minOccurs="0"/>
+					<xs:group ref="Walkthrough" minOccurs="0"/>
+					<xs:group ref="Appendix" minOccurs="0"/>
+					<xs:group ref="OtherAnnotation" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ArtifactSupplementAppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a ArtifactSupplement.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a ArtifactSupplement.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:restriction base="AppInfo">
+				<xs:sequence>
+					<xs:group ref="Mapping" minOccurs="0"/>
+					<xs:group ref="FormalConstraint" minOccurs="0"/>
+					<xs:group ref="OpenIssue" minOccurs="0"/>
+					<xs:group ref="StaticExample" minOccurs="0"/>
+					<xs:group ref="BallotComment" minOccurs="0"/>
+					<xs:group ref="ChangeRequest" minOccurs="0"/>
+					<xs:group ref="DeprecationInfo" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ClassRef">
+		<xs:annotation>
+			<xs:documentation>A reference to a defined class within a particular model.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ClassRef type">
+					<sch:rule abstract="true" id="ClassRef">
+						<sch:extends rule="PackageRef"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageRef">
+				<xs:attribute name="className" type="AllClassName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the class being referenced.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="TransitionRef">
+		<xs:annotation>
+			<xs:documentation>Identifies a state transition defined elsewhere.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate TransitionRef type">
+					<sch:rule abstract="true" id="TransitionRef">
+						<sch:extends rule="ClassRef"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ClassRef">
+				<xs:attribute name="stateTransitionName" type="FormalPropertyName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the state transition within the 'focal' class that is the basis for the trigger event.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ModelElement" abstract="true">
+		<xs:annotation>
+			<xs:documentation>The base type for all 'semantic' elements in the MIF</xs:documentation>
+			<xs:documentation>UML: ModelElement stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="historyItem" type="HistoryItem" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Defines the list of 'events' that have occurred against this particular model element.</xs:documentation>
+					<xs:documentation>UML: Object-typed Tag value on ModelElement stereotype.</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate historyItem element">
+							<sch:rule context="mif:historyItem">
+								<sch:extends rule="HistoryItem"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<!--
+			The following elements are defined as part of ModelElement, but they don't apply to all stereotypes
+			They will be defined for those stereotypes where they apply
+			They are included here for easy 'cut and paste'
+			
+      <xs:group ref="BusinessName"/>
+			<xs:element name="derivationSupplier" type="SomeDerivation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>????</xs:documentation>
+					<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="graphicRepresentation" type="SomeGraphicInformation" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>????</xs:documentation>
+					<xs:documentation>UML: association from ModelElement to GraphicInformation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="annotations" type="SomeAnnotation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>????</xs:documentation>
+					<xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			-->
+		</xs:sequence>
+		<!-- <xs:attributeGroup ref="SortKey???"/> -->
+	</xs:complexType>
+	<xs:attributeGroup name="SortKeyOptional">
+		<xs:annotation>
+			<xs:documentation>Used for model elements that might have a declared sort order but don't have to have one</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="sortKey" type="BasicFormalName" use="optional">
+			<xs:annotation>
+				<xs:documentation>A name used in determining the sort order of the model element within its siblings.</xs:documentation>
+				<xs:documentation>Impl: This will usually be a sequential number, but could be something else.</xs:documentation>
+				<xs:documentation>UML: tag value within ModelElement</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="SortKeyRequired">
+		<xs:annotation>
+			<xs:documentation>Used for model elements that must have a declared sort order</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="sortKey" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>A name used in determining the sort order of the model element within its siblings.</xs:documentation>
+				<xs:documentation>Impl: This will usually be a sequential number, but could be something else.</xs:documentation>
+				<xs:documentation>UML: tag value within ModelElement</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:group name="Context">
+		<xs:sequence>
+			<xs:element name="realmNamespace" type="RealmElement">
+				<xs:annotation>
+					<xs:documentation>Identifies the affiliate or sub-realm associated with the element.  If none is specified, the affiliate associated with the package is assumed.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate realm element">
+							<sch:rule context="mif:realm">
+								<sch:extends rule="RealmElement"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="RealmElement">
+		<xs:annotation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate RealmElement type">
+					<sch:rule abstract="true" id="RealmElement">
+						<sch:report test="count(preceding-sibling::mif:*[name(.)=name(current())][@value=current()/@value])!=0">
+								ERROR: A given realm may only be listed once within a particular element.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="value" type="RealmKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Indicates a single realm value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:group name="BusinessName">
+		<xs:sequence>
+			<xs:element name="businessName" type="BusinessName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The business names associated with the element. CURRENT- 0..1</xs:documentation>
+					<xs:documentation>UML: Tag value inherited from ModelElement</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate businessName element">
+							<sch:rule context="mif:businessName">
+								<sch:extends rule="BusinessName"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="BusinessName">
+		<xs:annotation>
+			<xs:documentation>A name for the artifact that will be meaningful to business or domain experts.  One artifact may have different business name translations for each realm and/or language.</xs:documentation>
+			<xs:documentation>UML: tagged value on ModelElement</xs:documentation>
+			<xs:documentation>DublinCore: Maps to 'Alternative'</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate BusinessName type">
+					<sch:rule abstract="true" id="BusinessName">
+						<sch:report test="count(preceding-sibling::mif:*[name(.)=name(current())][mif:context/@value=current()/mif:context/@value or (not(mif:context) and not(current()/mif:context))])!=0">
+								ERROR: Only one business name may exist for a particular context.</sch:report>
+						<sch:report test="count(preceding-sibling::*[name(.)=name(current())][@name=current()/@name])!=0">
+								ERROR: Business names must be unique for a given element.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:annotation>
+				<xs:documentation>FUTURE_USE</xs:documentation>
+			</xs:annotation>
+			<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="cascadeInfo" type="AnnotationCascadeInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Information describing how the BusinessName cascades through models.</xs:documentation>
+					<xs:documentation>UML: Tag on the BusinessName stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The assigned name.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="lang" type="xs:language" use="optional" default="EN">
+			<xs:annotation>
+				<xs:documentation>Indicates the language in which the business name is expressed FUTURE_USE</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				<xs:documentation>DublinCore: Language</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="HistoryItem">
+		<xs:annotation>
+			<xs:documentation>Provides internal versioning information about an item.  Each repetition indicates a separate version the artifact has gone through.</xs:documentation>
+			<xs:documentation>UML: tagged object on ModelElement.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate HistoryItem type">
+					<sch:rule abstract="true" id="HistoryItem">
+						<sch:report test="@id and preceding::mif:historyItem[@id=current/@id]">
+								ERROR: HistoryItem ids must be unique across the document</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the changes that occurred and why FUTURE_USE, INTERFACE_DESIGN</xs:documentation>
+					<xs:documentation>UML: part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="dateTime" type="DateOrTimestamp" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the date and time on which the version was created.</xs:documentation>
+				<xs:documentation>UML: part of a complex tag value</xs:documentation>
+				<xs:documentation>DublinCore: First occurrence corresponds to 'created', all others correspond to 'Modified'</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="responsiblePersonName" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the name of the person responsible for creating the new version.  (To see who created the initial version, look for the history item with the earliest dateTime).FUTURE_USE</xs:documentation>
+				<xs:documentation>UML: part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="id" type="Uuid" use="optional">
+			<xs:annotation>
+				<xs:documentation>A unique Uuid assigned to this particular version of the artifact.</xs:documentation>
+				<xs:documentation>UML: part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isSubstantiveChange" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>If true, indicates that the changes made are considered 'substantive'.  Substantive changes have impact on balloting requirements.FUTURE_USE, INTERFACE_DESIGN</xs:documentation>
+				<xs:documentation>UML: part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="isBackwardCompatibleChange" type="xs:boolean" use="optional">
+			<xs:annotation>
+				<xs:documentation>If true, indicates that the changes made are considered backward compatible.  I.e implementers (creators and readers) of the previous version should be able to support the new version without adjusting their interfaces. FUTURE_USE, INTERFACE_DESIGN</xs:documentation>
+				<xs:documentation>UML: part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- 20080116 - removed, as per "drop" instruction agreed previously.  Never been used and not useful.
+    <xs:attribute name="modifiedForPackageVersion" type="Version" use="optional">
+      <xs:annotation>
+        <xs:documentation>Identifies the version of the package this element is part of that the change was first included in.DROP</xs:documentation>
+        <xs:documentation>UML: part of a complex tag value</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>-->
+		<!-- Todo: Ensure that dateTime <= now -->
+	</xs:complexType>
+	<xs:complexType name="Relationship" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to Relationship meta class</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Dependency" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Corresponds to Dependency meta class</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Relationship"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Derivation" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Used for all 'derivationSupplier' elements</xs:documentation>
+			<xs:documentation>UML: Abstract stereotype on Dependency</xs:documentation>
+			<xs:documentation>DubinCore: 'relation' to source model</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Derivation type">
+					<sch:rule abstract="true" id="Derivation">
+						<sch:report test="@areAnnotationsReviewed='false' and @annotationsReviewedBy">
+							ERROR: AnnotationsReviewedBy may only be specified if the annotations have been reviewed.</sch:report>
+						<sch:report test="@areAnnotationsReviewed='false' and @relationship='unchanged'">
+							ERROR: AnnotationsReviewed must be 'true' for 'unchanged' derivations.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Dependency">
+				<xs:sequence>
+					<xs:element name="reason" type="Flow" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies the reason why the derived element has changed from its source. FUTURE_USE</xs:documentation>
+							<xs:documentation>UML: Tag on Derivation stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="areAnnotationsReviewed" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Identifies whether the analysis of the derivation has included review of changed annotations.  This is false if (a) the annotations are identical; (b) an automated process was able to take into account the changes in making the assessment of derivation relationship; or (c) a human has manually reviewed the changes. FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: Tag on Derivation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="annotationsReviewedBy" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the human responsible for the manual review of annotations. FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: Tag on Derivation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="relationship" type="DerivationRelationshipKind" use="optional" default="restriction">
+					<xs:annotation>
+						<xs:documentation>Identifies the relationship between the current element and the element it was derived from.</xs:documentation>
+						<xs:documentation>UML: Each code corresponds to a distinct non-abstract stereotype under Derivation</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphicInformation" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Forms the bridge between the UML semantic content and it's diagramatic representation</xs:documentation>
+			<xs:documentation>UML: Represents the UML1GraphicInformation class from Data Interchange specification.  Have merged it with GraphicInformation for convenience.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="semanticLinkId" type="Uuid" use="required">
+			<xs:annotation>
+				<xs:documentation>References the specific model element being rendered by its graphicLinkId attribute.</xs:documentation>
+				<xs:documentation>UML: manifestation of the linkage between UML1GraphicInformation and the associated ModelElement</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="DiagramGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a UML concept that corresponds to a complete diagram</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting GraphicInformation to a Diagram</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="graphElement" type="Diagram">
+				<xs:annotation>
+					<xs:documentation>The graphic node corresponding to the element</xs:documentation>
+					<xs:documentation>UML: graphElement association to Diagram specialization of ModelElement</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate graphElement element">
+							<sch:rule context="mif:graphElement[@name]">
+								<sch:extends rule="Diagram"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NodeGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a UML concept displayed as a single node</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting GraphicInformation to a single Node</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphicInformation">
+				<xs:sequence>
+					<xs:element name="graphElement" type="ContainedGraphNode">
+						<xs:annotation>
+							<xs:documentation>The graphic node corresponding to the element</xs:documentation>
+							<xs:documentation>UML: graphElement association to GraphNode specialization of ModelElement</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate graphElement element">
+									<sch:rule context="mif:graphElement">
+										<sch:extends rule="ContainedGraphNode"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphEdgeGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a UML concept displayed as a single node</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting GraphicInformation to a single Edge with two GraphConnectors</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphicInformation">
+				<xs:sequence>
+					<xs:element name="graphElement" type="GraphConnectorWithEdge">
+						<xs:annotation>
+							<xs:documentation>The graphic node corresponding to the element</xs:documentation>
+							<xs:documentation>UML: graphElement association to GraphConnectorWithEdge specialization of ModelElement</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="NodeWithConnectionGraphicInformation">
+		<xs:annotation>
+			<xs:documentation>The graphic representation for a UML concept displayed as a single node with a connection to its parent</xs:documentation>
+			<xs:documentation>UML: Stereotype restricting GraphicInformation to a single Node with a connection to its parent</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate graphElement element">
+					<sch:rule context="mif:graphElement[mif:anchorage]">
+						<sch:extends rule="GraphNodeWithOptionalConnection"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphicInformation">
+				<xs:sequence>
+					<xs:element name="graphElement" type="GraphNodeWithOptionalConnection">
+						<xs:annotation>
+							<xs:documentation>The graphic node corresponding to the element</xs:documentation>
+							<xs:documentation>UML: graphElement association to GraphNode specialization of ModelElement where GraphNode can have an edge</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DiagramElement" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Represents a stereotype on the DiagramElement class from Data Interchange specification.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="lastAdjustedDateTime" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the when the position of this shape was last adjusted/confirmed.  (Used to identify shapes whose characteristics have been adjusted, but whose positions have not yet been confirmed.</xs:documentation>
+				<xs:documentation>UML: Tagged value on HL7GraphElement stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="shapeId" type="BasicId" use="optional">
+			<xs:annotation>
+				<xs:documentation>The internal identifier assigned to a particular shape.  Used for cross-referencing.</xs:documentation>
+				<xs:documentation>UML: Tag on DiagramElement stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GraphElement" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Represents the GraphElement class from Data Interchange specification.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DiagramElement">
+				<xs:sequence>
+					<xs:element name="position" type="Point">
+						<xs:annotation>
+							<xs:documentation>Identifies the top-left location of the diagram element with respect to it's containing diagram.</xs:documentation>
+							<xs:documentation>UML: position attribute on GraphElement</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphNode">
+		<xs:annotation>
+			<xs:documentation>Corresponds to a single 'boxed' shape</xs:documentation>
+			<xs:documentation>UML: A stereotype on the GraphNode class from Data Interchange specification.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate GraphNode type">
+					<sch:rule abstract="true" id="GraphNode">
+						<sch:report test="@textWrappingWidth and @textWrappingWidth &gt; mif:size/@width">
+							WARNING: Text wrapping width is larger than width of element.</sch:report>
+						<sch:report test="@textWrappingWidth and @textWrappingWidth &gt; mif:size/@width">
+							WARNING: Text wrapping width is larger than width of element.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphElement">
+				<xs:sequence>
+					<xs:element name="size" type="Dimension">
+						<xs:annotation>
+							<xs:documentation>Identifies the soze of the node</xs:documentation>
+							<xs:documentation>UML: size attribute on GraphNode</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="textWrappingWidth" type="GraphicMeasurement" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the width at which the text within the shape should be wrapped</xs:documentation>
+						<xs:documentation>UML: tag value</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Ensure that this value is less than overall width.  Also ensure it only appears on 'arrow' classes -->
+				</xs:attribute>
+				<xs:attribute name="isHeightAutoSize" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Indicates whether this element should be automatically scaled vertically to fit the contents of the element.</xs:documentation>
+						<xs:documentation>UML: Tagged value on GraphNode stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isWidthAutoSize" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Indicates whether this element should be automatically scaled horizontally to fit the contents of the element.</xs:documentation>
+						<xs:documentation>UML: Tagged value on GraphNode stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="nodeOrientation" type="NodeOrientation" use="optional">
+					<xs:annotation>
+						<xs:documentation>Code specifying the orientation of graphic node elements, including ChoiceBox alignment and the four, flip-orientations for a Role.</xs:documentation>
+						<xs:documentation>UML: Tagged value on GraphNode stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ContainedGraphNode">
+		<xs:annotation>
+			<xs:documentation>UML: A GraphNode that has a contained relationship to a Diagram</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ContainedGraphNode type">
+					<sch:rule abstract="true" id="ContainedGraphNode">
+						<!--            <sch:report test="count(ancestor::mif:*/mif:graphElement[@name=current()/@containerDiagramName])!=1">
+							ERROR: A node that claims to be part of a diagram must be contained by an element that has a diagram of that name.</sch:report>-->
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphNode">
+				<xs:attribute name="shapeTemplate" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Deprecated: Function now handled by GraphicInformation.graphicRepresentation</xs:documentation>
+						<xs:documentation>UML: deprecated</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphNodeWithOptionalConnection">
+		<xs:annotation>
+			<xs:documentation>UML: A GraphNode that has an optional connection to the shape of its 'owning' element</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate GraphNodeWithOptionalConnection type">
+					<sch:rule abstract="true" id="GraphNodeWithOptionalConnection">
+						<sch:extends rule="ContainedGraphNode"/>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContainedGraphNode">
+				<xs:sequence>
+					<xs:element name="anchorage" type="GraphConnectorWithEdge" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Shows the connection between the current element and it's "owning" element.</xs:documentation>
+							<xs:documentation>UML: GraphNode anchorage association to GraphConnector</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Diagram">
+		<xs:annotation>
+			<xs:documentation>A shape that represents the space taken up by a particular diagram</xs:documentation>
+			<xs:documentation>UML: Represents the Diagram class from Data Interchange specification.</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Diagram type">
+					<sch:rule abstract="true" id="Diagram">
+						<sch:report test="count(preceding-sibling::mif:*[name(.)=name(current())][@name=current()/@name])!=0">
+								ERROR: Only one diagram with a given name may exist within a single element.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphNode">
+				<xs:attribute name="name" type="BasicFormalName" use="required">
+					<xs:annotation>
+						<xs:documentation>The name for the diagram.</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphEdge" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Represents the line connecting two shapes</xs:documentation>
+			<xs:documentation>UML: Represents the GraphEdge class from Data Interchange specification.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DiagramElement">
+				<xs:sequence>
+					<xs:element name="waypoint" type="Point" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies points along the path of the graph edge between two GraphNodes.</xs:documentation>
+							<xs:documentation>UML: waypoint attribute on GraphEdge</xs:documentation>
+							<xs:documentation>Impl: At present, these are not used in Visio diagrams, but may be in UML</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphEdgeWithAnchor">
+		<xs:annotation>
+			<xs:documentation>Represents the line connecting two shapes</xs:documentation>
+			<xs:documentation>UML: A GraphEdge class with an Anchor on its end.  (You have to have an anchor on the end.  Just created a separate type so it would have a name.)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphEdge">
+				<xs:sequence>
+					<xs:element name="anchor" type="GraphConnector">
+						<xs:annotation>
+							<xs:documentation>The point at which the edge connects to the other anchor element's "owning" element.</xs:documentation>
+							<xs:documentation>UML: anchor association from GraphEdge to GraphConnector</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphConnector">
+		<xs:annotation>
+			<xs:documentation>Represents the line connecting two shapes</xs:documentation>
+			<xs:documentation>UML: Represents the GraphConnector class from Data Interchange specification.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="DiagramElement">
+				<xs:sequence>
+					<xs:element name="position" type="Point">
+						<xs:annotation>
+							<xs:documentation>Identifies a point of connection from a graph edge to a graph node</xs:documentation>
+							<xs:documentation>UML: position attribute on GraphConnector</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="connectToShapeId" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the shape</xs:documentation>
+						<xs:documentation>UML: Identifies the diagramElement to which the shape is connected</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="GraphConnectorWithEdge">
+		<xs:annotation>
+			<xs:documentation>Represents the line connecting two shapes</xs:documentation>
+			<xs:documentation>UML: A GraphConnector class with an out-going line on its end.  (You have to have an outgoing line.  Just created a separate type so it would have a name.)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="GraphConnector">
+				<xs:sequence>
+					<xs:element name="graphEdge" type="GraphEdgeWithAnchor">
+						<xs:annotation>
+							<xs:documentation>The edge that connects the current element to it's containing element.</xs:documentation>
+							<xs:documentation>UML: GraphConnector graphEdge association to GraphEdge</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Point">
+		<xs:annotation>
+			<xs:documentation>Represents a single position using x and y coordinates where origin is in the top-left, with positive numbers increasing to the bottom and right.</xs:documentation>
+			<xs:documentation>UML: The Point datatype</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="x" type="GraphicMeasurement" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies a position along the horizontal axis in inches.  Positions are relative to other GraphElements, rather than to any particular location on a page.  (The page will consist of the bounding rectangle containing all shapes.)</xs:documentation>
+				<xs:documentation>UML: (Diagram Interchange) Point.x</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="y" type="GraphicMeasurement" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies a position along the vertical axis in inches.  Positions are relative to other GraphElements, rather than to any particular location on a page.  (The page will consist of the bounding rectangle containing all shapes.)</xs:documentation>
+				<xs:documentation>UML: (Diagram Interchange) Point.y</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Dimension">
+		<xs:annotation>
+			<xs:documentation>Describes the size of an item.</xs:documentation>
+			<xs:documentation>UML: The Dimension datatype</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="width" type="GraphicMeasurement" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the horizontal extent of the rectangle bounding the GraphElement in inches.</xs:documentation>
+				<xs:documentation>UML: (Diagram Interchange) Dimension.width</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="height" type="GraphicMeasurement" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies the vertical extent of the rectangle bounding the GraphElement in inches.</xs:documentation>
+				<xs:documentation>UML: (Diagram Interchange) Dimension.height</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Annotations" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Descriptive information about the containing model element.</xs:documentation>
+			<xs:documentation>UML: A collector for the comments and constraints associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="documentation" type="Documentation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Documentation related to the model element</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="appInfo" type="AppInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Supporting programmatic information related to the model element which has descriptive componenents</xs:documentation>
+					<xs:documentation>UML: Component of the Annotation object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Documentation">
+		<xs:annotation>
+			<xs:documentation>Contains 'plain' comments relating to a model element.  (Plain comments are those with no additional XML elements, except possibly one which identifies the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'plain' commments associated with a model element.  (Consider rendering the definition or description annotation into ModelElement.documentation)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:group ref="Definition"/>
+				<xs:group ref="Description"/>
+			</xs:choice>
+			<xs:group ref="UsageConstraint" minOccurs="0"/>
+			<xs:group ref="UsageNotes" minOccurs="0"/>
+			<xs:group ref="Rationale" minOccurs="0"/>
+			<xs:group ref="Requirements" minOccurs="0"/>
+			<xs:group ref="DesignComment" minOccurs="0"/>
+			<xs:group ref="StabilityRemarks" minOccurs="0"/>
+			<xs:group ref="Walkthrough" minOccurs="0"/>
+			<xs:group ref="Appendix" minOccurs="0"/>
+			<xs:group ref="OtherAnnotation" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AppInfo">
+		<xs:annotation>
+			<xs:documentation>Contains complex comments relating to a model element.  (Complex comments are those with additional XML elements, above and beyond the 'type' of comment.)</xs:documentation>
+			<xs:documentation>UML: A collector for 'complex' commments associated with a model element.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="Mapping" minOccurs="0"/>
+			<xs:group ref="FormalConstraint" minOccurs="0"/>
+			<xs:group ref="OpenIssue" minOccurs="0"/>
+			<xs:group ref="StaticExample" minOccurs="0"/>
+			<xs:group ref="BallotComment" minOccurs="0"/>
+			<xs:group ref="ChangeRequest" minOccurs="0"/>
+			<xs:group ref="DeprecationInfo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:group name="Definition">
+		<xs:sequence>
+			<xs:element name="definition" type="CascadableAnnotation">
+				<xs:annotation>
+					<xs:documentation>An explanation of the meaning of the element.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Description">
+		<xs:sequence>
+			<xs:element name="description" type="CascadableAnnotation">
+				<xs:annotation>
+					<xs:documentation>An explanation of the associated element.  This may contain formatting markup.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="UsageConstraint">
+		<xs:sequence>
+			<xs:element name="usageConstraint" type="ContextAnnotation" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Specific constraints on how the element can be used that CANNOT be formally expressed or tested by evaluating an expression on a single instance.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="UsageNotes">
+		<xs:sequence>
+			<xs:element name="usageNotes" type="ContextAnnotation" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Advice to designers and/or implementers on how to make use of an element and/or how *not* to make use of an element.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Rationale">
+		<xs:sequence>
+			<xs:element name="rationale" type="CascadableAnnotation">
+				<xs:annotation>
+					<xs:documentation>An explanation of why the element is necessary or potentially useful within this context.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Requirements">
+		<xs:sequence>
+			<xs:element name="requirements" type="ContextAnnotation">
+				<xs:annotation>
+					<xs:documentation>Documents the requirements which drove the specification of the artifact.  May include references to other standards or literature describing the appropriate data elements and constraints.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Walkthrough">
+		<xs:sequence>
+			<xs:element name="walkthrough" type="ContextAnnotation">
+				<xs:annotation>
+					<xs:documentation>An overview of the primary and most important contents of the element.  Used to provide broad understanding of the content without detailed review.  It may contain formatting markup.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+					<xs:documentation>DublinCore: Corresponds to 'abstract'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="OtherAnnotation">
+		<xs:sequence>
+			<xs:element name="otherAnnotation" type="OtherAnnotation" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Additional content related to the element.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Appendix">
+		<xs:sequence>
+			<xs:element name="appendix" type="Appendix" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Documentation that supports or relates to the current element.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="FormalConstraint">
+		<xs:sequence>
+			<xs:element name="formalConstraint" type="FormalConstraint" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A formal, testable limitation on the use, representation or value associated with the current element.  The expression must be able to be evaluated within the context of a single instance.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="OpenIssue">
+		<xs:sequence>
+			<xs:element name="openIssue" type="OpenIssue" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Notes to designers, balloters and implementers about outstanding concerns that remain to be resolved.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="DesignComment">
+		<xs:sequence>
+			<xs:element name="designComments" type="DesignComment" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Internal development notes about why particular design decisions were made, outstanding issues and remaining work.  They may contain formatting markup.  Not intended for external publication.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="StabilityRemarks">
+		<xs:sequence>
+			<xs:element name="stabilityRemarks" type="ContextAnnotation" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Description of how stable the element is believed to be, possibly including identified areas of instability or possible change or uncertainty.  They may contain formatting markup.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="Mapping">
+		<xs:sequence>
+			<xs:element name="mapping" type="Mapping" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A reference to an external or internal artifact that has a degree of similarity or equivalence with the current item.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="StaticExample">
+		<xs:annotation>
+			<xs:documentation> FUTURE_USE</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="staticExample" type="StaticExample" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>An example instance expressed in a particular ITS.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="BallotComment">
+		<xs:annotation>
+			<xs:documentation> FUTURE_USE</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ballotComment" type="BallotComment" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Detailed comments on a particular aspect of the ballot.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate ballotComment element">
+							<sch:rule context="mif:ballotComment">
+								<sch:extends rule="BallotComment"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="ChangeRequest">
+		<xs:annotation>
+			<xs:documentation> FUTURE_USE</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="changeRequest" type="ChangeRequest" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A record of a request to change the element.  This is an implementation-focused annotation enabling the association of change requests directly to elements within a specification.  Its purpose is to *support* existing change management processes and is not intended to provide full change management documentation, merely the ability to tag certain information related to a change request to the relevant parts of the specification driving the change.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate changeRequest element">
+							<sch:rule context="mif:changeRequest">
+								<sch:extends rule="ChangeRequest"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="DeprecationInfo">
+		<xs:sequence>
+			<xs:element name="deprecationInfo" type="DeprecationInfo">
+				<xs:annotation>
+					<xs:documentation>Information relating to the deprecation of the element, including instructions on why the element is no longer required and/or how the same information should now be handled.</xs:documentation>
+					<xs:documentation>UML: Descendant Stereotype from Annotation</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate dprecationInfo element">
+							<sch:rule context="mif:deprecationInfo">
+								<sch:extends rule="DeprecationInfo"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="AnnotationBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Common ancestor for all annotations - useful for code purposes</xs:documentation>
+			<xs:documentation>UML: Stereotype on ModelElement</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BasicAnnotation">
+		<xs:annotation>
+			<xs:documentation>An annotation that allows complex internal markup</xs:documentation>
+			<xs:documentation>UML: Stereotype on Comment or Constraint</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate BasicAnnotation type">
+					<sch:rule abstract="true" id="BasicAnnotation">
+						<sch:report test="cascadeInfo and preceding::*[@name=current()/@name][@id=@prependAnnotationId or @id=@appendAnnotationId][cascadeInfo/@elementType=current()/cascadeInfo/@elementType or name(.)!=name(current())]">
+							WARNING: Prepended and appended annotations must have the same elementType and name as the annotation to which they are prepended/annotated.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AnnotationBase">
+				<xs:sequence>
+					<xs:element name="text" type="ComplexMarkupWithLanguage" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The textual content of the annotation, with the associated language indicated. CURRENT-1..1</xs:documentation>
+							<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="combinedText" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The textual content of the annotation fully combined with any prepended and appended annotations  FUTURE_USE</xs:documentation>
+							<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="id" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>Unique identifier of the annotation for external reference, including derivation</xs:documentation>
+						<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="graphicLinkId" type="Uuid" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name associated with the annotation for the purpose of linking it to its graphical rendering information.  Note: This id will not necessarily be consistent each time the artifact is persisted and must never be used to reference the element from outside the model.</xs:documentation>
+						<xs:documentation>UML: Links the ModelElement to its corresponding UML1GraphicInformation.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="prependAnnotationId" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>A reference of the identifer of the annotation whose content should be pre-pended to the annotation for rendering FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="appendAnnotationId" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>A reference of the identifer of the annotation whose content should be appended to the annotation for rendering FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CascadableAnnotation">
+		<xs:annotation>
+			<xs:documentation>An annotation that can cascade</xs:documentation>
+			<xs:documentation>UML: Stereotype on Comment or Constraint</xs:documentation>
+			<!-- Todo: Enforce that cascade information only allows and location in which annotation appears only supports cascade info in annotations for these types of elements: Class/Stub/CMET, Entry points, Attributes, Association ends, Generalizations, State machines, States, State transitions, Datatype, Datatype operation -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BasicAnnotation">
+				<xs:sequence>
+					<xs:element name="cascadeInfo" type="AnnotationCascadeInfo" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Information describing how the annotation cascades through models.  FUTURE_USE</xs:documentation>
+							<xs:documentation>UML: Tag on the CascadableAnnotation stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AnnotationCascadeInfo">
+		<xs:annotation>
+			<xs:documentation>Information defining how the annotation should be cascaded to different models and different artifacts</xs:documentation>
+			<xs:documentation>UML: Complex tag on Annotation stereotype</xs:documentation>
+			<!-- Todo: Enforce constraints as described in cascade document -->
+			<xs:appinfo>
+				<sch:pattern name="Validate AnnotationCascadeInfo type">
+					<sch:rule abstract="true" id="AnnotationCascadeInfo">
+						<sch:report test="todo">
+							WARNING: RIM, DMIM and DIM models are not serializable.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageRef">
+				<xs:sequence>
+					<xs:element name="datatype" type="DatatypeRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Constraints the annotation to only apply to attributes whose type matches the specified datatype</xs:documentation>
+							<xs:documentation>UML: Component of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="elementType" type="CascadingAnnotationElementKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies what sort of element this annotation applies to</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="classifierName" type="AllClassName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the type of class or datatype (or general kind of class) the annotation applies to </xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="classifierNameExact" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the class name must match the name exactly, or can match it approximately based on classCode and/or mood for the annotation to apply</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="rimFeatureName" type="FormalPropertyName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the RIM name of the attribute or association end</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="targetClassName" type="AllClassName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the name of the target class of the association (or general kind of class) the annotation applies to</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="targetClassNameExact" type="xs:boolean" use="optional" default="true">
+					<xs:annotation>
+						<xs:documentation>Indicates whether the target class name must match the name exactly, or can match it approximately based on classCode and/or mood for the annotation to apply</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="contextClassName" type="AllClassName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the name of the parent class of the class to which the annotation applies.</xs:documentation>
+						<xs:documentation>UML: Component of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ComplexMarkupWithLanguage" mixed="true">
+		<xs:annotation>
+			<xs:documentation>Allows complex markup to identify the language in which it is expressed and when it was last translated</xs:documentation>
+			<xs:documentation>UML: Handled as 'mixed text' stored as a string, but with parallel tags identifying langage</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ComplexMarkupWithLanguage type">
+					<sch:rule abstract="true" id="ComplexMarkupWithLanguage">
+						<sch:report test="count(preceding-sibling::mif:*[name(.)=name(current())][@lang=current()/@lang or 
+												((@lang='EN' or not(@lang)) and (current()/@lang='EN' or not(current()/@lang)))])!=0">
+							ERROR: Each repetition of complex markup with language must be a different langage (no language is equivalent to 'EN').</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="Flow">
+				<xs:attribute name="lang" type="xs:language" use="optional" default="EN">
+					<xs:annotation>
+						<xs:documentation>Indicates the language in which the marked up text is expressed  FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: part of a complex stereotype tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lastTranslated" type="xs:dateTime" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates when this languages rendition was last translated from the original. FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: part of a complex stereotype tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FreeFormMarkupWithLanguage" mixed="true">
+		<xs:annotation>
+			<xs:documentation>Allows unconstrained markup to identify the language in which it is expressed and when it was last translated</xs:documentation>
+			<xs:documentation>UML: Handled as 'mixed text' stored as a string, but with parallel tags identifying langage</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate FreeFormMarkupWithLanguage type">
+					<sch:rule abstract="true" id="FreeFormMarkupWithLanguage">
+						<sch:report test="count(preceding-sibling::mif:*[name(.)=name(current())][@lang=current()/@lang or 
+												((@lang='EN' or not(@lang)) and (current()/@lang='EN' or not(current()/@lang)))])!=0">
+							ERROR: Each repetition of complex markup with language must be a different langage (no language is equivalent to 'EN').</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="VariousMixedContent">
+				<xs:attribute name="lang" type="xs:language" use="optional" default="EN">
+					<xs:annotation>
+						<xs:documentation>Indicates the language in which the marked up text is expressed</xs:documentation>
+						<xs:documentation>UML: part of a complex stereotype tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="lastTranslated" type="xs:dateTime" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates when this languages rendition was last translated from the original.</xs:documentation>
+						<xs:documentation>UML: part of a complex stereotype tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="mimeType" type="MimeType" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the mime type in which the data is expressed.  If not specified, applications must interpret the content based on other context or specific application rules.  Applications that do not recognize content must retain it unchanged.</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="VariousMixedContent" mixed="true">
+		<xs:annotation>
+			<xs:documentation>A type that allows unconstrained mixed-text markup</xs:documentation>
+		</xs:annotation>
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:any processContents="skip"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ContextAnnotation">
+		<xs:annotation>
+			<xs:documentation>UML: ContextAnnotation stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CascadableAnnotation">
+				<xs:sequence>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OtherAnnotation">
+		<xs:annotation>
+			<xs:documentation>UML: OtherAnnotation stereotype</xs:documentation>
+			<!-- Todo - Add rule that 'Other' annotation must be unique by type within a given referencing element.  I.e. you can't have multiple 'other' annotations of the same type for a given attribute, association, etc.) -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AnnotationBase">
+				<xs:sequence>
+					<xs:group ref="OtherAnnotationContent" maxOccurs="unbounded"/>
+					<xs:group ref="BusinessName" minOccurs="0"/>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current constraint was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="id" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>Unique identifier of the annotation for external reference, including derivation</xs:documentation>
+						<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+				<xs:attribute name="name" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the annotation</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Revisit if this is necessary -->
+				</xs:attribute>
+				<xs:attribute name="type" type="ShortDescriptiveName" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies what kind of annotation is being used.  All new annotation types must be approved by the publications team.</xs:documentation>
+						<xs:documentation>UML: type tag on OtherAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="OtherAnnotationContent">
+		<xs:choice>
+			<xs:element name="text" type="ComplexMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The free-form content of the annotation, with the associated language indicated.</xs:documentation>
+					<xs:documentation>UML: Tag on the SimpleAnnotation stereotype</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate text element">
+							<sch:rule context="mif:text">
+								<sch:extends rule="FreeFormMarkupWithLanguage"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="data" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>The free-form content of the annotation, with the associated language indicated.</xs:documentation>
+					<xs:documentation>UML: Tag on the SimpleAnnotation stereotype</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate text element">
+							<sch:rule context="mif:text">
+								<sch:extends rule="FreeFormMarkupWithLanguage"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="Appendix">
+		<xs:annotation>
+			<xs:documentation>UML: Appendix</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BasicAnnotation">
+				<xs:sequence>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current constraint was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The short, referencable name of the appendix</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="title" type="BasicFormalName" use="required">
+					<xs:annotation>
+						<xs:documentation>The descriptive name of the appendix</xs:documentation>
+						<xs:documentation>UML: tag on Appendix stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="OpenIssue">
+		<xs:complexContent>
+			<xs:extension base="CascadableAnnotation">
+				<xs:sequence>
+					<xs:element name="resolution" type="FreeFormMarkupWithLanguage" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates what action has been taken to address the open issue</xs:documentation>
+							<xs:documentation>UML: tag on OpenIssue stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="DesignComment">
+		<xs:complexContent>
+			<xs:extension base="CascadableAnnotation">
+				<xs:attribute name="tag" type="DesignCommentTagKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>Categorizes the type of comment being made for flagging in development environments</xs:documentation>
+						<xs:documentation>UML: tag on DesignComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FormalConstraint">
+		<xs:annotation>
+			<xs:documentation>UML: Constraint stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CascadableAnnotation">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current constraint was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="body" type="VariousMixedContent" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The formal OCL expression of the constraint</xs:documentation>
+							<xs:documentation>UML: body attribute on Constraint</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: See is we can restrict the contents of this any further -->
+					</xs:element>
+					<xs:element name="alternateFormalExpression" type="FormalExpression" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Alternate (non-OCL) expression of the constraint.  Should be maintained at the same time as the OCL expression</xs:documentation>
+							<xs:documentation>UML: tag on Constraint stereotype</xs:documentation>
+						</xs:annotation>
+						<!-- Todo: See is we can restrict the contents of this any further -->
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the constraint</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Revisit if this is necessary -->
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="FormalExpression" mixed="true">
+		<xs:annotation>
+			<xs:documentation>A constraint expressed in a particular language</xs:documentation>
+			<xs:documentation>UML: Type used by a complex stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent mixed="true">
+			<xs:extension base="VariousMixedContent">
+				<xs:attribute name="encoding" type="ExpressionLanguageKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Identifies the language in which the expression is encoded</xs:documentation>
+						<xs:documentation>UML: Type used by a complex stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Mapping">
+		<xs:annotation>
+			<xs:documentation>UML: Mapping stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="CascadableAnnotation">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current constraint was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sourceArtifact" type="PackageOrArtifactRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The model or other identifier associated with the item being mapped to</xs:documentation>
+							<xs:documentation>UML: sourceId tag on Mapping stereotype</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate sourceArtifact element">
+									<sch:rule context="mif:sourceArtifact">
+										<sch:extends rule="PackageOrArtifactRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="name" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the constraint</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+						<!-- Todo: Revisit if this is necessary -->
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="sourceName" type="MappingSourceKind" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the standard from which the reference is taken.</xs:documentation>
+						<xs:documentation>UML: sourceName tag on Mapping stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="sourceVersion" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The version number or label associated with the item being mapped to</xs:documentation>
+						<xs:documentation>UML: sourceVersion tag on Mapping stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="strength" type="MapRelationshipKind" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the quality of the mapping.</xs:documentation>
+						<xs:documentation>UML: strength tag on Mapping stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+		<!-- Todo: We may want to use a different approach for links between analysis and other elements -->
+	</xs:complexType>
+	<xs:complexType name="StaticExample">
+		<xs:annotation>
+			<xs:documentation>UML: StaticExample stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AnnotationBase">
+				<xs:sequence>
+					<xs:element name="data" type="FreeFormMarkupWithLanguage" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>The free-form content of the annotation, with the associated language indicated.</xs:documentation>
+							<xs:documentation>UML: Tag on the SimpleAnnotation stereotype</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate text element">
+									<sch:rule context="mif:text">
+										<sch:extends rule="FreeFormMarkupWithLanguage"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:group ref="BusinessName"/>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current constraint was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="id" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>Unique identifier of the annotation for external reference, including derivation</xs:documentation>
+						<xs:documentation>UML: Tag on the BasicAnnotation stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+				<xs:attribute name="name" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the example</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Revisit if this is necessary -->
+				</xs:attribute>
+				<xs:attribute name="itsName" type="ITSKind" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the its in which the example is expressed.</xs:documentation>
+						<xs:documentation>UML: itsName tag on StaticExample stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BallotComment">
+		<xs:annotation>
+			<xs:documentation>UML: BallotResponse stereotype</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate BallotComment type">
+					<sch:rule abstract="true" id="BallotComment">
+						<sch:report test="not(ancestor::mif:*/mif:ballotInfo/mif:ballotResponse/@submissionId=current()/@submissionId)">
+											ERROR: Cannot have a ballot comment that is not part of an identified ballot response associated with the package.</sch:report>
+						<sch:report test="preceding::mif:*[name(.)=name(current())][@submissionId=current()/@submissionId][@name=current()/@name]">
+											ERROR: Cannot have multiple ballot comments with the same name within the same submission.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BasicAnnotation">
+				<xs:sequence>
+					<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="existingContent" type="Flow" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates the current content of concern in the ballot.</xs:documentation>
+							<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="suggestedReplacement" type="Flow" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Indicates the content that the balloter would prefer to see used in place of the existing content.</xs:documentation>
+							<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="resolution" type="BallotCommentResolution" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates what step(s) the ballot group has taken in dealing with the ballot</xs:documentation>
+							<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="submissionId" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>A reference to the BallotResponse defined in the BallotInfo of the containing package.</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="name" type="SmallNonNegativeInteger" use="required">
+					<xs:annotation>
+						<xs:documentation>A unique identifier for the comment, within the context of a particular submission.</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="location" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the location within the artifact the comment applies.  May be a section reference, a paragraph/sentence count, etc.</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="commentType" type="VoteKind" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates the value of the vote</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="implementedDate" type="xs:date" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the date on which the 'accepted' or 'accepted with modification' recommendation was incorporated into the artifact</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="implementingPersonName" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the person who made the changed to reflect the 'accepted' or 'accepted with modification' recommendation</xs:documentation>
+						<xs:documentation>UML: tag on BallotComment stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="BallotCommentResolution">
+		<xs:annotation>
+			<xs:documentation>Defines the information needed when recording ballot comment resolutions</xs:documentation>
+			<xs:documentation>UML: part of complex tag object</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="resolutionComments" type="Inline" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Comments created by the group reviewing the ballot comment</xs:documentation>
+					<xs:documentation>UML: part of complex tag object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vote" type="GroupVote">
+				<xs:annotation>
+					<xs:documentation>Indicates the vote results of the resolution</xs:documentation>
+					<xs:documentation>UML: part of complex tag object</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="resolution" type="VoteResolutionKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the decision the ballot group has come to in evaluating a ballot comment</xs:documentation>
+				<xs:documentation>UML: part of complex tag object</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolutionDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the decision the ballot group has come to in evaluating a ballot comment</xs:documentation>
+				<xs:documentation>UML: part of complex tag object</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="GroupVote">
+		<xs:annotation>
+			<xs:documentation>Defines the information needed to record a group vote</xs:documentation>
+			<xs:documentation>UML: part of complex tag object</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="motionBy" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the person who made the motion being voted</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="secondedBy" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>Name of the person who seconded the motion being voted</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="inFavour" type="SmallNonNegativeInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>The number of those present who voted in favour of the motion</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="opposed" type="SmallNonNegativeInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>The number of those present who voted against the motion</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="abstain" type="SmallNonNegativeInteger" use="required">
+			<xs:annotation>
+				<xs:documentation>The number of those present who abstained from the vote</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ChangeRequest">
+		<xs:annotation>
+			<xs:documentation>UML: ChangeRequest stereotype</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ChangeRequest type">
+					<sch:rule abstract="true" id="ChangeRequest">
+						<!-- Todo: Fill in -->
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="BasicAnnotation">
+				<xs:sequence>
+					<xs:element name="resolution" type="BallotCommentResolution" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates what step(s) have neem agreed to be taken in response to the requested change.  (May be different than the proposed change itself.)</xs:documentation>
+							<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="estimate" type="ChangeRequestEstimate" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Estimate information associated with the change</xs:documentation>
+							<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="changeRequestId" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>A reference to the Change Request submission with which this element is associated.</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="status" type="ChangeRequestStatus" use="required">
+					<xs:annotation>
+						<xs:documentation>Indicates the position of the change request within the approval process</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="location" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Identifies the location within the artifact the change request applies.  May be a section reference, a paragraph/sentence count, etc.</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="targetDate" type="xs:date" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the date by which it is intended that the requested change be complete</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="implementedDate" type="xs:date" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the date on which the requested change was made</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="implementingPersonName" type="ShortDescriptiveName" use="optional">
+					<xs:annotation>
+						<xs:documentation>Indicates the person who made the change or took responsibility for it having been made</xs:documentation>
+						<xs:documentation>UML: tag on ChangeRequest stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ChangeRequestEstimate">
+		<xs:annotation>
+			<xs:documentation>Provides information on the expected cost in expense or time to implement the requested change</xs:documentation>
+			<xs:documentation>UML: used by a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provides a description of the estimate, including any assumptions.  May also describe estimating approach.</xs:documentation>
+					<xs:documentation>UML: used by a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="type" type="ShortString" use="optional">
+			<xs:annotation>
+				<xs:documentation>Used to differentiate between multiple estimates.  For example internal vs. external; cost vs. charge; estimates based on differing approaches; etc.</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+				<xs:documentation>Tools: Users may configure their tools to restrict the allowed values and/or default value for this element.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="cost" type="SmallNonNegativeInteger" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the expected financial effort associated with implementing the change</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="costCurrency" type="ShortString" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the currency in which the financial effort expressed by 'cost' is measured</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="effort" type="NonNegativeDecimal" use="optional">
+			<xs:annotation>
+				<xs:documentation>Expresses the amount of work associated with implementing the change in terms of person-effort or duration</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="effortQuantifier" type="EffortQuantifierKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the way the 'effort' is measured.</xs:documentation>
+				<xs:documentation>UML: used by a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- todo: constrain that must have at least one of description, cost or effort; that currency and quantifier are required if cost or effort are specified respectively -->
+	</xs:complexType>
+	<xs:complexType name="DeprecationInfo">
+		<xs:annotation>
+			<xs:documentation>UML: Mapping stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ContextAnnotation">
+				<xs:sequence>
+					<xs:element name="derivationSupplier" type="AnnotationDerivation" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Identifies the constraint from which the current deprecation information was derived.</xs:documentation>
+							<xs:documentation>UML: supplier association from ModelElement to Derivation stereotype on Dependency</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="deprecationEffectiveVersion" type="Version" use="optional">
+					<xs:annotation>
+						<xs:documentation>The number of the version of the parent artifact in which the element became deprecated</xs:documentation>
+						<xs:documentation>UML: used by a complex tag value</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AnnotationDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: a Derivation that points to another annotation.  (To make XML handle the graph-like nature of UML)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Derivation">
+				<xs:attribute name="targetAnnotationName" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the annotation from which this annotation was derived.</xs:documentation>
+						<xs:documentation>UML: The name of the Annotation element (inherited from ModelElement) that is being derived from</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PackageBase" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract parent of artifacts that have general characteristics of 'packages', but aren't actually packages.</xs:documentation>
+			<xs:documentation>UML: Stereotype on ModelElement</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ModelElement">
+				<xs:sequence>
+					<xs:group ref="BusinessName"/>
+				</xs:sequence>
+				<xs:attribute name="name" type="BasicFormalName" use="required">
+					<xs:annotation>
+						<xs:documentation>The unique name or id of the package (within the context of its parents)</xs:documentation>
+						<xs:documentation>UML: name attribute inherited from ModelElement</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attributeGroup ref="SortKeyOptional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="PackageArtifact" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Abstract parent of artifacts that have general characteristics of 'packages', but aren't actually packages.</xs:documentation>
+			<xs:documentation>UML: Stereotype on ModelElement</xs:documentation>
+			<!-- Todo: Enforce that packageLocation exists unless ancestorPackage has one.  If packageLocation does exist, must agree with ancestorPackage -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="packageLocation" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies where (within the 'repository' package hierarchy) this package resides</xs:documentation>
+							<xs:documentation>UML: Identifies the namespace the package is part of</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate packageLocation element">
+									<sch:rule context="mif:packageLocation">
+										<sch:extends rule="PackageRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attributeGroup ref="Title"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:attributeGroup name="Title">
+		<xs:annotation>
+			<xs:documentation>Used when the 'name' of an artifact is more identifier than name</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="title" type="BasicFormalName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The descriptive name for the package in circumstances where the 'name' is more of an identifier.</xs:documentation>
+				<xs:documentation>UML: title tag on Package stereotype</xs:documentation>
+				<xs:documentation>DublinCore: Equivalent to 'title'</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="Package" abstract="true">
+		<xs:annotation>
+			<xs:documentation>UML: Package stereotype</xs:documentation>
+			<xs:documentation>
+				DublinCore: The 'specialization' of Package is used to identify 'type'
+								The 'format' is always "HL7 MIF"
+								The 'identifier' is the name attribute defined in specializations
+								HL7 artifacts tend to be 'original' and therefore have no 'source'
+			</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Package type">
+					<sch:rule abstract="true" id="Package">
+						<sch:report test="count(ancestor-or-self::mif:*/mif:header)=0">
+							WARNING: This element or one of it's ancestors must have a header defined.</sch:report>
+						<sch:report test="ancestor::mif:*/@name and mif:packageLocation">
+							ERROR: Can't define a package location for an element that is located inside a package.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="packageLocation" type="PackageRef" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Identifies where (within the 'repository' package hierarchy) this package resides</xs:documentation>
+							<xs:documentation>UML: Identifies the namespace the package is part of</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate packageLocation element">
+									<sch:rule context="mif:packageLocation">
+										<sch:extends rule="PackageRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="header" type="Header" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>General metadata information about the package</xs:documentation>
+							<xs:documentation>UML: complex tag value on Package stereotype</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="replaces" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the package and versions (or packages) that are intended to be superceded by this package.</xs:documentation>
+							<xs:documentation>UML: tag on Package stereotype</xs:documentation>
+							<xs:documentation>DublinCore: Corresponds to 'replaces'</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate replaces element">
+									<sch:rule context="mif:replaces">
+										<sch:extends rule="PackageRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="replacedBy" type="PackageRef" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Indicates the package and versions (or packages) which supercede this package.</xs:documentation>
+							<xs:documentation>UML: tag on Package stereotype</xs:documentation>
+							<xs:documentation>Derive: Todo - All packages which reference this element as a 'replaces'</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:attribute name="hashCode" type="HashCode" use="optional">
+					<xs:annotation>
+						<xs:documentation>A base64 encoded SHA-256 hashcode.  The hashcode will be calculated upon the full canonicalized content (including comments) of the package, transformed to exclude the hashcode attribute itself.  Refer to http://www.w3.org/TR/2002/REC-xmldsig-core-20020212 for details. FUTURE_USE</xs:documentation>
+						<xs:documentation>UML: hashCode tag on Package stereotype</xs:documentation>
+					</xs:annotation>
+					<!-- Todo: Make required as soon as existing code supports this -->
+				</xs:attribute>
+				<xs:attribute name="title" type="BasicFormalName" use="optional">
+					<xs:annotation>
+						<xs:documentation>The descriptive name for the package in circumstances where the 'name' is more of an identifier.</xs:documentation>
+						<xs:documentation>UML: title tag on Package stereotype</xs:documentation>
+						<xs:documentation>DublinCore: Equivalent to 'title'</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="packageKind" type="PackageKind" use="required">
+					<xs:annotation>
+						<xs:documentation>The 'level' or variety of package being represented</xs:documentation>
+						<xs:documentation>UML: 'packageKind' tag on Package stereotype</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="secondaryId" type="Oid" use="optional">
+					<xs:annotation>
+						<xs:documentation>An object identifier issued to the package or model as a supplementary id used for locating the object in registries, etc.</xs:documentation>
+						<xs:documentation>UML: Tag on HL7Package.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+		<!-- Todo - enforce that packageKind agrees with packageLocation -->
+	</xs:complexType>
+	<xs:complexType name="PackageDerivation">
+		<xs:annotation>
+			<xs:documentation>UML: a Derivation that points to another package.  (To make XML handle the graph-like nature of UML)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Derivation">
+				<xs:sequence>
+					<xs:element name="targetPackage" type="PackageRef">
+						<xs:annotation>
+							<xs:documentation>The package from which the current package is derived.</xs:documentation>
+							<xs:documentation>UML: The full path of Package names of the Package (inherited from ModelElement) that is being derived from</xs:documentation>
+							<xs:appinfo>
+								<sch:pattern name="Validate targetPackage element">
+									<sch:rule context="mif:targetPackage">
+										<sch:extends rule="PackageRef"/>
+									</sch:rule>
+								</sch:pattern>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Header">
+		<xs:annotation>
+			<xs:documentation>Defines common content for all major artifact types.  It should always be present in the root element of a document.</xs:documentation>
+			<xs:documentation>UML: tag object on Package stereotype</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="renderingInformation" type="RenderingInformation" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provides information about the creation of this particular (XML, XMI or other) representation of the package</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="legalese" type="Legalese" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Any legal restrictions or rights associated with the package</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:documentation>DublinCore: corresponds to 'rights'</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate legalese element">
+							<sch:rule context="mif:legalese">
+								<sch:extends rule="Legalese"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="responsibleGroup" type="ResponsibleGroup" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies organizations responsible for the content of the package</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:documentation>DublinCore: Equivalent to 'contributor'.  (HL7 doesn't really identify 'authors' because content tends to be mutually created.)</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate responsibleGroup element">
+							<sch:rule context="mif:responsibleGroup">
+								<sch:extends rule="ResponsibleGroup"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="contributor" type="Contributor" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies individuals who contributed to the creation or maintenance of the package</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:documentation>DublinCore: Equivalent to 'contributor'.  (HL7 doesn't really identify 'authors' because content tends to be mutually created.)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="subject" type="ShortDescriptiveName" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A word to expose a key concept that might be used in searching for the identified package.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:documentation>DublinCore: Equivalent to 'subject'</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="approvalInfo" type="ApprovalInfo" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Describes the approval status and information associated with the package</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate approvalInfo element">
+							<sch:rule context="mif:approvalInfo">
+								<sch:extends rule="ApprovalInfo"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+				<!-- TODO: This should be changed to minOccurs="1" when all of our exports support this information -->
+			</xs:element>
+			<xs:group ref="Context" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indicates any additional realms for which the package is intended other than the namespace realm in which the artifact is defined</xs:documentation>
+				</xs:annotation>
+			</xs:group>
+		</xs:sequence>
+		<xs:attribute name="primaryRepository" type="Url" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the electronic repository where the artifact is principally maintained.  I.e. This would be the best location to check for new versions or updates of the artifact.  Note that a given artifact can exist in multiple repositories.  If not specified, the HL7 artifact repository is assumed.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="RenderingInformation">
+		<xs:annotation>
+			<xs:documentation>Information about the rendering of this XML.  The textual content (if any) contains additional information about the rendering process.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="renderingNotes" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>General comments about the rendering.  (May include tooling 'plugs' :>)</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="renderingTime" type="xs:dateTime" use="optional">
+			<xs:annotation>
+				<xs:documentation>The date this instance was created.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="application" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the application responsible for generating the content.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Legalese">
+		<xs:annotation>
+			<xs:documentation>This element defines the legal aspects associated with the containing element and it's descendants.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate Legalese type">
+					<sch:rule abstract="true" id="Legalese">
+						<sch:report test="(@copyrightOwner and not(@copyrightYears)) or (not(@copyrightOwner) and @copyrightYears)">
+													ERROR: Either both copyrightYears and copyrightOwner must be specified or neither should be specified.</sch:report>
+						<sch:report test="@copyrightNotation and not(@copyrightYears)">
+													ERROR: CopyrightNotation may only be specified when copyrightYears is present.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="notation" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Additional details about the copyright assertion.  E.g. "All rights reserved"</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="disclaimer" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provides any legal disclaimers associated with the use of the information in the content.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="licenseTerms" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates any limitations on licensing, including requirement for payment, right to redistribute, etc.  May make reference to standardized licenses</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="versioningPolicy" type="Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Indicates the policy for the release of new versions, including frequency of release, notification mechanism, mechanism for proposing changes, etc.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="copyrightOwner" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The name of the individual or organization asserting copyright.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="copyrightYears" type="Years" use="optional">
+			<xs:annotation>
+				<xs:documentation>The year (or years) in which copyright is asserted.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				<xs:documentation>DublinCore: DateCopyrighted</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:attributeGroup name="SchemaVersion">
+		<xs:attribute name="schemaVersion" type="Version" use="required" fixed="2.1.7">
+			<xs:annotation>
+				<xs:documentation>Identifies what schema version the content complies with.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType name="ResponsibleGroup">
+		<xs:annotation>
+			<xs:documentation>Identifies the entity(s) responsible for or who have approved the content.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ResponsibleGroup type">
+					<sch:rule abstract="true" id="ResponsibleGroup">
+						<sch:report test="not(@groupId or @groupName or @organizationName)">
+								ERROR: At least one of groupId, groupName or organizationName is required.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:attribute name="groupId" type="BasicId" use="optional">
+			<xs:annotation>
+				<xs:documentation>A reference to the 'formal' identifier assigned to the group (if any)</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="groupName" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the technical committee, special interest or other group responsible for the content.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="organizationName" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Identifies the organization the group responsible is a part of.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Contributor">
+		<xs:annotation>
+			<xs:documentation>Identifies one of the individuals involved in producing the content.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="role" type="RoleKind">
+				<xs:annotation>
+					<xs:documentation>Identifies the role the individual played in the development of the content.  Enumeration values are suggestions only.  If a person played multiple rules, choose the most significant role.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="name" type="KeyedName">
+				<xs:annotation>
+					<xs:documentation>The name of the individual</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="affiliation" type="ShortDescriptiveName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Identifies the organization or group the individual is associated with.  (E.g. Their employer or sponsor.)</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="email" type="EMail" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>The e-mail address at which the individiual can be reached.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="notes" type="LongDescriptiveName" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Any additional information relevant to the individual's part in the content.  (Also used for contact instructions.)</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="KeyedName">
+		<xs:annotation>
+			<xs:documentation>Identifies the name of the individual as it should appear when published.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the person</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="key" type="ShortDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>Used in sorting multiple authors.  (E.g. Last name, first name)</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ApprovalInfo">
+		<xs:annotation>
+			<xs:documentation>Indicates the approval status of the artifact(s).</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate ApprovalInfo type">
+					<sch:rule abstract="true" id="ApprovalInfo">
+						<sch:report test="count(parent::mif:*/ancestor::mif:*/mif:header/mif:*[name(.)=name(current())])!=0">
+								ERROR: Cannot have a ballotInfo when a parent package has a ballotInfo.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ballotSubmission" type="BallotSubmission" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>A response submitted as part of the ballot</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+					<xs:appinfo>
+						<sch:pattern name="Validate ballotSubmission element">
+							<sch:rule context="mif:ballotSubmission">
+								<sch:extends rule="BallotSubmission"/>
+							</sch:rule>
+						</sch:pattern>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="approvalStatus" type="ApprovalStatusKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Identifies how far along in the ballot process this artifact has progressed.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="approvingOrganization" type="ShortDescriptiveName" use="optional" default="HL7">
+			<xs:annotation>
+				<xs:documentation>Identifies the organization which has taken responsibility for balloting, endorsing or otherwise approving the content and the status for the content.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ballotOccurrence" type="SmallPositiveInteger" use="optional" default="1">
+			<xs:annotation>
+				<xs:documentation>Identifies the repetition number at the identified ballot level.  (E.g. second time at committee level ballot.)</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="approvalDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the date of the intended ballot (for material with a ballotStatus identifying itself as a ballot), or the date on which the material was successfully balloted (for material with a ballotStatus identifying itself as a Standard) or the date the approval status was changed (for non-balloted artifacts).</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				<xs:documentation>DublinCore: for a passed ballot, maps to 'dateAccepted'</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="withdrawalDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates the the item was or is planned to be officially withdrawn as a standard.  For DSTUs, this is the intended sunset date for the DSTU specification.</xs:documentation>
+				<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+				<xs:documentation>DublinCore: indicates the end date of 'valid'</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<!-- Todo: Enforce that only one ballot status within a hierarchy.  If an element has a ballotStatus, it's ancestors and descendants must not.  Item with a ballot status is the 'level' at which things are balloted.  I.e. it passes or fails as a whole. -->
+	</xs:complexType>
+	<xs:complexType name="BallotSubmission">
+		<xs:annotation>
+			<xs:documentation>Defines the content necessary when submitting a ballot</xs:documentation>
+			<xs:documentation>UML: Type used in a complex tag value</xs:documentation>
+			<xs:appinfo>
+				<sch:pattern name="Validate BallotSubmission type">
+					<sch:rule abstract="true" id="BallotSubmission">
+						<sch:report test="contains(@vote, 'Negative') and not(parent::mif:*/parent::mif:header//mif:ballotComment[contains(@vote, 'Negative')] or mif:voterComments)">
+								WARNING: You must have general comments or a negative ballotComment to have a negative vote.</sch:report>
+						<sch:report test="@vote!='Negative' and parent::mif:*/parent::header//mif:ballotComment[contains(@vote, 'Negative')]">
+								WARNING: Vote must be 'Negative' if there are any negative comments.</sch:report>
+						<sch:report test="@vote!='Negative' and @resolution">
+								WARNING: Resolutions should only be specified for negative votes.</sch:report>
+						<sch:report test="@resolution and parent::mif:*/parent::header//mif:ballotComment[not(mif:resolution)]">
+								WARNING: Should only have a resolution for a ballot submission when all ballotcomments have been resolved.</sch:report>
+					</sch:rule>
+				</sch:pattern>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="voterComments" type="Inline" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>General comments explaining the reason for the ballot response.</xs:documentation>
+					<xs:documentation>UML: voterComments tag on BallotResponse stereotype</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="submissionId" type="BasicId" use="required">
+			<xs:annotation>
+				<xs:documentation>A unique identifier for a specific ballot response.  All ballot comments must refer to a submissionId.</xs:documentation>
+				<xs:documentation>UML: submissionId tag on BallotResponse stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="submitterOrganization" type="BasicFormalName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The organization responsible for the ballot response.</xs:documentation>
+				<xs:documentation>UML: submitterOrganization tag on BallotResponse stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="submitterName" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the person responsible for the ballot response, and who will be responsible for defending the ballot response and/or withdrawing it.</xs:documentation>
+				<xs:documentation>UML: submitterName tag on Mapping stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="vote" type="VoteKind" use="required">
+			<xs:annotation>
+				<xs:documentation>Indicates whether the voter wants the content to pass the ballot.</xs:documentation>
+				<xs:documentation>UML: vote tag on Mapping stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="resolution" type="NegativeVoteResolutionKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates how the vote was dealt with</xs:documentation>
+				<xs:documentation>UML: vote tag on Mapping stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="status" type="ApprovalStatusKind" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates how the ballot has been resolved (if resolution is necessary).</xs:documentation>
+				<xs:documentation>UML: status tag on Mapping stereotype</xs:documentation>
+				<!-- Todo: check if this is the right code reference -->
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="statusDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>Indicates when the most recent ballot status was arrived at.</xs:documentation>
+				<xs:documentation>UML: statusDate tag on Mapping stereotype</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="ConceptDomainRef">
+		<xs:annotation>
+			<xs:documentation>Allows referencing a vocabulary domain when the vocabulary model can be inferred from the the model associated with the referencing artifact.</xs:documentation>
+			<xs:documentation>UML: ConceptDomain stereotype on package</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="name" type="BasicFormalName" use="required">
+			<xs:annotation>
+				<xs:documentation>The name of the vocabulary domain being referred to.</xs:documentation>
+				<xs:documentation>UML: ModelElement.name for the ConceptDomain</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="VocabularyValueSetRef">
+		<xs:annotation>
+			<xs:documentation>Allows referencing a valueset when the vocabulary model can be inferred from the the model associated with the referencing artifact.</xs:documentation>
+			<xs:documentation>UML: VocabularyValueSet stereotype on package</xs:documentation>
+			<!-- Todo: Enforce that either id or name are present -->
+		</xs:annotation>
+		<xs:attribute name="id" type="Oid" use="optional">
+			<xs:annotation>
+				<xs:documentation>The globally unique identifier for the valueset</xs:documentation>
+				<xs:documentation>UML: ModelElement.name for the VocabularyValueSet</xs:documentation>
+				<xs:documentation>Issue: It's not clear whether it's reasonable to always reference valuesets only by OID, not by name</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="versionDate" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>The date on which a specific version of the value set was created.  Used when performing static references to a value set</xs:documentation>
+				<xs:documentation>UML: Tag on ModelElement.name for the VocabularyValueSet</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="versionTime" type="xs:time" use="optional">
+			<xs:annotation>
+				<xs:documentation>The date on which a specific version of the value set was created.  Used when performing static references to a value set</xs:documentation>
+				<xs:documentation>UML: Tag on ModelElement.name for the VocabularyValueSet</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="BasicFormalName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The descriptive name associated with the ValueSet</xs:documentation>
+				<xs:documentation>UML: Tag on VocabularyValueSet</xs:documentation>
+				<xs:documentation>Derive: Todo - derive by looking up Oid in vocab model</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="VocabularyCodeRef">
+		<xs:annotation>
+			<xs:documentation>Allows referencing a code from a code system when the vocabulary model can be inferred from the the model associated with the referencing artifact.</xs:documentation>
+			<xs:documentation>UML: Code stereotype on ModelElement</xs:documentation>
+			<!-- Todo: Add a constraint that at least one of codeSystem and codeSystemName must be present
+        - enforce that referenced vocab artifact exists within one of the referenced vocab models -->
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="qualifier" type="VocabularyCodeRef" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Identifies qualifiers that apply to the code being referenced</xs:documentation>
+					<xs:documentation>UML: Complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="codeSystem" type="Oid" use="optional">
+			<xs:annotation>
+				<xs:documentation>The identifier for the code system in which the code is defined</xs:documentation>
+				<xs:documentation>UML: Package.name for the CodeSystem</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="codeSystemName" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The descriptive name for the code system in which the code is defined</xs:documentation>
+				<xs:documentation>UML: Tag on ModelElement.name for the VocabularyValueSet</xs:documentation>
+				<xs:documentation>Derive: Todo - derive by looking up the code system in the vocabulary model</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="code" type="ShortDescriptiveName" use="required">
+			<xs:annotation>
+				<xs:documentation>The unique code or mnemonic from the CodeSystem</xs:documentation>
+				<xs:documentation>UML: ModelElement.name for the code</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="codePrintName" type="LongDescriptiveName" use="optional">
+			<xs:annotation>
+				<xs:documentation>The descriptive name for the code</xs:documentation>
+				<xs:documentation>UML: Tag on ModelElement.name for the VocabularyValueSet</xs:documentation>
+				<xs:documentation>Derive: Todo - derive by looking up the code in the code system in the vocabulary model</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="codeSystemVersion" type="xs:date" use="optional">
+			<xs:annotation>
+				<xs:documentation>The date on which the version of the code system containing the code being referenced was published.  Only relevant when interpretation of a code might change with version</xs:documentation>
+				<xs:documentation>UML: Tag on ModelElement.name for the VocabularyValueSet</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:element name="txtInlineOnly" type="Inline">
+		<xs:annotation>
+			<xs:documentation>Allows direct editing and validating of inline markup content</xs:documentation>
+			<xs:documentation>UML: Definition of content for an annotation or complex tag.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="txtComplex" type="Flow">
+		<xs:annotation>
+			<xs:documentation>Allows direct editing and validating of full markup content</xs:documentation>
+			<xs:documentation>UML: Definition of content for an annotation or complex tag.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="txtComplexWithLanguage" type="ComplexMarkupWithLanguage">
+		<xs:annotation>
+			<xs:documentation>Allows direct editing and validating of full markup content, including language</xs:documentation>
+			<xs:documentation>UML: Definition of content for an annotation or complex tag.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

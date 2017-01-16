@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: -->
+<xs:schema xmlns="urn:hl7-org:v3/mif2" xmlns:xhtml="urn:hl7-org:v3/mif2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" targetNamespace="urn:hl7-org:v3/mif2" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+********************************************************************************
+Author: Initial development by Lloyd McKenzie, Jan. 2006
+(c) 2005-2008 by HL7 Inc.
+
+Purpose:
+	This schema defines a mechanism for representing the changes that have
+	occurred between two versions of a MIF artifact.
+********************************************************************************
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="xhtml1-strict.xsd"/>
+	<xs:include schemaLocation="mif-core-base.xsd"/>
+	<xs:element name="mifChanges" type="GlobalMifChanges">
+		<xs:annotation>
+			<xs:documentation>A list of changes that have occurred between an original artifact and a resulting revised artifact</xs:documentation>
+			<xs:documentation>UML: Does not directly correspond to UML.  It would be a complex tag, except that it's a stand-alone artifact . . .</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="GlobalMifChanges">
+		<xs:annotation>
+			<xs:documentation>Extends mif changes for use as a stand-alone XML document</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="MifChanges">
+				<xs:attributeGroup ref="SchemaVersion"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MifChanges">
+		<xs:annotation>
+			<xs:documentation>A list of changes that have occurred between two different versions of an artifact or two different versions of an artifact</xs:documentation>
+			<xs:documentation>UML: Does not directly correspond to UML.  It would be a complex tag, except that it's a stand-alone artifact . . .</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="PackageBase">
+				<xs:sequence>
+					<xs:element name="renderingInformation" type="RenderingInformation" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Information about the rendering of this XML and the version of the .  The textual content (if any) contains additional information about the rendering process.</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag value</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="originalArtifact" type="PackageOrArtifactRef">
+						<xs:annotation>
+							<xs:documentation>The artifact that is treated as the 'original' for the comparison (the artifact from which things were added, removed or changed.)</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="revisedArtifact" type="PackageOrArtifactRef">
+						<xs:annotation>
+							<xs:documentation>The artifact that results from applying the identified set of changes to the 'original'.</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<!-- Todo: Add constraint that original and artifact must be of same basic type -->
+					<xs:element name="change" type="ElementChange" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>The changes to be applied to the root element of the original artifact.  (If not specified, it means the two elements are identical.)</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="ChangeItems">
+		<xs:annotation>
+			<xs:documentation>A set of changes which have (or which should) occur to an attribute or element within the current context element (the 'changeElement' referenced by the parent of the change item) an artifact.  The assumption is that detailed changes will not be tracked for mixed content (They'll be treated as 'replace'.)  The order in which changes are applied is considered to be significant.  If no changes are specified, the full content should be copied across.</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="AddElements">
+				<xs:annotation>
+					<xs:documentation>Elements used to add new content</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:group>
+			<xs:element name="removeAttribute" type="AttributeRef">
+				<xs:annotation>
+					<xs:documentation>Indicates an XML attribute from the context element which should not appear in the resulting element</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="replaceAttribute" type="AttributeContent">
+				<xs:annotation>
+					<xs:documentation>Indicates an attribute in the context element which should appear in the resulting element but should have its content replaced by the specified value.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="removeElement" type="ElementRef">
+				<xs:annotation>
+					<xs:documentation>Indicates an element present in the context element which should be excluded from the resulting element.  (Default is to copy everything across.)</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="replaceElement" type="ReplaceElementContent">
+				<xs:annotation>
+					<xs:documentation>Indicates an element present in the context element which should be included from the resulting element but whose content should be replaced by the specified element content</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="changeElement" type="ElementChange">
+				<xs:annotation>
+					<xs:documentation>Indicates an element present in the context element which should be included from the resulting element and which has revisions to its children</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="changeGroup" type="GroupChange">
+				<xs:annotation>
+					<xs:documentation>Contains a collection of changes related to a common objective or purpose</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="GroupChange">
+		<xs:annotation>
+			<xs:documentation>Represents a collection of changes accomplishing the same purpose or objective</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Change">
+				<xs:group ref="ChangeItems" maxOccurs="unbounded"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="AddElements">
+		<xs:choice>
+			<xs:element name="addAttribute" type="AttributeContent">
+				<xs:annotation>
+					<xs:documentation>Indicates an XML attribute to be added to the current context element.</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="addElement" type="AddElementContent">
+				<xs:annotation>
+					<xs:documentation>Indicates an attribute to be inserted after the referenced element.  (If the element is to be inserted at the beginning prior to any element in the original document, the element name will be ommitted.)</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="ElementRef">
+		<xs:annotation>
+			<xs:documentation>Allows referencing an existing element</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Change">
+				<xs:group ref="ContextRef" minOccurs="0" maxOccurs="5"/>
+				<xs:attribute name="name" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the element being referenced</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="repetition" type="SmallPositiveInteger" default="1">
+					<xs:annotation>
+						<xs:documentation>The repetition number of the element being referenced in the original specification</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Change" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Contains the generic properties of all changes</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="description" type="xhtml:Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Provides a "business view" description of the type of change occurring</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="rationale" type="xhtml:Flow" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Explains why the change is needed</xs:documentation>
+					<xs:documentation>UML: Part of a complex tag</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElementValueRef">
+		<xs:annotation>
+			<xs:documentation>Used to reference a particular element having specific value or a set of child elements and attributes having specific values</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+			<!-- Todo: constrain that either a value or context ref is present, but not both -->
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ElementRef">
+				<xs:attribute name="value" type="ShortDescriptiveName">
+					<xs:annotation>
+						<xs:documentation>Identifies the value the element should have to be considered a match</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeRef">
+		<xs:annotation>
+			<xs:documentation>Allows referencing an existing attribute or element</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Change">
+				<xs:attribute name="name" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the element or attribute</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AttributeValueRef">
+		<xs:annotation>
+			<xs:documentation>Used to reference a particular element having a specific value</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AttributeRef">
+				<xs:attribute name="value" type="ShortDescriptiveName">
+					<xs:annotation>
+						<xs:documentation>Identifies the value the attribute should have to be considered a match</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="ContextRef">
+		<xs:choice>
+			<xs:element name="contextElement" type="ElementValueRef"/>
+			<xs:element name="contextAttribute" type="AttributeValueRef"/>
+		</xs:choice>
+	</xs:group>
+	<xs:complexType name="AttributeContent">
+		<xs:annotation>
+			<xs:documentation>Defines the content for an attribute</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AttributeRef">
+				<xs:attribute name="value" type="xs:string" use="required">
+					<xs:annotation>
+						<xs:documentation>The string content the attribute should have in the resulting model</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="MifContent">
+		<xs:annotation>
+			<xs:documentation>Allows inclusion of arbitrary MIF content</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:sequence maxOccurs="unbounded">
+			<xs:any namespace="urn:hl7-org:v3/mif2" processContents="strict">
+				<xs:annotation>
+					<xs:documentation>Allows any MIF content to be conveyed</xs:documentation>
+				</xs:annotation>
+			</xs:any>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddElementContent">
+		<xs:annotation>
+			<xs:documentation>Defines an element to be inserted, where the content of this element is the content of the element to be added</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Change">
+				<xs:choice minOccurs="0">
+					<xs:element name="replacementContent" type="MifContent">
+						<xs:annotation>
+							<xs:documentation>Contains the attributes and elements to be inserted into the new element</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:group ref="AddElements" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Elements to add attributes or elements, allows addElement content to be defined the same as changeElement</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:group>
+				</xs:choice>
+				<xs:attribute name="afterElementName" type="BasicId" use="optional">
+					<xs:annotation>
+						<xs:documentation>The name of the element after which the new element should be inserted.  If omitted, then the new element will be inserted prior to any elements from the original reference element</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="afterRepetition" type="SmallPositiveInteger" default="1">
+					<xs:annotation>
+						<xs:documentation>The repetition number of the element being referenced in the original specification after which to insert the new element</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						<!-- Todo: Add constraint that repetition number can only be specified if 'afterElementName' is present -->
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="name" type="BasicId" use="required">
+					<xs:annotation>
+						<xs:documentation>The name of the element to be added</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ReplaceElementContent">
+		<xs:annotation>
+			<xs:documentation>Defines content to replace the existing content of the referenced element</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ElementRef">
+				<xs:sequence>
+					<xs:element name="replacementContent" type="MifContent" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Contains the attributes and elements to be inserted into the new element</xs:documentation>
+							<xs:documentation>UML: Part of a complex tag</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ElementChange">
+		<xs:annotation>
+			<xs:documentation>References an element that will be revised by a set of child revision elements</xs:documentation>
+			<xs:documentation>UML: Part of a complex tag</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ElementRef">
+				<xs:group ref="ChangeItems" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>List the changes that occur to the element</xs:documentation>
+						<xs:documentation>UML: Part of a complex tag</xs:documentation>
+					</xs:annotation>
+				</xs:group>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
