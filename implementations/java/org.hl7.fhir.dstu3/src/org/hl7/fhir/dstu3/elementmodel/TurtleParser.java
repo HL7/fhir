@@ -312,7 +312,7 @@ public class TurtleParser extends ParserBase {
       t.linkedPredicate("fhir:link", refURI, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#reference"));
   }
   
-	protected void decorateCoding(Complex t, Element coding) {
+	protected void decorateCoding(Complex t, Element coding, Section section) {
 		String system = coding.getChildValue("system");
 		String code = coding.getChildValue("code");
 		
@@ -320,10 +320,12 @@ public class TurtleParser extends ParserBase {
 			return;
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/id/");
-			t.linkedPredicate("fhir:concept", "sct:"+urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
-		} else if ("http://loinc.org".equals(system)) {
+      String refURI =  "fhir:SCT"+ urlescape(code).toUpperCase();
+			t.linkedPredicate("fhir:concept", refURI, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+      section.triple(refURI, "a", "sct:" + urlescape(code));
+    } else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
-			t.linkedPredicate("fhir:concept", "loinc:"+urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
+			t.linkedPredicate("fhir:concept", "fhir:LOINC"+urlescape(code).toUpperCase(), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
 		}  
 	}
 
@@ -359,7 +361,7 @@ public class TurtleParser extends ParserBase {
 	  	t.linkedPredicate("fhir:index", Integer.toString(element.getIndex()), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#index"));
 
 	  if ("Coding".equals(element.getType()))
-	  	decorateCoding(t, element);
+	  	decorateCoding(t, element, section);
     if ("Reference".equals(element.getType()))
       decorateReference(t, element);
 	  		
@@ -423,9 +425,9 @@ public class TurtleParser extends ParserBase {
     else if (type.equals("integer"))
       xst = "^^xsd:integer";
     else if (type.equals("unsignedInt"))
-      xst = "^^xsd:integer";
+      xst = "^^xsd:nonNegativeInteger";
     else if (type.equals("positiveInt"))
-      xst = "^^xsd:integer";
+      xst = "^^xsd:positiveInteger";
     else if (type.equals("decimal"))
       xst = "^^xsd:decimal";
     else if (type.equals("base64Binary"))
