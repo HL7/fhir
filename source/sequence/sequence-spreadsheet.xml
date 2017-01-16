@@ -972,6 +972,10 @@
     <Cell ss:StyleID="s69" ss:HRef="http://wiki.hl7.org/?title=FHIR_Spreadsheet_Authoring"><Data
       ss:Type="String">http://wiki.hl7.org?title=FHIR_Spreadsheet_Authoring</Data></Cell>
    </Row>
+    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">entered-in-error-status</Data></Cell>
+    <Cell><Data ss:Type="String">.status = entered-in-error</Data></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">fmm</Data></Cell>
     <Cell><Data ss:Type="Number">0</Data></Cell>
@@ -1428,7 +1432,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A Reference Sequence string</Data><NamedCell
+    <Cell><Data ss:Type="String">A string to represent reference sequence.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A string like "ACGT".</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>

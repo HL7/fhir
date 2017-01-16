@@ -640,7 +640,7 @@
   Element = Sequence.referenceSeq.referenceSeqString
   Card. = 0..1
   Type = string
-  Short Name = A Reference Sequence string
+  Short Name = A string to represent reference sequence.
   Definition = A string like \"ACGT\".
 
  -- Row 16 -----------------------------------
