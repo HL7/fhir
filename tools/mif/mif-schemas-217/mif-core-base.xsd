@@ -535,7 +535,7 @@ Future todo:
 				<xs:documentation>UML: part of a complex tag value</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="id" type="Uuid" use="optional">
+	    <xs:attribute name="id" type="HistoryItemId" use="optional">
 			<xs:annotation>
 				<xs:documentation>A unique Uuid assigned to this particular version of the artifact.</xs:documentation>
 				<xs:documentation>UML: part of a complex tag value</xs:documentation>

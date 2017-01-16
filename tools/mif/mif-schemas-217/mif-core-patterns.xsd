@@ -124,6 +124,27 @@ Purpose:
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- Simple types used in defining various attributes -->
+    <xs:simpleType name="HistoryItemId">
+        <xs:union memberTypes="DateBasedId Uuid"/>
+    </xs:simpleType>
+    <xs:simpleType name="DateBasedId">
+        <xs:annotation>
+            <xs:documentation>Example: 2014T1_2014-03-26_001283 -- used in vocabularyModel on historyItem/@id</xs:documentation>
+            <xs:appinfo>
+                <sch:pattern name="Validate DateBasedId type">
+                    <sch:rule context="mif:DateBasedId">
+                        <!-- Exclude guiids in graphicIds because these are referencing a guid elsewhere in the document -->
+                        <sch:report test="count(//attribute(*, mif:DateBasedId)[count(parent::element(*,mif:GraphicInformation))=0][.=current()]|//element(*, mif:DateBasedId)[.=current()])&gt;1">
+                            ERROR: UUIDs should never be duplicated within a document.</sch:report>
+                    </sch:rule>
+                </sch:pattern>
+            </xs:appinfo>
+        </xs:annotation>
+        <!-- 2014T1_2014-03-26_001283 -->
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}T\d_\d{4}-\d{2}-\d{2}_\d+"/>
+        </xs:restriction>
+    </xs:simpleType>
 	<xs:simpleType name="Uuid">
 		<xs:annotation>
 			<xs:documentation>Universal Unique Identifier (aka GUID).  Used for identifiers</xs:documentation>
