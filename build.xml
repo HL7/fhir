@@ -66,6 +66,7 @@
     <mkdir dir="${imports.location}"/>
     <ivy:resolve transitive="false" file="ivy.xml"/>
     <ivy:retrieve type="jar,bundle" sync="true" pattern="${imports.location}/[artifact]-[revision].[ext]"/>
+    <ivy:dependencytree/>
   </target>
 
   <target name="clean-ivy" description="--> clean the ivy installation">

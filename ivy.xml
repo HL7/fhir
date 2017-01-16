@@ -42,8 +42,7 @@
         <dependency org="org.apache.jena" name="jena-iri" rev="3.1.0"/>
         <dependency org="org.apache.jena" name="jena-base" rev="3.1.0"/>
         <dependency org="org.apache.jena" name="jena-shaded-guava" rev="3.1.0"/>
-        <dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.12"/>
-        <dependency org="org.slf4j" name="slf4j-api" rev="1.7.12"/>
+
         <dependency org="xerces" name="xercesImpl" rev="2.11.0"/>
         <dependency org="xml-apis" name="xml-apis" rev="1.4.01"/>
         <dependency org="com.fasterxml.jackson.core" name="jackson-core" rev="2.5.2"/>
@@ -82,11 +81,23 @@
         <dependency org="es.weso" name="server_2.12"  rev="0.0.60"/>
         <dependency org="org.scalactic" name="scalactic_2.12"  rev="3.0.1"/>
         <dependency org="org.scalatest" name="scalatest_2.12"  rev="3.0.1"/>
-        <dependency org="ch.qos.logback" name="logback-classic"  rev="1.1.7"/>
         <dependency org="com.typesafe.scala-logging" name="scala-logging_2.12"  rev="3.5.0"/>
         <dependency org="org.rogach" name="scallop_2.12"  rev="2.0.6"/>
         <dependency org="org.spire-math" name="cats-core_2.11"  rev="0.1.1"/>
         <dependency org="org.antlr" name="antlr4-runtime" rev="4.6"/>
+		  
+		  <!--
+		  A note on logging: A few of the Ivy dependencies bring in slf4j-log4j12 so
+		  I've set this file up to bring in that library explicitly (in order to
+		  control the version) instead of using logback.
+		  JA / Jan 2017
+
+		  <dependency org="ch.qos.logback" name="logback-classic" rev="1.1.8" />
+		  <dependency org="ch.qos.logback" name="logback-core" rev="1.1.8" />
+		  -->
+        <dependency org="org.slf4j" name="slf4j-jdk14" rev="1.7.22"/>
+		  <dependency org="org.slf4j" name="slf4j-api" rev="1.7.22"/>
+		  <dependency org="org.slf4j" name="slf4j-log4j12" rev="1.7.22" />
         
     </dependencies>
 </ivy-module>
