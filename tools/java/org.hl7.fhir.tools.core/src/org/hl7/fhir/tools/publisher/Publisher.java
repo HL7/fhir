@@ -5326,7 +5326,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceCoverageWarning(String path, ElementDefn e) {
 
     if (!e.isCoveredByExample() && !Utilities.noString(path) && !e.typeCode().startsWith("@")) {
-      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.WARNING));
+      page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INFORMATIONAL, -1, -1, path+e.getName(), "Path had no found values in any example. Consider reviewing the path", IssueSeverity.INFORMATION));
     }
     for (ElementDefn c : e.getElements()) {
       produceCoverageWarning(path + e.getName() + "/", c);
