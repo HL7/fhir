@@ -1306,7 +1306,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Reference sequence</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">A sequence used as reference</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">A sequence that is used as a reference to describe variants that are present in a sequence analyzed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1430,7 +1430,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A Reference Sequence string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">A Reference Sequence string.</Data><NamedCell
+    <Cell><Data ss:Type="String">A string like "ACGT".</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1542,7 +1542,7 @@
     <Cell ss:Index="3" ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14"><Data ss:Type="String">Sequence variant</Data><NamedCell
+    <Cell ss:Index="14"><Data ss:Type="String">Variant in sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">The definition of variant here originates from Sequence ontology ([variant_of](http://www.sequenceontology.org/browser/current_svn/term/variant_of)). This element can represent amino acid or nucleic sequence change(including insertion,deletion,SNP,etc.)  It can represent some complex mutation or segment variation with the assist of CIGAR string.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1594,7 +1594,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s92"><Data ss:Type="String">Allele of reference sequence</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s92"><Data ss:Type="String">Allele in the reference sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">An allele is one of a set of coexisting sequence variants of a gene ([SO:0001023](http://www.sequenceontology.org/browser/current_svn/term/SO:0001023)). Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1633,7 +1633,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">string</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s92"><Data ss:Type="String">Observed sequence</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s92"><Data ss:Type="String">Sequence that was observed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Sequence that was observed. It is the result marked by referenceSeq along with variant records on referenceSeq. This shall starts from referenceSeq.windowStart and end by referenceSeq.windowEnd.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1644,7 +1644,7 @@
     <Cell ss:Index="3" ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Sequence quality</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">An set of value as quality of sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><Data ss:Type="String">An experimental feature attribute that defines the quality of the feature in a quantitative way, such as a phred quality score ([SO:0001686](http://www.sequenceontology.org/browser/current_svn/term/SO:0001686)).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1672,6 +1672,8 @@
     <Cell ss:Index="3" ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+       <Cell ss:Index="8"><Data ss:Type="String">qualityStandardSequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Standard sequence for comparison</Data><NamedCell
@@ -1713,7 +1715,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">Quantity</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Quality score</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Quality score for the comparison</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">The score of an experimentally derived feature such as a p-value ([SO:0001685](http://www.sequenceontology.org/browser/current_svn/term/SO:0001685)).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1725,10 +1727,12 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5" ss:StyleID="s91"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Method for quality</Data><NamedCell
+       <Cell ss:Index="8"><Data ss:Type="String">qualityMethod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><Data ss:Type="String">Method for quality.</Data><NamedCell
+    <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Method to get quality</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98"><Data ss:Type="String">Which method is used to get sequence quality.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1804,7 +1808,7 @@
     <Cell ss:Index="5" ss:StyleID="s91"><Data ss:Type="String">decimal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Precision</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Precision of comparison</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">QUERY.TP / (QUERY.TP + QUERY.FP)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1817,7 +1821,7 @@
     <Cell ss:Index="5" ss:StyleID="s91"><Data ss:Type="String">decimal</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Recall</Data><NamedCell
+    <Cell ss:Index="14" ss:StyleID="s98"><Data ss:Type="String">Recall of comparison</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><Data ss:Type="String">TRUTH.TP / (TRUTH.TP + TRUTH.FN)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1957,7 +1961,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Name of the repository</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Repository's name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">URI of an external repository which contains further details about the genetics data.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2088,298 +2092,6 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pointer to next atomic sequence</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pointer to next atomic sequence which at most contains one variant.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Sequence.structureVariant</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3" ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="14" ss:StyleID="s106"><Data ss:Type="String">Structural variant</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Structural variant.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="22" ss:StyleID="s95"><Data ss:Type="String">down</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.precisionOfBoundaries</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">string</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Precision of boundaries</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Precision of boundaries.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.reportedaCGHRatio</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">decimal</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant reported aCGH ratio</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant reported aCGH ratio.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.length</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Length</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Structural Variant Length.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.outer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Structural variant outer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Structural variant outer.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">left</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.outer.start</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Outer Start</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Structural Variant Outer Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.outer.end</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Outer End</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Structural Variant Outer End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">Sequence.structureVariant.inner</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Structural variant inner</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><Data ss:Type="String">Structural variant inner.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">right</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.inner.start</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Inner Start</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Inner Start.If the coordinate system is either 0-based or 1-based, then start position is inclusive.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">Sequence.structureVariant.inner.end</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">integer</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Inner End</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Structural Variant Inner End. If the coordinate system is 0-based then end is is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6191,6 +5903,22 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">Reference identifier </Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s91"><Data ss:Type="String">qualityStandardSequence</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference identifier</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">valueset-sequence-quality-standardSequence</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference identifier </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s91"><Data ss:Type="String">qualityMethod</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference identifier</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">valueset-sequence-quality-method</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Reference identifier </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">chromosome-human</Data></Cell>
     <Cell><Data ss:Type="String">Chromosome number for human</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">code list</Data></Cell>
@@ -8366,6 +8094,93 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
+
+ <Worksheet ss:Name="quality-method">
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="25" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
+   ss:DefaultRowHeight="13.950000000000001">
+   <Row ss:AutoFitHeight="0" ss:Height="28.950000000000003">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Code</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">The code to be sent over the wire</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Id</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Unique number for the code.  Required when System is not specified, not permitted otherwise</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">System</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The URL of the external code system from which the list is selected.  Must be the same for all codes if specified.</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Parent</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The code this code is a specialization of (if any).  Content should be &quot;#&quot; + the Id of the parent code</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Display</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Display value for code.  Omit if the code *is* the display value (as for internal codes)</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Definition</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Meaning of the code.  Include unless meaning obvious to all users.  Required if display not</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">v2</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v2 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">v3</Data><Comment ss:Author=""><ss:Data
+       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Mappings to v3 codes - See wiki for syntax</Font>       </ss:Data></Comment></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Committee Notes</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional notes about the code.  Not published</Font>       </ss:Data></Comment></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28.05">
+    <Cell ss:StyleID="s145"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s175"/>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">chromosome 1</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">chromosome 1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28.05">
+    <Cell ss:StyleID="s142"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="Number">2</Data></Cell>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s174"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">chromosome 2</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">chromosome 2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="28.05">
+    <Cell ss:StyleID="s145"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="Number">3</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s145"><Data ss:Type="String">chromosome 3</Data></Cell>
+    <Cell ss:StyleID="s145"><Data ss:Type="String">chromosome 3</Data></Cell>
+   </Row>
+  
+   
+  </Table>
+
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>-4</HorizontalResolution>
+    <VerticalResolution>-4</VerticalResolution>
+   </Print>
+   <TopRowVisible>9</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>4</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <x:PageLayoutZoom>0</x:PageLayoutZoom>
+  </WorksheetOptions>
+ </Worksheet>
+
  <Worksheet ss:Name="copy-number-event">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"

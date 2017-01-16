@@ -2,8 +2,25 @@
 
 <Sequence>
     <id value="sequence-complex-variant"/>
+    <identifier>
+    <use value="official" />
+  </identifier>
     <type value="dna"/>
     <coordinateSystem value="1"/>
+      <specimen>
+    <reference value="Specimen/genetics-example1-somatic"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+   <device>
+    <display value="12 lead EKG Device Metric"/>
+  </device>
+  <performer>
+    <reference value="Organization/hl7"/>
+    <display value="HL7"/>
+  </performer>
+  <quantity>
+  <value value="25" />
+  </quantity>
     <referenceSeq>
         <referenceSeqId>
           <coding>
@@ -22,5 +39,11 @@
         <referenceAllele value="CTCCATTGCATGCGTT"/>
         <cigar value="3M1D4M6N2M"/>
     </variant>
+    <readCoverage value="1"/>
+      <repository>
+      <type value="other"/>
+      <datasetId value="Ensembl"/>
+     <readsetId value="v1beta2"/>
+    </repository>
     
 </Sequence>

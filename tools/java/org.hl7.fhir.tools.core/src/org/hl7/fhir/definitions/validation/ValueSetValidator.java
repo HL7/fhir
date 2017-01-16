@@ -306,7 +306,8 @@ public class ValueSetValidator extends BaseValidator {
         system.equals("urn:iso:std:iso:11073:10101") ||
         system.equals("urn:iso:std:iso:3166") ||
         system.startsWith("http://example.com") ||
-        system.startsWith("http://example.org")
+        system.startsWith("http://example.org") ||
+        system.startsWith("https://precision.fda.gov")
     	 )
       return true;
     
