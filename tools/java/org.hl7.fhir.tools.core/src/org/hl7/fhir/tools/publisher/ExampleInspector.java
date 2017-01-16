@@ -48,8 +48,10 @@ import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.rdf.ModelComparer;
+import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.Logger;
+import org.hl7.fhir.utilities.SchemaInputSource;
 import org.hl7.fhir.utilities.Logger.LogMessageType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -68,7 +70,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-
 
 public class ExampleInspector {
 
@@ -115,8 +116,9 @@ public class ExampleInspector {
   private org.everit.json.schema.Schema jschema;
   private FHIRPathEngine fpe;
   private JsonObject jsonLdDefns;
+  private ShExValidator shex;
   
-  public void prepare() throws FileNotFoundException, IOException, SAXException {
+  public void prepare() throws Exception {
     validator = new InstanceValidator(context);
     validator.setSuppressLoincSnomedMessages(true);
     validator.setResourceIdRule(IdStatus.REQUIRED);
@@ -130,8 +132,53 @@ public class ExampleInspector {
       JSONObject rawSchema = new JSONObject(new JSONTokener(source));
       jschema = SchemaLoader.load(rawSchema);
     }
+    if (VALIDATE_RDF) {
+      shex = new ShExValidator(Utilities.path(rootDir, "fhir.shex"));
+    }
     
     fpe = new FHIRPathEngine(context);
+    checkJsonLd();
+  }
+
+  
+  private void checkJsonLd() throws IOException {
+    String s1 = "{\r\n"+
+        "  \"@type\": \"fhir:Claim\",\r\n"+
+        "  \"@id\": \"http://hl7.org/fhir/Claim/760152\",\r\n"+
+        "  \"decimal\": 123.45,\r\n"+
+        "  \"@context\": {\r\n"+
+        "    \"fhir\": \"http://hl7.org/fhir/\",\r\n"+
+        "    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\r\n"+
+        "    \"decimal\": {\r\n"+
+        "      \"@id\": \"fhir:value\",\r\n"+
+        "      \"@type\": \"xsd:decimal\"\r\n"+
+        "    }\r\n"+
+        "  }\r\n"+
+      "}\r\n";
+    String s2 = "{\r\n"+
+        "  \"@type\": \"fhir:Claim\",\r\n"+
+        "  \"@id\": \"http://hl7.org/fhir/Claim/760152\",\r\n"+
+        "  \"decimal\": \"123.45\",\r\n"+
+        "  \"@context\": {\r\n"+
+        "    \"fhir\": \"http://hl7.org/fhir/\",\r\n"+
+        "    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\r\n"+
+        "    \"decimal\": {\r\n"+
+        "      \"@id\": \"fhir:value\",\r\n"+
+        "      \"@type\": \"xsd:decimal\"\r\n"+
+        "    }\r\n"+
+        "  }\r\n"+
+        "}\r\n";
+    Model m1 = ModelFactory.createDefaultModel();
+    Model m2 = ModelFactory.createDefaultModel();
+    m1.read(new StringReader(s1), null, "JSON-LD");
+    m2.read(new StringReader(s2), null, "JSON-LD");
+    List<String> diffs = new ModelComparer().setModel1(m1, "j1").setModel2(m2, "j2").compare();
+    if (!diffs.isEmpty()) {
+      System.out.println("not isomorphic");
+      for (String s : diffs) {
+        System.out.println("  "+s);
+      }
+    }
   }
 
   private Map<String, byte[]> loadTransforms() throws FileNotFoundException, IOException {
@@ -251,6 +298,7 @@ public class ExampleInspector {
       // read turtle file into Jena
       Model mt = RDFDataMgr.loadModel(fttl);
       // use ShEx to validate turtle file - TODO
+      shex.validate(mt);
 
       List<String> diffs = new ModelComparer().setModel1(mt, "ttl").setModel2(mj, "json").compare();
       if (!diffs.isEmpty()) {
