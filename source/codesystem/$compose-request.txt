@@ -16,11 +16,11 @@ POST [base]/CodeSystem/$compose
     <part>
       <name value="code"/>
       <valueCode value="focus"/>
-    <part>
+    </part>
     <part>
       <name value="value"/>
       <valueCode value="417163006"/>
-    <part>
+    </part>
   </parameter>
   <!-- Finding site: upper arm -->
   <parameter>
@@ -28,11 +28,11 @@ POST [base]/CodeSystem/$compose
     <part>
       <name value="code"/>
       <valueCode value="363698007"/>
-    <part>
+    </part>
     <part>
       <name value="value"/>
       <valueCode value="40983000"/>
-    <part>
+    </part>
   </parameter>
   <!-- Severity = severe -->
   <parameter>
@@ -40,16 +40,16 @@ POST [base]/CodeSystem/$compose
     <part>
       <name value="code"/>
       <valueCode value="246112005"/>
-    <part>
+    </part>
     <part>
       <name value="value"/>
       <valueCode value="24484000"/>
-    <part>
+    </part>
   </parameter>
-  <!-- machine rules - complete and partial matches only -->
+  <!-- complete and partial matches only (nothing fuzzy/indeterminate) -->
   <parameter>
-    <name value="mode"/>
-    <valueCode value="machine"/>
+    <name value="exact"/>
+    <valueCode value="true"/>
   </parameter>
 </Parameters>
 

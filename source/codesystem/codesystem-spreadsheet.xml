@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>21930</WindowHeight>
-  <WindowWidth>-19456</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4510,7 +4510,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4532,7 +4531,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>20</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5436,7 +5435,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">lookup.property.value</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean | dateTime</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -5648,7 +5647,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s116"><Data ss:Type="String">compose.property.value</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean | dateTime</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -5689,11 +5688,11 @@
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.mode</Data></Cell>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">compose.exact</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">boolean</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s128"><Data ss:Type="String">Whether the operation is being used by a human, or a machine. If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns sure matches, or none at all</Data></Cell>
@@ -6153,10 +6152,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>33</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6173,8 +6173,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>42</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

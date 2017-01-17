@@ -279,6 +279,7 @@ public class ValueSetValidator extends BaseValidator {
     		system.equals("http://hl7.org/fhir/sid/icpc2") ||
     		system.equals("http://hl7.org/fhir/sid/ndc") ||
     		system.equals("http://loinc.org") ||
+    		system.equals("https://precision.fda.gov/") ||
     		system.equals("http://www.lrg-sequence.org") ||
         system.equals("http://ncimeta.nci.nih.gov") ||
         system.equals("http://sequenceontology.org") ||

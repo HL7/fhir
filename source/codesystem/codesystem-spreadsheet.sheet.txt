@@ -647,7 +647,7 @@
   Name = lookup.property.value
   Documentation = The value of the property returned
   Type = code | Coding | string | integer | boolean | dateTime
-  Min = 1
+  Min = 0
   Max = 1
 
  -- Row 19 -----------------------------------
@@ -794,7 +794,7 @@
   Name = compose.property.value
   Documentation = The value of the property provided
   Type = code | Coding | string | integer | boolean | dateTime
-  Min = 1
+  Min = 0
   Max = 1
 
  -- Row 38 -----------------------------------
@@ -819,10 +819,10 @@
   Max = 1
 
  -- Row 41 -----------------------------------
-  Name = compose.mode
+  Name = compose.exact
   Use = in
   Documentation = Whether the operation is being used by a human, or a machine. If the operation is being used by a human, the terminology server can return a list of possible matches, with commentary. For a machine, the server returns sure matches, or none at all
-  Type = code
+  Type = boolean
   Min = 1
   Max = 1
 
