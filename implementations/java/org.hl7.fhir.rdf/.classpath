@@ -30,7 +30,9 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/scalactic_2.12-3.0.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr4-runtime-4.6.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/cats-core_2.11-0.3.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/cats-core_2.12-0.9.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/cats-kernel_2.12-0.9.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.22.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

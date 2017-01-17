@@ -398,19 +398,12 @@ public class Publisher implements URIResolver, SectionNumberer {
   private PublisherTestSuites tester;
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
 
-  private boolean genRDF;
-
-
   public static void main(String[] args) throws Exception {
     //
 
     Publisher pub = new Publisher();
     pub.page = new PageProcessor(PageProcessor.DEF_TS_SERVER);
     pub.isGenerate = !(args.length > 1 && hasParam(args, "-nogen"));
-    if (hasParam(args, "-rdf")) {
-      pub.isGenerate = false;
-      pub.genRDF = true;
-    }
     pub.noArchive = (args.length > 1 && hasParam(args, "-noarchive"));
     pub.web = (args.length > 1 && hasParam(args, "-web"));
     pub.page.setForPublication(pub.web);
@@ -591,8 +584,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (isGenerate) {
         produceSpecification();
         checkAllOk();
-      } else if (genRDF)
-        processRDF();
+      } 
+      processRDF();
 
       validationProcess();
       processWarnings(false);

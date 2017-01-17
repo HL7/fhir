@@ -92,6 +92,10 @@ public class ExampleInspector {
   private List<ValidationMessage> errorsExt;
   private Logger logger;
   private Map<String, ResourceDefn> definitions;
+  private boolean byProfile = VALIDATE_BY_PROFILE;
+  private boolean bySchematron = VALIDATE_BY_SCHEMATRON;
+  private boolean byJsonSchema = VALIDATE_BY_JSON_SCHEMA;
+  private boolean byRdf = VALIDATE_RDF;
 
   
   public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Map<String, ResourceDefn> definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
@@ -385,5 +389,45 @@ public class ExampleInspector {
       }
     }
   }
+
+  public boolean isByProfile() {
+    return byProfile;
+  }
+
+
+  public void setByProfile(boolean byProfile) {
+    this.byProfile = byProfile;
+  }
+
+
+  public boolean isBySchematron() {
+    return bySchematron;
+  }
+
+
+  public void setBySchematron(boolean bySchematron) {
+    this.bySchematron = bySchematron;
+  }
+
+
+  public boolean isByJsonSchema() {
+    return byJsonSchema;
+  }
+
+
+  public void setByJsonSchema(boolean byJsonSchema) {
+    this.byJsonSchema = byJsonSchema;
+  }
+
+
+  public boolean isByRdf() {
+    return byRdf;
+  }
+
+
+  public void setByRdf(boolean byRdf) {
+    this.byRdf = byRdf;
+  }
+  
   
  }
