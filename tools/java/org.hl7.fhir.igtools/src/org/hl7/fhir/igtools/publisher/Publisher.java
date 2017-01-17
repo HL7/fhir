@@ -1823,8 +1823,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
     errors.addAll(linkmsgs);
     log("Build final .zip");
-    if (!allowBrokenHtml && linkmsgs.size() > 0)
-      throw new Error("Halting build because broken links were found");
+//    if (!allowBrokenHtml && linkmsgs.size() > 0)
+//      throw new Error("Halting build because broken links were found");
     ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
     zip.addFolder(outputDir, "site/", false);
     zip.addFileSource("index.html", REDIRECT_SOURCE, false);
