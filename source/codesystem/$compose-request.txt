@@ -8,7 +8,7 @@ POST [base]/CodeSystem/$compose
   <!-- use SNOMED CT rules -->
   <parameter>
     <name value="system"/>
-    <valuUri value="http://snomed.info/sct"/>
+    <valueUri value="http://snomed.info/sct"/>
   </parameter>
   <!-- Traumatic injury -->
   <parameter>

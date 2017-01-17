@@ -853,8 +853,8 @@
   Name = compose.match.unmatched
   Documentation = One or more properties that contain properties that could not be matched into the code
   Type = Tuple
-  Min = 1
-  Max = 1
+  Min = 0
+  Max = *
 
  -- Row 46 -----------------------------------
   Name = compose.match.unmatched.code
