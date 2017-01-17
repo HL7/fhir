@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -76,12 +76,12 @@ public class BodySite extends DomainResource {
     protected CodeableConcept code;
 
     /**
-     * Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.
+     * Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.
      */
-    @Child(name = "modifier", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Modification to location code", formalDefinition="Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane." )
+    @Child(name = "qualifier", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Modification to location code", formalDefinition="Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bodysite-relative-location")
-    protected List<CodeableConcept> modifier;
+    protected List<CodeableConcept> qualifier;
 
     /**
      * Description of anatomical location.
@@ -97,7 +97,7 @@ public class BodySite extends DomainResource {
     @Description(shortDefinition="Attached images", formalDefinition="Image or images used to identify a location." )
     protected List<Attachment> image;
 
-    private static final long serialVersionUID = 1568109920L;
+    private static final long serialVersionUID = 1083731853L;
 
   /**
    * Constructor
@@ -236,56 +236,56 @@ public class BodySite extends DomainResource {
     }
 
     /**
-     * @return {@link #modifier} (Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.)
+     * @return {@link #qualifier} (Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.)
      */
-    public List<CodeableConcept> getModifier() { 
-      if (this.modifier == null)
-        this.modifier = new ArrayList<CodeableConcept>();
-      return this.modifier;
+    public List<CodeableConcept> getQualifier() { 
+      if (this.qualifier == null)
+        this.qualifier = new ArrayList<CodeableConcept>();
+      return this.qualifier;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public BodySite setModifier(List<CodeableConcept> theModifier) { 
-      this.modifier = theModifier;
+    public BodySite setQualifier(List<CodeableConcept> theQualifier) { 
+      this.qualifier = theQualifier;
       return this;
     }
 
-    public boolean hasModifier() { 
-      if (this.modifier == null)
+    public boolean hasQualifier() { 
+      if (this.qualifier == null)
         return false;
-      for (CodeableConcept item : this.modifier)
+      for (CodeableConcept item : this.qualifier)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addModifier() { //3
+    public CodeableConcept addQualifier() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.modifier == null)
-        this.modifier = new ArrayList<CodeableConcept>();
-      this.modifier.add(t);
+      if (this.qualifier == null)
+        this.qualifier = new ArrayList<CodeableConcept>();
+      this.qualifier.add(t);
       return t;
     }
 
-    public BodySite addModifier(CodeableConcept t) { //3
+    public BodySite addQualifier(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.modifier == null)
-        this.modifier = new ArrayList<CodeableConcept>();
-      this.modifier.add(t);
+      if (this.qualifier == null)
+        this.qualifier = new ArrayList<CodeableConcept>();
+      this.qualifier.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #modifier}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #qualifier}, creating it if it does not already exist
      */
-    public CodeableConcept getModifierFirstRep() { 
-      if (getModifier().isEmpty()) {
-        addModifier();
+    public CodeableConcept getQualifierFirstRep() { 
+      if (getQualifier().isEmpty()) {
+        addQualifier();
       }
-      return getModifier().get(0);
+      return getQualifier().get(0);
     }
 
     /**
@@ -395,7 +395,7 @@ public class BodySite extends DomainResource {
         childrenList.add(new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("identifier", "Identifier", "Identifier for this instance of the anatomical location.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "Named anatomical location - ideally coded where possible.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("modifier", "CodeableConcept", "Modifier to refine the anatomical location.  These include modifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, modifier));
+        childrenList.add(new Property("qualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, qualifier));
         childrenList.add(new Property("description", "string", "Description of anatomical location.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image));
       }
@@ -406,7 +406,7 @@ public class BodySite extends DomainResource {
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -615513385: /*modifier*/ return this.modifier == null ? new Base[0] : this.modifier.toArray(new Base[this.modifier.size()]); // CodeableConcept
+        case -1247940438: /*qualifier*/ return this.qualifier == null ? new Base[0] : this.qualifier.toArray(new Base[this.qualifier.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
         default: return super.getProperty(hash, name, checkValid);
@@ -426,8 +426,8 @@ public class BodySite extends DomainResource {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case -615513385: // modifier
-          this.getModifier().add(castToCodeableConcept(value)); // CodeableConcept
+        case -1247940438: // qualifier
+          this.getQualifier().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -448,8 +448,8 @@ public class BodySite extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("modifier")) {
-          this.getModifier().add(castToCodeableConcept(value));
+        } else if (name.equals("qualifier")) {
+          this.getQualifier().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("image")) {
@@ -465,7 +465,7 @@ public class BodySite extends DomainResource {
         case -791418107:  return getPatient(); 
         case -1618432855:  return addIdentifier(); 
         case 3059181:  return getCode(); 
-        case -615513385:  return addModifier(); 
+        case -1247940438:  return addQualifier(); 
         case -1724546052:  return getDescriptionElement();
         case 100313435:  return addImage(); 
         default: return super.makeProperty(hash, name);
@@ -479,7 +479,7 @@ public class BodySite extends DomainResource {
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -615513385: /*modifier*/ return new String[] {"CodeableConcept"};
+        case -1247940438: /*qualifier*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 100313435: /*image*/ return new String[] {"Attachment"};
         default: return super.getTypesForProperty(hash, name);
@@ -500,8 +500,8 @@ public class BodySite extends DomainResource {
           this.code = new CodeableConcept();
           return this.code;
         }
-        else if (name.equals("modifier")) {
-          return addModifier();
+        else if (name.equals("qualifier")) {
+          return addQualifier();
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type BodySite.description");
@@ -528,10 +528,10 @@ public class BodySite extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.code = code == null ? null : code.copy();
-        if (modifier != null) {
-          dst.modifier = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : modifier)
-            dst.modifier.add(i.copy());
+        if (qualifier != null) {
+          dst.qualifier = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : qualifier)
+            dst.qualifier.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
         if (image != null) {
@@ -554,7 +554,7 @@ public class BodySite extends DomainResource {
           return false;
         BodySite o = (BodySite) other;
         return compareDeep(patient, o.patient, true) && compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true)
-           && compareDeep(modifier, o.modifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
+           && compareDeep(qualifier, o.qualifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
           ;
       }
 
@@ -570,7 +570,7 @@ public class BodySite extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, identifier, code
-          , modifier, description, image);
+          , qualifier, description, image);
       }
 
   @Override

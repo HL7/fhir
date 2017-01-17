@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -191,10 +191,10 @@ public class ClaimResponse extends DomainResource {
         protected List<PositiveIntType> noteNumber;
 
         /**
-         * The adjudications results.
+         * The adjudication results.
          */
         @Child(name = "adjudication", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Adjudication details", formalDefinition="The adjudications results." )
+        @Description(shortDefinition="Adjudication details", formalDefinition="The adjudication results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
@@ -328,7 +328,7 @@ public class ClaimResponse extends DomainResource {
         }
 
         /**
-         * @return {@link #adjudication} (The adjudications results.)
+         * @return {@link #adjudication} (The adjudication results.)
          */
         public List<AdjudicationComponent> getAdjudication() { 
           if (this.adjudication == null)
@@ -437,7 +437,7 @@ public class ClaimResponse extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequenceLinkId", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequenceLinkId));
           childrenList.add(new Property("noteNumber", "positiveInt", "A list of note references to the notes provided below.", 0, java.lang.Integer.MAX_VALUE, noteNumber));
-          childrenList.add(new Property("adjudication", "", "The adjudications results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
+          childrenList.add(new Property("adjudication", "", "The adjudication results.", 0, java.lang.Integer.MAX_VALUE, adjudication));
           childrenList.add(new Property("detail", "", "The second tier service adjudications for submitted services.", 0, java.lang.Integer.MAX_VALUE, detail));
         }
 
@@ -600,7 +600,7 @@ public class ClaimResponse extends DomainResource {
          * Adjudication reason such as limit reached.
          */
         @Child(name = "reason", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Adjudication reason", formalDefinition="Adjudication reason such as limit reached." )
+        @Description(shortDefinition="Explanation of Adjudication outcome", formalDefinition="Adjudication reason such as limit reached." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/adjudication-reason")
         protected CodeableConcept reason;
 
@@ -937,7 +937,7 @@ public class ClaimResponse extends DomainResource {
          * The adjudications results.
          */
         @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Detail adjudication", formalDefinition="The adjudications results." )
+        @Description(shortDefinition="Detail level adjudication details", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         /**
@@ -1350,7 +1350,7 @@ public class ClaimResponse extends DomainResource {
          * The adjudications results.
          */
         @Child(name = "adjudication", type = {AdjudicationComponent.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Subdetail adjudication", formalDefinition="The adjudications results." )
+        @Description(shortDefinition="Subdetail level adjudication details", formalDefinition="The adjudications results." )
         protected List<AdjudicationComponent> adjudication;
 
         private static final long serialVersionUID = 1770463342L;
@@ -3246,7 +3246,7 @@ public class ClaimResponse extends DomainResource {
          * Reason for the payment adjustment.
          */
         @Child(name = "adjustmentReason", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
+        @Description(shortDefinition="Explanation for the non-claim adjustment", formalDefinition="Reason for the payment adjustment." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/payment-adjustment-reason")
         protected CodeableConcept adjustmentReason;
 
@@ -3261,14 +3261,14 @@ public class ClaimResponse extends DomainResource {
          * Payable less any payment adjustment.
          */
         @Child(name = "amount", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
+        @Description(shortDefinition="Payable amount after adjustment", formalDefinition="Payable less any payment adjustment." )
         protected Money amount;
 
         /**
          * Payment identifier.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifier." )
+        @Description(shortDefinition="Identifier of the payment instrument", formalDefinition="Payment identifier." )
         protected Identifier identifier;
 
         private static final long serialVersionUID = 1539906026L;
@@ -3627,7 +3627,7 @@ public class ClaimResponse extends DomainResource {
          * An integer associated with each note which may be referred to from each service line item.
          */
         @Child(name = "number", type = {PositiveIntType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Note Number for this note", formalDefinition="An integer associated with each note which may be referred to from each service line item." )
+        @Description(shortDefinition="Sequence Number for this note", formalDefinition="An integer associated with each note which may be referred to from each service line item." )
         protected PositiveIntType number;
 
         /**
@@ -3649,7 +3649,7 @@ public class ClaimResponse extends DomainResource {
          * The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. "en" for English, or "en-US" for American English versus "en-EN" for England English.
          */
         @Child(name = "language", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Language", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English." )
+        @Description(shortDefinition="Language if different from the resource", formalDefinition="The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/languages")
         protected CodeableConcept language;
 
@@ -3940,7 +3940,7 @@ public class ClaimResponse extends DomainResource {
       }
 
   public String fhirType() {
-    return "ClaimResponse.note";
+    return "ClaimResponse.processNote";
 
   }
 
@@ -4507,7 +4507,7 @@ public class ClaimResponse extends DomainResource {
      * The Insurer who produced this adjudicated response.
      */
     @Child(name = "insurer", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Insurer", formalDefinition="The Insurer who produced this adjudicated response." )
+    @Description(shortDefinition="Insurance issuing organization", formalDefinition="The Insurer who produced this adjudicated response." )
     protected Reference insurer;
 
     /**
@@ -4642,9 +4642,9 @@ public class ClaimResponse extends DomainResource {
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "processNote", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
-    protected List<NoteComponent> note;
+    protected List<NoteComponent> processNote;
 
     /**
      * Request for additional supporting or authorizing information, such as: documents, images or resources.
@@ -4665,7 +4665,7 @@ public class ClaimResponse extends DomainResource {
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<InsuranceComponent> insurance;
 
-    private static final long serialVersionUID = 1883063635L;
+    private static final long serialVersionUID = -435907650L;
 
   /**
    * Constructor
@@ -5402,56 +5402,56 @@ public class ClaimResponse extends DomainResource {
     }
 
     /**
-     * @return {@link #note} (Note text.)
+     * @return {@link #processNote} (Note text.)
      */
-    public List<NoteComponent> getNote() { 
-      if (this.note == null)
-        this.note = new ArrayList<NoteComponent>();
-      return this.note;
+    public List<NoteComponent> getProcessNote() { 
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NoteComponent>();
+      return this.processNote;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ClaimResponse setNote(List<NoteComponent> theNote) { 
-      this.note = theNote;
+    public ClaimResponse setProcessNote(List<NoteComponent> theProcessNote) { 
+      this.processNote = theProcessNote;
       return this;
     }
 
-    public boolean hasNote() { 
-      if (this.note == null)
+    public boolean hasProcessNote() { 
+      if (this.processNote == null)
         return false;
-      for (NoteComponent item : this.note)
+      for (NoteComponent item : this.processNote)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public NoteComponent addNote() { //3
+    public NoteComponent addProcessNote() { //3
       NoteComponent t = new NoteComponent();
-      if (this.note == null)
-        this.note = new ArrayList<NoteComponent>();
-      this.note.add(t);
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NoteComponent>();
+      this.processNote.add(t);
       return t;
     }
 
-    public ClaimResponse addNote(NoteComponent t) { //3
+    public ClaimResponse addProcessNote(NoteComponent t) { //3
       if (t == null)
         return this;
-      if (this.note == null)
-        this.note = new ArrayList<NoteComponent>();
-      this.note.add(t);
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NoteComponent>();
+      this.processNote.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #processNote}, creating it if it does not already exist
      */
-    public NoteComponent getNoteFirstRep() { 
-      if (getNote().isEmpty()) {
-        addNote();
+    public NoteComponent getProcessNoteFirstRep() { 
+      if (getProcessNote().isEmpty()) {
+        addProcessNote();
       }
-      return getNote().get(0);
+      return getProcessNote().get(0);
     }
 
     /**
@@ -5603,7 +5603,7 @@ public class ClaimResponse extends DomainResource {
         childrenList.add(new Property("payment", "", "Payment details for the claim if the claim has been paid.", 0, java.lang.Integer.MAX_VALUE, payment));
         childrenList.add(new Property("reserved", "Coding", "Status of funds reservation (For provider, for Patient, None).", 0, java.lang.Integer.MAX_VALUE, reserved));
         childrenList.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
-        childrenList.add(new Property("note", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("processNote", "", "Note text.", 0, java.lang.Integer.MAX_VALUE, processNote));
         childrenList.add(new Property("communicationRequest", "Reference(CommunicationRequest)", "Request for additional supporting or authorizing information, such as: documents, images or resources.", 0, java.lang.Integer.MAX_VALUE, communicationRequest));
         childrenList.add(new Property("insurance", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, insurance));
       }
@@ -5630,7 +5630,7 @@ public class ClaimResponse extends DomainResource {
         case -786681338: /*payment*/ return this.payment == null ? new Base[0] : new Base[] {this.payment}; // PaymentComponent
         case -350385368: /*reserved*/ return this.reserved == null ? new Base[0] : new Base[] {this.reserved}; // Coding
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
-        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // NoteComponent
+        case 202339073: /*processNote*/ return this.processNote == null ? new Base[0] : this.processNote.toArray(new Base[this.processNote.size()]); // NoteComponent
         case -2071896615: /*communicationRequest*/ return this.communicationRequest == null ? new Base[0] : this.communicationRequest.toArray(new Base[this.communicationRequest.size()]); // Reference
         case 73049818: /*insurance*/ return this.insurance == null ? new Base[0] : this.insurance.toArray(new Base[this.insurance.size()]); // InsuranceComponent
         default: return super.getProperty(hash, name, checkValid);
@@ -5699,8 +5699,8 @@ public class ClaimResponse extends DomainResource {
         case 3148996: // form
           this.form = castToCodeableConcept(value); // CodeableConcept
           return value;
-        case 3387378: // note
-          this.getNote().add((NoteComponent) value); // NoteComponent
+        case 202339073: // processNote
+          this.getProcessNote().add((NoteComponent) value); // NoteComponent
           return value;
         case -2071896615: // communicationRequest
           this.getCommunicationRequest().add(castToReference(value)); // Reference
@@ -5754,8 +5754,8 @@ public class ClaimResponse extends DomainResource {
           this.reserved = castToCoding(value); // Coding
         } else if (name.equals("form")) {
           this.form = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("note")) {
-          this.getNote().add((NoteComponent) value);
+        } else if (name.equals("processNote")) {
+          this.getProcessNote().add((NoteComponent) value);
         } else if (name.equals("communicationRequest")) {
           this.getCommunicationRequest().add(castToReference(value));
         } else if (name.equals("insurance")) {
@@ -5787,7 +5787,7 @@ public class ClaimResponse extends DomainResource {
         case -786681338:  return getPayment(); 
         case -350385368:  return getReserved(); 
         case 3148996:  return getForm(); 
-        case 3387378:  return addNote(); 
+        case 202339073:  return addProcessNote(); 
         case -2071896615:  return addCommunicationRequest(); 
         case 73049818:  return addInsurance(); 
         default: return super.makeProperty(hash, name);
@@ -5817,7 +5817,7 @@ public class ClaimResponse extends DomainResource {
         case -786681338: /*payment*/ return new String[] {};
         case -350385368: /*reserved*/ return new String[] {"Coding"};
         case 3148996: /*form*/ return new String[] {"CodeableConcept"};
-        case 3387378: /*note*/ return new String[] {};
+        case 202339073: /*processNote*/ return new String[] {};
         case -2071896615: /*communicationRequest*/ return new String[] {"Reference"};
         case 73049818: /*insurance*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
@@ -5896,8 +5896,8 @@ public class ClaimResponse extends DomainResource {
           this.form = new CodeableConcept();
           return this.form;
         }
-        else if (name.equals("note")) {
-          return addNote();
+        else if (name.equals("processNote")) {
+          return addProcessNote();
         }
         else if (name.equals("communicationRequest")) {
           return addCommunicationRequest();
@@ -5952,10 +5952,10 @@ public class ClaimResponse extends DomainResource {
         dst.payment = payment == null ? null : payment.copy();
         dst.reserved = reserved == null ? null : reserved.copy();
         dst.form = form == null ? null : form.copy();
-        if (note != null) {
-          dst.note = new ArrayList<NoteComponent>();
-          for (NoteComponent i : note)
-            dst.note.add(i.copy());
+        if (processNote != null) {
+          dst.processNote = new ArrayList<NoteComponent>();
+          for (NoteComponent i : processNote)
+            dst.processNote.add(i.copy());
         };
         if (communicationRequest != null) {
           dst.communicationRequest = new ArrayList<Reference>();
@@ -5988,7 +5988,7 @@ public class ClaimResponse extends DomainResource {
            && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true) && compareDeep(error, o.error, true)
            && compareDeep(totalCost, o.totalCost, true) && compareDeep(unallocDeductable, o.unallocDeductable, true)
            && compareDeep(totalBenefit, o.totalBenefit, true) && compareDeep(payment, o.payment, true) && compareDeep(reserved, o.reserved, true)
-           && compareDeep(form, o.form, true) && compareDeep(note, o.note, true) && compareDeep(communicationRequest, o.communicationRequest, true)
+           && compareDeep(form, o.form, true) && compareDeep(processNote, o.processNote, true) && compareDeep(communicationRequest, o.communicationRequest, true)
            && compareDeep(insurance, o.insurance, true);
       }
 
@@ -6007,7 +6007,7 @@ public class ClaimResponse extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, created
           , insurer, requestProvider, requestOrganization, request, outcome, disposition, payeeType
           , item, addItem, error, totalCost, unallocDeductable, totalBenefit, payment, reserved
-          , form, note, communicationRequest, insurance);
+          , form, processNote, communicationRequest, insurance);
       }
 
   @Override

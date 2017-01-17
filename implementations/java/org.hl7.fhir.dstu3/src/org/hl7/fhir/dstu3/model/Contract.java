@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -191,7 +191,7 @@ public class Contract extends DomainResource {
          * Role type of agent assigned roles in this Contract.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract  Agent Role", formalDefinition="Role type of agent assigned roles in this Contract." )
+        @Description(shortDefinition="Role type of the agent", formalDefinition="Role type of agent assigned roles in this Contract." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-actorrole")
         protected List<CodeableConcept> role;
 
@@ -3681,7 +3681,7 @@ public class Contract extends DomainResource {
      * Action stipulated by this Contract.
      */
     @Child(name = "action", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Action", formalDefinition="Action stipulated by this Contract." )
+    @Description(shortDefinition="Action stipulated by this Contract", formalDefinition="Action stipulated by this Contract." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contract-action")
     protected List<CodeableConcept> action;
 
@@ -3689,7 +3689,7 @@ public class Contract extends DomainResource {
      * Reason for action stipulated by this Contract.
      */
     @Child(name = "actionReason", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Action Reason", formalDefinition="Reason for action stipulated by this Contract." )
+    @Description(shortDefinition="Rationale for the stiplulated action", formalDefinition="Reason for action stipulated by this Contract." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
     protected List<CodeableConcept> actionReason;
 
@@ -3697,7 +3697,7 @@ public class Contract extends DomainResource {
      * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
      */
     @Child(name = "agent", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Agent", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
+    @Description(shortDefinition="Entity being ascribed responsibility", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
     protected List<AgentComponent> agent;
 
     /**
@@ -5254,32 +5254,6 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
 
  /**
-   * Search parameter: <b>ttopic</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="ttopic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
-  public static final String SP_TTOPIC = "ttopic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>ttopic</b>
-   * <p>
-   * Description: <b>The identity of the topic of the contract terms</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.term.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TTOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TTOPIC);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:ttopic</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TTOPIC = new ca.uhn.fhir.model.api.Include("Contract:ttopic").toLocked();
-
- /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>The identity of the subject of the contract (if a patient)</b><br>
@@ -5408,6 +5382,32 @@ public class Contract extends DomainResource {
    * the path value of "<b>Contract:topic</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
+
+ /**
+   * Search parameter: <b>term-topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.term.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="term-topic", path="Contract.term.topic", description="The identity of the topic of the contract terms", type="reference" )
+  public static final String SP_TERM_TOPIC = "term-topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>term-topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract terms</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.term.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TERM_TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TERM_TOPIC);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:term-topic</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TERM_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:term-topic").toLocked();
 
  /**
    * Search parameter: <b>issued</b>

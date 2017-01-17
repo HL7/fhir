@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -78,6 +78,10 @@ public class DiagnosticReport extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
+         * The report status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -98,6 +102,8 @@ public class DiagnosticReport extends DomainResource {
           return CANCELLED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -112,6 +118,7 @@ public class DiagnosticReport extends DomainResource {
             case APPENDED: return "appended";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -124,6 +131,7 @@ public class DiagnosticReport extends DomainResource {
             case APPENDED: return "http://hl7.org/fhir/diagnostic-report-status";
             case CANCELLED: return "http://hl7.org/fhir/diagnostic-report-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/diagnostic-report-status";
+            case UNKNOWN: return "http://hl7.org/fhir/diagnostic-report-status";
             default: return "?";
           }
         }
@@ -136,6 +144,7 @@ public class DiagnosticReport extends DomainResource {
             case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.";
             case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
             case ENTEREDINERROR: return "The report has been withdrawn following a previous final release.";
+            case UNKNOWN: return "The report status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".";
             default: return "?";
           }
         }
@@ -148,6 +157,7 @@ public class DiagnosticReport extends DomainResource {
             case APPENDED: return "Appended";
             case CANCELLED: return "Cancelled";
             case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown Status";
             default: return "?";
           }
         }
@@ -172,6 +182,8 @@ public class DiagnosticReport extends DomainResource {
           return DiagnosticReportStatus.CANCELLED;
         if ("entered-in-error".equals(codeString))
           return DiagnosticReportStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return DiagnosticReportStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
         public Enumeration<DiagnosticReportStatus> fromType(Base code) throws FHIRException {
@@ -196,6 +208,8 @@ public class DiagnosticReport extends DomainResource {
           return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.CANCELLED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<DiagnosticReportStatus>(this, DiagnosticReportStatus.UNKNOWN);
         throw new FHIRException("Unknown DiagnosticReportStatus code '"+codeString+"'");
         }
     public String toCode(DiagnosticReportStatus code) {
@@ -213,12 +227,302 @@ public class DiagnosticReport extends DomainResource {
         return "cancelled";
       if (code == DiagnosticReportStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == DiagnosticReportStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(DiagnosticReportStatus code) {
       return code.getSystem();
       }
     }
+
+    @Block()
+    public static class DiagnosticReportPerformerComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Describes the type of participation (e.g.  a responsible party, author, or verifier).
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Type of performer", formalDefinition="Describes the type of participation (e.g.  a responsible party, author, or verifier)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
+        protected CodeableConcept role;
+
+        /**
+         * The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.
+         */
+        @Child(name = "actor", type = {Practitioner.class, Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Practitioner or Organization  participant", formalDefinition="The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report." )
+        protected Reference actor;
+
+        /**
+         * The actual object that is the target of the reference (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
+         */
+        protected Resource actorTarget;
+
+        /**
+         * The organization the practitioner was acting on behalf of.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Organization was acting for", formalDefinition="The organization the practitioner was acting on behalf of." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization the practitioner was acting on behalf of.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        private static final long serialVersionUID = 213950062L;
+
+    /**
+     * Constructor
+     */
+      public DiagnosticReportPerformerComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public DiagnosticReportPerformerComponent(Reference actor) {
+        super();
+        this.actor = actor;
+      }
+
+        /**
+         * @return {@link #role} (Describes the type of participation (e.g.  a responsible party, author, or verifier).)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (Describes the type of participation (e.g.  a responsible party, author, or verifier).)
+         */
+        public DiagnosticReportPerformerComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
+         */
+        public Reference getActor() { 
+          if (this.actor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actor = new Reference(); // cc
+          return this.actor;
+        }
+
+        public boolean hasActor() { 
+          return this.actor != null && !this.actor.isEmpty();
+        }
+
+        /**
+         * @param value {@link #actor} (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
+         */
+        public DiagnosticReportPerformerComponent setActor(Reference value) { 
+          this.actor = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
+         */
+        public Resource getActorTarget() { 
+          return this.actorTarget;
+        }
+
+        /**
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.)
+         */
+        public DiagnosticReportPerformerComponent setActorTarget(Resource value) { 
+          this.actorTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} (The organization the practitioner was acting on behalf of.)
+         */
+        public Reference getOnBehalfOf() { 
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() { 
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization the practitioner was acting on behalf of.)
+         */
+        public DiagnosticReportPerformerComponent setOnBehalfOf(Reference value) { 
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the practitioner was acting on behalf of.)
+         */
+        public Organization getOnBehalfOfTarget() { 
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticReportPerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the practitioner was acting on behalf of.)
+         */
+        public DiagnosticReportPerformerComponent setOnBehalfOfTarget(Organization value) { 
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "CodeableConcept", "Describes the type of participation (e.g.  a responsible party, author, or verifier).", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Practitioner|Organization)", "The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 92645877: // actor
+          this.actor = castToReference(value); // Reference
+          return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("actor")) {
+          this.actor = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); 
+        case 92645877:  return getActor(); 
+        case -14402964:  return getOnBehalfOf(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 92645877: /*actor*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public DiagnosticReportPerformerComponent copy() {
+        DiagnosticReportPerformerComponent dst = new DiagnosticReportPerformerComponent();
+        copyValues(dst);
+        dst.role = role == null ? null : role.copy();
+        dst.actor = actor == null ? null : actor.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticReportPerformerComponent))
+          return false;
+        DiagnosticReportPerformerComponent o = (DiagnosticReportPerformerComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticReportPerformerComponent))
+          return false;
+        DiagnosticReportPerformerComponent o = (DiagnosticReportPerformerComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
+          );
+      }
+
+  public String fhirType() {
+    return "DiagnosticReport.performer";
+
+  }
+
+  }
 
     @Block()
     public static class DiagnosticReportImageComponent extends BackboneElement implements IBaseBackboneElement {
@@ -475,7 +779,7 @@ public class DiagnosticReport extends DomainResource {
      * The status of the diagnostic report as a whole.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="registered | partial | final | corrected | appended | cancelled | entered-in-error", formalDefinition="The status of the diagnostic report as a whole." )
+    @Description(shortDefinition="registered | partial | final | corrected +", formalDefinition="The status of the diagnostic report as a whole." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/diagnostic-report-status")
     protected Enumeration<DiagnosticReportStatus> status;
 
@@ -534,16 +838,11 @@ public class DiagnosticReport extends DomainResource {
     protected InstantType issued;
 
     /**
-     * The diagnostic service that is responsible for issuing the report.
+     * Indicates who or what participated in producing the report.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Responsible Diagnostic Service", formalDefinition="The diagnostic service that is responsible for issuing the report." )
-    protected List<Reference> performer;
-    /**
-     * The actual objects that are the target of the reference (The diagnostic service that is responsible for issuing the report.)
-     */
-    protected List<Resource> performerTarget;
-
+    @Child(name = "performer", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Participants in producing the report", formalDefinition="Indicates who or what participated in producing the report." )
+    protected List<DiagnosticReportPerformerComponent> performer;
 
     /**
      * Details concerning a test or procedure requested.
@@ -622,7 +921,7 @@ public class DiagnosticReport extends DomainResource {
     @Description(shortDefinition="Entire report as issued", formalDefinition="Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent." )
     protected List<Attachment> presentedForm;
 
-    private static final long serialVersionUID = 432918265L;
+    private static final long serialVersionUID = -1544703983L;
 
   /**
    * Constructor
@@ -964,18 +1263,18 @@ public class DiagnosticReport extends DomainResource {
     }
 
     /**
-     * @return {@link #performer} (The diagnostic service that is responsible for issuing the report.)
+     * @return {@link #performer} (Indicates who or what participated in producing the report.)
      */
-    public List<Reference> getPerformer() { 
+    public List<DiagnosticReportPerformerComponent> getPerformer() { 
       if (this.performer == null)
-        this.performer = new ArrayList<Reference>();
+        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
       return this.performer;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DiagnosticReport setPerformer(List<Reference> thePerformer) { 
+    public DiagnosticReport setPerformer(List<DiagnosticReportPerformerComponent> thePerformer) { 
       this.performer = thePerformer;
       return this;
     }
@@ -983,25 +1282,25 @@ public class DiagnosticReport extends DomainResource {
     public boolean hasPerformer() { 
       if (this.performer == null)
         return false;
-      for (Reference item : this.performer)
+      for (DiagnosticReportPerformerComponent item : this.performer)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addPerformer() { //3
-      Reference t = new Reference();
+    public DiagnosticReportPerformerComponent addPerformer() { //3
+      DiagnosticReportPerformerComponent t = new DiagnosticReportPerformerComponent();
       if (this.performer == null)
-        this.performer = new ArrayList<Reference>();
+        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
       this.performer.add(t);
       return t;
     }
 
-    public DiagnosticReport addPerformer(Reference t) { //3
+    public DiagnosticReport addPerformer(DiagnosticReportPerformerComponent t) { //3
       if (t == null)
         return this;
       if (this.performer == null)
-        this.performer = new ArrayList<Reference>();
+        this.performer = new ArrayList<DiagnosticReportPerformerComponent>();
       this.performer.add(t);
       return this;
     }
@@ -1009,21 +1308,11 @@ public class DiagnosticReport extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
      */
-    public Reference getPerformerFirstRep() { 
+    public DiagnosticReportPerformerComponent getPerformerFirstRep() { 
       if (getPerformer().isEmpty()) {
         addPerformer();
       }
       return getPerformer().get(0);
-    }
-
-    /**
-     * @deprecated Use Reference#setResource(IBaseResource) instead
-     */
-    @Deprecated
-    public List<Resource> getPerformerTarget() { 
-      if (this.performerTarget == null)
-        this.performerTarget = new ArrayList<Resource>();
-      return this.performerTarget;
     }
 
     /**
@@ -1520,7 +1809,7 @@ public class DiagnosticReport extends DomainResource {
         childrenList.add(new Property("encounter", "Reference(Encounter)", "The link to the health care event (encounter) when the order was made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("issued", "instant", "The date and time that this version of the report was released from the source diagnostic service.", 0, java.lang.Integer.MAX_VALUE, issued));
-        childrenList.add(new Property("performer", "Reference(Practitioner|Organization)", "The diagnostic service that is responsible for issuing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("performer", "", "Indicates who or what participated in producing the report.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("request", "Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest)", "Details concerning a test or procedure requested.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("specimen", "Reference(Specimen)", "Details about the specimens on which this diagnostic report is based.", 0, java.lang.Integer.MAX_VALUE, specimen));
         childrenList.add(new Property("result", "Reference(Observation)", "Observations that are part of this diagnostic report. Observations can be simple name/value pairs (e.g. \"atomic\" results), or they can be grouping observations that include references to other members of the group (e.g. \"panels\").", 0, java.lang.Integer.MAX_VALUE, result));
@@ -1542,7 +1831,7 @@ public class DiagnosticReport extends DomainResource {
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // InstantType
-        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // DiagnosticReportPerformerComponent
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : this.request.toArray(new Base[this.request.size()]); // Reference
         case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
         case -934426595: /*result*/ return this.result == null ? new Base[0] : this.result.toArray(new Base[this.result.size()]); // Reference
@@ -1585,7 +1874,7 @@ public class DiagnosticReport extends DomainResource {
           this.issued = castToInstant(value); // InstantType
           return value;
         case 481140686: // performer
-          this.getPerformer().add(castToReference(value)); // Reference
+          this.getPerformer().add((DiagnosticReportPerformerComponent) value); // DiagnosticReportPerformerComponent
           return value;
         case 1095692943: // request
           this.getRequest().add(castToReference(value)); // Reference
@@ -1636,7 +1925,7 @@ public class DiagnosticReport extends DomainResource {
         } else if (name.equals("issued")) {
           this.issued = castToInstant(value); // InstantType
         } else if (name.equals("performer")) {
-          this.getPerformer().add(castToReference(value));
+          this.getPerformer().add((DiagnosticReportPerformerComponent) value);
         } else if (name.equals("request")) {
           this.getRequest().add(castToReference(value));
         } else if (name.equals("specimen")) {
@@ -1695,7 +1984,7 @@ public class DiagnosticReport extends DomainResource {
         case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case -1179159893: /*issued*/ return new String[] {"instant"};
-        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {};
         case 1095692943: /*request*/ return new String[] {"Reference"};
         case -2132868344: /*specimen*/ return new String[] {"Reference"};
         case -934426595: /*result*/ return new String[] {"Reference"};
@@ -1796,8 +2085,8 @@ public class DiagnosticReport extends DomainResource {
         dst.effective = effective == null ? null : effective.copy();
         dst.issued = issued == null ? null : issued.copy();
         if (performer != null) {
-          dst.performer = new ArrayList<Reference>();
-          for (Reference i : performer)
+          dst.performer = new ArrayList<DiagnosticReportPerformerComponent>();
+          for (DiagnosticReportPerformerComponent i : performer)
             dst.performer.add(i.copy());
         };
         if (request != null) {
@@ -1978,17 +2267,17 @@ public class DiagnosticReport extends DomainResource {
    * <p>
    * Description: <b>Who was the source of the report (organization)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.performer</b><br>
+   * Path: <b>DiagnosticReport.performer.actor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer", description="Who was the source of the report (organization)", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="performer", path="DiagnosticReport.performer.actor", description="Who was the source of the report (organization)", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Practitioner.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
    * Description: <b>Who was the source of the report (organization)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticReport.performer</b><br>
+   * Path: <b>DiagnosticReport.performer.actor</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);

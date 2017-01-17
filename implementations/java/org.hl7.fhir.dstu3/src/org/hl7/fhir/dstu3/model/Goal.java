@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -317,6 +317,308 @@ public class Goal extends DomainResource {
     }
 
     @Block()
+    public static class GoalTargetComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.
+         */
+        @Child(name = "measure", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The parameter whose value is being tracked", formalDefinition="The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level." )
+        protected CodeableConcept measure;
+
+        /**
+         * The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.
+         */
+        @Child(name = "detail", type = {Quantity.class, Range.class, CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The target value to be achieved", formalDefinition="The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value." )
+        protected Type detail;
+
+        /**
+         * Indicates either the date or the duration after start by which the goal should be met.
+         */
+        @Child(name = "due", type = {DateType.class, Duration.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Reach goal on or before", formalDefinition="Indicates either the date or the duration after start by which the goal should be met." )
+        protected Type due;
+
+        private static final long serialVersionUID = -585108934L;
+
+    /**
+     * Constructor
+     */
+      public GoalTargetComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #measure} (The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.)
+         */
+        public CodeableConcept getMeasure() { 
+          if (this.measure == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GoalTargetComponent.measure");
+            else if (Configuration.doAutoCreate())
+              this.measure = new CodeableConcept(); // cc
+          return this.measure;
+        }
+
+        public boolean hasMeasure() { 
+          return this.measure != null && !this.measure.isEmpty();
+        }
+
+        /**
+         * @param value {@link #measure} (The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.)
+         */
+        public GoalTargetComponent setMeasure(CodeableConcept value) { 
+          this.measure = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public Type getDetail() { 
+          return this.detail;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public Quantity getDetailQuantity() throws FHIRException { 
+          if (!(this.detail instanceof Quantity))
+            throw new FHIRException("Type mismatch: the type Quantity was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (Quantity) this.detail;
+        }
+
+        public boolean hasDetailQuantity() { 
+          return this.detail instanceof Quantity;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public Range getDetailRange() throws FHIRException { 
+          if (!(this.detail instanceof Range))
+            throw new FHIRException("Type mismatch: the type Range was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (Range) this.detail;
+        }
+
+        public boolean hasDetailRange() { 
+          return this.detail instanceof Range;
+        }
+
+        /**
+         * @return {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public CodeableConcept getDetailCodeableConcept() throws FHIRException { 
+          if (!(this.detail instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.detail.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.detail;
+        }
+
+        public boolean hasDetailCodeableConcept() { 
+          return this.detail instanceof CodeableConcept;
+        }
+
+        public boolean hasDetail() { 
+          return this.detail != null && !this.detail.isEmpty();
+        }
+
+        /**
+         * @param value {@link #detail} (The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.)
+         */
+        public GoalTargetComponent setDetail(Type value) { 
+          this.detail = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #due} (Indicates either the date or the duration after start by which the goal should be met.)
+         */
+        public Type getDue() { 
+          return this.due;
+        }
+
+        /**
+         * @return {@link #due} (Indicates either the date or the duration after start by which the goal should be met.)
+         */
+        public DateType getDueDateType() throws FHIRException { 
+          if (!(this.due instanceof DateType))
+            throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.due.getClass().getName()+" was encountered");
+          return (DateType) this.due;
+        }
+
+        public boolean hasDueDateType() { 
+          return this.due instanceof DateType;
+        }
+
+        /**
+         * @return {@link #due} (Indicates either the date or the duration after start by which the goal should be met.)
+         */
+        public Duration getDueDuration() throws FHIRException { 
+          if (!(this.due instanceof Duration))
+            throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.due.getClass().getName()+" was encountered");
+          return (Duration) this.due;
+        }
+
+        public boolean hasDueDuration() { 
+          return this.due instanceof Duration;
+        }
+
+        public boolean hasDue() { 
+          return this.due != null && !this.due.isEmpty();
+        }
+
+        /**
+         * @param value {@link #due} (Indicates either the date or the duration after start by which the goal should be met.)
+         */
+        public GoalTargetComponent setDue(Type value) { 
+          this.due = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("measure", "CodeableConcept", "The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level.", 0, java.lang.Integer.MAX_VALUE, measure));
+          childrenList.add(new Property("detail[x]", "Quantity|Range|CodeableConcept", "The target value of the focus to be achieved to signify the fulfillment of the goal, e.g. 150 pounds, 7.0%. Either the high or low or both values of the range can be specified. When a low value is missing, it indicates that the goal is achieved at any focus value at or below the high value. Similarly, if the high value is missing, it indicates that the goal is achieved at any focus value at or above the low value.", 0, java.lang.Integer.MAX_VALUE, detail));
+          childrenList.add(new Property("due[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, java.lang.Integer.MAX_VALUE, due));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 938321246: /*measure*/ return this.measure == null ? new Base[0] : new Base[] {this.measure}; // CodeableConcept
+        case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : new Base[] {this.detail}; // Type
+        case 99828: /*due*/ return this.due == null ? new Base[0] : new Base[] {this.due}; // Type
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 938321246: // measure
+          this.measure = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -1335224239: // detail
+          this.detail = castToType(value); // Type
+          return value;
+        case 99828: // due
+          this.due = castToType(value); // Type
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("measure")) {
+          this.measure = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("detail[x]")) {
+          this.detail = castToType(value); // Type
+        } else if (name.equals("due[x]")) {
+          this.due = castToType(value); // Type
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 938321246:  return getMeasure(); 
+        case -1973084529:  return getDetail(); 
+        case -1335224239:  return getDetail(); 
+        case -1320900084:  return getDue(); 
+        case 99828:  return getDue(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 938321246: /*measure*/ return new String[] {"CodeableConcept"};
+        case -1335224239: /*detail*/ return new String[] {"Quantity", "Range", "CodeableConcept"};
+        case 99828: /*due*/ return new String[] {"date", "Duration"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("measure")) {
+          this.measure = new CodeableConcept();
+          return this.measure;
+        }
+        else if (name.equals("detailQuantity")) {
+          this.detail = new Quantity();
+          return this.detail;
+        }
+        else if (name.equals("detailRange")) {
+          this.detail = new Range();
+          return this.detail;
+        }
+        else if (name.equals("detailCodeableConcept")) {
+          this.detail = new CodeableConcept();
+          return this.detail;
+        }
+        else if (name.equals("dueDate")) {
+          this.due = new DateType();
+          return this.due;
+        }
+        else if (name.equals("dueDuration")) {
+          this.due = new Duration();
+          return this.due;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public GoalTargetComponent copy() {
+        GoalTargetComponent dst = new GoalTargetComponent();
+        copyValues(dst);
+        dst.measure = measure == null ? null : measure.copy();
+        dst.detail = detail == null ? null : detail.copy();
+        dst.due = due == null ? null : due.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof GoalTargetComponent))
+          return false;
+        GoalTargetComponent o = (GoalTargetComponent) other;
+        return compareDeep(measure, o.measure, true) && compareDeep(detail, o.detail, true) && compareDeep(due, o.due, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof GoalTargetComponent))
+          return false;
+        GoalTargetComponent o = (GoalTargetComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(measure, detail, due);
+      }
+
+  public String fhirType() {
+    return "Goal.target";
+
+  }
+
+  }
+
+    @Block()
     public static class GoalOutcomeComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Details of what's changed (or not changed).
@@ -543,11 +845,11 @@ public class Goal extends DomainResource {
     protected Type start;
 
     /**
-     * Indicates either the date or the duration after start by which the goal should be met.
+     * Indicates what should be done by when.
      */
-    @Child(name = "target", type = {DateType.class, Duration.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reach goal on or before", formalDefinition="Indicates either the date or the duration after start by which the goal should be met." )
-    protected Type target;
+    @Child(name = "target", type = {}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Target outcome for the goal", formalDefinition="Indicates what should be done by when." )
+    protected GoalTargetComponent target;
 
     /**
      * Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
@@ -579,7 +881,7 @@ public class Goal extends DomainResource {
     /**
      * The identified conditions and other health record elements that are intended to be addressed by the goal.
      */
-    @Child(name = "addresses", type = {Condition.class, Observation.class, MedicationStatement.class, NutritionRequest.class, ProcedureRequest.class, RiskAssessment.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "addresses", type = {Condition.class, Observation.class, MedicationStatement.class, NutritionOrder.class, ProcedureRequest.class, RiskAssessment.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Issues addressed by this goal", formalDefinition="The identified conditions and other health record elements that are intended to be addressed by the goal." )
     protected List<Reference> addresses;
     /**
@@ -602,7 +904,7 @@ public class Goal extends DomainResource {
     @Description(shortDefinition="What result was achieved regarding the goal?", formalDefinition="Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved." )
     protected List<GoalOutcomeComponent> outcome;
 
-    private static final long serialVersionUID = -1038594160L;
+    private static final long serialVersionUID = -1718246451L;
 
   /**
    * Constructor
@@ -904,36 +1206,15 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
+     * @return {@link #target} (Indicates what should be done by when.)
      */
-    public Type getTarget() { 
+    public GoalTargetComponent getTarget() { 
+      if (this.target == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Goal.target");
+        else if (Configuration.doAutoCreate())
+          this.target = new GoalTargetComponent(); // cc
       return this.target;
-    }
-
-    /**
-     * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
-     */
-    public DateType getTargetDateType() throws FHIRException { 
-      if (!(this.target instanceof DateType))
-        throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.target.getClass().getName()+" was encountered");
-      return (DateType) this.target;
-    }
-
-    public boolean hasTargetDateType() { 
-      return this.target instanceof DateType;
-    }
-
-    /**
-     * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
-     */
-    public Duration getTargetDuration() throws FHIRException { 
-      if (!(this.target instanceof Duration))
-        throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.target.getClass().getName()+" was encountered");
-      return (Duration) this.target;
-    }
-
-    public boolean hasTargetDuration() { 
-      return this.target instanceof Duration;
     }
 
     public boolean hasTarget() { 
@@ -941,9 +1222,9 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @param value {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
+     * @param value {@link #target} (Indicates what should be done by when.)
      */
-    public Goal setTarget(Type value) { 
+    public Goal setTarget(GoalTargetComponent value) { 
       this.target = value;
       return this;
     }
@@ -1267,11 +1548,11 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("description", "CodeableConcept", "Code and/or human-readable description of a specific desired objective of care.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Organization)", "Identifies the patient, group or organization for whom the goal is being established.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, java.lang.Integer.MAX_VALUE, start));
-        childrenList.add(new Property("target[x]", "date|Duration", "Indicates either the date or the duration after start by which the goal should be met.", 0, java.lang.Integer.MAX_VALUE, target));
+        childrenList.add(new Property("target", "", "Indicates what should be done by when.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("statusDate", "date", "Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.", 0, java.lang.Integer.MAX_VALUE, statusDate));
         childrenList.add(new Property("statusReason", "CodeableConcept", "Captures the reason for the current status.", 0, java.lang.Integer.MAX_VALUE, statusReason));
         childrenList.add(new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, java.lang.Integer.MAX_VALUE, expressedBy));
-        childrenList.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionRequest|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
+        childrenList.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
         childrenList.add(new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("outcome", "", "Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.", 0, java.lang.Integer.MAX_VALUE, outcome));
       }
@@ -1286,7 +1567,7 @@ public class Goal extends DomainResource {
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 109757538: /*start*/ return this.start == null ? new Base[0] : new Base[] {this.start}; // Type
-        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // Type
+        case -880905839: /*target*/ return this.target == null ? new Base[0] : new Base[] {this.target}; // GoalTargetComponent
         case 247524032: /*statusDate*/ return this.statusDate == null ? new Base[0] : new Base[] {this.statusDate}; // DateType
         case 2051346646: /*statusReason*/ return this.statusReason == null ? new Base[0] : this.statusReason.toArray(new Base[this.statusReason.size()]); // CodeableConcept
         case 175423686: /*expressedBy*/ return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
@@ -1324,7 +1605,7 @@ public class Goal extends DomainResource {
           this.start = castToType(value); // Type
           return value;
         case -880905839: // target
-          this.target = castToType(value); // Type
+          this.target = (GoalTargetComponent) value; // GoalTargetComponent
           return value;
         case 247524032: // statusDate
           this.statusDate = castToDate(value); // DateType
@@ -1366,8 +1647,8 @@ public class Goal extends DomainResource {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("start[x]")) {
           this.start = castToType(value); // Type
-        } else if (name.equals("target[x]")) {
-          this.target = castToType(value); // Type
+        } else if (name.equals("target")) {
+          this.target = (GoalTargetComponent) value; // GoalTargetComponent
         } else if (name.equals("statusDate")) {
           this.statusDate = castToDate(value); // DateType
         } else if (name.equals("statusReason")) {
@@ -1396,7 +1677,6 @@ public class Goal extends DomainResource {
         case -1867885268:  return getSubject(); 
         case 1316793566:  return getStart(); 
         case 109757538:  return getStart(); 
-        case -815579825:  return getTarget(); 
         case -880905839:  return getTarget(); 
         case 247524032:  return getStatusDateElement();
         case 2051346646:  return addStatusReason(); 
@@ -1419,7 +1699,7 @@ public class Goal extends DomainResource {
         case -1724546052: /*description*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 109757538: /*start*/ return new String[] {"date", "CodeableConcept"};
-        case -880905839: /*target*/ return new String[] {"date", "Duration"};
+        case -880905839: /*target*/ return new String[] {};
         case 247524032: /*statusDate*/ return new String[] {"date"};
         case 2051346646: /*statusReason*/ return new String[] {"CodeableConcept"};
         case 175423686: /*expressedBy*/ return new String[] {"Reference"};
@@ -1462,12 +1742,8 @@ public class Goal extends DomainResource {
           this.start = new CodeableConcept();
           return this.start;
         }
-        else if (name.equals("targetDate")) {
-          this.target = new DateType();
-          return this.target;
-        }
-        else if (name.equals("targetDuration")) {
-          this.target = new Duration();
+        else if (name.equals("target")) {
+          this.target = new GoalTargetComponent();
           return this.target;
         }
         else if (name.equals("statusDate")) {
@@ -1655,24 +1931,24 @@ public class Goal extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Goal:subject").toLocked();
 
  /**
-   * Search parameter: <b>targetdate</b>
+   * Search parameter: <b>start-date</b>
    * <p>
-   * Description: <b>Reach goal on or before</b><br>
+   * Description: <b>When goal pursuit begins</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Goal.targetDate</b><br>
+   * Path: <b>Goal.startDate</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="targetdate", path="Goal.target.as(Date)", description="Reach goal on or before", type="date" )
-  public static final String SP_TARGETDATE = "targetdate";
+  @SearchParamDefinition(name="start-date", path="Goal.start.as(Date)", description="When goal pursuit begins", type="date" )
+  public static final String SP_START_DATE = "start-date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>targetdate</b>
+   * <b>Fluent Client</b> search parameter constant for <b>start-date</b>
    * <p>
-   * Description: <b>Reach goal on or before</b><br>
+   * Description: <b>When goal pursuit begins</b><br>
    * Type: <b>date</b><br>
-   * Path: <b>Goal.targetDate</b><br>
+   * Path: <b>Goal.startDate</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam TARGETDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TARGETDATE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam START_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_START_DATE);
 
  /**
    * Search parameter: <b>category</b>
@@ -1693,6 +1969,26 @@ public class Goal extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
+
+ /**
+   * Search parameter: <b>target-date</b>
+   * <p>
+   * Description: <b>Reach goal on or before</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Goal.target.dueDate</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target-date", path="Goal.target.due.as(Date)", description="Reach goal on or before", type="date" )
+  public static final String SP_TARGET_DATE = "target-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target-date</b>
+   * <p>
+   * Description: <b>Reach goal on or before</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Goal.target.dueDate</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam TARGET_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_TARGET_DATE);
 
  /**
    * Search parameter: <b>status</b>

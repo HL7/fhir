@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -420,9 +420,16 @@ public class ProcedureRequest extends DomainResource {
     protected CodeableConcept code;
 
     /**
+     * Set this to true if the record is saying that the procedure should NOT be performed.
+     */
+    @Child(name = "doNotPerform", type = {BooleanType.class}, order=3, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="True if procedure should not be performed", formalDefinition="Set this to true if the record is saying that the procedure should NOT be performed." )
+    protected BooleanType doNotPerform;
+
+    /**
      * Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What part of body to perform on", formalDefinition="Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
     protected List<CodeableConcept> bodySite;
@@ -430,7 +437,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
      */
-    @Child(name = "reason", type = {CodeableConcept.class, Condition.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reason", type = {CodeableConcept.class, Condition.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Why procedure should occur", formalDefinition="The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected Type reason;
@@ -438,14 +445,14 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".
      */
-    @Child(name = "scheduled", type = {DateTimeType.class, Period.class, Timing.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "scheduled", type = {DateTimeType.class, Period.class, Timing.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When procedure should occur", formalDefinition="The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\"." )
     protected Type scheduled;
 
     /**
      * The encounter within which the procedure proposal or request was created.
      */
-    @Child(name = "encounter", type = {Encounter.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "encounter", type = {Encounter.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter request created during", formalDefinition="The encounter within which the procedure proposal or request was created." )
     protected Reference encounter;
 
@@ -457,7 +464,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * For example, the surgeon, anaethetist, endoscopist, etc.
      */
-    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performer", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who should perform the procedure", formalDefinition="For example, the surgeon, anaethetist, endoscopist, etc." )
     protected Reference performer;
 
@@ -469,7 +476,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The status of the order.
      */
-    @Child(name = "status", type = {CodeType.class}, order=8, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=9, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted", formalDefinition="The status of the order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-request-status")
     protected Enumeration<ProcedureRequestStatus> status;
@@ -477,7 +484,7 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Information that may be needed by/relevant to the performer in their execution of this request.
      */
-    @Child(name = "supportingInfo", type = {Reference.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "supportingInfo", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Extra information to use in performing request", formalDefinition="Information that may be needed by/relevant to the performer in their execution of this request." )
     protected List<Reference> supportingInfo;
     /**
@@ -489,28 +496,28 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Any other notes associated with this proposal or order - e.g. provider instructions.
      */
-    @Child(name = "notes", type = {Annotation.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "notes", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Additional information about desired procedure", formalDefinition="Any other notes associated with this proposal or order - e.g. provider instructions." )
     protected List<Annotation> notes;
 
     /**
      * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
      */
-    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Preconditions for procedure", formalDefinition="If a CodeableConcept is present, it indicates the pre-condition for performing the procedure." )
     protected Type asNeeded;
 
     /**
      * The time when the request was made.
      */
-    @Child(name = "orderedOn", type = {DateTimeType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "orderedOn", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When request was created", formalDefinition="The time when the request was made." )
     protected DateTimeType orderedOn;
 
     /**
      * The healthcare professional responsible for proposing or ordering the procedure.
      */
-    @Child(name = "orderer", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "orderer", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who made request", formalDefinition="The healthcare professional responsible for proposing or ordering the procedure." )
     protected Reference orderer;
 
@@ -522,12 +529,12 @@ public class ProcedureRequest extends DomainResource {
     /**
      * The clinical priority associated with this order.
      */
-    @Child(name = "priority", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "priority", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="routine | urgent | stat | asap", formalDefinition="The clinical priority associated with this order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-request-priority")
     protected Enumeration<ProcedureRequestPriority> priority;
 
-    private static final long serialVersionUID = -1513148416L;
+    private static final long serialVersionUID = 1550729701L;
 
   /**
    * Constructor
@@ -658,6 +665,51 @@ public class ProcedureRequest extends DomainResource {
      */
     public ProcedureRequest setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #doNotPerform} (Set this to true if the record is saying that the procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
+     */
+    public BooleanType getDoNotPerformElement() { 
+      if (this.doNotPerform == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ProcedureRequest.doNotPerform");
+        else if (Configuration.doAutoCreate())
+          this.doNotPerform = new BooleanType(); // bb
+      return this.doNotPerform;
+    }
+
+    public boolean hasDoNotPerformElement() { 
+      return this.doNotPerform != null && !this.doNotPerform.isEmpty();
+    }
+
+    public boolean hasDoNotPerform() { 
+      return this.doNotPerform != null && !this.doNotPerform.isEmpty();
+    }
+
+    /**
+     * @param value {@link #doNotPerform} (Set this to true if the record is saying that the procedure should NOT be performed.). This is the underlying object with id, value and extensions. The accessor "getDoNotPerform" gives direct access to the value
+     */
+    public ProcedureRequest setDoNotPerformElement(BooleanType value) { 
+      this.doNotPerform = value;
+      return this;
+    }
+
+    /**
+     * @return Set this to true if the record is saying that the procedure should NOT be performed.
+     */
+    public boolean getDoNotPerform() { 
+      return this.doNotPerform == null || this.doNotPerform.isEmpty() ? false : this.doNotPerform.getValue();
+    }
+
+    /**
+     * @param value Set this to true if the record is saying that the procedure should NOT be performed.
+     */
+    public ProcedureRequest setDoNotPerform(boolean value) { 
+        if (this.doNotPerform == null)
+          this.doNotPerform = new BooleanType();
+        this.doNotPerform.setValue(value);
       return this;
     }
 
@@ -1252,6 +1304,7 @@ public class ProcedureRequest extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group that should receive the procedure.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("code", "CodeableConcept", "The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("doNotPerform", "boolean", "Set this to true if the record is saying that the procedure should NOT be performed.", 0, java.lang.Integer.MAX_VALUE, doNotPerform));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Condition)", "The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("scheduled[x]", "dateTime|Period|Timing", "The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".", 0, java.lang.Integer.MAX_VALUE, scheduled));
@@ -1272,6 +1325,7 @@ public class ProcedureRequest extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -1788508167: /*doNotPerform*/ return this.doNotPerform == null ? new Base[0] : new Base[] {this.doNotPerform}; // BooleanType
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
         case -160710483: /*scheduled*/ return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
@@ -1300,6 +1354,9 @@ public class ProcedureRequest extends DomainResource {
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -1788508167: // doNotPerform
+          this.doNotPerform = castToBoolean(value); // BooleanType
           return value;
         case 1702620169: // bodySite
           this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1352,6 +1409,8 @@ public class ProcedureRequest extends DomainResource {
           this.subject = castToReference(value); // Reference
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("doNotPerform")) {
+          this.doNotPerform = castToBoolean(value); // BooleanType
         } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("reason[x]")) {
@@ -1389,6 +1448,7 @@ public class ProcedureRequest extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -1867885268:  return getSubject(); 
         case 3059181:  return getCode(); 
+        case -1788508167:  return getDoNotPerformElement();
         case 1702620169:  return addBodySite(); 
         case -669418564:  return getReason(); 
         case -934964668:  return getReason(); 
@@ -1415,6 +1475,7 @@ public class ProcedureRequest extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -1788508167: /*doNotPerform*/ return new String[] {"boolean"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
         case -160710483: /*scheduled*/ return new String[] {"dateTime", "Period", "Timing"};
@@ -1444,6 +1505,9 @@ public class ProcedureRequest extends DomainResource {
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
           return this.code;
+        }
+        else if (name.equals("doNotPerform")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ProcedureRequest.doNotPerform");
         }
         else if (name.equals("bodySite")) {
           return addBodySite();
@@ -1522,6 +1586,7 @@ public class ProcedureRequest extends DomainResource {
         };
         dst.subject = subject == null ? null : subject.copy();
         dst.code = code == null ? null : code.copy();
+        dst.doNotPerform = doNotPerform == null ? null : doNotPerform.copy();
         if (bodySite != null) {
           dst.bodySite = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : bodySite)
@@ -1561,11 +1626,11 @@ public class ProcedureRequest extends DomainResource {
           return false;
         ProcedureRequest o = (ProcedureRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(code, o.code, true)
-           && compareDeep(bodySite, o.bodySite, true) && compareDeep(reason, o.reason, true) && compareDeep(scheduled, o.scheduled, true)
-           && compareDeep(encounter, o.encounter, true) && compareDeep(performer, o.performer, true) && compareDeep(status, o.status, true)
-           && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(notes, o.notes, true) && compareDeep(asNeeded, o.asNeeded, true)
-           && compareDeep(orderedOn, o.orderedOn, true) && compareDeep(orderer, o.orderer, true) && compareDeep(priority, o.priority, true)
-          ;
+           && compareDeep(doNotPerform, o.doNotPerform, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(scheduled, o.scheduled, true) && compareDeep(encounter, o.encounter, true) && compareDeep(performer, o.performer, true)
+           && compareDeep(status, o.status, true) && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(notes, o.notes, true)
+           && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(orderedOn, o.orderedOn, true) && compareDeep(orderer, o.orderer, true)
+           && compareDeep(priority, o.priority, true);
       }
 
       @Override
@@ -1575,14 +1640,14 @@ public class ProcedureRequest extends DomainResource {
         if (!(other instanceof ProcedureRequest))
           return false;
         ProcedureRequest o = (ProcedureRequest) other;
-        return compareValues(status, o.status, true) && compareValues(orderedOn, o.orderedOn, true) && compareValues(priority, o.priority, true)
-          ;
+        return compareValues(doNotPerform, o.doNotPerform, true) && compareValues(status, o.status, true) && compareValues(orderedOn, o.orderedOn, true)
+           && compareValues(priority, o.priority, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, code
-          , bodySite, reason, scheduled, encounter, performer, status, supportingInfo, notes
-          , asNeeded, orderedOn, orderer, priority);
+          , doNotPerform, bodySite, reason, scheduled, encounter, performer, status, supportingInfo
+          , notes, asNeeded, orderedOn, orderer, priority);
       }
 
   @Override

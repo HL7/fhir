@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -250,6 +250,10 @@ public class MedicationRequest extends DomainResource {
          */
         ORDER, 
         /**
+         * The request represents an instance for the particular order, for example a medication administration record.
+         */
+        INSTANCEORDER, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -262,6 +266,8 @@ public class MedicationRequest extends DomainResource {
           return PLAN;
         if ("order".equals(codeString))
           return ORDER;
+        if ("instance-order".equals(codeString))
+          return INSTANCEORDER;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -272,6 +278,7 @@ public class MedicationRequest extends DomainResource {
             case PROPOSAL: return "proposal";
             case PLAN: return "plan";
             case ORDER: return "order";
+            case INSTANCEORDER: return "instance-order";
             default: return "?";
           }
         }
@@ -280,6 +287,7 @@ public class MedicationRequest extends DomainResource {
             case PROPOSAL: return "http://hl7.org/fhir/medication-request-intent";
             case PLAN: return "http://hl7.org/fhir/medication-request-intent";
             case ORDER: return "http://hl7.org/fhir/medication-request-intent";
+            case INSTANCEORDER: return "http://hl7.org/fhir/medication-request-intent";
             default: return "?";
           }
         }
@@ -288,6 +296,7 @@ public class MedicationRequest extends DomainResource {
             case PROPOSAL: return "The request is a suggestion made by someone/something that doesn't have an intention to ensure it occurs and without providing an authorization to act";
             case PLAN: return "The request represents an intension to ensure something occurs without providing an authorization for others to act";
             case ORDER: return "The request represents a request/demand and authorization for action";
+            case INSTANCEORDER: return "The request represents an instance for the particular order, for example a medication administration record.";
             default: return "?";
           }
         }
@@ -296,6 +305,7 @@ public class MedicationRequest extends DomainResource {
             case PROPOSAL: return "Proposal";
             case PLAN: return "Plan";
             case ORDER: return "Order";
+            case INSTANCEORDER: return "Instance Order";
             default: return "?";
           }
         }
@@ -312,6 +322,8 @@ public class MedicationRequest extends DomainResource {
           return MedicationRequestIntent.PLAN;
         if ("order".equals(codeString))
           return MedicationRequestIntent.ORDER;
+        if ("instance-order".equals(codeString))
+          return MedicationRequestIntent.INSTANCEORDER;
         throw new IllegalArgumentException("Unknown MedicationRequestIntent code '"+codeString+"'");
         }
         public Enumeration<MedicationRequestIntent> fromType(Base code) throws FHIRException {
@@ -328,6 +340,8 @@ public class MedicationRequest extends DomainResource {
           return new Enumeration<MedicationRequestIntent>(this, MedicationRequestIntent.PLAN);
         if ("order".equals(codeString))
           return new Enumeration<MedicationRequestIntent>(this, MedicationRequestIntent.ORDER);
+        if ("instance-order".equals(codeString))
+          return new Enumeration<MedicationRequestIntent>(this, MedicationRequestIntent.INSTANCEORDER);
         throw new FHIRException("Unknown MedicationRequestIntent code '"+codeString+"'");
         }
     public String toCode(MedicationRequestIntent code) {
@@ -337,6 +351,8 @@ public class MedicationRequest extends DomainResource {
         return "plan";
       if (code == MedicationRequestIntent.ORDER)
         return "order";
+      if (code == MedicationRequestIntent.INSTANCEORDER)
+        return "instance-order";
       return "?";
       }
     public String toSystem(MedicationRequestIntent code) {
@@ -485,7 +501,7 @@ public class MedicationRequest extends DomainResource {
         /**
          * The organization the device or practitioner was acting on behalf of.
          */
-        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Organization agent is acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
         protected Reference onBehalfOf;
 
@@ -506,10 +522,9 @@ public class MedicationRequest extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationRequestRequesterComponent(Reference agent, Reference onBehalfOf) {
+      public MedicationRequestRequesterComponent(Reference agent) {
         super();
         this.agent = agent;
-        this.onBehalfOf = onBehalfOf;
       }
 
         /**
@@ -1345,7 +1360,7 @@ public class MedicationRequest extends DomainResource {
      * Whether the request is a proposal, plan, or an original order.
      */
     @Child(name = "intent", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposal | plan | order", formalDefinition="Whether the request is a proposal, plan, or an original order." )
+    @Description(shortDefinition="proposal | plan | order | instance-order", formalDefinition="Whether the request is a proposal, plan, or an original order." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-request-intent")
     protected Enumeration<MedicationRequestIntent> intent;
 
@@ -3280,6 +3295,26 @@ public class MedicationRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>intent</b>
+   * <p>
+   * Description: <b>Returns prescriptions with different intents</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationRequest.intent</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="intent", path="MedicationRequest.intent", description="Returns prescriptions with different intents", type="token" )
+  public static final String SP_INTENT = "intent";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>intent</b>
+   * <p>
+   * Description: <b>Returns prescriptions with different intents</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationRequest.intent</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INTENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INTENT);
 
  /**
    * Search parameter: <b>status</b>

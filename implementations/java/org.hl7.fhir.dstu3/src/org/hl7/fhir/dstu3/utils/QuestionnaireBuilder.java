@@ -223,7 +223,7 @@ public class QuestionnaireBuilder {
       questionnaire.setPublisher(profile.getPublisher());
       Questionnaire.QuestionnaireItemComponent item = new Questionnaire.QuestionnaireItemComponent();
       questionnaire.addItem(item);
-      item.getConcept().addAll(profile.getKeyword());
+      item.getCode().addAll(profile.getKeyword());
       questionnaire.setId(nextId("qs"));
     }
 
@@ -602,7 +602,6 @@ public class QuestionnaireBuilder {
     case INTEGER: if (value instanceof IntegerType) return (Type) value;
     case DATE: if (value instanceof DateType) return (Type) value;
     case DATETIME: if (value instanceof DateTimeType) return (Type) value;
-    case INSTANT: if (value instanceof InstantType) return (Type) value;
     case TIME: if (value instanceof TimeType) return (Type) value;
     case STRING:
       if (value instanceof StringType) 
@@ -831,7 +830,7 @@ public class QuestionnaireBuilder {
 
   private void addInstantQuestions(QuestionnaireItemComponent group, ElementDefinition element, String path, List<QuestionnaireResponse.QuestionnaireResponseItemComponent> answerGroups) throws FHIRException {
     ToolingExtensions.addFhirType(group, "instant");
-    addQuestion(group, QuestionnaireItemType.INSTANT, path, "value", group.getText(), answerGroups);
+    addQuestion(group, QuestionnaireItemType.DATETIME, path, "value", group.getText(), answerGroups);
 	  group.setText(null);
     for (QuestionnaireResponse.QuestionnaireResponseItemComponent ag : answerGroups)
       ag.setText(null);

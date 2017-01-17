@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -66,6 +66,10 @@ public class QuestionnaireResponse extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
+         * This QuestionnaireResponse has been partially filled out with answers, but it is unknown whether changes or additions are expected to be made to it.
+         */
+        STOPPED, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -80,6 +84,8 @@ public class QuestionnaireResponse extends DomainResource {
           return AMENDED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("stopped".equals(codeString))
+          return STOPPED;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -91,6 +97,7 @@ public class QuestionnaireResponse extends DomainResource {
             case COMPLETED: return "completed";
             case AMENDED: return "amended";
             case ENTEREDINERROR: return "entered-in-error";
+            case STOPPED: return "stopped";
             default: return "?";
           }
         }
@@ -100,6 +107,7 @@ public class QuestionnaireResponse extends DomainResource {
             case COMPLETED: return "http://hl7.org/fhir/questionnaire-answers-status";
             case AMENDED: return "http://hl7.org/fhir/questionnaire-answers-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/questionnaire-answers-status";
+            case STOPPED: return "http://hl7.org/fhir/questionnaire-answers-status";
             default: return "?";
           }
         }
@@ -109,6 +117,7 @@ public class QuestionnaireResponse extends DomainResource {
             case COMPLETED: return "This QuestionnaireResponse has been filled out with answers, and the current content is regarded as definitive.";
             case AMENDED: return "This QuestionnaireResponse has been filled out with answers, then marked as complete, yet changes or additions have been made to it afterwards.";
             case ENTEREDINERROR: return "This QuestionnaireResponse was entered in error and voided.";
+            case STOPPED: return "This QuestionnaireResponse has been partially filled out with answers, but it is unknown whether changes or additions are expected to be made to it.";
             default: return "?";
           }
         }
@@ -118,6 +127,7 @@ public class QuestionnaireResponse extends DomainResource {
             case COMPLETED: return "Completed";
             case AMENDED: return "Amended";
             case ENTEREDINERROR: return "Entered In Error";
+            case STOPPED: return "Stopped";
             default: return "?";
           }
         }
@@ -136,6 +146,8 @@ public class QuestionnaireResponse extends DomainResource {
           return QuestionnaireResponseStatus.AMENDED;
         if ("entered-in-error".equals(codeString))
           return QuestionnaireResponseStatus.ENTEREDINERROR;
+        if ("stopped".equals(codeString))
+          return QuestionnaireResponseStatus.STOPPED;
         throw new IllegalArgumentException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
         public Enumeration<QuestionnaireResponseStatus> fromType(Base code) throws FHIRException {
@@ -154,6 +166,8 @@ public class QuestionnaireResponse extends DomainResource {
           return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.AMENDED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.ENTEREDINERROR);
+        if ("stopped".equals(codeString))
+          return new Enumeration<QuestionnaireResponseStatus>(this, QuestionnaireResponseStatus.STOPPED);
         throw new FHIRException("Unknown QuestionnaireResponseStatus code '"+codeString+"'");
         }
     public String toCode(QuestionnaireResponseStatus code) {
@@ -165,6 +179,8 @@ public class QuestionnaireResponse extends DomainResource {
         return "amended";
       if (code == QuestionnaireResponseStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == QuestionnaireResponseStatus.STOPPED)
+        return "stopped";
       return "?";
       }
     public String toSystem(QuestionnaireResponseStatus code) {
@@ -708,7 +724,7 @@ public class QuestionnaireResponse extends DomainResource {
         /**
          * The answer (or one of the answers) provided by the respondent to the question.
          */
-        @Child(name = "value", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, InstantType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Single-valued answer to the question", formalDefinition="The answer (or one of the answers) provided by the respondent to the question." )
         protected Type value;
 
@@ -798,19 +814,6 @@ public class QuestionnaireResponse extends DomainResource {
 
         public boolean hasValueDateTimeType() { 
           return this.value instanceof DateTimeType;
-        }
-
-        /**
-         * @return {@link #value} (The answer (or one of the answers) provided by the respondent to the question.)
-         */
-        public InstantType getValueInstantType() throws FHIRException { 
-          if (!(this.value instanceof InstantType))
-            throw new FHIRException("Type mismatch: the type InstantType was expected, but "+this.value.getClass().getName()+" was encountered");
-          return (InstantType) this.value;
-        }
-
-        public boolean hasValueInstantType() { 
-          return this.value instanceof InstantType;
         }
 
         /**
@@ -971,7 +974,7 @@ public class QuestionnaireResponse extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|instant|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The answer (or one of the answers) provided by the respondent to the question.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "boolean|decimal|integer|date|dateTime|time|string|uri|Attachment|Coding|Quantity|Reference(Any)", "The answer (or one of the answers) provided by the respondent to the question.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("item", "@QuestionnaireResponse.item", "Nested groups and/or questions found within this particular answer.", 0, java.lang.Integer.MAX_VALUE, item));
         }
 
@@ -1024,7 +1027,7 @@ public class QuestionnaireResponse extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 111972721: /*value*/ return new String[] {"boolean", "decimal", "integer", "date", "dateTime", "instant", "time", "string", "uri", "Attachment", "Coding", "Quantity", "Reference"};
+        case 111972721: /*value*/ return new String[] {"boolean", "decimal", "integer", "date", "dateTime", "time", "string", "uri", "Attachment", "Coding", "Quantity", "Reference"};
         case 3242771: /*item*/ return new String[] {"@QuestionnaireResponse.item"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1051,10 +1054,6 @@ public class QuestionnaireResponse extends DomainResource {
         }
         else if (name.equals("valueDateTime")) {
           this.value = new DateTimeType();
-          return this.value;
-        }
-        else if (name.equals("valueInstant")) {
-          this.value = new InstantType();
           return this.value;
         }
         else if (name.equals("valueTime")) {
@@ -1182,7 +1181,7 @@ public class QuestionnaireResponse extends DomainResource {
      * The lifecycle status of the questionnaire response as a whole.
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | completed | amended | entered-in-error", formalDefinition="The lifecycle status of the questionnaire response as a whole." )
+    @Description(shortDefinition="in-progress | completed | amended | entered-in-error | stopped", formalDefinition="The lifecycle status of the questionnaire response as a whole." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers-status")
     protected Enumeration<QuestionnaireResponseStatus> status;
 

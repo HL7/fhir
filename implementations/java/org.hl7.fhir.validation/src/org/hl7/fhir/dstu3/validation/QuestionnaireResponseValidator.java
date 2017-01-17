@@ -359,9 +359,6 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 		case DECIMAL:
 			allowedAnswerTypes = allowedTypes(DecimalType.class);
 			break;
-		case INSTANT:
-			allowedAnswerTypes = allowedTypes(InstantType.class);
-			break;
 		case INTEGER:
 			allowedAnswerTypes = allowedTypes(IntegerType.class);
 			break;

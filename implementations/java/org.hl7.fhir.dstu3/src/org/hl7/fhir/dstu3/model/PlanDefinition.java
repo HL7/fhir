@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -50,7 +50,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "type", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "actionDefinition"})
 public class PlanDefinition extends MetadataResource {
 
-    public enum PlanActionConditionKind {
+    public enum ActionConditionKind {
         /**
          * The condition describes whether or not a given action is applicable
          */
@@ -67,7 +67,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionConditionKind fromCode(String codeString) throws FHIRException {
+        public static ActionConditionKind fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("applicability".equals(codeString))
@@ -79,7 +79,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionConditionKind code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionConditionKind code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -115,50 +115,50 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionConditionKindEnumFactory implements EnumFactory<PlanActionConditionKind> {
-    public PlanActionConditionKind fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionConditionKindEnumFactory implements EnumFactory<ActionConditionKind> {
+    public ActionConditionKind fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("applicability".equals(codeString))
-          return PlanActionConditionKind.APPLICABILITY;
+          return ActionConditionKind.APPLICABILITY;
         if ("start".equals(codeString))
-          return PlanActionConditionKind.START;
+          return ActionConditionKind.START;
         if ("stop".equals(codeString))
-          return PlanActionConditionKind.STOP;
-        throw new IllegalArgumentException("Unknown PlanActionConditionKind code '"+codeString+"'");
+          return ActionConditionKind.STOP;
+        throw new IllegalArgumentException("Unknown ActionConditionKind code '"+codeString+"'");
         }
-        public Enumeration<PlanActionConditionKind> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionConditionKind> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionConditionKind>(this);
+            return new Enumeration<ActionConditionKind>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("applicability".equals(codeString))
-          return new Enumeration<PlanActionConditionKind>(this, PlanActionConditionKind.APPLICABILITY);
+          return new Enumeration<ActionConditionKind>(this, ActionConditionKind.APPLICABILITY);
         if ("start".equals(codeString))
-          return new Enumeration<PlanActionConditionKind>(this, PlanActionConditionKind.START);
+          return new Enumeration<ActionConditionKind>(this, ActionConditionKind.START);
         if ("stop".equals(codeString))
-          return new Enumeration<PlanActionConditionKind>(this, PlanActionConditionKind.STOP);
-        throw new FHIRException("Unknown PlanActionConditionKind code '"+codeString+"'");
+          return new Enumeration<ActionConditionKind>(this, ActionConditionKind.STOP);
+        throw new FHIRException("Unknown ActionConditionKind code '"+codeString+"'");
         }
-    public String toCode(PlanActionConditionKind code) {
-      if (code == PlanActionConditionKind.APPLICABILITY)
+    public String toCode(ActionConditionKind code) {
+      if (code == ActionConditionKind.APPLICABILITY)
         return "applicability";
-      if (code == PlanActionConditionKind.START)
+      if (code == ActionConditionKind.START)
         return "start";
-      if (code == PlanActionConditionKind.STOP)
+      if (code == ActionConditionKind.STOP)
         return "stop";
       return "?";
       }
-    public String toSystem(PlanActionConditionKind code) {
+    public String toSystem(ActionConditionKind code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionRelationshipType {
+    public enum ActionRelationshipType {
         /**
          * The action must be performed before the start of the related action
          */
@@ -199,7 +199,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionRelationshipType fromCode(String codeString) throws FHIRException {
+        public static ActionRelationshipType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("before-start".equals(codeString))
@@ -223,7 +223,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionRelationshipType code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -283,86 +283,86 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionRelationshipTypeEnumFactory implements EnumFactory<PlanActionRelationshipType> {
-    public PlanActionRelationshipType fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionRelationshipTypeEnumFactory implements EnumFactory<ActionRelationshipType> {
+    public ActionRelationshipType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("before-start".equals(codeString))
-          return PlanActionRelationshipType.BEFORESTART;
+          return ActionRelationshipType.BEFORESTART;
         if ("before".equals(codeString))
-          return PlanActionRelationshipType.BEFORE;
+          return ActionRelationshipType.BEFORE;
         if ("before-end".equals(codeString))
-          return PlanActionRelationshipType.BEFOREEND;
+          return ActionRelationshipType.BEFOREEND;
         if ("concurrent-with-start".equals(codeString))
-          return PlanActionRelationshipType.CONCURRENTWITHSTART;
+          return ActionRelationshipType.CONCURRENTWITHSTART;
         if ("concurrent".equals(codeString))
-          return PlanActionRelationshipType.CONCURRENT;
+          return ActionRelationshipType.CONCURRENT;
         if ("concurrent-with-end".equals(codeString))
-          return PlanActionRelationshipType.CONCURRENTWITHEND;
+          return ActionRelationshipType.CONCURRENTWITHEND;
         if ("after-start".equals(codeString))
-          return PlanActionRelationshipType.AFTERSTART;
+          return ActionRelationshipType.AFTERSTART;
         if ("after".equals(codeString))
-          return PlanActionRelationshipType.AFTER;
+          return ActionRelationshipType.AFTER;
         if ("after-end".equals(codeString))
-          return PlanActionRelationshipType.AFTEREND;
-        throw new IllegalArgumentException("Unknown PlanActionRelationshipType code '"+codeString+"'");
+          return ActionRelationshipType.AFTEREND;
+        throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
-        public Enumeration<PlanActionRelationshipType> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionRelationshipType>(this);
+            return new Enumeration<ActionRelationshipType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("before-start".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFORESTART);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORESTART);
         if ("before".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFORE);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORE);
         if ("before-end".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.BEFOREEND);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFOREEND);
         if ("concurrent-with-start".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENTWITHSTART);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENTWITHSTART);
         if ("concurrent".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENT);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENT);
         if ("concurrent-with-end".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.CONCURRENTWITHEND);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.CONCURRENTWITHEND);
         if ("after-start".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTERSTART);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTERSTART);
         if ("after".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTER);
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
         if ("after-end".equals(codeString))
-          return new Enumeration<PlanActionRelationshipType>(this, PlanActionRelationshipType.AFTEREND);
-        throw new FHIRException("Unknown PlanActionRelationshipType code '"+codeString+"'");
+          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTEREND);
+        throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
         }
-    public String toCode(PlanActionRelationshipType code) {
-      if (code == PlanActionRelationshipType.BEFORESTART)
+    public String toCode(ActionRelationshipType code) {
+      if (code == ActionRelationshipType.BEFORESTART)
         return "before-start";
-      if (code == PlanActionRelationshipType.BEFORE)
+      if (code == ActionRelationshipType.BEFORE)
         return "before";
-      if (code == PlanActionRelationshipType.BEFOREEND)
+      if (code == ActionRelationshipType.BEFOREEND)
         return "before-end";
-      if (code == PlanActionRelationshipType.CONCURRENTWITHSTART)
+      if (code == ActionRelationshipType.CONCURRENTWITHSTART)
         return "concurrent-with-start";
-      if (code == PlanActionRelationshipType.CONCURRENT)
+      if (code == ActionRelationshipType.CONCURRENT)
         return "concurrent";
-      if (code == PlanActionRelationshipType.CONCURRENTWITHEND)
+      if (code == ActionRelationshipType.CONCURRENTWITHEND)
         return "concurrent-with-end";
-      if (code == PlanActionRelationshipType.AFTERSTART)
+      if (code == ActionRelationshipType.AFTERSTART)
         return "after-start";
-      if (code == PlanActionRelationshipType.AFTER)
+      if (code == ActionRelationshipType.AFTER)
         return "after";
-      if (code == PlanActionRelationshipType.AFTEREND)
+      if (code == ActionRelationshipType.AFTEREND)
         return "after-end";
       return "?";
       }
-    public String toSystem(PlanActionRelationshipType code) {
+    public String toSystem(ActionRelationshipType code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionParticipantType {
+    public enum ActionParticipantType {
         /**
          * The participant is the patient under evaluation
          */
@@ -379,7 +379,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionParticipantType fromCode(String codeString) throws FHIRException {
+        public static ActionParticipantType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("patient".equals(codeString))
@@ -391,7 +391,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionParticipantType code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionParticipantType code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -427,50 +427,50 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionParticipantTypeEnumFactory implements EnumFactory<PlanActionParticipantType> {
-    public PlanActionParticipantType fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionParticipantTypeEnumFactory implements EnumFactory<ActionParticipantType> {
+    public ActionParticipantType fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("patient".equals(codeString))
-          return PlanActionParticipantType.PATIENT;
+          return ActionParticipantType.PATIENT;
         if ("practitioner".equals(codeString))
-          return PlanActionParticipantType.PRACTITIONER;
+          return ActionParticipantType.PRACTITIONER;
         if ("related-person".equals(codeString))
-          return PlanActionParticipantType.RELATEDPERSON;
-        throw new IllegalArgumentException("Unknown PlanActionParticipantType code '"+codeString+"'");
+          return ActionParticipantType.RELATEDPERSON;
+        throw new IllegalArgumentException("Unknown ActionParticipantType code '"+codeString+"'");
         }
-        public Enumeration<PlanActionParticipantType> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionParticipantType> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionParticipantType>(this);
+            return new Enumeration<ActionParticipantType>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("patient".equals(codeString))
-          return new Enumeration<PlanActionParticipantType>(this, PlanActionParticipantType.PATIENT);
+          return new Enumeration<ActionParticipantType>(this, ActionParticipantType.PATIENT);
         if ("practitioner".equals(codeString))
-          return new Enumeration<PlanActionParticipantType>(this, PlanActionParticipantType.PRACTITIONER);
+          return new Enumeration<ActionParticipantType>(this, ActionParticipantType.PRACTITIONER);
         if ("related-person".equals(codeString))
-          return new Enumeration<PlanActionParticipantType>(this, PlanActionParticipantType.RELATEDPERSON);
-        throw new FHIRException("Unknown PlanActionParticipantType code '"+codeString+"'");
+          return new Enumeration<ActionParticipantType>(this, ActionParticipantType.RELATEDPERSON);
+        throw new FHIRException("Unknown ActionParticipantType code '"+codeString+"'");
         }
-    public String toCode(PlanActionParticipantType code) {
-      if (code == PlanActionParticipantType.PATIENT)
+    public String toCode(ActionParticipantType code) {
+      if (code == ActionParticipantType.PATIENT)
         return "patient";
-      if (code == PlanActionParticipantType.PRACTITIONER)
+      if (code == ActionParticipantType.PRACTITIONER)
         return "practitioner";
-      if (code == PlanActionParticipantType.RELATEDPERSON)
+      if (code == ActionParticipantType.RELATEDPERSON)
         return "related-person";
       return "?";
       }
-    public String toSystem(PlanActionParticipantType code) {
+    public String toSystem(ActionParticipantType code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionGroupingBehavior {
+    public enum ActionGroupingBehavior {
         /**
          * Any group marked with this behavior should be displayed as a visual group to the end user
          */
@@ -487,7 +487,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionGroupingBehavior fromCode(String codeString) throws FHIRException {
+        public static ActionGroupingBehavior fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("visual-group".equals(codeString))
@@ -499,7 +499,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionGroupingBehavior code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionGroupingBehavior code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -535,50 +535,50 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionGroupingBehaviorEnumFactory implements EnumFactory<PlanActionGroupingBehavior> {
-    public PlanActionGroupingBehavior fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionGroupingBehaviorEnumFactory implements EnumFactory<ActionGroupingBehavior> {
+    public ActionGroupingBehavior fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("visual-group".equals(codeString))
-          return PlanActionGroupingBehavior.VISUALGROUP;
+          return ActionGroupingBehavior.VISUALGROUP;
         if ("logical-group".equals(codeString))
-          return PlanActionGroupingBehavior.LOGICALGROUP;
+          return ActionGroupingBehavior.LOGICALGROUP;
         if ("sentence-group".equals(codeString))
-          return PlanActionGroupingBehavior.SENTENCEGROUP;
-        throw new IllegalArgumentException("Unknown PlanActionGroupingBehavior code '"+codeString+"'");
+          return ActionGroupingBehavior.SENTENCEGROUP;
+        throw new IllegalArgumentException("Unknown ActionGroupingBehavior code '"+codeString+"'");
         }
-        public Enumeration<PlanActionGroupingBehavior> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionGroupingBehavior> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionGroupingBehavior>(this);
+            return new Enumeration<ActionGroupingBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("visual-group".equals(codeString))
-          return new Enumeration<PlanActionGroupingBehavior>(this, PlanActionGroupingBehavior.VISUALGROUP);
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.VISUALGROUP);
         if ("logical-group".equals(codeString))
-          return new Enumeration<PlanActionGroupingBehavior>(this, PlanActionGroupingBehavior.LOGICALGROUP);
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.LOGICALGROUP);
         if ("sentence-group".equals(codeString))
-          return new Enumeration<PlanActionGroupingBehavior>(this, PlanActionGroupingBehavior.SENTENCEGROUP);
-        throw new FHIRException("Unknown PlanActionGroupingBehavior code '"+codeString+"'");
+          return new Enumeration<ActionGroupingBehavior>(this, ActionGroupingBehavior.SENTENCEGROUP);
+        throw new FHIRException("Unknown ActionGroupingBehavior code '"+codeString+"'");
         }
-    public String toCode(PlanActionGroupingBehavior code) {
-      if (code == PlanActionGroupingBehavior.VISUALGROUP)
+    public String toCode(ActionGroupingBehavior code) {
+      if (code == ActionGroupingBehavior.VISUALGROUP)
         return "visual-group";
-      if (code == PlanActionGroupingBehavior.LOGICALGROUP)
+      if (code == ActionGroupingBehavior.LOGICALGROUP)
         return "logical-group";
-      if (code == PlanActionGroupingBehavior.SENTENCEGROUP)
+      if (code == ActionGroupingBehavior.SENTENCEGROUP)
         return "sentence-group";
       return "?";
       }
-    public String toSystem(PlanActionGroupingBehavior code) {
+    public String toSystem(ActionGroupingBehavior code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionSelectionBehavior {
+    public enum ActionSelectionBehavior {
         /**
          * Any number of the actions in the group may be chosen, from zero to all
          */
@@ -607,7 +607,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionSelectionBehavior fromCode(String codeString) throws FHIRException {
+        public static ActionSelectionBehavior fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("any".equals(codeString))
@@ -625,7 +625,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionSelectionBehavior code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionSelectionBehavior code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -673,68 +673,68 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionSelectionBehaviorEnumFactory implements EnumFactory<PlanActionSelectionBehavior> {
-    public PlanActionSelectionBehavior fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionSelectionBehaviorEnumFactory implements EnumFactory<ActionSelectionBehavior> {
+    public ActionSelectionBehavior fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("any".equals(codeString))
-          return PlanActionSelectionBehavior.ANY;
+          return ActionSelectionBehavior.ANY;
         if ("all".equals(codeString))
-          return PlanActionSelectionBehavior.ALL;
+          return ActionSelectionBehavior.ALL;
         if ("all-or-none".equals(codeString))
-          return PlanActionSelectionBehavior.ALLORNONE;
+          return ActionSelectionBehavior.ALLORNONE;
         if ("exactly-one".equals(codeString))
-          return PlanActionSelectionBehavior.EXACTLYONE;
+          return ActionSelectionBehavior.EXACTLYONE;
         if ("at-most-one".equals(codeString))
-          return PlanActionSelectionBehavior.ATMOSTONE;
+          return ActionSelectionBehavior.ATMOSTONE;
         if ("one-or-more".equals(codeString))
-          return PlanActionSelectionBehavior.ONEORMORE;
-        throw new IllegalArgumentException("Unknown PlanActionSelectionBehavior code '"+codeString+"'");
+          return ActionSelectionBehavior.ONEORMORE;
+        throw new IllegalArgumentException("Unknown ActionSelectionBehavior code '"+codeString+"'");
         }
-        public Enumeration<PlanActionSelectionBehavior> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionSelectionBehavior> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionSelectionBehavior>(this);
+            return new Enumeration<ActionSelectionBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("any".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.ANY);
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ANY);
         if ("all".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.ALL);
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ALL);
         if ("all-or-none".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.ALLORNONE);
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ALLORNONE);
         if ("exactly-one".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.EXACTLYONE);
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.EXACTLYONE);
         if ("at-most-one".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.ATMOSTONE);
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ATMOSTONE);
         if ("one-or-more".equals(codeString))
-          return new Enumeration<PlanActionSelectionBehavior>(this, PlanActionSelectionBehavior.ONEORMORE);
-        throw new FHIRException("Unknown PlanActionSelectionBehavior code '"+codeString+"'");
+          return new Enumeration<ActionSelectionBehavior>(this, ActionSelectionBehavior.ONEORMORE);
+        throw new FHIRException("Unknown ActionSelectionBehavior code '"+codeString+"'");
         }
-    public String toCode(PlanActionSelectionBehavior code) {
-      if (code == PlanActionSelectionBehavior.ANY)
+    public String toCode(ActionSelectionBehavior code) {
+      if (code == ActionSelectionBehavior.ANY)
         return "any";
-      if (code == PlanActionSelectionBehavior.ALL)
+      if (code == ActionSelectionBehavior.ALL)
         return "all";
-      if (code == PlanActionSelectionBehavior.ALLORNONE)
+      if (code == ActionSelectionBehavior.ALLORNONE)
         return "all-or-none";
-      if (code == PlanActionSelectionBehavior.EXACTLYONE)
+      if (code == ActionSelectionBehavior.EXACTLYONE)
         return "exactly-one";
-      if (code == PlanActionSelectionBehavior.ATMOSTONE)
+      if (code == ActionSelectionBehavior.ATMOSTONE)
         return "at-most-one";
-      if (code == PlanActionSelectionBehavior.ONEORMORE)
+      if (code == ActionSelectionBehavior.ONEORMORE)
         return "one-or-more";
       return "?";
       }
-    public String toSystem(PlanActionSelectionBehavior code) {
+    public String toSystem(ActionSelectionBehavior code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionRequiredBehavior {
+    public enum ActionRequiredBehavior {
         /**
          * An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
          */
@@ -751,7 +751,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionRequiredBehavior fromCode(String codeString) throws FHIRException {
+        public static ActionRequiredBehavior fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("must".equals(codeString))
@@ -763,7 +763,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionRequiredBehavior code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionRequiredBehavior code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -799,50 +799,50 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionRequiredBehaviorEnumFactory implements EnumFactory<PlanActionRequiredBehavior> {
-    public PlanActionRequiredBehavior fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionRequiredBehaviorEnumFactory implements EnumFactory<ActionRequiredBehavior> {
+    public ActionRequiredBehavior fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("must".equals(codeString))
-          return PlanActionRequiredBehavior.MUST;
+          return ActionRequiredBehavior.MUST;
         if ("could".equals(codeString))
-          return PlanActionRequiredBehavior.COULD;
+          return ActionRequiredBehavior.COULD;
         if ("must-unless-documented".equals(codeString))
-          return PlanActionRequiredBehavior.MUSTUNLESSDOCUMENTED;
-        throw new IllegalArgumentException("Unknown PlanActionRequiredBehavior code '"+codeString+"'");
+          return ActionRequiredBehavior.MUSTUNLESSDOCUMENTED;
+        throw new IllegalArgumentException("Unknown ActionRequiredBehavior code '"+codeString+"'");
         }
-        public Enumeration<PlanActionRequiredBehavior> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionRequiredBehavior> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionRequiredBehavior>(this);
+            return new Enumeration<ActionRequiredBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("must".equals(codeString))
-          return new Enumeration<PlanActionRequiredBehavior>(this, PlanActionRequiredBehavior.MUST);
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.MUST);
         if ("could".equals(codeString))
-          return new Enumeration<PlanActionRequiredBehavior>(this, PlanActionRequiredBehavior.COULD);
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.COULD);
         if ("must-unless-documented".equals(codeString))
-          return new Enumeration<PlanActionRequiredBehavior>(this, PlanActionRequiredBehavior.MUSTUNLESSDOCUMENTED);
-        throw new FHIRException("Unknown PlanActionRequiredBehavior code '"+codeString+"'");
+          return new Enumeration<ActionRequiredBehavior>(this, ActionRequiredBehavior.MUSTUNLESSDOCUMENTED);
+        throw new FHIRException("Unknown ActionRequiredBehavior code '"+codeString+"'");
         }
-    public String toCode(PlanActionRequiredBehavior code) {
-      if (code == PlanActionRequiredBehavior.MUST)
+    public String toCode(ActionRequiredBehavior code) {
+      if (code == ActionRequiredBehavior.MUST)
         return "must";
-      if (code == PlanActionRequiredBehavior.COULD)
+      if (code == ActionRequiredBehavior.COULD)
         return "could";
-      if (code == PlanActionRequiredBehavior.MUSTUNLESSDOCUMENTED)
+      if (code == ActionRequiredBehavior.MUSTUNLESSDOCUMENTED)
         return "must-unless-documented";
       return "?";
       }
-    public String toSystem(PlanActionRequiredBehavior code) {
+    public String toSystem(ActionRequiredBehavior code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionPrecheckBehavior {
+    public enum ActionPrecheckBehavior {
         /**
          * An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider "pre-checking" such an action as a convenience for the user
          */
@@ -855,7 +855,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionPrecheckBehavior fromCode(String codeString) throws FHIRException {
+        public static ActionPrecheckBehavior fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("yes".equals(codeString))
@@ -865,7 +865,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionPrecheckBehavior code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -897,44 +897,44 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionPrecheckBehaviorEnumFactory implements EnumFactory<PlanActionPrecheckBehavior> {
-    public PlanActionPrecheckBehavior fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionPrecheckBehaviorEnumFactory implements EnumFactory<ActionPrecheckBehavior> {
+    public ActionPrecheckBehavior fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("yes".equals(codeString))
-          return PlanActionPrecheckBehavior.YES;
+          return ActionPrecheckBehavior.YES;
         if ("no".equals(codeString))
-          return PlanActionPrecheckBehavior.NO;
-        throw new IllegalArgumentException("Unknown PlanActionPrecheckBehavior code '"+codeString+"'");
+          return ActionPrecheckBehavior.NO;
+        throw new IllegalArgumentException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
         }
-        public Enumeration<PlanActionPrecheckBehavior> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionPrecheckBehavior> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionPrecheckBehavior>(this);
+            return new Enumeration<ActionPrecheckBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("yes".equals(codeString))
-          return new Enumeration<PlanActionPrecheckBehavior>(this, PlanActionPrecheckBehavior.YES);
+          return new Enumeration<ActionPrecheckBehavior>(this, ActionPrecheckBehavior.YES);
         if ("no".equals(codeString))
-          return new Enumeration<PlanActionPrecheckBehavior>(this, PlanActionPrecheckBehavior.NO);
-        throw new FHIRException("Unknown PlanActionPrecheckBehavior code '"+codeString+"'");
+          return new Enumeration<ActionPrecheckBehavior>(this, ActionPrecheckBehavior.NO);
+        throw new FHIRException("Unknown ActionPrecheckBehavior code '"+codeString+"'");
         }
-    public String toCode(PlanActionPrecheckBehavior code) {
-      if (code == PlanActionPrecheckBehavior.YES)
+    public String toCode(ActionPrecheckBehavior code) {
+      if (code == ActionPrecheckBehavior.YES)
         return "yes";
-      if (code == PlanActionPrecheckBehavior.NO)
+      if (code == ActionPrecheckBehavior.NO)
         return "no";
       return "?";
       }
-    public String toSystem(PlanActionPrecheckBehavior code) {
+    public String toSystem(ActionPrecheckBehavior code) {
       return code.getSystem();
       }
     }
 
-    public enum PlanActionCardinalityBehavior {
+    public enum ActionCardinalityBehavior {
         /**
          * The action may only be selected one time
          */
@@ -947,7 +947,7 @@ public class PlanDefinition extends MetadataResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static PlanActionCardinalityBehavior fromCode(String codeString) throws FHIRException {
+        public static ActionCardinalityBehavior fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("single".equals(codeString))
@@ -957,7 +957,7 @@ public class PlanDefinition extends MetadataResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown PlanActionCardinalityBehavior code '"+codeString+"'");
+          throw new FHIRException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -989,39 +989,39 @@ public class PlanDefinition extends MetadataResource {
         }
     }
 
-  public static class PlanActionCardinalityBehaviorEnumFactory implements EnumFactory<PlanActionCardinalityBehavior> {
-    public PlanActionCardinalityBehavior fromCode(String codeString) throws IllegalArgumentException {
+  public static class ActionCardinalityBehaviorEnumFactory implements EnumFactory<ActionCardinalityBehavior> {
+    public ActionCardinalityBehavior fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("single".equals(codeString))
-          return PlanActionCardinalityBehavior.SINGLE;
+          return ActionCardinalityBehavior.SINGLE;
         if ("multiple".equals(codeString))
-          return PlanActionCardinalityBehavior.MULTIPLE;
-        throw new IllegalArgumentException("Unknown PlanActionCardinalityBehavior code '"+codeString+"'");
+          return ActionCardinalityBehavior.MULTIPLE;
+        throw new IllegalArgumentException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
         }
-        public Enumeration<PlanActionCardinalityBehavior> fromType(Base code) throws FHIRException {
+        public Enumeration<ActionCardinalityBehavior> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<PlanActionCardinalityBehavior>(this);
+            return new Enumeration<ActionCardinalityBehavior>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("single".equals(codeString))
-          return new Enumeration<PlanActionCardinalityBehavior>(this, PlanActionCardinalityBehavior.SINGLE);
+          return new Enumeration<ActionCardinalityBehavior>(this, ActionCardinalityBehavior.SINGLE);
         if ("multiple".equals(codeString))
-          return new Enumeration<PlanActionCardinalityBehavior>(this, PlanActionCardinalityBehavior.MULTIPLE);
-        throw new FHIRException("Unknown PlanActionCardinalityBehavior code '"+codeString+"'");
+          return new Enumeration<ActionCardinalityBehavior>(this, ActionCardinalityBehavior.MULTIPLE);
+        throw new FHIRException("Unknown ActionCardinalityBehavior code '"+codeString+"'");
         }
-    public String toCode(PlanActionCardinalityBehavior code) {
-      if (code == PlanActionCardinalityBehavior.SINGLE)
+    public String toCode(ActionCardinalityBehavior code) {
+      if (code == ActionCardinalityBehavior.SINGLE)
         return "single";
-      if (code == PlanActionCardinalityBehavior.MULTIPLE)
+      if (code == ActionCardinalityBehavior.MULTIPLE)
         return "multiple";
       return "?";
       }
-    public String toSystem(PlanActionCardinalityBehavior code) {
+    public String toSystem(ActionCardinalityBehavior code) {
       return code.getSystem();
       }
     }
@@ -1125,7 +1125,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "participantType", type = {CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
-        protected List<Enumeration<PlanActionParticipantType>> participantType;
+        protected List<Enumeration<ActionParticipantType>> participantType;
 
         /**
          * The type of action to perform (create, update, remove).
@@ -1141,7 +1141,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "groupingBehavior", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="visual-group | logical-group | sentence-group", formalDefinition="Defines the grouping behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-grouping-behavior")
-        protected Enumeration<PlanActionGroupingBehavior> groupingBehavior;
+        protected Enumeration<ActionGroupingBehavior> groupingBehavior;
 
         /**
          * Defines the selection behavior for the action and its children.
@@ -1149,7 +1149,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "selectionBehavior", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="any | all | all-or-none | exactly-one | at-most-one | one-or-more", formalDefinition="Defines the selection behavior for the action and its children." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-selection-behavior")
-        protected Enumeration<PlanActionSelectionBehavior> selectionBehavior;
+        protected Enumeration<ActionSelectionBehavior> selectionBehavior;
 
         /**
          * Defines the requiredness behavior for the action.
@@ -1157,7 +1157,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "requiredBehavior", type = {CodeType.class}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="must | could | must-unless-documented", formalDefinition="Defines the requiredness behavior for the action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-required-behavior")
-        protected Enumeration<PlanActionRequiredBehavior> requiredBehavior;
+        protected Enumeration<ActionRequiredBehavior> requiredBehavior;
 
         /**
          * Defines whether the action should usually be preselected.
@@ -1165,7 +1165,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "precheckBehavior", type = {CodeType.class}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="yes | no", formalDefinition="Defines whether the action should usually be preselected." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-precheck-behavior")
-        protected Enumeration<PlanActionPrecheckBehavior> precheckBehavior;
+        protected Enumeration<ActionPrecheckBehavior> precheckBehavior;
 
         /**
          * Defines whether the action can be selected multiple times.
@@ -1173,7 +1173,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "cardinalityBehavior", type = {CodeType.class}, order=20, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="single | multiple", formalDefinition="Defines whether the action can be selected multiple times." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-cardinality-behavior")
-        protected Enumeration<PlanActionCardinalityBehavior> cardinalityBehavior;
+        protected Enumeration<ActionCardinalityBehavior> cardinalityBehavior;
 
         /**
          * A reference to an ActivityDefinition that describes the action to be taken in detail.
@@ -1213,7 +1213,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
         protected List<PlanDefinitionActionDefinitionComponent> actionDefinition;
 
-        private static final long serialVersionUID = 2070255895L;
+        private static final long serialVersionUID = -791115415L;
 
     /**
      * Constructor
@@ -1900,16 +1900,16 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #participantType} (The type of participant in the action.)
          */
-        public List<Enumeration<PlanActionParticipantType>> getParticipantType() { 
+        public List<Enumeration<ActionParticipantType>> getParticipantType() { 
           if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<PlanActionParticipantType>>();
+            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
           return this.participantType;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public PlanDefinitionActionDefinitionComponent setParticipantType(List<Enumeration<PlanActionParticipantType>> theParticipantType) { 
+        public PlanDefinitionActionDefinitionComponent setParticipantType(List<Enumeration<ActionParticipantType>> theParticipantType) { 
           this.participantType = theParticipantType;
           return this;
         }
@@ -1917,7 +1917,7 @@ public class PlanDefinition extends MetadataResource {
         public boolean hasParticipantType() { 
           if (this.participantType == null)
             return false;
-          for (Enumeration<PlanActionParticipantType> item : this.participantType)
+          for (Enumeration<ActionParticipantType> item : this.participantType)
             if (!item.isEmpty())
               return true;
           return false;
@@ -1926,10 +1926,10 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #participantType} (The type of participant in the action.)
          */
-        public Enumeration<PlanActionParticipantType> addParticipantTypeElement() {//2 
-          Enumeration<PlanActionParticipantType> t = new Enumeration<PlanActionParticipantType>(new PlanActionParticipantTypeEnumFactory());
+        public Enumeration<ActionParticipantType> addParticipantTypeElement() {//2 
+          Enumeration<ActionParticipantType> t = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory());
           if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<PlanActionParticipantType>>();
+            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
           this.participantType.add(t);
           return t;
         }
@@ -1937,11 +1937,11 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #participantType} (The type of participant in the action.)
          */
-        public PlanDefinitionActionDefinitionComponent addParticipantType(PlanActionParticipantType value) { //1
-          Enumeration<PlanActionParticipantType> t = new Enumeration<PlanActionParticipantType>(new PlanActionParticipantTypeEnumFactory());
+        public PlanDefinitionActionDefinitionComponent addParticipantType(ActionParticipantType value) { //1
+          Enumeration<ActionParticipantType> t = new Enumeration<ActionParticipantType>(new ActionParticipantTypeEnumFactory());
           t.setValue(value);
           if (this.participantType == null)
-            this.participantType = new ArrayList<Enumeration<PlanActionParticipantType>>();
+            this.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
           this.participantType.add(t);
           return this;
         }
@@ -1949,10 +1949,10 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #participantType} (The type of participant in the action.)
          */
-        public boolean hasParticipantType(PlanActionParticipantType value) { 
+        public boolean hasParticipantType(ActionParticipantType value) { 
           if (this.participantType == null)
             return false;
-          for (Enumeration<PlanActionParticipantType> v : this.participantType)
+          for (Enumeration<ActionParticipantType> v : this.participantType)
             if (v.getValue().equals(value)) // code
               return true;
           return false;
@@ -1985,12 +1985,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #groupingBehavior} (Defines the grouping behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public Enumeration<PlanActionGroupingBehavior> getGroupingBehaviorElement() { 
+        public Enumeration<ActionGroupingBehavior> getGroupingBehaviorElement() { 
           if (this.groupingBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.groupingBehavior");
             else if (Configuration.doAutoCreate())
-              this.groupingBehavior = new Enumeration<PlanActionGroupingBehavior>(new PlanActionGroupingBehaviorEnumFactory()); // bb
+              this.groupingBehavior = new Enumeration<ActionGroupingBehavior>(new ActionGroupingBehaviorEnumFactory()); // bb
           return this.groupingBehavior;
         }
 
@@ -2005,7 +2005,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #groupingBehavior} (Defines the grouping behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionComponent setGroupingBehaviorElement(Enumeration<PlanActionGroupingBehavior> value) { 
+        public PlanDefinitionActionDefinitionComponent setGroupingBehaviorElement(Enumeration<ActionGroupingBehavior> value) { 
           this.groupingBehavior = value;
           return this;
         }
@@ -2013,19 +2013,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return Defines the grouping behavior for the action and its children.
          */
-        public PlanActionGroupingBehavior getGroupingBehavior() { 
+        public ActionGroupingBehavior getGroupingBehavior() { 
           return this.groupingBehavior == null ? null : this.groupingBehavior.getValue();
         }
 
         /**
          * @param value Defines the grouping behavior for the action and its children.
          */
-        public PlanDefinitionActionDefinitionComponent setGroupingBehavior(PlanActionGroupingBehavior value) { 
+        public PlanDefinitionActionDefinitionComponent setGroupingBehavior(ActionGroupingBehavior value) { 
           if (value == null)
             this.groupingBehavior = null;
           else {
             if (this.groupingBehavior == null)
-              this.groupingBehavior = new Enumeration<PlanActionGroupingBehavior>(new PlanActionGroupingBehaviorEnumFactory());
+              this.groupingBehavior = new Enumeration<ActionGroupingBehavior>(new ActionGroupingBehaviorEnumFactory());
             this.groupingBehavior.setValue(value);
           }
           return this;
@@ -2034,12 +2034,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #selectionBehavior} (Defines the selection behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public Enumeration<PlanActionSelectionBehavior> getSelectionBehaviorElement() { 
+        public Enumeration<ActionSelectionBehavior> getSelectionBehaviorElement() { 
           if (this.selectionBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.selectionBehavior");
             else if (Configuration.doAutoCreate())
-              this.selectionBehavior = new Enumeration<PlanActionSelectionBehavior>(new PlanActionSelectionBehaviorEnumFactory()); // bb
+              this.selectionBehavior = new Enumeration<ActionSelectionBehavior>(new ActionSelectionBehaviorEnumFactory()); // bb
           return this.selectionBehavior;
         }
 
@@ -2054,7 +2054,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #selectionBehavior} (Defines the selection behavior for the action and its children.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionComponent setSelectionBehaviorElement(Enumeration<PlanActionSelectionBehavior> value) { 
+        public PlanDefinitionActionDefinitionComponent setSelectionBehaviorElement(Enumeration<ActionSelectionBehavior> value) { 
           this.selectionBehavior = value;
           return this;
         }
@@ -2062,19 +2062,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return Defines the selection behavior for the action and its children.
          */
-        public PlanActionSelectionBehavior getSelectionBehavior() { 
+        public ActionSelectionBehavior getSelectionBehavior() { 
           return this.selectionBehavior == null ? null : this.selectionBehavior.getValue();
         }
 
         /**
          * @param value Defines the selection behavior for the action and its children.
          */
-        public PlanDefinitionActionDefinitionComponent setSelectionBehavior(PlanActionSelectionBehavior value) { 
+        public PlanDefinitionActionDefinitionComponent setSelectionBehavior(ActionSelectionBehavior value) { 
           if (value == null)
             this.selectionBehavior = null;
           else {
             if (this.selectionBehavior == null)
-              this.selectionBehavior = new Enumeration<PlanActionSelectionBehavior>(new PlanActionSelectionBehaviorEnumFactory());
+              this.selectionBehavior = new Enumeration<ActionSelectionBehavior>(new ActionSelectionBehaviorEnumFactory());
             this.selectionBehavior.setValue(value);
           }
           return this;
@@ -2083,12 +2083,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #requiredBehavior} (Defines the requiredness behavior for the action.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public Enumeration<PlanActionRequiredBehavior> getRequiredBehaviorElement() { 
+        public Enumeration<ActionRequiredBehavior> getRequiredBehaviorElement() { 
           if (this.requiredBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.requiredBehavior");
             else if (Configuration.doAutoCreate())
-              this.requiredBehavior = new Enumeration<PlanActionRequiredBehavior>(new PlanActionRequiredBehaviorEnumFactory()); // bb
+              this.requiredBehavior = new Enumeration<ActionRequiredBehavior>(new ActionRequiredBehaviorEnumFactory()); // bb
           return this.requiredBehavior;
         }
 
@@ -2103,7 +2103,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #requiredBehavior} (Defines the requiredness behavior for the action.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionComponent setRequiredBehaviorElement(Enumeration<PlanActionRequiredBehavior> value) { 
+        public PlanDefinitionActionDefinitionComponent setRequiredBehaviorElement(Enumeration<ActionRequiredBehavior> value) { 
           this.requiredBehavior = value;
           return this;
         }
@@ -2111,19 +2111,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return Defines the requiredness behavior for the action.
          */
-        public PlanActionRequiredBehavior getRequiredBehavior() { 
+        public ActionRequiredBehavior getRequiredBehavior() { 
           return this.requiredBehavior == null ? null : this.requiredBehavior.getValue();
         }
 
         /**
          * @param value Defines the requiredness behavior for the action.
          */
-        public PlanDefinitionActionDefinitionComponent setRequiredBehavior(PlanActionRequiredBehavior value) { 
+        public PlanDefinitionActionDefinitionComponent setRequiredBehavior(ActionRequiredBehavior value) { 
           if (value == null)
             this.requiredBehavior = null;
           else {
             if (this.requiredBehavior == null)
-              this.requiredBehavior = new Enumeration<PlanActionRequiredBehavior>(new PlanActionRequiredBehaviorEnumFactory());
+              this.requiredBehavior = new Enumeration<ActionRequiredBehavior>(new ActionRequiredBehaviorEnumFactory());
             this.requiredBehavior.setValue(value);
           }
           return this;
@@ -2132,12 +2132,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #precheckBehavior} (Defines whether the action should usually be preselected.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public Enumeration<PlanActionPrecheckBehavior> getPrecheckBehaviorElement() { 
+        public Enumeration<ActionPrecheckBehavior> getPrecheckBehaviorElement() { 
           if (this.precheckBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.precheckBehavior");
             else if (Configuration.doAutoCreate())
-              this.precheckBehavior = new Enumeration<PlanActionPrecheckBehavior>(new PlanActionPrecheckBehaviorEnumFactory()); // bb
+              this.precheckBehavior = new Enumeration<ActionPrecheckBehavior>(new ActionPrecheckBehaviorEnumFactory()); // bb
           return this.precheckBehavior;
         }
 
@@ -2152,7 +2152,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #precheckBehavior} (Defines whether the action should usually be preselected.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionComponent setPrecheckBehaviorElement(Enumeration<PlanActionPrecheckBehavior> value) { 
+        public PlanDefinitionActionDefinitionComponent setPrecheckBehaviorElement(Enumeration<ActionPrecheckBehavior> value) { 
           this.precheckBehavior = value;
           return this;
         }
@@ -2160,19 +2160,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return Defines whether the action should usually be preselected.
          */
-        public PlanActionPrecheckBehavior getPrecheckBehavior() { 
+        public ActionPrecheckBehavior getPrecheckBehavior() { 
           return this.precheckBehavior == null ? null : this.precheckBehavior.getValue();
         }
 
         /**
          * @param value Defines whether the action should usually be preselected.
          */
-        public PlanDefinitionActionDefinitionComponent setPrecheckBehavior(PlanActionPrecheckBehavior value) { 
+        public PlanDefinitionActionDefinitionComponent setPrecheckBehavior(ActionPrecheckBehavior value) { 
           if (value == null)
             this.precheckBehavior = null;
           else {
             if (this.precheckBehavior == null)
-              this.precheckBehavior = new Enumeration<PlanActionPrecheckBehavior>(new PlanActionPrecheckBehaviorEnumFactory());
+              this.precheckBehavior = new Enumeration<ActionPrecheckBehavior>(new ActionPrecheckBehaviorEnumFactory());
             this.precheckBehavior.setValue(value);
           }
           return this;
@@ -2181,12 +2181,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #cardinalityBehavior} (Defines whether the action can be selected multiple times.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public Enumeration<PlanActionCardinalityBehavior> getCardinalityBehaviorElement() { 
+        public Enumeration<ActionCardinalityBehavior> getCardinalityBehaviorElement() { 
           if (this.cardinalityBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionComponent.cardinalityBehavior");
             else if (Configuration.doAutoCreate())
-              this.cardinalityBehavior = new Enumeration<PlanActionCardinalityBehavior>(new PlanActionCardinalityBehaviorEnumFactory()); // bb
+              this.cardinalityBehavior = new Enumeration<ActionCardinalityBehavior>(new ActionCardinalityBehaviorEnumFactory()); // bb
           return this.cardinalityBehavior;
         }
 
@@ -2201,7 +2201,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #cardinalityBehavior} (Defines whether the action can be selected multiple times.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionComponent setCardinalityBehaviorElement(Enumeration<PlanActionCardinalityBehavior> value) { 
+        public PlanDefinitionActionDefinitionComponent setCardinalityBehaviorElement(Enumeration<ActionCardinalityBehavior> value) { 
           this.cardinalityBehavior = value;
           return this;
         }
@@ -2209,19 +2209,19 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return Defines whether the action can be selected multiple times.
          */
-        public PlanActionCardinalityBehavior getCardinalityBehavior() { 
+        public ActionCardinalityBehavior getCardinalityBehavior() { 
           return this.cardinalityBehavior == null ? null : this.cardinalityBehavior.getValue();
         }
 
         /**
          * @param value Defines whether the action can be selected multiple times.
          */
-        public PlanDefinitionActionDefinitionComponent setCardinalityBehavior(PlanActionCardinalityBehavior value) { 
+        public PlanDefinitionActionDefinitionComponent setCardinalityBehavior(ActionCardinalityBehavior value) { 
           if (value == null)
             this.cardinalityBehavior = null;
           else {
             if (this.cardinalityBehavior == null)
-              this.cardinalityBehavior = new Enumeration<PlanActionCardinalityBehavior>(new PlanActionCardinalityBehaviorEnumFactory());
+              this.cardinalityBehavior = new Enumeration<ActionCardinalityBehavior>(new ActionCardinalityBehaviorEnumFactory());
             this.cardinalityBehavior.setValue(value);
           }
           return this;
@@ -2465,13 +2465,13 @@ public class PlanDefinition extends MetadataResource {
         case -1005512447: /*output*/ return this.output == null ? new Base[0] : this.output.toArray(new Base[this.output.size()]); // DataRequirement
         case -384107967: /*relatedAction*/ return this.relatedAction == null ? new Base[0] : this.relatedAction.toArray(new Base[this.relatedAction.size()]); // PlanDefinitionActionDefinitionRelatedActionComponent
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
-        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<PlanActionParticipantType>
+        case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActionParticipantType>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Coding
-        case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<PlanActionGroupingBehavior>
-        case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<PlanActionSelectionBehavior>
-        case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<PlanActionRequiredBehavior>
-        case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // Enumeration<PlanActionPrecheckBehavior>
-        case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // Enumeration<PlanActionCardinalityBehavior>
+        case 586678389: /*groupingBehavior*/ return this.groupingBehavior == null ? new Base[0] : new Base[] {this.groupingBehavior}; // Enumeration<ActionGroupingBehavior>
+        case 168639486: /*selectionBehavior*/ return this.selectionBehavior == null ? new Base[0] : new Base[] {this.selectionBehavior}; // Enumeration<ActionSelectionBehavior>
+        case -1163906287: /*requiredBehavior*/ return this.requiredBehavior == null ? new Base[0] : new Base[] {this.requiredBehavior}; // Enumeration<ActionRequiredBehavior>
+        case -1174249033: /*precheckBehavior*/ return this.precheckBehavior == null ? new Base[0] : new Base[] {this.precheckBehavior}; // Enumeration<ActionPrecheckBehavior>
+        case -922577408: /*cardinalityBehavior*/ return this.cardinalityBehavior == null ? new Base[0] : new Base[] {this.cardinalityBehavior}; // Enumeration<ActionCardinalityBehavior>
         case -990265918: /*activityDefinition*/ return this.activityDefinition == null ? new Base[0] : new Base[] {this.activityDefinition}; // Reference
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // PlanDefinitionActionDefinitionDynamicValueComponent
@@ -2524,31 +2524,31 @@ public class PlanDefinition extends MetadataResource {
           this.timing = castToType(value); // Type
           return value;
         case 841294093: // participantType
-          value = new PlanActionParticipantTypeEnumFactory().fromType(castToCode(value));
-          this.getParticipantType().add((Enumeration) value); // Enumeration<PlanActionParticipantType>
+          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
+          this.getParticipantType().add((Enumeration) value); // Enumeration<ActionParticipantType>
           return value;
         case 3575610: // type
           this.type = castToCoding(value); // Coding
           return value;
         case 586678389: // groupingBehavior
-          value = new PlanActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
-          this.groupingBehavior = (Enumeration) value; // Enumeration<PlanActionGroupingBehavior>
+          value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
+          this.groupingBehavior = (Enumeration) value; // Enumeration<ActionGroupingBehavior>
           return value;
         case 168639486: // selectionBehavior
-          value = new PlanActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
-          this.selectionBehavior = (Enumeration) value; // Enumeration<PlanActionSelectionBehavior>
+          value = new ActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
+          this.selectionBehavior = (Enumeration) value; // Enumeration<ActionSelectionBehavior>
           return value;
         case -1163906287: // requiredBehavior
-          value = new PlanActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
-          this.requiredBehavior = (Enumeration) value; // Enumeration<PlanActionRequiredBehavior>
+          value = new ActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
+          this.requiredBehavior = (Enumeration) value; // Enumeration<ActionRequiredBehavior>
           return value;
         case -1174249033: // precheckBehavior
-          value = new PlanActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
-          this.precheckBehavior = (Enumeration) value; // Enumeration<PlanActionPrecheckBehavior>
+          value = new ActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
+          this.precheckBehavior = (Enumeration) value; // Enumeration<ActionPrecheckBehavior>
           return value;
         case -922577408: // cardinalityBehavior
-          value = new PlanActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
-          this.cardinalityBehavior = (Enumeration) value; // Enumeration<PlanActionCardinalityBehavior>
+          value = new ActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
+          this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
           return value;
         case -990265918: // activityDefinition
           this.activityDefinition = castToReference(value); // Reference
@@ -2596,25 +2596,25 @@ public class PlanDefinition extends MetadataResource {
         } else if (name.equals("timing[x]")) {
           this.timing = castToType(value); // Type
         } else if (name.equals("participantType")) {
-          value = new PlanActionParticipantTypeEnumFactory().fromType(castToCode(value));
+          value = new ActionParticipantTypeEnumFactory().fromType(castToCode(value));
           this.getParticipantType().add((Enumeration) value);
         } else if (name.equals("type")) {
           this.type = castToCoding(value); // Coding
         } else if (name.equals("groupingBehavior")) {
-          value = new PlanActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
-          this.groupingBehavior = (Enumeration) value; // Enumeration<PlanActionGroupingBehavior>
+          value = new ActionGroupingBehaviorEnumFactory().fromType(castToCode(value));
+          this.groupingBehavior = (Enumeration) value; // Enumeration<ActionGroupingBehavior>
         } else if (name.equals("selectionBehavior")) {
-          value = new PlanActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
-          this.selectionBehavior = (Enumeration) value; // Enumeration<PlanActionSelectionBehavior>
+          value = new ActionSelectionBehaviorEnumFactory().fromType(castToCode(value));
+          this.selectionBehavior = (Enumeration) value; // Enumeration<ActionSelectionBehavior>
         } else if (name.equals("requiredBehavior")) {
-          value = new PlanActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
-          this.requiredBehavior = (Enumeration) value; // Enumeration<PlanActionRequiredBehavior>
+          value = new ActionRequiredBehaviorEnumFactory().fromType(castToCode(value));
+          this.requiredBehavior = (Enumeration) value; // Enumeration<ActionRequiredBehavior>
         } else if (name.equals("precheckBehavior")) {
-          value = new PlanActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
-          this.precheckBehavior = (Enumeration) value; // Enumeration<PlanActionPrecheckBehavior>
+          value = new ActionPrecheckBehaviorEnumFactory().fromType(castToCode(value));
+          this.precheckBehavior = (Enumeration) value; // Enumeration<ActionPrecheckBehavior>
         } else if (name.equals("cardinalityBehavior")) {
-          value = new PlanActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
-          this.cardinalityBehavior = (Enumeration) value; // Enumeration<PlanActionCardinalityBehavior>
+          value = new ActionCardinalityBehaviorEnumFactory().fromType(castToCode(value));
+          this.cardinalityBehavior = (Enumeration) value; // Enumeration<ActionCardinalityBehavior>
         } else if (name.equals("activityDefinition")) {
           this.activityDefinition = castToReference(value); // Reference
         } else if (name.equals("transform")) {
@@ -2837,8 +2837,8 @@ public class PlanDefinition extends MetadataResource {
         };
         dst.timing = timing == null ? null : timing.copy();
         if (participantType != null) {
-          dst.participantType = new ArrayList<Enumeration<PlanActionParticipantType>>();
-          for (Enumeration<PlanActionParticipantType> i : participantType)
+          dst.participantType = new ArrayList<Enumeration<ActionParticipantType>>();
+          for (Enumeration<ActionParticipantType> i : participantType)
             dst.participantType.add(i.copy());
         };
         dst.type = type == null ? null : type.copy();
@@ -2918,7 +2918,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "kind", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="applicability | start | stop", formalDefinition="The kind of condition." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-condition-kind")
-        protected Enumeration<PlanActionConditionKind> kind;
+        protected Enumeration<ActionConditionKind> kind;
 
         /**
          * A brief, natural language description of the condition that effectively communicates the intended semantics.
@@ -2941,7 +2941,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="Boolean-valued expression", formalDefinition="An expression that returns true or false, indicating whether or not the condition is satisfied." )
         protected StringType expression;
 
-        private static final long serialVersionUID = 1111982240L;
+        private static final long serialVersionUID = 944300105L;
 
     /**
      * Constructor
@@ -2953,7 +2953,7 @@ public class PlanDefinition extends MetadataResource {
     /**
      * Constructor
      */
-      public PlanDefinitionActionDefinitionConditionComponent(Enumeration<PlanActionConditionKind> kind) {
+      public PlanDefinitionActionDefinitionConditionComponent(Enumeration<ActionConditionKind> kind) {
         super();
         this.kind = kind;
       }
@@ -2961,12 +2961,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #kind} (The kind of condition.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
          */
-        public Enumeration<PlanActionConditionKind> getKindElement() { 
+        public Enumeration<ActionConditionKind> getKindElement() { 
           if (this.kind == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionConditionComponent.kind");
             else if (Configuration.doAutoCreate())
-              this.kind = new Enumeration<PlanActionConditionKind>(new PlanActionConditionKindEnumFactory()); // bb
+              this.kind = new Enumeration<ActionConditionKind>(new ActionConditionKindEnumFactory()); // bb
           return this.kind;
         }
 
@@ -2981,7 +2981,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #kind} (The kind of condition.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionConditionComponent setKindElement(Enumeration<PlanActionConditionKind> value) { 
+        public PlanDefinitionActionDefinitionConditionComponent setKindElement(Enumeration<ActionConditionKind> value) { 
           this.kind = value;
           return this;
         }
@@ -2989,16 +2989,16 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return The kind of condition.
          */
-        public PlanActionConditionKind getKind() { 
+        public ActionConditionKind getKind() { 
           return this.kind == null ? null : this.kind.getValue();
         }
 
         /**
          * @param value The kind of condition.
          */
-        public PlanDefinitionActionDefinitionConditionComponent setKind(PlanActionConditionKind value) { 
+        public PlanDefinitionActionDefinitionConditionComponent setKind(ActionConditionKind value) { 
             if (this.kind == null)
-              this.kind = new Enumeration<PlanActionConditionKind>(new PlanActionConditionKindEnumFactory());
+              this.kind = new Enumeration<ActionConditionKind>(new ActionConditionKindEnumFactory());
             this.kind.setValue(value);
           return this;
         }
@@ -3161,7 +3161,7 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<PlanActionConditionKind>
+        case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ActionConditionKind>
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1613589672: /*language*/ return this.language == null ? new Base[0] : new Base[] {this.language}; // StringType
         case -1795452264: /*expression*/ return this.expression == null ? new Base[0] : new Base[] {this.expression}; // StringType
@@ -3174,8 +3174,8 @@ public class PlanDefinition extends MetadataResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3292052: // kind
-          value = new PlanActionConditionKindEnumFactory().fromType(castToCode(value));
-          this.kind = (Enumeration) value; // Enumeration<PlanActionConditionKind>
+          value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -3194,8 +3194,8 @@ public class PlanDefinition extends MetadataResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("kind")) {
-          value = new PlanActionConditionKindEnumFactory().fromType(castToCode(value));
-          this.kind = (Enumeration) value; // Enumeration<PlanActionConditionKind>
+          value = new ActionConditionKindEnumFactory().fromType(castToCode(value));
+          this.kind = (Enumeration) value; // Enumeration<ActionConditionKind>
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("language")) {
@@ -3308,7 +3308,7 @@ public class PlanDefinition extends MetadataResource {
         @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="before-start | before | before-end | concurrent-with-start | concurrent | concurrent-with-end | after-start | after | after-end", formalDefinition="The relationship of this action to the related action." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-relationship-type")
-        protected Enumeration<PlanActionRelationshipType> relationship;
+        protected Enumeration<ActionRelationshipType> relationship;
 
         /**
          * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
@@ -3317,7 +3317,7 @@ public class PlanDefinition extends MetadataResource {
         @Description(shortDefinition="Time offset for the relationship", formalDefinition="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before." )
         protected Type offset;
 
-        private static final long serialVersionUID = -2131606397L;
+        private static final long serialVersionUID = 1011239532L;
 
     /**
      * Constructor
@@ -3329,7 +3329,7 @@ public class PlanDefinition extends MetadataResource {
     /**
      * Constructor
      */
-      public PlanDefinitionActionDefinitionRelatedActionComponent(Identifier actionIdentifier, Enumeration<PlanActionRelationshipType> relationship) {
+      public PlanDefinitionActionDefinitionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
         super();
         this.actionIdentifier = actionIdentifier;
         this.relationship = relationship;
@@ -3362,12 +3362,12 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public Enumeration<PlanActionRelationshipType> getRelationshipElement() { 
+        public Enumeration<ActionRelationshipType> getRelationshipElement() { 
           if (this.relationship == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PlanDefinitionActionDefinitionRelatedActionComponent.relationship");
             else if (Configuration.doAutoCreate())
-              this.relationship = new Enumeration<PlanActionRelationshipType>(new PlanActionRelationshipTypeEnumFactory()); // bb
+              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory()); // bb
           return this.relationship;
         }
 
@@ -3382,7 +3382,7 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @param value {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
          */
-        public PlanDefinitionActionDefinitionRelatedActionComponent setRelationshipElement(Enumeration<PlanActionRelationshipType> value) { 
+        public PlanDefinitionActionDefinitionRelatedActionComponent setRelationshipElement(Enumeration<ActionRelationshipType> value) { 
           this.relationship = value;
           return this;
         }
@@ -3390,16 +3390,16 @@ public class PlanDefinition extends MetadataResource {
         /**
          * @return The relationship of this action to the related action.
          */
-        public PlanActionRelationshipType getRelationship() { 
+        public ActionRelationshipType getRelationship() { 
           return this.relationship == null ? null : this.relationship.getValue();
         }
 
         /**
          * @param value The relationship of this action to the related action.
          */
-        public PlanDefinitionActionDefinitionRelatedActionComponent setRelationship(PlanActionRelationshipType value) { 
+        public PlanDefinitionActionDefinitionRelatedActionComponent setRelationship(ActionRelationshipType value) { 
             if (this.relationship == null)
-              this.relationship = new Enumeration<PlanActionRelationshipType>(new PlanActionRelationshipTypeEnumFactory());
+              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory());
             this.relationship.setValue(value);
           return this;
         }
@@ -3460,7 +3460,7 @@ public class PlanDefinition extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -889046145: /*actionIdentifier*/ return this.actionIdentifier == null ? new Base[0] : new Base[] {this.actionIdentifier}; // Identifier
-        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<PlanActionRelationshipType>
+        case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // Enumeration<ActionRelationshipType>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // Type
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -3474,8 +3474,8 @@ public class PlanDefinition extends MetadataResource {
           this.actionIdentifier = castToIdentifier(value); // Identifier
           return value;
         case -261851592: // relationship
-          value = new PlanActionRelationshipTypeEnumFactory().fromType(castToCode(value));
-          this.relationship = (Enumeration) value; // Enumeration<PlanActionRelationshipType>
+          value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.relationship = (Enumeration) value; // Enumeration<ActionRelationshipType>
           return value;
         case -1019779949: // offset
           this.offset = castToType(value); // Type
@@ -3490,8 +3490,8 @@ public class PlanDefinition extends MetadataResource {
         if (name.equals("actionIdentifier")) {
           this.actionIdentifier = castToIdentifier(value); // Identifier
         } else if (name.equals("relationship")) {
-          value = new PlanActionRelationshipTypeEnumFactory().fromType(castToCode(value));
-          this.relationship = (Enumeration) value; // Enumeration<PlanActionRelationshipType>
+          value = new ActionRelationshipTypeEnumFactory().fromType(castToCode(value));
+          this.relationship = (Enumeration) value; // Enumeration<ActionRelationshipType>
         } else if (name.equals("offset[x]")) {
           this.offset = castToType(value); // Type
         } else

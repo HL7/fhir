@@ -100,6 +100,7 @@ urn:iso:std:iso:3166
 http://example.com
 http://tools.ietf.org/html/bcp47
 http://hl7.org/fhir/service-uscls
+http://www.ama-assn.org/go/cpt
 http://hl7.org/fhir/ValueSet/v3-ActIncidentCode
 http://snomed.info
 http://hl7.org.fhir/substance-category

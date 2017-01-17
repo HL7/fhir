@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 public enum ResourceType {
     Account,
@@ -18,6 +18,7 @@ public enum ResourceType {
     CapabilityStatement,
     CarePlan,
     CareTeam,
+    Catalog,
     Claim,
     ClaimResponse,
     ClinicalImpression,
@@ -36,7 +37,7 @@ public enum ResourceType {
     Device,
     DeviceComponent,
     DeviceMetric,
-    DeviceUseRequest,
+    DeviceRequest,
     DeviceUseStatement,
     DiagnosticReport,
     DiagnosticRequest,
@@ -77,7 +78,7 @@ public enum ResourceType {
     MessageDefinition,
     MessageHeader,
     NamingSystem,
-    NutritionRequest,
+    NutritionOrder,
     Observation,
     OperationDefinition,
     OperationOutcome,
@@ -150,6 +151,8 @@ public enum ResourceType {
       return "careplan";
     case CareTeam:
       return "careteam";
+    case Catalog:
+      return "catalog";
     case Claim:
       return "claim";
     case ClaimResponse:
@@ -186,8 +189,8 @@ public enum ResourceType {
       return "devicecomponent";
     case DeviceMetric:
       return "devicemetric";
-    case DeviceUseRequest:
-      return "deviceuserequest";
+    case DeviceRequest:
+      return "devicerequest";
     case DeviceUseStatement:
       return "deviceusestatement";
     case DiagnosticReport:
@@ -268,8 +271,8 @@ public enum ResourceType {
       return "messageheader";
     case NamingSystem:
       return "namingsystem";
-    case NutritionRequest:
-      return "nutritionrequest";
+    case NutritionOrder:
+      return "nutritionorder";
     case Observation:
       return "observation";
     case OperationDefinition:
@@ -386,6 +389,8 @@ public enum ResourceType {
       return CarePlan;
     if ("CareTeam".equals(code))
       return CareTeam;
+    if ("Catalog".equals(code))
+      return Catalog;
     if ("Claim".equals(code))
       return Claim;
     if ("ClaimResponse".equals(code))
@@ -422,8 +427,8 @@ public enum ResourceType {
       return DeviceComponent;
     if ("DeviceMetric".equals(code))
       return DeviceMetric;
-    if ("DeviceUseRequest".equals(code))
-      return DeviceUseRequest;
+    if ("DeviceRequest".equals(code))
+      return DeviceRequest;
     if ("DeviceUseStatement".equals(code))
       return DeviceUseStatement;
     if ("DiagnosticReport".equals(code))
@@ -504,8 +509,8 @@ public enum ResourceType {
       return MessageHeader;
     if ("NamingSystem".equals(code))
       return NamingSystem;
-    if ("NutritionRequest".equals(code))
-      return NutritionRequest;
+    if ("NutritionOrder".equals(code))
+      return NutritionOrder;
     if ("Observation".equals(code))
       return Observation;
     if ("OperationDefinition".equals(code))

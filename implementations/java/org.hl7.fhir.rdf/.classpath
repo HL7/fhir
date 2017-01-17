@@ -32,7 +32,5 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr4-runtime-4.6.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/cats-core_2.11-0.3.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
-	<classpathentry kind="lib" path="../../../build/tools/java/imports/slf4j-jdk14-1.7.22.jar"/>
-	<classpathentry kind="lib" path="../../../build/tools/java/imports/slf4s-api_2.11-1.7.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

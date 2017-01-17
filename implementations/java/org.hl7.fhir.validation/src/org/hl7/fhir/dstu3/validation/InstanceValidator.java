@@ -2350,9 +2350,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       case DATETIME:      
         validateQuestionnaireResponseItemType(errors, answer, ns, "dateTime");
         break;
-      case INSTANT:       
-        validateQuestionnaireResponseItemType(errors, answer, ns, "instant");
-        break;
       case TIME:          
         validateQuestionnaireResponseItemType(errors, answer, ns, "time");
         break;

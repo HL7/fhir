@@ -254,6 +254,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private String businessVersion;
 
+  private boolean allowBrokenHtml;
+
   public void execute(boolean clearCache) throws Exception {
     globalStart = System.nanoTime();
     initialize(clearCache);
@@ -589,6 +591,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     historyPage = ostr(paths, "history");
     if (historyPage != null)
       inspector.getManual().add(historyPage);
+    allowBrokenHtml = "true".equals(ostr(configuration, "allow-broken-links"));
+    inspector.setStrict("true".equals(ostr(configuration, "allow-malformed-html")));
 
     dlog(LogCategory.INIT, "Check folders");
     for (String s : resourceDirs) {
@@ -1819,6 +1823,8 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     log("  ... "+Integer.toString(inspector.links())+" "+checkPlural("link", inspector.links())+", "+Integer.toString(bl)+" broken "+checkPlural("link", lf)+" ("+Integer.toString((bl*100)/(inspector.links() == 0 ? 1 : inspector.links()))+"%)");
     errors.addAll(linkmsgs);
     log("Build final .zip");
+    if (!allowBrokenHtml && linkmsgs.size() > 0)
+      throw new Error("Halting build because broken links were found");
     ZipGenerator zip = new ZipGenerator(Utilities.path(tempDir, "full-ig.zip"));
     zip.addFolder(outputDir, "site/", false);
     zip.addFileSource("index.html", REDIRECT_SOURCE, false);

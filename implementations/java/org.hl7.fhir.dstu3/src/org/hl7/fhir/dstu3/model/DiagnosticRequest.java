@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class DiagnosticRequest extends DomainResource {
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this request
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
          */
         UNKNOWN, 
         /**
@@ -135,7 +135,7 @@ public class DiagnosticRequest extends DomainResource {
             case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
             case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
             case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -534,6 +534,246 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
     }
 
+    @Block()
+    public static class DiagnosticRequestRequesterComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The device, practitioner or organization. who initiated the request.
+         */
+        @Child(name = "agent", type = {Device.class, Practitioner.class, Organization.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner or organization. who initiated the request." )
+        protected Reference agent;
+
+        /**
+         * The actual object that is the target of the reference (The device, practitioner or organization. who initiated the request.)
+         */
+        protected Resource agentTarget;
+
+        /**
+         * The organization the device or practitioner was acting on behalf of.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Organization agent is acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        private static final long serialVersionUID = -71453027L;
+
+    /**
+     * Constructor
+     */
+      public DiagnosticRequestRequesterComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public DiagnosticRequestRequesterComponent(Reference agent) {
+        super();
+        this.agent = agent;
+      }
+
+        /**
+         * @return {@link #agent} (The device, practitioner or organization. who initiated the request.)
+         */
+        public Reference getAgent() { 
+          if (this.agent == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticRequestRequesterComponent.agent");
+            else if (Configuration.doAutoCreate())
+              this.agent = new Reference(); // cc
+          return this.agent;
+        }
+
+        public boolean hasAgent() { 
+          return this.agent != null && !this.agent.isEmpty();
+        }
+
+        /**
+         * @param value {@link #agent} (The device, practitioner or organization. who initiated the request.)
+         */
+        public DiagnosticRequestRequesterComponent setAgent(Reference value) { 
+          this.agent = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization. who initiated the request.)
+         */
+        public Resource getAgentTarget() { 
+          return this.agentTarget;
+        }
+
+        /**
+         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner or organization. who initiated the request.)
+         */
+        public DiagnosticRequestRequesterComponent setAgentTarget(Resource value) { 
+          this.agentTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Reference getOnBehalfOf() { 
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticRequestRequesterComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() { 
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public DiagnosticRequestRequesterComponent setOnBehalfOf(Reference value) { 
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Organization getOnBehalfOfTarget() { 
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DiagnosticRequestRequesterComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public DiagnosticRequestRequesterComponent setOnBehalfOfTarget(Organization value) { 
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("agent", "Reference(Device|Practitioner|Organization)", "The device, practitioner or organization. who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 92750597: // agent
+          this.agent = castToReference(value); // Reference
+          return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("agent")) {
+          this.agent = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92750597:  return getAgent(); 
+        case -14402964:  return getOnBehalfOf(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92750597: /*agent*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("agent")) {
+          this.agent = new Reference();
+          return this.agent;
+        }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public DiagnosticRequestRequesterComponent copy() {
+        DiagnosticRequestRequesterComponent dst = new DiagnosticRequestRequesterComponent();
+        copyValues(dst);
+        dst.agent = agent == null ? null : agent.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof DiagnosticRequestRequesterComponent))
+          return false;
+        DiagnosticRequestRequesterComponent o = (DiagnosticRequestRequesterComponent) other;
+        return compareDeep(agent, o.agent, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof DiagnosticRequestRequesterComponent))
+          return false;
+        DiagnosticRequestRequesterComponent o = (DiagnosticRequestRequesterComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
+      }
+
+  public String fhirType() {
+    return "DiagnosticRequest.requester";
+
+  }
+
+  }
+
     /**
      * Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.
      */
@@ -655,16 +895,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected DateTimeType authoredOn;
 
     /**
-     * Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.
+     * The individual who initiated the request and has responsibility for its activation.
      */
-    @Child(name = "requester", type = {Device.class, Practitioner.class, Organization.class}, order=13, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who/what is requesting diagnostics", formalDefinition="Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation." )
-    protected Reference requester;
-
-    /**
-     * The actual object that is the target of the reference (Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.)
-     */
-    protected Resource requesterTarget;
+    @Child(name = "requester", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who/what is requesting diagnostics", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
+    protected DiagnosticRequestRequesterComponent requester;
 
     /**
      * Desired type of performer for doing the diagnostic testing. (.
@@ -709,26 +944,46 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInfo", type = {Reference.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional clinical information", formalDefinition="Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order." )
-    protected List<Reference> supportingInformation;
+    protected List<Reference> supportingInfo;
     /**
      * The actual objects that are the target of the reference (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
-    protected List<Resource> supportingInformationTarget;
+    protected List<Resource> supportingInfoTarget;
 
+
+    /**
+     * One or more specimens that the diagnostic investigation is about.
+     */
+    @Child(name = "specimen", type = {Specimen.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Specimens for the requested test", formalDefinition="One or more specimens that the diagnostic investigation is about." )
+    protected List<Reference> specimen;
+    /**
+     * The actual objects that are the target of the reference (One or more specimens that the diagnostic investigation is about.)
+     */
+    protected List<Specimen> specimenTarget;
+
+
+    /**
+     * Anatomical location where the requested test should be performed.  This is the target site.
+     */
+    @Child(name = "bodySIte", type = {CodeableConcept.class}, order=20, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Location of requested test (if applicable)", formalDefinition="Anatomical location where the requested test should be performed.  This is the target site." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
+    protected CodeableConcept bodySIte;
 
     /**
      * Any other notes and comments made about the service request. (e.g. "patient hates needles").
      */
-    @Child(name = "note", type = {Annotation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments", formalDefinition="Any other notes and comments made about the service request. (e.g. \"patient hates needles\")." )
     protected List<Annotation> note;
 
     /**
      * Key events in the history of the request.
      */
-    @Child(name = "relevantHistory", type = {Provenance.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Request provenance", formalDefinition="Key events in the history of the request." )
     protected List<Reference> relevantHistory;
     /**
@@ -737,7 +992,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -2142319333L;
+    private static final long serialVersionUID = -164321070L;
 
   /**
    * Constructor
@@ -1372,14 +1627,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #requester} (Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.)
+     * @return {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public Reference getRequester() { 
+    public DiagnosticRequestRequesterComponent getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new Reference(); // cc
+          this.requester = new DiagnosticRequestRequesterComponent(); // cc
       return this.requester;
     }
 
@@ -1388,25 +1643,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #requester} (Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.)
+     * @param value {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public DiagnosticRequest setRequester(Reference value) { 
+    public DiagnosticRequest setRequester(DiagnosticRequestRequesterComponent value) { 
       this.requester = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.)
-     */
-    public Resource getRequesterTarget() { 
-      return this.requesterTarget;
-    }
-
-    /**
-     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.)
-     */
-    public DiagnosticRequest setRequesterTarget(Resource value) { 
-      this.requesterTarget = value;
       return this;
     }
 
@@ -1590,66 +1830,165 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
+     * @return {@link #supportingInfo} (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
-    public List<Reference> getSupportingInformation() { 
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      return this.supportingInformation;
+    public List<Reference> getSupportingInfo() { 
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      return this.supportingInfo;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DiagnosticRequest setSupportingInformation(List<Reference> theSupportingInformation) { 
-      this.supportingInformation = theSupportingInformation;
+    public DiagnosticRequest setSupportingInfo(List<Reference> theSupportingInfo) { 
+      this.supportingInfo = theSupportingInfo;
       return this;
     }
 
-    public boolean hasSupportingInformation() { 
-      if (this.supportingInformation == null)
+    public boolean hasSupportingInfo() { 
+      if (this.supportingInfo == null)
         return false;
-      for (Reference item : this.supportingInformation)
+      for (Reference item : this.supportingInfo)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addSupportingInformation() { //3
+    public Reference addSupportingInfo() { //3
       Reference t = new Reference();
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      this.supportingInfo.add(t);
       return t;
     }
 
-    public DiagnosticRequest addSupportingInformation(Reference t) { //3
+    public DiagnosticRequest addSupportingInfo(Reference t) { //3
       if (t == null)
         return this;
-      if (this.supportingInformation == null)
-        this.supportingInformation = new ArrayList<Reference>();
-      this.supportingInformation.add(t);
+      if (this.supportingInfo == null)
+        this.supportingInfo = new ArrayList<Reference>();
+      this.supportingInfo.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #supportingInfo}, creating it if it does not already exist
      */
-    public Reference getSupportingInformationFirstRep() { 
-      if (getSupportingInformation().isEmpty()) {
-        addSupportingInformation();
+    public Reference getSupportingInfoFirstRep() { 
+      if (getSupportingInfo().isEmpty()) {
+        addSupportingInfo();
       }
-      return getSupportingInformation().get(0);
+      return getSupportingInfo().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getSupportingInformationTarget() { 
-      if (this.supportingInformationTarget == null)
-        this.supportingInformationTarget = new ArrayList<Resource>();
-      return this.supportingInformationTarget;
+    public List<Resource> getSupportingInfoTarget() { 
+      if (this.supportingInfoTarget == null)
+        this.supportingInfoTarget = new ArrayList<Resource>();
+      return this.supportingInfoTarget;
+    }
+
+    /**
+     * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
+     */
+    public List<Reference> getSpecimen() { 
+      if (this.specimen == null)
+        this.specimen = new ArrayList<Reference>();
+      return this.specimen;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public DiagnosticRequest setSpecimen(List<Reference> theSpecimen) { 
+      this.specimen = theSpecimen;
+      return this;
+    }
+
+    public boolean hasSpecimen() { 
+      if (this.specimen == null)
+        return false;
+      for (Reference item : this.specimen)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addSpecimen() { //3
+      Reference t = new Reference();
+      if (this.specimen == null)
+        this.specimen = new ArrayList<Reference>();
+      this.specimen.add(t);
+      return t;
+    }
+
+    public DiagnosticRequest addSpecimen(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.specimen == null)
+        this.specimen = new ArrayList<Reference>();
+      this.specimen.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #specimen}, creating it if it does not already exist
+     */
+    public Reference getSpecimenFirstRep() { 
+      if (getSpecimen().isEmpty()) {
+        addSpecimen();
+      }
+      return getSpecimen().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Specimen> getSpecimenTarget() { 
+      if (this.specimenTarget == null)
+        this.specimenTarget = new ArrayList<Specimen>();
+      return this.specimenTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Specimen addSpecimenTarget() { 
+      Specimen r = new Specimen();
+      if (this.specimenTarget == null)
+        this.specimenTarget = new ArrayList<Specimen>();
+      this.specimenTarget.add(r);
+      return r;
+    }
+
+    /**
+     * @return {@link #bodySIte} (Anatomical location where the requested test should be performed.  This is the target site.)
+     */
+    public CodeableConcept getBodySIte() { 
+      if (this.bodySIte == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DiagnosticRequest.bodySIte");
+        else if (Configuration.doAutoCreate())
+          this.bodySIte = new CodeableConcept(); // cc
+      return this.bodySIte;
+    }
+
+    public boolean hasBodySIte() { 
+      return this.bodySIte != null && !this.bodySIte.isEmpty();
+    }
+
+    /**
+     * @param value {@link #bodySIte} (Anatomical location where the requested test should be performed.  This is the target site.)
+     */
+    public DiagnosticRequest setBodySIte(CodeableConcept value) { 
+      this.bodySIte = value;
+      return this;
     }
 
     /**
@@ -1795,12 +2134,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "An encounter or episode of care that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("occurrence[x]", "dateTime|Period|Timing", "The date/time at which the diagnostic testing should occur.", 0, java.lang.Integer.MAX_VALUE, occurrence));
         childrenList.add(new Property("authoredOn", "dateTime", "When the request transitioned to being actionable.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
-        childrenList.add(new Property("requester", "Reference(Device|Practitioner|Organization)", "Who/what is requesting diagnostics.  The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, requester));
+        childrenList.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("performerType", "CodeableConcept", "Desired type of performer for doing the diagnostic testing. (.", 0, java.lang.Integer.MAX_VALUE, performerType));
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The desired perfomer for doing the diagnostic testing.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("reasonCode", "CodeableConcept", "An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
+        childrenList.add(new Property("supportingInfo", "Reference(Any)", "Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
+        childrenList.add(new Property("specimen", "Reference(Specimen)", "One or more specimens that the diagnostic investigation is about.", 0, java.lang.Integer.MAX_VALUE, specimen));
+        childrenList.add(new Property("bodySIte", "CodeableConcept", "Anatomical location where the requested test should be performed.  This is the target site.", 0, java.lang.Integer.MAX_VALUE, bodySIte));
         childrenList.add(new Property("note", "Annotation", "Any other notes and comments made about the service request. (e.g. \"patient hates needles\").", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("relevantHistory", "Reference(Provenance)", "Key events in the history of the request.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
       }
@@ -1821,12 +2162,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
-        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // DiagnosticRequestRequesterComponent
         case -901444568: /*performerType*/ return this.performerType == null ? new Base[0] : new Base[] {this.performerType}; // CodeableConcept
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
-        case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
+        case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
+        case -2132868344: /*specimen*/ return this.specimen == null ? new Base[0] : this.specimen.toArray(new Base[this.specimen.size()]); // Reference
+        case 1702589417: /*bodySIte*/ return this.bodySIte == null ? new Base[0] : new Base[] {this.bodySIte}; // CodeableConcept
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -1880,7 +2223,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.authoredOn = castToDateTime(value); // DateTimeType
           return value;
         case 693933948: // requester
-          this.requester = castToReference(value); // Reference
+          this.requester = (DiagnosticRequestRequesterComponent) value; // DiagnosticRequestRequesterComponent
           return value;
         case -901444568: // performerType
           this.performerType = castToCodeableConcept(value); // CodeableConcept
@@ -1894,8 +2237,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
           return value;
-        case -1248768647: // supportingInformation
-          this.getSupportingInformation().add(castToReference(value)); // Reference
+        case 1922406657: // supportingInfo
+          this.getSupportingInfo().add(castToReference(value)); // Reference
+          return value;
+        case -2132868344: // specimen
+          this.getSpecimen().add(castToReference(value)); // Reference
+          return value;
+        case 1702589417: // bodySIte
+          this.bodySIte = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
@@ -1940,7 +2289,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
         } else if (name.equals("requester")) {
-          this.requester = castToReference(value); // Reference
+          this.requester = (DiagnosticRequestRequesterComponent) value; // DiagnosticRequestRequesterComponent
         } else if (name.equals("performerType")) {
           this.performerType = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("performer")) {
@@ -1949,8 +2298,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        } else if (name.equals("supportingInformation")) {
-          this.getSupportingInformation().add(castToReference(value));
+        } else if (name.equals("supportingInfo")) {
+          this.getSupportingInfo().add(castToReference(value));
+        } else if (name.equals("specimen")) {
+          this.getSpecimen().add(castToReference(value));
+        } else if (name.equals("bodySIte")) {
+          this.bodySIte = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("relevantHistory")) {
@@ -1982,7 +2335,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 481140686:  return getPerformer(); 
         case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
-        case -1248768647:  return addSupportingInformation(); 
+        case 1922406657:  return addSupportingInfo(); 
+        case -2132868344:  return addSpecimen(); 
+        case 1702589417:  return getBodySIte(); 
         case 3387378:  return addNote(); 
         case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
@@ -2006,12 +2361,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period", "Timing"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
-        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case 693933948: /*requester*/ return new String[] {};
         case -901444568: /*performerType*/ return new String[] {"CodeableConcept"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
-        case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
+        case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
+        case -2132868344: /*specimen*/ return new String[] {"Reference"};
+        case 1702589417: /*bodySIte*/ return new String[] {"CodeableConcept"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
@@ -2074,7 +2431,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           throw new FHIRException("Cannot call addChild on a primitive type DiagnosticRequest.authoredOn");
         }
         else if (name.equals("requester")) {
-          this.requester = new Reference();
+          this.requester = new DiagnosticRequestRequesterComponent();
           return this.requester;
         }
         else if (name.equals("performerType")) {
@@ -2091,8 +2448,15 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("reasonReference")) {
           return addReasonReference();
         }
-        else if (name.equals("supportingInformation")) {
-          return addSupportingInformation();
+        else if (name.equals("supportingInfo")) {
+          return addSupportingInfo();
+        }
+        else if (name.equals("specimen")) {
+          return addSpecimen();
+        }
+        else if (name.equals("bodySIte")) {
+          this.bodySIte = new CodeableConcept();
+          return this.bodySIte;
         }
         else if (name.equals("note")) {
           return addNote();
@@ -2154,11 +2518,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
         };
-        if (supportingInformation != null) {
-          dst.supportingInformation = new ArrayList<Reference>();
-          for (Reference i : supportingInformation)
-            dst.supportingInformation.add(i.copy());
+        if (supportingInfo != null) {
+          dst.supportingInfo = new ArrayList<Reference>();
+          for (Reference i : supportingInfo)
+            dst.supportingInfo.add(i.copy());
         };
+        if (specimen != null) {
+          dst.specimen = new ArrayList<Reference>();
+          for (Reference i : specimen)
+            dst.specimen.add(i.copy());
+        };
+        dst.bodySIte = bodySIte == null ? null : bodySIte.copy();
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
@@ -2190,8 +2560,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
            && compareDeep(occurrence, o.occurrence, true) && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true)
            && compareDeep(performerType, o.performerType, true) && compareDeep(performer, o.performer, true)
            && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(supportingInformation, o.supportingInformation, true) && compareDeep(note, o.note, true)
-           && compareDeep(relevantHistory, o.relevantHistory, true);
+           && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(specimen, o.specimen, true)
+           && compareDeep(bodySIte, o.bodySIte, true) && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true)
+          ;
       }
 
       @Override
@@ -2208,8 +2579,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
           , replaces, requisition, status, intent, priority, code, subject, context, occurrence
-          , authoredOn, requester, performerType, performer, reasonCode, reasonReference, supportingInformation
-          , note, relevantHistory);
+          , authoredOn, requester, performerType, performer, reasonCode, reasonReference, supportingInfo
+          , specimen, bodySIte, note, relevantHistory);
       }
 
   @Override
@@ -2222,17 +2593,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>Who/what is requesting service </b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticRequest.requester</b><br>
+   * Path: <b>DiagnosticRequest.requester.agent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="DiagnosticRequest.requester", description="Who/what is requesting service ", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
+  @SearchParamDefinition(name="requester", path="DiagnosticRequest.requester.agent", description="Who/what is requesting service ", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Practitioner.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
    * <p>
    * Description: <b>Who/what is requesting service </b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>DiagnosticRequest.requester</b><br>
+   * Path: <b>DiagnosticRequest.requester.agent</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTER);
@@ -2512,6 +2883,32 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>DiagnosticRequest:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("DiagnosticRequest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>specimen</b>
+   * <p>
+   * Description: <b>One or more specimens that the diagnostic investigation is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticRequest.specimen</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="specimen", path="DiagnosticRequest.specimen", description="One or more specimens that the diagnostic investigation is about", type="reference", target={Specimen.class } )
+  public static final String SP_SPECIMEN = "specimen";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>specimen</b>
+   * <p>
+   * Description: <b>One or more specimens that the diagnostic investigation is about</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DiagnosticRequest.specimen</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SPECIMEN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SPECIMEN);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DiagnosticRequest:specimen</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SPECIMEN = new ca.uhn.fhir.model.api.Include("DiagnosticRequest:specimen").toLocked();
 
  /**
    * Search parameter: <b>filler</b>

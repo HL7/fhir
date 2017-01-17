@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -550,7 +550,7 @@ public class Specimen extends DomainResource {
   }
 
     @Block()
-    public static class SpecimenTreatmentComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class SpecimenProcessingComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Textual description of procedure.
          */
@@ -562,8 +562,8 @@ public class Specimen extends DomainResource {
          * A coded value specifying the procedure used to process the specimen.
          */
         @Child(name = "procedure", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Indicates the treatment or processing step  applied to the specimen", formalDefinition="A coded value specifying the procedure used to process the specimen." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/specimen-treatment-procedure")
+        @Description(shortDefinition="Indicates the treatment step  applied to the specimen", formalDefinition="A coded value specifying the procedure used to process the specimen." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/specimen-processing-procedure")
         protected CodeableConcept procedure;
 
         /**
@@ -579,10 +579,10 @@ public class Specimen extends DomainResource {
 
 
         /**
-         * A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
+         * A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.
          */
         @Child(name = "time", type = {DateTimeType.class, Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Date and time of specimen treatment", formalDefinition="A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin." )
+        @Description(shortDefinition="Date and time of specimen processing", formalDefinition="A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin." )
         protected Type time;
 
         private static final long serialVersionUID = 1467214742L;
@@ -590,7 +590,7 @@ public class Specimen extends DomainResource {
     /**
      * Constructor
      */
-      public SpecimenTreatmentComponent() {
+      public SpecimenProcessingComponent() {
         super();
       }
 
@@ -600,7 +600,7 @@ public class Specimen extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecimenTreatmentComponent.description");
+              throw new Error("Attempt to auto-create SpecimenProcessingComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -617,7 +617,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #description} (Textual description of procedure.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public SpecimenTreatmentComponent setDescriptionElement(StringType value) { 
+        public SpecimenProcessingComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -632,7 +632,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value Textual description of procedure.
          */
-        public SpecimenTreatmentComponent setDescription(String value) { 
+        public SpecimenProcessingComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -649,7 +649,7 @@ public class Specimen extends DomainResource {
         public CodeableConcept getProcedure() { 
           if (this.procedure == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SpecimenTreatmentComponent.procedure");
+              throw new Error("Attempt to auto-create SpecimenProcessingComponent.procedure");
             else if (Configuration.doAutoCreate())
               this.procedure = new CodeableConcept(); // cc
           return this.procedure;
@@ -662,7 +662,7 @@ public class Specimen extends DomainResource {
         /**
          * @param value {@link #procedure} (A coded value specifying the procedure used to process the specimen.)
          */
-        public SpecimenTreatmentComponent setProcedure(CodeableConcept value) { 
+        public SpecimenProcessingComponent setProcedure(CodeableConcept value) { 
           this.procedure = value;
           return this;
         }
@@ -679,7 +679,7 @@ public class Specimen extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public SpecimenTreatmentComponent setAdditive(List<Reference> theAdditive) { 
+        public SpecimenProcessingComponent setAdditive(List<Reference> theAdditive) { 
           this.additive = theAdditive;
           return this;
         }
@@ -701,7 +701,7 @@ public class Specimen extends DomainResource {
           return t;
         }
 
-        public SpecimenTreatmentComponent addAdditive(Reference t) { //3
+        public SpecimenProcessingComponent addAdditive(Reference t) { //3
           if (t == null)
             return this;
           if (this.additive == null)
@@ -743,14 +743,14 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         * @return {@link #time} (A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
          */
         public Type getTime() { 
           return this.time;
         }
 
         /**
-         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         * @return {@link #time} (A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
          */
         public DateTimeType getTimeDateTimeType() throws FHIRException { 
           if (!(this.time instanceof DateTimeType))
@@ -763,7 +763,7 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @return {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         * @return {@link #time} (A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
          */
         public Period getTimePeriod() throws FHIRException { 
           if (!(this.time instanceof Period))
@@ -780,9 +780,9 @@ public class Specimen extends DomainResource {
         }
 
         /**
-         * @param value {@link #time} (A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
+         * @param value {@link #time} (A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.)
          */
-        public SpecimenTreatmentComponent setTime(Type value) { 
+        public SpecimenProcessingComponent setTime(Type value) { 
           this.time = value;
           return this;
         }
@@ -792,7 +792,7 @@ public class Specimen extends DomainResource {
           childrenList.add(new Property("description", "string", "Textual description of procedure.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("procedure", "CodeableConcept", "A coded value specifying the procedure used to process the specimen.", 0, java.lang.Integer.MAX_VALUE, procedure));
           childrenList.add(new Property("additive", "Reference(Substance)", "Material used in the processing step.", 0, java.lang.Integer.MAX_VALUE, additive));
-          childrenList.add(new Property("time[x]", "dateTime|Period", "A record of the time or period when the specimen treatment occurred.  For example the time of sample fixation or the period of time the sample was in formalin.", 0, java.lang.Integer.MAX_VALUE, time));
+          childrenList.add(new Property("time[x]", "dateTime|Period", "A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.", 0, java.lang.Integer.MAX_VALUE, time));
         }
 
       @Override
@@ -891,8 +891,8 @@ public class Specimen extends DomainResource {
           return super.addChild(name);
       }
 
-      public SpecimenTreatmentComponent copy() {
-        SpecimenTreatmentComponent dst = new SpecimenTreatmentComponent();
+      public SpecimenProcessingComponent copy() {
+        SpecimenProcessingComponent dst = new SpecimenProcessingComponent();
         copyValues(dst);
         dst.description = description == null ? null : description.copy();
         dst.procedure = procedure == null ? null : procedure.copy();
@@ -909,9 +909,9 @@ public class Specimen extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof SpecimenTreatmentComponent))
+        if (!(other instanceof SpecimenProcessingComponent))
           return false;
-        SpecimenTreatmentComponent o = (SpecimenTreatmentComponent) other;
+        SpecimenProcessingComponent o = (SpecimenProcessingComponent) other;
         return compareDeep(description, o.description, true) && compareDeep(procedure, o.procedure, true)
            && compareDeep(additive, o.additive, true) && compareDeep(time, o.time, true);
       }
@@ -920,9 +920,9 @@ public class Specimen extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof SpecimenTreatmentComponent))
+        if (!(other instanceof SpecimenProcessingComponent))
           return false;
-        SpecimenTreatmentComponent o = (SpecimenTreatmentComponent) other;
+        SpecimenProcessingComponent o = (SpecimenProcessingComponent) other;
         return compareValues(description, o.description, true);
       }
 
@@ -932,7 +932,7 @@ public class Specimen extends DomainResource {
       }
 
   public String fhirType() {
-    return "Specimen.treatment";
+    return "Specimen.processing";
 
   }
 
@@ -1473,11 +1473,11 @@ public class Specimen extends DomainResource {
     protected SpecimenCollectionComponent collection;
 
     /**
-     * Details concerning treatment and processing steps for the specimen.
+     * Details concerning processing and processing steps for the specimen.
      */
-    @Child(name = "treatment", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Treatment and processing step details", formalDefinition="Details concerning treatment and processing steps for the specimen." )
-    protected List<SpecimenTreatmentComponent> treatment;
+    @Child(name = "processing", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Processing and processing step details", formalDefinition="Details concerning processing and processing steps for the specimen." )
+    protected List<SpecimenProcessingComponent> processing;
 
     /**
      * The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.
@@ -1493,7 +1493,7 @@ public class Specimen extends DomainResource {
     @Description(shortDefinition="Comments", formalDefinition="To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen)." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1717605865L;
+    private static final long serialVersionUID = 1765113143L;
 
   /**
    * Constructor
@@ -1911,56 +1911,56 @@ public class Specimen extends DomainResource {
     }
 
     /**
-     * @return {@link #treatment} (Details concerning treatment and processing steps for the specimen.)
+     * @return {@link #processing} (Details concerning processing and processing steps for the specimen.)
      */
-    public List<SpecimenTreatmentComponent> getTreatment() { 
-      if (this.treatment == null)
-        this.treatment = new ArrayList<SpecimenTreatmentComponent>();
-      return this.treatment;
+    public List<SpecimenProcessingComponent> getProcessing() { 
+      if (this.processing == null)
+        this.processing = new ArrayList<SpecimenProcessingComponent>();
+      return this.processing;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Specimen setTreatment(List<SpecimenTreatmentComponent> theTreatment) { 
-      this.treatment = theTreatment;
+    public Specimen setProcessing(List<SpecimenProcessingComponent> theProcessing) { 
+      this.processing = theProcessing;
       return this;
     }
 
-    public boolean hasTreatment() { 
-      if (this.treatment == null)
+    public boolean hasProcessing() { 
+      if (this.processing == null)
         return false;
-      for (SpecimenTreatmentComponent item : this.treatment)
+      for (SpecimenProcessingComponent item : this.processing)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public SpecimenTreatmentComponent addTreatment() { //3
-      SpecimenTreatmentComponent t = new SpecimenTreatmentComponent();
-      if (this.treatment == null)
-        this.treatment = new ArrayList<SpecimenTreatmentComponent>();
-      this.treatment.add(t);
+    public SpecimenProcessingComponent addProcessing() { //3
+      SpecimenProcessingComponent t = new SpecimenProcessingComponent();
+      if (this.processing == null)
+        this.processing = new ArrayList<SpecimenProcessingComponent>();
+      this.processing.add(t);
       return t;
     }
 
-    public Specimen addTreatment(SpecimenTreatmentComponent t) { //3
+    public Specimen addProcessing(SpecimenProcessingComponent t) { //3
       if (t == null)
         return this;
-      if (this.treatment == null)
-        this.treatment = new ArrayList<SpecimenTreatmentComponent>();
-      this.treatment.add(t);
+      if (this.processing == null)
+        this.processing = new ArrayList<SpecimenProcessingComponent>();
+      this.processing.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #treatment}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #processing}, creating it if it does not already exist
      */
-    public SpecimenTreatmentComponent getTreatmentFirstRep() { 
-      if (getTreatment().isEmpty()) {
-        addTreatment();
+    public SpecimenProcessingComponent getProcessingFirstRep() { 
+      if (getProcessing().isEmpty()) {
+        addProcessing();
       }
-      return getTreatment().get(0);
+      return getProcessing().get(0);
     }
 
     /**
@@ -2080,7 +2080,7 @@ public class Specimen extends DomainResource {
         childrenList.add(new Property("parent", "Reference(Specimen)", "Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.", 0, java.lang.Integer.MAX_VALUE, parent));
         childrenList.add(new Property("request", "Reference(DiagnosticRequest|ProcedureRequest)", "Details concerning a test or procedure request that required a specimen to be collected.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));
-        childrenList.add(new Property("treatment", "", "Details concerning treatment and processing steps for the specimen.", 0, java.lang.Integer.MAX_VALUE, treatment));
+        childrenList.add(new Property("processing", "", "Details concerning processing and processing steps for the specimen.", 0, java.lang.Integer.MAX_VALUE, processing));
         childrenList.add(new Property("container", "", "The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.", 0, java.lang.Integer.MAX_VALUE, container));
         childrenList.add(new Property("note", "Annotation", "To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen).", 0, java.lang.Integer.MAX_VALUE, note));
       }
@@ -2097,7 +2097,7 @@ public class Specimen extends DomainResource {
         case -995424086: /*parent*/ return this.parent == null ? new Base[0] : this.parent.toArray(new Base[this.parent.size()]); // Reference
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : this.request.toArray(new Base[this.request.size()]); // Reference
         case -1741312354: /*collection*/ return this.collection == null ? new Base[0] : new Base[] {this.collection}; // SpecimenCollectionComponent
-        case -63342472: /*treatment*/ return this.treatment == null ? new Base[0] : this.treatment.toArray(new Base[this.treatment.size()]); // SpecimenTreatmentComponent
+        case 422194963: /*processing*/ return this.processing == null ? new Base[0] : this.processing.toArray(new Base[this.processing.size()]); // SpecimenProcessingComponent
         case -410956671: /*container*/ return this.container == null ? new Base[0] : this.container.toArray(new Base[this.container.size()]); // SpecimenContainerComponent
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
@@ -2136,8 +2136,8 @@ public class Specimen extends DomainResource {
         case -1741312354: // collection
           this.collection = (SpecimenCollectionComponent) value; // SpecimenCollectionComponent
           return value;
-        case -63342472: // treatment
-          this.getTreatment().add((SpecimenTreatmentComponent) value); // SpecimenTreatmentComponent
+        case 422194963: // processing
+          this.getProcessing().add((SpecimenProcessingComponent) value); // SpecimenProcessingComponent
           return value;
         case -410956671: // container
           this.getContainer().add((SpecimenContainerComponent) value); // SpecimenContainerComponent
@@ -2171,8 +2171,8 @@ public class Specimen extends DomainResource {
           this.getRequest().add(castToReference(value));
         } else if (name.equals("collection")) {
           this.collection = (SpecimenCollectionComponent) value; // SpecimenCollectionComponent
-        } else if (name.equals("treatment")) {
-          this.getTreatment().add((SpecimenTreatmentComponent) value);
+        } else if (name.equals("processing")) {
+          this.getProcessing().add((SpecimenProcessingComponent) value);
         } else if (name.equals("container")) {
           this.getContainer().add((SpecimenContainerComponent) value);
         } else if (name.equals("note")) {
@@ -2194,7 +2194,7 @@ public class Specimen extends DomainResource {
         case -995424086:  return addParent(); 
         case 1095692943:  return addRequest(); 
         case -1741312354:  return getCollection(); 
-        case -63342472:  return addTreatment(); 
+        case 422194963:  return addProcessing(); 
         case -410956671:  return addContainer(); 
         case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
@@ -2214,7 +2214,7 @@ public class Specimen extends DomainResource {
         case -995424086: /*parent*/ return new String[] {"Reference"};
         case 1095692943: /*request*/ return new String[] {"Reference"};
         case -1741312354: /*collection*/ return new String[] {};
-        case -63342472: /*treatment*/ return new String[] {};
+        case 422194963: /*processing*/ return new String[] {};
         case -410956671: /*container*/ return new String[] {};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         default: return super.getTypesForProperty(hash, name);
@@ -2255,8 +2255,8 @@ public class Specimen extends DomainResource {
           this.collection = new SpecimenCollectionComponent();
           return this.collection;
         }
-        else if (name.equals("treatment")) {
-          return addTreatment();
+        else if (name.equals("processing")) {
+          return addProcessing();
         }
         else if (name.equals("container")) {
           return addContainer();
@@ -2297,10 +2297,10 @@ public class Specimen extends DomainResource {
             dst.request.add(i.copy());
         };
         dst.collection = collection == null ? null : collection.copy();
-        if (treatment != null) {
-          dst.treatment = new ArrayList<SpecimenTreatmentComponent>();
-          for (SpecimenTreatmentComponent i : treatment)
-            dst.treatment.add(i.copy());
+        if (processing != null) {
+          dst.processing = new ArrayList<SpecimenProcessingComponent>();
+          for (SpecimenProcessingComponent i : processing)
+            dst.processing.add(i.copy());
         };
         if (container != null) {
           dst.container = new ArrayList<SpecimenContainerComponent>();
@@ -2329,7 +2329,7 @@ public class Specimen extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(accessionIdentifier, o.accessionIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(type, o.type, true) && compareDeep(subject, o.subject, true)
            && compareDeep(receivedTime, o.receivedTime, true) && compareDeep(parent, o.parent, true) && compareDeep(request, o.request, true)
-           && compareDeep(collection, o.collection, true) && compareDeep(treatment, o.treatment, true) && compareDeep(container, o.container, true)
+           && compareDeep(collection, o.collection, true) && compareDeep(processing, o.processing, true) && compareDeep(container, o.container, true)
            && compareDeep(note, o.note, true);
       }
 
@@ -2345,7 +2345,7 @@ public class Specimen extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, accessionIdentifier
-          , status, type, subject, receivedTime, parent, request, collection, treatment
+          , status, type, subject, receivedTime, parent, request, collection, processing
           , container, note);
       }
 

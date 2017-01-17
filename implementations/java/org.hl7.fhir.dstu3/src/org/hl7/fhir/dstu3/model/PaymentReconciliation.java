@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -208,14 +208,14 @@ public class PaymentReconciliation extends DomainResource {
         protected Resource responseTarget;
 
         /**
-         * The Organization which submitted the invoice or financial transaction.
+         * The Organization which submitted the claim or financial transaction.
          */
         @Child(name = "submitter", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Submitter", formalDefinition="The Organization which submitted the invoice or financial transaction." )
+        @Description(shortDefinition="Organization which submitted the claim", formalDefinition="The Organization which submitted the claim or financial transaction." )
         protected Reference submitter;
 
         /**
-         * The actual object that is the target of the reference (The Organization which submitted the invoice or financial transaction.)
+         * The actual object that is the target of the reference (The Organization which submitted the claim or financial transaction.)
          */
         protected Organization submitterTarget;
 
@@ -223,7 +223,7 @@ public class PaymentReconciliation extends DomainResource {
          * The organization which is receiving the payment.
          */
         @Child(name = "payee", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Payee", formalDefinition="The organization which is receiving the payment." )
+        @Description(shortDefinition="Organization which is receiving the payment", formalDefinition="The organization which is receiving the payment." )
         protected Reference payee;
 
         /**
@@ -242,7 +242,7 @@ public class PaymentReconciliation extends DomainResource {
          * Amount paid for this detail.
          */
         @Child(name = "amount", type = {Money.class}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Detail amount", formalDefinition="Amount paid for this detail." )
+        @Description(shortDefinition="Amount being paid", formalDefinition="Amount paid for this detail." )
         protected Money amount;
 
         private static final long serialVersionUID = 661095855L;
@@ -365,7 +365,7 @@ public class PaymentReconciliation extends DomainResource {
         }
 
         /**
-         * @return {@link #submitter} (The Organization which submitted the invoice or financial transaction.)
+         * @return {@link #submitter} (The Organization which submitted the claim or financial transaction.)
          */
         public Reference getSubmitter() { 
           if (this.submitter == null)
@@ -381,7 +381,7 @@ public class PaymentReconciliation extends DomainResource {
         }
 
         /**
-         * @param value {@link #submitter} (The Organization which submitted the invoice or financial transaction.)
+         * @param value {@link #submitter} (The Organization which submitted the claim or financial transaction.)
          */
         public DetailsComponent setSubmitter(Reference value) { 
           this.submitter = value;
@@ -389,7 +389,7 @@ public class PaymentReconciliation extends DomainResource {
         }
 
         /**
-         * @return {@link #submitter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Organization which submitted the invoice or financial transaction.)
+         * @return {@link #submitter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Organization which submitted the claim or financial transaction.)
          */
         public Organization getSubmitterTarget() { 
           if (this.submitterTarget == null)
@@ -401,7 +401,7 @@ public class PaymentReconciliation extends DomainResource {
         }
 
         /**
-         * @param value {@link #submitter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Organization which submitted the invoice or financial transaction.)
+         * @param value {@link #submitter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Organization which submitted the claim or financial transaction.)
          */
         public DetailsComponent setSubmitterTarget(Organization value) { 
           this.submitterTarget = value;
@@ -530,7 +530,7 @@ public class PaymentReconciliation extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "Code to indicate the nature of the payment, adjustment, funds advance, etc.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("request", "Reference(Any)", "The claim or financial resource.", 0, java.lang.Integer.MAX_VALUE, request));
           childrenList.add(new Property("response", "Reference(Any)", "The claim response resource.", 0, java.lang.Integer.MAX_VALUE, response));
-          childrenList.add(new Property("submitter", "Reference(Organization)", "The Organization which submitted the invoice or financial transaction.", 0, java.lang.Integer.MAX_VALUE, submitter));
+          childrenList.add(new Property("submitter", "Reference(Organization)", "The Organization which submitted the claim or financial transaction.", 0, java.lang.Integer.MAX_VALUE, submitter));
           childrenList.add(new Property("payee", "Reference(Organization)", "The organization which is receiving the payment.", 0, java.lang.Integer.MAX_VALUE, payee));
           childrenList.add(new Property("date", "date", "The date of the invoice or financial resource.", 0, java.lang.Integer.MAX_VALUE, date));
           childrenList.add(new Property("amount", "Money", "Amount paid for this detail.", 0, java.lang.Integer.MAX_VALUE, amount));
@@ -725,7 +725,7 @@ public class PaymentReconciliation extends DomainResource {
          * The note text.
          */
         @Child(name = "text", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Notes text", formalDefinition="The note text." )
+        @Description(shortDefinition="Comment on the processing", formalDefinition="The note text." )
         protected StringType text;
 
         private static final long serialVersionUID = 874830709L;
@@ -917,7 +917,7 @@ public class PaymentReconciliation extends DomainResource {
       }
 
   public String fhirType() {
-    return "PaymentReconciliation.note";
+    return "PaymentReconciliation.processNote";
 
   }
 
@@ -1019,7 +1019,7 @@ public class PaymentReconciliation extends DomainResource {
      * List of individual settlement amounts and the corresponding transaction.
      */
     @Child(name = "detail", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Details", formalDefinition="List of individual settlement amounts and the corresponding transaction." )
+    @Description(shortDefinition="List of settlements", formalDefinition="List of individual settlement amounts and the corresponding transaction." )
     protected List<DetailsComponent> detail;
 
     /**
@@ -1040,11 +1040,11 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * Suite of notes.
      */
-    @Child(name = "note", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Note text", formalDefinition="Suite of notes." )
-    protected List<NotesComponent> note;
+    @Child(name = "processNote", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Processing comments", formalDefinition="Suite of notes." )
+    protected List<NotesComponent> processNote;
 
-    private static final long serialVersionUID = -358990199L;
+    private static final long serialVersionUID = -665475468L;
 
   /**
    * Constructor
@@ -1579,56 +1579,56 @@ public class PaymentReconciliation extends DomainResource {
     }
 
     /**
-     * @return {@link #note} (Suite of notes.)
+     * @return {@link #processNote} (Suite of notes.)
      */
-    public List<NotesComponent> getNote() { 
-      if (this.note == null)
-        this.note = new ArrayList<NotesComponent>();
-      return this.note;
+    public List<NotesComponent> getProcessNote() { 
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NotesComponent>();
+      return this.processNote;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public PaymentReconciliation setNote(List<NotesComponent> theNote) { 
-      this.note = theNote;
+    public PaymentReconciliation setProcessNote(List<NotesComponent> theProcessNote) { 
+      this.processNote = theProcessNote;
       return this;
     }
 
-    public boolean hasNote() { 
-      if (this.note == null)
+    public boolean hasProcessNote() { 
+      if (this.processNote == null)
         return false;
-      for (NotesComponent item : this.note)
+      for (NotesComponent item : this.processNote)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public NotesComponent addNote() { //3
+    public NotesComponent addProcessNote() { //3
       NotesComponent t = new NotesComponent();
-      if (this.note == null)
-        this.note = new ArrayList<NotesComponent>();
-      this.note.add(t);
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NotesComponent>();
+      this.processNote.add(t);
       return t;
     }
 
-    public PaymentReconciliation addNote(NotesComponent t) { //3
+    public PaymentReconciliation addProcessNote(NotesComponent t) { //3
       if (t == null)
         return this;
-      if (this.note == null)
-        this.note = new ArrayList<NotesComponent>();
-      this.note.add(t);
+      if (this.processNote == null)
+        this.processNote = new ArrayList<NotesComponent>();
+      this.processNote.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #processNote}, creating it if it does not already exist
      */
-    public NotesComponent getNoteFirstRep() { 
-      if (getNote().isEmpty()) {
-        addNote();
+    public NotesComponent getProcessNoteFirstRep() { 
+      if (getProcessNote().isEmpty()) {
+        addProcessNote();
       }
-      return getNote().get(0);
+      return getProcessNote().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1646,7 +1646,7 @@ public class PaymentReconciliation extends DomainResource {
         childrenList.add(new Property("detail", "", "List of individual settlement amounts and the corresponding transaction.", 0, java.lang.Integer.MAX_VALUE, detail));
         childrenList.add(new Property("form", "CodeableConcept", "The form to be used for printing the content.", 0, java.lang.Integer.MAX_VALUE, form));
         childrenList.add(new Property("total", "Money", "Total payment amount.", 0, java.lang.Integer.MAX_VALUE, total));
-        childrenList.add(new Property("note", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("processNote", "", "Suite of notes.", 0, java.lang.Integer.MAX_VALUE, processNote));
       }
 
       @Override
@@ -1665,7 +1665,7 @@ public class PaymentReconciliation extends DomainResource {
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // DetailsComponent
         case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
         case 110549828: /*total*/ return this.total == null ? new Base[0] : new Base[] {this.total}; // Money
-        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // NotesComponent
+        case 202339073: /*processNote*/ return this.processNote == null ? new Base[0] : this.processNote.toArray(new Base[this.processNote.size()]); // NotesComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1714,8 +1714,8 @@ public class PaymentReconciliation extends DomainResource {
         case 110549828: // total
           this.total = castToMoney(value); // Money
           return value;
-        case 3387378: // note
-          this.getNote().add((NotesComponent) value); // NotesComponent
+        case 202339073: // processNote
+          this.getProcessNote().add((NotesComponent) value); // NotesComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1751,8 +1751,8 @@ public class PaymentReconciliation extends DomainResource {
           this.form = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("total")) {
           this.total = castToMoney(value); // Money
-        } else if (name.equals("note")) {
-          this.getNote().add((NotesComponent) value);
+        } else if (name.equals("processNote")) {
+          this.getProcessNote().add((NotesComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -1774,7 +1774,7 @@ public class PaymentReconciliation extends DomainResource {
         case -1335224239:  return addDetail(); 
         case 3148996:  return getForm(); 
         case 110549828:  return getTotal(); 
-        case 3387378:  return addNote(); 
+        case 202339073:  return addProcessNote(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1796,7 +1796,7 @@ public class PaymentReconciliation extends DomainResource {
         case -1335224239: /*detail*/ return new String[] {};
         case 3148996: /*form*/ return new String[] {"CodeableConcept"};
         case 110549828: /*total*/ return new String[] {"Money"};
-        case 3387378: /*note*/ return new String[] {};
+        case 202339073: /*processNote*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1851,8 +1851,8 @@ public class PaymentReconciliation extends DomainResource {
           this.total = new Money();
           return this.total;
         }
-        else if (name.equals("note")) {
-          return addNote();
+        else if (name.equals("processNote")) {
+          return addProcessNote();
         }
         else
           return super.addChild(name);
@@ -1887,10 +1887,10 @@ public class PaymentReconciliation extends DomainResource {
         };
         dst.form = form == null ? null : form.copy();
         dst.total = total == null ? null : total.copy();
-        if (note != null) {
-          dst.note = new ArrayList<NotesComponent>();
-          for (NotesComponent i : note)
-            dst.note.add(i.copy());
+        if (processNote != null) {
+          dst.processNote = new ArrayList<NotesComponent>();
+          for (NotesComponent i : processNote)
+            dst.processNote.add(i.copy());
         };
         return dst;
       }
@@ -1910,7 +1910,7 @@ public class PaymentReconciliation extends DomainResource {
            && compareDeep(created, o.created, true) && compareDeep(organization, o.organization, true) && compareDeep(request, o.request, true)
            && compareDeep(outcome, o.outcome, true) && compareDeep(disposition, o.disposition, true) && compareDeep(requestProvider, o.requestProvider, true)
            && compareDeep(requestOrganization, o.requestOrganization, true) && compareDeep(detail, o.detail, true)
-           && compareDeep(form, o.form, true) && compareDeep(total, o.total, true) && compareDeep(note, o.note, true)
+           && compareDeep(form, o.form, true) && compareDeep(total, o.total, true) && compareDeep(processNote, o.processNote, true)
           ;
       }
 
@@ -1928,7 +1928,7 @@ public class PaymentReconciliation extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, period
           , created, organization, request, outcome, disposition, requestProvider, requestOrganization
-          , detail, form, total, note);
+          , detail, form, total, processNote);
       }
 
   @Override

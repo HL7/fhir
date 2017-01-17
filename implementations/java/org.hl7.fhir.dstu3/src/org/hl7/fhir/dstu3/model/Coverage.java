@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * Financial instrument which may be used to pay for or reimburse health care products and services.
+ * Financial instrument which may be used to reimburse or pay for health care products and services.
  */
 @ResourceDef(name="Coverage", profile="http://hl7.org/fhir/Profile/Coverage")
 public class Coverage extends DomainResource {
@@ -1101,7 +1101,7 @@ public class Coverage extends DomainResource {
       }
 
   public String fhirType() {
-    return "Coverage.group";
+    return "Coverage.grouping";
 
   }
 
@@ -1126,7 +1126,7 @@ public class Coverage extends DomainResource {
      * The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Type of coverage", formalDefinition="The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization." )
+    @Description(shortDefinition="Type of coverage such as medical or accident", formalDefinition="The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/coverage-type")
     protected CodeableConcept type;
 
@@ -1203,9 +1203,9 @@ public class Coverage extends DomainResource {
     /**
      * A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.
      */
-    @Child(name = "group", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "grouping", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional coverage classifications", formalDefinition="A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan." )
-    protected GroupComponent group;
+    protected GroupComponent grouping;
 
     /**
      * A unique identifier for a dependent under the coverage.
@@ -1247,7 +1247,7 @@ public class Coverage extends DomainResource {
     protected List<Contract> contractTarget;
 
 
-    private static final long serialVersionUID = -2003248518L;
+    private static final long serialVersionUID = -1719168406L;
 
   /**
    * Constructor
@@ -1665,26 +1665,26 @@ public class Coverage extends DomainResource {
     }
 
     /**
-     * @return {@link #group} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
+     * @return {@link #grouping} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
      */
-    public GroupComponent getGroup() { 
-      if (this.group == null)
+    public GroupComponent getGrouping() { 
+      if (this.grouping == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Coverage.group");
+          throw new Error("Attempt to auto-create Coverage.grouping");
         else if (Configuration.doAutoCreate())
-          this.group = new GroupComponent(); // cc
-      return this.group;
+          this.grouping = new GroupComponent(); // cc
+      return this.grouping;
     }
 
-    public boolean hasGroup() { 
-      return this.group != null && !this.group.isEmpty();
+    public boolean hasGrouping() { 
+      return this.grouping != null && !this.grouping.isEmpty();
     }
 
     /**
-     * @param value {@link #group} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
+     * @param value {@link #grouping} (A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.)
      */
-    public Coverage setGroup(GroupComponent value) { 
-      this.group = value;
+    public Coverage setGrouping(GroupComponent value) { 
+      this.grouping = value;
       return this;
     }
 
@@ -1967,7 +1967,7 @@ public class Coverage extends DomainResource {
         childrenList.add(new Property("relationship", "CodeableConcept", "The relationship of beneficiary (patient) to the subscriber.", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("period", "Period", "Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("payor", "Reference(Organization|Patient|RelatedPerson)", "The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).", 0, java.lang.Integer.MAX_VALUE, payor));
-        childrenList.add(new Property("group", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, group));
+        childrenList.add(new Property("grouping", "", "A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.", 0, java.lang.Integer.MAX_VALUE, grouping));
         childrenList.add(new Property("dependent", "string", "A unique identifier for a dependent under the coverage.", 0, java.lang.Integer.MAX_VALUE, dependent));
         childrenList.add(new Property("sequence", "string", "An optional counter for a particular instance of the identified coverage which increments upon each renewal.", 0, java.lang.Integer.MAX_VALUE, sequence));
         childrenList.add(new Property("order", "positiveInt", "The order of applicability of this coverage relative to other coverages which are currently inforce. Note, there may be gaps in the numbering and this does not imply primary, secondard etc. as the specific positioning of coverages depends upon the episode of care.", 0, java.lang.Integer.MAX_VALUE, order));
@@ -1988,7 +1988,7 @@ public class Coverage extends DomainResource {
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 106443915: /*payor*/ return this.payor == null ? new Base[0] : this.payor.toArray(new Base[this.payor.size()]); // Reference
-        case 98629247: /*group*/ return this.group == null ? new Base[0] : new Base[] {this.group}; // GroupComponent
+        case 506371331: /*grouping*/ return this.grouping == null ? new Base[0] : new Base[] {this.grouping}; // GroupComponent
         case -1109226753: /*dependent*/ return this.dependent == null ? new Base[0] : new Base[] {this.dependent}; // StringType
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // StringType
         case 106006350: /*order*/ return this.order == null ? new Base[0] : new Base[] {this.order}; // PositiveIntType
@@ -2033,8 +2033,8 @@ public class Coverage extends DomainResource {
         case 106443915: // payor
           this.getPayor().add(castToReference(value)); // Reference
           return value;
-        case 98629247: // group
-          this.group = (GroupComponent) value; // GroupComponent
+        case 506371331: // grouping
+          this.grouping = (GroupComponent) value; // GroupComponent
           return value;
         case -1109226753: // dependent
           this.dependent = castToString(value); // StringType
@@ -2079,8 +2079,8 @@ public class Coverage extends DomainResource {
           this.period = castToPeriod(value); // Period
         } else if (name.equals("payor")) {
           this.getPayor().add(castToReference(value));
-        } else if (name.equals("group")) {
-          this.group = (GroupComponent) value; // GroupComponent
+        } else if (name.equals("grouping")) {
+          this.grouping = (GroupComponent) value; // GroupComponent
         } else if (name.equals("dependent")) {
           this.dependent = castToString(value); // StringType
         } else if (name.equals("sequence")) {
@@ -2109,7 +2109,7 @@ public class Coverage extends DomainResource {
         case -261851592:  return getRelationship(); 
         case -991726143:  return getPeriod(); 
         case 106443915:  return addPayor(); 
-        case 98629247:  return getGroup(); 
+        case 506371331:  return getGrouping(); 
         case -1109226753:  return getDependentElement();
         case 1349547969:  return getSequenceElement();
         case 106006350:  return getOrderElement();
@@ -2133,7 +2133,7 @@ public class Coverage extends DomainResource {
         case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
         case -991726143: /*period*/ return new String[] {"Period"};
         case 106443915: /*payor*/ return new String[] {"Reference"};
-        case 98629247: /*group*/ return new String[] {};
+        case 506371331: /*grouping*/ return new String[] {};
         case -1109226753: /*dependent*/ return new String[] {"string"};
         case 1349547969: /*sequence*/ return new String[] {"string"};
         case 106006350: /*order*/ return new String[] {"positiveInt"};
@@ -2182,9 +2182,9 @@ public class Coverage extends DomainResource {
         else if (name.equals("payor")) {
           return addPayor();
         }
-        else if (name.equals("group")) {
-          this.group = new GroupComponent();
-          return this.group;
+        else if (name.equals("grouping")) {
+          this.grouping = new GroupComponent();
+          return this.grouping;
         }
         else if (name.equals("dependent")) {
           throw new FHIRException("Cannot call addChild on a primitive type Coverage.dependent");
@@ -2231,7 +2231,7 @@ public class Coverage extends DomainResource {
           for (Reference i : payor)
             dst.payor.add(i.copy());
         };
-        dst.group = group == null ? null : group.copy();
+        dst.grouping = grouping == null ? null : grouping.copy();
         dst.dependent = dependent == null ? null : dependent.copy();
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.order = order == null ? null : order.copy();
@@ -2259,7 +2259,7 @@ public class Coverage extends DomainResource {
            && compareDeep(policyHolder, o.policyHolder, true) && compareDeep(subscriber, o.subscriber, true)
            && compareDeep(subscriberId, o.subscriberId, true) && compareDeep(beneficiary, o.beneficiary, true)
            && compareDeep(relationship, o.relationship, true) && compareDeep(period, o.period, true) && compareDeep(payor, o.payor, true)
-           && compareDeep(group, o.group, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
+           && compareDeep(grouping, o.grouping, true) && compareDeep(dependent, o.dependent, true) && compareDeep(sequence, o.sequence, true)
            && compareDeep(order, o.order, true) && compareDeep(network, o.network, true) && compareDeep(contract, o.contract, true)
           ;
       }
@@ -2279,7 +2279,7 @@ public class Coverage extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
           , policyHolder, subscriber, subscriberId, beneficiary, relationship, period, payor
-          , group, dependent, sequence, order, network, contract);
+          , grouping, dependent, sequence, order, network, contract);
       }
 
   @Override
@@ -2338,17 +2338,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>Sub-group identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subGroup</b><br>
+   * Path: <b>Coverage.grouping.subGroup</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subgroup", path="Coverage.group.subGroup", description="Sub-group identifier", type="string" )
+  @SearchParamDefinition(name="subgroup", path="Coverage.grouping.subGroup", description="Sub-group identifier", type="string" )
   public static final String SP_SUBGROUP = "subgroup";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subgroup</b>
    * <p>
    * Description: <b>Sub-group identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subGroup</b><br>
+   * Path: <b>Coverage.grouping.subGroup</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam SUBGROUP = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SUBGROUP);
@@ -2384,17 +2384,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>Sub-plan identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subPlan</b><br>
+   * Path: <b>Coverage.grouping.subPlan</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subplan", path="Coverage.group.subPlan", description="Sub-plan identifier", type="string" )
+  @SearchParamDefinition(name="subplan", path="Coverage.grouping.subPlan", description="Sub-plan identifier", type="string" )
   public static final String SP_SUBPLAN = "subplan";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subplan</b>
    * <p>
    * Description: <b>Sub-plan identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subPlan</b><br>
+   * Path: <b>Coverage.grouping.subPlan</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam SUBPLAN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SUBPLAN);
@@ -2496,17 +2496,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>Sub-class identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subClass</b><br>
+   * Path: <b>Coverage.grouping.subClass</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subclass", path="Coverage.group.subClass", description="Sub-class identifier", type="string" )
+  @SearchParamDefinition(name="subclass", path="Coverage.grouping.subClass", description="Sub-class identifier", type="string" )
   public static final String SP_SUBCLASS = "subclass";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subclass</b>
    * <p>
    * Description: <b>Sub-class identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.subClass</b><br>
+   * Path: <b>Coverage.grouping.subClass</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam SUBCLASS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_SUBCLASS);
@@ -2516,17 +2516,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>A plan or policy identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.plan</b><br>
+   * Path: <b>Coverage.grouping.plan</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="plan", path="Coverage.group.plan", description="A plan or policy identifier", type="string" )
+  @SearchParamDefinition(name="plan", path="Coverage.grouping.plan", description="A plan or policy identifier", type="string" )
   public static final String SP_PLAN = "plan";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>plan</b>
    * <p>
    * Description: <b>A plan or policy identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.plan</b><br>
+   * Path: <b>Coverage.grouping.plan</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PLAN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PLAN);
@@ -2536,17 +2536,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>Class identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.class</b><br>
+   * Path: <b>Coverage.grouping.class</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="class", path="Coverage.group.class", description="Class identifier", type="string" )
+  @SearchParamDefinition(name="class", path="Coverage.grouping.class", description="Class identifier", type="string" )
   public static final String SP_CLASS = "class";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>class</b>
    * <p>
    * Description: <b>Class identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.class</b><br>
+   * Path: <b>Coverage.grouping.class</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam CLASS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CLASS);
@@ -2576,17 +2576,17 @@ public class Coverage extends DomainResource {
    * <p>
    * Description: <b>Group identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.group</b><br>
+   * Path: <b>Coverage.grouping.group</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="group", path="Coverage.group.group", description="Group identifier", type="string" )
+  @SearchParamDefinition(name="group", path="Coverage.grouping.group", description="Group identifier", type="string" )
   public static final String SP_GROUP = "group";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>group</b>
    * <p>
    * Description: <b>Group identifier</b><br>
    * Type: <b>string</b><br>
-   * Path: <b>Coverage.group.group</b><br>
+   * Path: <b>Coverage.grouping.group</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam GROUP = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GROUP);

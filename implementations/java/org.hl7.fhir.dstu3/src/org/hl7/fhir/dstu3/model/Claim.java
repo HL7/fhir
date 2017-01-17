@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1231,7 +1231,7 @@ public class Claim extends DomainResource {
          * The general class of the information supplied: information; exception; accident, employment; onset, etc.
          */
         @Child(name = "category", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Category of information", formalDefinition="The general class of the information supplied: information; exception; accident, employment; onset, etc." )
+        @Description(shortDefinition="General class of information", formalDefinition="The general class of the information supplied: information; exception; accident, employment; onset, etc." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/claim-informationcategory")
         protected CodeableConcept category;
 
@@ -1727,7 +1727,7 @@ public class Claim extends DomainResource {
          * The type of the Diagnosis, for example: admitting, primary, secondary, discharge.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Type of Diagnosis", formalDefinition="The type of the Diagnosis, for example: admitting, primary, secondary, discharge." )
+        @Description(shortDefinition="Timing or nature of the diagnosis", formalDefinition="The type of the Diagnosis, for example: admitting, primary, secondary, discharge." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/ex-diagnosistype")
         protected List<CodeableConcept> type;
 
@@ -3367,14 +3367,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
-        /**
-         * The materials and placement date of prior fixed prosthesis.
-         */
-        @Child(name = "prosthesis", type = {}, order=21, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
-        protected ProsthesisComponent prosthesis;
-
-        private static final long serialVersionUID = 2102127643L;
+        private static final long serialVersionUID = -1952982652L;
 
     /**
      * Constructor
@@ -4305,30 +4298,6 @@ public class Claim extends DomainResource {
           return getDetail().get(0);
         }
 
-        /**
-         * @return {@link #prosthesis} (The materials and placement date of prior fixed prosthesis.)
-         */
-        public ProsthesisComponent getProsthesis() { 
-          if (this.prosthesis == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemComponent.prosthesis");
-            else if (Configuration.doAutoCreate())
-              this.prosthesis = new ProsthesisComponent(); // cc
-          return this.prosthesis;
-        }
-
-        public boolean hasProsthesis() { 
-          return this.prosthesis != null && !this.prosthesis.isEmpty();
-        }
-
-        /**
-         * @param value {@link #prosthesis} (The materials and placement date of prior fixed prosthesis.)
-         */
-        public ItemComponent setProsthesis(ProsthesisComponent value) { 
-          this.prosthesis = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
@@ -4351,7 +4320,6 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("bodySite", "CodeableConcept", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subSite", "CodeableConcept", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
           childrenList.add(new Property("detail", "", "Second tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, detail));
-          childrenList.add(new Property("prosthesis", "", "The materials and placement date of prior fixed prosthesis.", 0, java.lang.Integer.MAX_VALUE, prosthesis));
         }
 
       @Override
@@ -4377,7 +4345,6 @@ public class Claim extends DomainResource {
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : new Base[] {this.bodySite}; // CodeableConcept
         case -1868566105: /*subSite*/ return this.subSite == null ? new Base[0] : this.subSite.toArray(new Base[this.subSite.size()]); // CodeableConcept
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // DetailComponent
-        case -2138744398: /*prosthesis*/ return this.prosthesis == null ? new Base[0] : new Base[] {this.prosthesis}; // ProsthesisComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -4446,9 +4413,6 @@ public class Claim extends DomainResource {
         case -1335224239: // detail
           this.getDetail().add((DetailComponent) value); // DetailComponent
           return value;
-        case -2138744398: // prosthesis
-          this.prosthesis = (ProsthesisComponent) value; // ProsthesisComponent
-          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -4496,8 +4460,6 @@ public class Claim extends DomainResource {
           this.getSubSite().add(castToCodeableConcept(value));
         } else if (name.equals("detail")) {
           this.getDetail().add((DetailComponent) value);
-        } else if (name.equals("prosthesis")) {
-          this.prosthesis = (ProsthesisComponent) value; // ProsthesisComponent
         } else
           return super.setProperty(name, value);
         return value;
@@ -4528,7 +4490,6 @@ public class Claim extends DomainResource {
         case 1702620169:  return getBodySite(); 
         case -1868566105:  return addSubSite(); 
         case -1335224239:  return addDetail(); 
-        case -2138744398:  return getProsthesis(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -4557,7 +4518,6 @@ public class Claim extends DomainResource {
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1868566105: /*subSite*/ return new String[] {"CodeableConcept"};
         case -1335224239: /*detail*/ return new String[] {};
-        case -2138744398: /*prosthesis*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -4646,10 +4606,6 @@ public class Claim extends DomainResource {
         else if (name.equals("detail")) {
           return addDetail();
         }
-        else if (name.equals("prosthesis")) {
-          this.prosthesis = new ProsthesisComponent();
-          return this.prosthesis;
-        }
         else
           return super.addChild(name);
       }
@@ -4713,7 +4669,6 @@ public class Claim extends DomainResource {
           for (DetailComponent i : detail)
             dst.detail.add(i.copy());
         };
-        dst.prosthesis = prosthesis == null ? null : prosthesis.copy();
         return dst;
       }
 
@@ -4731,8 +4686,7 @@ public class Claim extends DomainResource {
            && compareDeep(programCode, o.programCode, true) && compareDeep(serviced, o.serviced, true) && compareDeep(location, o.location, true)
            && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true)
            && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(subSite, o.subSite, true) && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true)
-          ;
+           && compareDeep(subSite, o.subSite, true) && compareDeep(detail, o.detail, true);
       }
 
       @Override
@@ -4752,7 +4706,7 @@ public class Claim extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeamLinkId, diagnosisLinkId
           , procedureLinkId, informationLinkId, revenue, category, service, modifier, programCode
           , serviced, location, quantity, unitPrice, factor, net, udi, bodySite, subSite
-          , detail, prosthesis);
+          , detail);
       }
 
   public String fhirType() {
@@ -6429,285 +6383,6 @@ public class Claim extends DomainResource {
 
   }
 
-    @Block()
-    public static class ProsthesisComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Indicates whether this is the initial placement of a fixed prosthesis.
-         */
-        @Child(name = "initial", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Is this the initial service", formalDefinition="Indicates whether this is the initial placement of a fixed prosthesis." )
-        protected BooleanType initial;
-
-        /**
-         * Date of the initial placement.
-         */
-        @Child(name = "priorDate", type = {DateType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Initial service Date", formalDefinition="Date of the initial placement." )
-        protected DateType priorDate;
-
-        /**
-         * Material of the prior denture or bridge prosthesis. (Oral).
-         */
-        @Child(name = "priorMaterial", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Prosthetic Material", formalDefinition="Material of the prior denture or bridge prosthesis. (Oral)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/oral-prosthodontic-material")
-        protected CodeableConcept priorMaterial;
-
-        private static final long serialVersionUID = -539400614L;
-
-    /**
-     * Constructor
-     */
-      public ProsthesisComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #initial} (Indicates whether this is the initial placement of a fixed prosthesis.). This is the underlying object with id, value and extensions. The accessor "getInitial" gives direct access to the value
-         */
-        public BooleanType getInitialElement() { 
-          if (this.initial == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProsthesisComponent.initial");
-            else if (Configuration.doAutoCreate())
-              this.initial = new BooleanType(); // bb
-          return this.initial;
-        }
-
-        public boolean hasInitialElement() { 
-          return this.initial != null && !this.initial.isEmpty();
-        }
-
-        public boolean hasInitial() { 
-          return this.initial != null && !this.initial.isEmpty();
-        }
-
-        /**
-         * @param value {@link #initial} (Indicates whether this is the initial placement of a fixed prosthesis.). This is the underlying object with id, value and extensions. The accessor "getInitial" gives direct access to the value
-         */
-        public ProsthesisComponent setInitialElement(BooleanType value) { 
-          this.initial = value;
-          return this;
-        }
-
-        /**
-         * @return Indicates whether this is the initial placement of a fixed prosthesis.
-         */
-        public boolean getInitial() { 
-          return this.initial == null || this.initial.isEmpty() ? false : this.initial.getValue();
-        }
-
-        /**
-         * @param value Indicates whether this is the initial placement of a fixed prosthesis.
-         */
-        public ProsthesisComponent setInitial(boolean value) { 
-            if (this.initial == null)
-              this.initial = new BooleanType();
-            this.initial.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #priorDate} (Date of the initial placement.). This is the underlying object with id, value and extensions. The accessor "getPriorDate" gives direct access to the value
-         */
-        public DateType getPriorDateElement() { 
-          if (this.priorDate == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProsthesisComponent.priorDate");
-            else if (Configuration.doAutoCreate())
-              this.priorDate = new DateType(); // bb
-          return this.priorDate;
-        }
-
-        public boolean hasPriorDateElement() { 
-          return this.priorDate != null && !this.priorDate.isEmpty();
-        }
-
-        public boolean hasPriorDate() { 
-          return this.priorDate != null && !this.priorDate.isEmpty();
-        }
-
-        /**
-         * @param value {@link #priorDate} (Date of the initial placement.). This is the underlying object with id, value and extensions. The accessor "getPriorDate" gives direct access to the value
-         */
-        public ProsthesisComponent setPriorDateElement(DateType value) { 
-          this.priorDate = value;
-          return this;
-        }
-
-        /**
-         * @return Date of the initial placement.
-         */
-        public Date getPriorDate() { 
-          return this.priorDate == null ? null : this.priorDate.getValue();
-        }
-
-        /**
-         * @param value Date of the initial placement.
-         */
-        public ProsthesisComponent setPriorDate(Date value) { 
-          if (value == null)
-            this.priorDate = null;
-          else {
-            if (this.priorDate == null)
-              this.priorDate = new DateType();
-            this.priorDate.setValue(value);
-          }
-          return this;
-        }
-
-        /**
-         * @return {@link #priorMaterial} (Material of the prior denture or bridge prosthesis. (Oral).)
-         */
-        public CodeableConcept getPriorMaterial() { 
-          if (this.priorMaterial == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProsthesisComponent.priorMaterial");
-            else if (Configuration.doAutoCreate())
-              this.priorMaterial = new CodeableConcept(); // cc
-          return this.priorMaterial;
-        }
-
-        public boolean hasPriorMaterial() { 
-          return this.priorMaterial != null && !this.priorMaterial.isEmpty();
-        }
-
-        /**
-         * @param value {@link #priorMaterial} (Material of the prior denture or bridge prosthesis. (Oral).)
-         */
-        public ProsthesisComponent setPriorMaterial(CodeableConcept value) { 
-          this.priorMaterial = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("initial", "boolean", "Indicates whether this is the initial placement of a fixed prosthesis.", 0, java.lang.Integer.MAX_VALUE, initial));
-          childrenList.add(new Property("priorDate", "date", "Date of the initial placement.", 0, java.lang.Integer.MAX_VALUE, priorDate));
-          childrenList.add(new Property("priorMaterial", "CodeableConcept", "Material of the prior denture or bridge prosthesis. (Oral).", 0, java.lang.Integer.MAX_VALUE, priorMaterial));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 1948342084: /*initial*/ return this.initial == null ? new Base[0] : new Base[] {this.initial}; // BooleanType
-        case -1770675816: /*priorDate*/ return this.priorDate == null ? new Base[0] : new Base[] {this.priorDate}; // DateType
-        case -532999663: /*priorMaterial*/ return this.priorMaterial == null ? new Base[0] : new Base[] {this.priorMaterial}; // CodeableConcept
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 1948342084: // initial
-          this.initial = castToBoolean(value); // BooleanType
-          return value;
-        case -1770675816: // priorDate
-          this.priorDate = castToDate(value); // DateType
-          return value;
-        case -532999663: // priorMaterial
-          this.priorMaterial = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("initial")) {
-          this.initial = castToBoolean(value); // BooleanType
-        } else if (name.equals("priorDate")) {
-          this.priorDate = castToDate(value); // DateType
-        } else if (name.equals("priorMaterial")) {
-          this.priorMaterial = castToCodeableConcept(value); // CodeableConcept
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1948342084:  return getInitialElement();
-        case -1770675816:  return getPriorDateElement();
-        case -532999663:  return getPriorMaterial(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1948342084: /*initial*/ return new String[] {"boolean"};
-        case -1770675816: /*priorDate*/ return new String[] {"date"};
-        case -532999663: /*priorMaterial*/ return new String[] {"CodeableConcept"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("initial")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.initial");
-        }
-        else if (name.equals("priorDate")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.priorDate");
-        }
-        else if (name.equals("priorMaterial")) {
-          this.priorMaterial = new CodeableConcept();
-          return this.priorMaterial;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ProsthesisComponent copy() {
-        ProsthesisComponent dst = new ProsthesisComponent();
-        copyValues(dst);
-        dst.initial = initial == null ? null : initial.copy();
-        dst.priorDate = priorDate == null ? null : priorDate.copy();
-        dst.priorMaterial = priorMaterial == null ? null : priorMaterial.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ProsthesisComponent))
-          return false;
-        ProsthesisComponent o = (ProsthesisComponent) other;
-        return compareDeep(initial, o.initial, true) && compareDeep(priorDate, o.priorDate, true) && compareDeep(priorMaterial, o.priorMaterial, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ProsthesisComponent))
-          return false;
-        ProsthesisComponent o = (ProsthesisComponent) other;
-        return compareValues(initial, o.initial, true) && compareValues(priorDate, o.priorDate, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(initial, priorDate, priorMaterial
-          );
-      }
-
-  public String fhirType() {
-    return "Claim.item.prosthesis";
-
-  }
-
-  }
-
     /**
      * The business identifier for the instance: claim number, pre-determination or pre-authorization number.
      */
@@ -6848,7 +6523,7 @@ public class Claim extends DomainResource {
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
     @Child(name = "prescription", type = {MedicationRequest.class, VisionPrescription.class}, order=15, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
+    @Description(shortDefinition="Prescription authorizing services or products", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Reference prescription;
 
     /**
@@ -6860,7 +6535,7 @@ public class Claim extends DomainResource {
      * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'.
      */
     @Child(name = "originalPrescription", type = {MedicationRequest.class}, order=16, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'." )
+    @Description(shortDefinition="Original prescription if superceded by fulfiller", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products. For example, a physician may prescribe a medication which the pharmacy determines is contraindicated, or for which the patient has an intolerance, and therefor issues a new precription for an alternate medication which has the same theraputic intent. The prescription from the pharmacy becomes the 'prescription' and that from the physician becomes the 'original prescription'." )
     protected Reference originalPrescription;
 
     /**
@@ -6917,7 +6592,7 @@ public class Claim extends DomainResource {
      * List of patient diagnosis for which care is sought.
      */
     @Child(name = "diagnosis", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Diagnosis", formalDefinition="List of patient diagnosis for which care is sought." )
+    @Description(shortDefinition="List of Diagnosis", formalDefinition="List of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**

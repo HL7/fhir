@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -493,7 +493,7 @@ public class ProcessRequest extends DomainResource {
      * The organization which is the target of the request.
      */
     @Child(name = "target", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Target of the request", formalDefinition="The organization which is the target of the request." )
+    @Description(shortDefinition="Party which is the target of the request", formalDefinition="The organization which is the target of the request." )
     protected Reference target;
 
     /**
@@ -536,7 +536,7 @@ public class ProcessRequest extends DomainResource {
      * Reference of resource which is the target or subject of this action.
      */
     @Child(name = "request", type = {Reference.class}, order=7, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Request reference", formalDefinition="Reference of resource which is the target or subject of this action." )
+    @Description(shortDefinition="Reference to the Request resource", formalDefinition="Reference of resource which is the target or subject of this action." )
     protected Reference request;
 
     /**
@@ -548,7 +548,7 @@ public class ProcessRequest extends DomainResource {
      * Reference of a prior response to resource which is the target or subject of this action.
      */
     @Child(name = "response", type = {Reference.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Response reference", formalDefinition="Reference of a prior response to resource which is the target or subject of this action." )
+    @Description(shortDefinition="Reference to the Response resource", formalDefinition="Reference of a prior response to resource which is the target or subject of this action." )
     protected Reference response;
 
     /**
@@ -560,7 +560,7 @@ public class ProcessRequest extends DomainResource {
      * If true remove all history excluding audit.
      */
     @Child(name = "nullify", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Nullify", formalDefinition="If true remove all history excluding audit." )
+    @Description(shortDefinition="Remove history", formalDefinition="If true remove all history excluding audit." )
     protected BooleanType nullify;
 
     /**
@@ -595,7 +595,7 @@ public class ProcessRequest extends DomainResource {
      * A period of time during which the fulfilling resources would have been created.
      */
     @Child(name = "period", type = {Period.class}, order=14, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Period", formalDefinition="A period of time during which the fulfilling resources would have been created." )
+    @Description(shortDefinition="Selection period", formalDefinition="A period of time during which the fulfilling resources would have been created." )
     protected Period period;
 
     private static final long serialVersionUID = -346692020L;

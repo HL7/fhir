@@ -4957,7 +4957,7 @@ public class VersionConvertor_14_20 {
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
-      tgt.addConcept(convertCoding(t));
+      tgt.addCode(convertCoding(t));
     for (org.hl7.fhir.dstu2016may.model.CodeType t : src.getSubjectType())
       tgt.addSubjectType(t.getValue());
     for (org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemComponent t : src.getItem())
@@ -4989,7 +4989,7 @@ public class VersionConvertor_14_20 {
 //      tgt.addUseContext(convertCodeableConcept(t));
     if (src.hasTitle())
       tgt.setTitle(src.getTitle());
-    for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept())
+    for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addConcept(convertCoding(t));
     for (org.hl7.fhir.dstu3.model.CodeType t : src.getSubjectType())
       tgt.addSubjectType(t.getValue());
@@ -5028,7 +5028,7 @@ public class VersionConvertor_14_20 {
     if (src.hasLinkId())
       tgt.setLinkId(src.getLinkId());
     for (org.hl7.fhir.dstu2016may.model.Coding t : src.getConcept())
-      tgt.addConcept(convertCoding(t));
+      tgt.addCode(convertCoding(t));
     if (src.hasPrefix())
       tgt.setPrefix(src.getPrefix());
     if (src.hasText())
@@ -5060,7 +5060,7 @@ public class VersionConvertor_14_20 {
     copyElement(src, tgt);
     if (src.hasLinkId())
       tgt.setLinkId(src.getLinkId());
-    for (org.hl7.fhir.dstu3.model.Coding t : src.getConcept())
+    for (org.hl7.fhir.dstu3.model.Coding t : src.getCode())
       tgt.addConcept(convertCoding(t));
     if (src.hasPrefix())
       tgt.setPrefix(src.getPrefix());
@@ -5098,7 +5098,7 @@ public class VersionConvertor_14_20 {
     case INTEGER: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.INTEGER;
     case DATE: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.DATE;
     case DATETIME: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.DATETIME;
-    case INSTANT: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.INSTANT;
+    case INSTANT: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.DATETIME;
     case TIME: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.TIME;
     case STRING: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.STRING;
     case TEXT: return org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType.TEXT;
@@ -5124,7 +5124,6 @@ public class VersionConvertor_14_20 {
     case INTEGER: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.INTEGER;
     case DATE: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.DATE;
     case DATETIME: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.DATETIME;
-    case INSTANT: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.INSTANT;
     case TIME: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.TIME;
     case STRING: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.STRING;
     case TEXT: return org.hl7.fhir.dstu2016may.model.Questionnaire.QuestionnaireItemType.TEXT;

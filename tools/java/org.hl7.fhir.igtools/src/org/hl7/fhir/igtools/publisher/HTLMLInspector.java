@@ -53,7 +53,6 @@ public class HTLMLInspector {
       this.messages = messages;
       this.source = source;
     }
-
   }
 
 //  public class HtmlSanitizerObserver implements HtmlChangeListener<HtmlChangeListenerContext> {
@@ -163,7 +162,6 @@ public class HTLMLInspector {
         if (checkLinks(s, "", lf.getXhtml(), null, messages) != NodeChangeType.NONE) // returns true if changed
           saveFile(lf);
     }
-
  
     log.logDebugMessage(LogCategory.HTML, "Checking Other Links");
     // check other links:
@@ -173,6 +171,7 @@ public class HTLMLInspector {
     }
     
     log.logDebugMessage(LogCategory.HTML, "Done checking");
+    
     return messages;
   }
 

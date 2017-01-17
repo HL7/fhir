@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -70,6 +70,10 @@ public class MedicationAdministration extends DomainResource {
          */
         STOPPED, 
         /**
+         * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         */
+        UNKNOWN, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
@@ -86,6 +90,8 @@ public class MedicationAdministration extends DomainResource {
           return ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return STOPPED;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -98,6 +104,7 @@ public class MedicationAdministration extends DomainResource {
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
             case STOPPED: return "stopped";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
@@ -108,6 +115,7 @@ public class MedicationAdministration extends DomainResource {
             case COMPLETED: return "http://hl7.org/fhir/medication-admin-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/medication-admin-status";
             case STOPPED: return "http://hl7.org/fhir/medication-admin-status";
+            case UNKNOWN: return "http://hl7.org/fhir/medication-admin-status";
             default: return "?";
           }
         }
@@ -118,6 +126,7 @@ public class MedicationAdministration extends DomainResource {
             case COMPLETED: return "All actions that are implied by the administration have occurred.";
             case ENTEREDINERROR: return "The administration was entered in error and therefore nullified.";
             case STOPPED: return "Actions implied by the administration have been permanently halted, before all of them occurred.";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -128,6 +137,7 @@ public class MedicationAdministration extends DomainResource {
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
             case STOPPED: return "Stopped";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -148,6 +158,8 @@ public class MedicationAdministration extends DomainResource {
           return MedicationAdministrationStatus.ENTEREDINERROR;
         if ("stopped".equals(codeString))
           return MedicationAdministrationStatus.STOPPED;
+        if ("unknown".equals(codeString))
+          return MedicationAdministrationStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
         }
         public Enumeration<MedicationAdministrationStatus> fromType(Base code) throws FHIRException {
@@ -168,6 +180,8 @@ public class MedicationAdministration extends DomainResource {
           return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.ENTEREDINERROR);
         if ("stopped".equals(codeString))
           return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.STOPPED);
+        if ("unknown".equals(codeString))
+          return new Enumeration<MedicationAdministrationStatus>(this, MedicationAdministrationStatus.UNKNOWN);
         throw new FHIRException("Unknown MedicationAdministrationStatus code '"+codeString+"'");
         }
     public String toCode(MedicationAdministrationStatus code) {
@@ -181,12 +195,230 @@ public class MedicationAdministration extends DomainResource {
         return "entered-in-error";
       if (code == MedicationAdministrationStatus.STOPPED)
         return "stopped";
+      if (code == MedicationAdministrationStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(MedicationAdministrationStatus code) {
       return code.getSystem();
       }
     }
+
+    @Block()
+    public static class MedicationAdministrationPerformerComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Describes the type of performer of the administration (e.g. nurse, physician, etc).
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Type of performer", formalDefinition="Describes the type of performer of the administration (e.g. nurse, physician, etc)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
+        protected CodeableConcept role;
+
+        /**
+         * The device, practitioner, etc. who performed the action.
+         */
+        @Child(name = "actor", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Individual who was performing", formalDefinition="The device, practitioner, etc. who performed the action." )
+        protected Reference actor;
+
+        /**
+         * The actual object that is the target of the reference (The device, practitioner, etc. who performed the action.)
+         */
+        protected Resource actorTarget;
+
+        private static final long serialVersionUID = 805521719L;
+
+    /**
+     * Constructor
+     */
+      public MedicationAdministrationPerformerComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MedicationAdministrationPerformerComponent(Reference actor) {
+        super();
+        this.actor = actor;
+      }
+
+        /**
+         * @return {@link #role} (Describes the type of performer of the administration (e.g. nurse, physician, etc).)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationPerformerComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (Describes the type of performer of the administration (e.g. nurse, physician, etc).)
+         */
+        public MedicationAdministrationPerformerComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} (The device, practitioner, etc. who performed the action.)
+         */
+        public Reference getActor() { 
+          if (this.actor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationPerformerComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actor = new Reference(); // cc
+          return this.actor;
+        }
+
+        public boolean hasActor() { 
+          return this.actor != null && !this.actor.isEmpty();
+        }
+
+        /**
+         * @param value {@link #actor} (The device, practitioner, etc. who performed the action.)
+         */
+        public MedicationAdministrationPerformerComponent setActor(Reference value) { 
+          this.actor = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who performed the action.)
+         */
+        public Resource getActorTarget() { 
+          return this.actorTarget;
+        }
+
+        /**
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who performed the action.)
+         */
+        public MedicationAdministrationPerformerComponent setActorTarget(Resource value) { 
+          this.actorTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "CodeableConcept", "Describes the type of performer of the administration (e.g. nurse, physician, etc).", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who performed the action.", 0, java.lang.Integer.MAX_VALUE, actor));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 92645877: // actor
+          this.actor = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("actor")) {
+          this.actor = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole(); 
+        case 92645877:  return getActor(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 92645877: /*actor*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MedicationAdministrationPerformerComponent copy() {
+        MedicationAdministrationPerformerComponent dst = new MedicationAdministrationPerformerComponent();
+        copyValues(dst);
+        dst.role = role == null ? null : role.copy();
+        dst.actor = actor == null ? null : actor.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationAdministrationPerformerComponent))
+          return false;
+        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationAdministrationPerformerComponent))
+          return false;
+        MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor);
+      }
+
+  public String fhirType() {
+    return "MedicationAdministration.performer";
+
+  }
+
+  }
 
     @Block()
     public static class MedicationAdministrationDosageComponent extends BackboneElement implements IBaseBackboneElement {
@@ -619,49 +851,73 @@ public class MedicationAdministration extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
+     */
+    @Child(name = "definition", type = {PlanDefinition.class, ActivityDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event." )
+    protected List<Reference> definition;
+    /**
+     * The actual objects that are the target of the reference (A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.)
+     */
+    protected List<Resource> definitionTarget;
+
+
+    /**
+     * A larger event of which this particular event is a component or step.
+     */
+    @Child(name = "partOf", type = {MedicationAdministration.class, Procedure.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Part of referenced event", formalDefinition="A larger event of which this particular event is a component or step." )
+    protected List<Reference> partOf;
+    /**
+     * The actual objects that are the target of the reference (A larger event of which this particular event is a component or step.)
+     */
+    protected List<Resource> partOfTarget;
+
+
+    /**
      * Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way." )
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped | unknown", formalDefinition="Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-admin-status")
     protected Enumeration<MedicationAdministrationStatus> status;
 
     /**
      * Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What was administered", formalDefinition="Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type medication;
 
     /**
-     * The person or animal receiving the medication.
+     * The person or animal or group receiving the medication.
      */
-    @Child(name = "patient", type = {Patient.class}, order=3, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who received medication", formalDefinition="The person or animal receiving the medication." )
-    protected Reference patient;
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who received medication", formalDefinition="The person or animal or group receiving the medication." )
+    protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (The person or animal receiving the medication.)
+     * The actual object that is the target of the reference (The person or animal or group receiving the medication.)
      */
-    protected Patient patientTarget;
+    protected Resource subjectTarget;
 
     /**
      * The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
      */
-    @Child(name = "encounter", type = {Encounter.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Encounter administered as part of", formalDefinition="The visit, admission or other contact between patient and health care provider the medication administration was performed as part of." )
-    protected Reference encounter;
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Encounter or Episode of Care administered as part of", formalDefinition="The visit, admission or other contact between patient and health care provider the medication administration was performed as part of." )
+    protected Reference context;
 
     /**
      * The actual object that is the target of the reference (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    protected Encounter encounterTarget;
+    protected Resource contextTarget;
 
     /**
      * Additional information (for example, patient height and weight) that supports the administration of the medication.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInformation", type = {Reference.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information to support administration", formalDefinition="Additional information (for example, patient height and weight) that supports the administration of the medication." )
     protected List<Reference> supportingInformation;
     /**
@@ -673,26 +929,33 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Start and end time of administration", formalDefinition="A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate." )
     protected Type effective;
 
     /**
      * The individual who was responsible for giving the medication to the patient.
      */
-    @Child(name = "performer", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=7, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "performer", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who administered substance", formalDefinition="The individual who was responsible for giving the medication to the patient." )
-    protected Reference performer;
+    protected List<MedicationAdministrationPerformerComponent> performer;
 
     /**
-     * The actual object that is the target of the reference (The individual who was responsible for giving the medication to the patient.)
+     * The organization the device or practitioner was acting on behalf of.
      */
-    protected Resource performerTarget;
+    @Child(name = "onBehalfOf", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+    protected Reference onBehalfOf;
+
+    /**
+     * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
+     */
+    protected Organization onBehalfOfTarget;
 
     /**
      * Condition or observation that supports why the medication was administered.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or Observation that supports why the medication was administered", formalDefinition="Condition or observation that supports why the medication was administered." )
     protected List<Reference> reasonReference;
     /**
@@ -704,7 +967,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name = "prescription", type = {MedicationRequest.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "prescription", type = {MedicationRequest.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Request administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
     protected Reference prescription;
 
@@ -716,14 +979,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
      */
-    @Child(name = "notGiven", type = {BooleanType.class}, order=10, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "notGiven", type = {BooleanType.class}, order=13, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="True if medication not administered", formalDefinition="Set this to true if the record is saying that the medication was NOT administered." )
     protected BooleanType notGiven;
 
     /**
      * A code indicating why the administration was not performed.
      */
-    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration not performed", formalDefinition="A code indicating why the administration was not performed." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes")
     protected List<CodeableConcept> reasonNotGiven;
@@ -731,7 +994,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A code indicating why the medication was given.
      */
-    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-given-codes")
     protected List<CodeableConcept> reasonGiven;
@@ -739,7 +1002,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The device used in administering the medication to the patient.  For example, a particular infusion pump.
      */
-    @Child(name = "device", type = {Device.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "device", type = {Device.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Device used to administer", formalDefinition="The device used in administering the medication to the patient.  For example, a particular infusion pump." )
     protected List<Reference> device;
     /**
@@ -751,21 +1014,21 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the administration", formalDefinition="Extra information about the medication administration that is not conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Describes the medication dosage information details e.g. dose, rate, site, route, etc.
      */
-    @Child(name = "dosage", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dosage", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Describes the medication dosage information details e.g. dose, rate, site, route, etc." )
     protected MedicationAdministrationDosageComponent dosage;
 
     /**
      * A summary of the events of interest that have occurred, such as when the administration was verified.
      */
-    @Child(name = "eventHistory", type = {Provenance.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred, such as when the administration was verified." )
     protected List<Reference> eventHistory;
     /**
@@ -774,7 +1037,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -1414601061L;
+    private static final long serialVersionUID = 1220954246L;
 
   /**
    * Constructor
@@ -786,11 +1049,11 @@ public class MedicationAdministration extends DomainResource {
   /**
    * Constructor
    */
-    public MedicationAdministration(Enumeration<MedicationAdministrationStatus> status, Type medication, Reference patient, Type effective) {
+    public MedicationAdministration(Enumeration<MedicationAdministrationStatus> status, Type medication, Reference subject, Type effective) {
       super();
       this.status = status;
       this.medication = medication;
-      this.patient = patient;
+      this.subject = subject;
       this.effective = effective;
     }
 
@@ -845,6 +1108,132 @@ public class MedicationAdministration extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #definition} (A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.)
+     */
+    public List<Reference> getDefinition() { 
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      return this.definition;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setDefinition(List<Reference> theDefinition) { 
+      this.definition = theDefinition;
+      return this;
+    }
+
+    public boolean hasDefinition() { 
+      if (this.definition == null)
+        return false;
+      for (Reference item : this.definition)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addDefinition() { //3
+      Reference t = new Reference();
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addDefinition(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #definition}, creating it if it does not already exist
+     */
+    public Reference getDefinitionFirstRep() { 
+      if (getDefinition().isEmpty()) {
+        addDefinition();
+      }
+      return getDefinition().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getDefinitionTarget() { 
+      if (this.definitionTarget == null)
+        this.definitionTarget = new ArrayList<Resource>();
+      return this.definitionTarget;
+    }
+
+    /**
+     * @return {@link #partOf} (A larger event of which this particular event is a component or step.)
+     */
+    public List<Reference> getPartOf() { 
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      return this.partOf;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setPartOf(List<Reference> thePartOf) { 
+      this.partOf = thePartOf;
+      return this;
+    }
+
+    public boolean hasPartOf() { 
+      if (this.partOf == null)
+        return false;
+      for (Reference item : this.partOf)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addPartOf() { //3
+      Reference t = new Reference();
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addPartOf(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #partOf}, creating it if it does not already exist
+     */
+    public Reference getPartOfFirstRep() { 
+      if (getPartOf().isEmpty()) {
+        addPartOf();
+      }
+      return getPartOf().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getPartOfTarget() { 
+      if (this.partOfTarget == null)
+        this.partOfTarget = new ArrayList<Resource>();
+      return this.partOfTarget;
     }
 
     /**
@@ -938,90 +1327,80 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (The person or animal receiving the medication.)
+     * @return {@link #subject} (The person or animal or group receiving the medication.)
      */
-    public Reference getPatient() { 
-      if (this.patient == null)
+    public Reference getSubject() { 
+      if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.patient");
+          throw new Error("Attempt to auto-create MedicationAdministration.subject");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference(); // cc
-      return this.patient;
+          this.subject = new Reference(); // cc
+      return this.subject;
     }
 
-    public boolean hasPatient() { 
-      return this.patient != null && !this.patient.isEmpty();
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
-     * @param value {@link #patient} (The person or animal receiving the medication.)
+     * @param value {@link #subject} (The person or animal or group receiving the medication.)
      */
-    public MedicationAdministration setPatient(Reference value) { 
-      this.patient = value;
+    public MedicationAdministration setSubject(Reference value) { 
+      this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or animal receiving the medication.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or animal or group receiving the medication.)
      */
-    public Patient getPatientTarget() { 
-      if (this.patientTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.patient");
-        else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient(); // aa
-      return this.patientTarget;
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or animal receiving the medication.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or animal or group receiving the medication.)
      */
-    public MedicationAdministration setPatientTarget(Patient value) { 
-      this.patientTarget = value;
+    public MedicationAdministration setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #encounter} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
+     * @return {@link #context} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public Reference getEncounter() { 
-      if (this.encounter == null)
+    public Reference getContext() { 
+      if (this.context == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.encounter");
+          throw new Error("Attempt to auto-create MedicationAdministration.context");
         else if (Configuration.doAutoCreate())
-          this.encounter = new Reference(); // cc
-      return this.encounter;
+          this.context = new Reference(); // cc
+      return this.context;
     }
 
-    public boolean hasEncounter() { 
-      return this.encounter != null && !this.encounter.isEmpty();
+    public boolean hasContext() { 
+      return this.context != null && !this.context.isEmpty();
     }
 
     /**
-     * @param value {@link #encounter} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
+     * @param value {@link #context} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public MedicationAdministration setEncounter(Reference value) { 
-      this.encounter = value;
+    public MedicationAdministration setContext(Reference value) { 
+      this.context = value;
       return this;
     }
 
     /**
-     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public Encounter getEncounterTarget() { 
-      if (this.encounterTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.encounter");
-        else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter(); // aa
-      return this.encounterTarget;
+    public Resource getContextTarget() { 
+      return this.contextTarget;
     }
 
     /**
-     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public MedicationAdministration setEncounterTarget(Encounter value) { 
-      this.encounterTarget = value;
+    public MedicationAdministration setContextTarget(Resource value) { 
+      this.contextTarget = value;
       return this;
     }
 
@@ -1136,39 +1515,97 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #performer} (The individual who was responsible for giving the medication to the patient.)
      */
-    public Reference getPerformer() { 
+    public List<MedicationAdministrationPerformerComponent> getPerformer() { 
       if (this.performer == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.performer");
-        else if (Configuration.doAutoCreate())
-          this.performer = new Reference(); // cc
+        this.performer = new ArrayList<MedicationAdministrationPerformerComponent>();
       return this.performer;
     }
 
-    public boolean hasPerformer() { 
-      return this.performer != null && !this.performer.isEmpty();
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationAdministration setPerformer(List<MedicationAdministrationPerformerComponent> thePerformer) { 
+      this.performer = thePerformer;
+      return this;
     }
 
-    /**
-     * @param value {@link #performer} (The individual who was responsible for giving the medication to the patient.)
-     */
-    public MedicationAdministration setPerformer(Reference value) { 
-      this.performer = value;
+    public boolean hasPerformer() { 
+      if (this.performer == null)
+        return false;
+      for (MedicationAdministrationPerformerComponent item : this.performer)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MedicationAdministrationPerformerComponent addPerformer() { //3
+      MedicationAdministrationPerformerComponent t = new MedicationAdministrationPerformerComponent();
+      if (this.performer == null)
+        this.performer = new ArrayList<MedicationAdministrationPerformerComponent>();
+      this.performer.add(t);
+      return t;
+    }
+
+    public MedicationAdministration addPerformer(MedicationAdministrationPerformerComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.performer == null)
+        this.performer = new ArrayList<MedicationAdministrationPerformerComponent>();
+      this.performer.add(t);
       return this;
     }
 
     /**
-     * @return {@link #performer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
+     * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
      */
-    public Resource getPerformerTarget() { 
-      return this.performerTarget;
+    public MedicationAdministrationPerformerComponent getPerformerFirstRep() { 
+      if (getPerformer().isEmpty()) {
+        addPerformer();
+      }
+      return getPerformer().get(0);
     }
 
     /**
-     * @param value {@link #performer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
+     * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
      */
-    public MedicationAdministration setPerformerTarget(Resource value) { 
-      this.performerTarget = value;
+    public Reference getOnBehalfOf() { 
+      if (this.onBehalfOf == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationAdministration.onBehalfOf");
+        else if (Configuration.doAutoCreate())
+          this.onBehalfOf = new Reference(); // cc
+      return this.onBehalfOf;
+    }
+
+    public boolean hasOnBehalfOf() { 
+      return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+    }
+
+    /**
+     * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+     */
+    public MedicationAdministration setOnBehalfOf(Reference value) { 
+      this.onBehalfOf = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+     */
+    public Organization getOnBehalfOfTarget() { 
+      if (this.onBehalfOfTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationAdministration.onBehalfOf");
+        else if (Configuration.doAutoCreate())
+          this.onBehalfOfTarget = new Organization(); // aa
+      return this.onBehalfOfTarget;
+    }
+
+    /**
+     * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+     */
+    public MedicationAdministration setOnBehalfOfTarget(Organization value) { 
+      this.onBehalfOfTarget = value;
       return this;
     }
 
@@ -1660,13 +2097,16 @@ public class MedicationAdministration extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("definition", "Reference(PlanDefinition|ActivityDefinition)", "A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("partOf", "Reference(MedicationAdministration|Procedure)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-        childrenList.add(new Property("patient", "Reference(Patient)", "The person or animal receiving the medication.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person or animal or group receiving the medication.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information (for example, patient height and weight) that supports the administration of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effective));
-        childrenList.add(new Property("performer", "Reference(Practitioner|Patient|RelatedPerson)", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("performer", "", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
+        childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("prescription", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("notGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, notGiven));
@@ -1682,13 +2122,16 @@ public class MedicationAdministration extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
+        case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationAdministrationStatus>
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
-        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // MedicationAdministrationPerformerComponent
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
         case 1554065514: /*notGiven*/ return this.notGiven == null ? new Base[0] : new Base[] {this.notGiven}; // BooleanType
@@ -1709,6 +2152,12 @@ public class MedicationAdministration extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
+        case -1014418093: // definition
+          this.getDefinition().add(castToReference(value)); // Reference
+          return value;
+        case -995410646: // partOf
+          this.getPartOf().add(castToReference(value)); // Reference
+          return value;
         case -892481550: // status
           value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
@@ -1716,11 +2165,11 @@ public class MedicationAdministration extends DomainResource {
         case 1998965455: // medication
           this.medication = castToType(value); // Type
           return value;
-        case -791418107: // patient
-          this.patient = castToReference(value); // Reference
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
           return value;
-        case 1524132147: // encounter
-          this.encounter = castToReference(value); // Reference
+        case 951530927: // context
+          this.context = castToReference(value); // Reference
           return value;
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
@@ -1729,7 +2178,10 @@ public class MedicationAdministration extends DomainResource {
           this.effective = castToType(value); // Type
           return value;
         case 481140686: // performer
-          this.performer = castToReference(value); // Reference
+          this.getPerformer().add((MedicationAdministrationPerformerComponent) value); // MedicationAdministrationPerformerComponent
+          return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
@@ -1767,21 +2219,27 @@ public class MedicationAdministration extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
+        } else if (name.equals("definition")) {
+          this.getDefinition().add(castToReference(value));
+        } else if (name.equals("partOf")) {
+          this.getPartOf().add(castToReference(value));
         } else if (name.equals("status")) {
           value = new MedicationAdministrationStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationAdministrationStatus>
         } else if (name.equals("medication[x]")) {
           this.medication = castToType(value); // Type
-        } else if (name.equals("patient")) {
-          this.patient = castToReference(value); // Reference
-        } else if (name.equals("encounter")) {
-          this.encounter = castToReference(value); // Reference
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("context")) {
+          this.context = castToReference(value); // Reference
         } else if (name.equals("supportingInformation")) {
           this.getSupportingInformation().add(castToReference(value));
         } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
         } else if (name.equals("performer")) {
-          this.performer = castToReference(value); // Reference
+          this.getPerformer().add((MedicationAdministrationPerformerComponent) value);
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("prescription")) {
@@ -1809,15 +2267,18 @@ public class MedicationAdministration extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
+        case -1014418093:  return addDefinition(); 
+        case -995410646:  return addPartOf(); 
         case -892481550:  return getStatusElement();
         case 1458402129:  return getMedication(); 
         case 1998965455:  return getMedication(); 
-        case -791418107:  return getPatient(); 
-        case 1524132147:  return getEncounter(); 
+        case -1867885268:  return getSubject(); 
+        case 951530927:  return getContext(); 
         case -1248768647:  return addSupportingInformation(); 
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
-        case 481140686:  return getPerformer(); 
+        case 481140686:  return addPerformer(); 
+        case -14402964:  return getOnBehalfOf(); 
         case -1146218137:  return addReasonReference(); 
         case 460301338:  return getPrescription(); 
         case 1554065514:  return getNotGivenElement();
@@ -1836,13 +2297,16 @@ public class MedicationAdministration extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
-        case -791418107: /*patient*/ return new String[] {"Reference"};
-        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
         case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case 481140686: /*performer*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 460301338: /*prescription*/ return new String[] {"Reference"};
         case 1554065514: /*notGiven*/ return new String[] {"boolean"};
@@ -1862,6 +2326,12 @@ public class MedicationAdministration extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("definition")) {
+          return addDefinition();
+        }
+        else if (name.equals("partOf")) {
+          return addPartOf();
+        }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.status");
         }
@@ -1873,13 +2343,13 @@ public class MedicationAdministration extends DomainResource {
           this.medication = new Reference();
           return this.medication;
         }
-        else if (name.equals("patient")) {
-          this.patient = new Reference();
-          return this.patient;
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
         }
-        else if (name.equals("encounter")) {
-          this.encounter = new Reference();
-          return this.encounter;
+        else if (name.equals("context")) {
+          this.context = new Reference();
+          return this.context;
         }
         else if (name.equals("supportingInformation")) {
           return addSupportingInformation();
@@ -1893,8 +2363,11 @@ public class MedicationAdministration extends DomainResource {
           return this.effective;
         }
         else if (name.equals("performer")) {
-          this.performer = new Reference();
-          return this.performer;
+          return addPerformer();
+        }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
@@ -1942,17 +2415,32 @@ public class MedicationAdministration extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        if (definition != null) {
+          dst.definition = new ArrayList<Reference>();
+          for (Reference i : definition)
+            dst.definition.add(i.copy());
+        };
+        if (partOf != null) {
+          dst.partOf = new ArrayList<Reference>();
+          for (Reference i : partOf)
+            dst.partOf.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.patient = patient == null ? null : patient.copy();
-        dst.encounter = encounter == null ? null : encounter.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.context = context == null ? null : context.copy();
         if (supportingInformation != null) {
           dst.supportingInformation = new ArrayList<Reference>();
           for (Reference i : supportingInformation)
             dst.supportingInformation.add(i.copy());
         };
         dst.effective = effective == null ? null : effective.copy();
-        dst.performer = performer == null ? null : performer.copy();
+        if (performer != null) {
+          dst.performer = new ArrayList<MedicationAdministrationPerformerComponent>();
+          for (MedicationAdministrationPerformerComponent i : performer)
+            dst.performer.add(i.copy());
+        };
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
           for (Reference i : reasonReference)
@@ -2000,10 +2488,12 @@ public class MedicationAdministration extends DomainResource {
         if (!(other instanceof MedicationAdministration))
           return false;
         MedicationAdministration o = (MedicationAdministration) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(encounter, o.encounter, true) && compareDeep(supportingInformation, o.supportingInformation, true)
-           && compareDeep(effective, o.effective, true) && compareDeep(performer, o.performer, true) && compareDeep(reasonReference, o.reasonReference, true)
-           && compareDeep(prescription, o.prescription, true) && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
+           && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(effective, o.effective, true) && compareDeep(performer, o.performer, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(prescription, o.prescription, true)
+           && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonGiven, o.reasonGiven, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
       }
@@ -2019,10 +2509,10 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, encounter, supportingInformation, effective, performer, reasonReference
-          , prescription, notGiven, reasonNotGiven, reasonGiven, device, note, dosage, eventHistory
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, partOf
+          , status, medication, subject, context, supportingInformation, effective, performer
+          , onBehalfOf, reasonReference, prescription, notGiven, reasonNotGiven, reasonGiven
+          , device, note, dosage, eventHistory);
       }
 
   @Override
@@ -2075,17 +2565,17 @@ public class MedicationAdministration extends DomainResource {
    * <p>
    * Description: <b>The identify of the individual who administered the medication</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.performer</b><br>
+   * Path: <b>MedicationAdministration.performer.actor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="performer", path="MedicationAdministration.performer", description="The identify of the individual who administered the medication", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="performer", path="MedicationAdministration.performer.actor", description="The identify of the individual who administered the medication", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PERFORMER = "performer";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>performer</b>
    * <p>
    * Description: <b>The identify of the individual who administered the medication</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.performer</b><br>
+   * Path: <b>MedicationAdministration.performer.actor</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
@@ -2095,6 +2585,32 @@ public class MedicationAdministration extends DomainResource {
    * the path value of "<b>MedicationAdministration:performer</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:performer").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The identify of the individual or group to list administrations for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="MedicationAdministration.subject", description="The identify of the individual or group to list administrations for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The identify of the individual or group to list administrations for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:subject").toLocked();
 
  /**
    * Search parameter: <b>not-given</b>
@@ -2163,32 +2679,6 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON_GIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON_GIVEN);
 
  /**
-   * Search parameter: <b>encounter</b>
-   * <p>
-   * Description: <b>Return administrations that share this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.encounter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="encounter", path="MedicationAdministration.encounter", description="Return administrations that share this encounter", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
-  public static final String SP_ENCOUNTER = "encounter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
-   * <p>
-   * Description: <b>Return administrations that share this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.encounter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:encounter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:encounter").toLocked();
-
- /**
    * Search parameter: <b>prescription</b>
    * <p>
    * Description: <b>The identity of a prescription to list administrations from</b><br>
@@ -2219,17 +2709,17 @@ public class MedicationAdministration extends DomainResource {
    * <p>
    * Description: <b>The identity of a patient to list administrations  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
+   * Path: <b>MedicationAdministration.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MedicationAdministration.patient", description="The identity of a patient to list administrations  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="MedicationAdministration.subject", description="The identity of a patient to list administrations  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>The identity of a patient to list administrations  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
+   * Path: <b>MedicationAdministration.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
@@ -2259,6 +2749,32 @@ public class MedicationAdministration extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVE_TIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVE_TIME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>Return administrations that share this encounter or episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="MedicationAdministration.context", description="Return administrations that share this encounter or episode of care", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class, EpisodeOfCare.class } )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>Return administrations that share this encounter or episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:context</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:context").toLocked();
 
  /**
    * Search parameter: <b>reason-not-given</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 4, 2017 09:09+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -124,6 +124,8 @@ public class ResourceFactory extends Factory {
             return new DeviceUseStatement();
         if ("RequestGroup".equals(name))
             return new RequestGroup();
+        if ("DeviceRequest".equals(name))
+            return new DeviceRequest();
         if ("MessageHeader".equals(name))
             return new MessageHeader();
         if ("ImmunizationRecommendation".equals(name))
@@ -178,8 +180,6 @@ public class ResourceFactory extends Factory {
             return new ProcedureRequest();
         if ("EligibilityResponse".equals(name))
             return new EligibilityResponse();
-        if ("DeviceUseRequest".equals(name))
-            return new DeviceUseRequest();
         if ("Sequence".equals(name))
             return new Sequence();
         if ("DeviceMetric".equals(name))
@@ -188,6 +188,8 @@ public class ResourceFactory extends Factory {
             return new Flag();
         if ("CodeSystem".equals(name))
             return new CodeSystem();
+        if ("Catalog".equals(name))
+            return new Catalog();
         if ("AppointmentResponse".equals(name))
             return new AppointmentResponse();
         if ("StructureMap".equals(name))
@@ -228,8 +230,8 @@ public class ResourceFactory extends Factory {
             return new HealthcareService();
         if ("DataElement".equals(name))
             return new DataElement();
-        if ("NutritionRequest".equals(name))
-            return new NutritionRequest();
+        if ("NutritionOrder".equals(name))
+            return new NutritionOrder();
         if ("AuditEvent".equals(name))
             return new AuditEvent();
         if ("PaymentReconciliation".equals(name))
@@ -396,6 +398,7 @@ public class ResourceFactory extends Factory {
         case -871422185: return new CapabilityStatement();
         case 57208314: return new CarePlan();
         case 57320750: return new CareTeam();
+        case -2074609671: return new Catalog();
         case 65189916: return new Claim();
         case 1488475261: return new ClaimResponse();
         case -1268501092: return new ClinicalImpression();
@@ -421,7 +424,7 @@ public class ResourceFactory extends Factory {
         case 2043677302: return new Device();
         case 745969447: return new DeviceComponent();
         case -949306426: return new DeviceMetric();
-        case 1572117022: return new DeviceUseRequest();
+        case 776138553: return new DeviceRequest();
         case 491858238: return new DeviceUseStatement();
         case -1122842661: return new DiagnosticReport();
         case -447294264: return new DiagnosticRequest();
@@ -472,7 +475,7 @@ public class ResourceFactory extends Factory {
         case 74526880: return new Money();
         case 369315063: return new NamingSystem();
         case -540546990: return new Narrative();
-        case -1121740809: return new NutritionRequest();
+        case 1247831734: return new NutritionOrder();
         case 1790214156: return new Observation();
         case -2140710406: return new OperationDefinition();
         case -526550005: return new OperationOutcome();
