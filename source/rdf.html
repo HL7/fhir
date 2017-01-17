@@ -233,20 +233,20 @@ as specified above:
 </pre>
 <p>
 For reasoners using the RDF graph, it's very useful to make the implicit
-concept references in these Codings explicit using a fhir:concept assertion:
+concept references in these Codings explicit using a rdf:type assertion ("a" in turtle):
 </p>
 <pre class="rdf">
   fhir:Observation.code [
      fhir:CodeableConcept.coding [
        fhir:index 0;
-       fhir:concept loinc:29463-7;
+       a loinc:29463-7;
        fhir:Coding.system [ fhir:value "http://loinc.org" ];
        fhir:Coding.code [ fhir:value "29463-7" ];
        fhir:Coding.display [ fhir:value "Body Weight" ]     
      ];
      fhir:CodeableConcept.coding [
        fhir:index 2;
-       fhir:concept sct:27113001;
+       a sct:27113001;
        fhir:Coding.system [ fhir:value "http://snomed.info/sct" ];
        fhir:Coding.code [ fhir:value "27113001" ];
        fhir:Coding.display [ fhir:value "Body weight" ]     
@@ -254,7 +254,7 @@ concept references in these Codings explicit using a fhir:concept assertion:
   ];
 </pre>
 <p>
-These fhir:concept assertions can be made by any agent that 
+These rdf:type assertions can be made by any agent that 
 knows how to convert from the code system to the correct
 ontological representation on the RDF context. Note that a few 
 code systems have standard ontological representations,
