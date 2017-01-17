@@ -3,8 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.utilities"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.12.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-jdk14-1.7.12.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/xml-apis-1.4.01.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
@@ -13,7 +11,6 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-iri-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-base-3.1.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/jena-shaded-guava-3.1.0.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/slf4s-api_2.11-1.7.13.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/scala-library-2.12.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/scala-logging_2.12-3.5.0.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/schema_2.12-0.0.60.jar"/>
@@ -31,8 +28,11 @@
 	<classpathentry kind="lib" path="../../../tools/java/imports/validating_2.12-0.0.60.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/scala-compiler-2.12.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/scalactic_2.12-3.0.1.jar"/>
-	<classpathentry kind="lib" path="../../../tools/java/imports/cats-core_2.11-0.1.1.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr-runtime-3.5.2.jar"/>
 	<classpathentry kind="lib" path="../../../tools/java/imports/antlr4-runtime-4.6.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/cats-core_2.11-0.3.0.jar"/>
+	<classpathentry kind="lib" path="../../../tools/java/imports/slf4j-api-1.7.22.jar"/>
+	<classpathentry kind="lib" path="../../../build/tools/java/imports/slf4j-jdk14-1.7.22.jar"/>
+	<classpathentry kind="lib" path="../../../build/tools/java/imports/slf4s-api_2.11-1.7.13.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -83,7 +83,7 @@
         <dependency org="org.scalatest" name="scalatest_2.12"  rev="3.0.1"/>
         <dependency org="com.typesafe.scala-logging" name="scala-logging_2.12"  rev="3.5.0"/>
         <dependency org="org.rogach" name="scallop_2.12"  rev="2.0.6"/>
-        <dependency org="org.spire-math" name="cats-core_2.11"  rev="0.1.1"/>
+        <dependency org="org.spire-math" name="cats-core_2.11"  rev="0.3.0"/>
         <dependency org="org.antlr" name="antlr4-runtime" rev="4.6"/>
 		  
 		  <!--

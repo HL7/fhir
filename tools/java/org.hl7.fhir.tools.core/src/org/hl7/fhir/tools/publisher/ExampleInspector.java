@@ -85,7 +85,6 @@ public class ExampleInspector {
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
   private static final boolean VALIDATE_RDF = false;
   
-  
   private IWorkerContext context;
   private String rootDir;
   private String xsltDir;

@@ -23,12 +23,12 @@ import es.weso.rdf.jena.RDFAsJenaModel;
 
 public class ShExValidator {
 
-  private Logger log = Logger.getLogger(ShExValidator.class.getName());
+//  private Logger log = Logger.getLogger(ShExValidator.class.getName());
   private Schema schema;
 
   public ShExValidator(String schemaFile) throws Exception {
     // load shex from the path
-    log.info("Reading ShEx file " + schemaFile);
+//    log.info("Reading ShEx file " + schemaFile);
     schema = readSchema(schemaFile);
   }
 
@@ -44,7 +44,7 @@ public class ShExValidator {
     RDFReader rdf = new RDFAsJenaModel(dataModel);
     Result result = schema.validate(rdf,"TARGETDECLS",none,none, rdf.getPrefixMap(), schema.pm());
     if (result.isValid()) {
-      log.info("Result is valid");
+//      log.info("Result is valid");
       System.out.println("Valid. Result: " + result.show());
     } else {
       System.out.println("Not valid");
