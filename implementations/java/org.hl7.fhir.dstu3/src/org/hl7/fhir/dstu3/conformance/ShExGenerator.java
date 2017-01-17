@@ -290,8 +290,10 @@ public class ShExGenerator {
     shex_def.add("shapeDefinitions", shapeDefinitions);
 
     if(completeModel && known_resources.size() > 0) {
-      shapeDefinitions.append("\n").append(tmplt(COMPLETE_RESOURCE_TEMPLATE)
-              .add("resources", StringUtils.join(known_resources, "> OR\n\t@<")).render());
+//      shapeDefinitions.append("\n").append(tmplt(COMPLETE_RESOURCE_TEMPLATE)
+//              .add("resources", StringUtils.join(known_resources, "> OR\n\t@<")).render());
+        // TODO: Fix the line above once we figure out the correct ShEx 2. syntax
+        shapeDefinitions.append("\n\n<Resource> { }\n\n");
       List<String> all_entries = new ArrayList<String>();
       for(String kr: known_resources)
         all_entries.add(tmplt(ALL_ENTRY_TEMPLATE).add("id", kr).render());
