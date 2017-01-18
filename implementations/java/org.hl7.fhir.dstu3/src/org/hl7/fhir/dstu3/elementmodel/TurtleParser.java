@@ -320,9 +320,7 @@ public class TurtleParser extends ParserBase {
 			return;
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/id/");
-      String refURI =  "fhir:SCT"+ urlescape(code).toUpperCase();
-			t.linkedPredicate("fhir:concept", refURI, linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
-      section.triple(refURI, "a", "sct:" + urlescape(code));
+			t.linkedPredicate("a", "sct:" + urlescape(code), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));
     } else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
 			t.linkedPredicate("fhir:concept", "fhir:LOINC"+urlescape(code).toUpperCase(), linkResolver == null ? null : linkResolver.resolvePage("rdf.html#concept"));

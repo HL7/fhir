@@ -53,7 +53,7 @@ public class ShExGenerator {
   private static String START_TEMPLATE = "\n\nstart=@<$id$> AND {fhir:nodeRole [fhir:treeRoot]}\n";
 
   // Start template for complete (closed) model
-  private static String ALL_START_TEMPLATE = "\n\nstart=<All>\n";
+  private static String ALL_START_TEMPLATE = "\n\nstart=@<All>\n";
 
   private static String ALL_TEMPLATE = "\n<All> $all_entries$\n";
 
@@ -81,8 +81,8 @@ public class ShExGenerator {
   // If we have knowledge of all of the possible resources available to us (completeModel = true), we can build
   // a model of all possible resources.
   private static String COMPLETE_RESOURCE_TEMPLATE =
-          "<Resource> CLOSED {@<$resources$>" +
-                  "\n}\n";
+          "<Resource>  @<$resources$>" +
+                  "\n\n";
 
   // Resource Declaration
   //      a type node
@@ -133,13 +133,10 @@ public class ShExGenerator {
   private static String XHTML_TYPE_TEMPLATE = "xsd:string";
 
   // Additional type for Coding
-  private static String CONCEPT_REFERENCE_TEMPLATE = "fhir:concept @<ConceptInstance>?;";
+  private static String CONCEPT_REFERENCE_TEMPLATE = "a NONLITERAL?;";
 
-  // Coding instance reference
-  private static String CONCEPT_INSTANCE_TEMPLATE = "\n\n<ConceptInstance> {a .}";
-
-  // Additional type for CodedConcept -- still under debate
-  private static String CONCEPT_REFERENCES_TEMPLATE = "fhir:concept @<ConceptInstance>*;";
+  // Additional type for CodedConcept
+  private static String CONCEPT_REFERENCES_TEMPLATE = "a NONLITERAL*;";
 
   // Untyped resource has the extra link entry
   private static String RESOURCE_LINK_TEMPLATE = "fhir:link IRI?;";
@@ -278,7 +275,6 @@ public class ShExGenerator {
         shapeDefinitions.append(emitDataTypes());
         shapeDefinitions.append(emitInnerTypes());
       }
-      shapeDefinitions.append(tmplt(CONCEPT_INSTANCE_TEMPLATE).render());
     }
 
     shapeDefinitions.append("\n#---------------------- Reference Types -------------------\n");
@@ -290,10 +286,8 @@ public class ShExGenerator {
     shex_def.add("shapeDefinitions", shapeDefinitions);
 
     if(completeModel && known_resources.size() > 0) {
-//      shapeDefinitions.append("\n").append(tmplt(COMPLETE_RESOURCE_TEMPLATE)
-//              .add("resources", StringUtils.join(known_resources, "> OR\n\t@<")).render());
-        // TODO: Fix the line above once we figure out the correct ShEx 2. syntax
-        shapeDefinitions.append("\n\n<Resource> { }\n\n");
+      shapeDefinitions.append("\n").append(tmplt(COMPLETE_RESOURCE_TEMPLATE)
+              .add("resources", StringUtils.join(known_resources, "> OR\n\t@<")).render());
       List<String> all_entries = new ArrayList<String>();
       for(String kr: known_resources)
         all_entries.add(tmplt(ALL_ENTRY_TEMPLATE).add("id", kr).render());
