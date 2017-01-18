@@ -95,7 +95,7 @@
 
  -- Row 2 -----------------------------------
   Element = Event.identifier
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Identifier
   Short Name = Business Identifer for event
