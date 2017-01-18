@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+	<id value="detailed-ethnicity"/>
+	<url value="http://hl7.org/fhir/detailed-ethnicity"/>
+	<name value="US-Core Detailed ethnicity"/>
+	<status value="draft"/>
+	<publisher value="USRealm Task Force"/>
+	<date value="2016-08-30"/>
+	<description value="The 41 [CDC ethnicity codes](http://www.cdc.gov/phin/resources/vocabulary/index.html) that are grouped under one of the 2 OMB ethnicity category codes."/>
+	<compose>
+		<include>
+			<valueSet value="http://hl7.org/fhir/ValueSet/v3-Ethnicity"/>
+		</include>
+		<exclude>
+			<system value="http://hl7.org/fhir/v3/Ethnicity"/>
+			<concept>
+				<code value="2135-2"/>
+			</concept>
+			<concept>
+				<code value="2186-5"/>
+			</concept>
+		</exclude>
+	</compose>
+</ValueSet>

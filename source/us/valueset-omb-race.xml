@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="omb-race"/>
+
+  <url value="http://hl7.org/fhir/ValueSet/omb-race"/>
+  <identifier>
+    <system value="urn:ietf:rfc:3986"/>
+    <value value="urn:oid:2.16.840.1.113883.4.642.2.575"/>
+  </identifier>
+  <version value="1.5.0"/>
+  <name value="OMB Race Categories"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <publisher value="DAF Project"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://wiki.siframework.org/Data+Access+Framework+Homepage"/>
+    </telecom>
+  </contact>
+  <date value="2016-05-25T16:59:08+10:00"/>
+  <description value="The codes for the concepts 'Unknown' and  'Asked but no answer' and the the codes for the five race categories - 'American Indian' or 'Alaska Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', and 'White' - as defined by the [OMB Standards for Maintaining, Collecting, and Presenting Federal Data on Race and Ethnicity, Statistical Policy Directive No. 15, as revised, October 30, 1997](https://www.whitehouse.gov/omb/fedreg_1997standards) ."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v3/Race"/>
+      <concept>
+        <code value="1002-5"/>
+        <display value="American Indian or Alaska Native"/>
+      </concept>
+      <concept>
+        <code value="2028-9"/>
+        <display value="Asian"/>
+      </concept>
+      <concept>
+        <code value="2054-5"/>
+        <display value="Black or African American"/>
+      </concept>
+      <concept>
+        <code value="2076-8"/>
+        <display value="Native Hawaiian or Other Pacific Islander"/>
+      </concept>
+      <concept>
+        <code value="2106-3"/>
+        <display value="White"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/v3/NullFlavor"/>
+      <concept>
+        <code value="UNK"/>
+        <display value="Unknown"/>
+      </concept>
+      <concept>
+        <code value="ASKU"/>
+        <display value="Asked but no answer"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>
