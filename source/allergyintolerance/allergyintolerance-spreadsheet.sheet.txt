@@ -187,8 +187,7 @@
   Id = 4
   Code = biologic
   Display = Biologic
-  Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.
-  Parent = medication
+  Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.
 
 === Sheet reaction-event-certainty =====================================
 
@@ -322,9 +321,9 @@
   Summary = Y
   Type = CodeableConcept
   Binding = AllergyIntoleranceCategory
-  Short Name = food | medication | biologic | environment
+  Short Name = food | medication | environment | biologic
   Definition = Category of the identified substance
-  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don\'t have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don\'t have a category.
+  Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don\'t have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don\'t have a category.  Additionally, category should be used with caution because category can be subjective based on the sender.
   v2 Mapping = AL1-2
   RIM Mapping = value < IntoleranceValue (Agent)
   Committee Notes = GF#11352 - to address examples like bee pollen that may fit into multiple categories;  GF#12136 - search usage note

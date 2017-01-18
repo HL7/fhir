@@ -337,7 +337,6 @@
   Definition = Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion
   v2 Mapping = OBX-20
   RIM Mapping = .targetSiteCode
-  To Do = Is this approach or target site? RIM mapping inconsistent with ProcedureRequest which lists target site. Recommend calling field targetBodySite or targetSite.
 
  -- Row 18 -----------------------------------
   Element = !Procedure.bodySite.site[x]
@@ -420,7 +419,7 @@
   Definition = A reference to a resource that contains details of the request for this procedure.
 
  -- Row 27 -----------------------------------
-  Element = Procedure.notes
+  Element = Procedure.note
   Card. = 0..*
   Type = Annotation
   Short Name = Additional information about the procedure

@@ -10,18 +10,18 @@
   <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
   <content value="complete"/>
   <concept>
-    <code value="high"/>
-    <display value="high"/>
+    <code value="high-priority"/>
+    <display value="High Priority"/>
     <definition value="Indicates that the goal is of considerable importance and should be a primary focus of care delivery."/>
   </concept>
   <concept>
-    <code value="medium"/>
-    <display value="medium"/>
+    <code value="medium-priority"/>
+    <display value="Medium Priority"/>
     <definition value="Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards the goal.  Attainment is not as critical as high-priority goals."/>
   </concept>
   <concept>
-    <code value="low"/>
-    <display value="low"/>
+    <code value="low-priority"/>
+    <display value="Low Priority"/>
     <definition value="The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the goal may be sought when incidental to achieving other goals."/>
   </concept>
 </CodeSystem>

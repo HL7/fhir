@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8790</WindowHeight>
-  <WindowWidth>8730</WindowWidth>
+  <WindowHeight>9510</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>884</TabRatio>
@@ -1189,12 +1189,12 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">food | medication | biologic | environment</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">food | medication | environment | biologic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Category of the identified substance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don't have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don't have a category.</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the substance where coding systems are used, and is effectively redundant in that situation.  When searching on category, consider the implications of AllergyIntolerance resources without a category.  For example, when searching on category = medication, medication allergies that don't have a category valued will not be returned.  Refer to [search](search.html) for more information on how to search category with a :missing modifier to get allergies that don't have a category.  Additionally, category should be used with caution because category can be subjective based on the sender.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">value &lt; IntoleranceValue (Agent)</Data><NamedCell
@@ -3852,9 +3852,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>6</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>9</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3870,7 +3870,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>23</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6911,7 +6911,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9492,7 +9492,7 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s138"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s137"><Data ss:Type="String">environment</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s115"/>
@@ -9503,13 +9503,13 @@
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">Per GF#10760, updated definition, so rubber and animal hair, for example, would be classified as environment</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="360">
     <Cell ss:StyleID="s137"><Data ss:Type="String">biologic</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s115"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">medication</Data></Cell>
+    <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Biologic</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Also called biological drug. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s138"><Data ss:Type="String">What is a biological product? (FDA): http://www.fda.gov/AboutFDA/Transparency/Basics/ucm194516.htm&#10;&#10;What are &quot;Biologics&quot; Questions and Answers? (FDA): http://www.fda.gov/AboutFDA/CentersOffices/OfficeofMedicalProductsandTobacco/CBER/ucm133077.htm&#10;&#10;There is a greater potential for immune reactions to biologics than to chemical drugs. The molecules in chemical drugs are too small to be considered immunogenic and generally are not recognized by the immune system as “invaders.” With biologics, depending on the drug, the human immune system can quickly identify the molecule and then mount an immune response to clear away a large molecule that it considers a foreign substance. This can destroy — or in rare cases, enhance — the activity of the biopharmaceutical. (http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3564302/)</Data></Cell>
@@ -10012,7 +10012,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -10020,15 +10020,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

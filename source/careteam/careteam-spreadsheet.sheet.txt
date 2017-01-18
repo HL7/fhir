@@ -105,7 +105,7 @@
   Element = CareTeam.participant.member
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|RelatedPerson|Patient|Organization)
+  Type = Reference(Practitioner|RelatedPerson|Patient|Organization|CareTeam)
   Short Name = Who is involved
   Definition = The specific person or organization who is participating/expected to participate in the care team.
   Comments = Patient only needs to be listed if they have a role other than \"subject of care\".\n\nMember is optional because some participants may be known only by their role, particularly in draft plans.

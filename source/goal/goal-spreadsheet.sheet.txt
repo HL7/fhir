@@ -66,75 +66,83 @@
 
  -- Row 2 -----------------------------------
   Id = 2
+  Code = accepted
+  Display = Accepted
+  Definition = A proposed goal was accepted or acknowledged
+
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = planned
   Display = Planned
   Definition = A goal is planned for this patient
-
- -- Row 3 -----------------------------------
-  Id = 7
-  Code = accepted
-  Display = Accepted
-  Definition = A proposed goal was accepted
+  Parent = accepted
 
  -- Row 4 -----------------------------------
-  Id = 8
-  Code = rejected
-  Display = Rejected
-  Definition = A proposed goal was rejected
-
- -- Row 5 -----------------------------------
-  Id = 3
+  Id = 4
   Code = in-progress
   Display = In Progress
   Definition = The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
+  Parent = accepted
 
- -- Row 6 -----------------------------------
-  Id = 4
-  Code = achieved
-  Display = Achieved
-  Definition = The goal has been met and no further action is needed
-
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Id = 5
-  Code = sustaining
-  Display = Sustaining
-  Definition = The goal has been met, but ongoing activity is needed to sustain the goal objective
-
- -- Row 8 -----------------------------------
-  Id = 9
-  Code = on-hold
-  Display = On Hold
-  Definition = The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
-
- -- Row 9 -----------------------------------
-  Id = 6
-  Code = cancelled
-  Display = Cancelled
-  Definition = The goal is no longer being sought
-
- -- Row 10 -----------------------------------
-  Id = 7
   Code = on-target
   Display = On Target
-  Definition = The goal is on scheduled for the planned timelines
+  Definition = The goal is on schedule for the planned timelines
+  Parent = in-progress
 
- -- Row 11 -----------------------------------
-  Id = 8
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = ahead-of-target
   Display = Ahead of Target
   Definition = The goal is ahead of the planned timelines
+  Parent = in-progress
 
- -- Row 12 -----------------------------------
-  Id = 9
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = behind-target
   Display = Behind Target
   Definition = The goal is behind the planned timelines
+  Parent = in-progress
 
- -- Row 13 -----------------------------------
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = achieved
+  Display = Achieved
+  Definition = The goal has been met and no further action is needed
+  Parent = accepted
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = sustaining
+  Display = Sustaining
+  Definition = The goal has been met, but ongoing activity is needed to sustain the goal objective
+  Parent = in-progress
+
+ -- Row 10 -----------------------------------
   Id = 10
+  Code = on-hold
+  Display = On Hold
+  Definition = The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
+  Parent = accepted
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = cancelled
+  Display = Cancelled
+  Definition = The previously accepted goal is no longer being sought
+
+ -- Row 12 -----------------------------------
+  Id = 12
   Code = entered-in-error
   Display = Entered In Error
   Definition = The goal was entered in error and voided.
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Code = rejected
+  Display = Rejected
+  Definition = A proposed goal was rejected
 
 === Sheet Invariants =====================================
 
@@ -167,7 +175,7 @@
   Summary = Y
   Type = code
   Binding = GoalStatus
-  Short Name = proposed | planned | accepted | rejected | in-progress | achieved | sustaining | on-hold | cancelled | on-target | ahead-of-target | behind-target | entered-in-error
+  Short Name = proposed | accepted | planned | in-progress | on-target | ahead-of-target | behind-target | sustaining | achieved | on-hold | cancelled | entered-in-error | rejected
   Definition = Indicates whether the goal has been reached and is still considered relevant
   Requirements = Allows measuring outcome and whether goal needs to be further tracked.
   v2 Mapping = GOL-18-goal life cycle status
@@ -191,7 +199,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = GoalPriority
-  Short Name = high | medium |low
+  Short Name = high-priority | medium-priority | low-priority
   Definition = Identifies the mutually agreed level of importance associated with reaching/sustaining the goal
   Requirements = Used for sorting and presenting goals
   Comments = Extensions are available to track priorities as established by each participant (i.e. Priority from the patient\'s perspective, different practitioners\' perspectives, family member\'s perspectives)\r\rThe ordinal extension on Coding can be used to convey a numerically comparable ranking to priority.  (Keep in mind that different coding systems may use a \"low value=important\"
@@ -284,12 +292,12 @@
 
  -- Row 14 -----------------------------------
   Element = Goal.statusReason
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = GoalStatusReason
+  Card. = 0..1
+  Type = string
   Short Name = Reason for current status
   Definition = Captures the reason for the current status.
   Comments = This will typically be captured for statuses such as rejected, on-hold or cancelled, but could be present for others.
+  Committee Notes = GF#10615
 
  -- Row 15 -----------------------------------
   Element = Goal.expressedBy

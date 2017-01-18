@@ -38,9 +38,9 @@
   <followUp>
     <text value="Review in clinic"/>
   </followUp>
-  <notes>
+  <note>
     <text value="Standard Biopsy"/>
-  </notes> 
+  </note> 
 </Procedure>
 <!-- 
 

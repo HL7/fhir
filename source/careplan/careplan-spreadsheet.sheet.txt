@@ -369,7 +369,7 @@
   Committee Notes = GF#11343
 
  -- Row 15 -----------------------------------
-  Element = CarePlan.relatedPlan
+  Element = CarePlan.related
   Card. = 0..*
   UML = 0;300
   Short Name = Plans related to this one
@@ -378,16 +378,16 @@
   Workflow Mapping = Invariants based on relatedPlan.code \nIF includes -> none. Inverse Relationship as request defines over basedOn - see fulfills\nIF fulfills -> Request.basedOn\nIF replaces -> Request.replaces
 
  -- Row 16 -----------------------------------
-  Element = CarePlan.relatedPlan.code
+  Element = CarePlan.related.code
   Card. = 0..1
   Type = code
   Binding = CarePlanRelationship
   Short Name = includes | replaces | fulfills
   Definition = Identifies the type of relationship this plan has to the target plan.
-  Comments = Read the relationship as \"this plan\" [relatedPlan.code] \"relatedPlan.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
+  Comments = Read the relationship as \"this plan\" [related.code] \"related.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
  -- Row 17 -----------------------------------
-  Element = CarePlan.relatedPlan.plan
+  Element = CarePlan.related.plan
   Card. = 1..1
   Type = Reference(CarePlan)
   Short Name = Plan relationship exists with
@@ -593,7 +593,7 @@
  -- Row 36 -----------------------------------
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
-  Type = Reference(Practitioner|Organization|RelatedPerson|Patient)
+  Type = Reference(Practitioner|Organization|RelatedPerson|Patient|CareTeam)
   Short Name = Who will be responsible?
   Definition = Identifies who\'s expected to be involved in the activity.
   Requirements = Helps in planning of activity
@@ -644,7 +644,7 @@
 
  -- Row 41 -----------------------------------
   Element = CarePlan.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Name = Comments about the plan
   Definition = General notes about the care plan not covered elsewhere
@@ -677,23 +677,23 @@
   Path = CarePlan.period
 
  -- Row 5 -----------------------------------
-  Name = careteam
+  Name = care-team
   Type = reference
   Path = CarePlan.careTeam
 
  -- Row 6 -----------------------------------
-  Name = activitycode
+  Name = activity-code
   Type = token
   Path = CarePlan.activity.detail.code
 
  -- Row 7 -----------------------------------
-  Name = activitydate
+  Name = activity-date
   Type = date
   Description = Specified date occurs within period specified by CarePlan.activity.timingSchedule
   Path = CarePlan.activity.detail.scheduled[x]
 
  -- Row 8 -----------------------------------
-  Name = activityreference
+  Name = activity-reference
   Type = reference
   Path = CarePlan.activity.reference
 
@@ -709,20 +709,20 @@
   Path = CarePlan.goal
 
  -- Row 11 -----------------------------------
-  Name = relatedcode
+  Name = related-code
   Type = token
-  Path = CarePlan.relatedPlan.code
+  Path = CarePlan.related.code
 
  -- Row 12 -----------------------------------
-  Name = relatedplan
+  Name = related-plan
   Type = reference
-  Path = CarePlan.relatedPlan.plan
+  Path = CarePlan.related.plan
 
  -- Row 13 -----------------------------------
   Name = related
   Type = composite
   Description = A combination of the type of relationship and the related plan
-  Path = relatedcode & relatedplan
+  Path = related-code & related-plan
 
  -- Row 14 -----------------------------------
   Name = category

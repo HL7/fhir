@@ -254,7 +254,7 @@
   Committee Notes = GF#11181
 
  -- Row 14 -----------------------------------
-  Element = ProcedureRequest.notes
+  Element = ProcedureRequest.note
   Card. = 0..*
   Type = Annotation
   Short Name = Additional information about desired procedure

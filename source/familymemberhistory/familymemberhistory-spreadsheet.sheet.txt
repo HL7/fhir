@@ -204,7 +204,7 @@
 
  -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Name = General note about related person
   Definition = This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
@@ -249,7 +249,7 @@
 
  -- Row 18 -----------------------------------
   Element = FamilyMemberHistory.condition.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Name = Extra information about condition
   Definition = An area where general notes can be placed about this specific condition.

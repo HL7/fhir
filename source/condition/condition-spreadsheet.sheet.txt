@@ -141,11 +141,10 @@
   UML = 0;0
   Type = DomainResource
   Short Name = Detailed information about conditions, problems or diagnoses
-  Definition = Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
+  Definition = A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.
   SNOMED CT Concept Domain = < 243796009 |Situation with explicit context|:\n246090004 |Associated finding| =\n((< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) OR\n< 272379006 |Event|)
   v2 Mapping = PPR message
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN, code=ASSERTION, value<Diagnosis]
-  To Do = * Age is questionable, you might well need a range of Age or even (in practice)  a text like \"in their teens\". => new ballot comment.  * Todo: discuss the applicability of assessing stages  * Change the description: it is circular
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -356,7 +355,6 @@
   Short Name = Formal record of assessment
   Definition = Reference to a formal record of the evidence on which the staging assessment is based
   RIM Mapping = .self
-  To Do = When an assessment resource / framework is developed, this will be changed from Any to something narrower
 
  -- Row 19 -----------------------------------
   Element = Condition.evidence

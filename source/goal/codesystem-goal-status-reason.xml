@@ -21,12 +21,12 @@
   </concept>
   <concept>
     <code value="replaced"/>
-    <display value="replaced"/>
+    <display value="Replaced"/>
     <definition value="Goal has been superseded by a new goal."/>
   </concept>
   <concept>
     <code value="patient-request"/>
-    <display value="patient request"/>
+    <display value="Patient Request"/>
     <definition value="Patient wishes the goal to be set aside, at least temporarily."/>
   </concept>
   <concept>
@@ -36,22 +36,22 @@
   </concept>
   <concept>
     <code value="permanent-not-attainable"/>
-    <display value="Goal not attainable permanently"/>
+    <display value="Goal Not Attainable Permanently"/>
     <definition value="Goal can not be reached permanently."/>
   </concept>
   <concept>
     <code value="financial-barrier"/>
-    <display value="Financial reason"/>
+    <display value="Financial Reason"/>
     <definition value="Goal can not be reached due to financial barrier or reason."/>
   </concept>
   <concept>
     <code value="lack-of-transportation"/>
-    <display value="Lack of transportation"/>
+    <display value="Lack Of Transportation"/>
     <definition value="Goal can not be reached due to a lack of transportation."/>
   </concept>
   <concept>
     <code value="lack-of-social-support"/>
-    <display value="Lack of social support"/>
+    <display value="Lack Of Social Support"/>
     <definition value="Goal can not be reached due to a lack of social support."/>
   </concept>
 </CodeSystem>

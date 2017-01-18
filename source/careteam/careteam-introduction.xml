@@ -15,7 +15,7 @@ The Care Team, depending on where used, may include care team members specific t
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Care Team is distinct from Group. Group is patient-independent and identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) Care Team is about establishing a set of relationships and roles and is specific to a particular Patient.  CareTeam can be acted upon (e.g. CommunicationRequest), but the CareTeam isn't an actor.  The actors are the individual members within a CareTeam.   
+Care Team is distinct from Group. Group is patient-independent and identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) The CareTeam resource establishes a set of relationships and roles and is specific to a particular Patient.  The actors are the individual members or organized group of individuals.   
 
 CareTeam can be referenced by EpisodeOfCare, Encounter, or CarePlan to identify the set of individuals (and their respective roles) who are intended to be involved in providing the care defined by those resources. 
 

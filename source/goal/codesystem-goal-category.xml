@@ -10,27 +10,27 @@
   <content value="complete"/>
   <concept>
     <code value="dietary"/>
-    <display value="dietary"/>
+    <display value="Dietary"/>
     <definition value="Goals related to the consumption of food and/or beverages."/>
   </concept>
   <concept>
     <code value="safety"/>
-    <display value="safety"/>
+    <display value="Safety"/>
     <definition value="Goals related to the personal protection of the subject."/>
   </concept>
   <concept>
     <code value="behavioral"/>
-    <display value="behavioral"/>
+    <display value="Behavioral"/>
     <definition value="Goals related to the manner in which the subject acts."/>
   </concept>
   <concept>
     <code value="nursing"/>
-    <display value="nursing"/>
+    <display value="Nursing"/>
     <definition value="Goals related to the practice of nursing or established by nurses."/>
   </concept>
   <concept>
     <code value="physiotherapy"/>
-    <display value="physiotherapy"/>
+    <display value="Physiotherapy"/>
     <definition value="Goals related to the mobility and motor capability of the subject."/>
   </concept>
 </CodeSystem>
