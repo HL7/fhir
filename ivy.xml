@@ -86,6 +86,7 @@
         <dependency org="org.typelevel" name="cats-core_2.12" rev="0.9.0" />
         <dependency org="org.typelevel" name="cats-kernel_2.12" rev="0.9.0" />
         <dependency org="org.antlr" name="antlr4-runtime" rev="4.6"/>
+        <dependency org="io.circe" name="circe-core_2.11" rev="0.7.0-M2" />
 		  
 		  <!--
 		  A note on logging: A few of the Ivy dependencies bring in slf4j-log4j12 so

@@ -133,7 +133,7 @@ public class ModelComparer {
       b.append("\r\n");
     }
 //    TextFile.stringToFile(b.toString(), filename);
-    System.out.println(b.toString());
+//    System.out.println(b.toString());
   }
 
   public ModelComparer setModel2(Model model, String name) throws IOException {

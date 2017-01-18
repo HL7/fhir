@@ -328,8 +328,8 @@ public class ResourceValidator extends BaseValidator {
       if (em.getLevel() == IssueSeverity.WARNING)
         warnings++;
     }
-    if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
-      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || rd.getFmmLevel().equals("0"), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
+    if (rule(errors, IssueType.STRUCTURE, rd.getName(), warnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has warnings"))
+      rule(errors, IssueType.STRUCTURE, rd.getName(), vsWarnings == 0 || "0".equals(rd.getFmmLevel()), "Resource "+rd.getName()+" (FMM="+rd.getFmmLevel()+") cannot have a FMM level >1 ("+rd.getFmmLevel()+") if it has linked value set warnings ("+vsWarns.toString()+")");
 	}
 
   private String listW5Elements(ResourceDefn parent, String proposedOrder) {

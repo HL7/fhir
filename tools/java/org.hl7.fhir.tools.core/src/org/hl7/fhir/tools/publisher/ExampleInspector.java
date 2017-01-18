@@ -83,7 +83,7 @@ public class ExampleInspector {
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
-  private static final boolean VALIDATE_RDF = false;
+  private static final boolean VALIDATE_RDF = true;
   
   private IWorkerContext context;
   private String rootDir;
@@ -281,7 +281,7 @@ public class ExampleInspector {
   }
 
   private void validateRDF(String fttl, String fjld, String rt) throws FileNotFoundException, IOException {
-    if (VALIDATE_RDF) {
+    if (VALIDATE_RDF && new File(fjld).exists()) {
       FileInputStream f = new FileInputStream(fjld);
       int size = f.available();
       f.close();
@@ -303,15 +303,15 @@ public class ExampleInspector {
       // use ShEx to validate turtle file - TODO
       shex.validate(mt);
 
-      List<String> diffs = new ModelComparer().setModel1(mt, "ttl").setModel2(mj, "json").compare();
-      if (!diffs.isEmpty()) {
-        System.out.println("not isomorphic");
-        for (String s : diffs) {
-          System.out.println("  "+s);
-        }
+//      List<String> diffs = new ModelComparer().setModel1(mt, "ttl").setModel2(mj, "json").compare();
+//      if (!diffs.isEmpty()) {
+//        System.out.println("not isomorphic");
+//        for (String s : diffs) {
+//          System.out.println("  "+s);
+//        }
 //        RDFDataMgr.write(new FileOutputStream("c:\\temp\\json.nt"), mj, RDFFormat.NTRIPLES_UTF8);
 //        RDFDataMgr.write(new FileOutputStream("c:\\temp\\ttl.nt"), mt, RDFFormat.NTRIPLES_UTF8);
-      }
+//      }
     }
   }
 
