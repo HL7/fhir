@@ -25,7 +25,7 @@
 				<b>ethnicity</b>: Hispanic or Latino, Dominican, Mexican</p>
 		</div>
 	</text>
-	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
+	<extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">
 		<extension url="ombCategory">
 			<valueCoding>
 				<system value="http://hl7.org/fhir/v3/Race"/>
@@ -62,7 +62,7 @@
 			</valueCoding>
 		</extension>
 	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-ethnicity">
+	<extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">
 		<extension url="ombCategory">
 			<valueCoding>
 				<system value="http://hl7.org/fhir/v3/Ethnicity"/>
@@ -85,7 +85,7 @@
 			</valueCoding>
 		</extension>
 	</extension>
-	<extension url="http://hl7.org/fhir/StructureDefinition/us-core-birthsex">
+	<extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex">
 		<valueCode value="M"/>
 	</extension>
 	<active value="true"/>
@@ -102,7 +102,7 @@
 		<use value="work"/>
 	</telecom>
 	<telecom>
-		<extension url="http://hl7.org/fhir/StructureDefinition/us-core-direct">
+		<extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct">
 			<valueBoolean value="true"/>
 		</extension>
 		<system value="email"/>

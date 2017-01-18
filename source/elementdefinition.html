@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Element Definition%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -31,10 +31,10 @@ The definition of an element in a resource or extension. The definition includes
  <li>Structural Usage Information such as <a href="profiling.html#slicing">Slicing</a></li>
 </ul>
 <p>
-The ElementDefinition type is the core of the FHIR metadata layer, and is 
+The ElementDefinition type is the core of the FHIR metadata layer, and is
 closely (conceptually) aligned to <a href="elementdefinition-mappings.html#iso11179">ISO 11179</a>.
 The <a href="dataelement.html">DataElement</a> resource is a packaging wrapper around the
-ElementDefinition type. All the data elements defined in this specification are published 
+ElementDefinition type. All the data elements defined in this specification are published
 as a collection of data elements (<a href="dataelements.xml">XML</a> or <a href="dataelements.json">JSON</a>).
 </p>
 
@@ -58,14 +58,14 @@ Content
 <h2>Use of ElementDefinition.path</h2>
 
 <p>
-The <code>path</code> element is the most important property of the element definition. It both names the element, and locates the element 
+The <code>path</code> element is the most important property of the element definition. It both names the element, and locates the element
 within a heirarchy of defined within a particular context. Within the FHIR specification, there is only one original
-definition for each path (that is, an element definition with no base element). This is the master definition to which all the 
-other definitions with the same path must conform. 
+definition for each path (that is, an element definition with no base element). This is the master definition to which all the
+other definitions with the same path must conform.
 </p>
 <p>
 All elements defined wihin the FHIR specification itself are defined within a <a href="structuredefinition.html">StructureDefinition</a>
-that defines a resource, or a datatype. This defines the identity of the element amnd provides the context in which the meaning of 
+that defines a resource, or a datatype. This defines the identity of the element amnd provides the context in which the meaning of
 the element is understood. When Elements are defined, the following rules apply:
 </p>
 <ul>
@@ -77,19 +77,19 @@ the element is understood. When Elements are defined, the following rules apply:
  <li>By convention, the paths starts with an uppercase letter (type) but all the element names that follow this are lowercase (not type names). All resources and data types (except for Primitive data types) follow this convention, but logical models are not required to do so</li>
 </ul>
 <p>
-Elements may be defined in: 
+Elements may be defined in:
 </p>
 <ul>
-  <li>StructureDefinitions of <a href="structuredefinition-definitions.html#StructureDefinition.kind">kind</a> = <code>resource</code>, <code>complex-type</code> or <code>primitive-type</code>, 
+  <li>StructureDefinitions of <a href="structuredefinition-definitions.html#StructureDefinition.kind">kind</a> = <code>resource</code>, <code>complex-type</code> or <code>primitive-type</code>,
    where <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>specialization</code>. These are either Resources or Data types
    defined in the specification, or in custom resource definitions (see <a href="http://wiki.hl7.org/index.php?title=FHIR_Custom_Resources">Custom Resource Policy</a>)</li>
   <li>StructureDefinitions of <a href="structuredefinition-definitions.html#StructureDefinition.kind">kind</a> = <code>logical</code></li>
   <li>Data Elements</li>
 </ul>
 <p>
-StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code> 
-(i.e. Resource and Data Type profiles) are not allowed to define or include ElementDefinitions with a path not defined within the 
-base resource definition from which they derive (e.g. in the FHIR specification). 
+StructureDefinitions with <a href="structuredefinition-definitions.html#StructureDefinition.derivation">derivation</a> = <code>constraint</code>
+(i.e. Resource and Data Type profiles) are not allowed to define or include ElementDefinitions with a path not defined within the
+base resource definition from which they derive (e.g. in the FHIR specification).
 </p>
 
 <a name="id"> </a>
@@ -157,17 +157,17 @@ The use of Path and type depends more deeply on the context where the ElementDef
 <table class="grid">
  <tr> <td><b>Context</b></td> <td><b>path (1st element)</b></td> <td><b>path (following elements)</b></td> <td><b>type (1st element)</b></td> </tr>
  <tr> <td>Data Element</td> <td>Any token</td> <td>Any token (distinct in the DataElement)</td> <td>Any type</td> </tr>
- <tr> <td>Base definition of a data type <br/>(example: <a href="datatypes.html#Quantity">Quantity</a> - <a href="quantity.profile.xml.html">XML</a>, <a href="quantity.profile.json.html">JSON</a>)</td> 
+ <tr> <td>Base definition of a data type <br/>(example: <a href="datatypes.html#Quantity">Quantity</a> - <a href="quantity.profile.xml.html">XML</a>, <a href="quantity.profile.json.html">JSON</a>)</td>
        <td>Name of the type</td> <td>Path inside the datatype</td> <td><code>Element</code></td> </tr>
  <tr> <td>A constrained data type <br/>(example: <a href="datatypes.html#Money">Money</a>  - <a href="money.profile.xml.html">XML</a>, <a href="money.profile.json.html">JSON</a>)</td>
         <td>Name of the base type</td> <td>Path inside the datatype</td> <td>Name of the base type</td> </tr>
  <tr> <td>Base definition of a resource <br/>(example: <a href="patient.html">Patient</a> - <a href="patient.profile.xml.html">XML</a>, <a href="patient.profile.json.html">JSON</a>)</td>
         <td>The name of the resource</td> <td>Path inside the resource</td> <td><code>DomainResource</code> or sometimes <code>Resource</code></td> </tr>
- <tr> <td>Constraint on a resource <br/>(example: <a href="http://hl7.org/fhir/us/daf/daf-patient.html">DAF Patient</a> - <a href="http://hl7.org/fhir/us/daf/daf-patient.profile.xml.html">XML</a>, <a href="http://hl7.org/fhir/us/daf/daf-patient.profile.json.html">JSON</a>)</td>
+ <tr> <td>Constraint on a resource <br/>(example: <a href="vitalsigns.html">DAF Patient</a> - <a href="vitalsigns.profile.xml.html">XML</a>, <a href="vitalsigns.profile.json.html">JSON</a>)</td>
         <td>The name of the resource</td> <td>Path inside the resource <br/>(including into the data types)</td> <td>The name of the resource</td> </tr>
  <tr> <td>Base Extension (a standard data type) <br/>(example: <a href="extensibility.html#Extension">Extension</a> - <a href="extension.profile.xml.html">XML</a>, <a href="extension.profile.json.html">JSON</a>)</td>
         <td><code>Extension</code></td> <td><code>Extension.value[x]</code> or <code>Extension.extension</code></td> <td><code>Extension</code></td> </tr>
- <tr> <td>A defined Extension <br/>(example: <a href="extension-us-core-race.html">Extension</a>  - <a href="extension-us-core-race.xml.html">XML</a>, <a href="extension-us-core-race.json.html">JSON</a>)</td>
+ <tr> <td>A defined Extension <br/>(example: <a href="extension-geolocation.html">Extension</a>  - <a href="extension-geolocation.xml.html">XML</a>, <a href="extension-geolocation.json.html">JSON</a>)</td>
         <td><code>Extension</code></td> <td><code>Extension.value[x]</code> or <code>Extension.extension</code> (for complex extensions)</td> <td><code>Extension</code></td> </tr>
 </table>
 <p>
@@ -188,11 +188,11 @@ For a description of slicing, see <a href="profiling.html#slicing">Slicing</a>
       <li><code>slicing</code> must be present</li>
       <li><code>min</code> and <code>max</code> govern the number of total occurrences of the sliced element including the number of occurrences in the open portion of the slice. </li>
     </ul>
- </li> 
+ </li>
  <li>An element with a cardinality of 0..1 and a choice of multiple types can be sliced by type. This is in order to specify different constraints for different types. In this case, the discriminator SHALL be "@type"</li>
  <li></li>
 </ul>
- 
+
 <a name="min-max"> </a>
 <h3>Rules about min and max</h3>
 <p>
@@ -211,12 +211,12 @@ In a <a href="structuredefinition.html">StructureDefinition</a>:
 <h3>Missing Elements</h3>
 <p>
 Most elements have a minimum cardinality of 0, which means that they may be missing from a resource when it is exchanged between systems.
-Generally, when an element is missing, all that an application processing the resource can say about the element is that the 
+Generally, when an element is missing, all that an application processing the resource can say about the element is that the
 value is unknown - it may have a correct value, but it has not been provided for security or workflow reasons. On the
-other hand, it may not have a value at all. All the application can say is that the value is unknown. 
+other hand, it may not have a value at all. All the application can say is that the value is unknown.
 </p>
 <p>
-However, for some elements, this specification makes specific rules about what it means if the 
+However, for some elements, this specification makes specific rules about what it means if the
 element is missing. For some elements, this takes the form of a default value, a value that should
 be assumed if on element is present. For example, here are some default values:
 </p>
@@ -228,7 +228,7 @@ be assumed if on element is present. For example, here are some default values:
  <tr><td>List.entry.deleted</td><td>false</td></tr>
 </table>
 <p>
-Most default values are mathematical / numerical non-operations e.g. false, 0 for addition or 1 for multiplication. 
+Most default values are mathematical / numerical non-operations e.g. false, 0 for addition or 1 for multiplication.
 Default values are rarely used because:
 </p>
 <ul>
@@ -237,7 +237,7 @@ Default values are rarely used because:
  <li>The default value can never be changed.</li>
 </ul>
 <p>
-For other elements, the resource explicitly documents what 
+For other elements, the resource explicitly documents what
 the meaning of a missing element is, and the meaning is not
 represented by a default value. Some examples:
 </p>
@@ -269,23 +269,23 @@ Here is a list of all elements with a default value or a missing meaning:
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs-ElementDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
+
+
 function store(currentTab) {
   document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   }
   $( '#tabs-ElementDefinition' ).tabs('option', 'active', currentTab);
-}     
+}
 </script>
-  
+
 </body>
 </html>
