@@ -3,13 +3,9 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</p>
 
 <p>
- The _evaluate_ operation of the Measure resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
+The _evaluate_ operation of the Measure resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
 
 The resource is based on the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) DSTU Release 3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), DSTU Release 1 implementation guides.
 </p>

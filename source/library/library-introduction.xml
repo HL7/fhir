@@ -3,9 +3,6 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
-</p>
 
 <p>The Library resource is a general purpose container for clinical knowledge that is defined using a non-FHIR representation. For example, a shareable library of clinical logic, written in Clinical Quality Language (CQL), or the XML Schema for an information model. In addition to representing the metadata of the library, the resource has elements for tracking dependencies, as well as for representing the parameters and data requirements for any expression functionality provided by the library.</p>
 

@@ -804,6 +804,12 @@
   Description = Chemotherapy Regimen
   Filename = plandefinition-example-kdn5-simplified.xml
 
+ -- Row 10 -----------------------------------
+  Name = ZikaVirusInfection
+  Identity = zika-virus-intervention
+  Description = Zika Virus Infection Management Process
+  Filename = plandefinition-zika-virus-intervention.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

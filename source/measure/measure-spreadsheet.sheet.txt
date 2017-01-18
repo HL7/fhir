@@ -331,7 +331,7 @@
   Summary = Y
   Type = code
   Binding = MeasureType
-  Short Name = process | outcome | structure | patient-reported | composite
+  Short Name = process | outcome | structure | patient-reported-outcome | composite
   Definition = The measure type, e.g. process, outcome
 
  -- Row 29 -----------------------------------
@@ -556,6 +556,12 @@
   Identity = measure-exclusive-breastfeeding
   Description = Exclusive Breastfeeding Measure
   Filename = measure-exclusive-breastfeeding.xml
+
+ -- Row 2 -----------------------------------
+  Name = CMS146
+  Identity = measure-cms146-example
+  Description = Appropriate Testing for Children with Pharyngitis
+  Filename = measure-cms146-example.xml
 
 === Sheet Examples =====================================
 

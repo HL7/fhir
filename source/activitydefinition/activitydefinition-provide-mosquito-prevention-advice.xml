@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
+  <id value="provide-mosquito-prevention-advice"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Provide Mosquito Prevention Advice</div>
+  </text>
+  <url value="http://example.org/ActivityDefinition/provide-mosquito-prevention-advice"/>
+  <status value="draft"/>
+  <description value="Provide mosquito prevention advice"/>
+  <relatedArtifact>
+	<type value="documentation"/>
+	<display value="Advice for patients about how to avoid Mosquito bites."/>
+	<url value="http://www.cdc.gov/zika/prevention/index.html"/>
+  </relatedArtifact>
+  <relatedArtifact>
+	<type value="documentation"/>
+	<display value="Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]"/>
+	<url value="https://www.epa.gov/insect-repellents/find-insect-repellent-right-you"/>	
+  </relatedArtifact>
+  <category value="communication"/>
+  <code>
+    <text value="Provide Mosquito Prevention Advice"/>
+  </code>
+  <timingTiming>
+    <event>
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
+        <valueString value="Now()"/>
+      </extension>
+    </event>
+  </timingTiming>
+  <participantType value="practitioner"/>
+</ActivityDefinition>

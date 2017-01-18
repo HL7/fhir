@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">
+  <id value="administer-zika-virus-exposure-assessment"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Aminister Zika Virus Exposure Assessment</div>
+  </text>
+  <url value="http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+  <status value="draft"/>
+  <description value="Administer Zika Virus Exposure Assessment"/>
+  <category value="procedure"/>
+  <code>
+    <coding>
+      <system value="http://example.org/questionnaires"/>
+      <code value="zika-virus-exposure-assessment"/>
+    </coding>
+  </code>
+  <timingTiming>
+    <event>
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
+        <valueString value="Now()"/>
+      </extension>
+    </event>
+  </timingTiming>
+  <participantType value="practitioner"/>
+</ActivityDefinition>
+
+

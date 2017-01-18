@@ -11,19 +11,16 @@
   <category value="referral"/>
   <code>
     <coding>
-      <!-- Error: Connection to http://localhost:960 refused -->
-      <!--<system value="http://snomed.info/sct"/>-->
+      <system value="http://snomed.info/sct"/>
       <code value="306206005"/>
     </coding>
   </code>
-  <!-- Null reference exception in validator due to no primitive value... fix pending
   <timingTiming>
     <event>
-      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression">
+      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
         <valueString value="Now()"/>
       </extension>
     </event>
   </timingTiming>
-  -->
   <participantType value="practitioner"/>
 </ActivityDefinition>

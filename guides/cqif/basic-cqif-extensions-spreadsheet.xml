@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13410</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>9720</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -6632,7 +6632,7 @@
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">Element,Resource</Data></Cell>
     <Cell><Data ss:Type="String">fhirPathExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">FHIRPath expression</Data></Cell>
     <Cell><Data ss:Type="String">A FHIRPath expression that provides the value for the element or resource on which it appears</Data></Cell>
@@ -6642,7 +6642,7 @@
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">Element,Resource</Data></Cell>
     <Cell><Data ss:Type="String">cqlExpression</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">CQL expression</Data></Cell>
     <Cell><Data ss:Type="String">A CQL expression that provides the value for the element or resource on which it appears</Data></Cell>
@@ -6663,7 +6663,7 @@
     <Cell><Data ss:Type="String">DataType</Data></Cell>
     <Cell><Data ss:Type="String">Coding</Data></Cell>
     <Cell><Data ss:Type="String">sourceValueSet</Data></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:Index="14"><Data ss:Type="String">Source value set for the coding</Data></Cell>
     <Cell><Data ss:Type="String">A URI that refers to the value set from which this coding was chosen. The URI may be a URN specifying an OID, or it may be the canoncical URL for a ValueSet resource</Data></Cell>
@@ -6688,7 +6688,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>79</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6696,7 +6696,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6704,8 +6703,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>87</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>85</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

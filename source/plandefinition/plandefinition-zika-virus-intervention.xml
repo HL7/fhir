@@ -1,0 +1,86 @@
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+  <id value="zika-virus-intervention"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Zika Virus Intervention</div>
+  </text>
+  <url value="http://example.org/PlanDefinition/zika-virus-intervention"/>
+  <identifier>
+    <use value="official"/>
+    <value value="zika-virus-intervention"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Example Zika Virus Intervention"/>
+  <status value="active"/>
+  <date value="2016-11-14"/>
+  <description value="Zika Virus Management intervention describing the CDC Guidelines for Zika Virus Reporting and Management."/>
+  <topic>
+    <text value="Zika Virus Management"/>
+  </topic>
+  <library>
+    <reference value="Library/zika-virus-intervention-logic"/>
+  </library>
+  <actionDefinition>
+    <title value="Zika Virus Assessment"/>
+    <triggerDefinition>
+      <type value="named-event"/>
+      <eventName value="patient-view"/>
+    </triggerDefinition>
+    <condition>
+      <kind value="applicability"/>
+      <expression value="Is Patient Pregnant"/>
+    </condition>
+    <actionDefinition>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Administer Zika Virus Exposure Assessment"/>
+		</condition>
+		<activityDefinition>
+			<reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
+		</activityDefinition>
+    </actionDefinition>
+    <actionDefinition>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Order Serum + Urine rRT-PCR Test"/>
+		</condition>
+		<activityDefinition>
+			<reference value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
+		</activityDefinition>
+    </actionDefinition>
+    <actionDefinition>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
+		</condition>
+		<activityDefinition>
+			<reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
+		</activityDefinition>
+    </actionDefinition>
+    <actionDefinition>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Consider IgM Antibody Testing"/>
+		</condition>
+		<activityDefinition>
+			<reference value="ActivityDefinition/consider-igm-antibody-testing"/>
+		</activityDefinition>
+    </actionDefinition>
+    <actionDefinition>
+		<condition>
+			<kind value="applicability"/>
+			<expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
+		</condition>
+		<actionDefinition>
+			<activityDefinition>
+				<reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
+			</activityDefinition>
+		</actionDefinition>
+		<actionDefinition>
+			<activityDefinition>
+				<reference value="ActivityDefinition/provide-contraception-advice"/>
+			</activityDefinition>
+		</actionDefinition>
+    </actionDefinition>
+  </actionDefinition>
+</PlanDefinition>

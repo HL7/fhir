@@ -3,26 +3,7 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
-</p>
-
 <p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditions, options, and other decision points. The resource is flexible enough to be used to represent a variety of clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
-
-<!--
-<p>An order set is a pre-defined and approved group of actions related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry (CPOE) system.</p>
--->
-
-<!--
-<p>
-This draft resource has been published for Workflow group discussion purposes. It is used to define the set of activities that can be peformed that have relationships in terms of order, pre-conditions etc. see <a href="https://en.wikipedia.org/wiki/Medical_guideline">Visit W3Schools</a>  For example <a href="http://www.healthquality.va.gov/guidelines/CD/htn/VADoDCPGfortheManagementofHTN.pdf">Visit W3Schools</a>  (todo)
-</p>
--->
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-
-<!--
-<p>The Metadata component represents topical metadata such as the title, description, publication information and lifecycle, as well as usage documentation and supporting evidence. The Library component allows order sets to reference logic that can be used to control conditional behavior as the order set is realized. And finally, the Action component provides the ability to define hierarchical groups of actions, where each specific action defines an orderable line item, together with behaviors that determine how the orderable items are related to each other.</p>
--->
 
 <p>PlanDefinitions can contain hierarchical groups of actions, where each specific action defines an activity to be performed (in terms of an ActivityDefinition resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
 

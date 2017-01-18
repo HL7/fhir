@@ -2,12 +2,60 @@
 <ActivityDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<!-- xsi:schemaLocation="http://hl7.org/fhir ../../schema/activitydefinition.xsd">-->
 	<id value="citalopramPrescription"/>
+  <contained>
+    <Medication>
+      <id value="citalopramMedication"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="200371"/>
+        </coding>
+        <text value="citalopram"/>
+      </code>
+      <product>
+        <form>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="385055001"/>
+            <display value="Tablet dose form"/>
+          </coding>
+          <text value="Tablet dose form"/>
+        </form>
+        <ingredient>
+          <itemReference>
+            <reference value="#citalopramSubstance"/>
+          </itemReference>
+          <amount>
+            <numerator>
+              <value value="20"/>
+              <unit value="mg"/>
+            </numerator>
+            <denominator>
+              <value value="1"/>
+              <unit value="{tbl}"/>
+            </denominator>
+          </amount>
+        </ingredient>
+      </product>
+    </Medication>
+  </contained>
+  <contained>
+    <Substance>
+      <id value="citalopramSubstance"/>
+      <code>
+        <coding>
+          <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+          <code value="2556"/>
+        </coding>
+        <text value="citalopram"/>
+      </code>
+    </Substance>
+  </contained>
 	<status value="draft"/>
 	<category value="drug"/>
 	<productReference>
 		<reference value="#citalopramMedication"/>
 	</productReference>
-	<!-- Need a DosageInstruction type
 	<dosageInstruction>
 		<text value="1 tablet oral 1 time daily"/>
 		<timing>
@@ -29,14 +77,12 @@
 			<unit value="{tbl}"/>
 		</doseQuantity>
 	</dosageInstruction>
-	-->
-	<!-- Need a DispenseRequest type
-	<dispenseRequest>
-		<numberOfRepeatsAllowed value="3"/>
-		<quantity>
-			<value value="30"/>
-			<unit value="{tbl}"/>
-		</quantity>
-	</dispenseRequest>
-	-->
+	<dynamicValue>
+		<path value="dispenseRequest.numberOfRepeatsAllowed"/>
+		<expression value="3"/>
+	</dynamicValue>
+	<dynamicValue>
+		<path value="dispenseRequest.quantity"/>
+		<expression value="30 '{tbl}'"/>
+	</dynamicValue>
 </ActivityDefinition>

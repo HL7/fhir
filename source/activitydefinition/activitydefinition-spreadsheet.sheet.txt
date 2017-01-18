@@ -381,6 +381,36 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = Referral Example
+  Identity = example
+  Description = Activity definition to refer a patient to a mental health integrated care program
+  Filename = activitydefinition-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Citalopram Prescription Example
+  Identity = citalopramPrescription
+  Description = Activity definition to prescribe citalopram to a patient
+  Filename = activitydefinition-medicationorder-example.xml
+
+ -- Row 3 -----------------------------------
+  Name = Administer Zika Virus Exposure Assessment
+  Identity = administer-zika-virus-exposure-assessment
+  Description = Definition for administering a Zika Virus Exposure assessment
+  Filename = activitydefinition-administer-zika-virus-exposure-assessment.xml
+
+ -- Row 4 -----------------------------------
+  Name = Order Serum Zika and Dengue Virus IgM
+  Identity = serum-zika-dengue-virus-igm
+  Description = Definition for ordering a Serum Zika and Dengue Virus IgM Antibody Diagnostic
+  Filename = activitydefinition-order-serum-zika-dengue-virus-igm.xml
+
+ -- Row 5 -----------------------------------
+  Name = Provide Mosquito Prevention Advice
+  Identity = provide-mosquito-prevention-advice
+  Description = Definition for providing mosquito prevention advice
+  Filename = activitydefinition-provide-mosquito-prevention-advice.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

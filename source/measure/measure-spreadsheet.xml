@@ -20,11 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7230</WindowHeight>
-  <WindowWidth>22200</WindowWidth>
+  <WindowHeight>9720</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4714,7 +4714,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6895,11 +6894,11 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">CMS146</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Appropriate Testing for Children with Pharyngitis</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">measure-cms146-example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">measure-cms146-example.xml</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
@@ -7245,6 +7244,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7264,6 +7264,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

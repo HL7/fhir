@@ -3,10 +3,6 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="clinicalreasoning-module.html">Clinical Reasoning</a> module.</i>
-</p>
-
 <p>An activity definition is a shareable, consumable description of some activity to be performed. It may be used to specify actions to be taken as part of an order set or protocol, or it may be used independently as part of a catalog of activities such as orderables.</p>
 
 <p>For more information on how activity definitions can be used to construct request resources, see the Category Mapping and Realizing an ActivityDefinition topics below.</p>
@@ -18,7 +14,6 @@
 
 <p>Instead, an activity definition provides a reusable template that can potentially be used to construct specific <i>request</i> resources such as ProcedureRequest and MedicationRequest.</p>
 </div>
--->
 
 <!-- (optional):
 <div>
