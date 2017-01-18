@@ -335,10 +335,11 @@
   Card. = 0..*
   UML = 400;100
   Short Name = What result was achieved regarding the goal?
-  Definition = Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.
+  Definition = Identifies the change (or lack of change) at the point when the status of the goal is assessed.  The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome would be calories consumed whereas goal outcome is an observation for the actual body weight measured.
   Requirements = Outcome tracking is a key aspect of care planning
   Comments = Note that this should not duplicate the goal status.
   To Do = Define a proper value set for this
+  Committee Notes = GF#11116
 
  -- Row 19 -----------------------------------
   Element = Goal.outcome.result[x]

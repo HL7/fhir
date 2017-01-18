@@ -247,7 +247,6 @@
   Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
   Workflow Mapping = Request.supportingInfo
-  To Do = Need a value set for this
   w5 = class
 
  -- Row 5 -----------------------------------
@@ -302,19 +301,6 @@
   w5 = when.init
 
  -- Row 9 -----------------------------------
-  Element = CarePlan.modified
-  Card. = 0..1
-  Summary = Y
-  Type = dateTime
-  Short Name = When last updated
-  Definition = Identifies the most recent date on which the plan has been revised.
-  Requirements = Indicates how current the plan is.
-  v2 Mapping = PTH-6
-  RIM Mapping = .participation[typeCode=AUT].time
-  Committee Notes = Do we need this in addition to the resource metadata which tracks last changed?
-  w5 = when.recorded
-
- -- Row 10 -----------------------------------
   Element = CarePlan.author
   Card. = 0..*
   Summary = Y
@@ -325,7 +311,7 @@
   Workflow Mapping = Request.requester.agent (if only one author)
   w5 = who.source
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CarePlan.careTeam
   Card. = 0..*
   Type = Reference(CareTeam)
@@ -335,7 +321,7 @@
   Workflow Mapping = Request.performer (similar but does not entail CareTeam)
   w5 = who.actor
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = CarePlan.addresses
   Card. = 0..*
   Summary = Y
@@ -349,7 +335,7 @@
   Committee Notes = GF#11170
   w5 = why
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = CarePlan.support
   Card. = 0..*
   Type = Reference(Any)
@@ -359,7 +345,7 @@
   Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
   Workflow Mapping = Request.supportingInfo
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CarePlan.definition
   Card. = 0..1
   Type = Reference(PlanDefinition|Questionnaire)
@@ -368,7 +354,7 @@
   Workflow Mapping = Request.definition
   Committee Notes = GF#11343
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CarePlan.related
   Card. = 0..*
   UML = 0;300
@@ -377,7 +363,7 @@
   Comments = Relationships are uni-directional with the \"newer\" plan pointing to the older one.
   Workflow Mapping = Invariants based on relatedPlan.code \nIF includes -> none. Inverse Relationship as request defines over basedOn - see fulfills\nIF fulfills -> Request.basedOn\nIF replaces -> Request.replaces
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CarePlan.related.code
   Card. = 0..1
   Type = code
@@ -386,14 +372,14 @@
   Definition = Identifies the type of relationship this plan has to the target plan.
   Comments = Read the relationship as \"this plan\" [related.code] \"related.plan\"; e.g. This plan includes Plan B.\n\nAdditional relationship types can be proposed for future releases or handled as extensions.
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CarePlan.related.plan
   Card. = 1..1
   Type = Reference(CarePlan)
   Short Name = Plan relationship exists with
   Definition = A reference to the plan to which a relationship is asserted.
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CarePlan.goal
   Card. = 0..*
   Type = Reference(Goal)
@@ -405,7 +391,7 @@
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
   Committee Notes = Should this be expanded into code + value + timeframe?
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CarePlan.activity
   Card. = 0..*
   UML = 350;0
@@ -415,26 +401,26 @@
   Workflow Mapping = no mapping\nNOTE: This is a list of contained Request-Event tuples!
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 20 -----------------------------------
-  Element = CarePlan.activity.actionResulting
+ -- Row 19 -----------------------------------
+  Element = CarePlan.activity.outcome
   Card. = 0..*
-  Type = Reference(Any)
-  Short Name = Appointments, orders, etc.
-  Definition = Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.
+  Short Name = Results of the activity
+  Definition = Identifies the outcome at the point when the status of the activity is assessed.  The activity outcome is independent of the outcome of the related goal(s).  For example, if the goal is to achieve a target body weight of 150 lb and an activity is defined to diet, then the activity outcome would be calories consumed whereas the goal outcome is an observation for the actual body weight measured.
+  Comments = Note that this should not duplicate the activity status (e.g. completed or in progress).
+
+ -- Row 20 -----------------------------------
+  Element = CarePlan.activity.outcome.result[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Any)
+  Binding = CarePlanActivityOutcome
+  Short Name = Appointment, Encounter, Procedure, etc.
+  Definition = Details of the outcome or action resulting from the activity.  Can be a reference to an \"event\" resource, such as Procedure or Encounter or Observation, which is the result/outcome of the activity requested/planned.  The requested/planned activity can be defined using CarePlan.activity.detail OR using the CarePlan.activity.reference (often a reference to a “request” resource).
   Requirements = Links plan to resulting actions
   Workflow Mapping = Event that is outcome of Request in activity.reference
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
+  Committee Notes = GF#11116
 
  -- Row 21 -----------------------------------
-  Element = CarePlan.activity.outcome
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = CarePlanActivityOutcome
-  Short Name = Results of the activity
-  Definition = Results of the careplan activity
-  Workflow Mapping = Event.code
-
- -- Row 22 -----------------------------------
   Element = CarePlan.activity.progress
   Card. = 0..*
   Type = Annotation
@@ -446,7 +432,7 @@
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = CarePlan.activity.reference
   Card. = 0..1
   Inv. = 3
@@ -458,7 +444,7 @@
   Workflow Mapping = Request that resulted in Event in activity.actionResulting
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = CarePlan.activity.detail
   Card. = 0..1
   UML = 350;200
@@ -468,7 +454,7 @@
   Requirements = Details in a simple form for generic care plan systems
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = CarePlan.activity.detail.category
   Card. = 0..1
   Type = CodeableConcept
@@ -480,7 +466,7 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
   Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
 
- -- Row 26 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = CarePlan.activity.detail.definition
   Card. = 0..1
   Type = Reference(PlanDefinition|Questionnaire)
@@ -490,7 +476,7 @@
   Workflow Mapping = Request.definition
   Committee Notes = GF#11051
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = CarePlan.activity.detail.code
   Card. = 0..1
   Type = CodeableConcept
@@ -503,7 +489,7 @@
   v2 Mapping = OBR-4 / RXE-2 / RXO-1  / RXD-2
   RIM Mapping = .code
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = CarePlan.activity.detail.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -513,7 +499,7 @@
   Comments = This could be a diagnosis code.  If a full condition record exists or additional detail is needed, use reasonCondition instead
   Workflow Mapping = Request.reasonCode
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = CarePlan.activity.detail.reasonReference
   Card. = 0..*
   Type = Reference(Condition)
@@ -522,7 +508,7 @@
   Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
   Workflow Mapping = Request.reasonReference
 
- -- Row 30 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = CarePlan.activity.detail.goal
   Card. = 0..*
   Type = Reference(Goal)
@@ -532,7 +518,7 @@
   Workflow Mapping = Request.goal
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
 
- -- Row 31 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = CarePlan.activity.detail.status
   Card. = 1..1
   Is Modifier = Y
@@ -547,17 +533,15 @@
   RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
   Committee Notes = GF#10617, 10643
 
- -- Row 32 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = CarePlan.activity.detail.statusReason
   Card. = 0..1
-  Type = CodeableConcept
-  Binding = CarePlanActivityStatusReason
+  Type = string
   Short Name = Reason for current status
   Definition = Provides reason why the activity isn\'t yet started, is on hold, was cancelled, etc.
   Comments = Will generally not be present if status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
-  To Do = Need a proper value set
 
- -- Row 33 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CarePlan.activity.detail.prohibited
   Card. = 0..1
   Is Modifier = Y
@@ -568,7 +552,7 @@
   RIM Mapping = actionNegationInd
   Default Value = False
 
- -- Row 34 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CarePlan.activity.detail.scheduled[x]
   Card. = 0..1
   Type = Timing|Period | string
@@ -579,7 +563,7 @@
   v2 Mapping = TQ1
   RIM Mapping = .effectiveTime
 
- -- Row 35 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CarePlan.activity.detail.location
   Card. = 0..1
   Type = Reference(Location)
@@ -590,7 +574,7 @@
   v2 Mapping = OBR-24(???!!)
   RIM Mapping = .participation[typeCode=LOC].role
 
- -- Row 36 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
   Type = Reference(Practitioner|Organization|RelatedPerson|Patient|CareTeam)
@@ -602,7 +586,7 @@
   v2 Mapping = PRT-5 : ( PRV-4 e {provider participations} ) / PRT-5 : ( PRV-4 e {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 37 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CarePlan.activity.detail.product[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Medication|Substance)
@@ -612,7 +596,7 @@
   v2 Mapping = RXE-2 / RXO-1 / RXD-2
   RIM Mapping = .participation[typeCode=PRD].role
 
- -- Row 38 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CarePlan.activity.detail.dailyAmount
   Card. = 0..1
   Aliases = daily dose
@@ -623,7 +607,7 @@
   v2 Mapping = RXO-23 / RXE-19 / RXD-12
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SBADM].doseQuantity
 
- -- Row 39 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CarePlan.activity.detail.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -632,7 +616,7 @@
   v2 Mapping = RXO-11 / RXE-10 / RXD-4 / RXG-5 / RXA-6 /  TQ1-2.1  *and*  RXO-12 /  RXE-11 / RXD-5 / RXG-7 / RXA-7 / TQ1-2.2
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
 
- -- Row 40 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CarePlan.activity.detail.description
   Card. = 0..1
   Type = string
@@ -642,7 +626,7 @@
   v2 Mapping = NTE?
   RIM Mapping = .text
 
- -- Row 41 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CarePlan.note
   Card. = 0..*
   Type = Annotation

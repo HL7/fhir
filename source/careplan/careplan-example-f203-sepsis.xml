@@ -54,7 +54,6 @@
     <start value="2013-04-14"/>
     <end value="2013-04-21"/>
   </period>
-  <modified value="2013-03-11"/>
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>

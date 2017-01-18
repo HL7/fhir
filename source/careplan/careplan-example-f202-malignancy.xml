@@ -110,10 +110,12 @@
     <reference value="#goal"/>
   </goal>
   <activity>
-    <actionResulting>
-      <reference value="Procedure/f201"/>
-      <display value="Roel's Chemotherapy"/>
-    </actionResulting>
+    <outcome>
+       <resultReference>
+         <reference value="Procedure/f201"/>
+         <display value="Roel's Chemotherapy"/>
+       </resultReference>
+    </outcome>
     <detail>
       <category><coding><system value="http://hl7.org/fhir/care-plan-activity-category"/><code value="procedure"/></coding></category>
       <code>

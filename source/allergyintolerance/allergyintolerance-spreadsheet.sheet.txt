@@ -280,6 +280,7 @@
   Card. = 0..1
   Is Modifier = y
   Summary = Y
+  Inv. = 1,2
   Type = code
   Binding = AllergyIntoleranceClinicalStatus
   Short Name = active | inactive | resolved
@@ -292,6 +293,7 @@
   Card. = 1..1
   Is Modifier = y
   Summary = Y
+  Inv. = 1,2
   Type = code
   Binding = AllergyIntoleranceVerificationStatus
   Short Name = unconfirmed | confirmed | refuted | entered-in-error

@@ -233,7 +233,6 @@
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>
   </subject>
-  <modified value="2012-09-10"/>
   <addresses>
     <reference value="#p1"/>
     <!-- Local reference -->

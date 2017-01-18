@@ -163,6 +163,7 @@
   Card. = 0..1
   Is Modifier = y
   Summary = Y
+  Inv. = 3,4
   Type = code
   Binding = ConditionClinicalStatus
   Short Name = active | recurrence | inactive | remission | resolved
@@ -176,6 +177,7 @@
   Card. = 0..1
   Is Modifier = y
   Summary = Y
+  Inv. = 3
   Type = code
   Binding = ConditionVerificationStatus
   Short Name = provisional | differential | confirmed | refuted | entered-in-error | unknown
@@ -296,6 +298,7 @@
  -- Row 13 -----------------------------------
   Element = Condition.abatement[x]
   Card. = 0..1
+  Inv. = 4
   Type = dateTime | Age | boolean | Period | Range | string
   Short Name = If/when in resolution/remission
   Definition = The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.

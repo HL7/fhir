@@ -56,7 +56,6 @@
     <end value="2013-03-13"/>
     <!--Period is less than nine days because the careplan requires adjustments after evaluation-->
   </period>
-  <modified value="2013-03-11"/>
   <careTeam>
     <reference value="#careteam"/>
   </careTeam>

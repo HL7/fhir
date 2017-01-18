@@ -8,6 +8,91 @@
   Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
 
+ -- Row 2 -----------------------------------
+  Binding Name = CareTeamStatus
+  Binding = code list
+  Reference = #care-team-status
+  Definition = Indicates the status of the care team.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = CareTeamCategory
+  Binding = code list
+  Reference = #care-team-category
+  Definition = Indicates the type of care team.
+  Conformance = example
+
+=== Sheet care-team-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposed
+  Display = Proposed
+  Definition = The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The care team is currently participating in the coordination and delivery of care.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = suspended
+  Display = Suspended
+  Definition = The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = inactive
+  Display = Inactive
+  Definition = The care team was, but is no longer, participating in the coordination and delivery of care.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = The care team should have never existed.
+
+=== Sheet care-team-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = event
+  Display = Event
+  Definition = This type of team focuses on one specific type of incident, which is non-patient specific. The incident is determined by the context of use.  For example, code team (code red, code blue, medical emergency treatment) or the PICC line team.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = encounter
+  Display = Encounter
+  Definition = This type of patient-specific team focuses on one specific encounter. The encounter is determined by the context of use.  For example, during an inpatient encounter, the nutrition support care team
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = episode
+  Display = Episode
+  Definition = This type of team focuses on one specific episode of care with a defined time period or self-limiting process (e.g. 10 visits). The episode of care is determined by the context of use.  For example, a maternity care team over 9 months.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = care-coordination
+  Display = Care Coordination
+  Definition = This type of team focuses on overall care coordination managing one or more conditions across a continuum of care ensuring there is a smooth transition of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person’s enrollment in a particular program.   For example, disease management team or patient centered medical home team.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = condition
+  Display = Condition
+  Definition = This type of team focuses on one specific condition. The condition is determined by the context of use.  For example, a disease management team focused on one condition (e.g. diabetes).
+  Parent = care-coordination
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = clinical-research
+  Display = Clinical Research
+  Definition = This type of team is responsible for establishing, conducting, coordinating and monitoring the outcomes of clinical trials. The team focuses on research, clinical care and education.
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -33,9 +118,10 @@
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
-  Type = CodeableConcept
-  Short Name = active | suspended | inactive | entered in error
-  Definition = Indicates whether the care team is currently active, suspended, inactive, or entered in error
+  Type = code
+  Binding = CareTeamStatus
+  Short Name = proposed | active | suspended | inactive | entered-in-error
+  Definition = Indicates the current state of the care team.
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -43,6 +129,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
+  Binding = CareTeamCategory
   Short Name = Type of team
   Definition = Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team
   Requirements = Used for filtering what teams(s) are retrieved and displayed to different types of users

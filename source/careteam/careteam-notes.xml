@@ -1,6 +1,8 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
-To do.
+<h3>Notes</h3>
+<p>
+The <a href="provenance.html">Provenance</a> resource can be used for detailed review information, such as when the care team was last reviewed and by whom. 
+</p>
 
 </div>
