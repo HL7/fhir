@@ -348,6 +348,11 @@
   Type = reference
   Path = ClinicalImpression.subject
 
+ -- Row 13 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ClinicalImpression.identifier
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

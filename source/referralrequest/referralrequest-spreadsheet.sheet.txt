@@ -395,6 +395,11 @@
   Description = Part of common request
   Path = ReferralRequest.parent
 
+ -- Row 13 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ReferralRequest.identifier
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

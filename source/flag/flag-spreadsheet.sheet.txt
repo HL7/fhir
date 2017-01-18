@@ -169,6 +169,11 @@
   Type = reference
   Path = Flag.encounter
 
+ -- Row 6 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = Flag.identifier
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

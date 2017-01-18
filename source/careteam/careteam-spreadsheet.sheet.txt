@@ -134,7 +134,6 @@
   Definition = Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team
   Requirements = Used for filtering what teams(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one team may serve multiple purposes.
-  To Do = Need a value set for this
   Committee Notes = GF#11347
   w5 = class
 
