@@ -13,6 +13,8 @@
 <p>The Measure resource describes a specific quality measure, providing the structure of the measure in terms of the calculation elements (the <i>populations</i> involved). The <a href="group.html">Group</a> resource is also capable of describing a population, however, the complexity involved in specifying the criteria in the general case requires the use of a high-level query language such as Clinical Quality Language (CQL). As such, the Measure resource defines only the top-level populations and references CQL expressions for the actual criteria.</p>
 
 <p>A Measure is also similar to an <a href="observation.html">Observation</a> resource, with the exception that the Measure is purely definitional, it contains no actual measurements, only a description of how to calculate a particular measurement.</p>
+
+<p>A Measure is also similar to a clinical document, but as with the relationship to Observation, a Document is specific to a particular subject.</p>
 </div>
 
 <!-- (optional):
