@@ -70,7 +70,7 @@ systems adhere to the specification.
 <h4 id="workflow">Workflow</h4>
 <p><b>Pre-Processing</b></p>
 <p>
-  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, the TestScript as a whole, meaning all test within the test script, are skipped. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
+  The TestScript execution workflow begins by determining if the test suite is appropriate for the server under test. This can be determined by evaluating if the interactions listed in the TestScript metadata "capabilities" section are supported by the server's conformance resource. If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test’s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison.. See <a href="#howToSpecifiyCapabilities">How to specify metadata capabilities</a>.
 </p>
 <p>
   If the server supports the requirements of the TestScript instance, any specified fixtures are loaded or retrieved. If the fixtures are marked as 'autocreate' then they are automatically created on the server(s) under test using 'create' operations. If any of the autocreate operations fail, then the tests in the TestScript are skipped.
@@ -1039,7 +1039,7 @@ GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 
 <hr/><!-- =========================================================================================================================================================== -->
 <h4 id="howToSpecifiyCapabilities">How to specify metadata capabilities</h4>
-<p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, the TestScript as a whole or a specific test within the test script may be skipped depending on where the capabilities section is defined.</p>
+<p>If the capabilities are supported by the server, then the TestScript can be executed. Otherwise, a test engine will provide a comparison of the system under test’s conformance capabilities and allow a TestScript as a whole to be skipped based on this comparison..</p>
 <p>Here's how to specify that the test script requires the server to support Patient create and delete operations:</p>
 <div class="xmlCode"><xmp>
 <metadata>
