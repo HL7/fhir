@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -493,8 +493,9 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(source, sourceVersion, target
-          , targetVersion, element);
+        return super.isEmpty() && (source == null || source.isEmpty()) && (sourceVersion == null || sourceVersion.isEmpty())
+           && (target == null || target.isEmpty()) && (targetVersion == null || targetVersion.isEmpty())
+           && (element == null || element.isEmpty());
       }
 
   public String fhirType() {
@@ -737,7 +738,8 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, target);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (target == null || target.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1200,8 +1202,9 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, equivalence, comments
-          , dependsOn, product);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (equivalence == null || equivalence.isEmpty())
+           && (comments == null || comments.isEmpty()) && (dependsOn == null || dependsOn.isEmpty())
+           && (product == null || product.isEmpty());
       }
 
   public String fhirType() {
@@ -1508,7 +1511,8 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, system, code);
+        return super.isEmpty() && (property == null || property.isEmpty()) && (system == null || system.isEmpty())
+           && (code == null || code.isEmpty());
       }
 
   public String fhirType() {
@@ -2786,8 +2790,9 @@ public class ConceptMap extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
-          , source, target, group);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (source == null || source.isEmpty()) && (target == null || target.isEmpty())
+           && (group == null || group.isEmpty());
       }
 
   @Override

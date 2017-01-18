@@ -11,6 +11,7 @@
 	<name value="TestScript Example Read Test"/>
 	<status value="draft"/>
 	<experimental value="true"/>
+	<date value="2016-09-26"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -20,7 +21,6 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
-	<date value="2016-09-26"/>
 	<description value="TestScript example resource with ported Sprinkler basic read tests R001, R002, R003, R004. The read tests will utilize user defined dynamic variables that will hold the Patient resource id values."/>
 	<jurisdiction>
 		<coding>

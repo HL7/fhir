@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -410,7 +410,8 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (actor == null || actor.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -832,8 +833,9 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, site, route, method
-          , dose, rate);
+        return super.isEmpty() && (text == null || text.isEmpty()) && (site == null || site.isEmpty())
+           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
+           && (rate == null || rate.isEmpty());
       }
 
   public String fhirType() {
@@ -2509,10 +2511,15 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, partOf
-          , status, medication, subject, context, supportingInformation, effective, performer
-          , onBehalfOf, reasonReference, prescription, notGiven, reasonNotGiven, reasonGiven
-          , device, note, dosage, eventHistory);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
+           && (partOf == null || partOf.isEmpty()) && (status == null || status.isEmpty()) && (medication == null || medication.isEmpty())
+           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
+           && (effective == null || effective.isEmpty()) && (performer == null || performer.isEmpty())
+           && (onBehalfOf == null || onBehalfOf.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
+           && (prescription == null || prescription.isEmpty()) && (notGiven == null || notGiven.isEmpty())
+           && (reasonNotGiven == null || reasonNotGiven.isEmpty()) && (reasonGiven == null || reasonGiven.isEmpty())
+           && (device == null || device.isEmpty()) && (note == null || note.isEmpty()) && (dosage == null || dosage.isEmpty())
+           && (eventHistory == null || eventHistory.isEmpty());
       }
 
   @Override

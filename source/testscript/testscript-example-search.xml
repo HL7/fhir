@@ -11,6 +11,7 @@
 	<name value="TestScript Example Search"/>
 	<status value="draft"/>
 	<experimental value="true"/>
+	<date value="2016-09-26"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -20,7 +21,6 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
-	<date value="2016-09-26"/>
 	<description value="TestScript example resource with simple Patient search test. The read tests will utilize user defined dynamic variables that will hold the Patient search parameter values."/>
 	<jurisdiction>
 		<coding>
@@ -173,6 +173,12 @@
 				<operator value="equals"/>
 				<path value="fhir:Bundle/fhir:type/@value"/>
 				<value value="searchset"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle total is greater than or equal to the number of returned entries."/>
+				<expression value="Bundle.total.toInteger() &gt;= entry.count()"/>
 			</assert>
 		</action>
 	</test>

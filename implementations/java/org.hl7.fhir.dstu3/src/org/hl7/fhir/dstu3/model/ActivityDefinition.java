@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -791,8 +791,9 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && (description == null || description.isEmpty()) && (path == null || path.isEmpty())
+           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3243,10 +3244,16 @@ public class ActivityDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
-          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , library, category, code, timing, location, participantType, product, quantity
-          , dosageInstruction, bodySite, transform, dynamicValue);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
+           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (timing == null || timing.isEmpty())
+           && (location == null || location.isEmpty()) && (participantType == null || participantType.isEmpty())
+           && (product == null || product.isEmpty()) && (quantity == null || quantity.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (bodySite == null || bodySite.isEmpty()) && (transform == null || transform.isEmpty())
+           && (dynamicValue == null || dynamicValue.isEmpty());
       }
 
   @Override

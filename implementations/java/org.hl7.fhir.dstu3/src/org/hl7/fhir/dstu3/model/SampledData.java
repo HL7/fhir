@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -676,8 +676,9 @@ public class SampledData extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(origin, period, factor, lowerLimit
-          , upperLimit, dimensions, data);
+        return super.isEmpty() && (origin == null || origin.isEmpty()) && (period == null || period.isEmpty())
+           && (factor == null || factor.isEmpty()) && (lowerLimit == null || lowerLimit.isEmpty()) && (upperLimit == null || upperLimit.isEmpty())
+           && (dimensions == null || dimensions.isEmpty()) && (data == null || data.isEmpty());
       }
 
 

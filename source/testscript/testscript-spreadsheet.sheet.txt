@@ -378,14 +378,14 @@
   Element = TestScript.experimental
 
  -- Row 9 -----------------------------------
-  Element = TestScript.publisher
+  Element = TestScript.date
 
  -- Row 10 -----------------------------------
-  Element = TestScript.contact
-  UML = 0;80
+  Element = TestScript.publisher
 
  -- Row 11 -----------------------------------
-  Element = TestScript.date
+  Element = TestScript.contact
+  UML = 0;80
 
  -- Row 12 -----------------------------------
   Element = TestScript.description

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -389,7 +389,8 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, item);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (item == null || item.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -635,7 +636,8 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, basis);
+        return super.isEmpty() && (item == null || item.isEmpty()) && (basis == null || basis.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2175,10 +2177,14 @@ public class ClinicalImpression extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, code
-          , description, subject, assessor, date, effective, context, previous, problem
-          , investigation, protocol, summary, finding, prognosisCodeableConcept, prognosisReference
-          , action, note);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (code == null || code.isEmpty()) && (description == null || description.isEmpty()) && (subject == null || subject.isEmpty())
+           && (assessor == null || assessor.isEmpty()) && (date == null || date.isEmpty()) && (effective == null || effective.isEmpty())
+           && (context == null || context.isEmpty()) && (previous == null || previous.isEmpty()) && (problem == null || problem.isEmpty())
+           && (investigation == null || investigation.isEmpty()) && (protocol == null || protocol.isEmpty())
+           && (summary == null || summary.isEmpty()) && (finding == null || finding.isEmpty()) && (prognosisCodeableConcept == null || prognosisCodeableConcept.isEmpty())
+           && (prognosisReference == null || prognosisReference.isEmpty()) && (action == null || action.isEmpty())
+           && (note == null || note.isEmpty());
       }
 
   @Override

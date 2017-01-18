@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1583,10 +1583,15 @@ public class ReferralRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
-          , status, category, type, priority, patient, context, fulfillmentTime, authored
-          , requester, specialty, recipient, reason, description, serviceRequested, supportingInformation
-          );
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
+           && (parent == null || parent.isEmpty()) && (status == null || status.isEmpty()) && (category == null || category.isEmpty())
+           && (type == null || type.isEmpty()) && (priority == null || priority.isEmpty()) && (patient == null || patient.isEmpty())
+           && (context == null || context.isEmpty()) && (fulfillmentTime == null || fulfillmentTime.isEmpty())
+           && (authored == null || authored.isEmpty()) && (requester == null || requester.isEmpty())
+           && (specialty == null || specialty.isEmpty()) && (recipient == null || recipient.isEmpty())
+           && (reason == null || reason.isEmpty()) && (description == null || description.isEmpty())
+           && (serviceRequested == null || serviceRequested.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
+          ;
       }
 
   @Override

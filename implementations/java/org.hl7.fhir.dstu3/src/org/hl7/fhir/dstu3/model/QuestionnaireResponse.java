@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -708,8 +708,9 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, definition, text
-          , subject, answer, item);
+        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (definition == null || definition.isEmpty())
+           && (text == null || text.isEmpty()) && (subject == null || subject.isEmpty()) && (answer == null || answer.isEmpty())
+           && (item == null || item.isEmpty());
       }
 
   public String fhirType() {
@@ -1124,7 +1125,8 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, item);
+        return super.isEmpty() && (value == null || value.isEmpty()) && (item == null || item.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2012,8 +2014,11 @@ public class QuestionnaireResponse extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
-          , questionnaire, status, subject, context, author, authored, source, item);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
+           && (parent == null || parent.isEmpty()) && (questionnaire == null || questionnaire.isEmpty())
+           && (status == null || status.isEmpty()) && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty())
+           && (author == null || author.isEmpty()) && (authored == null || authored.isEmpty()) && (source == null || source.isEmpty())
+           && (item == null || item.isEmpty());
       }
 
   @Override

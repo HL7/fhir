@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestReport xmlns="http://hl7.org/fhir">
 	<id value="testreport-example"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878"/>
+	</identifier>
 	<name value="TestReport Example for TestScript Example"/>
 	<status value="complete"/>
 	<score value="100.0"/>

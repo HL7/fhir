@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -797,8 +797,9 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, schedule, nutrient
-          , texture, fluidConsistencyType, instruction);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (schedule == null || schedule.isEmpty())
+           && (nutrient == null || nutrient.isEmpty()) && (texture == null || texture.isEmpty()) && (fluidConsistencyType == null || fluidConsistencyType.isEmpty())
+           && (instruction == null || instruction.isEmpty());
       }
 
   public String fhirType() {
@@ -986,7 +987,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifier, amount);
+        return super.isEmpty() && (modifier == null || modifier.isEmpty()) && (amount == null || amount.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1175,7 +1177,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(modifier, foodType);
+        return super.isEmpty() && (modifier == null || modifier.isEmpty()) && (foodType == null || foodType.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1580,8 +1583,9 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, productName, schedule
-          , quantity, instruction);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (productName == null || productName.isEmpty())
+           && (schedule == null || schedule.isEmpty()) && (quantity == null || quantity.isEmpty()) && (instruction == null || instruction.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2195,9 +2199,11 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(baseFormulaType, baseFormulaProductName
-          , additiveType, additiveProductName, caloricDensity, routeofAdministration, administration
-          , maxVolumeToDeliver, administrationInstruction);
+        return super.isEmpty() && (baseFormulaType == null || baseFormulaType.isEmpty()) && (baseFormulaProductName == null || baseFormulaProductName.isEmpty())
+           && (additiveType == null || additiveType.isEmpty()) && (additiveProductName == null || additiveProductName.isEmpty())
+           && (caloricDensity == null || caloricDensity.isEmpty()) && (routeofAdministration == null || routeofAdministration.isEmpty())
+           && (administration == null || administration.isEmpty()) && (maxVolumeToDeliver == null || maxVolumeToDeliver.isEmpty())
+           && (administrationInstruction == null || administrationInstruction.isEmpty());
       }
 
   public String fhirType() {
@@ -2456,8 +2462,8 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(schedule, quantity, rate
-          );
+        return super.isEmpty() && (schedule == null || schedule.isEmpty()) && (quantity == null || quantity.isEmpty())
+           && (rate == null || rate.isEmpty());
       }
 
   public String fhirType() {
@@ -3426,9 +3432,12 @@ public class NutritionOrder extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, patient
-          , encounter, dateTime, orderer, allergyIntolerance, foodPreferenceModifier, excludeFoodModifier
-          , oralDiet, supplement, enteralFormula);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (patient == null || patient.isEmpty()) && (encounter == null || encounter.isEmpty()) && (dateTime == null || dateTime.isEmpty())
+           && (orderer == null || orderer.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
+           && (foodPreferenceModifier == null || foodPreferenceModifier.isEmpty()) && (excludeFoodModifier == null || excludeFoodModifier.isEmpty())
+           && (oralDiet == null || oralDiet.isEmpty()) && (supplement == null || supplement.isEmpty())
+           && (enteralFormula == null || enteralFormula.isEmpty());
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -519,8 +519,9 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, who, onBehalfOf, relatedAgentType
-          );
+        return super.isEmpty() && (role == null || role.isEmpty()) && (who == null || who.isEmpty())
+           && (onBehalfOf == null || onBehalfOf.isEmpty()) && (relatedAgentType == null || relatedAgentType.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -837,7 +838,8 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference, agent);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
+           && (agent == null || agent.isEmpty());
       }
 
   public String fhirType() {
@@ -1664,8 +1666,10 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, period, recorded
-          , reason, activity, location, policy, agent, entity, signature);
+        return super.isEmpty() && (target == null || target.isEmpty()) && (period == null || period.isEmpty())
+           && (recorded == null || recorded.isEmpty()) && (reason == null || reason.isEmpty()) && (activity == null || activity.isEmpty())
+           && (location == null || location.isEmpty()) && (policy == null || policy.isEmpty()) && (agent == null || agent.isEmpty())
+           && (entity == null || entity.isEmpty()) && (signature == null || signature.isEmpty());
       }
 
   @Override
@@ -1697,21 +1701,27 @@ public class Provenance extends DomainResource {
    * Search parameter: <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="token", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") } )
+  @SearchParamDefinition(name="agent", path="Provenance.agent.who", description="Who participated", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Device"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_AGENT = "agent";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
    * Description: <b>Who participated</b><br>
-   * Type: <b>token</b><br>
+   * Type: <b>reference</b><br>
    * Path: <b>Provenance.agent.who[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam AGENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_AGENT);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:agent</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Provenance:agent").toLocked();
 
  /**
    * Search parameter: <b>patient</b>

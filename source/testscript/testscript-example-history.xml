@@ -11,6 +11,7 @@
 	<name value="TestScript Example History"/>
 	<status value="draft"/>
 	<experimental value="true"/>
+	<date value="2016-09-26"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -20,7 +21,6 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
-	<date value="2016-09-26"/>
 	<description value="TestScript example resource with setup to delete if present and create a new instance of a Patient then update that Patient to create a minimum history; and single test definition to get the history of that Patient with various asserts."/>
 	<jurisdiction>
 		<coding>

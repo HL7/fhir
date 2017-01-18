@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -846,7 +846,8 @@ public class SearchParameter extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(definition, expression);
+        return super.isEmpty() && (definition == null || definition.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2650,9 +2651,11 @@ public class SearchParameter extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, code, base, type
-          , derivedFrom, expression, xpath, xpathUsage, target, comparator, modifier, chain
-          , component);
+        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (code == null || code.isEmpty())
+           && (base == null || base.isEmpty()) && (type == null || type.isEmpty()) && (derivedFrom == null || derivedFrom.isEmpty())
+           && (expression == null || expression.isEmpty()) && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty())
+           && (target == null || target.isEmpty()) && (comparator == null || comparator.isEmpty()) && (modifier == null || modifier.isEmpty())
+           && (chain == null || chain.isEmpty()) && (component == null || component.isEmpty());
       }
 
   @Override

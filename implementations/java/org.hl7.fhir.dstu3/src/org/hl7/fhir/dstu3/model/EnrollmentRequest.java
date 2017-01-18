@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -836,8 +836,10 @@ public class EnrollmentRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, created
-          , insurer, provider, organization, subject, coverage);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (created == null || created.isEmpty()) && (insurer == null || insurer.isEmpty()) && (provider == null || provider.isEmpty())
+           && (organization == null || organization.isEmpty()) && (subject == null || subject.isEmpty())
+           && (coverage == null || coverage.isEmpty());
       }
 
   @Override

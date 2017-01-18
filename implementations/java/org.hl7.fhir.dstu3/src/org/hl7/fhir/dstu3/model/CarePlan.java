@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -753,7 +753,8 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, plan);
+        return super.isEmpty() && (code == null || code.isEmpty()) && (plan == null || plan.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1176,8 +1177,9 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionResulting, outcome, progress
-          , reference, detail);
+        return super.isEmpty() && (actionResulting == null || actionResulting.isEmpty()) && (outcome == null || outcome.isEmpty())
+           && (progress == null || progress.isEmpty()) && (reference == null || reference.isEmpty())
+           && (detail == null || detail.isEmpty());
       }
 
   public String fhirType() {
@@ -2391,9 +2393,14 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(category, definition, code
-          , reasonCode, reasonReference, goal, status, statusReason, prohibited, scheduled
-          , location, performer, product, dailyAmount, quantity, description);
+        return super.isEmpty() && (category == null || category.isEmpty()) && (definition == null || definition.isEmpty())
+           && (code == null || code.isEmpty()) && (reasonCode == null || reasonCode.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
+           && (goal == null || goal.isEmpty()) && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
+           && (prohibited == null || prohibited.isEmpty()) && (scheduled == null || scheduled.isEmpty())
+           && (location == null || location.isEmpty()) && (performer == null || performer.isEmpty())
+           && (product == null || product.isEmpty()) && (dailyAmount == null || dailyAmount.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (description == null || description.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3809,9 +3816,13 @@ public class CarePlan extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , description, subject, context, period, modified, author, careTeam, addresses
-          , support, definition, relatedPlan, goal, activity, note);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (description == null || description.isEmpty())
+           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (period == null || period.isEmpty())
+           && (modified == null || modified.isEmpty()) && (author == null || author.isEmpty()) && (careTeam == null || careTeam.isEmpty())
+           && (addresses == null || addresses.isEmpty()) && (support == null || support.isEmpty()) && (definition == null || definition.isEmpty())
+           && (relatedPlan == null || relatedPlan.isEmpty()) && (goal == null || goal.isEmpty()) && (activity == null || activity.isEmpty())
+           && (note == null || note.isEmpty());
       }
 
   @Override

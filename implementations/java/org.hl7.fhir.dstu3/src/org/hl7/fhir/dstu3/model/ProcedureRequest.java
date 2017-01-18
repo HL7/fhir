@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1645,9 +1645,12 @@ public class ProcedureRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, code
-          , doNotPerform, bodySite, reason, scheduled, encounter, performer, status, supportingInfo
-          , notes, asNeeded, orderedOn, orderer, priority);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
+           && (code == null || code.isEmpty()) && (doNotPerform == null || doNotPerform.isEmpty()) && (bodySite == null || bodySite.isEmpty())
+           && (reason == null || reason.isEmpty()) && (scheduled == null || scheduled.isEmpty()) && (encounter == null || encounter.isEmpty())
+           && (performer == null || performer.isEmpty()) && (status == null || status.isEmpty()) && (supportingInfo == null || supportingInfo.isEmpty())
+           && (notes == null || notes.isEmpty()) && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
+           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
       }
 
   @Override

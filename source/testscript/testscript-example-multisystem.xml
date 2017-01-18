@@ -8,9 +8,11 @@
 		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878"/>
 	</identifier>
 	<version value="1.0"/>
-	<name value="Multisystem Test Script"/>
+	<name value="testscript-example-multisystem"/>
+	<title value="Multisystem Test Script"/>
 	<status value="draft"/>
 	<experimental value="true"/>
+	<date value="2016-09-26"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -20,7 +22,6 @@
 			<use value="work"/>
 		</telecom>
 	</contact>
-	<date value="2016-09-26"/>
 	<description value="TestScript example resource showing use of origin and destination for multisystem support. The single origin will execute a Patient read against the two destination systems using user defined dynamic variables. The test engine will wait at each operation action with a defined origin and destination for the origin test system to send the expected FHIR operation to the destination test system. Once the expected request and response is observed, the test engine will continue with the test execution."/>
 	<jurisdiction>
 		<coding>
@@ -103,6 +104,7 @@
 				<destination value="1" />
 				<origin value="1" />
 				<params value="/${Dest1PatientResourceId}"/>
+				<requestId value="request-read-patient-01"/>
 			</operation>
 		</action>
 		<action>
@@ -154,6 +156,10 @@
 				<destination value="2" />
 				<origin value="1" />
 				<params value="/${Dest2PatientResourceId}"/>
+				<requestHeader>
+					<field value="Accept-Charset"/>
+					<value value="utf-8"/>
+				</requestHeader>
 			</operation>
 		</action>
 		<action>

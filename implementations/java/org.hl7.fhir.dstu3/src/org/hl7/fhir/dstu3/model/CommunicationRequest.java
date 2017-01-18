@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -451,7 +451,7 @@ public class CommunicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
+        return super.isEmpty() && (content == null || content.isEmpty());
       }
 
   public String fhirType() {
@@ -1622,9 +1622,12 @@ public class CommunicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, sender
-          , recipient, payload, medium, requester, status, topic, context, scheduled, reason
-          , requestedOn, subject, priority);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
+           && (sender == null || sender.isEmpty()) && (recipient == null || recipient.isEmpty()) && (payload == null || payload.isEmpty())
+           && (medium == null || medium.isEmpty()) && (requester == null || requester.isEmpty()) && (status == null || status.isEmpty())
+           && (topic == null || topic.isEmpty()) && (context == null || context.isEmpty()) && (scheduled == null || scheduled.isEmpty())
+           && (reason == null || reason.isEmpty()) && (requestedOn == null || requestedOn.isEmpty())
+           && (subject == null || subject.isEmpty()) && (priority == null || priority.isEmpty());
       }
 
   @Override

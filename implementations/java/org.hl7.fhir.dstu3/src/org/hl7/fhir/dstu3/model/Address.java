@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1067,8 +1067,10 @@ public class Address extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(use, type, text, line
-          , city, district, state, postalCode, country, period);
+        return super.isEmpty() && (use == null || use.isEmpty()) && (type == null || type.isEmpty())
+           && (text == null || text.isEmpty()) && (line == null || line.isEmpty()) && (city == null || city.isEmpty())
+           && (district == null || district.isEmpty()) && (state == null || state.isEmpty()) && (postalCode == null || postalCode.isEmpty())
+           && (country == null || country.isEmpty()) && (period == null || period.isEmpty());
       }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1003,8 +1003,10 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, use, min, max, documentation
-          , type, searchType, profile, binding, part);
+        return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
+           && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (type == null || type.isEmpty()) && (searchType == null || searchType.isEmpty()) && (profile == null || profile.isEmpty())
+           && (binding == null || binding.isEmpty()) && (part == null || part.isEmpty());
       }
 
   public String fhirType() {
@@ -1249,7 +1251,8 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(strength, valueSet);
+        return super.isEmpty() && (strength == null || strength.isEmpty()) && (valueSet == null || valueSet.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1502,7 +1505,8 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(parameterName, comment);
+        return super.isEmpty() && (parameterName == null || parameterName.isEmpty()) && (comment == null || comment.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3164,9 +3168,11 @@ public class OperationDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, purpose, idempotent
-          , code, comment, base, resource, system, type, instance, parameter, overload
-          );
+        return super.isEmpty() && (kind == null || kind.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (idempotent == null || idempotent.isEmpty()) && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty())
+           && (base == null || base.isEmpty()) && (resource == null || resource.isEmpty()) && (system == null || system.isEmpty())
+           && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty()) && (parameter == null || parameter.isEmpty())
+           && (overload == null || overload.isEmpty());
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2896,11 +2896,18 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, label, title
-          , description, textEquivalent, code, documentation, triggerDefinition, condition
-          , input, output, relatedAction, timing, participantType, type, groupingBehavior
-          , selectionBehavior, requiredBehavior, precheckBehavior, cardinalityBehavior, activityDefinition
-          , transform, dynamicValue, actionDefinition);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
+           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
+           && (code == null || code.isEmpty()) && (documentation == null || documentation.isEmpty())
+           && (triggerDefinition == null || triggerDefinition.isEmpty()) && (condition == null || condition.isEmpty())
+           && (input == null || input.isEmpty()) && (output == null || output.isEmpty()) && (relatedAction == null || relatedAction.isEmpty())
+           && (timing == null || timing.isEmpty()) && (participantType == null || participantType.isEmpty())
+           && (type == null || type.isEmpty()) && (groupingBehavior == null || groupingBehavior.isEmpty())
+           && (selectionBehavior == null || selectionBehavior.isEmpty()) && (requiredBehavior == null || requiredBehavior.isEmpty())
+           && (precheckBehavior == null || precheckBehavior.isEmpty()) && (cardinalityBehavior == null || cardinalityBehavior.isEmpty())
+           && (activityDefinition == null || activityDefinition.isEmpty()) && (transform == null || transform.isEmpty())
+           && (dynamicValue == null || dynamicValue.isEmpty()) && (actionDefinition == null || actionDefinition.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3282,8 +3289,9 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(kind, description, language
-          , expression);
+        return super.isEmpty() && (kind == null || kind.isEmpty()) && (description == null || description.isEmpty())
+           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3574,8 +3582,8 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actionIdentifier, relationship
-          , offset);
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
+           && (offset == null || offset.isEmpty());
       }
 
   public String fhirType() {
@@ -3950,8 +3958,9 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, language
-          , expression);
+        return super.isEmpty() && (description == null || description.isEmpty()) && (path == null || path.isEmpty())
+           && (language == null || language.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -5757,9 +5766,12 @@ public class PlanDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, purpose
-          , usage, approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright
-          , relatedArtifact, library, actionDefinition);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
+           && (purpose == null || purpose.isEmpty()) && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
+           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
+           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
+           && (actionDefinition == null || actionDefinition.isEmpty());
       }
 
   @Override

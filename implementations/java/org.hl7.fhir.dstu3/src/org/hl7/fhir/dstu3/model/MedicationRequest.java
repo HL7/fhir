@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -714,7 +714,8 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
+        return super.isEmpty() && (agent == null || agent.isEmpty()) && (onBehalfOf == null || onBehalfOf.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1083,8 +1084,9 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(validityPeriod, numberOfRepeatsAllowed
-          , quantity, expectedSupplyDuration, performer);
+        return super.isEmpty() && (validityPeriod == null || validityPeriod.isEmpty()) && (numberOfRepeatsAllowed == null || numberOfRepeatsAllowed.isEmpty())
+           && (quantity == null || quantity.isEmpty()) && (expectedSupplyDuration == null || expectedSupplyDuration.isEmpty())
+           && (performer == null || performer.isEmpty());
       }
 
   public String fhirType() {
@@ -1300,7 +1302,8 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(allowed, reason);
+        return super.isEmpty() && (allowed == null || allowed.isEmpty()) && (reason == null || reason.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3054,11 +3057,18 @@ public class MedicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , groupIdentifier, status, intent, priority, medication, subject, context, supportingInformation
-          , authoredOn, requester, recorder, reasonCode, reasonReference, note, category
-          , dosageInstruction, dispenseRequest, substitution, priorPrescription, eventHistory
-          );
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
+           && (basedOn == null || basedOn.isEmpty()) && (groupIdentifier == null || groupIdentifier.isEmpty())
+           && (status == null || status.isEmpty()) && (intent == null || intent.isEmpty()) && (priority == null || priority.isEmpty())
+           && (medication == null || medication.isEmpty()) && (subject == null || subject.isEmpty())
+           && (context == null || context.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
+           && (authoredOn == null || authoredOn.isEmpty()) && (requester == null || requester.isEmpty())
+           && (recorder == null || recorder.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
+           && (reasonReference == null || reasonReference.isEmpty()) && (note == null || note.isEmpty())
+           && (category == null || category.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
+           && (dispenseRequest == null || dispenseRequest.isEmpty()) && (substitution == null || substitution.isEmpty())
+           && (priorPrescription == null || priorPrescription.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
+          ;
       }
 
   @Override

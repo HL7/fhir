@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -575,8 +575,8 @@ public class DataElement extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comment
-          );
+        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
+           && (name == null || name.isEmpty()) && (comment == null || comment.isEmpty());
       }
 
   public String fhirType() {
@@ -1763,8 +1763,9 @@ public class DataElement extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, copyright, stringency
-          , mapping, element);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (stringency == null || stringency.isEmpty()) && (mapping == null || mapping.isEmpty())
+           && (element == null || element.isEmpty());
       }
 
   @Override

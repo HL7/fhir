@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -292,7 +292,8 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, member, period);
+        return super.isEmpty() && (role == null || role.isEmpty()) && (member == null || member.isEmpty())
+           && (period == null || period.isEmpty());
       }
 
   public String fhirType() {
@@ -958,8 +959,10 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , name, subject, period, participant, managingOrganization);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (name == null || name.isEmpty()) && (subject == null || subject.isEmpty())
+           && (period == null || period.isEmpty()) && (participant == null || participant.isEmpty())
+           && (managingOrganization == null || managingOrganization.isEmpty());
       }
 
   @Override

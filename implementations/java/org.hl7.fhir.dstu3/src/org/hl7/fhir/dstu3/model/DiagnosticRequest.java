@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -764,7 +764,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
+        return super.isEmpty() && (agent == null || agent.isEmpty()) && (onBehalfOf == null || onBehalfOf.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2577,10 +2578,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , replaces, requisition, status, intent, priority, code, subject, context, occurrence
-          , authoredOn, requester, performerType, performer, reasonCode, reasonReference, supportingInfo
-          , specimen, bodySIte, note, relevantHistory);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
+           && (basedOn == null || basedOn.isEmpty()) && (replaces == null || replaces.isEmpty()) && (requisition == null || requisition.isEmpty())
+           && (status == null || status.isEmpty()) && (intent == null || intent.isEmpty()) && (priority == null || priority.isEmpty())
+           && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty())
+           && (occurrence == null || occurrence.isEmpty()) && (authoredOn == null || authoredOn.isEmpty())
+           && (requester == null || requester.isEmpty()) && (performerType == null || performerType.isEmpty())
+           && (performer == null || performer.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
+           && (reasonReference == null || reasonReference.isEmpty()) && (supportingInfo == null || supportingInfo.isEmpty())
+           && (specimen == null || specimen.isEmpty()) && (bodySIte == null || bodySIte.isEmpty()) && (note == null || note.isEmpty())
+           && (relevantHistory == null || relevantHistory.isEmpty());
       }
 
   @Override

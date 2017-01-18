@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -386,7 +386,8 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
+        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -607,7 +608,8 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, manipulated);
+        return super.isEmpty() && (action == null || action.isEmpty()) && (manipulated == null || manipulated.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -2508,10 +2510,17 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , code, subject, encounter, performed, performer, location, reasonReference, reasonCode
-          , notPerformed, reasonNotPerformed, bodySite, outcome, report, complication, followUp
-          , request, notes, focalDevice, usedReference, usedCode, component);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
+           && (encounter == null || encounter.isEmpty()) && (performed == null || performed.isEmpty())
+           && (performer == null || performer.isEmpty()) && (location == null || location.isEmpty())
+           && (reasonReference == null || reasonReference.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
+           && (notPerformed == null || notPerformed.isEmpty()) && (reasonNotPerformed == null || reasonNotPerformed.isEmpty())
+           && (bodySite == null || bodySite.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
+           && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
+           && (request == null || request.isEmpty()) && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty())
+           && (usedReference == null || usedReference.isEmpty()) && (usedCode == null || usedCode.isEmpty())
+           && (component == null || component.isEmpty());
       }
 
   @Override

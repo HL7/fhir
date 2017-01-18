@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -743,8 +743,8 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identity, uri, name, comments
-          );
+        return super.isEmpty() && (identity == null || identity.isEmpty()) && (uri == null || uri.isEmpty())
+           && (name == null || name.isEmpty()) && (comments == null || comments.isEmpty());
       }
 
   public String fhirType() {
@@ -918,7 +918,7 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(element);
+        return super.isEmpty() && (element == null || element.isEmpty());
       }
 
   public String fhirType() {
@@ -1092,7 +1092,7 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(element);
+        return super.isEmpty() && (element == null || element.isEmpty());
       }
 
   public String fhirType() {
@@ -3083,9 +3083,14 @@ public class StructureDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
-          , keyword, fhirVersion, mapping, kind, abstract_, contextType, context, contextInvariant
-          , type, baseDefinition, derivation, snapshot, differential);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
+           && (copyright == null || copyright.isEmpty()) && (keyword == null || keyword.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
+           && (mapping == null || mapping.isEmpty()) && (kind == null || kind.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
+           && (contextType == null || contextType.isEmpty()) && (context == null || context.isEmpty())
+           && (contextInvariant == null || contextInvariant.isEmpty()) && (type == null || type.isEmpty())
+           && (baseDefinition == null || baseDefinition.isEmpty()) && (derivation == null || derivation.isEmpty())
+           && (snapshot == null || snapshot.isEmpty()) && (differential == null || differential.isEmpty())
+          ;
       }
 
   @Override

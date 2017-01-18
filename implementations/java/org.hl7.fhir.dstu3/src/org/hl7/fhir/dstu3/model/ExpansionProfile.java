@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -455,7 +455,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, mode);
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
+           && (mode == null || mode.isEmpty());
       }
 
   public String fhirType() {
@@ -694,7 +695,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version);
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -881,7 +883,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(include, exclude);
+        return super.isEmpty() && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1055,7 +1058,7 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
+        return super.isEmpty() && (designation == null || designation.isEmpty());
       }
 
   public String fhirType() {
@@ -1268,7 +1271,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
+        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1442,7 +1446,7 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(designation);
+        return super.isEmpty() && (designation == null || designation.isEmpty());
       }
 
   public String fhirType() {
@@ -1655,7 +1659,8 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use);
+        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3214,9 +3219,13 @@ public class ExpansionProfile extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, fixedVersion, excludedSystem
-          , includeDesignations, designation, includeDefinition, activeOnly, excludeNested, excludeNotForUI
-          , excludePostCoordinated, displayLanguage, limitedExpansion);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (fixedVersion == null || fixedVersion.isEmpty())
+           && (excludedSystem == null || excludedSystem.isEmpty()) && (includeDesignations == null || includeDesignations.isEmpty())
+           && (designation == null || designation.isEmpty()) && (includeDefinition == null || includeDefinition.isEmpty())
+           && (activeOnly == null || activeOnly.isEmpty()) && (excludeNested == null || excludeNested.isEmpty())
+           && (excludeNotForUI == null || excludeNotForUI.isEmpty()) && (excludePostCoordinated == null || excludePostCoordinated.isEmpty())
+           && (displayLanguage == null || displayLanguage.isEmpty()) && (limitedExpansion == null || limitedExpansion.isEmpty())
+          ;
       }
 
   @Override

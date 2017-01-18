@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -844,7 +844,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
+        return super.isEmpty() && (agent == null || agent.isEmpty()) && (onBehalfOf == null || onBehalfOf.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1144,8 +1145,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(repetitions, period, recipient
-          );
+        return super.isEmpty() && (repetitions == null || repetitions.isEmpty()) && (period == null || period.isEmpty())
+           && (recipient == null || recipient.isEmpty());
       }
 
   public String fhirType() {
@@ -1465,7 +1466,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -1785,7 +1787,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, value);
+        return super.isEmpty() && (type == null || type.isEmpty()) && (value == null || value.isEmpty())
+          ;
       }
 
   public String fhirType() {
@@ -3702,11 +3705,18 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , groupIdentifier, partOf, status, statusReason, businessStatus, intent, priority
-          , code, description, focus, for_, context, executionPeriod, authoredOn, lastModified
-          , requester, performerType, owner, reason, note, relevantHistory, restriction
-          , input, output);
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
+           && (basedOn == null || basedOn.isEmpty()) && (groupIdentifier == null || groupIdentifier.isEmpty())
+           && (partOf == null || partOf.isEmpty()) && (status == null || status.isEmpty()) && (statusReason == null || statusReason.isEmpty())
+           && (businessStatus == null || businessStatus.isEmpty()) && (intent == null || intent.isEmpty())
+           && (priority == null || priority.isEmpty()) && (code == null || code.isEmpty()) && (description == null || description.isEmpty())
+           && (focus == null || focus.isEmpty()) && (for_ == null || for_.isEmpty()) && (context == null || context.isEmpty())
+           && (executionPeriod == null || executionPeriod.isEmpty()) && (authoredOn == null || authoredOn.isEmpty())
+           && (lastModified == null || lastModified.isEmpty()) && (requester == null || requester.isEmpty())
+           && (performerType == null || performerType.isEmpty()) && (owner == null || owner.isEmpty())
+           && (reason == null || reason.isEmpty()) && (note == null || note.isEmpty()) && (relevantHistory == null || relevantHistory.isEmpty())
+           && (restriction == null || restriction.isEmpty()) && (input == null || input.isEmpty()) && (output == null || output.isEmpty())
+          ;
       }
 
   @Override

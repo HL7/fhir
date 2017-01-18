@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 13:44+1100 for FHIR v1.9.0
+// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -355,7 +355,8 @@ public class Annotation extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(author, time, text);
+        return super.isEmpty() && (author == null || author.isEmpty()) && (time == null || time.isEmpty())
+           && (text == null || text.isEmpty());
       }
 
 
