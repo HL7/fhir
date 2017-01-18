@@ -266,7 +266,7 @@
   Definition = The device, practitioner, etc. who performed the action.
 
  -- Row 14 -----------------------------------
-  Element = MedicationAdministration.onBehalfOf
+  Element = MedicationAdministration.performer.onBehalfOf
   Card. = 0..1
   Type = Reference (Organization)
   Short Name = Organization organization was acting for
