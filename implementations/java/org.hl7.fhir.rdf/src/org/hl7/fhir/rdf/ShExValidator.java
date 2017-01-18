@@ -45,7 +45,7 @@ public class ShExValidator {
     Result result = schema.validate(rdf,"TARGETDECLS",none,none, rdf.getPrefixMap(), schema.pm());
     if (result.isValid()) {
 //      log.info("Result is valid");
-      System.out.println("Valid. Result: " + result.show());
+//      System.out.println("Valid. Result: " + result.show());
     } else {
       System.out.println("Not valid");
     }    

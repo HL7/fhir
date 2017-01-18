@@ -13268,6 +13268,11 @@
     <display value="Ultrasound of kidney"/>
     <display value="Echography of kidney (procedure)"/>
   </concept>
+  <concept id="306206005" display="Referral to service">
+    <display value="Referral to service"/>
+    <display value="Referral for service"/>
+    <display value="Referral to service (procedure)"/>
+  </concept>
   <concept id="30634003" display="Tamworth pig">
     <display value="Tamworth pig"/>
     <display value="Tamworth pig (organism)"/>
