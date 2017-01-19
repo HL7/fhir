@@ -70,9 +70,9 @@
       <display value="Mary Chalmers"/>
     </subject>
     <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
-    <issued value="2014-05-16T10:28:00+01:00"/> 
+    <issued value="2014-05-16T10:28:00+01:00"/>
     <request>
-      <reference value="DiagnosticRequest/789"/>
+      <reference value="ProcedureRequest/789"/>
       <display value="Order for HLA-A,-B,-C genotyping"/>
     </request>
     <specimen>

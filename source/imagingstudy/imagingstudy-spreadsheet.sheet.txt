@@ -201,7 +201,7 @@
   Element = ImagingStudy.basedOn
   Card. = 0..*
   Summary = Y
-  Type = Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)
+  Type = Reference(ReferralRequest|CarePlan|ProcedureRequest)
   Short Name = Request fulfilled
   Definition = A list of the diagnostic requests that resulted in this imaging study being performed
   Requirements = To support grouped procedures (one imaging study supporting multiple ordered procedures, e.g. chest/abdomen/pelvis CT)

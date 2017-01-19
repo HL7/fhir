@@ -5,7 +5,7 @@
   <p>
     The RequestGroup resource is used when there are temporal, co-occurrence or other dependencies between
     one or more steps of an overall workflow.  For example, "do procedure A or procedure B, but not both" or
-    "do procedure A after procedure B" or "Act on this DiagnosticRequest, then use the value of that observation in
+    "do procedure A after procedure B" or "Act on this ProcedureRequest, then use the value of that observation in
     the calculation of the dose of this subsequent MedicationRequest".  RequestGroups that define actions
     (i.e. that are more than just narrative representations) will always reference other Request resources with
     an <code>intent</code> of "option".
@@ -20,7 +20,7 @@
     without a risk of their content/intent changing
   </p>
   <p>
-    Elements in the "option" requests may include extensions for timing or other elements that allow calculation 
+    Elements in the "option" requests may include extensions for timing or other elements that allow calculation
     based on information found in the RequestGroup or other referenced "option" resources, as well as to expose
     elements within the "option" resource for referencing in other "option" resources.  These extensions are:
   </p>

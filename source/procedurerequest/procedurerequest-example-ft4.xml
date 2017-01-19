@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns="http://hl7.org/fhir">
+<ProcedureRequest xmlns="http://hl7.org/fhir">
 	<id value="ft4"/>
 	<status value="active"/>
 	<intent value="reflex-order"/>
@@ -20,4 +20,4 @@
 			<reference value="Practitioner/example"/>
 		</agent>
 	</requester>
-</DiagnosticRequest>
+</ProcedureRequest>

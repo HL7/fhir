@@ -276,7 +276,7 @@
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.request
   Card. = 0..*
-  Type = Reference(DiagnosticRequest|ProcedureRequest|ReferralRequest)
+  Type = Reference(ProcedureRequest|ReferralRequest)
   Short Name = What was requested
   Definition = Details concerning a test or procedure requested.
   Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)

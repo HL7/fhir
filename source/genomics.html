@@ -41,7 +41,7 @@ table th {
       <li><a href="#sequence">Sequence Resource</a></li>
       <li><a href="#observation-genetics">Observation-genetics Profile</a></li>
       <li><a href="#diagnosticreport-genetics">DiagnosticReport-genetics Profile</a></li>
-      <li><a href="#diagnosticrequest-genetics">DiagnosticRequest-genetics Profile</a></li>
+      <li><a href="#procedurerequest-genetics">ProcedureRequest-genetics Profile</a></li>
       <li><a href="#hla">HLA genotyping results Profile</a></li>
       <li><a href="#resource_vs_profiles">Relationship among Sequence resource and genetics profiles</a></li>
       <li><a href="#dam">HL7 Domain Analysis Model Use Cases</a></li>
@@ -99,7 +99,7 @@ table th {
     The FHIR Clinical Genomics Working Group (CGWG) began discussing such a dedicated resource in 2014. The September 2014 Informative Ballot (“HL7 Clinical Genomics, Domain Analysis Model: Clinical Sequencing Release 1”) provided guiding use cases, which initially informed development of the initial Standard Genetics profile that is found in FHIR DSTU2. The same use cases also led to a second Project Scope Statement in May 2015 (approved by HL7 DESD/OO/FMG) to develop a Sequence resource (“Develop FHIR sequence resource for Clinical Genomics”). A preliminary effort to address these issues has been explored and published in context of the <a href="http://smarthealthit.org/an-app-platform-for-healthcare/about/">Substitutable Medical Applications and Reusable Technologies</a> (<abbr title="Substitutable Medical Applications and Reusable Technologies">SMART</abbr>) Platforms Project and described in an article (“<a href="http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long">SMART on FHIR Genomics: Facilitating standardized clinico-genomic apps</a>”).
   </p>
   <p>
-    Sequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to Sequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, DiagnosticRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.
+    Sequence is designed to hold genetic sequences in blocks relevant to actionable clinical decision-making. Extensions to Sequence address complex cases and can associate it with repositories for retrieving a patient’s full sequence data, such as those defined by GA4GH. Other changes include a suite of genetics profiles for other FHIR resources. In addition, the Observation-genetics profile adds new references so that an Observation can report genetics test results to be integrated into the EHR. There are also new genetics-extension profiles for DiagnosticReport, ProcedureRequest and FamilyMemberHistory, respectively, to extend them to report genetics results. We have given all of these FHIR genetics profiles the suffix “-genetics” (e.g. “DiagnosticReport-genetics profile”). New profiles on top of DiagnosticReport have been created for reporting HLA genotyping results.
   </p>
   <p>
     On the following pages, we elaborate upon the rationale for the proposed design, introducing in some detail the following resource and profiles:
@@ -107,7 +107,7 @@ table th {
       <li>A Sequence resource</li>
       <li>An Observation-genetics profile on Observation</li>
       <li>A DiagnosticReport-genetics profile on DiagnosticReport</li>
-      <li>A DiagnosticRequest-genetics profile on DiagnosticRequest</li>
+      <li>A ProcedureRequest-genetics profile on ProcedureRequest</li>
       <li>An HLA-genotyping-results profile on DiagnosticReport</li>
     </ul>
   </p>
@@ -425,15 +425,15 @@ Source: <a href="diagnosticreport-genetics-example-2-familyhistory.xml.html">XML
 Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.html">XML</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.json.html">JSON</a>, <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.ttl.html">Turtle</a>.
 </p>
 
-<a name="diagnosticrequest-genetics"> </a>
-<h2>DiagnosticRequest-genetics profile</h2>
+<a name="procedurerequest-genetics"> </a>
+<h2>ProcedureRequest-genetics profile</h2>
 
 <h3>Structure Diagram</h3>
 <p>
-  A complex extension is added on top of the DiagnosticRequest resource. Here is the structure of the extension:
+  A complex extension is added on top of the ProcedureRequest resource. Here is the structure of the extension:
 </p>
 
-[%profile-diff diagnosticrequest-genetics%]
+[%profile-diff procedurerequest-genetics%]
 
 <h3>Description</h3>
 <p>
@@ -443,7 +443,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 <h3>Usage Example</h3>
 <h4>An order for genetics test</h4>
 <p>
-  <a href="diagnosticrequest-genetics-example-1.html">Here</a> is a diagnostic request for testing 185delAG variant. The mother of the patient received results from a mutation panel (eg. MyRisk from Myriad) and she has a BRCA1 185delAG mutation. The clinician the would like to request to test the patient only for an 185delAG mutation. In this case, the diagnostic request for the patient will specify the sequence variant - 185delAG.
+  <a href="procedurerequest-genetics-example-1.html">Here</a> is a diagnostic request for testing 185delAG variant. The mother of the patient received results from a mutation panel (eg. MyRisk from Myriad) and she has a BRCA1 185delAG mutation. The clinician the would like to request to test the patient only for an 185delAG mutation. In this case, the diagnostic request for the patient will specify the sequence variant - 185delAG.
 </p>
 
 <a name="hla"> </a>
@@ -690,7 +690,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   DiagnosticReport.result: A pointer to Observation instance. This element is used for reporting genetic result.
 </p>
 <p>
-  Item extension in DiagnosticRequest-genetics profile: It is used to describe the genetic test order.
+  Item extension in ProcedureRequest-genetics profile: It is used to describe the genetic test order.
 </p>
 <p>
   FamilyMemberHistory:  A pointer to genetics Observation instance to report genetic test results of family member
@@ -732,9 +732,9 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
     <td><a href="observation-example.html">Example Here</a></td>
             </tr>
             <tr>
-    <td>DiagnosticRequest</td>
-    <td><a href="#diagnosticrequest-genetics">DiagnosticRequest Data Structure</a></td>
-    <td><a href="diagnosticrequest-example-lipid.html">Example Here</a></td>
+    <td>ProcedureRequest</td>
+    <td><a href="#procedurerequest-genetics">ProcedureRequest Data Structure</a></td>
+    <td><a href="procedurerequest-example-lipid.html">Example Here</a></td>
   </tr>
   <tr>
     <td>DiagnosticReport</td>
@@ -744,7 +744,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
 </table>
 
 <p>
-  Here is a specific use case to depict the whole story of FHIR in the clinical genomics setting: a <a href="diagnosticrequest-example-pgx.html">Diagnosticrequest</a> is requested, then a <a href="diagnosticreport-example-pgx.html">Diagnosticreport</a> are reported. Two <a href="sequence-example-pgx-1.html">Sequence</a> instance, two <a href="observation-example-haplotype1.html">Observation-haplotype</a> instance, a <a href="observation-example-diplotype1.html">Observation-diplotype</a> and a <a href="observation-example-phenotype.html">Observation-phenotype</a> for further interpretation are also created. (You can see the xml code and json code if you click the link.)
+  Here is a specific use case to depict the whole story of FHIR in the clinical genomics setting: a <a href="procedurerequest-example-pgx.html">Diagnosticrequest</a> is requested, then a <a href="diagnosticreport-example-pgx.html">Diagnosticreport</a> are reported. Two <a href="sequence-example-pgx-1.html">Sequence</a> instance, two <a href="observation-example-haplotype1.html">Observation-haplotype</a> instance, a <a href="observation-example-diplotype1.html">Observation-diplotype</a> and a <a href="observation-example-phenotype.html">Observation-phenotype</a> for further interpretation are also created. (You can see the xml code and json code if you click the link.)
   <ul>
     <li><b>Haplotype:</b> A haplotype is a set of DNA variations, or polymorphisms, that tend to be inherited together. A haplotype can refer to a combination of alleles or to a set of single nucleotide polymorphisms (SNPs) found on the same chromosome.</li>
     <li><b>Diplotype:</b> A diplotype is defined as a specific combination of two haplotypes.</li>

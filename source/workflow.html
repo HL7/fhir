@@ -103,7 +103,7 @@ in order to support consistent definitions for schema and UML derived code.
                     </td>
                     <td>
                         <ul>
-                            <li><a href="diagnosticrequest.html">DiagnosticRequest</a></li>
+                            <li><a href="procedurerequest.html">ProcedureRequest</a></li>
                             <li><a href="eligibilityrequest.html">EligibilityRequest</a></li>
                             <li><a href="enrollmentrequest.html">EnrollmentRequest</a></li>
                             <li><a href="immunizationrecommendation.html">ImmunizationRecommendation</a></li>
@@ -237,8 +237,7 @@ in order to support consistent definitions for schema and UML derived code.
             Note that requests, events and definitions don't exist in a 1:1:1 relationship. Some requests and events have obvious pairings. For example, a
             <a href="supplyrequest.html">SupplyRequest</a> will generally always pair with a <a href="supplydelivery.html">SupplyDelivery</a>. The same goes for
             <a href="enrollmentrequest.html">EnrollmentRequest</a>/<a href="enrollmentresponse.html">EnrollmentResponse</a>, etc. On the other hand, for other resources there isn't a strict pairing. A <a href="referralrequest.html">ReferralRequest</a>            might be responded to by an <a href="encounter.html">Encounter</a>,
-            <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="diagnosticrequest.html">DiagnosticRequest</a>,
-            <a href="procedurerequest.html">ProcedureRequest</a>, or <a href="referralrequest.html">ReferralRequest</a>. The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will
+            <a href="diagnosticreport.html">DiagnosticReport</a>, <a href="procedure.html">Procedure</a>, <a href="riskassessment.html">RiskAssessment</a>, etc. Similarly, a <a href="procedure.html">Procedure</a> might be triggered by a <a href="procedurerequest.html">ProcedureRequest</a> or <a href="referralrequest.html">ReferralRequest</a>. The set of common linkages should be asserted in their respective resources. The specific types of responses for a given request will
             be governed by the Request.code, any workflow definitions/protocols referenced and local convention.
         </p>
 

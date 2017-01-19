@@ -442,7 +442,7 @@
   Type = Reference(Any)
   Short Name = Related Resource
   Definition = Related Resource to this DocumentReference. If both id and ref are present they shall refer to the same thing.
-  Comments = Order, DiagnosticRequest,  Procedure, EligibilityRequest, etc.
+  Comments = Order, ProcedureRequest,  Procedure, EligibilityRequest, etc.
   RIM Mapping = ./outboundRelationship[typeCode=\"PERT\" and isNormalActRelationship()] / target[isNormalAct].text.reference
 
 === Sheet Search =====================================

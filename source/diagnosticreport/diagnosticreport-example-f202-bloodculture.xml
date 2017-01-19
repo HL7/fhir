@@ -2,7 +2,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
 	<id value="f202"/>
 	<contained>
-		<DiagnosticRequest>
+		<ProcedureRequest>
 			<id value="req"/>
 			<status value="active"/>
 			<intent value="original-order"/>
@@ -27,7 +27,7 @@
 					<display value="Dokter Bronsig"/>
 				</agent>
 			</requester>
-		</DiagnosticRequest>
+		</ProcedureRequest>
 	</contained>
 	<status value="final"/>
 	<category><!-- Lab test --><coding>

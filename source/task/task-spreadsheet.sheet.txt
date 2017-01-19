@@ -212,7 +212,7 @@
   Summary = Y
   Type = Reference(Any)
   Short Name = Request fulfilled by this task
-  Definition = BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
+  Definition = BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
   Workflow Mapping = Request.basedOn, Definition.basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=INT]
 

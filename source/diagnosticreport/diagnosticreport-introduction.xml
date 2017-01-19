@@ -36,7 +36,7 @@ The DiagnosticReport resource has the following aspects:
 <ul>
  <li>status, issued, identifier, performer, category: information about the diagnostic report itself</li>
  <li>subject, diagnostic[x]: information about the subject of the report</li>
- <li>request details: a reference to 0 or more <a href="diagnosticrequest.html">DiagnosticRequest resources</a> to allow the report to connect to clinical work flows</li>
+ <li>request details: a reference to 0 or more <a href="procedurerequest.html">ProcedureRequest resources</a> to allow the report to connect to clinical work flows</li>
  <li>results: a reference to 0 or more <a href="observation.html">Observation resources</a> which provide
     a hierarchical tree of groups of results</li>
  <li>specimen details: a reference to 0 or more <a href="specimen.html">Specimen resources</a> on which the report is based</li>
@@ -73,7 +73,7 @@ In contrast to the <a href="observation.html">Observation</a> resource, the Diag
 </p>
 
 <p>
-If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="diagnosticrequest.html">DiagnosticRequest</a>) resource and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
+If you have a highly structured report, then use DiagnosticReport - it has data and workflow support.  Details about the request for a diagnostic investigation are captured in the various "request" resources (e.g., the <a href="procedurerequest.html">ProcedureRequest</a>) resource and allow the report to connect to clinical workflows. For more narrative driven reports with less work flow (histology/mortuary, etc.), the <a href="composition.html">Composition</a> resource would be more appropriate.
 </p>
 
 <p>

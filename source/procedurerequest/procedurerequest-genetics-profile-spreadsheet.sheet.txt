@@ -1,14 +1,14 @@
 ﻿
 === Sheet Bindings =====================================
 
-=== Sheet DiagnosticRequest-Genetics =====================================
+=== Sheet ProcedureRequest-Genetics =====================================
 
  -- Row 1 -----------------------------------
-  Element = DiagnosticRequest
-  Profile Name = DiagnosticRequest-Genetics
+  Element = ProcedureRequest
+  Profile Name = ProcedureRequest-Genetics
 
  -- Row 2 -----------------------------------
-  Element = DiagnosticRequest.extension
+  Element = ProcedureRequest.extension
   Profile Name = Item
   Card. = 0..*
   Type = Extension{#Item}

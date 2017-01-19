@@ -34,7 +34,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
 <ul>
 <li><a href="observation.html">Observation</a></li>
 <li><a href="diagnosticreport.html">DiagnosticReport</a></li>
-<li><a href="diagnosticrequest.html">DiagnosticRequest</a></li>
+<li><a href="procedurerequest.html">ProcedureRequest</a></li>
   </ul>
 </td>
  <td width="33%">
@@ -53,7 +53,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
 </tr>
 </table>
 
-   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references DiagnosticRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
+   <p>The diagnostic resources and their relationships are shown below.  The arrows represent the direction of the references between resources (for example, DiagnosticReport references ProcedureRequest). See the <a href="workflow-module.html">Workflow Module</a> for information about the coordination of activities such as ordering and fulfilling of diagnostics.</p>
     <img src="diagnostic-module-resources.png" alt="Image showing the diagnostic resources" width="800px"/>
 
 <p>
@@ -66,7 +66,7 @@ The Diagnostics Module provides an overview and guide to the FHIR content that a
         <tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
         [%res-item Observation%]
         [%res-item DiagnosticReport%]
-        [%res-item DiagnosticRequest%]
+        [%res-item ProcedureRequest%]
         [%res-item ImagingStudy%]
         [%res-item ImagingManifest%]
         [%res-item Sequence%]
@@ -89,11 +89,11 @@ Diagnostic resources are commonly used to plan, recommend, order and report clin
 <li>Planning a diagnostic test such as in this <a href="careplan-example-f203-sepsis.html">Careplan-example</a></li>
 <li>Recommending diagnostics such as is done by Clinical Decision Support tools. See the <a href="clinicalreasoning-module.html">Clinical Reasoning module</a> for more information.</li>
 <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
-<li>Ordering a Laboratory Test such as a <a href="diagnosticrequest-example-lipid.html">lipid panel</a></li>
+<li>Ordering a Laboratory Test such as a <a href="procedurerequest-example-lipid.html">lipid panel</a></li>
 <li>Reporting a Laboratory Test such as a <a href="diagnosticreport-example-lipids.html">lipid panel</a></li>
-<li>Ordering an imaging study such as a <a href="diagnosticrequest-example-di.html">CT study</a></li>
+<li>Ordering an imaging study such as a <a href="procedurerequest-example-di.html">CT study</a></li>
 <li>Reporting an imaging study such as a <a href="imagingstudy-example.html">CT study</a></li>
-<li>Ordering a genetics test  such as a <a href="diagnosticrequest-genetics-example-1.html">gene mutation analysis </a></li>
+<li>Ordering a genetics test  such as a <a href="procedurerequest-genetics-example-1.html">gene mutation analysis </a></li>
 <li>Reporting a genetics test such as <a href="diagnosticreport-hla-genetics-results-example.html">HLA genotyping</a></li>
 </ul>
 <p>
@@ -122,7 +122,7 @@ There are many ways to use these resources independently as well.  The Observati
 </ul>
 <p>These other diagnostic resources are still under development:</p>
 <ul>
-<li><code>DiagnosticRequest</code>: used in the HL7 production tooling and in several implementation guides. As a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, the <code>DiagnosticRequest</code> resources has undergone substantial changes since DSTU2. It has been renamed from <code>DiagnosticOrder</code> and its structure and content updated to align with a general "request" pattern.  Because of this, it remains an immature resource.</li>
+<li><code>ProcedureRequest</code>: used in the HL7 production tooling and in several implementation guides. As a result of the addition of <a href="workflow.html">FHIR workflow</a> for STU3, the <code>ProcedureRequest</code> resources has undergone substantial changes since DSTU2. It has been renamed from <code>DiagnosticOrder</code> and its structure and content updated to align with a general "request" pattern.  Because of this, it remains an immature resource.</li>
 <li><code>Specimen</code>: We expect to see more widespread use of this resource and future updates to its FMM level</li>
 <li><code>ImagingManifest</code>: We expect to see more widespread use of this resource and future updates to its FMM level</li>
 <li><code>Sequence</code>: This resource remains draft and we expect to see more widespread use of this resource and future updates to its FMM level</li>

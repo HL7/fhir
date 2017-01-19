@@ -124,8 +124,8 @@
         </div>
         </text>
         <contained>
-          <DiagnosticRequest>
-            <id value="DiagnosticRequest1"/>
+          <ProcedureRequest>
+            <id value="ProcedureRequest1"/>
             <meta>
               <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest"/>
             </meta>
@@ -142,7 +142,7 @@
                 </coding>
               </code>
             </item>
-          </DiagnosticRequest>
+          </ProcedureRequest>
         </contained>
         <date value="2012-12-28T09:03:04+11:00"/>
         <subject>
@@ -160,7 +160,7 @@
           </coding>
         </reasonCodeableConcept>
         <detail>
-          <reference value="#DiagnosticRequest1"/>
+          <reference value="#ProcedureRequest1"/>
         </detail>
       </Order>
     </resource>

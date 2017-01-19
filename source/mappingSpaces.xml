@@ -1,5 +1,5 @@
 <mappingSpaces>
-	<!-- 
+	<!--
   <space>
     <url>[the formal URL - should also resolve to a useful document if possible]</url>
     <columnName>The name for the mapping in the spreadsheet</columnName>
@@ -32,14 +32,14 @@
 		<id>sct-attr</id>
 		<preamble>
 			<p>
-      Attribute bindings link coded data elements in FHIR resources to a corresponding attribute in the SNOMED CT concept model. These bindings help to support: 
+      Attribute bindings link coded data elements in FHIR resources to a corresponding attribute in the SNOMED CT concept model. These bindings help to support:
       </p>
       <ul>
         <li>clarifying the intended meaning of the data element</li>
         <li>Quality checking the alignment between FHIR resource design and any coresponding SNOMED CT concept model</li>
         <li>Composition and decomposition of data instances by indicating the SNOMED CT concept model attribute whose value may be used to decompose a precoordinated concept into this data element</li>
       </ul>
-		</preamble>    
+		</preamble>
 		<sort>3</sort>
     <publish>true</publish>
 	</space>
@@ -50,7 +50,7 @@
 		<id>sct-concept</id>
 		<preamble>
 			<p>
-      Concept domain bindings link a resource or an element to a set of SNOMED CT concepts that represent the intended semantics of the instances (whether or not SNOMED CT is used to encode that data element). 
+      Concept domain bindings link a resource or an element to a set of SNOMED CT concepts that represent the intended semantics of the instances (whether or not SNOMED CT is used to encode that data element).
       This set of concepts is represented using a SNOMED CT expression constraint. Note that the 'Concept domain binding' may be a superset of the 'value set binding'. These bindings help to support:
       </p>
       <ul>
@@ -109,12 +109,12 @@
 		<preamble>
 			<p>
       The provenance resource is based on known practices in the
-      HL7 implementation space, particularly those found in the 
-      v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and 
+      HL7 implementation space, particularly those found in the
+      v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and
       IHE ATNA.
       The conceptual model underlying the design is the <a href="http://www.w3.org/2011/prov/wiki/Main_Page">W3C
       provenance Specification</a>. Though the content and format
-      of the resource is designed to meet specific requirements for FHIR, 
+      of the resource is designed to meet specific requirements for FHIR,
       all the parts of the resource are formally mapped to the PROV-O
       specification, and FHIR resources can be transformed to their W3C
       PROV equivalent.
@@ -269,9 +269,9 @@
 		<title>UDI Mapping</title>
 		<id>udi</id>
 		<preamble>
-			<p>UDI is a unique numeric or alphanumeric code that consists of two parts:			
+			<p>UDI is a unique numeric or alphanumeric code that consists of two parts:
 			 (1) a device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device, and (2)
-		a production identifier (PI), a conditional, variable portion of a UDI that identifies one or more of the following when included on the label of a device: 
+		a production identifier (PI), a conditional, variable portion of a UDI that identifies one or more of the following when included on the label of a device:
 		 (2a) the lot or batch number within which a device was manufactured; (2b) the serial number of a specific device; (2c) the expiration date of a specific device; (2d) the date a specific device was manufactured; (2e) the distinct identification code required by §1271.290(c) for a human cell, tissue, or cellular and tissue-based product (HCT/P) regulated as a device.
 	</p>
 		</preamble>
@@ -313,5 +313,12 @@
 		<title>ClinicalTrials.gov Mapping</title>
 		<id>clinicaltrials-gov</id>
 		<sort>35</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/workflow</url>
+		<columnName>Sept2016ProcedureRequest Mapping</columnName>
+		<title>STU3 Sept2016 ProcedureRequest Mapping</title>
+		<id>sept2016pr</id>
+		<sort>36</sort>
 	</space>
 </mappingSpaces>

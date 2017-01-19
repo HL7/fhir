@@ -20,7 +20,7 @@
 <p>
 <code>_filter</code> is a parameter that can be used with the <a href="search.html">Search Operation</a>.
 It uses the same set of standard parameters defined for the resources, and provides a syntax
-for expressing a set of query expressions on the underlying resources. 
+for expressing a set of query expressions on the underlying resources.
 </p>
 
 <p>Examples of filters:</p>
@@ -45,8 +45,8 @@ The _filter syntax has the following features:
 <li>The name is one of the defined search parameters that are used with the other search mechanism, with some special exemptions defined below.</li>
 </ul>
 <p>
-Note: The only difference between a "string" value and a "token" 
-value is that a string can contain spaces and ) and ]. There is 
+Note: The only difference between a "string" value and a "token"
+value is that a string can contain spaces and ) and ]. There is
 otherwise no significant difference between them.
 </p>
 <p>
@@ -111,7 +111,7 @@ dateChar     = DIGIT / "T" / "-" / "." / "+"
 </tr>
  <tr>
 	<td>ap</td>
-	<td>A value in the set isis approximately the same as this value.<br/> 
+	<td>A value in the set isis approximately the same as this value.<br/>
 	Note that the recommended value for the approximation is 10% of the stated value (or for a date, 10% of the gap between now and the date), but systems may choose other values where appropriate</td>
  </tr>
 <tr>
@@ -153,7 +153,7 @@ dateChar     = DIGIT / "T" / "-" / "." / "+"
 </tbody>
 </table>
 <p>
-For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see 
+For detailed rules about the operators eq, ne, le, ge, lt, gt, sa, and eb see
 <a href="search.html#prefix">Search Prefixes</a>.
 </p>
 
@@ -314,13 +314,13 @@ Some additional parameters are defined for the filter parameter (<i>to do: move 
 <p>target = relatesTo</p></td>
 </tr>
 <tr>
-<td>DiagnosticRequest</td>
+<td>ProcedureRequest</td>
 <td>event</td>
 <td><p>status = event-status<br />
 date = event-date</p></td>
 </tr>
 <tr>
-<td>DiagnosticRequest</td>
+<td>ProcedureRequest</td>
 <td>item</td>
 <td><p>status = item-status</p>
 <p>code = item-code</p>
@@ -328,7 +328,7 @@ date = event-date</p></td>
 <p>event = item-event</p></td>
 </tr>
 <tr>
-<td>DiagnosticRequest</td>
+<td>ProcedureRequest</td>
 <td>item-event</td>
 <td><p>status = item-past-status<br />
 date = item-date<br />
@@ -343,7 +343,7 @@ actor = actor</p></td>
 <li>The first column is the resource type against which this name can be used.</li>
 <li>The second column is the parameter name that is used.</li>
 <li>The third column defines the names that can be used in the chained parameter, and in the filter, and shows which existing search parameters they equate to.</li>
-<li>For example, you could search on Observation for '_filter=related[type eq has-component].target re url'. "type" refers to the 
+<li>For example, you could search on Observation for '_filter=related[type eq has-component].target re url'. "type" refers to the
 search parameter "related-type", and "target" to the search parameter "related-target".</li>
 </ul>
 
@@ -352,4 +352,3 @@ search parameter "related-type", and "target" to the search parameter "related-t
 [%file newfooter%]
 </body>
 </html>
-

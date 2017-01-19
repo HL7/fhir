@@ -3,129 +3,66 @@
 
  -- Row 1 -----------------------------------
   Binding Name = ProcedureRequestStatus
-  Binding = code list
-  Reference = #procedure-request-status
-  Definition = The status of the request.
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-status
+  Definition = The status of a procedure or diagnostic order.
+  Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = ProcedureRequestPriority
-  Binding = code list
-  Reference = #procedure-request-priority
-  Definition = The priority of the request.
-
- -- Row 3 -----------------------------------
-  Binding Name = ProcedureCode
+  Binding Name = ProcedureRequestCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/procedure-code
-  Definition = A code to identify a specific procedure .
+  Definition = Codes for tests/services that can be performed by procedure or diagnostic services.  For laboratory, LOINC is  (preferred)[http://build.fhir.org/terminologies.html#preferred] and a valueset using LOINC Order codes is available [here](valueset-diagnostic-requests.html).
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ProcedureRequestReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
+  Definition = Diagnosis or problem codes justifying the reason for requesting the procedure or diagnostic investigation.
+  Description = SNOMED CT Condition/Problem/Diagnosis Codes
   Conformance = example
 
  -- Row 4 -----------------------------------
-  Binding Name = ProcedureAsNeededReason
-  Binding = unbound
-  Definition = A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.
+  Binding Name = ProcedureRequestIntent
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
+  Definition = The kind of procedure or diagnostic request
+  Conformance = required
 
  -- Row 5 -----------------------------------
-  Binding Name = ProcedureReason
+  Binding Name = ProcedureRequestParticipantRole
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
-  Definition = A code that explains the reason why a procedure is  required.
+  Reference = http://hl7.org/fhir/ValueSet/participant-role
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
   Conformance = example
 
  -- Row 6 -----------------------------------
+  Binding Name = ProcedureRequestPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-priority
+  Definition = Identifies the level of importance to be assigned to actioning the request
+  Conformance = required
+
+ -- Row 7 -----------------------------------
   Binding Name = BodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = A code that identifies the anatomical location.
+  Definition = Codes describing anatomical locations. May include laterality.
+  Description = SNOMED CT Body site concepts
   Conformance = example
 
-=== Sheet procedure-request-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = proposed
-  Display = Proposed
-  Definition = The request has been proposed.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = draft
-  Display = Draft
-  Definition = The request is in preliminary form, prior to being requested.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = requested
-  Display = Requested
-  Definition = The request has been placed.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = received
-  Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = accepted
-  Display = Accepted
-  Definition = The receiving system has accepted the request, but work has not yet commenced.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = in-progress
-  Display = In Progress
-  Definition = The work to fulfill the request is happening.
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = completed
-  Display = Completed
-  Definition = The work has been completed, the report(s) released, and no further work is planned.
-
  -- Row 8 -----------------------------------
-  Id = 8
-  Code = suspended
-  Display = Suspended
-  Definition = The request has been held by originating system/user request.
+  Binding Name = ProcedureRequestCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-category
+  Definition = Classification of the procedure
+  Conformance = example
 
  -- Row 9 -----------------------------------
-  Id = 9
-  Code = rejected
-  Display = Rejected
-  Definition = The receiving system has declined to fulfill the request.
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = aborted
-  Display = Aborted
-  Definition = The request was attempted, but due to some procedural error, it could not be completed.
-
-=== Sheet procedure-request-priority =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = routine
-  Display = Routine
-  Definition = The request has a normal priority.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = urgent
-  Display = Urgent
-  Definition = The request should be done urgently.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = stat
-  Display = Stat
-  Definition = The request is time-critical.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = asap
-  Display = ASAP
-  Definition = The request should be acted on as soon as possible.
+  Binding Name = ProcedureAsNeededReason
+  Binding = unbound
+  Definition = A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.
 
 === Sheet Invariants =====================================
 
@@ -133,225 +70,492 @@
 
  -- Row 1 -----------------------------------
   Element = ProcedureRequest
+  Aliases = diagnostic request
   Type = DomainResource
-  Short Name = A request for a procedure to be performed
-  Definition = A request for a procedure to be performed. May be a proposal or an order.
+  Short Name = A request for a procedure or diagnostic to be performed
+  Definition = A record of a request for a diagnostic investigation service to be performed.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest,\"\",\"\",\"\",\"DomainResource\",\"\",\"\",\"\",\"clinical.general\",\"\",\"\",\"\",\"\",\"A request for a procedure to be performed\",\"A request for a procedure to be performed. May be a proposal or an order.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"
+  RIM Mapping = Observation[classCode=OBS, moodCode=RQO, code<\"diagnostic order\"]
+  Committee Notes = [#5279][#11119]
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = ProcedureRequest.identifier
   Card. = 0..*
+  Summary = Y
   Type = Identifier
-  Short Name = Unique identifier for the request
-  Definition = Identifiers assigned to this order by the order or by the receiver.
+  Short Name = Identifiers assigned to this order
+  Definition = Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
+  Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2).  For further discussion and examples see the resource notes section below.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.identifier,\"\",\"0..*\",\"\",\"Identifier\",\"\",\"\",\"\",\"id\",\"\",\"\",\"\",\"\",\"Unique identifier for the request\",\"Identifiers assigned to this order by the order or by the receiver.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.identifier\",\"\",\"\",\"\",\"
+  RIM Mapping = .id
   QUICK mapping = ClinicalStatement.identifier
+  Committee Notes = 7331[#11119]
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = ProcedureRequest.subject
-  Card. = 1..1
-  Type = Reference(Patient|Group)
-  Short Name = Who the procedure should be done to
-  Definition = The person, animal or group that should receive the procedure.
-  QUICK mapping = ClinicalStatement.subject
-  w5 = who.focus
+  Element = ProcedureRequest.definition
+  Card. = 0..*
+  Aliases = protocol
+  Summary = Y
+  Type = Reference(ActivityDefinition|PlanDefinition| ServiceDefinition)
+  Short Name = Protocol or definition
+  Definition = Protocol or definition followed by this request
+  Committee Notes = [#10296][#11119]
 
  -- Row 4 -----------------------------------
-  Element = ProcedureRequest.code
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = ProcedureCode
-  Short Name = What procedure to perform
-  Definition = The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
-  QUICK mapping = Procedure.procedureCode
-  w5 = class
+  Element = ProcedureRequest.basedOn
+  Card. = 0..*
+  Aliases = fulfills
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = What request fulfills
+  Definition = Plan/proposal/order fulfilled by this request
+  Committee Notes = [#10296][#11119]
 
  -- Row 5 -----------------------------------
+  Element = ProcedureRequest.replaces
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = What request replaces
+  Definition = The request takes the place of the referenced completed or terminated request(s)
+  Committee Notes = [#10296][#11119]
+
+ -- Row 6 -----------------------------------
+  Element = ProcedureRequest.requisition
+  Card. = 0..1
+  Aliases = grouperId;  groupIdentifier
+  Summary = Y
+  Type = Identifier
+  Short Name = Composite Request ID
+  Definition = A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.
+  Requirements = Some business processes need to know if multiple items were ordered as part of the same \"requisition\" for billing or other purposes.
+  Comments = Requests are linked either by a \"basedOn\" relationship (i.e. one request is fulfilling another) or by having a common requisition. Requests that are part of the same requisition are generally treated independently from the perspective of changing their state or maintaining them after initial creation.
+  Committee Notes = [#10296][#11119]
+
+ -- Row 7 -----------------------------------
+  Element = ProcedureRequest.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ProcedureRequestStatus
+  Short Name = draft | active | suspended | completed | entered-in-error | cancelled
+  Definition = The status of the order
+  Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.status,\"\",\"0..1\",\"\",\"code\",\"Y\",\"\",\"ProcedureRequestStatus\",\"status\",\"\",\"\",\"\",\"\",\"proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted\",\"The status of the order.\",\"\",\"\",\"\",\"\",\"\",\"Action.currentStatus\",\"\",\"\",\"\",\"
+  RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
+  QUICK mapping = Action.currentStatus
+  Committee Notes = [#3720][#10296][#11119]
+  w5 = status
+
+ -- Row 8 -----------------------------------
+  Element = ProcedureRequest.intent
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ProcedureRequestIntent
+  Short Name = proposal | plan | order +
+  Definition = Whether the request is a proposal, plan, an original order or a reflex order.
+  Committee Notes = [#3720][#10296][#11119]
+  w5 = class
+
+ -- Row 9 -----------------------------------
+  Element = ProcedureRequest.priority
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = ProcedureRequestPriority
+  Short Name = routine | urgent | asap | stat
+  Definition = Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.priority,\"\",\"0..1\",\"\",\"code\",\"\",\"\",\"ProcedureRequestPriority\",\"grade\",\"\",\"\",\"\",\"\",\"routine | urgent | stat | asap\",\"The clinical priority associated with this order.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.urgency\",\"\",\"\",\"\",\"
+  Committee Notes = [#3720][#10296][#11119]
+  Missing Meaning = If missing, this task should be performed with normal priority
+  w5 = class
+
+ -- Row 10 -----------------------------------
   Element = ProcedureRequest.doNotPerform
   Card. = 0..1
   Is Modifier = Y
+  Summary = Y
   Type = boolean
   Short Name = True if procedure should not be performed
   Definition = Set this to true if the record is saying that the procedure should NOT be performed
   Requirements = Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm etc.
   Comments = In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
-  Committee Notes = GF#9335
   Default Value = False
 
- -- Row 6 -----------------------------------
-  Element = ProcedureRequest.bodySite
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = BodySite
-  Short Name = What part of body to perform on
-  Definition = Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).
-  Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
-  Comments = Only used if not implicit in the code found in ProcedureRequest.type
-  RIM Mapping = targetSiteCode
-  QUICK mapping = Procedure.targetBodySite
-
- -- Row 7 -----------------------------------
-  Element = !ProcedureRequest.bodySite.site[x]
-  Card. = 1..1
-  Type = CodeableConcept|Reference(BodySite)
-  Short Name = Target body site
-  Definition = Indicates the site on the subject\'s body where the procedure should be performed ( i.e. the target sites).
-  Requirements = Knowing where the procedure is made is important for tracking if multiple site are possible.
-  Comments = Only used if not implicit in code found in ProcedureRequest.type
-
- -- Row 8 -----------------------------------
-  Element = ProcedureRequest.reason[x]
-  Card. = 0..1
-  Type = CodeableConcept|Reference(Condition)
-  Binding = ProcedureReason
-  Short Name = Why procedure should occur
-  Definition = The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
-  QUICK mapping = Action.indication.reason
-
- -- Row 9 -----------------------------------
-  Element = ProcedureRequest.scheduled[x]
-  Card. = 0..1
-  Type = dateTime|Period|Timing
-  Short Name = When procedure should occur
-  Definition = The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".
-  QUICK mapping = Procedure.procedureSchedule
-  w5 = when.planned
-
- -- Row 10 -----------------------------------
-  Element = ProcedureRequest.encounter
-  Card. = 0..1
-  Type = Reference(Encounter)
-  Short Name = Encounter request created during
-  Definition = The encounter within which the procedure proposal or request was created.
-  QUICK mapping = ClinicalStatement.encounter
-  w5 = context
-
  -- Row 11 -----------------------------------
-  Element = ProcedureRequest.performer
-  Card. = 0..1
-  Type = Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Name = Who should perform the procedure
-  Definition = For example, the surgeon, anaethetist, endoscopist, etc.
-  w5 = who.actor
+  Element = ProcedureRequest.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureRequestCategory
+  Short Name = Classification of procedure
+  Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
+  Requirements = Used for filtering what procedure request are retreived and displayed.
+  Comments = There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
+  To Do = Rim Mapping
+  Committee Notes = [#11119]
+  w5 = class
 
  -- Row 12 -----------------------------------
-  Element = ProcedureRequest.status
-  Card. = 0..1
-  Is Modifier = Y
-  Type = code
-  Binding = ProcedureRequestStatus
-  Short Name = proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted
-  Definition = The status of the order.
-  QUICK mapping = Action.currentStatus
-  w5 = status
+  Element = ProcedureRequest.code
+  Card. = 1..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureRequestCode
+  Short Name = What is being requested/ordered
+  Definition = A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested
+  Comments = Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.code,\"\",\"1..1\",\"\",\"CodeableConcept\",\"\",\"\",\"ProcedureCode\",\"class\",\"\",\"\",\"\",\"\",\"What procedure to perform\",\"The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.\",\"\",\"\",\"\",\"\",\"\",\"Procedure.procedureCode\",\"\",\"\",\"\",\"
+  v2 Mapping = OBX-4
+  RIM Mapping = .code
+  QUICK mapping = Procedure.procedureCode
+  Committee Notes = [#10296][#11119]
+  w5 = what
 
  -- Row 13 -----------------------------------
-  Element = ProcedureRequest.supportingInfo
-  Card. = 0..*
-  Type = Reference (Any)
-  Short Name = Extra information to use in performing request
-  Definition = Information that may be needed by/relevant to the performer in their execution of this request
-  Committee Notes = GF#11181
+  Element = ProcedureRequest.subject
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient|Group|Location|Device)
+  Short Name = Individual the service is ordered for
+  Definition = On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.subject,\"\",\"1..1\",\"\",\"Reference(Patient|Group)\",\"\",\"\",\"\",\"who.focus\",\"\",\"\",\"\",\"\",\"Who the procedure should be done to\",\"The person, animal or group that should receive the procedure.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.subject\",\"\",\"\",\"\",\"
+  RIM Mapping = .participation[typeCode=SBJ].role
+  QUICK mapping = ClinicalStatement.subject
+  Committee Notes = [#10296][#11119]
+  w5 = who.focus
 
  -- Row 14 -----------------------------------
+  Element = ProcedureRequest.context
+  Card. = 0..1
+  Aliases = encounter
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter or Episode during which request was created
+  Definition = An encounter or episode of care that provides additional information about the healthcare context in which this request is made
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.encounter,\"\",\"0..1\",\"\",\"Reference(Encounter)\",\"\",\"\",\"\",\"context\",\"\",\"\",\"\",\"\",\"Encounter request created during\",\"The encounter within which the procedure proposal or request was created.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.encounter\",\"\",\"\",\"\",\"
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  QUICK mapping = ClinicalStatement.encounter
+  Committee Notes = [#10296][#11119]
+  w5 = context
+
+ -- Row 15 -----------------------------------
+  Element = ProcedureRequest.occurrence[x]
+  Card. = 0..1
+  Aliases = scheduled
+  Summary = Y
+  Type = dateTime| Period| Timing
+  Short Name = When procedure should occur
+  Definition = The date/time at which the diagnostic testing should occur.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.scheduled[x],\"\",\"0..1\",\"\",\"dateTime|Period|Timing\",\"\",\"\",\"\",\"when.planned\",\"\",\"\",\"\",\"\",\"When procedure should occur\",\"The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".\",\"\",\"\",\"\",\"\",\"\",\"Procedure.procedureSchedule\",\"\",\"\",\"\",\"
+  RIM Mapping = .effectiveTime
+  QUICK mapping = Procedure.procedureSchedule
+  Committee Notes = [#10296][#11119]
+  w5 = when.planned
+
+ -- Row 16 -----------------------------------
+  Element = ProcedureRequest.asNeeded[x]
+  Card. = 0..1
+  Summary = Y
+  Type = boolean|CodeableConcept
+  Binding = ProcedureAsNeededReason
+  Short Name = Preconditions for procedure or diagnostic
+  Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.asNeeded[x],\"\",\"0..1\",\"\",\"boolean|CodeableConcept\",\"\",\"\",\"ProcedureAsNeededReason\",\"\",\"\",\"\",\"\",\"\",\"Preconditions for procedure\",\"If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.prnReason.reason\",\"\",\"\",\"\",\"
+  QUICK mapping = Proposal.prnReason.reason
+
+ -- Row 17 -----------------------------------
+  Element = ProcedureRequest.authoredOn
+  Card. = 0..1
+  Aliases = orderedOn
+  Summary = Y
+  Type = dateTime
+  Short Name = Date request signed
+  Definition = When the request transitioned to being actionable
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.orderedOn,\"\",\"0..1\",\"\",\"dateTime\",\"\",\"\",\"\",\"when.recorded\",\"\",\"\",\"\",\"\",\"When request was created\",\"The time when the request was made.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.proposedAtTime\",\"\",\"\",\"\",\"
+  QUICK mapping = Proposal.proposedAtTime
+  Committee Notes = [#10296][#11119]
+  w5 = when.recorded
+
+ -- Row 18 -----------------------------------
+  Element = ProcedureRequest.requester
+  Card. = 0..1
+  Aliases = author, orderer
+  Summary = Y
+  Short Name = Who/what is requesting procedure or diagnostic
+  Definition = The individual who initiated the request and has responsibility for its activation
+  Comments = This not the dispatcher, but rather who is the authorizer
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.orderer,\"\",\"0..1\",\"\",\"Reference(Practitioner|Patient|RelatedPerson|Device)\",\"\",\"\",\"\",\"who.author\",\"\",\"\",\"\",\"\",\"Who made request\",\"The healthcare professional responsible for proposing or ordering the procedure.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.statementAuthor\",\"\",\"\",\"\",\"
+  v2 Mapping = ORC.12
+  RIM Mapping = .participation[typeCode=AUT].role
+  QUICK mapping = ClinicalStatement.statementAuthor
+  Display Hint = [#10296][#11119]
+
+ -- Row 19 -----------------------------------
+  Element = ProcedureRequest.requester.agent
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Device|Practitioner|Organization)
+  Short Name = Individual making the request
+  Definition = The device, practitioner or organization. who initiated the request
+  v2 Mapping = ORC.12
+  RIM Mapping = .player
+  QUICK mapping = ClinicalStatement.statementAuthor
+  Committee Notes = [#10296][#11119]
+  w5 = who.author
+
+ -- Row 20 -----------------------------------
+  Element = ProcedureRequest.requester.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization agent is acting for
+  Definition = The organization the device or practitioner was acting on behalf of.
+  Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when authoring the request
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+  Committee Notes = [#10296][#11119]
+
+ -- Row 21 -----------------------------------
+  Element = ProcedureRequest.performerType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureRequestParticipantRole
+  Short Name = Performer role
+  Definition = Desired type of performer for doing the diagnostic testing.
+  Comments = this is a  role, not  a participation type.  I.e. doesn’t describe the task, describes the capacity.  Examples “compounding pharmacy” or “psychiatrist” or “internal referral”
+  Committee Notes = [#10296][#11119]
+  w5 = who.actor
+
+ -- Row 22 -----------------------------------
+  Element = ProcedureRequest.performer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Short Name = Requested perfomer
+  Definition = The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
+  Comments = If needed, use an [extension](extensibility.html) for listing alternative alternative performers and/or roles and/or preference.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.performer,\"\",\"0..1\",\"\",\"Reference(Practitioner|Organization|Patient|RelatedPerson)\",\"\",\"\",\"\",\"who.actor\",\"\",\"\",\"\",\"\",\"Who should perform the procedure\",\"For example, the surgeon, anaethetist, endoscopist, etc.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"
+  RIM Mapping = .participation[AUT or PFM]
+  Committee Notes = [#10296][#11119]
+  w5 = who.actor
+
+ -- Row 23 -----------------------------------
+  Element = ProcedureRequest.reasonCode
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ProcedureRequestReason
+  Short Name = Explanation/Justification for test
+  Definition = An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.reason[x],\"\",\"0..1\",\"\",\"CodeableConcept|Reference(Condition)\",\"\",\"\",\"ProcedureReason\",\"\",\"\",\"\",\"\",\"\",\"Why procedure should occur\",\"The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.\",\"\",\"\",\"\",\"\",\"\",\"Action.indication.reason\",\"\",\"\",\"\",\"
+  RIM Mapping = .reasonCode
+  Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]
+  w5 = why
+
+ -- Row 24 -----------------------------------
+  Element = ProcedureRequest.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition | Observation)
+  Short Name = Explanation/Justification for test
+  Definition = Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.reason[x],\"\",\"0..1\",\"\",\"CodeableConcept|Reference(Condition)\",\"\",\"\",\"ProcedureReason\",\"\",\"\",\"\",\"\",\"\",\"Why procedure should occur\",\"The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.\",\"\",\"\",\"\",\"\",\"\",\"Action.indication.reason\",\"\",\"\",\"\",\"
+  RIM Mapping = .reasonCode
+  Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]
+  w5 = why
+
+ -- Row 25 -----------------------------------
+  Element = ProcedureRequest.supportingInfo
+  Card. = 0..*
+  Aliases = Ask at order entry question, AOE
+  Type = Reference(Any)
+  Short Name = Additional clinical information
+  Definition = Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.supportingInfo,\"\",\"0..*\",\"\",\"Reference (Any)\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Extra information to use in performing request\",\"Information that may be needed by/relevant to the performer in their execution of this request\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"GF#11181
+  v2 Mapping = OBR-13
+  RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
+  Committee Notes = [#3113][#3739][#10296][#11119]
+
+ -- Row 26 -----------------------------------
+  Element = ProcedureRequest.specimen
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Specimen)
+  Short Name = Procedure Samples
+  Definition = One or more specimens that the laboratory procedure will use.
+  Comments = Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, If the request is entered first with an unknown specimen, The [Specimen](specimen.html) resource references to the ProcedureRequest.
+  RIM Mapping = .participation[typeCode=SPC].role
+  Committee Notes = [#10589][#11119]
+
+ -- Row 27 -----------------------------------
+  Element = ProcedureRequest.bodySite
+  Card. = 0..*
+  Aliases = location
+  Summary = Y
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Name = Location on Body
+  Definition = Anatomic location where the procedure should be performed. This is the target site.
+  Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
+  Comments = Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedurerequest-targetBodySite](extension-procedurerequest-targetbodysite.html)
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.bodySite,\"\",\"0..*\",\"\",\"CodeableConcept\",\"\",\"\",\"BodySite\",\"\",\"\",\"\",\"\",\"\",\"What part of body to perform on\",\"Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).\",\"Knowing where the procedure is made is important for tracking if multiple sites are possible.\",\"Only used if not implicit in the code found in ProcedureRequest.type\",\"\",\"targetSiteCode\",\"\",\"Procedure.targetBodySite\",\"\",\"\",\"\",\"
+  RIM Mapping = targetSiteCode
+  QUICK mapping = Procedure.targetBodySite
+  Committee Notes = [#12505], [#12517][#11119]
+
+ -- Row 28 -----------------------------------
   Element = ProcedureRequest.note
   Card. = 0..*
   Type = Annotation
-  Short Name = Additional information about desired procedure
-  Definition = Any other notes associated with this proposal or order - e.g. provider instructions.
+  Short Name = Comments
+  Definition = Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.
+  Sept2016ProcedureRequest Mapping = ProcedureRequest.note,\"\",\"0..*\",\"\",\"Annotation\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Additional information about desired procedure\",\"Any other notes associated with this proposal or order - e.g. provider instructions.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.additionalText\",\"\",\"\",\"\",\"
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   QUICK mapping = ClinicalStatement.additionalText
+  Committee Notes = 7134,8147,[#10296][#11119]
 
- -- Row 15 -----------------------------------
-  Element = ProcedureRequest.asNeeded[x]
-  Card. = 0..1
-  Type = boolean|CodeableConcept
-  Binding = ProcedureAsNeededReason
-  Short Name = Preconditions for procedure
-  Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
-  QUICK mapping = Proposal.prnReason.reason
-
- -- Row 16 -----------------------------------
-  Element = ProcedureRequest.orderedOn
-  Card. = 0..1
-  Type = dateTime
-  Short Name = When request was created
-  Definition = The time when the request was made.
-  QUICK mapping = Proposal.proposedAtTime
-  w5 = when.recorded
-
- -- Row 17 -----------------------------------
-  Element = ProcedureRequest.orderer
-  Card. = 0..1
-  Type = Reference(Practitioner|Patient|RelatedPerson|Device)
-  Short Name = Who made request
-  Definition = The healthcare professional responsible for proposing or ordering the procedure.
-  QUICK mapping = ClinicalStatement.statementAuthor
-  w5 = who.author
-
- -- Row 18 -----------------------------------
-  Element = ProcedureRequest.priority
-  Card. = 0..1
-  Type = code
-  Binding = ProcedureRequestPriority
-  Short Name = routine | urgent | stat | asap
-  Definition = The clinical priority associated with this order.
-  QUICK mapping = Proposal.urgency
-  w5 = grade
+ -- Row 29 -----------------------------------
+  Element = ProcedureRequest.relevantHistory
+  Card. = 0..*
+  Type = Reference(Provenance)
+  Short Name = Request provenance
+  Definition = Key events in the history of the request.
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important.\rThis SHALL NOT include the Provenance associated with this current version of the resource.  (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update.  Until then, it can be queried directly as the Provenance that points to this version using _revinclude\rAll Provenances should have some historical version of this Request as their subject.
+  Committee Notes = [#10296][#11119]
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = A unique identifier of the Procedure Request
   Path = ProcedureRequest.identifier
 
  -- Row 2 -----------------------------------
+  Name = definition
+  Type = reference
+  Path = ProcedureRequest.definition
+
+ -- Row 3 -----------------------------------
+  Name = based-on
+  Type = reference
+  Path = ProcedureRequest.basedOn
+
+ -- Row 4 -----------------------------------
+  Name = replaces
+  Type = reference
+  Path = ProcedureRequest.replaces
+
+ -- Row 5 -----------------------------------
+  Name = requisition
+  Type = token
+  Path = ProcedureRequest.requisition
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Path = ProcedureRequest.status
+
+ -- Row 7 -----------------------------------
+  Name = priority
+  Type = token
+  Path = ProcedureRequest.priority
+
+ -- Row 8 -----------------------------------
+  Name = intent
+  Type = token
+  Path = ProcedureRequest.intent
+
+ -- Row 9 -----------------------------------
+  Name = code
+  Type = token
+  Path = ProcedureRequest.code
+
+ -- Row 10 -----------------------------------
   Name = subject
   Type = reference
   Description = Search by subject
   Path = ProcedureRequest.subject
 
- -- Row 3 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = patient
   Type = reference
   Description = Search by subject - a patient
   Path = ProcedureRequest.subject
   Target Types = Patient
 
- -- Row 4 -----------------------------------
-  Name = orderer
+ -- Row 12 -----------------------------------
+  Name = context
   Type = reference
-  Path = ProcedureRequest.orderer
+  Path = ProcedureRequest.context
 
- -- Row 5 -----------------------------------
+ -- Row 13 -----------------------------------
+  Name = encounter
+  Type = reference
+  Description = An encounter in which this request is made
+  Path = ProcedureRequest.context
+  Target Types = Encounter
+
+ -- Row 14 -----------------------------------
+  Name = occurence
+  Type = date
+  Path = ProcedureRequest.occurrence[x]
+
+ -- Row 15 -----------------------------------
+  Name = authored
+  Type = date
+  Path = ProcedureRequest.authoredOn
+
+ -- Row 16 -----------------------------------
+  Name = requester
+  Type = reference
+  Path = ProcedureRequest.requester.agent
+
+ -- Row 17 -----------------------------------
+  Name = performer-type
+  Type = token
+  Path = ProcedureRequest.performerType
+
+ -- Row 18 -----------------------------------
   Name = performer
   Type = reference
   Path = ProcedureRequest.performer
 
- -- Row 6 -----------------------------------
-  Name = encounter
+ -- Row 19 -----------------------------------
+  Name = specimen
   Type = reference
-  Path = ProcedureRequest.encounter
+  Description = Specimen to be tested
+  Path = ProcedureRequest.specimen
 
- -- Row 7 -----------------------------------
-  Name = status
-  Type = token
-  Path = ProcedureRequest.status
-
- -- Row 8 -----------------------------------
-  Name = code
-  Type = token
-  Path = ProcedureRequest.code
-
- -- Row 9 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = body-site
   Type = token
+  Description = Where procedure is going to be done
   Path = ProcedureRequest.bodySite
 
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
+  Name = !diagnosticrequest-extensions
+  IG Name = core
+  Filename = diagnosticrequest-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Procedure Request-Genetics
+  IG Name = core
+  Filename = procedurerequest-genetics-profile.xml
+  Type = spreadsheet
+
+ -- Row 3 -----------------------------------
   Name = procedurerequest-extensions
   IG Name = core
   Filename = procedurerequest-extensions.xml
@@ -360,6 +564,45 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
+  Name = Lipids
+  Identity = lipid
+  Description = Lipid Panel Order
+  Filename = procedurerequest-example-lipid.xml
+
+ -- Row 2 -----------------------------------
+  Name = DI Order
+  Identity = di
+  Description = CT Scan order
+  Filename = procedurerequest-example-di.xml
+
+ -- Row 3 -----------------------------------
+  Name = Free T4
+  Identity = ft4
+  Description = Free T4 Add on Order
+  Filename = procedurerequest-example-ft4.xml
+
+ -- Row 4 -----------------------------------
+  Name = PGx
+  Identity = example-pgx
+  Description = PGx Phenotype example
+  Filename = procedurerequest-example-pgx.xml
+  Profile = Procedure Request-Genetics
+
+ -- Row 5 -----------------------------------
+  Name = Order-genetics-1
+  Identity = og-example1
+  Description = Order for ABCB4 gene mutation analysis
+  Filename = procedurerequest-genetics-example-1.xml
+  Profile = Procedure Request-Genetics
+
+ -- Row 6 -----------------------------------
+  Name = !!Order-genetics-2
+  Identity = og-example2
+  Description = Order for a specific variant
+  Filename = procedurerequest-genetics-example-2.xml
+  Profile = Procedure Request-Genetics
+
+ -- Row 7 -----------------------------------
   Name = Head CT
   Identity = example
   Description = An example of a Head CT procedure

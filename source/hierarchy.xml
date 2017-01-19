@@ -134,7 +134,7 @@ signatures.html
       <page title="Code Systems" filename="terminologies-systems.html">
         <page title="SNOMED CT" filename="snomedct.html">
           <page title="SNOMED CT Usage Report" filename="snomedct-usage.html"/>
-        </page>  
+        </page>
         <page title="RxNorm" filename="rxnorm.html"/>
         <page title="LOINC" filename="loinc.html"/>
         <page title="UCUM" filename="ucum.html"/>
@@ -202,14 +202,14 @@ signatures.html
       <page title="Validating Resources" filename="validation.html"/>
       <page title="Mapping Language" filename="mapping-language.html">
         <page title="Mapping Language Tutorial" filename="mapping-tutorial.html"/>
-      </page>  
+      </page>
       <page title="Managing Resource Identity" filename="managing.html"/>
       <page title="Interaction Patterns" filename="pushpull.html"/>
       <page title="Variations between Submitted data and Retrieved data" filename="updates.html"/>
       <page title="Integrated Examples" filename="integrated-examples.html"/>
       <page title="Common Usages" filename="usecases.html"/>
       <page type="resource" resource="TestScript" />
-      <page type="resource" resource="TestReport" />      
+      <page type="resource" resource="TestReport" />
     </page>
 
     <page title="Administration" filename="administration-module.html" icon="administration.jpg">
@@ -259,7 +259,6 @@ signatures.html
     <page title="Diagnostics" filename="diagnostics-module.html" icon="diagnostics.jpg">
       <page type="resource" resource="Observation"/>
       <page type="resource" resource="DiagnosticReport"/>
-      <page type="resource" resource="DiagnosticRequest"/>
       <page type="resource" resource="Sequence"/>
       <page type="resource" resource="Specimen"/>
       <page type="resource" resource="BodySite"/>

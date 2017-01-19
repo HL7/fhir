@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="og-example1"/>
 	<status value="active"/>
 	<intent value="original-order"/>
@@ -24,4 +24,4 @@
 	<performer>
 		<reference value="Practitioner/example"/>
 	</performer>
-</DiagnosticRequest>
+</ProcedureRequest>

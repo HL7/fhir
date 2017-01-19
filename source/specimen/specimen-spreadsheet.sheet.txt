@@ -195,10 +195,10 @@
  -- Row 11 -----------------------------------
   Element = Specimen.request
   Card. = 0..*
-  Type = Reference(DiagnosticRequest|ProcedureRequest)
+  Type = Reference(ProcedureRequest)
   Short Name = Why the specimen was collected
   Definition = Details concerning a test or procedure request that required a specimen to be collected.
-  Comments = The request may be explicit or implied such with a DiagnosticRequest that requires a blood draw.
+  Comments = The request may be explicit or implied such with a ProcedureRequest that requires a blood draw.
   v2 Mapping = ORC? OBR-2/3?
   RIM Mapping = outboundRelationship[typeCode=FLFS].target
   Committee Notes = [#9663]

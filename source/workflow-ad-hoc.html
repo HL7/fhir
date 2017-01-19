@@ -71,7 +71,7 @@ in order to support consistent definitions for schema and UML derived code.
         <h4>Steps</h4>
         <ol>
             <li>Placer system invokes a <a href="http.html#create">create</a> by POSTing a 'request' resource (e.g. <a href="medicationrequest.html">MedicationRequest</a>,
-                <a href="diagnosticrequest.html">DiagnosticRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a>
+                <a href="procedurerequest.html">ProcedureRequest</a>, <a href="referralrequest.html">ReferralRequest</a>, etc.) to the appropriate RESTful resource endpoint (e.g. [base]/MedicationRequest) on the filler system and places an <a href="codesystem-common-tags.html#common-tags-actionable">actionable</a>
                 <a href="resource.html#simple-tags">tag</a> on the resource that indicates the request is intended to be acted upon, not merely stored.</li>
             <li>The filler synchronously responds with a "201" indicating that that they have received and stored (created) the resource on their system</li>
             <li>At some later point, the filler POSTs an 'event' resource (e.g. <a href="medicationdispense.html">MedicationDispense</a>,

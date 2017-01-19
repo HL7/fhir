@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!--
 This example is used for DetectedIssue/Duplicate Therapy example will need to edit that as well
 
---><DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+--><ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="di"/><!--	<extension url="http://hl7.org/fhir/StructureDefinition/bodysitecode">
 		<valueCodeableConcept>
 			<coding>
@@ -33,4 +33,4 @@ This example is used for DetectedIssue/Duplicate Therapy example will need to ed
 	<reasonCode>
 		<text value="Check for metastatic disease"/>
 	</reasonCode>
-</DiagnosticRequest>
+</ProcedureRequest>

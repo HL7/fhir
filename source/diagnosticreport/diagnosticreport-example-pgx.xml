@@ -22,7 +22,7 @@
 		</actor>
 	</performer>
 	<request>
-		<reference value="DiagnosticRequest/example-pgx"/>
+		<reference value="ProcedureRequest/example-pgx"/>
 	</request>
 	<result>
 		<reference value="Observation/example-phenotype"/>

@@ -125,7 +125,7 @@
   Element = ReferralRequest.basedOn
   Card. = 0..*
   Is Modifier = N
-  Type = Reference(ReferralRequest|CarePlan|DiagnosticRequest|ProcedureRequest)
+  Type = Reference(ReferralRequest|CarePlan|ProcedureRequest)
   Short Name = Request fulfilled by this request
   Definition = Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
 

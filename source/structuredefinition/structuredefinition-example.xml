@@ -29,7 +29,7 @@
     <coding>
       <system value="urn:iso:std:iso:3166"/>
       <code value="AU"/>
-    </coding>    
+    </coding>
   </jurisdiction>
   <purpose value="Provide an example to demonstrate how to use StructureDefinition"/><!-- 0..1 Scope and Usage this structure definition is for -->
   <copyright value="Createive Commons 0, per FHIR specification"/>
@@ -39,7 +39,7 @@
     <display value="314079002"/>
   </keyword>
   <fhirVersion value="1.0.0"/><!-- 0..1 FHIR Version this StructureDefinition targets -->
-  <mapping> 
+  <mapping>
     <identity value="m1"/>
     <uri value="https://www.rcpa.edu.au/getattachment/0961c6d1-ec80-4500-8dc0-de516500e05b/Lipid-and-lipoprotein-testing.aspx"/>
     <name value="RCPA Lipid Report recommendations"/>
@@ -241,7 +241,7 @@
       </base>
       <type>
         <code value="Reference"/>
-        <targetProfile value="http://hl7.org/fhir/StructureDefinition/DiagnosticRequest"/>
+        <targetProfile value="http://hl7.org/fhir/StructureDefinition/ProcedureRequest"/>
       </type>
       <isModifier value="false"/>
     </element>

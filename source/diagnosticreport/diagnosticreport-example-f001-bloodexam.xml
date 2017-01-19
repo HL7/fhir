@@ -2,7 +2,7 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
 	<id value="f001"/>
 	<contained>
-		<DiagnosticRequest>
+		<ProcedureRequest>
 			<id value="req"/>
 			<extension url="http://example.org/bodysitecode">
 				<valueCodeableConcept>
@@ -42,7 +42,7 @@
 			<note>
 				<text value="patient almost fainted during procedure"/>
 			</note>
-		</DiagnosticRequest>
+		</ProcedureRequest>
 	</contained>
 	<identifier>
 		<use value="official"/>

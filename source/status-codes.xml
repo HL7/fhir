@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -11,7 +10,7 @@
   <LastAuthor>lloyd</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2016-11-10T01:32:55Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.0</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,8 +19,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7500</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>18000</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
@@ -31,7 +30,7 @@
   <Style ss:ID="Default" ss:Name="Normal">
    <Alignment ss:Vertical="Bottom"/>
    <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+   <Font x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
    <NumberFormat/>
    <Protection/>
@@ -89,7 +88,7 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous"/>
     <Border ss:Position="Top" ss:LineStyle="Continuous"/>
    </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
    <Interior/>
   </Style>
   <Style ss:ID="s68" ss:Parent="s62">
@@ -179,39 +178,45 @@
    <Protection/>
   </Style>
   <Style ss:ID="s79" ss:Parent="s62">
-   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s80" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Bottom" ss:LineStyle="Double" ss:Weight="3"
-     ss:Color="#333333"/>
-    <Border ss:Position="Left" ss:LineStyle="Double" ss:Weight="3"
-     ss:Color="#333333"/>
-    <Border ss:Position="Right" ss:LineStyle="Double" ss:Weight="3"
-     ss:Color="#333333"/>
-    <Border ss:Position="Top" ss:LineStyle="Double" ss:Weight="3"
-     ss:Color="#333333"/>
-   </Borders>
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s81" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#FF0000"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Double" ss:Weight="3"
+     ss:Color="#333333"/>
+    <Border ss:Position="Left" ss:LineStyle="Double" ss:Weight="3"
+     ss:Color="#333333"/>
+    <Border ss:Position="Right" ss:LineStyle="Double" ss:Weight="3"
+     ss:Color="#333333"/>
+    <Border ss:Position="Top" ss:LineStyle="Double" ss:Weight="3"
+     ss:Color="#333333"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s83" ss:Parent="s33">
+  <Style ss:ID="s82" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#DD0806"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s84" ss:Parent="s33">
    <Alignment ss:Vertical="Top"/>
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FFFFFF"
     ss:Bold="1"/>
    <Interior ss:Color="#969696" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s84">
+  <Style ss:ID="s85">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Double" ss:Weight="3"
@@ -226,7 +231,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s85">
+  <Style ss:ID="s86">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
@@ -237,7 +242,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s86" ss:Parent="s33">
+  <Style ss:ID="s87" ss:Parent="s33">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
@@ -249,7 +254,7 @@
     ss:Bold="1"/>
    <Interior ss:Color="#969696" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s87">
+  <Style ss:ID="s88">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
@@ -259,7 +264,7 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
-  <Style ss:ID="s88">
+  <Style ss:ID="s89">
    <Alignment ss:Vertical="Top"/>
    <Borders>
     <Border ss:Position="Bottom" ss:LineStyle="Continuous"/>
@@ -269,19 +274,13 @@
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s89">
+  <Style ss:ID="s90">
    <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
-  <Style ss:ID="s90">
+  <Style ss:ID="s91">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
-  </Style>
-  <Style ss:ID="s91" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Color="#000000"/>
-   <Interior/>
   </Style>
   <Style ss:ID="s92" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
@@ -311,39 +310,31 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s95">
-   <Alignment ss:Vertical="Top"/>
-   <Borders/>
-   <Font ss:FontName="Arial" x:Family="Swiss" ss:Color="#000000"/>
+  <Style ss:ID="s95" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss"/>
    <Interior/>
-   <NumberFormat/>
-   <Protection/>
   </Style>
   <Style ss:ID="s96" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Alignment ss:Vertical="Top"/>
    <Font ss:FontName="Calibri" x:Family="Swiss"/>
    <Interior/>
   </Style>
   <Style ss:ID="s97" ss:Parent="s62">
    <Alignment ss:Vertical="Top"/>
-   <Font ss:FontName="Calibri" x:Family="Swiss"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s98" ss:Parent="s62">
-   <Alignment ss:Vertical="Top"/>
    <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="98" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
-   ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s63" ss:Width="314.25"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="69.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74.25"/>
+  <Table ss:ExpandedColumnCount="41" ss:ExpandedRowCount="96" x:FullColumns="1"
+   x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65"
+   ss:DefaultRowHeight="26">
+   <Column ss:StyleID="s63" ss:Width="314"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="70"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="74"/>
    <Column ss:Index="8" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="60"/>
-   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="57.75"/>
-   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92.25"/>
+   <Column ss:Index="10" ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="58"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="92"/>
    <Column ss:Index="36" ss:StyleID="s63" ss:Width="45"/>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Path</Data></Cell>
@@ -377,7 +368,7 @@
     <Cell><Data ss:Type="String">c27</Data></Cell>
     <Cell><Data ss:Type="String">c28</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
@@ -409,7 +400,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="39.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
     <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
@@ -441,7 +432,7 @@
     <Cell><Data ss:Type="String">ahead-of-target</Data></Cell>
     <Cell><Data ss:Type="String">behind-target</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="74.0625">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
     <Cell ss:StyleID="s70"><Data ss:Type="String" x:Ticked="1">Authoring system does not know the status</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">The record was created in error, and should not be treated as valid (note: in many cases, for record integrity, the information cannot be removed from the record)</Data></Cell>
@@ -462,7 +453,7 @@
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s68"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="23.0625">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">Account.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
@@ -669,7 +660,7 @@
     <Cell><Data ss:Type="String">CareTeam.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
@@ -690,12 +681,12 @@
     <Cell><Data ss:Type="String">Claim.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -711,12 +702,12 @@
     <Cell><Data ss:Type="String">ClaimResponse.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -754,7 +745,7 @@
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s81"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -794,8 +785,8 @@
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">planned</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s82"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">requested</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">received</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">rejected</Data></Cell>
@@ -921,12 +912,12 @@
     <Cell><Data ss:Type="String">Coverage.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -965,7 +956,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s73"/>
-    <Cell ss:StyleID="s80"/>
+    <Cell ss:StyleID="s81"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -984,7 +975,7 @@
     <Cell><Data ss:Type="String">DeviceMetric.operationalStatus</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:Index="6" ss:StyleID="s84"/>
+    <Cell ss:Index="6" ss:StyleID="s85"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -999,12 +990,12 @@
     <Cell ss:StyleID="s71"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">DeviceRequest.status</Data></Cell>
+    <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
@@ -1039,49 +1030,6 @@
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">cancelled</Data></Cell>
     <Cell ss:StyleID="s68"><Data ss:Type="String">unknown</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s85">
-    <Cell ss:StyleID="s63"><Data ss:Type="String">DiagnosticRequest.status</Data></Cell>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">active</Data></Cell>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s66"/>
-    <Cell ss:StyleID="s66"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
-    <Cell ss:StyleID="s63"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentManifest.status</Data></Cell>
@@ -1147,12 +1095,12 @@
     <Cell><Data ss:Type="String">EligibilityRequest.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -1168,12 +1116,12 @@
     <Cell><Data ss:Type="String">EligibilityResponse.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -1271,12 +1219,12 @@
     <Cell><Data ss:Type="String">EnrollmentRequest.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -1291,12 +1239,12 @@
     <Cell><Data ss:Type="String">EnrollmentResponse.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -1326,28 +1274,28 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">finished</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:Index="20" ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:Index="20" ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.statusHistory.status</Data></Cell>
@@ -1371,22 +1319,22 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExpansionProfile.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:Index="3" ss:StyleID="s89"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">active</Data></Cell>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">retired</Data></Cell>
+    <Cell ss:StyleID="s91"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExplanationOfBenefit.status</Data></Cell>
@@ -1410,7 +1358,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FamilyMemberHistory.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
@@ -1432,7 +1380,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Flag.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
@@ -1446,7 +1394,7 @@
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">inactive</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s74"/>
    </Row>
@@ -1495,7 +1443,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Immunization.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
@@ -1531,7 +1479,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Library.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"/>
@@ -1551,7 +1499,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">inactive</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Library.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s71"/>
@@ -1571,10 +1519,10 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s71"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">List.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
@@ -1591,7 +1539,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s72"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="24.9375">
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Location.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s78"/>
@@ -1834,7 +1782,7 @@
     <Cell><Data ss:Type="String">NutritionOrder.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">requested</Data></Cell>
@@ -1849,29 +1797,29 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
-    <Cell ss:StyleID="s85"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
+    <Cell ss:StyleID="s86"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
@@ -1995,35 +1943,15 @@
     <Cell><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ProcedureRequest.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s81"/>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">accepted</Data></Cell>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">in-progress</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">aborted</Data></Cell>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ProcessRequest.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -2038,12 +1966,12 @@
     <Cell><Data ss:Type="String">ProcessResponse.status</Data></Cell>
     <Cell ss:StyleID="s71"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -2099,11 +2027,11 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s78"/>
@@ -2119,11 +2047,11 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">draft</Data></Cell>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">suspended</Data></Cell>
@@ -2131,7 +2059,7 @@
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ResearchSubject.status</Data></Cell>
@@ -2139,11 +2067,11 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">candidate</Data></Cell>
-    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">candidate</Data></Cell>
+    <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"/>
-    <Cell ss:StyleID="s98"/>
+    <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">enrolled</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">suspended</Data></Cell>
@@ -2151,7 +2079,7 @@
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s79"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">SearchParameter.status</Data></Cell>
@@ -2414,7 +2342,7 @@
     <Cell ss:StyleID="s72"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s79"/>
+    <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"><Data ss:Type="String">active</Data></Cell>
@@ -2438,13 +2366,14 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2452,20 +2381,20 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>4</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R33</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>

@@ -270,7 +270,7 @@
   Element = MedicationRequest.basedOn
   Card. = 0..*
   Summary = y
-  Type = Reference(CarePlan |DiagnosticRequest |MedicationRequest |ProcedureRequest |ReferralRequest)
+  Type = Reference(CarePlan |MedicationRequest |ProcedureRequest |ReferralRequest)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]

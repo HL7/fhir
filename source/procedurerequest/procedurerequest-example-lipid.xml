@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR-2/ehaas/Documents/FHIR/build/schema/bodysite.xsd">
+<ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR-2/ehaas/Documents/FHIR/build/schema/bodysite.xsd">
 	<id value="lipid"/>
 	<contained>
 		<Observation>
@@ -103,4 +103,4 @@
 	<note>
 		<text value="patient is afraid of needles"/>
 	</note>
-</DiagnosticRequest>
+</ProcedureRequest>

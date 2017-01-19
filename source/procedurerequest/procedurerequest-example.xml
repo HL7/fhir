@@ -7,16 +7,26 @@
   </text>
 
   <!-- insert contents here -->
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
-  
+  <status value="completed"></status>
+  <intent value="order"></intent>
+<category>
+<coding>
+  <system value="http://snomed.info/sct"/>
+  <code value="103693007"/>
+  <display value="Diagnostic procedure (procedure)"/>
+</coding>
+<text value="Diagnostics Procedure"/>
+</category>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="303653007"/>
       <display value="Computed tomography of head"/>
-    </coding>  
+    </coding>
   </code>
-  
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+
+
 </ProcedureRequest>

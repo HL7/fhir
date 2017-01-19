@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-      
+
 [%settitle Resource Life Cycle Page%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,8 +17,8 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
 
 <p>
-This page describes several issues around lifecycle management for 
-the resources and the content they contain. Specifically, this page 
+This page describes several issues around lifecycle management for
+the resources and the content they contain. Specifically, this page
 describes:
 </p>
 <ul>
@@ -43,7 +43,7 @@ describes:
 <a name="clinical"> </a>
 <h3>Clinical Workflow Process Life Cycle</h3>
 
-<p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a chronological life cycle that leads from initiation to the conclusion of the action. 
+<p>Describes the lifecycle states of complex activities common in healthcare. Typically, these states follow a chronological life cycle that leads from initiation to the conclusion of the action.
 A characteristic (but non-exhaustive) set of states for the clinical workflow process life cycle include:</p>
 <ul>
 	<li>planned - resources for the activity are being allocated but the activity has not begun</li>
@@ -85,7 +85,6 @@ A characteristic (but non-exhaustive) set of states for the clinical workflow pr
 <ul>
  <li>CommunicationRequest.status:  <%sclist CommunicationRequest.status%></li>
  <li>DeviceRequest.status: <%sclist DeviceRequest.status%></li>
- <li>DiagnosticRequest.status: <%sclist DiagnosticRequest.status%></li>
  <li>MedicationRequest.status: <%sclist MedicationRequest.status%></li>
  <li>ProcedureRequest.status: <%sclist ProcedureRequest.status%></li>
  <li>ReferralRequest.status: <%sclist ReferralRequest.status%></li>
@@ -144,26 +143,26 @@ Many clinical systems maintain current lists of some kind of resources for a pat
  <li>Current Medication List: a list of the medications that a patient is known to be on at the current time</li>
 </ul>
 <p>
-Because of the way that resources are used, there is no simple way to determine, from 
-examination of a resource, whether it is 'current' or not. Take, as an example, the 
-<a href="condition.html">Condition</a> resource. In a typical EHR, condition resources 
+Because of the way that resources are used, there is no simple way to determine, from
+examination of a resource, whether it is 'current' or not. Take, as an example, the
+<a href="condition.html">Condition</a> resource. In a typical EHR, condition resources
 might be published on the RESTful interface for the following reasons:
 </p>
 <ul>
  <li>to represent an item in a patient's curated problem list</li>
  <li>to represent a complaint or a diagnosis from an encounter record</li>
- <li>to represent a problem for investigation provided by a diagnostic system as part of a <a href="diagnosticrequest.html">DiagnosticRequest</a>/<a href="diagnosticreport.html">DiagnosticReport</a> pair</li>
+ <li>to represent a problem for investigation provided by a diagnostic system as part of a <a href="procedurerequest.html">ProcedureRequest</a>/<a href="diagnosticreport.html">DiagnosticReport</a> pair</li>
  <li>the resources were received from another system as part of a referral package, and were current for that system when they were received</li>
 </ul>
 <p>
 There is no element on the Condition resource than can convey the difference between these usages. In particular, there can be 
-no way to differentiate between current and past resources without having to retrospectively alter resources, which is 
-problematic with regard to integrity and digital signatures. 
+no way to differentiate between current and past resources without having to retrospectively alter resources, which is
+problematic with regard to integrity and digital signatures.
 </p>
 <p>
 One consequence of this is that searching the condition resource for a given patient will return more
 than just the patient's current problems. Though this is somewhat counter-intuitive to some implementers,
-restricting searches on Condition to only include the patient's current curated problem list excludes 
+restricting searches on Condition to only include the patient's current curated problem list excludes
 all the other - important - uses of the Condition resource.
 </p>
 <p>
@@ -178,12 +177,12 @@ On the RESTful API, this is done using the <a href="search.html#current">list se
 </pre>
 <p>
 This is a request to fetch all the allergies in the patient 42's "Currrent Problem List".
-Note that the server is not required to actually make a resource representation of the current allergy list 
-available, though doing so assists clients in their audit/integrity tasks. See 
+Note that the server is not required to actually make a resource representation of the current allergy list
+available, though doing so assists clients in their audit/integrity tasks. See
 <a href="list-operations.html#find">List Operation "Find"</a> for further information.
 </p>
 <p>
-In a document, current lists are determined by the code on a Composition section. 
+In a document, current lists are determined by the code on a Composition section.
 </p>
 <a name="lists"> </a>
 <p>
@@ -205,9 +204,9 @@ FHIR defines the following names for functional lists:
  <tr>
   <td>$current-medications</td>
   <td><a href="medicationstatement.html">MedicationStatement</a>/ <a href="medicationrequest.html">MedicationRequest</a></td>
-  <td>A list of all medications that the patient is taking. The 'current medications list' 
-	  sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may 
-	  contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a href="medicationstatement.html">statements</a>, or only one of the two. 
+  <td>A list of all medications that the patient is taking. The 'current medications list'
+	  sometimes may include a mix of prescribed and over-the-counter medications - or only some of them. The list may
+	  contain a mix of <a href="medicationrequest.html">prescriptions</a> and more general <a href="medicationstatement.html">statements</a>, or only one of the two.
 		The list may also correspond to a formal reconciled medication administration schedule, but more often does not</td>
   <td>57828-6	(Prescription list), 10160-0 (History of medication)</td>
  </tr>
@@ -230,14 +229,14 @@ FHIR defines the following names for functional lists:
 <h3>Entered In Error Summary</h3>
 
 <p>
-The entered-in-error state indicates the resource was created accidentally, and 
-should be ignored. This state can apply to resources created by manual 
-entry. It is usually not associated with the Clinical Workflow Process life cycle, 
+The entered-in-error state indicates the resource was created accidentally, and
+should be ignored. This state can apply to resources created by manual
+entry. It is usually not associated with the Clinical Workflow Process life cycle,
 but can be associated with the Request/Order and the Entity Availability life cycles.
 </p>
 
 <p>
-This table summarizes what is expected to happen for each resource in the case 
+This table summarizes what is expected to happen for each resource in the case
 that the data it contains is subsequently found to be an erroneous entry.
 </p>
 

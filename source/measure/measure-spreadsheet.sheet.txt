@@ -142,7 +142,7 @@
   Id = 4
   Code = patient-reported-outcome
   Display = Patient Reported Outcome
-  Definition = A measure that focuses on patient-reported information
+  Definition = A measure that focuses on patient-reported information such as patient engagement or patient experience measures
 
  -- Row 5 -----------------------------------
   Id = 5
