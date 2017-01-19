@@ -209,12 +209,6 @@
         <translation lang="en">DeviceMetric</translation>
         <translation lang="fr">MétriqueDispositif</translation>
     </item>
-    <item id="DiagnosticRequest">
-        <translation lang="en">DiagnosticRequest</translation>
-        <translation lang="zh">诊断医嘱</translation>
-        <translation lang="es">OrdenDiagnostica</translation>
-        <translation lang="fr">OrdreDiagnostique</translation>
-    </item>
     <item id="DiagnosticReport">
         <translation lang="en">DiagnosticReport</translation>
         <translation lang="zh">诊断报告</translation>
