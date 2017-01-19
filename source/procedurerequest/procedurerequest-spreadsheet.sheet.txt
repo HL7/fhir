@@ -62,6 +62,7 @@
  -- Row 9 -----------------------------------
   Binding Name = ProcedureAsNeededReason
   Binding = unbound
+  Reference = http://hl7.org/fhir/ValueSet/medication-as-needed-reason
   Definition = A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.
 
 === Sheet Invariants =====================================
@@ -98,7 +99,7 @@
   Card. = 0..*
   Aliases = protocol
   Summary = Y
-  Type = Reference(ActivityDefinition|PlanDefinition| ServiceDefinition)
+  Type = Reference(ActivityDefinition|PlanDefinition|HealthcareService)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
   Committee Notes = [#10296][#11119]
