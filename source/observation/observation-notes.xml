@@ -1,22 +1,22 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <a name="notes"> </a>
 	<h2>Notes:</h2>
-	<p> 
-   At its simplest, a resource instances can consist of only a code and a value, and status flag.  
-    The relevance of other properties will vary based on the type of observation.  
+	<p>
+   At its simplest, a resource instances can consist of only a code and a value, and status flag.
+    The relevance of other properties will vary based on the type of observation.
 </p>
 	<p>
-		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types 
+		<a href="observation-profiles.html">Profiles</a> will be created to provide guidance on capturing certain types
     of simple observations.  This resource focuses on the level of detail
-    captured by most systems.  However, any "simple" observation can easily 
+    captured by most systems.  However, any "simple" observation can easily
 	be broken into numerous components and sub-components to provide additional
     information relevant in certain circumstances.  As with other resources, <a href="extensibility.html">extensions</a> can be used to introduce this additional complexity. </p>
 	<h3>Grouping of Observations</h3>
 	<p>
-Many observations have important relationships to other observations and need to be assembled in groups together (traditionally referred to as "panels" or " batteries" by laboratories) that can be used to represent relationships between the individual data items.  Typically this is done by referencing the individual observations in the <a href="diagnosticreport.html#4.21.2">DiagnosticReport</a> resource where the DiagnosticReport.code names the panel and serves as the grouping element.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouper.  
+Many observations have important relationships to other observations and need to be assembled in groups together (traditionally referred to as "panels" or " batteries" by laboratories) that can be used to represent relationships between the individual data items.  Typically this is done by referencing the individual observations in the <a href="diagnosticreport.html#4.21.2">DiagnosticReport</a> resource where the DiagnosticReport.code names the panel and serves as the grouping element.  Several <a href="diagnosticreport-examples.html">examples</a> demonstrate observation grouping using DiagnosticReport as the grouper.
  </p>
 	<p>
-The Observation resource has two structures for grouping observations which allow for grouping and even complex nesting of results.  In addition to representing a single observation. the Observation resource can group other observations. 
+The Observation resource has two structures for grouping observations which allow for grouping and even complex nesting of results.  In addition to representing a single observation. the Observation resource can group other observations.
  </p>
 <p>
   First, several observations can be linked together using the Observation.related element with a defined relationship type.  This approach should be used when the attributes within the resource for each observation are different and/or each panel result exists or needs to be processed as independent FHIR resource (i.e they "stand alone").  The Observation.related element defines the grouping of observations into a panel/battery in this case.  The Observation.code names the panel but typically does not have its own Observation.value and the set of member observations for a panel or battery are listed in the Observation.related element.  This structure also permits further nesting of groups (panel of panels).  For example, a bacterial cultures with susceptibility testing can use this structure for grouping, because a panel for susceptibility tests (one for each bacterium isolated) would be linked as panel to the observation about each organism isolated.  The example of a <a href="diagnosticreport-micro1.html">complex micro isolate and sensitivities report</a> demonstrates this.
@@ -65,8 +65,8 @@ Assessment tools such as an Apgar or Glasgow score may be represented with both 
 			"text": "Negative for Chlamydia Trachomatis rRNA"
 			  }
 			</pre>
-	
-		
+
+
 		Using text only, the Observation.valueCodeableConcept the would be:
 				<pre class="json">
 			"valueCodeableConcept": {
@@ -78,7 +78,7 @@ Assessment tools such as an Apgar or Glasgow score may be represented with both 
 		A value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values is bound to the ValueCodeableConcept element.  Coded results are often coded in multiple value sets based on different code systems and these may be mapped using the ConceptMap resource and/or given as translations directly in the element as shown in the example above.
 		</li>
 		<li>
-		The Boolean data type is rarely used for Observation.value[x] because most observations result values are never truly Boolean due to exceptional values such as "unknown".   If needed, use valueCodeableConcept for a Boolean concept instead, and select codes from <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> <a href="v2/0136/index.html">Table 0136</a>. These "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed.
+		The Boolean data type is rarely used for Observation.value[x] because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead.
 		  </li>
 		<li>The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator.  In addition, when there is an error the dataAbsentReason element should be used with the appropriate value  ( 'error' or "NaN").
 		  For example if the value was below the lower limit of detection of  &lt;2.0 mmol/L the Observation.valueQuantity would be:
@@ -107,14 +107,14 @@ If the value was "NaN"  (i.e. an error)  the Observation.valueCodeableConcept wo
  </li>
 	</ul>
 	<h3>Physiologically Relevant Time of the Observation</h3>
-	<p> The effectiveDateTime or effectivePeriod is the time that the observation is most 
-    relevant as an observation of the subject. For a biological subject (e.g. a human patient), 
-    this is the physiologically relevant time of the observation. 
-	In the case of an observation using a specimen, this represents the start and 
-    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is 
-    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture). 
-    In the case of an observation obtained directly from a subject (e.g. BP, 
-    Chest X-ray), this is the start and end time of the observation process, which again, is 
+	<p> The effectiveDateTime or effectivePeriod is the time that the observation is most
+    relevant as an observation of the subject. For a biological subject (e.g. a human patient),
+    this is the physiologically relevant time of the observation.
+	In the case of an observation using a specimen, this represents the start and
+    end of the specimen collection (e.g. 24 hour Urine Sodium), but if the collection time is
+    sufficiently short, this is reported as a point in time value (e.g. normal venipuncture).
+    In the case of an observation obtained directly from a subject (e.g. BP,
+    Chest X-ray), this is the start and end time of the observation process, which again, is
     often reported as a single point in time.</p>
 	<h3>Reference Range</h3>
 	<p>
