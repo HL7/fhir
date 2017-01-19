@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -48,6 +48,146 @@ import org.hl7.fhir.exceptions.FHIRException;
 @ResourceDef(name="CareTeam", profile="http://hl7.org/fhir/Profile/CareTeam")
 public class CareTeam extends DomainResource {
 
+    public enum CareTeamStatus {
+        /**
+         * The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.
+         */
+        PROPOSED, 
+        /**
+         * The care team is currently participating in the coordination and delivery of care.
+         */
+        ACTIVE, 
+        /**
+         * The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.
+         */
+        SUSPENDED, 
+        /**
+         * The care team was, but is no longer, participating in the coordination and delivery of care.
+         */
+        INACTIVE, 
+        /**
+         * The care team should have never existed.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static CareTeamStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proposed".equals(codeString))
+          return PROPOSED;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("suspended".equals(codeString))
+          return SUSPENDED;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown CareTeamStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PROPOSED: return "proposed";
+            case ACTIVE: return "active";
+            case SUSPENDED: return "suspended";
+            case INACTIVE: return "inactive";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PROPOSED: return "http://hl7.org/fhir/care-team-status";
+            case ACTIVE: return "http://hl7.org/fhir/care-team-status";
+            case SUSPENDED: return "http://hl7.org/fhir/care-team-status";
+            case INACTIVE: return "http://hl7.org/fhir/care-team-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/care-team-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROPOSED: return "The care team has been drafted and proposed, but not yet participating in the coordination and delivery of care.";
+            case ACTIVE: return "The care team is currently participating in the coordination and delivery of care.";
+            case SUSPENDED: return "The care team is temporarily on hold or suspended and not participating in the coordination and delivery of care.";
+            case INACTIVE: return "The care team was, but is no longer, participating in the coordination and delivery of care.";
+            case ENTEREDINERROR: return "The care team should have never existed.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROPOSED: return "Proposed";
+            case ACTIVE: return "Active";
+            case SUSPENDED: return "Suspended";
+            case INACTIVE: return "Inactive";
+            case ENTEREDINERROR: return "Entered In Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class CareTeamStatusEnumFactory implements EnumFactory<CareTeamStatus> {
+    public CareTeamStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proposed".equals(codeString))
+          return CareTeamStatus.PROPOSED;
+        if ("active".equals(codeString))
+          return CareTeamStatus.ACTIVE;
+        if ("suspended".equals(codeString))
+          return CareTeamStatus.SUSPENDED;
+        if ("inactive".equals(codeString))
+          return CareTeamStatus.INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return CareTeamStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown CareTeamStatus code '"+codeString+"'");
+        }
+        public Enumeration<CareTeamStatus> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<CareTeamStatus>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proposed".equals(codeString))
+          return new Enumeration<CareTeamStatus>(this, CareTeamStatus.PROPOSED);
+        if ("active".equals(codeString))
+          return new Enumeration<CareTeamStatus>(this, CareTeamStatus.ACTIVE);
+        if ("suspended".equals(codeString))
+          return new Enumeration<CareTeamStatus>(this, CareTeamStatus.SUSPENDED);
+        if ("inactive".equals(codeString))
+          return new Enumeration<CareTeamStatus>(this, CareTeamStatus.INACTIVE);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<CareTeamStatus>(this, CareTeamStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown CareTeamStatus code '"+codeString+"'");
+        }
+    public String toCode(CareTeamStatus code) {
+      if (code == CareTeamStatus.PROPOSED)
+        return "proposed";
+      if (code == CareTeamStatus.ACTIVE)
+        return "active";
+      if (code == CareTeamStatus.SUSPENDED)
+        return "suspended";
+      if (code == CareTeamStatus.INACTIVE)
+        return "inactive";
+      if (code == CareTeamStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(CareTeamStatus code) {
+      return code.getSystem();
+      }
+    }
+
     @Block()
     public static class CareTeamParticipantComponent extends BackboneElement implements IBaseBackboneElement {
         /**
@@ -61,7 +201,7 @@ public class CareTeam extends DomainResource {
         /**
          * The specific person or organization who is participating/expected to participate in the care team.
          */
-        @Child(name = "member", type = {Practitioner.class, RelatedPerson.class, Patient.class, Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "member", type = {Practitioner.class, RelatedPerson.class, Patient.class, Organization.class, CareTeam.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Who is involved", formalDefinition="The specific person or organization who is participating/expected to participate in the care team." )
         protected Reference member;
 
@@ -176,7 +316,7 @@ public class CareTeam extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care team, such as \"Primary care physician\", \"Trained social worker counselor\", \"Caregiver\", etc.", 0, java.lang.Integer.MAX_VALUE, role));
-          childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization)", "The specific person or organization who is participating/expected to participate in the care team.", 0, java.lang.Integer.MAX_VALUE, member));
+          childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, java.lang.Integer.MAX_VALUE, member));
           childrenList.add(new Property("period", "Period", "Indicates when the specific member or organization did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -292,8 +432,7 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (member == null || member.isEmpty())
-           && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, member, period);
       }
 
   public String fhirType() {
@@ -311,17 +450,19 @@ public class CareTeam extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Indicates whether the care team is currently active, suspended, inactive, or entered in error.
+     * Indicates the current state of the care team.
      */
-    @Child(name = "status", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="active | suspended | inactive | entered in error", formalDefinition="Indicates whether the care team is currently active, suspended, inactive, or entered in error." )
-    protected CodeableConcept status;
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="proposed | active | suspended | inactive | entered-in-error", formalDefinition="Indicates the current state of the care team." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-team-status")
+    protected Enumeration<CareTeamStatus> status;
 
     /**
      * Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Type of team", formalDefinition="Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/care-team-category")
     protected List<CodeableConcept> category;
 
     /**
@@ -369,7 +510,7 @@ public class CareTeam extends DomainResource {
     protected List<Organization> managingOrganizationTarget;
 
 
-    private static final long serialVersionUID = 141870602L;
+    private static final long serialVersionUID = 162249074L;
 
   /**
    * Constructor
@@ -432,15 +573,19 @@ public class CareTeam extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (Indicates whether the care team is currently active, suspended, inactive, or entered in error.)
+     * @return {@link #status} (Indicates the current state of the care team.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CodeableConcept getStatus() { 
+    public Enumeration<CareTeamStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CareTeam.status");
         else if (Configuration.doAutoCreate())
-          this.status = new CodeableConcept(); // cc
+          this.status = new Enumeration<CareTeamStatus>(new CareTeamStatusEnumFactory()); // bb
       return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     public boolean hasStatus() { 
@@ -448,10 +593,31 @@ public class CareTeam extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (Indicates whether the care team is currently active, suspended, inactive, or entered in error.)
+     * @param value {@link #status} (Indicates the current state of the care team.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CareTeam setStatus(CodeableConcept value) { 
+    public CareTeam setStatusElement(Enumeration<CareTeamStatus> value) { 
       this.status = value;
+      return this;
+    }
+
+    /**
+     * @return Indicates the current state of the care team.
+     */
+    public CareTeamStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value Indicates the current state of the care team.
+     */
+    public CareTeam setStatus(CareTeamStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<CareTeamStatus>(new CareTeamStatusEnumFactory());
+        this.status.setValue(value);
+      }
       return this;
     }
 
@@ -751,7 +917,7 @@ public class CareTeam extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("status", "CodeableConcept", "Indicates whether the care team is currently active, suspended, inactive, or entered in error.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "Indicates the current state of the care team.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("category", "CodeableConcept", "Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("name", "string", "A label for human use intended to distinguish like teams.  E.g. the \"red\" vs. \"green\" trauma teams.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "Identifies the patient or group whose intended care is handled by the team.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -764,7 +930,7 @@ public class CareTeam extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CareTeamStatus>
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
@@ -783,7 +949,8 @@ public class CareTeam extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
         case -892481550: // status
-          this.status = castToCodeableConcept(value); // CodeableConcept
+          value = new CareTeamStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CareTeamStatus>
           return value;
         case 50511102: // category
           this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
@@ -813,7 +980,8 @@ public class CareTeam extends DomainResource {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("status")) {
-          this.status = castToCodeableConcept(value); // CodeableConcept
+          value = new CareTeamStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CareTeamStatus>
         } else if (name.equals("category")) {
           this.getCategory().add(castToCodeableConcept(value));
         } else if (name.equals("name")) {
@@ -835,7 +1003,7 @@ public class CareTeam extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case -892481550:  return getStatus(); 
+        case -892481550:  return getStatusElement();
         case 50511102:  return addCategory(); 
         case 3373707:  return getNameElement();
         case -1867885268:  return getSubject(); 
@@ -851,7 +1019,7 @@ public class CareTeam extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -892481550: /*status*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 3373707: /*name*/ return new String[] {"string"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
@@ -869,8 +1037,7 @@ public class CareTeam extends DomainResource {
           return addIdentifier();
         }
         else if (name.equals("status")) {
-          this.status = new CodeableConcept();
-          return this.status;
+          throw new FHIRException("Cannot call addChild on a primitive type CareTeam.status");
         }
         else if (name.equals("category")) {
           return addCategory();
@@ -955,14 +1122,12 @@ public class CareTeam extends DomainResource {
         if (!(other instanceof CareTeam))
           return false;
         CareTeam o = (CareTeam) other;
-        return compareValues(name, o.name, true);
+        return compareValues(status, o.status, true) && compareValues(name, o.name, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (name == null || name.isEmpty()) && (subject == null || subject.isEmpty())
-           && (period == null || period.isEmpty()) && (participant == null || participant.isEmpty())
-           && (managingOrganization == null || managingOrganization.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , name, subject, period, participant, managingOrganization);
       }
 
   @Override
@@ -1090,7 +1255,7 @@ public class CareTeam extends DomainResource {
    * Path: <b>CareTeam.participant.member</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  @SearchParamDefinition(name="participant", path="CareTeam.participant.member", description="Who is involved", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner"), @ca.uhn.fhir.model.api.annotation.Compartment(name="RelatedPerson") }, target={CareTeam.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>
@@ -1111,17 +1276,17 @@ public class CareTeam extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Description: <b>proposed | active | suspended | inactive | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CareTeam.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="CareTeam.status", description="active | suspended | inactive | entered in error", type="token" )
+  @SearchParamDefinition(name="status", path="CareTeam.status", description="proposed | active | suspended | inactive | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>active | suspended | inactive | entered in error</b><br>
+   * Description: <b>proposed | active | suspended | inactive | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CareTeam.status</b><br>
    * </p>

@@ -12,7 +12,7 @@
 	<title value="Multisystem Test Script"/>
 	<status value="draft"/>
 	<experimental value="true"/>
-	<date value="2016-09-26"/>
+	<date value="2017-01-18"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -53,6 +53,10 @@
 	</destination>
 
 	<metadata>
+		<link>
+			<url value="http://hl7.org/fhir/patient.html"/>
+			<description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+		</link>
 		<capability>
 			<required value="true"/>
 			<validated value="false"/>

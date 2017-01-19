@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -746,9 +746,8 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (low == null || low.isEmpty()) && (high == null || high.isEmpty())
-           && (meaning == null || meaning.isEmpty()) && (age == null || age.isEmpty()) && (text == null || text.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(low, high, meaning, age
+          , text);
       }
 
   public String fhirType() {
@@ -990,8 +989,7 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (target == null || target.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, target);
       }
 
   public String fhirType() {
@@ -1520,9 +1518,8 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-           && (dataAbsentReason == null || dataAbsentReason.isEmpty()) && (interpretation == null || interpretation.isEmpty())
-           && (referenceRange == null || referenceRange.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value, dataAbsentReason
+          , interpretation, referenceRange);
       }
 
   public String fhirType() {
@@ -3105,14 +3102,10 @@ public class Observation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (effective == null || effective.isEmpty())
-           && (issued == null || issued.isEmpty()) && (performer == null || performer.isEmpty()) && (value == null || value.isEmpty())
-           && (dataAbsentReason == null || dataAbsentReason.isEmpty()) && (interpretation == null || interpretation.isEmpty())
-           && (comment == null || comment.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (method == null || method.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (device == null || device.isEmpty()) && (referenceRange == null || referenceRange.isEmpty())
-           && (related == null || related.isEmpty()) && (component == null || component.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, encounter, effective, issued, performer, value, dataAbsentReason
+          , interpretation, comment, bodySite, method, specimen, device, referenceRange
+          , related, component);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -653,11 +653,8 @@ public class Catalog extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (provider == null || provider.isEmpty())
-           && (contentType == null || contentType.isEmpty()) && (updateMode == null || updateMode.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (contentVersion == null || contentVersion.isEmpty())
-           && (issueDate == null || issueDate.isEmpty()) && (validFrom == null || validFrom.isEmpty())
-           && (validTo == null || validTo.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, provider, contentType
+          , updateMode, identifier, contentVersion, issueDate, validFrom, validTo);
       }
 
   public String fhirType() {
@@ -1552,12 +1549,9 @@ public class Catalog extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (referencedItem == null || referencedItem.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (additionalIdentifier == null || additionalIdentifier.isEmpty())
-           && (classification == null || classification.isEmpty()) && (status == null || status.isEmpty())
-           && (validFrom == null || validFrom.isEmpty()) && (validTo == null || validTo.isEmpty()) && (lastUpdated == null || lastUpdated.isEmpty())
-           && (additionalCharacteristic == null || additionalCharacteristic.isEmpty()) && (additionalClassification == null || additionalClassification.isEmpty())
-           && (relatedItem == null || relatedItem.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, referencedItem, identifier
+          , additionalIdentifier, classification, status, validFrom, validTo, lastUpdated
+          , additionalCharacteristic, additionalClassification, relatedItem);
       }
 
   public String fhirType() {
@@ -1819,8 +1813,8 @@ public class Catalog extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (relationtype == null || relationtype.isEmpty()) && (type == null || type.isEmpty())
-           && (identifier == null || identifier.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relationtype, type, identifier
+          );
       }
 
   public String fhirType() {
@@ -2101,8 +2095,8 @@ public class Catalog extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (document == null || document.isEmpty())
-           && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, document, item
+          );
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -678,10 +678,8 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (relationship == null || relationship.isEmpty()) && (name == null || name.isEmpty())
-           && (telecom == null || telecom.isEmpty()) && (address == null || address.isEmpty()) && (gender == null || gender.isEmpty())
-           && (organization == null || organization.isEmpty()) && (period == null || period.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relationship, name, telecom
+          , address, gender, organization, period);
       }
 
   public String fhirType() {
@@ -925,8 +923,8 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (species == null || species.isEmpty()) && (breed == null || breed.isEmpty())
-           && (genderStatus == null || genderStatus.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(species, breed, genderStatus
+          );
       }
 
   public String fhirType() {
@@ -1142,8 +1140,7 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (preferred == null || preferred.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, preferred);
       }
 
   public String fhirType() {
@@ -1382,8 +1379,7 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (other == null || other.isEmpty()) && (type == null || type.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(other, type);
       }
 
   public String fhirType() {
@@ -2711,14 +2707,10 @@ public class Patient extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
-           && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty()) && (gender == null || gender.isEmpty())
-           && (birthDate == null || birthDate.isEmpty()) && (deceased == null || deceased.isEmpty())
-           && (address == null || address.isEmpty()) && (maritalStatus == null || maritalStatus.isEmpty())
-           && (multipleBirth == null || multipleBirth.isEmpty()) && (photo == null || photo.isEmpty())
-           && (contact == null || contact.isEmpty()) && (animal == null || animal.isEmpty()) && (communication == null || communication.isEmpty())
-           && (generalPractitioner == null || generalPractitioner.isEmpty()) && (managingOrganization == null || managingOrganization.isEmpty())
-           && (link == null || link.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, name
+          , telecom, gender, birthDate, deceased, address, maritalStatus, multipleBirth
+          , photo, contact, animal, communication, generalPractitioner, managingOrganization
+          , link);
       }
 
   @Override

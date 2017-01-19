@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -386,8 +386,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role);
       }
 
   public String fhirType() {
@@ -608,8 +607,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty()) && (manipulated == null || manipulated.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action, manipulated);
       }
 
   public String fhirType() {
@@ -794,9 +792,9 @@ public class Procedure extends DomainResource {
     /**
      * Any other notes about the procedure.  E.g. the operative notes.
      */
-    @Child(name = "notes", type = {Annotation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about the procedure", formalDefinition="Any other notes about the procedure.  E.g. the operative notes." )
-    protected List<Annotation> notes;
+    protected List<Annotation> note;
 
     /**
      * A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
@@ -836,7 +834,7 @@ public class Procedure extends DomainResource {
     protected List<Resource> componentTarget;
 
 
-    private static final long serialVersionUID = -1795563306L;
+    private static final long serialVersionUID = 1997093079L;
 
   /**
    * Constructor
@@ -1750,56 +1748,56 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #notes} (Any other notes about the procedure.  E.g. the operative notes.)
+     * @return {@link #note} (Any other notes about the procedure.  E.g. the operative notes.)
      */
-    public List<Annotation> getNotes() { 
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      return this.notes;
+    public List<Annotation> getNote() { 
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      return this.note;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Procedure setNotes(List<Annotation> theNotes) { 
-      this.notes = theNotes;
+    public Procedure setNote(List<Annotation> theNote) { 
+      this.note = theNote;
       return this;
     }
 
-    public boolean hasNotes() { 
-      if (this.notes == null)
+    public boolean hasNote() { 
+      if (this.note == null)
         return false;
-      for (Annotation item : this.notes)
+      for (Annotation item : this.note)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Annotation addNotes() { //3
+    public Annotation addNote() { //3
       Annotation t = new Annotation();
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      this.notes.add(t);
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return t;
     }
 
-    public Procedure addNotes(Annotation t) { //3
+    public Procedure addNote(Annotation t) { //3
       if (t == null)
         return this;
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      this.notes.add(t);
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #notes}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
      */
-    public Annotation getNotesFirstRep() { 
-      if (getNotes().isEmpty()) {
-        addNotes();
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
       }
-      return getNotes().get(0);
+      return getNote().get(0);
     }
 
     /**
@@ -2055,7 +2053,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("complication", "CodeableConcept", "Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.", 0, java.lang.Integer.MAX_VALUE, complication));
         childrenList.add(new Property("followUp", "CodeableConcept", "If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.", 0, java.lang.Integer.MAX_VALUE, followUp));
         childrenList.add(new Property("request", "Reference(CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, request));
-        childrenList.add(new Property("notes", "Annotation", "Any other notes about the procedure.  E.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("note", "Annotation", "Any other notes about the procedure.  E.g. the operative notes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("focalDevice", "", "A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.", 0, java.lang.Integer.MAX_VALUE, focalDevice));
         childrenList.add(new Property("usedReference", "Reference(Device|Medication|Substance)", "Identifies medications, devices and any other substance used as part of the procedure.", 0, java.lang.Integer.MAX_VALUE, usedReference));
         childrenList.add(new Property("usedCode", "CodeableConcept", "Identifies coded items that were used as part of the procedure.", 0, java.lang.Integer.MAX_VALUE, usedCode));
@@ -2084,7 +2082,7 @@ public class Procedure extends DomainResource {
         case -1644401602: /*complication*/ return this.complication == null ? new Base[0] : this.complication.toArray(new Base[this.complication.size()]); // CodeableConcept
         case 301801004: /*followUp*/ return this.followUp == null ? new Base[0] : this.followUp.toArray(new Base[this.followUp.size()]); // CodeableConcept
         case 1095692943: /*request*/ return this.request == null ? new Base[0] : new Base[] {this.request}; // Reference
-        case 105008833: /*notes*/ return this.notes == null ? new Base[0] : this.notes.toArray(new Base[this.notes.size()]); // Annotation
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1129235173: /*focalDevice*/ return this.focalDevice == null ? new Base[0] : this.focalDevice.toArray(new Base[this.focalDevice.size()]); // ProcedureFocalDeviceComponent
         case -504932338: /*usedReference*/ return this.usedReference == null ? new Base[0] : this.usedReference.toArray(new Base[this.usedReference.size()]); // Reference
         case -279910582: /*usedCode*/ return this.usedCode == null ? new Base[0] : this.usedCode.toArray(new Base[this.usedCode.size()]); // CodeableConcept
@@ -2155,8 +2153,8 @@ public class Procedure extends DomainResource {
         case 1095692943: // request
           this.request = castToReference(value); // Reference
           return value;
-        case 105008833: // notes
-          this.getNotes().add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -1129235173: // focalDevice
           this.getFocalDevice().add((ProcedureFocalDeviceComponent) value); // ProcedureFocalDeviceComponent
@@ -2216,8 +2214,8 @@ public class Procedure extends DomainResource {
           this.getFollowUp().add(castToCodeableConcept(value));
         } else if (name.equals("request")) {
           this.request = castToReference(value); // Reference
-        } else if (name.equals("notes")) {
-          this.getNotes().add(castToAnnotation(value));
+        } else if (name.equals("note")) {
+          this.getNote().add(castToAnnotation(value));
         } else if (name.equals("focalDevice")) {
           this.getFocalDevice().add((ProcedureFocalDeviceComponent) value);
         } else if (name.equals("usedReference")) {
@@ -2254,7 +2252,7 @@ public class Procedure extends DomainResource {
         case -1644401602:  return addComplication(); 
         case 301801004:  return addFollowUp(); 
         case 1095692943:  return getRequest(); 
-        case 105008833:  return addNotes(); 
+        case 3387378:  return addNote(); 
         case -1129235173:  return addFocalDevice(); 
         case -504932338:  return addUsedReference(); 
         case -279910582:  return addUsedCode(); 
@@ -2286,7 +2284,7 @@ public class Procedure extends DomainResource {
         case -1644401602: /*complication*/ return new String[] {"CodeableConcept"};
         case 301801004: /*followUp*/ return new String[] {"CodeableConcept"};
         case 1095692943: /*request*/ return new String[] {"Reference"};
-        case 105008833: /*notes*/ return new String[] {"Annotation"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1129235173: /*focalDevice*/ return new String[] {};
         case -504932338: /*usedReference*/ return new String[] {"Reference"};
         case -279910582: /*usedCode*/ return new String[] {"CodeableConcept"};
@@ -2367,8 +2365,8 @@ public class Procedure extends DomainResource {
           this.request = new Reference();
           return this.request;
         }
-        else if (name.equals("notes")) {
-          return addNotes();
+        else if (name.equals("note")) {
+          return addNote();
         }
         else if (name.equals("focalDevice")) {
           return addFocalDevice();
@@ -2449,10 +2447,10 @@ public class Procedure extends DomainResource {
             dst.followUp.add(i.copy());
         };
         dst.request = request == null ? null : request.copy();
-        if (notes != null) {
-          dst.notes = new ArrayList<Annotation>();
-          for (Annotation i : notes)
-            dst.notes.add(i.copy());
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
         };
         if (focalDevice != null) {
           dst.focalDevice = new ArrayList<ProcedureFocalDeviceComponent>();
@@ -2495,7 +2493,7 @@ public class Procedure extends DomainResource {
            && compareDeep(notPerformed, o.notPerformed, true) && compareDeep(reasonNotPerformed, o.reasonNotPerformed, true)
            && compareDeep(bodySite, o.bodySite, true) && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true)
            && compareDeep(complication, o.complication, true) && compareDeep(followUp, o.followUp, true) && compareDeep(request, o.request, true)
-           && compareDeep(notes, o.notes, true) && compareDeep(focalDevice, o.focalDevice, true) && compareDeep(usedReference, o.usedReference, true)
+           && compareDeep(note, o.note, true) && compareDeep(focalDevice, o.focalDevice, true) && compareDeep(usedReference, o.usedReference, true)
            && compareDeep(usedCode, o.usedCode, true) && compareDeep(component, o.component, true);
       }
 
@@ -2510,17 +2508,10 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (performed == null || performed.isEmpty())
-           && (performer == null || performer.isEmpty()) && (location == null || location.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
-           && (notPerformed == null || notPerformed.isEmpty()) && (reasonNotPerformed == null || reasonNotPerformed.isEmpty())
-           && (bodySite == null || bodySite.isEmpty()) && (outcome == null || outcome.isEmpty()) && (report == null || report.isEmpty())
-           && (complication == null || complication.isEmpty()) && (followUp == null || followUp.isEmpty())
-           && (request == null || request.isEmpty()) && (notes == null || notes.isEmpty()) && (focalDevice == null || focalDevice.isEmpty())
-           && (usedReference == null || usedReference.isEmpty()) && (usedCode == null || usedCode.isEmpty())
-           && (component == null || component.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, encounter, performed, performer, location, reasonReference, reasonCode
+          , notPerformed, reasonNotPerformed, bodySite, outcome, report, complication, followUp
+          , request, note, focalDevice, usedReference, usedCode, component);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -313,8 +313,7 @@ public abstract class Element extends Base implements IBaseHasExtensions, IBaseE
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (id == null || id.isEmpty()) && (extension == null || extension.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(id, extension);
       }
 
   @Override

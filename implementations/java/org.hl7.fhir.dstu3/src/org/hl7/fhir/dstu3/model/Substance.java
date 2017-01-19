@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -295,8 +295,8 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (expiry == null || expiry.isEmpty())
-           && (quantity == null || quantity.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, expiry, quantity
+          );
       }
 
   public String fhirType() {
@@ -518,8 +518,7 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (quantity == null || quantity.isEmpty()) && (substance == null || substance.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(quantity, substance);
       }
 
   public String fhirType() {
@@ -1057,9 +1056,8 @@ public class Substance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (code == null || code.isEmpty()) && (description == null || description.isEmpty()) && (instance == null || instance.isEmpty())
-           && (ingredient == null || ingredient.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, code
+          , description, instance, ingredient);
       }
 
   @Override

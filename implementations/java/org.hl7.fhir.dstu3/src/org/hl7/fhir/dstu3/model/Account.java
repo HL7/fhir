@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -427,8 +427,7 @@ public class Account extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (party == null || party.isEmpty()) && (onHold == null || onHold.isEmpty())
-           && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(party, onHold, period);
       }
 
   public String fhirType() {
@@ -1374,12 +1373,9 @@ A coverage may only be resposible for specific types of charges, and the sequenc
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (type == null || type.isEmpty()) && (status == null || status.isEmpty()) && (active == null || active.isEmpty())
-           && (currency == null || currency.isEmpty()) && (balance == null || balance.isEmpty()) && (coverage == null || coverage.isEmpty())
-           && (coveragePeriod == null || coveragePeriod.isEmpty()) && (subject == null || subject.isEmpty())
-           && (owner == null || owner.isEmpty()) && (description == null || description.isEmpty()) && (guarantor == null || guarantor.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, type, status
+          , active, currency, balance, coverage, coveragePeriod, subject, owner, description
+          , guarantor);
       }
 
   @Override

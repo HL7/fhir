@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -562,8 +562,8 @@ public class Group extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (value == null || value.isEmpty())
-           && (exclude == null || exclude.isEmpty()) && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, value, exclude, period
+          );
       }
 
   public String fhirType() {
@@ -844,8 +844,8 @@ public class Group extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (entity == null || entity.isEmpty()) && (period == null || period.isEmpty())
-           && (inactive == null || inactive.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(entity, period, inactive
+          );
       }
 
   public String fhirType() {
@@ -1570,10 +1570,8 @@ public class Group extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (actual == null || actual.isEmpty()) && (active == null || active.isEmpty()) && (code == null || code.isEmpty())
-           && (name == null || name.isEmpty()) && (quantity == null || quantity.isEmpty()) && (characteristic == null || characteristic.isEmpty())
-           && (member == null || member.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, actual
+          , active, code, name, quantity, characteristic, member);
       }
 
   @Override

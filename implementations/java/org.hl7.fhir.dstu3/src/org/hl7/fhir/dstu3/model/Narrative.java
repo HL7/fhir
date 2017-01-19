@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -382,8 +382,7 @@ public class Narrative extends BaseNarrative implements INarrative {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (div == null || div.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, div);
       }
 
 

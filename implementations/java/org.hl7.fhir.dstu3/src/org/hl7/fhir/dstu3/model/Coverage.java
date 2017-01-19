@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1095,12 +1095,9 @@ public class Coverage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (group == null || group.isEmpty()) && (groupDisplay == null || groupDisplay.isEmpty())
-           && (subGroup == null || subGroup.isEmpty()) && (subGroupDisplay == null || subGroupDisplay.isEmpty())
-           && (plan == null || plan.isEmpty()) && (planDisplay == null || planDisplay.isEmpty()) && (subPlan == null || subPlan.isEmpty())
-           && (subPlanDisplay == null || subPlanDisplay.isEmpty()) && (class_ == null || class_.isEmpty())
-           && (classDisplay == null || classDisplay.isEmpty()) && (subClass == null || subClass.isEmpty())
-           && (subClassDisplay == null || subClassDisplay.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(group, groupDisplay, subGroup
+          , subGroupDisplay, plan, planDisplay, subPlan, subPlanDisplay, class_, classDisplay
+          , subClass, subClassDisplay);
       }
 
   public String fhirType() {
@@ -2280,13 +2277,9 @@ public class Coverage extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (type == null || type.isEmpty()) && (policyHolder == null || policyHolder.isEmpty()) && (subscriber == null || subscriber.isEmpty())
-           && (subscriberId == null || subscriberId.isEmpty()) && (beneficiary == null || beneficiary.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (period == null || period.isEmpty())
-           && (payor == null || payor.isEmpty()) && (grouping == null || grouping.isEmpty()) && (dependent == null || dependent.isEmpty())
-           && (sequence == null || sequence.isEmpty()) && (order == null || order.isEmpty()) && (network == null || network.isEmpty())
-           && (contract == null || contract.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
+          , policyHolder, subscriber, subscriberId, beneficiary, relationship, period, payor
+          , grouping, dependent, sequence, order, network, contract);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -961,8 +961,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
       }
 
   public String fhirType() {
@@ -1179,8 +1178,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(index, profile);
       }
 
   public String fhirType() {
@@ -1431,8 +1429,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (link == null || link.isEmpty()) && (capability == null || capability.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(link, capability);
       }
 
   public String fhirType() {
@@ -1671,8 +1668,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (description == null || description.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, description);
       }
 
   public String fhirType() {
@@ -2285,10 +2281,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (required == null || required.isEmpty()) && (validated == null || validated.isEmpty())
-           && (description == null || description.isEmpty()) && (origin == null || origin.isEmpty())
-           && (destination == null || destination.isEmpty()) && (link == null || link.isEmpty()) && (capabilities == null || capabilities.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(required, validated, description
+          , origin, destination, link, capabilities);
       }
 
   public String fhirType() {
@@ -2582,8 +2576,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (autocreate == null || autocreate.isEmpty()) && (autodelete == null || autodelete.isEmpty())
-           && (resource == null || resource.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(autocreate, autodelete, resource
+          );
       }
 
   public String fhirType() {
@@ -3242,10 +3236,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (defaultValue == null || defaultValue.isEmpty())
-           && (description == null || description.isEmpty()) && (expression == null || expression.isEmpty())
-           && (headerField == null || headerField.isEmpty()) && (hint == null || hint.isEmpty()) && (path == null || path.isEmpty())
-           && (sourceId == null || sourceId.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, defaultValue, description
+          , expression, headerField, hint, path, sourceId);
       }
 
   public String fhirType() {
@@ -3492,8 +3484,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (resource == null || resource.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, param);
       }
 
   public String fhirType() {
@@ -3732,8 +3723,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -3980,8 +3970,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (resource == null || resource.isEmpty()) && (rule == null || rule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(resource, rule);
       }
 
   public String fhirType() {
@@ -4228,8 +4217,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -4468,8 +4456,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -4643,7 +4630,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -4830,8 +4817,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -6022,14 +6008,9 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resource == null || resource.isEmpty())
-           && (label == null || label.isEmpty()) && (description == null || description.isEmpty()) && (accept == null || accept.isEmpty())
-           && (contentType == null || contentType.isEmpty()) && (destination == null || destination.isEmpty())
-           && (encodeRequestUrl == null || encodeRequestUrl.isEmpty()) && (origin == null || origin.isEmpty())
-           && (params == null || params.isEmpty()) && (requestHeader == null || requestHeader.isEmpty())
-           && (requestId == null || requestId.isEmpty()) && (responseId == null || responseId.isEmpty())
-           && (sourceId == null || sourceId.isEmpty()) && (targetId == null || targetId.isEmpty()) && (url == null || url.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resource, label, description
+          , accept, contentType, destination, encodeRequestUrl, origin, params, requestHeader
+          , requestId, responseId, sourceId, targetId, url);
       }
 
   public String fhirType() {
@@ -6265,8 +6246,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (field == null || field.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(field, value);
       }
 
   public String fhirType() {
@@ -7924,17 +7904,11 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (label == null || label.isEmpty()) && (description == null || description.isEmpty())
-           && (direction == null || direction.isEmpty()) && (compareToSourceId == null || compareToSourceId.isEmpty())
-           && (compareToSourceExpression == null || compareToSourceExpression.isEmpty()) && (compareToSourcePath == null || compareToSourcePath.isEmpty())
-           && (contentType == null || contentType.isEmpty()) && (expression == null || expression.isEmpty())
-           && (headerField == null || headerField.isEmpty()) && (minimumId == null || minimumId.isEmpty())
-           && (navigationLinks == null || navigationLinks.isEmpty()) && (operator == null || operator.isEmpty())
-           && (path == null || path.isEmpty()) && (requestURL == null || requestURL.isEmpty()) && (resource == null || resource.isEmpty())
-           && (response == null || response.isEmpty()) && (responseCode == null || responseCode.isEmpty())
-           && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty()) && (sourceId == null || sourceId.isEmpty())
-           && (validateProfileId == null || validateProfileId.isEmpty()) && (value == null || value.isEmpty())
-           && (warningOnly == null || warningOnly.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
+          , compareToSourceId, compareToSourceExpression, compareToSourcePath, contentType, expression
+          , headerField, minimumId, navigationLinks, operator, path, requestURL, resource
+          , response, responseCode, rule, ruleset, sourceId, validateProfileId, value, warningOnly
+          );
       }
 
   public String fhirType() {
@@ -8181,8 +8155,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -8418,8 +8391,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -8666,8 +8638,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (rulesetId == null || rulesetId.isEmpty()) && (rule == null || rule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(rulesetId, rule);
       }
 
   public String fhirType() {
@@ -8914,8 +8885,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (ruleId == null || ruleId.isEmpty()) && (param == null || param.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(ruleId, param);
       }
 
   public String fhirType() {
@@ -9151,8 +9121,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -9465,8 +9434,8 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, action
+          );
       }
 
   public String fhirType() {
@@ -9653,8 +9622,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -9828,7 +9796,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -9978,7 +9946,7 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation);
       }
 
   public String fhirType() {
@@ -11799,12 +11767,9 @@ public class TestScript extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
-           && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
-           && (variable == null || variable.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
-           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
+          , origin, destination, metadata, fixture, profile, variable, rule, ruleset, setup
+          , test, teardown);
       }
 
   @Override

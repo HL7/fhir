@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -496,9 +496,9 @@ public class ProcedureRequest extends DomainResource {
     /**
      * Any other notes associated with this proposal or order - e.g. provider instructions.
      */
-    @Child(name = "notes", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Additional information about desired procedure", formalDefinition="Any other notes associated with this proposal or order - e.g. provider instructions." )
-    protected List<Annotation> notes;
+    protected List<Annotation> note;
 
     /**
      * If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
@@ -534,7 +534,7 @@ public class ProcedureRequest extends DomainResource {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-request-priority")
     protected Enumeration<ProcedureRequestPriority> priority;
 
-    private static final long serialVersionUID = 1550729701L;
+    private static final long serialVersionUID = -1910426924L;
 
   /**
    * Constructor
@@ -1065,56 +1065,56 @@ public class ProcedureRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #notes} (Any other notes associated with this proposal or order - e.g. provider instructions.)
+     * @return {@link #note} (Any other notes associated with this proposal or order - e.g. provider instructions.)
      */
-    public List<Annotation> getNotes() { 
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      return this.notes;
+    public List<Annotation> getNote() { 
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      return this.note;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ProcedureRequest setNotes(List<Annotation> theNotes) { 
-      this.notes = theNotes;
+    public ProcedureRequest setNote(List<Annotation> theNote) { 
+      this.note = theNote;
       return this;
     }
 
-    public boolean hasNotes() { 
-      if (this.notes == null)
+    public boolean hasNote() { 
+      if (this.note == null)
         return false;
-      for (Annotation item : this.notes)
+      for (Annotation item : this.note)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Annotation addNotes() { //3
+    public Annotation addNote() { //3
       Annotation t = new Annotation();
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      this.notes.add(t);
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return t;
     }
 
-    public ProcedureRequest addNotes(Annotation t) { //3
+    public ProcedureRequest addNote(Annotation t) { //3
       if (t == null)
         return this;
-      if (this.notes == null)
-        this.notes = new ArrayList<Annotation>();
-      this.notes.add(t);
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #notes}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
      */
-    public Annotation getNotesFirstRep() { 
-      if (getNotes().isEmpty()) {
-        addNotes();
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
       }
-      return getNotes().get(0);
+      return getNote().get(0);
     }
 
     /**
@@ -1312,7 +1312,7 @@ public class ProcedureRequest extends DomainResource {
         childrenList.add(new Property("performer", "Reference(Practitioner|Organization|Patient|RelatedPerson)", "For example, the surgeon, anaethetist, endoscopist, etc.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("status", "code", "The status of the order.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("supportingInfo", "Reference(Any)", "Information that may be needed by/relevant to the performer in their execution of this request.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
-        childrenList.add(new Property("notes", "Annotation", "Any other notes associated with this proposal or order - e.g. provider instructions.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("note", "Annotation", "Any other notes associated with this proposal or order - e.g. provider instructions.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("orderedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, orderedOn));
         childrenList.add(new Property("orderer", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The healthcare professional responsible for proposing or ordering the procedure.", 0, java.lang.Integer.MAX_VALUE, orderer));
@@ -1333,7 +1333,7 @@ public class ProcedureRequest extends DomainResource {
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureRequestStatus>
         case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
-        case 105008833: /*notes*/ return this.notes == null ? new Base[0] : this.notes.toArray(new Base[this.notes.size()]); // Annotation
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
         case -391079124: /*orderedOn*/ return this.orderedOn == null ? new Base[0] : new Base[] {this.orderedOn}; // DateTimeType
         case -1207109509: /*orderer*/ return this.orderer == null ? new Base[0] : new Base[] {this.orderer}; // Reference
@@ -1380,8 +1380,8 @@ public class ProcedureRequest extends DomainResource {
         case 1922406657: // supportingInfo
           this.getSupportingInfo().add(castToReference(value)); // Reference
           return value;
-        case 105008833: // notes
-          this.getNotes().add(castToAnnotation(value)); // Annotation
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -1432923513: // asNeeded
           this.asNeeded = castToType(value); // Type
@@ -1426,8 +1426,8 @@ public class ProcedureRequest extends DomainResource {
           this.status = (Enumeration) value; // Enumeration<ProcedureRequestStatus>
         } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
-        } else if (name.equals("notes")) {
-          this.getNotes().add(castToAnnotation(value));
+        } else if (name.equals("note")) {
+          this.getNote().add(castToAnnotation(value));
         } else if (name.equals("asNeeded[x]")) {
           this.asNeeded = castToType(value); // Type
         } else if (name.equals("orderedOn")) {
@@ -1458,7 +1458,7 @@ public class ProcedureRequest extends DomainResource {
         case 481140686:  return getPerformer(); 
         case -892481550:  return getStatusElement();
         case 1922406657:  return addSupportingInfo(); 
-        case 105008833:  return addNotes(); 
+        case 3387378:  return addNote(); 
         case -544329575:  return getAsNeeded(); 
         case -1432923513:  return getAsNeeded(); 
         case -391079124:  return getOrderedOnElement();
@@ -1483,7 +1483,7 @@ public class ProcedureRequest extends DomainResource {
         case 481140686: /*performer*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
-        case 105008833: /*notes*/ return new String[] {"Annotation"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1432923513: /*asNeeded*/ return new String[] {"boolean", "CodeableConcept"};
         case -391079124: /*orderedOn*/ return new String[] {"dateTime"};
         case -1207109509: /*orderer*/ return new String[] {"Reference"};
@@ -1546,8 +1546,8 @@ public class ProcedureRequest extends DomainResource {
         else if (name.equals("supportingInfo")) {
           return addSupportingInfo();
         }
-        else if (name.equals("notes")) {
-          return addNotes();
+        else if (name.equals("note")) {
+          return addNote();
         }
         else if (name.equals("asNeededBoolean")) {
           this.asNeeded = new BooleanType();
@@ -1602,10 +1602,10 @@ public class ProcedureRequest extends DomainResource {
           for (Reference i : supportingInfo)
             dst.supportingInfo.add(i.copy());
         };
-        if (notes != null) {
-          dst.notes = new ArrayList<Annotation>();
-          for (Annotation i : notes)
-            dst.notes.add(i.copy());
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
         };
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.orderedOn = orderedOn == null ? null : orderedOn.copy();
@@ -1628,7 +1628,7 @@ public class ProcedureRequest extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(subject, o.subject, true) && compareDeep(code, o.code, true)
            && compareDeep(doNotPerform, o.doNotPerform, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(reason, o.reason, true)
            && compareDeep(scheduled, o.scheduled, true) && compareDeep(encounter, o.encounter, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(status, o.status, true) && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(notes, o.notes, true)
+           && compareDeep(status, o.status, true) && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(note, o.note, true)
            && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(orderedOn, o.orderedOn, true) && compareDeep(orderer, o.orderer, true)
            && compareDeep(priority, o.priority, true);
       }
@@ -1645,12 +1645,9 @@ public class ProcedureRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (subject == null || subject.isEmpty())
-           && (code == null || code.isEmpty()) && (doNotPerform == null || doNotPerform.isEmpty()) && (bodySite == null || bodySite.isEmpty())
-           && (reason == null || reason.isEmpty()) && (scheduled == null || scheduled.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (performer == null || performer.isEmpty()) && (status == null || status.isEmpty()) && (supportingInfo == null || supportingInfo.isEmpty())
-           && (notes == null || notes.isEmpty()) && (asNeeded == null || asNeeded.isEmpty()) && (orderedOn == null || orderedOn.isEmpty())
-           && (orderer == null || orderer.isEmpty()) && (priority == null || priority.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, subject, code
+          , doNotPerform, bodySite, reason, scheduled, encounter, performer, status, supportingInfo
+          , note, asNeeded, orderedOn, orderer, priority);
       }
 
   @Override

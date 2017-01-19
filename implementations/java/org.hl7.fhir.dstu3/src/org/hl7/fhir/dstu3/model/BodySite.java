@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -569,9 +569,8 @@ public class BodySite extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (code == null || code.isEmpty()) && (qualifier == null || qualifier.isEmpty()) && (description == null || description.isEmpty())
-           && (image == null || image.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, identifier, code
+          , qualifier, description, image);
       }
 
   @Override

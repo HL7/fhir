@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -371,7 +371,7 @@ public class Communication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (content == null || content.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(content);
       }
 
   public String fhirType() {
@@ -1686,12 +1686,9 @@ public class Communication extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
-           && (parent == null || parent.isEmpty()) && (status == null || status.isEmpty()) && (category == null || category.isEmpty())
-           && (medium == null || medium.isEmpty()) && (subject == null || subject.isEmpty()) && (topic == null || topic.isEmpty())
-           && (context == null || context.isEmpty()) && (sent == null || sent.isEmpty()) && (received == null || received.isEmpty())
-           && (sender == null || sender.isEmpty()) && (recipient == null || recipient.isEmpty()) && (reason == null || reason.isEmpty())
-           && (payload == null || payload.isEmpty()) && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, parent
+          , status, category, medium, subject, topic, context, sent, received, sender
+          , recipient, reason, payload, note);
       }
 
   @Override

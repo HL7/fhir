@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -226,7 +226,19 @@ public class MedicationAdministration extends DomainResource {
          */
         protected Resource actorTarget;
 
-        private static final long serialVersionUID = 805521719L;
+        /**
+         * The organization the device or practitioner was acting on behalf of.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        private static final long serialVersionUID = 213950062L;
 
     /**
      * Constructor
@@ -306,10 +318,55 @@ public class MedicationAdministration extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Reference getOnBehalfOf() { 
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationPerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() { 
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public MedicationAdministrationPerformerComponent setOnBehalfOf(Reference value) { 
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Organization getOnBehalfOfTarget() { 
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationAdministrationPerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public MedicationAdministrationPerformerComponent setOnBehalfOfTarget(Organization value) { 
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Describes the type of performer of the administration (e.g. nurse, physician, etc).", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("actor", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who performed the action.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
 
       @Override
@@ -317,6 +374,7 @@ public class MedicationAdministration extends DomainResource {
         switch (hash) {
         case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -331,6 +389,9 @@ public class MedicationAdministration extends DomainResource {
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
           return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -342,6 +403,8 @@ public class MedicationAdministration extends DomainResource {
           this.role = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
         return value;
@@ -352,6 +415,7 @@ public class MedicationAdministration extends DomainResource {
         switch (hash) {
         case 3506294:  return getRole(); 
         case 92645877:  return getActor(); 
+        case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -362,6 +426,7 @@ public class MedicationAdministration extends DomainResource {
         switch (hash) {
         case 3506294: /*role*/ return new String[] {"CodeableConcept"};
         case 92645877: /*actor*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -377,6 +442,10 @@ public class MedicationAdministration extends DomainResource {
           this.actor = new Reference();
           return this.actor;
         }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
         else
           return super.addChild(name);
       }
@@ -386,6 +455,7 @@ public class MedicationAdministration extends DomainResource {
         copyValues(dst);
         dst.role = role == null ? null : role.copy();
         dst.actor = actor == null ? null : actor.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         return dst;
       }
 
@@ -396,7 +466,8 @@ public class MedicationAdministration extends DomainResource {
         if (!(other instanceof MedicationAdministrationPerformerComponent))
           return false;
         MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true);
+        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+          ;
       }
 
       @Override
@@ -410,8 +481,8 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (actor == null || actor.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
+          );
       }
 
   public String fhirType() {
@@ -833,9 +904,8 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (text == null || text.isEmpty()) && (site == null || site.isEmpty())
-           && (route == null || route.isEmpty()) && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty())
-           && (rate == null || rate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(text, site, route, method
+          , dose, rate);
       }
 
   public String fhirType() {
@@ -943,21 +1013,9 @@ public class MedicationAdministration extends DomainResource {
     protected List<MedicationAdministrationPerformerComponent> performer;
 
     /**
-     * The organization the device or practitioner was acting on behalf of.
-     */
-    @Child(name = "onBehalfOf", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
-    protected Reference onBehalfOf;
-
-    /**
-     * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
-     */
-    protected Organization onBehalfOfTarget;
-
-    /**
      * Condition or observation that supports why the medication was administered.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or Observation that supports why the medication was administered", formalDefinition="Condition or observation that supports why the medication was administered." )
     protected List<Reference> reasonReference;
     /**
@@ -969,7 +1027,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The original request, instruction or authority to perform the administration.
      */
-    @Child(name = "prescription", type = {MedicationRequest.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "prescription", type = {MedicationRequest.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Request administration performed against", formalDefinition="The original request, instruction or authority to perform the administration." )
     protected Reference prescription;
 
@@ -981,14 +1039,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Set this to true if the record is saying that the medication was NOT administered.
      */
-    @Child(name = "notGiven", type = {BooleanType.class}, order=13, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "notGiven", type = {BooleanType.class}, order=12, min=0, max=1, modifier=true, summary=true)
     @Description(shortDefinition="True if medication not administered", formalDefinition="Set this to true if the record is saying that the medication was NOT administered." )
     protected BooleanType notGiven;
 
     /**
      * A code indicating why the administration was not performed.
      */
-    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonNotGiven", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration not performed", formalDefinition="A code indicating why the administration was not performed." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes")
     protected List<CodeableConcept> reasonNotGiven;
@@ -996,7 +1054,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * A code indicating why the medication was given.
      */
-    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonGiven", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason administration performed", formalDefinition="A code indicating why the medication was given." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-given-codes")
     protected List<CodeableConcept> reasonGiven;
@@ -1004,7 +1062,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * The device used in administering the medication to the patient.  For example, a particular infusion pump.
      */
-    @Child(name = "device", type = {Device.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "device", type = {Device.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Device used to administer", formalDefinition="The device used in administering the medication to the patient.  For example, a particular infusion pump." )
     protected List<Reference> device;
     /**
@@ -1016,21 +1074,21 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the administration", formalDefinition="Extra information about the medication administration that is not conveyed by the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Describes the medication dosage information details e.g. dose, rate, site, route, etc.
      */
-    @Child(name = "dosage", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "dosage", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Describes the medication dosage information details e.g. dose, rate, site, route, etc." )
     protected MedicationAdministrationDosageComponent dosage;
 
     /**
      * A summary of the events of interest that have occurred, such as when the administration was verified.
      */
-    @Child(name = "eventHistory", type = {Provenance.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred, such as when the administration was verified." )
     protected List<Reference> eventHistory;
     /**
@@ -1039,7 +1097,7 @@ public class MedicationAdministration extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = 1220954246L;
+    private static final long serialVersionUID = -6029727L;
 
   /**
    * Constructor
@@ -1568,50 +1626,6 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-     */
-    public Reference getOnBehalfOf() { 
-      if (this.onBehalfOf == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.onBehalfOf");
-        else if (Configuration.doAutoCreate())
-          this.onBehalfOf = new Reference(); // cc
-      return this.onBehalfOf;
-    }
-
-    public boolean hasOnBehalfOf() { 
-      return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
-    }
-
-    /**
-     * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
-     */
-    public MedicationAdministration setOnBehalfOf(Reference value) { 
-      this.onBehalfOf = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-     */
-    public Organization getOnBehalfOfTarget() { 
-      if (this.onBehalfOfTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.onBehalfOf");
-        else if (Configuration.doAutoCreate())
-          this.onBehalfOfTarget = new Organization(); // aa
-      return this.onBehalfOfTarget;
-    }
-
-    /**
-     * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
-     */
-    public MedicationAdministration setOnBehalfOfTarget(Organization value) { 
-      this.onBehalfOfTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #reasonReference} (Condition or observation that supports why the medication was administered.)
      */
     public List<Reference> getReasonReference() { 
@@ -2108,7 +2122,6 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information (for example, patient height and weight) that supports the administration of the medication.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("performer", "", "The individual who was responsible for giving the medication to the patient.", 0, java.lang.Integer.MAX_VALUE, performer));
-        childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was administered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("prescription", "Reference(MedicationRequest)", "The original request, instruction or authority to perform the administration.", 0, java.lang.Integer.MAX_VALUE, prescription));
         childrenList.add(new Property("notGiven", "boolean", "Set this to true if the record is saying that the medication was NOT administered.", 0, java.lang.Integer.MAX_VALUE, notGiven));
@@ -2133,7 +2146,6 @@ public class MedicationAdministration extends DomainResource {
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // MedicationAdministrationPerformerComponent
-        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 460301338: /*prescription*/ return this.prescription == null ? new Base[0] : new Base[] {this.prescription}; // Reference
         case 1554065514: /*notGiven*/ return this.notGiven == null ? new Base[0] : new Base[] {this.notGiven}; // BooleanType
@@ -2181,9 +2193,6 @@ public class MedicationAdministration extends DomainResource {
           return value;
         case 481140686: // performer
           this.getPerformer().add((MedicationAdministrationPerformerComponent) value); // MedicationAdministrationPerformerComponent
-          return value;
-        case -14402964: // onBehalfOf
-          this.onBehalfOf = castToReference(value); // Reference
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
@@ -2240,8 +2249,6 @@ public class MedicationAdministration extends DomainResource {
           this.effective = castToType(value); // Type
         } else if (name.equals("performer")) {
           this.getPerformer().add((MedicationAdministrationPerformerComponent) value);
-        } else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = castToReference(value); // Reference
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("prescription")) {
@@ -2280,7 +2287,6 @@ public class MedicationAdministration extends DomainResource {
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
         case 481140686:  return addPerformer(); 
-        case -14402964:  return getOnBehalfOf(); 
         case -1146218137:  return addReasonReference(); 
         case 460301338:  return getPrescription(); 
         case 1554065514:  return getNotGivenElement();
@@ -2308,7 +2314,6 @@ public class MedicationAdministration extends DomainResource {
         case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case 481140686: /*performer*/ return new String[] {};
-        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 460301338: /*prescription*/ return new String[] {"Reference"};
         case 1554065514: /*notGiven*/ return new String[] {"boolean"};
@@ -2366,10 +2371,6 @@ public class MedicationAdministration extends DomainResource {
         }
         else if (name.equals("performer")) {
           return addPerformer();
-        }
-        else if (name.equals("onBehalfOf")) {
-          this.onBehalfOf = new Reference();
-          return this.onBehalfOf;
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
@@ -2442,7 +2443,6 @@ public class MedicationAdministration extends DomainResource {
           for (MedicationAdministrationPerformerComponent i : performer)
             dst.performer.add(i.copy());
         };
-        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
           for (Reference i : reasonReference)
@@ -2493,9 +2493,8 @@ public class MedicationAdministration extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
            && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
            && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
-           && compareDeep(effective, o.effective, true) && compareDeep(performer, o.performer, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
-           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(prescription, o.prescription, true)
-           && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
+           && compareDeep(effective, o.effective, true) && compareDeep(performer, o.performer, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(prescription, o.prescription, true) && compareDeep(notGiven, o.notGiven, true) && compareDeep(reasonNotGiven, o.reasonNotGiven, true)
            && compareDeep(reasonGiven, o.reasonGiven, true) && compareDeep(device, o.device, true) && compareDeep(note, o.note, true)
            && compareDeep(dosage, o.dosage, true) && compareDeep(eventHistory, o.eventHistory, true);
       }
@@ -2511,15 +2510,10 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
-           && (partOf == null || partOf.isEmpty()) && (status == null || status.isEmpty()) && (medication == null || medication.isEmpty())
-           && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty()) && (supportingInformation == null || supportingInformation.isEmpty())
-           && (effective == null || effective.isEmpty()) && (performer == null || performer.isEmpty())
-           && (onBehalfOf == null || onBehalfOf.isEmpty()) && (reasonReference == null || reasonReference.isEmpty())
-           && (prescription == null || prescription.isEmpty()) && (notGiven == null || notGiven.isEmpty())
-           && (reasonNotGiven == null || reasonNotGiven.isEmpty()) && (reasonGiven == null || reasonGiven.isEmpty())
-           && (device == null || device.isEmpty()) && (note == null || note.isEmpty()) && (dosage == null || dosage.isEmpty())
-           && (eventHistory == null || eventHistory.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, partOf
+          , status, medication, subject, context, supportingInformation, effective, performer
+          , reasonReference, prescription, notGiven, reasonNotGiven, reasonGiven, device, note
+          , dosage, eventHistory);
       }
 
   @Override

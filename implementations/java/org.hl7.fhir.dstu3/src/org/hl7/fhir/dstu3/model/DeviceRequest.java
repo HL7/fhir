@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -574,8 +574,7 @@ public class DeviceRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (agent == null || agent.isEmpty()) && (onBehalfOf == null || onBehalfOf.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
       }
 
   public String fhirType() {
@@ -2243,16 +2242,10 @@ public class DeviceRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (definition == null || definition.isEmpty())
-           && (basedOn == null || basedOn.isEmpty()) && (replaces == null || replaces.isEmpty()) && (groupIdentifier == null || groupIdentifier.isEmpty())
-           && (status == null || status.isEmpty()) && (intent == null || intent.isEmpty()) && (priority == null || priority.isEmpty())
-           && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty()) && (context == null || context.isEmpty())
-           && (occurrence == null || occurrence.isEmpty()) && (authoredOn == null || authoredOn.isEmpty())
-           && (requester == null || requester.isEmpty()) && (performerType == null || performerType.isEmpty())
-           && (performer == null || performer.isEmpty()) && (reasonCode == null || reasonCode.isEmpty())
-           && (reasonReference == null || reasonReference.isEmpty()) && (supportingInfo == null || supportingInfo.isEmpty())
-           && (note == null || note.isEmpty()) && (relevantHistory == null || relevantHistory.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
+          , replaces, groupIdentifier, status, intent, priority, code, subject, context
+          , occurrence, authoredOn, requester, performerType, performer, reasonCode, reasonReference
+          , supportingInfo, note, relevantHistory);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -577,9 +577,8 @@ public class Signature extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (when == null || when.isEmpty())
-           && (who == null || who.isEmpty()) && (onBehalfOf == null || onBehalfOf.isEmpty()) && (contentType == null || contentType.isEmpty())
-           && (blob == null || blob.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, when, who, onBehalfOf
+          , contentType, blob);
       }
 
 

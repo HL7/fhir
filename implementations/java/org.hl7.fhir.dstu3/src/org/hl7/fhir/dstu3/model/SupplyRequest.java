@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -350,8 +350,7 @@ public class SupplyRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (schedule == null || schedule.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, schedule);
       }
 
   public String fhirType() {
@@ -1118,10 +1117,8 @@ public class SupplyRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (source == null || source.isEmpty())
-           && (date == null || date.isEmpty()) && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (kind == null || kind.isEmpty()) && (orderedItem == null || orderedItem.isEmpty()) && (supplier == null || supplier.isEmpty())
-           && (reason == null || reason.isEmpty()) && (when == null || when.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, source, date, identifier
+          , status, kind, orderedItem, supplier, reason, when);
       }
 
   @Override

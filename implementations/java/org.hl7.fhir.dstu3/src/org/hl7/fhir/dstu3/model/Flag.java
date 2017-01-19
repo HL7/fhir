@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -744,10 +744,8 @@ public class Flag extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (category == null || category.isEmpty())
-           && (status == null || status.isEmpty()) && (period == null || period.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (author == null || author.isEmpty()) && (code == null || code.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, status
+          , period, subject, encounter, author, code);
       }
 
   @Override
@@ -774,6 +772,26 @@ public class Flag extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Flag.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Flag.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Flag.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>subject</b>

@@ -11,7 +11,7 @@
 	<name value="TestScript Example Search"/>
 	<status value="draft"/>
 	<experimental value="true"/>
-	<date value="2016-09-26"/>
+	<date value="2017-01-18"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -33,11 +33,14 @@
 	<copyright value="© HL7.org 2011+"/>
 
 	<metadata>
+		<link>
+			<url value="http://hl7.org/fhir/patient.html"/>
+			<description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+		</link>
 		<capability>
 			<required value="true"/>
 			<description value="Patient Search Operation"/>
 			<link value="http://hl7.org/fhir/http.html#search"/>
-			<link value="http://hl7.org/fhir/patient.html"/>
 			<capabilities>
 				<reference value="CapabilityStatement/example" />
 			</capabilities>
@@ -69,6 +72,11 @@
 		<name value="PatientSearchGivenName"/>
 		<description value="Enter patient search criteria for a known given name on the target system"/>
 		<hint value="[Given name]"/>
+	</variable>
+	<variable>
+		<name value="PatientSearchBundleTotal"/>
+		<description value="Evaluate the returned Patient searchset Bundle.total value"/>
+		<expression value="Bundle.total.toInteger()"/>
 	</variable>
 
 	<test id="01-PatientCreateSearch">

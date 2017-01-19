@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -630,8 +630,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (lockedDate == null || lockedDate.isEmpty()) && (inactive == null || inactive.isEmpty())
-           && (include == null || include.isEmpty()) && (exclude == null || exclude.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(lockedDate, inactive, include
+          , exclude);
       }
 
   public String fhirType() {
@@ -1107,9 +1107,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
-           && (concept == null || concept.isEmpty()) && (filter == null || filter.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, version, concept
+          , filter, valueSet);
       }
 
   public String fhirType() {
@@ -1426,8 +1425,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (display == null || display.isEmpty())
-           && (designation == null || designation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, display, designation
+          );
       }
 
   public String fhirType() {
@@ -1714,8 +1713,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (language == null || language.isEmpty()) && (use == null || use.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(language, use, value);
       }
 
   public String fhirType() {
@@ -2022,8 +2020,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (property == null || property.isEmpty()) && (op == null || op.isEmpty())
-           && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(property, op, value);
       }
 
   public String fhirType() {
@@ -2546,9 +2543,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (timestamp == null || timestamp.isEmpty())
-           && (total == null || total.isEmpty()) && (offset == null || offset.isEmpty()) && (parameter == null || parameter.isEmpty())
-           && (contains == null || contains.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, timestamp, total
+          , offset, parameter, contains);
       }
 
   public String fhirType() {
@@ -2857,8 +2853,7 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, value);
       }
 
   public String fhirType() {
@@ -3519,10 +3514,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (system == null || system.isEmpty()) && (abstract_ == null || abstract_.isEmpty())
-           && (inactive == null || inactive.isEmpty()) && (version == null || version.isEmpty()) && (code == null || code.isEmpty())
-           && (display == null || display.isEmpty()) && (designation == null || designation.isEmpty())
-           && (contains == null || contains.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(system, abstract_, inactive
+          , version, code, display, designation, contains);
       }
 
   public String fhirType() {
@@ -4834,9 +4827,8 @@ public class ValueSet extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (immutable == null || immutable.isEmpty())
-           && (purpose == null || purpose.isEmpty()) && (copyright == null || copyright.isEmpty()) && (extensible == null || extensible.isEmpty())
-           && (compose == null || compose.isEmpty()) && (expansion == null || expansion.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, immutable, purpose
+          , copyright, extensible, compose, expansion);
       }
 
   @Override

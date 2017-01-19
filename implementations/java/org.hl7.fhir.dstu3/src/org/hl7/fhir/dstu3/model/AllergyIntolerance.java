@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1331,10 +1331,8 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (substance == null || substance.isEmpty()) && (certainty == null || certainty.isEmpty())
-           && (manifestation == null || manifestation.isEmpty()) && (description == null || description.isEmpty())
-           && (onset == null || onset.isEmpty()) && (severity == null || severity.isEmpty()) && (exposureRoute == null || exposureRoute.isEmpty())
-           && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(substance, certainty, manifestation
+          , description, onset, severity, exposureRoute, note);
       }
 
   public String fhirType() {
@@ -1379,7 +1377,7 @@ public class AllergyIntolerance extends DomainResource {
      * Category of the identified substance.
      */
     @Child(name = "category", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="food | medication | biologic | environment", formalDefinition="Category of the identified substance." )
+    @Description(shortDefinition="food | medication | environment | biologic", formalDefinition="Category of the identified substance." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergy-intolerance-category")
     protected List<CodeableConcept> category;
 
@@ -2553,13 +2551,9 @@ public class AllergyIntolerance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (clinicalStatus == null || clinicalStatus.isEmpty())
-           && (verificationStatus == null || verificationStatus.isEmpty()) && (type == null || type.isEmpty())
-           && (category == null || category.isEmpty()) && (criticality == null || criticality.isEmpty())
-           && (code == null || code.isEmpty()) && (patient == null || patient.isEmpty()) && (onset == null || onset.isEmpty())
-           && (assertedDate == null || assertedDate.isEmpty()) && (recorder == null || recorder.isEmpty())
-           && (asserter == null || asserter.isEmpty()) && (lastOccurrence == null || lastOccurrence.isEmpty())
-           && (note == null || note.isEmpty()) && (reaction == null || reaction.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, clinicalStatus
+          , verificationStatus, type, category, criticality, code, patient, onset, assertedDate
+          , recorder, asserter, lastOccurrence, note, reaction);
       }
 
   @Override
@@ -2868,17 +2862,17 @@ public class AllergyIntolerance extends DomainResource {
  /**
    * Search parameter: <b>category</b>
    * <p>
-   * Description: <b>food | medication | biologic | environment</b><br>
+   * Description: <b>food | medication | environment | biologic</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.category</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | biologic | environment", type="token" )
+  @SearchParamDefinition(name="category", path="AllergyIntolerance.category", description="food | medication | environment | biologic", type="token" )
   public static final String SP_CATEGORY = "category";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>category</b>
    * <p>
-   * Description: <b>food | medication | biologic | environment</b><br>
+   * Description: <b>food | medication | environment | biologic</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.category</b><br>
    * </p>

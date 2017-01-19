@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1858,12 +1858,9 @@ Any information provided in these elements overrides the information from the de
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (linkId == null || linkId.isEmpty()) && (definition == null || definition.isEmpty())
-           && (code == null || code.isEmpty()) && (prefix == null || prefix.isEmpty()) && (text == null || text.isEmpty())
-           && (type == null || type.isEmpty()) && (enableWhen == null || enableWhen.isEmpty()) && (required == null || required.isEmpty())
-           && (repeats == null || repeats.isEmpty()) && (readOnly == null || readOnly.isEmpty()) && (maxLength == null || maxLength.isEmpty())
-           && (options == null || options.isEmpty()) && (option == null || option.isEmpty()) && (initial == null || initial.isEmpty())
-           && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(linkId, definition, code
+          , prefix, text, type, enableWhen, required, repeats, readOnly, maxLength, options
+          , option, initial, item);
       }
 
   public String fhirType() {
@@ -2340,8 +2337,8 @@ Any information provided in these elements overrides the information from the de
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (question == null || question.isEmpty()) && (hasAnswer == null || hasAnswer.isEmpty())
-           && (answer == null || answer.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(question, hasAnswer, answer
+          );
       }
 
   public String fhirType() {
@@ -2569,7 +2566,7 @@ Any information provided in these elements overrides the information from the de
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value);
       }
 
   public String fhirType() {
@@ -3573,11 +3570,9 @@ Any information provided in these elements overrides the information from the de
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (url == null || url.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (version == null || version.isEmpty()) && (status == null || status.isEmpty()) && (date == null || date.isEmpty())
-           && (publisher == null || publisher.isEmpty()) && (telecom == null || telecom.isEmpty()) && (useContext == null || useContext.isEmpty())
-           && (title == null || title.isEmpty()) && (code == null || code.isEmpty()) && (subjectType == null || subjectType.isEmpty())
-           && (item == null || item.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(url, identifier, version
+          , status, date, publisher, telecom, useContext, title, code, subjectType, item
+          );
       }
 
   @Override

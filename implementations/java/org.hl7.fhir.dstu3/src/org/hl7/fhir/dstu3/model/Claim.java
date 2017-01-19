@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -547,8 +547,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (claim == null || claim.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (reference == null || reference.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(claim, relationship, reference
+          );
       }
 
   public String fhirType() {
@@ -811,8 +811,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (resourceType == null || resourceType.isEmpty())
-           && (party == null || party.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, resourceType, party
+          );
       }
 
   public String fhirType() {
@@ -1207,9 +1207,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (provider == null || provider.isEmpty())
-           && (responsible == null || responsible.isEmpty()) && (role == null || role.isEmpty()) && (qualification == null || qualification.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, provider, responsible
+          , role, qualification);
       }
 
   public String fhirType() {
@@ -1696,9 +1695,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (category == null || category.isEmpty())
-           && (code == null || code.isEmpty()) && (timing == null || timing.isEmpty()) && (value == null || value.isEmpty())
-           && (reason == null || reason.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, category, code
+          , timing, value, reason);
       }
 
   public String fhirType() {
@@ -2066,8 +2064,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
-           && (type == null || type.isEmpty()) && (packageCode == null || packageCode.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, diagnosis, type
+          , packageCode);
       }
 
   public String fhirType() {
@@ -2380,8 +2378,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (date == null || date.isEmpty())
-           && (procedure == null || procedure.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, date, procedure
+          );
       }
 
   public String fhirType() {
@@ -2915,10 +2913,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (focal == null || focal.isEmpty())
-           && (coverage == null || coverage.isEmpty()) && (businessArrangement == null || businessArrangement.isEmpty())
-           && (preAuthRef == null || preAuthRef.isEmpty()) && (claimResponse == null || claimResponse.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, focal, coverage
+          , businessArrangement, preAuthRef, claimResponse);
       }
 
   public String fhirType() {
@@ -3206,8 +3202,7 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (date == null || date.isEmpty()) && (type == null || type.isEmpty())
-           && (location == null || location.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, type, location);
       }
 
   public String fhirType() {
@@ -4708,15 +4703,10 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (careTeamLinkId == null || careTeamLinkId.isEmpty())
-           && (diagnosisLinkId == null || diagnosisLinkId.isEmpty()) && (procedureLinkId == null || procedureLinkId.isEmpty())
-           && (informationLinkId == null || informationLinkId.isEmpty()) && (revenue == null || revenue.isEmpty())
-           && (category == null || category.isEmpty()) && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty())
-           && (programCode == null || programCode.isEmpty()) && (serviced == null || serviced.isEmpty())
-           && (location == null || location.isEmpty()) && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
-           && (factor == null || factor.isEmpty()) && (net == null || net.isEmpty()) && (udi == null || udi.isEmpty())
-           && (bodySite == null || bodySite.isEmpty()) && (subSite == null || subSite.isEmpty()) && (detail == null || detail.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, careTeamLinkId, diagnosisLinkId
+          , procedureLinkId, informationLinkId, revenue, category, service, modifier, programCode
+          , serviced, location, quantity, unitPrice, factor, net, udi, bodySite, subSite
+          , detail);
       }
 
   public String fhirType() {
@@ -5587,11 +5577,9 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (revenue == null || revenue.isEmpty())
-           && (category == null || category.isEmpty()) && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty())
-           && (programCode == null || programCode.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty()) && (subDetail == null || subDetail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, revenue, category
+          , service, modifier, programCode, quantity, unitPrice, factor, net, udi, subDetail
+          );
       }
 
   public String fhirType() {
@@ -6384,11 +6372,8 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (revenue == null || revenue.isEmpty())
-           && (category == null || category.isEmpty()) && (service == null || service.isEmpty()) && (modifier == null || modifier.isEmpty())
-           && (programCode == null || programCode.isEmpty()) && (quantity == null || quantity.isEmpty())
-           && (unitPrice == null || unitPrice.isEmpty()) && (factor == null || factor.isEmpty()) && (net == null || net.isEmpty())
-           && (udi == null || udi.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, revenue, category
+          , service, modifier, programCode, quantity, unitPrice, factor, net, udi);
       }
 
   public String fhirType() {
@@ -8443,20 +8428,11 @@ public class Claim extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty()) && (use == null || use.isEmpty())
-           && (patient == null || patient.isEmpty()) && (billablePeriod == null || billablePeriod.isEmpty())
-           && (created == null || created.isEmpty()) && (enterer == null || enterer.isEmpty()) && (insurer == null || insurer.isEmpty())
-           && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
-           && (priority == null || priority.isEmpty()) && (fundsReserve == null || fundsReserve.isEmpty())
-           && (related == null || related.isEmpty()) && (prescription == null || prescription.isEmpty())
-           && (originalPrescription == null || originalPrescription.isEmpty()) && (payee == null || payee.isEmpty())
-           && (referral == null || referral.isEmpty()) && (facility == null || facility.isEmpty()) && (careTeam == null || careTeam.isEmpty())
-           && (information == null || information.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
-           && (procedure == null || procedure.isEmpty()) && (insurance == null || insurance.isEmpty())
-           && (accident == null || accident.isEmpty()) && (employmentImpacted == null || employmentImpacted.isEmpty())
-           && (hospitalization == null || hospitalization.isEmpty()) && (item == null || item.isEmpty())
-           && (total == null || total.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
+          , subType, use, patient, billablePeriod, created, enterer, insurer, provider
+          , organization, priority, fundsReserve, related, prescription, originalPrescription
+          , payee, referral, facility, careTeam, information, diagnosis, procedure, insurance
+          , accident, employmentImpacted, hospitalization, item, total);
       }
 
   @Override

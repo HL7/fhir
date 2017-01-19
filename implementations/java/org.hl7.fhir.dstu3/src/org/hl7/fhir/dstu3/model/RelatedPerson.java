@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -907,11 +907,8 @@ public class RelatedPerson extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (active == null || active.isEmpty())
-           && (patient == null || patient.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (name == null || name.isEmpty()) && (telecom == null || telecom.isEmpty()) && (gender == null || gender.isEmpty())
-           && (birthDate == null || birthDate.isEmpty()) && (address == null || address.isEmpty()) && (photo == null || photo.isEmpty())
-           && (period == null || period.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, patient
+          , relationship, name, telecom, gender, birthDate, address, photo, period);
       }
 
   @Override

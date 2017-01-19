@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -519,9 +519,8 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (who == null || who.isEmpty())
-           && (onBehalfOf == null || onBehalfOf.isEmpty()) && (relatedAgentType == null || relatedAgentType.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, who, onBehalfOf, relatedAgentType
+          );
       }
 
   public String fhirType() {
@@ -838,8 +837,7 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
-           && (agent == null || agent.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference, agent);
       }
 
   public String fhirType() {
@@ -1666,10 +1664,8 @@ public class Provenance extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (target == null || target.isEmpty()) && (period == null || period.isEmpty())
-           && (recorded == null || recorded.isEmpty()) && (reason == null || reason.isEmpty()) && (activity == null || activity.isEmpty())
-           && (location == null || location.isEmpty()) && (policy == null || policy.isEmpty()) && (agent == null || agent.isEmpty())
-           && (entity == null || entity.isEmpty()) && (signature == null || signature.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, period, recorded
+          , reason, activity, location, policy, agent, entity, signature);
       }
 
   @Override

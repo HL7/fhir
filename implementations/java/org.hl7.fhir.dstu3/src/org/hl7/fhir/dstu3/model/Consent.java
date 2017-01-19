@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1160,10 +1160,8 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (period == null || period.isEmpty())
-           && (actor == null || actor.isEmpty()) && (action == null || action.isEmpty()) && (securityLabel == null || securityLabel.isEmpty())
-           && (purpose == null || purpose.isEmpty()) && (class_ == null || class_.isEmpty()) && (code == null || code.isEmpty())
-           && (data == null || data.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, period, actor, action
+          , securityLabel, purpose, class_, code, data);
       }
 
   public String fhirType() {
@@ -1380,8 +1378,7 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (reference == null || reference.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, reference);
       }
 
   public String fhirType() {
@@ -1620,8 +1617,7 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (meaning == null || meaning.isEmpty()) && (reference == null || reference.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(meaning, reference);
       }
 
   public String fhirType() {
@@ -2677,11 +2673,9 @@ public class Consent extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (dateTime == null || dateTime.isEmpty()) && (period == null || period.isEmpty())
-           && (patient == null || patient.isEmpty()) && (consentor == null || consentor.isEmpty()) && (organization == null || organization.isEmpty())
-           && (source == null || source.isEmpty()) && (policy == null || policy.isEmpty()) && (recipient == null || recipient.isEmpty())
-           && (purpose == null || purpose.isEmpty()) && (except == null || except.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , dateTime, period, patient, consentor, organization, source, policy, recipient
+          , purpose, except);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -513,8 +513,8 @@ public class DiagnosticReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (role == null || role.isEmpty()) && (actor == null || actor.isEmpty())
-           && (onBehalfOf == null || onBehalfOf.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
+          );
       }
 
   public String fhirType() {
@@ -758,8 +758,7 @@ public class DiagnosticReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (comment == null || comment.isEmpty()) && (link == null || link.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(comment, link);
       }
 
   public String fhirType() {
@@ -2161,13 +2160,9 @@ public class DiagnosticReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (code == null || code.isEmpty()) && (subject == null || subject.isEmpty())
-           && (encounter == null || encounter.isEmpty()) && (effective == null || effective.isEmpty())
-           && (issued == null || issued.isEmpty()) && (performer == null || performer.isEmpty()) && (request == null || request.isEmpty())
-           && (specimen == null || specimen.isEmpty()) && (result == null || result.isEmpty()) && (imagingStudy == null || imagingStudy.isEmpty())
-           && (image == null || image.isEmpty()) && (conclusion == null || conclusion.isEmpty()) && (codedDiagnosis == null || codedDiagnosis.isEmpty())
-           && (presentedForm == null || presentedForm.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, encounter, effective, issued, performer, request, specimen
+          , result, imagingStudy, image, conclusion, codedDiagnosis, presentedForm);
       }
 
   @Override

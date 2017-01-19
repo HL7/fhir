@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -480,8 +480,8 @@ public class ResearchStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (code == null || code.isEmpty())
-           && (description == null || description.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, code, description
+          );
       }
 
   public String fhirType() {
@@ -2147,15 +2147,10 @@ public class ResearchStudy extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (title == null || title.isEmpty())
-           && (protocol == null || protocol.isEmpty()) && (partOf == null || partOf.isEmpty()) && (status == null || status.isEmpty())
-           && (category == null || category.isEmpty()) && (focus == null || focus.isEmpty()) && (contact == null || contact.isEmpty())
-           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (keyword == null || keyword.isEmpty())
-           && (jurisdiction == null || jurisdiction.isEmpty()) && (description == null || description.isEmpty())
-           && (enrollment == null || enrollment.isEmpty()) && (period == null || period.isEmpty()) && (sponsor == null || sponsor.isEmpty())
-           && (principalInvestigator == null || principalInvestigator.isEmpty()) && (site == null || site.isEmpty())
-           && (reasonStopped == null || reasonStopped.isEmpty()) && (note == null || note.isEmpty())
-           && (arm == null || arm.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, title, protocol
+          , partOf, status, category, focus, contact, relatedArtifact, keyword, jurisdiction
+          , description, enrollment, period, sponsor, principalInvestigator, site, reasonStopped
+          , note, arm);
       }
 
   @Override

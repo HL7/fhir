@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -907,12 +907,9 @@ public class DosageInstruction extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (text == null || text.isEmpty())
-           && (additionalInstructions == null || additionalInstructions.isEmpty()) && (timing == null || timing.isEmpty())
-           && (asNeeded == null || asNeeded.isEmpty()) && (site == null || site.isEmpty()) && (route == null || route.isEmpty())
-           && (method == null || method.isEmpty()) && (dose == null || dose.isEmpty()) && (maxDosePerPeriod == null || maxDosePerPeriod.isEmpty())
-           && (maxDosePerAdministration == null || maxDosePerAdministration.isEmpty()) && (maxDosePerLifetime == null || maxDosePerLifetime.isEmpty())
-           && (rate == null || rate.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, text, additionalInstructions
+          , timing, asNeeded, site, route, method, dose, maxDosePerPeriod, maxDosePerAdministration
+          , maxDosePerLifetime, rate);
       }
 
 

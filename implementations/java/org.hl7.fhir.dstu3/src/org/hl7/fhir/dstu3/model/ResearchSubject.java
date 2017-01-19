@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -817,10 +817,8 @@ public class ResearchSubject extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (period == null || period.isEmpty()) && (study == null || study.isEmpty()) && (individual == null || individual.isEmpty())
-           && (assignedArm == null || assignedArm.isEmpty()) && (actualArm == null || actualArm.isEmpty())
-           && (consent == null || consent.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, period
+          , study, individual, assignedArm, actualArm, consent);
       }
 
   @Override

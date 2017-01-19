@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1987,13 +1987,9 @@ public class Timing extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (bounds == null || bounds.isEmpty()) && (count == null || count.isEmpty())
-           && (countMax == null || countMax.isEmpty()) && (duration == null || duration.isEmpty()) && (durationMax == null || durationMax.isEmpty())
-           && (durationUnit == null || durationUnit.isEmpty()) && (frequency == null || frequency.isEmpty())
-           && (frequencyMax == null || frequencyMax.isEmpty()) && (period == null || period.isEmpty())
-           && (periodMax == null || periodMax.isEmpty()) && (periodUnit == null || periodUnit.isEmpty())
-           && (dayOfWeek == null || dayOfWeek.isEmpty()) && (timeOfDay == null || timeOfDay.isEmpty())
-           && (when == null || when.isEmpty()) && (offset == null || offset.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(bounds, count, countMax
+          , duration, durationMax, durationUnit, frequency, frequencyMax, period, periodMax
+          , periodUnit, dayOfWeek, timeOfDay, when, offset);
       }
 
   public String fhirType() {
@@ -2274,8 +2270,7 @@ public class Timing extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (event == null || event.isEmpty()) && (repeat == null || repeat.isEmpty())
-           && (code == null || code.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(event, repeat, code);
       }
 
 

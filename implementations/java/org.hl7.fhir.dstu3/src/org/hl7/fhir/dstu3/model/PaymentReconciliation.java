@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -700,10 +700,8 @@ public class PaymentReconciliation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty()) && (submitter == null || submitter.isEmpty())
-           && (payee == null || payee.isEmpty()) && (date == null || date.isEmpty()) && (amount == null || amount.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, request, response
+          , submitter, payee, date, amount);
       }
 
   public String fhirType() {
@@ -915,8 +913,7 @@ public class PaymentReconciliation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (text == null || text.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, text);
       }
 
   public String fhirType() {
@@ -1929,12 +1926,9 @@ public class PaymentReconciliation extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (period == null || period.isEmpty()) && (created == null || created.isEmpty()) && (organization == null || organization.isEmpty())
-           && (request == null || request.isEmpty()) && (outcome == null || outcome.isEmpty()) && (disposition == null || disposition.isEmpty())
-           && (requestProvider == null || requestProvider.isEmpty()) && (requestOrganization == null || requestOrganization.isEmpty())
-           && (detail == null || detail.isEmpty()) && (form == null || form.isEmpty()) && (total == null || total.isEmpty())
-           && (processNote == null || processNote.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, period
+          , created, organization, request, outcome, disposition, requestProvider, requestOrganization
+          , detail, form, total, processNote);
       }
 
   @Override

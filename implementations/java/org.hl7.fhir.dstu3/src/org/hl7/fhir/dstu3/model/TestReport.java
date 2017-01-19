@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -705,8 +705,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (uri == null || uri.isEmpty())
-           && (display == null || display.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, uri, display);
       }
 
   public String fhirType() {
@@ -880,7 +879,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -1067,8 +1066,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -1381,8 +1379,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (result == null || result.isEmpty()) && (message == null || message.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result, message, detail
+          );
       }
 
   public String fhirType() {
@@ -1695,8 +1693,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (result == null || result.isEmpty()) && (message == null || message.isEmpty())
-           && (detail == null || detail.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result, message, detail
+          );
       }
 
   public String fhirType() {
@@ -2009,8 +2007,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (description == null || description.isEmpty())
-           && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, description, action
+          );
       }
 
   public String fhirType() {
@@ -2197,8 +2195,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty()) && (assert_ == null || assert_.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation, assert_);
       }
 
   public String fhirType() {
@@ -2372,7 +2369,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (action == null || action.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(action);
       }
 
   public String fhirType() {
@@ -2522,7 +2519,7 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (operation == null || operation.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(operation);
       }
 
   public String fhirType() {
@@ -2547,31 +2544,9 @@ public class TestReport extends DomainResource {
     protected StringType name;
 
     /**
-     * The status of the TestReport.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="complete | pending | error", formalDefinition="The status of the TestReport." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-status-codes")
-    protected Enumeration<TestReportStatus> status;
-
-    /**
-     * The final score (percentage of tests passed) resulting from the execution of the TestScript.
-     */
-    @Child(name = "score", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript", formalDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript." )
-    protected DecimalType score;
-
-    /**
-     * Name of the tester producing this report (Organization or individual).
-     */
-    @Child(name = "tester", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name of the tester producing this report (Organization or individual)", formalDefinition="Name of the tester producing this report (Organization or individual)." )
-    protected StringType tester;
-
-    /**
      * Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
      */
-    @Child(name = "testScript", type = {TestScript.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "testScript", type = {TestScript.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reference to the  version-specific TestScript that was executed to produce this TestReport", formalDefinition="Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`." )
     protected Reference testScript;
 
@@ -2579,6 +2554,28 @@ public class TestReport extends DomainResource {
      * The actual object that is the target of the reference (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
      */
     protected TestScript testScriptTarget;
+
+    /**
+     * The status of the TestReport.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="complete | pending | error", formalDefinition="The status of the TestReport." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-status-codes")
+    protected Enumeration<TestReportStatus> status;
+
+    /**
+     * The final score (percentage of tests passed) resulting from the execution of the TestScript.
+     */
+    @Child(name = "score", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript", formalDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript." )
+    protected DecimalType score;
+
+    /**
+     * Name of the tester producing this report (Organization or individual).
+     */
+    @Child(name = "tester", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Name of the tester producing this report (Organization or individual)", formalDefinition="Name of the tester producing this report (Organization or individual)." )
+    protected StringType tester;
 
     /**
      * When the TestScript was executed and this TestReport was generated.
@@ -2615,7 +2612,7 @@ public class TestReport extends DomainResource {
     @Description(shortDefinition="The results of running the series of required clean up steps", formalDefinition="The results of the series of operations required to clean up after the all the tests were executed (successfully or otherwise)." )
     protected TestReportTeardownComponent teardown;
 
-    private static final long serialVersionUID = 886085015L;
+    private static final long serialVersionUID = 1079657773L;
 
   /**
    * Constructor
@@ -2627,10 +2624,10 @@ public class TestReport extends DomainResource {
   /**
    * Constructor
    */
-    public TestReport(Enumeration<TestReportStatus> status, Reference testScript) {
+    public TestReport(Reference testScript, Enumeration<TestReportStatus> status) {
       super();
-      this.status = status;
       this.testScript = testScript;
+      this.status = status;
     }
 
     /**
@@ -2703,6 +2700,50 @@ public class TestReport extends DomainResource {
           this.name = new StringType();
         this.name.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #testScript} (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
+     */
+    public Reference getTestScript() { 
+      if (this.testScript == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create TestReport.testScript");
+        else if (Configuration.doAutoCreate())
+          this.testScript = new Reference(); // cc
+      return this.testScript;
+    }
+
+    public boolean hasTestScript() { 
+      return this.testScript != null && !this.testScript.isEmpty();
+    }
+
+    /**
+     * @param value {@link #testScript} (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
+     */
+    public TestReport setTestScript(Reference value) { 
+      this.testScript = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #testScript} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
+     */
+    public TestScript getTestScriptTarget() { 
+      if (this.testScriptTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create TestReport.testScript");
+        else if (Configuration.doAutoCreate())
+          this.testScriptTarget = new TestScript(); // aa
+      return this.testScriptTarget;
+    }
+
+    /**
+     * @param value {@link #testScript} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
+     */
+    public TestReport setTestScriptTarget(TestScript value) { 
+      this.testScriptTarget = value;
       return this;
     }
 
@@ -2864,50 +2905,6 @@ public class TestReport extends DomainResource {
           this.tester = new StringType();
         this.tester.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #testScript} (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
-     */
-    public Reference getTestScript() { 
-      if (this.testScript == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create TestReport.testScript");
-        else if (Configuration.doAutoCreate())
-          this.testScript = new Reference(); // cc
-      return this.testScript;
-    }
-
-    public boolean hasTestScript() { 
-      return this.testScript != null && !this.testScript.isEmpty();
-    }
-
-    /**
-     * @param value {@link #testScript} (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
-     */
-    public TestReport setTestScript(Reference value) { 
-      this.testScript = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #testScript} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
-     */
-    public TestScript getTestScriptTarget() { 
-      if (this.testScriptTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create TestReport.testScript");
-        else if (Configuration.doAutoCreate())
-          this.testScriptTarget = new TestScript(); // aa
-      return this.testScriptTarget;
-    }
-
-    /**
-     * @param value {@link #testScript} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
-     */
-    public TestReport setTestScriptTarget(TestScript value) { 
-      this.testScriptTarget = value;
       return this;
     }
 
@@ -3118,10 +3115,10 @@ public class TestReport extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the TestScript assigned for external purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the executed TestScript.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("testScript", "Reference(TestScript)", "Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.", 0, java.lang.Integer.MAX_VALUE, testScript));
         childrenList.add(new Property("status", "code", "The status of the TestReport.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("score", "decimal", "The final score (percentage of tests passed) resulting from the execution of the TestScript.", 0, java.lang.Integer.MAX_VALUE, score));
         childrenList.add(new Property("tester", "string", "Name of the tester producing this report (Organization or individual).", 0, java.lang.Integer.MAX_VALUE, tester));
-        childrenList.add(new Property("testScript", "Reference(TestScript)", "Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.", 0, java.lang.Integer.MAX_VALUE, testScript));
         childrenList.add(new Property("issued", "dateTime", "When the TestScript was executed and this TestReport was generated.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("participant", "", "A participant in the test execution, either the execution engine, a client, or a server.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("setup", "", "The results of the series of required setup operations before the tests were executed.", 0, java.lang.Integer.MAX_VALUE, setup));
@@ -3134,10 +3131,10 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
+        case 1712049149: /*testScript*/ return this.testScript == null ? new Base[0] : new Base[] {this.testScript}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<TestReportStatus>
         case 109264530: /*score*/ return this.score == null ? new Base[0] : new Base[] {this.score}; // DecimalType
         case -877169473: /*tester*/ return this.tester == null ? new Base[0] : new Base[] {this.tester}; // StringType
-        case 1712049149: /*testScript*/ return this.testScript == null ? new Base[0] : new Base[] {this.testScript}; // Reference
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // DateTimeType
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // TestReportParticipantComponent
         case 109329021: /*setup*/ return this.setup == null ? new Base[0] : new Base[] {this.setup}; // TestReportSetupComponent
@@ -3157,6 +3154,9 @@ public class TestReport extends DomainResource {
         case 3373707: // name
           this.name = castToString(value); // StringType
           return value;
+        case 1712049149: // testScript
+          this.testScript = castToReference(value); // Reference
+          return value;
         case -892481550: // status
           value = new TestReportStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<TestReportStatus>
@@ -3166,9 +3166,6 @@ public class TestReport extends DomainResource {
           return value;
         case -877169473: // tester
           this.tester = castToString(value); // StringType
-          return value;
-        case 1712049149: // testScript
-          this.testScript = castToReference(value); // Reference
           return value;
         case -1179159893: // issued
           this.issued = castToDateTime(value); // DateTimeType
@@ -3196,6 +3193,8 @@ public class TestReport extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
+        } else if (name.equals("testScript")) {
+          this.testScript = castToReference(value); // Reference
         } else if (name.equals("status")) {
           value = new TestReportStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<TestReportStatus>
@@ -3203,8 +3202,6 @@ public class TestReport extends DomainResource {
           this.score = castToDecimal(value); // DecimalType
         } else if (name.equals("tester")) {
           this.tester = castToString(value); // StringType
-        } else if (name.equals("testScript")) {
-          this.testScript = castToReference(value); // Reference
         } else if (name.equals("issued")) {
           this.issued = castToDateTime(value); // DateTimeType
         } else if (name.equals("participant")) {
@@ -3225,10 +3222,10 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855:  return getIdentifier(); 
         case 3373707:  return getNameElement();
+        case 1712049149:  return getTestScript(); 
         case -892481550:  return getStatusElement();
         case 109264530:  return getScoreElement();
         case -877169473:  return getTesterElement();
-        case 1712049149:  return getTestScript(); 
         case -1179159893:  return getIssuedElement();
         case 767422259:  return addParticipant(); 
         case 109329021:  return getSetup(); 
@@ -3244,10 +3241,10 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 3373707: /*name*/ return new String[] {"string"};
+        case 1712049149: /*testScript*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 109264530: /*score*/ return new String[] {"decimal"};
         case -877169473: /*tester*/ return new String[] {"string"};
-        case 1712049149: /*testScript*/ return new String[] {"Reference"};
         case -1179159893: /*issued*/ return new String[] {"dateTime"};
         case 767422259: /*participant*/ return new String[] {};
         case 109329021: /*setup*/ return new String[] {};
@@ -3267,6 +3264,10 @@ public class TestReport extends DomainResource {
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.name");
         }
+        else if (name.equals("testScript")) {
+          this.testScript = new Reference();
+          return this.testScript;
+        }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.status");
         }
@@ -3275,10 +3276,6 @@ public class TestReport extends DomainResource {
         }
         else if (name.equals("tester")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.tester");
-        }
-        else if (name.equals("testScript")) {
-          this.testScript = new Reference();
-          return this.testScript;
         }
         else if (name.equals("issued")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.issued");
@@ -3311,10 +3308,10 @@ public class TestReport extends DomainResource {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
+        dst.testScript = testScript == null ? null : testScript.copy();
         dst.status = status == null ? null : status.copy();
         dst.score = score == null ? null : score.copy();
         dst.tester = tester == null ? null : tester.copy();
-        dst.testScript = testScript == null ? null : testScript.copy();
         dst.issued = issued == null ? null : issued.copy();
         if (participant != null) {
           dst.participant = new ArrayList<TestReportParticipantComponent>();
@@ -3342,8 +3339,8 @@ public class TestReport extends DomainResource {
         if (!(other instanceof TestReport))
           return false;
         TestReport o = (TestReport) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
-           && compareDeep(score, o.score, true) && compareDeep(tester, o.tester, true) && compareDeep(testScript, o.testScript, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(testScript, o.testScript, true)
+           && compareDeep(status, o.status, true) && compareDeep(score, o.score, true) && compareDeep(tester, o.tester, true)
            && compareDeep(issued, o.issued, true) && compareDeep(participant, o.participant, true) && compareDeep(setup, o.setup, true)
            && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true);
       }
@@ -3360,11 +3357,8 @@ public class TestReport extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (status == null || status.isEmpty()) && (score == null || score.isEmpty()) && (tester == null || tester.isEmpty())
-           && (testScript == null || testScript.isEmpty()) && (issued == null || issued.isEmpty()) && (participant == null || participant.isEmpty())
-           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, testScript
+          , status, score, tester, issued, participant, setup, test, teardown);
       }
 
   @Override

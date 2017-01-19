@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -201,11 +201,11 @@ public class FamilyMemberHistory extends DomainResource {
         /**
          * An area where general notes can be placed about this specific condition.
          */
-        @Child(name = "note", type = {Annotation.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "note", type = {Annotation.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Extra information about condition", formalDefinition="An area where general notes can be placed about this specific condition." )
-        protected Annotation note;
+        protected List<Annotation> note;
 
-        private static final long serialVersionUID = -1221569121L;
+        private static final long serialVersionUID = 598309281L;
 
     /**
      * Constructor
@@ -344,25 +344,54 @@ public class FamilyMemberHistory extends DomainResource {
         /**
          * @return {@link #note} (An area where general notes can be placed about this specific condition.)
          */
-        public Annotation getNote() { 
+        public List<Annotation> getNote() { 
           if (this.note == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create FamilyMemberHistoryConditionComponent.note");
-            else if (Configuration.doAutoCreate())
-              this.note = new Annotation(); // cc
+            this.note = new ArrayList<Annotation>();
           return this.note;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public FamilyMemberHistoryConditionComponent setNote(List<Annotation> theNote) { 
+          this.note = theNote;
+          return this;
+        }
+
         public boolean hasNote() { 
-          return this.note != null && !this.note.isEmpty();
+          if (this.note == null)
+            return false;
+          for (Annotation item : this.note)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public Annotation addNote() { //3
+          Annotation t = new Annotation();
+          if (this.note == null)
+            this.note = new ArrayList<Annotation>();
+          this.note.add(t);
+          return t;
+        }
+
+        public FamilyMemberHistoryConditionComponent addNote(Annotation t) { //3
+          if (t == null)
+            return this;
+          if (this.note == null)
+            this.note = new ArrayList<Annotation>();
+          this.note.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #note} (An area where general notes can be placed about this specific condition.)
+         * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
          */
-        public FamilyMemberHistoryConditionComponent setNote(Annotation value) { 
-          this.note = value;
-          return this;
+        public Annotation getNoteFirstRep() { 
+          if (getNote().isEmpty()) {
+            addNote();
+          }
+          return getNote().get(0);
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -379,7 +408,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
         case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
-        case 3387378: /*note*/ return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -398,7 +427,7 @@ public class FamilyMemberHistory extends DomainResource {
           this.onset = castToType(value); // Type
           return value;
         case 3387378: // note
-          this.note = castToAnnotation(value); // Annotation
+          this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -414,7 +443,7 @@ public class FamilyMemberHistory extends DomainResource {
         } else if (name.equals("onset[x]")) {
           this.onset = castToType(value); // Type
         } else if (name.equals("note")) {
-          this.note = castToAnnotation(value); // Annotation
+          this.getNote().add(castToAnnotation(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -427,7 +456,7 @@ public class FamilyMemberHistory extends DomainResource {
         case -1106507950:  return getOutcome(); 
         case -1886216323:  return getOnset(); 
         case 105901603:  return getOnset(); 
-        case 3387378:  return getNote(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -472,8 +501,7 @@ public class FamilyMemberHistory extends DomainResource {
           return this.onset;
         }
         else if (name.equals("note")) {
-          this.note = new Annotation();
-          return this.note;
+          return addNote();
         }
         else
           return super.addChild(name);
@@ -485,7 +513,11 @@ public class FamilyMemberHistory extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.outcome = outcome == null ? null : outcome.copy();
         dst.onset = onset == null ? null : onset.copy();
-        dst.note = note == null ? null : note.copy();
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         return dst;
       }
 
@@ -511,8 +543,8 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (code == null || code.isEmpty()) && (outcome == null || outcome.isEmpty())
-           && (onset == null || onset.isEmpty()) && (note == null || note.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, outcome, onset, note
+          );
       }
 
   public String fhirType() {
@@ -610,9 +642,9 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
      */
-    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="General note about related person", formalDefinition="This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible." )
-    protected Annotation note;
+    protected List<Annotation> note;
 
     /**
      * The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.
@@ -621,7 +653,7 @@ public class FamilyMemberHistory extends DomainResource {
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = 1798797770L;
+    private static final long serialVersionUID = -716581812L;
 
   /**
    * Constructor
@@ -1201,25 +1233,54 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * @return {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
      */
-    public Annotation getNote() { 
+    public List<Annotation> getNote() { 
       if (this.note == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create FamilyMemberHistory.note");
-        else if (Configuration.doAutoCreate())
-          this.note = new Annotation(); // cc
+        this.note = new ArrayList<Annotation>();
       return this.note;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public FamilyMemberHistory setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
     public boolean hasNote() { 
-      return this.note != null && !this.note.isEmpty();
+      if (this.note == null)
+        return false;
+      for (Annotation item : this.note)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return t;
+    }
+
+    public FamilyMemberHistory addNote(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #note} (This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.)
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
      */
-    public FamilyMemberHistory setNote(Annotation value) { 
-      this.note = value;
-      return this;
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
     }
 
     /**
@@ -1306,7 +1367,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
         case 2130167587: /*estimatedAge*/ return this.estimatedAge == null ? new Base[0] : new Base[] {this.estimatedAge}; // BooleanType
         case 561497972: /*deceased*/ return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
-        case 3387378: /*note*/ return this.note == null ? new Base[0] : new Base[] {this.note}; // Annotation
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // FamilyMemberHistoryConditionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1352,7 +1413,7 @@ public class FamilyMemberHistory extends DomainResource {
           this.deceased = castToType(value); // Type
           return value;
         case 3387378: // note
-          this.note = castToAnnotation(value); // Annotation
+          this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -861311717: // condition
           this.getCondition().add((FamilyMemberHistoryConditionComponent) value); // FamilyMemberHistoryConditionComponent
@@ -1389,7 +1450,7 @@ public class FamilyMemberHistory extends DomainResource {
         } else if (name.equals("deceased[x]")) {
           this.deceased = castToType(value); // Type
         } else if (name.equals("note")) {
-          this.note = castToAnnotation(value); // Annotation
+          this.getNote().add(castToAnnotation(value));
         } else if (name.equals("condition")) {
           this.getCondition().add((FamilyMemberHistoryConditionComponent) value);
         } else
@@ -1414,7 +1475,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 2130167587:  return getEstimatedAgeElement();
         case -1311442804:  return getDeceased(); 
         case 561497972:  return getDeceased(); 
-        case 3387378:  return getNote(); 
+        case 3387378:  return addNote(); 
         case -861311717:  return addCondition(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1515,8 +1576,7 @@ public class FamilyMemberHistory extends DomainResource {
           return this.deceased;
         }
         else if (name.equals("note")) {
-          this.note = new Annotation();
-          return this.note;
+          return addNote();
         }
         else if (name.equals("condition")) {
           return addCondition();
@@ -1548,7 +1608,11 @@ public class FamilyMemberHistory extends DomainResource {
         dst.age = age == null ? null : age.copy();
         dst.estimatedAge = estimatedAge == null ? null : estimatedAge.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
-        dst.note = note == null ? null : note.copy();
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         if (condition != null) {
           dst.condition = new ArrayList<FamilyMemberHistoryConditionComponent>();
           for (FamilyMemberHistoryConditionComponent i : condition)
@@ -1587,12 +1651,9 @@ public class FamilyMemberHistory extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (patient == null || patient.isEmpty())
-           && (date == null || date.isEmpty()) && (status == null || status.isEmpty()) && (name == null || name.isEmpty())
-           && (relationship == null || relationship.isEmpty()) && (gender == null || gender.isEmpty())
-           && (born == null || born.isEmpty()) && (age == null || age.isEmpty()) && (estimatedAge == null || estimatedAge.isEmpty())
-           && (deceased == null || deceased.isEmpty()) && (note == null || note.isEmpty()) && (condition == null || condition.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, date
+          , status, name, relationship, gender, born, age, estimatedAge, deceased, note
+          , condition);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1922,15 +1922,10 @@ public class MedicationStatement extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (basedOn == null || basedOn.isEmpty())
-           && (partOf == null || partOf.isEmpty()) && (context == null || context.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (subject == null || subject.isEmpty())
-           && (effective == null || effective.isEmpty()) && (informationSource == null || informationSource.isEmpty())
-           && (derivedFrom == null || derivedFrom.isEmpty()) && (dateAsserted == null || dateAsserted.isEmpty())
-           && (notTaken == null || notTaken.isEmpty()) && (reasonNotTaken == null || reasonNotTaken.isEmpty())
-           && (reasonForUseCodeableConcept == null || reasonForUseCodeableConcept.isEmpty()) && (reasonForUseReference == null || reasonForUseReference.isEmpty())
-           && (note == null || note.isEmpty()) && (category == null || category.isEmpty()) && (dosage == null || dosage.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
+          , context, status, medication, subject, effective, informationSource, derivedFrom
+          , dateAsserted, notTaken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
+          , note, category, dosage);
       }
 
   @Override

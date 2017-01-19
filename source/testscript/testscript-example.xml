@@ -11,7 +11,7 @@
 	<name value="TestScript Example"/>
 	<status value="draft"/>
 	<experimental value="true"/>
-	<date value="2016-09-26"/>
+	<date value="2017-01-18"/>
 	<publisher value="HL7"/>
 	<contact>
 		<name value="Support"/>
@@ -22,6 +22,18 @@
 		</telecom>
 	</contact>
 	<description value="TestScript example resource with setup to delete if present and create a new instance of a Patient; and single test definition to read the created Patient with various asserts."/>
+	<useContext>
+		<code>
+			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<code value="focus"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/variant-state"/>
+				<code value="positive"/>
+			</coding>
+		</valueCodeableConcept>
+	</useContext>
 	<jurisdiction>
 		<coding>
 			<system value="urn:iso:std:iso:3166"/>
@@ -33,13 +45,16 @@
 	<copyright value="© HL7.org 2011+"/>
 
 	<metadata>
+		<link>
+			<url value="http://hl7.org/fhir/patient.html"/>
+			<description value="Demographics and other administrative information about an individual or animal receiving care or other health-related services."/>
+		</link>
 		<capability>
 			<required value="true"/>
 			<description value="Patient Update, Read and Delete Operations"/>
 			<link value="http://hl7.org/fhir/http.html#delete"/>
 			<link value="http://hl7.org/fhir/http.html#read"/>
 			<link value="http://hl7.org/fhir/http.html#update"/>
-			<link value="http://hl7.org/fhir/patient.html"/>
 			<capabilities>
 				<reference value="CapabilityStatement/example" />
 			</capabilities>

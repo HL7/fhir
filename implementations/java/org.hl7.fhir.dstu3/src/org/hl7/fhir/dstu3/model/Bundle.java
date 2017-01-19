@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -711,8 +711,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (relation == null || relation.isEmpty()) && (url == null || url.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(relation, url);
       }
 
   public String fhirType() {
@@ -1188,9 +1187,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (link == null || link.isEmpty()) && (fullUrl == null || fullUrl.isEmpty())
-           && (resource == null || resource.isEmpty()) && (search == null || search.isEmpty()) && (request == null || request.isEmpty())
-           && (response == null || response.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(link, fullUrl, resource
+          , search, request, response);
       }
 
   public String fhirType() {
@@ -1446,8 +1444,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (mode == null || mode.isEmpty()) && (score == null || score.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(mode, score);
       }
 
   public String fhirType() {
@@ -1966,10 +1963,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (method == null || method.isEmpty()) && (url == null || url.isEmpty())
-           && (ifNoneMatch == null || ifNoneMatch.isEmpty()) && (ifModifiedSince == null || ifModifiedSince.isEmpty())
-           && (ifMatch == null || ifMatch.isEmpty()) && (ifNoneExist == null || ifNoneExist.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(method, url, ifNoneMatch
+          , ifModifiedSince, ifMatch, ifNoneExist);
       }
 
   public String fhirType() {
@@ -2387,9 +2382,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (status == null || status.isEmpty()) && (location == null || location.isEmpty())
-           && (etag == null || etag.isEmpty()) && (lastModified == null || lastModified.isEmpty()) && (outcome == null || outcome.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(status, location, etag, lastModified
+          , outcome);
       }
 
   public String fhirType() {
@@ -2927,9 +2921,8 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (total == null || total.isEmpty()) && (link == null || link.isEmpty()) && (entry == null || entry.isEmpty())
-           && (signature == null || signature.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, total
+          , link, entry, signature);
       }
 
   @Override

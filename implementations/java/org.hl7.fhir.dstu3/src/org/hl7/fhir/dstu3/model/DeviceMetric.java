@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1018,8 +1018,7 @@ public class DeviceMetric extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (state == null || state.isEmpty())
-           && (time == null || time.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, state, time);
       }
 
   public String fhirType() {
@@ -1746,11 +1745,8 @@ public class DeviceMetric extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (unit == null || unit.isEmpty()) && (source == null || source.isEmpty()) && (parent == null || parent.isEmpty())
-           && (operationalStatus == null || operationalStatus.isEmpty()) && (color == null || color.isEmpty())
-           && (category == null || category.isEmpty()) && (measurementPeriod == null || measurementPeriod.isEmpty())
-           && (calibration == null || calibration.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, unit, source
+          , parent, operationalStatus, color, category, measurementPeriod, calibration);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -457,8 +457,8 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
-           && (details == null || details.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, code, details
+          );
       }
 
   public String fhirType() {
@@ -882,9 +882,8 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (software == null || software.isEmpty())
-           && (version == null || version.isEmpty()) && (contact == null || contact.isEmpty()) && (endpoint == null || endpoint.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, software, version
+          , contact, endpoint);
       }
 
   public String fhirType() {
@@ -1194,8 +1193,7 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (target == null || target.isEmpty())
-           && (endpoint == null || endpoint.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(name, target, endpoint);
       }
 
   public String fhirType() {
@@ -1998,11 +1996,9 @@ public class MessageHeader extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (timestamp == null || timestamp.isEmpty()) && (event == null || event.isEmpty())
-           && (response == null || response.isEmpty()) && (source == null || source.isEmpty()) && (destination == null || destination.isEmpty())
-           && (enterer == null || enterer.isEmpty()) && (author == null || author.isEmpty()) && (receiver == null || receiver.isEmpty())
-           && (responsible == null || responsible.isEmpty()) && (reason == null || reason.isEmpty())
-           && (data == null || data.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(timestamp, event, response
+          , source, destination, enterer, author, receiver, responsible, reason, data
+          );
       }
 
   @Override

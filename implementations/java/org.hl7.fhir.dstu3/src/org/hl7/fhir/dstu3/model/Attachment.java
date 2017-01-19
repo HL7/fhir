@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -697,10 +697,8 @@ public class Attachment extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (contentType == null || contentType.isEmpty()) && (language == null || language.isEmpty())
-           && (data == null || data.isEmpty()) && (url == null || url.isEmpty()) && (size == null || size.isEmpty())
-           && (hash == null || hash.isEmpty()) && (title == null || title.isEmpty()) && (creation == null || creation.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(contentType, language, data
+          , url, size, hash, title, creation);
       }
 
 

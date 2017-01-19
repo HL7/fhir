@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -312,7 +312,7 @@ public class Measure extends MetadataResource {
          */
         STRUCTURE, 
         /**
-         * A measure that focuses on patient-reported information
+         * A measure that focuses on patient-reported information such as patient engagement or patient experience measures
          */
         PATIENTREPORTEDOUTCOME, 
         /**
@@ -366,7 +366,7 @@ public class Measure extends MetadataResource {
             case PROCESS: return "A measure which focuses on a process which leads to a certain outcome, meaning that a scientific basis exists for believing that the process, when executed well, will increase the probability of achieving a desired outcome";
             case OUTCOME: return "A measure that indicates the result of the performance (or non-performance) of a function or process";
             case STRUCTURE: return "A measure that focuses on a health care provider's capacity, systems, and processes to provide high-quality care";
-            case PATIENTREPORTEDOUTCOME: return "A measure that focuses on patient-reported information";
+            case PATIENTREPORTEDOUTCOME: return "A measure that focuses on patient-reported information such as patient engagement or patient experience measures";
             case COMPOSITE: return "A measure that combines multiple component measures in to a single quality measure";
             default: return "?";
           }
@@ -1167,9 +1167,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (population == null || population.isEmpty())
-           && (stratifier == null || stratifier.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, description
+          , population, stratifier);
       }
 
   public String fhirType() {
@@ -1594,9 +1593,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
-           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (criteria == null || criteria.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, name, description
+          , criteria);
       }
 
   public String fhirType() {
@@ -1885,8 +1883,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (criteria == null || criteria.isEmpty())
-           && (path == null || path.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, criteria, path
+          );
       }
 
   public String fhirType() {
@@ -2264,8 +2262,8 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (usage == null || usage.isEmpty())
-           && (criteria == null || criteria.isEmpty()) && (path == null || path.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, usage, criteria
+          , path);
       }
 
   public String fhirType() {
@@ -4964,18 +4962,11 @@ public class Measure extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (purpose == null || purpose.isEmpty())
-           && (usage == null || usage.isEmpty()) && (approvalDate == null || approvalDate.isEmpty())
-           && (lastReviewDate == null || lastReviewDate.isEmpty()) && (effectivePeriod == null || effectivePeriod.isEmpty())
-           && (topic == null || topic.isEmpty()) && (contributor == null || contributor.isEmpty()) && (copyright == null || copyright.isEmpty())
-           && (relatedArtifact == null || relatedArtifact.isEmpty()) && (library == null || library.isEmpty())
-           && (disclaimer == null || disclaimer.isEmpty()) && (scoring == null || scoring.isEmpty())
-           && (compositeScoring == null || compositeScoring.isEmpty()) && (type == null || type.isEmpty())
-           && (riskAdjustment == null || riskAdjustment.isEmpty()) && (rateAggregation == null || rateAggregation.isEmpty())
-           && (rationale == null || rationale.isEmpty()) && (clinicalRecommendationStatement == null || clinicalRecommendationStatement.isEmpty())
-           && (improvementNotation == null || improvementNotation.isEmpty()) && (definition == null || definition.isEmpty())
-           && (guidance == null || guidance.isEmpty()) && (set == null || set.isEmpty()) && (group == null || group.isEmpty())
-           && (supplementalData == null || supplementalData.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
+          , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
+          , library, disclaimer, scoring, compositeScoring, type, riskAdjustment, rateAggregation
+          , rationale, clinicalRecommendationStatement, improvementNotation, definition, guidance
+          , set, group, supplementalData);
       }
 
   @Override

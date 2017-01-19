@@ -121,6 +121,7 @@
   Type = DomainResource
   Short Name = Describes a set of tests
   Definition = TestReport is a resource that includes summary information on the results of executing a TestScript.
+  RIM Mapping = n/a
   Object Impl = BaseConformance
   w5 = conformance.misc
 
@@ -144,6 +145,15 @@
   Object Impl = BaseConformance.name
 
  -- Row 4 -----------------------------------
+  Element = TestReport.testScript
+  Card. = 1..1
+  Summary = y
+  Type = Reference(TestScript)
+  Short Name = Reference to the  version-specific TestScript that was executed to produce this TestReport
+  Definition = Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
+  w5 = id
+
+ -- Row 5 -----------------------------------
   Element = TestReport.status
   Card. = 1..1
   Is Modifier = yes
@@ -155,7 +165,7 @@
   Object Impl = BaseConformance.status
   w5 = status
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = TestReport.score
   Card. = 0..1
   Summary = y
@@ -163,7 +173,7 @@
   Short Name = The final score (percentage of tests passed) resulting from the execution of the TestScript
   Definition = The final score (percentage of tests passed) resulting from the execution of the TestScript.
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = TestReport.tester
   Card. = 0..1
   Summary = y
@@ -172,15 +182,6 @@
   Definition = Name of the tester producing this report (Organization or individual)
   Requirements = Helps establish the \"authority/credibility\" of the TestReport.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
-
- -- Row 7 -----------------------------------
-  Element = TestReport.testScript
-  Card. = 1..1
-  Summary = y
-  Type = Reference(TestScript)
-  Short Name = Reference to the  version-specific TestScript that was executed to produce this TestReport
-  Definition = Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
-  w5 = id
 
  -- Row 8 -----------------------------------
   Element = TestReport.issued

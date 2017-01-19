@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -520,9 +520,8 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-           && (valueCode == null || valueCode.isEmpty()) && (valueCoding == null || valueCoding.isEmpty())
-           && (valueCodeableConcept == null || valueCodeableConcept.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, valueSet, valueCode
+          , valueCoding, valueCodeableConcept);
       }
 
   public String fhirType() {
@@ -780,8 +779,7 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (path == null || path.isEmpty()) && (value == null || value.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, value);
       }
 
   public String fhirType() {
@@ -1285,9 +1283,8 @@ public class DataRequirement extends Type implements ICompositeType {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty())
-           && (mustSupport == null || mustSupport.isEmpty()) && (codeFilter == null || codeFilter.isEmpty())
-           && (dateFilter == null || dateFilter.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, profile, mustSupport
+          , codeFilter, dateFilter);
       }
 
 

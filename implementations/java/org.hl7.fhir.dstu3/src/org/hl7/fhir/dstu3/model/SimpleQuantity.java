@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 import ca.uhn.fhir.model.api.annotation.Block;
@@ -81,9 +81,8 @@ public class SimpleQuantity extends Quantity {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (value == null || value.isEmpty()) && (comparator == null || comparator.isEmpty())
-           && (unit == null || unit.isEmpty()) && (system == null || system.isEmpty()) && (code == null || code.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(value, comparator, unit
+          , system, code);
       }
 
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -577,9 +577,8 @@ public class MedicationDispense extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (wasSubstituted == null || wasSubstituted.isEmpty()) && (type == null || type.isEmpty())
-           && (reason == null || reason.isEmpty()) && (responsibleParty == null || responsibleParty.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(wasSubstituted, type, reason
+          , responsibleParty);
       }
 
   public String fhirType() {
@@ -2034,16 +2033,10 @@ public class MedicationDispense extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (medication == null || medication.isEmpty()) && (patient == null || patient.isEmpty())
-           && (supportingInformation == null || supportingInformation.isEmpty()) && (dispenser == null || dispenser.isEmpty())
-           && (dispensingOrganization == null || dispensingOrganization.isEmpty()) && (authorizingPrescription == null || authorizingPrescription.isEmpty())
-           && (type == null || type.isEmpty()) && (quantity == null || quantity.isEmpty()) && (daysSupply == null || daysSupply.isEmpty())
-           && (whenPrepared == null || whenPrepared.isEmpty()) && (whenHandedOver == null || whenHandedOver.isEmpty())
-           && (destination == null || destination.isEmpty()) && (receiver == null || receiver.isEmpty())
-           && (note == null || note.isEmpty()) && (dosageInstruction == null || dosageInstruction.isEmpty())
-           && (substitution == null || substitution.isEmpty()) && (eventHistory == null || eventHistory.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
+          , patient, supportingInformation, dispenser, dispensingOrganization, authorizingPrescription
+          , type, quantity, daysSupply, whenPrepared, whenHandedOver, destination, receiver
+          , note, dosageInstruction, substitution, eventHistory);
       }
 
   @Override

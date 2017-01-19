@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Jan 17, 2017 17:01-0600 for FHIR v1.9.0
+// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -384,8 +384,7 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (reason == null || reason.isEmpty()) && (reasonNotGiven == null || reasonNotGiven.isEmpty())
-          ;
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(reason, reasonNotGiven);
       }
 
   public String fhirType() {
@@ -687,8 +686,7 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (date == null || date.isEmpty()) && (detail == null || detail.isEmpty())
-           && (reported == null || reported.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(date, detail, reported);
       }
 
   public String fhirType() {
@@ -1305,10 +1303,8 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (doseSequence == null || doseSequence.isEmpty()) && (description == null || description.isEmpty())
-           && (authority == null || authority.isEmpty()) && (series == null || series.isEmpty()) && (seriesDoses == null || seriesDoses.isEmpty())
-           && (targetDisease == null || targetDisease.isEmpty()) && (doseStatus == null || doseStatus.isEmpty())
-           && (doseStatusReason == null || doseStatusReason.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(doseSequence, description
+          , authority, series, seriesDoses, targetDisease, doseStatus, doseStatusReason);
       }
 
   public String fhirType() {
@@ -2841,16 +2837,10 @@ public class Immunization extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
-           && (date == null || date.isEmpty()) && (vaccineCode == null || vaccineCode.isEmpty()) && (patient == null || patient.isEmpty())
-           && (wasNotGiven == null || wasNotGiven.isEmpty()) && (primarySource == null || primarySource.isEmpty())
-           && (reportOrigin == null || reportOrigin.isEmpty()) && (performer == null || performer.isEmpty())
-           && (requester == null || requester.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (manufacturer == null || manufacturer.isEmpty()) && (location == null || location.isEmpty())
-           && (lotNumber == null || lotNumber.isEmpty()) && (expirationDate == null || expirationDate.isEmpty())
-           && (site == null || site.isEmpty()) && (route == null || route.isEmpty()) && (doseQuantity == null || doseQuantity.isEmpty())
-           && (note == null || note.isEmpty()) && (explanation == null || explanation.isEmpty()) && (reaction == null || reaction.isEmpty())
-           && (vaccinationProtocol == null || vaccinationProtocol.isEmpty());
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, date
+          , vaccineCode, patient, wasNotGiven, primarySource, reportOrigin, performer, requester
+          , encounter, manufacturer, location, lotNumber, expirationDate, site, route, doseQuantity
+          , note, explanation, reaction, vaccinationProtocol);
       }
 
   @Override
