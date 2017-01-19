@@ -37,6 +37,7 @@ Assessment tools such as an Apgar or Glasgow score may be represented with both 
 				<li>valueQuantity</li>
 				<li>valueCodeableConcept</li>
 				<li>valueString</li>
+				<li>valueBoolean</li>
 				<li>valueRange</li>
 				<li>valueRatio</li>
 				<li>valueSampledData</li>
