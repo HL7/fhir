@@ -34,7 +34,7 @@ public class ShExValidator {
 
   public Schema readSchema(String schemaFile) throws Exception {
     // Create a none, see: http://stackoverflow.com/questions/1997433/how-to-use-scala-none-from-java-code
-    Option<String> none = Option.apply(null); // Create a none
+    Option<String> none = Option.apply((String) null); // Create a none
     String contents = new String(Files.readAllBytes(Paths.get(schemaFile)));
     return ShExSchema$.MODULE$.fromString(contents, "SHEXC", none).get();
   }
@@ -48,12 +48,12 @@ public class ShExValidator {
 //      System.out.println("Valid. Result: " + result.show());
     } else {
       System.out.println("Not valid");
-    }    
+    }
   }
-  
 
-  
-//  
+
+
+//
 //
 //
 //  public void validate(Model dataModel, Schema schema, PrefixMap pm) throws Exception {
@@ -66,7 +66,7 @@ public class ShExValidator {
 ////    } else {
 ////      System.out.println("Not valid");
 ////    }
-//  } 
+//  }
 //
 //  public void validate(String dataFile, String schemaFile) throws Exception {
 ////    log.info("Reading data file " + dataFile);
