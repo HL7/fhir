@@ -233,12 +233,14 @@
 
  -- Row 8 -----------------------------------
   Element = Condition.code
-  Card. = 1..1
+  Card. = 0..1
+  Aliases = type
   Summary = Y
   Type = CodeableConcept
   Binding = ConditionKind
   Short Name = Identification of the condition, problem or diagnosis
   Definition = Identification of the condition, problem or diagnosis.
+  Requirements = 0..1 to account for primarily narrative only resources
   SNOMED CT Concept Domain = code 246090004 |Associated finding| (< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) \nOR < 413350009 |Finding with explicit context|\nOR < 272379006 |Event|
   v2 Mapping = PRB-3
   RIM Mapping = .value
@@ -261,6 +263,7 @@
  -- Row 10 -----------------------------------
   Element = Condition.subject
   Card. = 1..1
+  Aliases = patient
   Summary = Y
   Type = Reference(Patient|Group)
   Short Name = Who has the condition?
@@ -274,6 +277,8 @@
  -- Row 11 -----------------------------------
   Element = Condition.context
   Card. = 0..1
+  Aliases = encounter
+  Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter when condition first asserted
   Definition = Encounter during which the condition was first asserted
@@ -309,7 +314,8 @@
  -- Row 14 -----------------------------------
   Element = Condition.assertedDate
   Card. = 0..1
-  Type = date
+  Summary = Y
+  Type = dateTime
   Short Name = Date record was believed accurate
   Definition = The date on which the existance of the Condition was first asserted or acknowledged.
   Comments = The assertedDate represents the date when this particular Condition record was created in the EHR, not the date of the most recent update in terms of when severity, abatement, etc. were specified.  The date of the last record modification can be retrieved from the resource metadata.
@@ -371,6 +377,7 @@
  -- Row 20 -----------------------------------
   Element = Condition.evidence.code
   Card. = 0..1
+  Summary = Y
   Inv. = 2
   Type = CodeableConcept
   Binding = ManifestationOrSymptom
@@ -382,6 +389,7 @@
  -- Row 21 -----------------------------------
   Element = Condition.evidence.detail
   Card. = 0..*
+  Summary = Y
   Inv. = 2
   Type = Reference(Any)
   Short Name = Supporting information found elsewhere
@@ -511,6 +519,11 @@
   Name = subject
   Type = reference
   Path = Condition.subject
+
+ -- Row 21 -----------------------------------
+  Name = evidence-detail
+  Type = reference
+  Path = Condition.evidence.detail
 
 === Sheet Profiles =====================================
 

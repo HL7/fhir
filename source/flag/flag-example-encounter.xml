@@ -5,6 +5,7 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Follow Infection Control Level 3 Protocol</div>
   </text>
+  <status value="active"/>
   <category>
     <coding>
       <system value="http://example.org/local"/>
@@ -12,7 +13,13 @@
       <display value="Infection Control Level"/>
     </coding>    
   </category>
-  <status value="active"/>
+  <code>
+    <coding>
+      <system value="http://example.org/local/if1"/>
+      <code value="l3"/>
+      <display value="Follow Level 3 Protocol"/>
+    </coding>
+  </code>
   
   <subject>
     <reference value="Patient/example"/>
@@ -23,11 +30,5 @@
     <reference value="Encounter/example"/>
   </encounter>
   
-  <code>
-    <coding>
-      <system value="http://example.org/local/if1"/>
-      <code value="l3"/>
-      <display value="Follow Level 3 Protocol"/>
-    </coding>
-  </code>
+  
 </Flag>

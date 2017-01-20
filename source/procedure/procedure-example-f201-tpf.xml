@@ -15,10 +15,10 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <encounter>
+  <context>
     <reference value="Encounter/f202"/>
     <display value="Roel's encounter on January 28th, 2013"/>
-  </encounter>
+  </context>
   <performedPeriod>
     <start value="2013-01-28T13:31:00+01:00"/>
     <end value="2013-01-28T14:27:00+01:00"/>
@@ -36,9 +36,9 @@
       </coding>
     </role>
   </performer>
-  <reasonCode>
+  <reasonCodeableConcept>
     <text value="DiagnosticReport/f201"/>
-  </reasonCode> 
+  </reasonCodeableConcept> 
   <!--TODO Why can't this be Resource (any) AND String?-->
   <bodySite>
       <coding>

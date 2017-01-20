@@ -13,9 +13,9 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-	<encounter>
+	<context>
         <reference value="Encounter/f001"/>
-    </encounter>
+    </context>
     <performedPeriod>
         <start value="2011-06-26"/>
         <end value="2011-06-27"/>
@@ -34,9 +34,9 @@
             <text value="Care role"/>
         </role>
     </performer>
-	<reasonCode>
+	<reasonCodeableConcept>
       <text value="Heart valve disorder"/>
-    </reasonCode>
+    </reasonCodeableConcept>
     <bodySite>
             <coding>
                 <system value="http://snomed.info/sct"/>

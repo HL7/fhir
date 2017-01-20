@@ -13,9 +13,9 @@
         <reference value="Patient/F001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-	<encounter>
+	<context>
         <reference value="Encounter/F001"/>
-    </encounter>
+    </context>
     <performedPeriod>
         <start value="2011-06-26"/>
         <end value="2011-06-27"/>

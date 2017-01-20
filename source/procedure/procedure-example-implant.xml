@@ -20,9 +20,9 @@
       <display value="Dr Cecil Surgeon"/>
     </actor>
   </performer>
-  <reasonCode>
+  <reasonCodeableConcept>
     <text value="Bradycardia"/>
-  </reasonCode> 
+  </reasonCodeableConcept> 
   <followUp>
       <text value="ROS 5 days  - 2013-04-10"/>
   </followUp>

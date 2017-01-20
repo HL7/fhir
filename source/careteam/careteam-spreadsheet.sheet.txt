@@ -200,13 +200,22 @@
   w5 = who.actor
 
  -- Row 11 -----------------------------------
+  Element = CareTeam.participant.onBehalfOf
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization of the practitioner
+  Definition = The organization of the practitioner
+  Requirements = Practitioners can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of
+
+ -- Row 12 -----------------------------------
   Element = CareTeam.participant.period
   Card. = 0..1
   Type = Period
   Short Name = Time period of participant
   Definition = Indicates when the specific member or organization did (or is intended to) come into effect and end.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CareTeam.managingOrganization
   Card. = 0..*
   Summary = Y

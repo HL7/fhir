@@ -13,9 +13,9 @@
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
     </subject>
-	<encounter>
+	<context>
         <reference value="Encounter/f002"/>
-    </encounter>
+    </context>
     <performedPeriod>
         <start value="2013-03-08T09:00:10+01:00"/>
         <end value="2013-03-08T09:30:10+01:00"/>
@@ -34,9 +34,9 @@
             <text value="Care role"/>
         </role>
     </performer>
-	<reasonCode>
+	<reasonCodeableConcept>
       <text value="Malignant tumor of lung"/>
-    </reasonCode>
+    </reasonCodeableConcept>
     <bodySite>
         
             <coding>

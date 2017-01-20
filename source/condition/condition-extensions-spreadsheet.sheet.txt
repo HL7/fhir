@@ -57,10 +57,10 @@
   Name = based-on
   Type = reference
   Description = Matches on the basedon extension value
-  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-basedon}
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-basedOn}
 
  -- Row 2 -----------------------------------
-  Name = parent
+  Name = part-of
   Type = reference
-  Description = Matches on the parent extension value
-  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-parent}
+  Description = Matches on the partOf extension value
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-partOf}

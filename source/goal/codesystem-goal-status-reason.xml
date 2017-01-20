@@ -11,12 +11,12 @@
   <content value="complete"/>
   <concept>
     <code value="surgery"/>
-    <display value="surgery"/>
+    <display value="Surgery"/>
     <definition value="Goal suspended or ended because of a surgical procedure."/>
   </concept>
   <concept>
     <code value="life-event"/>
-    <display value="life event"/>
+    <display value="Life Event"/>
     <definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."/>
   </concept>
   <concept>
@@ -31,7 +31,7 @@
   </concept>
   <concept>
     <code value="temp-not-attainable"/>
-    <display value="Goal not attainable temporarily"/>
+    <display value="Goal Not Attainable Temporarily"/>
     <definition value="Goal can not be reached temporarily."/>
   </concept>
   <concept>
