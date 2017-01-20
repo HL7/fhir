@@ -22,6 +22,33 @@
   Definition = A coded concept defining the kind of container a medication package is packaged in
   Conformance = example
 
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationStatus
+  Binding = code list
+  Reference = #medication-status
+  Definition = A coded concept defining if the medication is in active use
+  Conformance = required
+
+=== Sheet medication-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The medication is available for use
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inactive
+  Display = Inactive
+  Definition = The medication is not available for use
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The medication was entered in error
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -51,6 +78,16 @@
   w5 = class
 
  -- Row 3 -----------------------------------
+  Element = Medication.status
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = MedicationStatus
+  Short Name = active | inactive | entered-in-error
+  Definition = A code to iindicate if the medication is in active use
+  Comments = This status is not intended to specify if a medication is part of a formulary.
+
+ -- Row 4 -----------------------------------
   Element = Medication.isBrand
   Card. = 0..1
   Summary = y
@@ -61,7 +98,16 @@
   RIM Mapping = true if .player.scopingRole[typeCode=MANU] exists
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
+  Element = Medication.isOverTheCounter
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Name = True if medication does not require a prescription
+  Definition = Set to true if the medication can be obtained without an order from a prescriber
+  w5 = class
+
+ -- Row 6 -----------------------------------
   Element = Medication.manufacturer
   Card. = 0..1
   Summary = y
@@ -73,7 +119,7 @@
   RIM Mapping = .player.scopingRole[typeCode=MANU].scoper
   w5 = who.actor
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Medication.product
   Card. = 0..1
   UML = 450;120
@@ -82,7 +128,7 @@
   SCRIPT 10.6 Mapping = //element(*,DrugCodedType)/
   RIM Mapping = .player [classCode != CONT]
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Medication.product.form
   Card. = 0..1
   Type = CodeableConcept
@@ -94,7 +140,7 @@
   v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
   RIM Mapping = .formCode
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Medication.product.ingredient
   Card. = 0..*
   UML = 480;240
@@ -103,7 +149,7 @@
   Comments = The ingredients need not be a complete list; usually only active ingredients are listed
   RIM Mapping = .scopesRole[typeCode=INGR]
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Medication.product.ingredient.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Substance|Medication)
@@ -113,7 +159,7 @@
   v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
   RIM Mapping = .player
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Medication.product.ingredient.amount
   Card. = 0..1
   Type = Ratio
@@ -123,7 +169,7 @@
   v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Medication.product.batch
   Card. = 0..*
   UML = 300;240
@@ -132,7 +178,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Medication.product.batch.lotNumber
   Card. = 0..1
   Type = string
@@ -142,7 +188,7 @@
   v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
   RIM Mapping = Not Mapped
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Medication.product.batch.expirationDate
   Card. = 0..1
   Type = dateTime
@@ -152,7 +198,7 @@
   v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Medication.package
   Card. = 0..1
   UML = 0;120
@@ -162,7 +208,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player[classCode=CONT]
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Medication.package.container
   Card. = 0..1
   Type = CodeableConcept
@@ -172,7 +218,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .code
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
   UML = 0;240
@@ -181,7 +227,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .scopesRole[typeCode=CONT]
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Medication.package.content.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
@@ -190,7 +236,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Medication.package.content.amount
   Card. = 0..1
   Type = SimpleQuantity
@@ -198,6 +244,14 @@
   Definition = The amount of the product that is in the package
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .quantity
+
+ -- Row 20 -----------------------------------
+  Element = Medication.image
+  Card. = 0..*
+  Type = Attachment
+  Short Name = Image of medication
+  Definition = Photo(s) or graphic representation(s) of the medication.
+  Requirements = Note that \"image\" is only applicable when the medication.code represents a physical item (e.g. Amoxil 250 mg capsule) and not an abstract item (e.g. amoxicillin 250 mg).
 
 === Sheet Search =====================================
 
@@ -240,6 +294,16 @@
   Name = package-item-code
   Type = token
   Path = Medication.package.content.itemCodeableConcept
+
+ -- Row 9 -----------------------------------
+  Name = over-the-counter
+  Type = token
+  Path = Medication.isOverTheCounter
+
+ -- Row 10 -----------------------------------
+  Name = status
+  Type = token
+  Path = Medication.status
 
 === Sheet Profiles =====================================
 
