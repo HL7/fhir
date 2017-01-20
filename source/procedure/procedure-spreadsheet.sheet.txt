@@ -12,7 +12,7 @@
   Binding = value set
   Reference = valueset-device-action
   Definition = A kind of change that happened to the device during the procedure.
-  Conformance = example
+  Conformance = preferred
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureStatus

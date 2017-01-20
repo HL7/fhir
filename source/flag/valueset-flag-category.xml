@@ -14,7 +14,7 @@
       <value value="http://www.hl7.org/Special/committees/patientcare"/>
     </telecom>
   </contact>
-  <description value="Example list of detail codes for flagged issues. (Not complete or necessarily appropriate.)"/>
+  <description value="Example list of general categories for flagged issues. (Not complete or necessarily appropriate.)"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/flag-category"/>
