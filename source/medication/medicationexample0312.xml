@@ -37,7 +37,7 @@
         <numerator>
           <value value="100000"/>
           <system value="http://unitsofmeasure.org"/>
-          <code value="u"/>
+          <code value="IU"/>
         </numerator>
         <denominator>
           <value value="1"/>
