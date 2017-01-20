@@ -88,7 +88,7 @@
   Binding = code list
   Reference = #medication-request-category
   Definition = A coded concept identifying where the medication ordered is expected to be consumed or administered
-  Conformance = example
+  Conformance = preferred
 
  -- Row 14 -----------------------------------
   Binding Name = MedicationRequestPriority
@@ -322,6 +322,16 @@
   RIM Mapping = .priorityCode
 
  -- Row 9 -----------------------------------
+  Element = MedicationRequest.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationRequestCategory
+  Short Name = Type of medication usage
+  Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
+  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
+  RIM Mapping = not mapped
+
+ -- Row 10 -----------------------------------
   Element = MedicationRequest.medication[x]
   Card. = 1..1
   Summary = y
@@ -335,7 +345,7 @@
   RIM Mapping = consumable.administrableMedication
   w5 = what
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationRequest.subject
   Card. = 1..1
   Summary = y
@@ -348,7 +358,7 @@
   RIM Mapping = subject.role
   w5 = who.focus
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationRequest.context
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
@@ -360,7 +370,7 @@
   RIM Mapping = componentOf.patientEncounter
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationRequest.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
@@ -369,7 +379,7 @@
   RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationRequest.authoredOn
   Card. = 0..1
   Summary = y
@@ -381,7 +391,7 @@
   RIM Mapping = author.time
   w5 = when.recorded
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationRequest.requester
   Card. = 0..1
   Summary = y
@@ -391,7 +401,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.actor
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationRequest.requester.agent
   Card. = 1..1
   Summary = y
@@ -403,7 +413,7 @@
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = .player
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationRequest.requester.onBehalfOf
   Card. = 0..1
   Summary = y
@@ -414,7 +424,7 @@
   Requirements = Practitioners and Devices can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when authoring the request.
   RIM Mapping = .scoper
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationRequest.recorder
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -422,7 +432,7 @@
   Definition = The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.
   RIM Mapping = .participation[typeCode=TRANS].role[classCode=ASSIGNED].code (HealthcareProviderType)
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationRequest.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -435,7 +445,7 @@
   RIM Mapping = reason.observation.reasonCode
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationRequest.reasonReference
   Card. = 0..*
   Type = Reference(Condition |Observation)
@@ -446,7 +456,7 @@
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationRequest.note
   Card. = 0..*
   Type = Annotation
@@ -454,16 +464,6 @@
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
-
- -- Row 21 -----------------------------------
-  Element = MedicationRequest.category
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationRequestCategory
-  Short Name = Type of medication usage
-  Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
-  SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
-  RIM Mapping = not mapped
 
  -- Row 22 -----------------------------------
   Element = MedicationRequest.dosageInstruction

@@ -78,6 +78,13 @@
     <value value="12345689"/>
   </identifier>
   <status value="active" />  
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/medication-statement-category"/>
+      <code value="inpatient"/>
+      <display value="Inpatient"/>
+    </coding>
+  </category>
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
   </medicationReference> 
@@ -105,8 +112,6 @@
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>
-  <category value="community">
-  </category>
   <dosage>
     <sequence value="1"/>
     <text value="1-2 tablets once daily at bedtime as needed for restless legs" />
