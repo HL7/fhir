@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
+import org.hl7.fhir.dstu3.model.MarkdownType;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.utils.TranslatingUtilities;
 import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.github.rjeschke.txtmark.Processor;
 
-public class BaseRenderer {
+public class BaseRenderer extends TranslatingUtilities {
   protected IWorkerContext context;
   protected String prefix;
   protected IGKnowledgeProvider igp;
@@ -26,7 +30,9 @@ public class BaseRenderer {
     this.specmaps = specmaps;
   }
 
-  public String processMarkdown(String location, String text) throws Exception {
+  @SuppressWarnings("rawtypes")
+  public String processMarkdown(String location, PrimitiveType md) throws Exception {
+    String text = gt(md);
 	  try {
 	    if (text == null)
 	      return "";
@@ -104,6 +110,5 @@ public class BaseRenderer {
     else
       return uri;
   }
-
   
 }

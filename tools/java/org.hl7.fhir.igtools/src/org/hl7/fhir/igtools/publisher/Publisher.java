@@ -80,6 +80,7 @@ import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageCo
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
 import org.hl7.fhir.dstu3.model.MetadataResource;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.ResourceFactory;
@@ -135,6 +136,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
+
+import javafx.collections.transformation.TransformationList;
 
 /**
  * Implementation Guide Publisher
@@ -2421,13 +2424,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
-    String desc = r.getTitle();
+    PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
       name = ((MetadataResource) r.getResource()).getName();
       desc = getDesc((MetadataResource) r.getResource(), desc);
     }
-    list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc)+"</li>\r\n");
-    table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps).processMarkdown("description", desc)+"</td></tr>\r\n");
+    list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");
+    table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps).processMarkdown("description", desc )+"</td></tr>\r\n");
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
@@ -2451,21 +2454,22 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
   }
 
-  private String getDesc(MetadataResource r, String desc) {
+  @SuppressWarnings("rawtypes")
+  private PrimitiveType getDesc(MetadataResource r, PrimitiveType desc) {
     if (r instanceof CodeSystem) {
       CodeSystem v = (CodeSystem) r;
       if (v.hasDescription())
-        return v.getDescription();
+        return v.getDescriptionElement();
     }
     if (r instanceof ValueSet) {
       ValueSet v = (ValueSet) r;
       if (v.hasDescription())
-        return v.getDescription();
+        return v.getDescriptionElement();
     }
     if (r instanceof StructureDefinition) {
       StructureDefinition v = (StructureDefinition) r;
       if (v.hasDescription())
-        return v.getDescription();
+        return v.getDescriptionElement();
     }
     return desc;
   }

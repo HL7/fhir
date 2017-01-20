@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +27,9 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Quantity;
@@ -46,6 +49,7 @@ import org.hl7.fhir.igtools.publisher.IGKnowledgeProvider;
 import org.hl7.fhir.igtools.publisher.SpecMapManager;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.TranslatingUtilities.TranslationServices;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
 public class StructureDefinitionRenderer extends BaseRenderer {
@@ -66,10 +70,16 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     utils.setIgmode(true);
   }
 
+  @Override
+  public void setTranslator(org.hl7.fhir.utilities.TranslatingUtilities.TranslationServices translator) {
+    super.setTranslator(translator);
+    utils.setTranslator(translator);
+  }
+
   public String summary() {
     try {
       if (sd.getDifferential() == null)
-        return "<p>No Summary, as this profile has no differential</p>";
+        return "<p>"+translate("sd.summary", "No Summary, as this profile has no differential")+"</p>";
 
       // references
       List<String> refs = new ArrayList<String>(); // profile references
@@ -116,53 +126,54 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             tryAdd(slices, describeSlice(ed.getPath(), ed.getSlicing()));
         }
       }
-      StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<p><b>\r\nSummary\r\n</b></p>\r\n");
+      StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<p><b>\r\n"+translate("sd.summary", "Summary")+"\r\n</b></p>\r\n");
       if (ToolingExtensions.hasExtension(sd, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary")) {
-        res.append(processMarkdown("Profile.summary", ToolingExtensions.readStringExtension(sd, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary")));
+        Extension v = ToolingExtensions.getExtension(sd, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary");
+        res.append(processMarkdown("Profile.summary", (PrimitiveType) v.getValue()));
       }
       if (supports + requiredOutrights + requiredNesteds + fixeds + prohibits > 0) {
         boolean started = false;
         res.append("<p>");
         if (requiredOutrights > 0 || requiredNesteds > 0) {
           started = true;
-          res.append("Mandatory: "+Integer.toString(requiredOutrights)+" "+(requiredOutrights > 1 ? Utilities.pluralizeMe("element") : "element"));
+          res.append(translate("sd.summary", "Mandatory: %s %s", toStr(requiredOutrights), (requiredOutrights > 1 ? translate("sd.summary", Utilities.pluralizeMe("element")) : translate("sd.summary", "element"))));
           if (requiredNesteds > 0)
-            res.append(" (+"+Integer.toString(requiredNesteds)+" nested mandatory "+(requiredNesteds > 1 ? Utilities.pluralizeMe("element") : "element")+")"); 
+            res.append(translate("sd.summary", " (%s nested mandatory %s)", toStr(requiredNesteds), requiredNesteds > 1 ? translate("sd.summary", Utilities.pluralizeMe("element")) : translate("sd.summary", "element"))); 
         }
         if (supports > 0) {
           if (started)
             res.append("<br/> ");
           started = true;
-          res.append("Must-Support: "+Integer.toString(supports)+" "+(supports > 1 ? Utilities.pluralizeMe("element") : "element")); 
+          res.append(translate("sd.summary", "Must-Support: %s %s", toStr(supports), supports > 1 ? translate("sd.summary", Utilities.pluralizeMe("element")) : translate("sd.summary", "element"))); 
         }
         if (fixeds > 0) {
           if (started)
             res.append("<br/> ");
           started = true;
-          res.append("Fixed Value: "+Integer.toString(fixeds)+" "+(fixeds > 1 ? Utilities.pluralizeMe("element") : "element")); 
+          res.append(translate("sd.summary", "Fixed Value: %s %s", toStr(fixeds), fixeds > 1 ? translate("sd.summary", Utilities.pluralizeMe("element")) : translate("sd.summary", "element"))); 
         }
         if (prohibits > 0) {
           if (started)
             res.append("<br/> ");
           started = true;
-          res.append("Prohibited: "+Integer.toString(prohibits)+" "+(prohibits > 1 ? Utilities.pluralizeMe("element") : "element")); 
+          res.append(translate("sd.summary", "Prohibited: %s %s", toStr(prohibits), prohibits > 1 ? translate("sd.summary", Utilities.pluralizeMe("element")) : translate("sd.summary", "element"))); 
         }
         res.append("</p>");        
       }
       if (!refs.isEmpty()) {
-        res.append("<p><b>Structures</b></p>\r\n<p>This structure refers to these other structures:</p>\r\n<ul>\r\n");
+        res.append("<p><b>"+translate("sd.summary", "Structures")+"</b></p>\r\n<p>"+translate("sd.summary", "This structure refers to these other structures")+":</p>\r\n<ul>\r\n");
         for (String s : refs)
           res.append(s);
         res.append("\r\n</ul>\r\n\r\n");
       }
       if (!ext.isEmpty()) {
-        res.append("<p><b>Extensions</b></p>\r\n<p>This structure refers to these extensions:</p>\r\n<ul>\r\n");
+        res.append("<p><b>"+translate("sd.summary", "Extensions")+"</b></p>\r\n<p>"+translate("sd.summary", "This structure refers to these extensions")+":</p>\r\n<ul>\r\n");
         for (String s : ext)
           res.append(s);
         res.append("\r\n</ul>\r\n\r\n");
       }
       if (!slices.isEmpty()) {
-        res.append("<p><b>Slices</b></p>\r\n<p>This structure defines the following <a href=\""+prefix+"profiling.html#slices\">Slices</a>:</p>\r\n<ul>\r\n");
+        res.append("<p><b>"+translate("sd.summary", "Slices")+"</b></p>\r\n<p>"+translate("sd.summary", "This structure defines the following %sSlices%s", "<a href=\""+prefix+"profiling.html#slices\">", "</a>")+":</p>\r\n<ul>\r\n");
         for (String s : slices)
           res.append(s);
         res.append("\r\n</ul>\r\n\r\n");
@@ -207,7 +218,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   private String describeSlice(String path, ElementDefinitionSlicingComponent slicing) {
     if (!slicing.hasDiscriminator())
-      return "<li>There is a slice with no discriminator at "+path+"</li>\r\n";
+      return "<li>"+translate("sd.summary", "There is a slice with no discriminator at %s", path)+"</li>\r\n";
     String s = "";
     if (slicing.getOrdered())
       s = "ordered";
@@ -216,11 +227,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       if (!Utilities.noString(s))
         s = " ("+s+")";
       if (slicing.getDiscriminator().size() == 1)
-        return "<li>The element "+path+" is sliced based on the value of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+        return "<li>"+translate("sd.summary", "The element %s is sliced based on the value of %s", path, slicing.getDiscriminator().get(0).asStringValue())+s+"</li>\r\n";
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (StringType d : slicing.getDiscriminator()) 
         b.append(d.asStringValue());
-      return "<li>The element "+path+" is sliced based on the values of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+      return "<li>"+translate("sd.summary", "The element %s is sliced based on the values of %s", path, slicing.getDiscriminator().get(0).asStringValue())+s+"</li>\r\n";
   }
 
   private void tryAdd(List<String> ext, String s) {
@@ -231,11 +242,11 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String summariseExtension(String url, boolean modifier, String prefix) throws Exception {
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
     if (ed == null)
-      return "<li>unable to summarise extension "+url+" (no extension found)</li>";
+      return "<li>"+translate("sd.summary", "Unable to summarise extension %s (no extension found)", url)+"</li>";
     if (ed.getUserData("path") == null)
-      return "<li><a href=\""+"extension-"+ed.getId().toLowerCase()+".html\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
+      return "<li><a href=\""+"extension-"+ed.getId().toLowerCase()+".html\">"+url+"</a>"+(modifier ? " (<b>"+translate("sd.summary", "Modifier")+"</b>) " : "")+"</li>\r\n";    
     else
-      return "<li><a href=\""+ed.getUserString("path")+"\">"+url+"</a>"+(modifier ? " (<b>Modifier</b>) " : "")+"</li>\r\n";    
+      return "<li><a href=\""+ed.getUserString("path")+"\">"+url+"</a>"+(modifier ? " (<b>"+translate("sd.summary", "Modifier")+"</b>) " : "")+"</li>\r\n";    
   }
 
   private String describeProfile(String url, String prefix) throws Exception {
@@ -244,7 +255,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
     StructureDefinition ed = context.fetchResource(StructureDefinition.class, url);
     if (ed == null)
-      return "<li>unable to summarise profile "+url+" (no profile found)</li>";
+      return "<li>"+translate("sd.summary", "unable to summarise profile %s (no profile found)",url)+"</li>";
     return "<li><a href=\""+ed.getUserString("path")+"\">"+url+"</a></li>\r\n";    
   }
 
@@ -254,7 +265,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "<a href=\""+uri.asStringValue()+"\">"+uri.asStringValue()+"</a>";
     } if (binding.getValueSet() instanceof Reference) {
       Reference ref = (Reference) binding.getValueSet();
-      String disp = ref.getDisplay();
+      String disp = gt(ref.getDisplayElement());
       ValueSet vs = context.fetchResource(ValueSet.class, ref.getReference());
       if (disp == null && vs != null)
         disp = vs.getName();
@@ -278,9 +289,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String summarise(Quantity quantity) {
     String cu = "";
     if ("http://unitsofmeasure.org/".equals(quantity.getSystem()))
-      cu = " (UCUM: "+quantity.getCode()+")";
+      cu = " ("+translate("sd.summary", "UCUM")+": "+quantity.getCode()+")";
     if ("http://snomed.info/sct".equals(quantity.getSystem()))
-      cu = " (SNOMED CT: "+quantity.getCode()+")";
+      cu = " ("+translate("sd.summary", "SNOMED CT")+": "+quantity.getCode()+")";
     return quantity.getValue().toString()+quantity.getUnit()+cu;
   }
 
@@ -295,12 +306,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   private String summarise(Coding coding) throws Exception {
     if ("http://snomed.info/sct".equals(coding.getSystem()))
-      return "SNOMED CT code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+      return ""+translate("sd.summary", "SNOMED CT code")+" "+coding.getCode()+ (!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     if ("http://loinc.org".equals(coding.getSystem()))
-      return "LOINC code "+coding.getCode()+ (coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+      return ""+translate("sd.summary", "LOINC code")+" "+coding.getCode()+ (!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     CodeSystem cs = context.fetchCodeSystem(coding.getSystem());
     if (cs !=  null) {
-      return "<a href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(coding.getDisplay() == null ? "" : "(\""+coding.getDisplay()+"\")");
+      return "<a href=\""+cs.getUserData("filename")+"#"+coding.getCode()+"\">"+coding.getCode()+"</a>"+(!coding.hasDisplay() ? "" : "(\""+gt(coding.getDisplayElement())+"\")");
     }
     throw new Exception("Unknown system "+coding.getSystem()+" generating fixed value description");
   }
@@ -346,9 +357,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h4>Terminology Bindings</h4>\r\n");       
+      b.append("<h4>"+translate("sd.tx", "Terminology Bindings")+"</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
-      b.append("<tr><td><b>Path</b></td><td><b>Name</b></td><td><b>Conformance</b></td><td><b>ValueSet</b></td></tr>\r\n");
+      b.append("<tr><td><b>"+translate("sd.tx", "Path")+"</b></td><td><b>"+translate("sd.tx", "Name")+"</b></td><td><b>"+translate("sd.tx", "Conformance")+"</b></td><td><b>"+translate("sd.tx", "ValueSet")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
         ElementDefinitionBindingComponent tx = txmap.get(path);
         String vss = "";
@@ -364,25 +375,24 @@ public class StructureDefinitionRenderer extends BaseRenderer {
             else { 
               String p = vs.getUserString("path");
               if (p == null)
-                vss = "<a href=\"??\">"+Utilities.escapeXml(vs.getName())+" (missing link)</a>";
+                vss = "<a href=\"??\">"+Utilities.escapeXml(gt(vs.getNameElement()))+" ("+translate("sd.tx", "missing link")+")</a>";
               else if (p.startsWith("http:"))
-                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
+                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
               else
-                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(vs.getName())+"</a>";
-              vsn = vs.getName();
+                vss = "<a href=\""+p+"\">"+Utilities.escapeXml(gt(vs.getNameElement()))+"</a>";
+              vsn = gt(vs.getNameElement());
             }
           }
         }
         b.append("<tr><td>").append(path).append("</td><td>").append(Utilities.escapeXml(vsn)).append("</td><td><a href=\"").
-        append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).
-        append("\">").append(tx.getStrength() == null ? "" : tx.getStrength().toCode()).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
+        append(prefix).append("terminologies.html#").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).
+        append("\">").append(tx.getStrength() == null ? "" : egt(tx.getStrengthElement())).append("</a></td><td>").append(vss).append("</td></tr>\r\n");
       }
       b.append("</table>\r\n");
       return b.toString();
 
     }
   }
-
 
   public String inv() {
     List<String> txlist = new ArrayList<String>();
@@ -397,14 +407,14 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return "";
     else {
       StringBuilder b = new StringBuilder();
-      b.append("<h4>Constraints</h4>\r\n");       
+      b.append("<h4>"+translate("sd.inv", "Constraints")+"</h4>\r\n");       
       b.append("<table class=\"list\">\r\n");
-      b.append("<tr><td width=\"60\"><b>Id</b></td><td><b>Path</b></td><td><b>Details</b></td><td><b>Requirements</b></td></tr>\r\n");
+      b.append("<tr><td width=\"60\"><b>"+translate("sd.inv", "Id")+"</b></td><td><b>"+translate("sd.inv", "Path")+"</b></td><td><b>"+translate("sd.inv", "Details")+"</b></td><td><b>"+translate("sd.inv", "Requirements")+"</b></td></tr>\r\n");
       for (String path : txlist)  {
         List<ElementDefinitionConstraintComponent> invs = txmap.get(path);
         for (ElementDefinitionConstraintComponent inv : invs) {
-          b.append("<tr><td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(inv.getHuman()))
-          .append("<br/>XPath: ").append(Utilities.escapeXml(inv.getXpath())).append("</td><td>").append(Utilities.escapeXml(inv.getRequirements())).append("</td></tr>\r\n");
+          b.append("<tr><td>").append(inv.getKey()).append("</td><td>").append(path).append("</td><td>").append(Utilities.escapeXml(gt(inv.getHumanElement())))
+          .append("<br/>: ").append(Utilities.escapeXml(inv.getExpression())).append("</td><td>").append(Utilities.escapeXml(gt(inv.getRequirementsElement()))).append("</td></tr>\r\n");
         }
       }
       b.append("</table>\r\n");
@@ -509,44 +519,43 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     return null;
   }
 
-
   private void generateElementInner(StringBuilder b, StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
-    tableRowNE(b, "Definition", null, processMarkdown(profile.getName(), d.getDefinition()));
-    tableRowNE(b, "Note", null, businessIdWarning(profile.getName(), tail(d.getPath())));
-    tableRow(b, "Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
-    tableRowNE(b, "Binding", "terminologies.html", describeBinding(d));
+    tableRowNE(b, translate("sd.dict", "Definition"), null, processMarkdown(profile.getName(), d.getDefinitionElement()));
+    tableRowNE(b, translate("sd.dict", "Note"), null, businessIdWarning(profile.getName(), tail(d.getPath())));
+    tableRow(b, translate("sd.dict", "Control"), "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
+    tableRowNE(b, translate("sd.dict", "Binding"), "terminologies.html", describeBinding(d));
     if (d.hasContentReference())
-      tableRow(b, "Type", null, "See "+d.getContentReference().substring(1));
+      tableRow(b, translate("sd.dict", "Type"), null, "See "+d.getContentReference().substring(1));
     else
-      tableRowNE(b, "Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
+      tableRowNE(b, translate("sd.dict", "Type"), "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
     if (d.getPath().endsWith("[x]"))
-      tableRowNE(b, "[x] Note", null, "See <a href=\""+prefix+"formats.html#choice\">Choice of Data Types</a> for further information about how to use [x]");
-    tableRow(b, "Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
-    tableRow(b, "Must Support", "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
-    tableRowNE(b, "Requirements",  null, processMarkdown(profile.getName(), d.getRequirements()));
-    tableRowHint(b, "Alternate Names", "Other names by which this resource/element may be known", null, describeAliases(d.getAlias()));
-    tableRowNE(b, "Comments",  null, processMarkdown(profile.getName(), d.getComments()));
-    tableRow(b, "Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
-    tableRowNE(b, "Default Value", null, encodeValue(d.getDefaultValue()));
-    tableRowNE(b, "Meaning if Missing", null, d.getMeaningWhenMissing());
-    tableRowNE(b, "Fixed Value", null, encodeValue(d.getFixed()));
-    tableRowNE(b, "Pattern Value", null, encodeValue(d.getPattern()));
-    tableRowNE(b, "Example", null, encodeValues(d.getExample()));
-    tableRowNE(b, "Invariants", null, invariants(d.getConstraint()));
-    tableRow(b, "LOINC Code", null, getMapping(profile, d, LOINC_MAPPING));
-    tableRow(b, "SNOMED-CT Code", null, getMapping(profile, d, SNOMED_MAPPING));
+      tableRowNE(b, translate("sd.dict", "[x] Note"), null, translate("sd.dict", "See %sChoice of Data Types%s for further information about how to use [x]", "<a href=\""+prefix+"formats.html#choice\">", "</a>"));
+    tableRow(b, translate("sd.dict", "Is Modifier"), "conformance-rules.html#ismodifier", displayBoolean(d.getIsModifier()));
+    tableRow(b, translate("sd.dict", "Must Support"), "conformance-rules.html#mustSupport", displayBoolean(d.getMustSupport()));
+    tableRowNE(b, translate("sd.dict", "Requirements"),  null, processMarkdown(profile.getName(), d.getRequirementsElement()));
+    tableRowHint(b, translate("sd.dict", "Alternate Names"), translate("sd.dict", "Other names by which this resource/element may be known"), null, describeAliases(d.getAlias()));
+    tableRowNE(b, translate("sd.dict", "Comments"),  null, processMarkdown(profile.getName(), d.getCommentsElement()));
+    tableRow(b, translate("sd.dict", "Max Length"), null, !d.hasMaxLengthElement() ? null : toStr(d.getMaxLength()));
+    tableRowNE(b, translate("sd.dict", "Default Value"), null, encodeValue(d.getDefaultValue()));
+    tableRowNE(b, translate("sd.dict", "Meaning if Missing"), null, d.getMeaningWhenMissing());
+    tableRowNE(b, translate("sd.dict", "Fixed Value"), null, encodeValue(d.getFixed()));
+    tableRowNE(b, translate("sd.dict", "Pattern Value"), null, encodeValue(d.getPattern()));
+    tableRowNE(b, translate("sd.dict", "Example"), null, encodeValues(d.getExample()));
+    tableRowNE(b, translate("sd.dict", "Invariants"), null, invariants(d.getConstraint()));
+    tableRow(b, translate("sd.dict", "LOINC Code"), null, getMapping(profile, d, LOINC_MAPPING));
+    tableRow(b, translate("sd.dict", "SNOMED-CT Code"), null, getMapping(profile, d, SNOMED_MAPPING));
   }
 
   private void generateSlicing(StructureDefinition profile, ElementDefinitionSlicingComponent slicing) throws IOException {
     StringBuilder b = new StringBuilder();
     if (slicing.getOrdered())
-      b.append("<li>ordered</li>");
+      b.append("<li>"+translate("sd.dict", "ordered")+"</li>");
     else
-      b.append("<li>unordered</li>");
+      b.append("<li>"+translate("sd.dict", "unordered")+"</li>");
     if (slicing.hasRules())
       b.append("<li>"+slicing.getRules().getDisplay()+"</li>");
     if (!slicing.getDiscriminator().isEmpty()) {
-      b.append("<li>discriminators: ");
+      b.append("<li>"+translate("sd.dict", "discriminators")+": ");
       boolean first = true;
       for (StringType s : slicing.getDiscriminator()) {
         if (first)
@@ -557,7 +566,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       }
       b.append("</li>");
     }
-    tableRowNE(b, "Slicing", "profiling.html#slicing", "This element introduces a set of slices. The slicing rules are: <ul> "+b.toString()+"</ul>");
+    tableRowNE(b, ""+translate("sd.dict", "Slicing"), "profiling.html#slicing", translate("sd.dict", "This element introduces a set of slices. The slicing rules are")+": <ul> "+b.toString()+"</ul>");
   }
 
   private void tableRow(StringBuilder b, String name, String defRef, String value) throws IOException {
@@ -611,9 +620,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
 
   private String businessIdWarning(String resource, String name) {
     if (name.equals("identifier"))
-      return "This is a business identifer, not a resource identifier (see <a href=\""+prefix+"resource.html#identifiers\">discussion</a>)";
+      return ""+translate("sd.dict", "This is a business identifer, not a resource identifier (see %sdiscussion%s)", "<a href=\""+prefix+"resource.html#identifiers\">", "</a>");
     if (name.equals("version")) // && !resource.equals("Device"))
-      return "This is a business versionId, not a resource version id (see <a href=\""+prefix+"resource.html#versions\">discussion</a>)";
+      return ""+translate("sd.dict", "This is a business versionId, not a resource version id (see %sdiscussion%s)", "<a href=\""+prefix+"resource.html#versions\">", "</a>");
     return null;
   }
 
@@ -621,9 +630,9 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (!d.hasMax() && d.getMinElement() == null)
       return "";
     else if (d.getMax() == null)
-      return Integer.toString(d.getMin()) + "..?";
+      return toStr(d.getMin()) + "..?";
     else
-      return Integer.toString(d.getMin()) + ".." + d.getMax();
+      return toStr(d.getMin()) + ".." + d.getMax();
   }
 
   private String summariseConditions(List<IdType> conditions) {
@@ -633,7 +642,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
       for (IdType t : conditions)
         b.append(t.getValue());
-      return " This element is affected by the following invariants: "+b.toString();
+      return " "+translate("sd.dict", "This element is affected by the following invariants")+": "+b.toString();
     }
   }
 
@@ -646,7 +655,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       describeType(b, types.get(0));
     else {
       boolean first = true;
-      b.append("Choice of: ");
+      b.append(translate("sd.dict", "Choice of")+": ");
       for (TypeRefComponent t : types) {
         if (first)
           first = false;
@@ -716,8 +725,8 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String processSecondary(int mode, ElementDefinition value) throws Exception {
     switch (mode) {
     case 1 : return "";
-    case 2 : return "  (Complex Extension)";
-    case 3 : return "  (Extension Type: "+describeTypes(value.getType())+")";
+    case 2 : return "  ("+translate("sd.dict", "Complex Extension")+")";
+    case 3 : return "  ("+translate("sd.dict", "Extension Type")+": "+describeTypes(value.getType())+")";
     default: return "";
     }
   }
@@ -734,7 +743,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       return null;
     StringBuilder s = new StringBuilder();
     if (constraints.size() > 0) {
-      s.append("<b>Defined on this element</b><br/>\r\n");
+      s.append("<b>"+translate("sd.dict", "Defined on this element")+"</b><br/>\r\n");
       List<String> ids = new ArrayList<String>();
       for (ElementDefinitionConstraintComponent id : constraints)
         ids.add(id.hasKey() ? id.getKey() : id.toString());
@@ -746,7 +755,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
           s.append("<br/>");
         else
           b = true;
-        s.append("<b title=\"Formal Invariant Identifier\">"+id+"</b>: "+Utilities.escapeXml(inv.getHuman())+" (xpath: "+Utilities.escapeXml(inv.getXpath())+")");
+        s.append("<b title=\""+translate("sd.dict", "Formal Invariant Identifier")+"\">"+id+"</b>: "+Utilities.escapeXml(gt(inv.getHumanElement()))+" (: "+Utilities.escapeXml(inv.getExpression())+")");
       }
     }
 
@@ -780,7 +789,7 @@ public class StructureDefinitionRenderer extends BaseRenderer {
         if (pp == null) {
           return null;
         } else if (pp.startsWith("http:") || pp.startsWith("https:"))
-          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp+"\">"+vs.getName()+"</a>"+confTail(def);
+          return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp+"\">"+gt(vs.getNameElement())+"</a>"+confTail(def);
         else
           return def.getDescription()+"<br/>"+conf(def)+ "<a href=\""+pp.replace(File.separatorChar, '/')+"\">"+vs.getName()+"</a>"+confTail(def);
       }
@@ -792,25 +801,25 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     }
   }
 
-  private static String confTail(ElementDefinitionBindingComponent def) {
+  private String confTail(ElementDefinitionBindingComponent def) {
     if (def.getStrength() == BindingStrength.EXTENSIBLE)
-      return "; other codes may be used where these codes are not suitable";
+      return "; "+translate("sd.dict", "other codes may be used where these codes are not suitable");
     else
       return "";
   }
 
-  private static String conf(ElementDefinitionBindingComponent def) {
+  private String conf(ElementDefinitionBindingComponent def) {
     switch (def.getStrength()) {
     case EXAMPLE:
-      return "For example codes, see ";
+      return ""+translate("sd.dict", "For example codes, see ");
     case PREFERRED:
-      return "The codes SHOULD be taken from ";
+      return ""+translate("sd.dict", "The codes SHOULD be taken from ");
     case EXTENSIBLE:
-      return "The codes SHALL be taken from ";
+      return ""+translate("sd.dict", "The codes SHALL be taken from ");
     case REQUIRED:
-      return "The codes SHALL be taken from ";
+      return ""+translate("sd.dict", "The codes SHALL be taken from ");
     default:
-      return "??";
+      return ""+"??";
     }
   }
 
@@ -867,26 +876,26 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   private String describeAliases(List<StringType> synonym) {
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
     for (StringType s : synonym) 
-      b.append(s.getValue());
+      b.append(gt(s));
     return b.toString();
   }
 
   public String mappings() {
     if (sd.getMapping().isEmpty())
-      return "<p>No Mappings</p>";
+      return "<p>"+translate("sd.maps", "No Mappings")+"</p>";
     else {
       StringBuilder s = new StringBuilder();
       for (StructureDefinitionMappingComponent map : sd.getMapping()) {
 
-        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>Mappings for "+Utilities.escapeXml(map.getName())+" ("+map.getUri()+")</h3>");
+        s.append("<a name=\""+map.getIdentity() +"\"> </a><h3>"+translate("sd.maps", "Mappings for %s (%s)", Utilities.escapeXml(gt(map.getNameElement())), map.getUri())+"</h3>");
         if (map.hasComments())
-          s.append("<p>"+Utilities.escapeXml(map.getComments())+"</p>");
+          s.append("<p>"+Utilities.escapeXml(gt(map.getCommentsElement()))+"</p>");
 //        else if (specmaps != null && preambles.has(map.getUri()))   
 //          s.append(preambles.get(map.getUri()).getAsString());
 
         s.append("<table class=\"grid\">\r\n");
 
-        s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(sd.getName())+"</b></td></tr>\r\n");
+        s.append(" <tr><td colspan=\"3\"><b>"+Utilities.escapeXml(gt(sd.getNameElement()))+"</b></td></tr>\r\n");
         String path = null;
         for (ElementDefinition e : sd.getSnapshot().getElement()) {
           if (path == null || !e.getPath().startsWith(path)) {
@@ -938,23 +947,23 @@ public class StructureDefinitionRenderer extends BaseRenderer {
   public String header() throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<p>\r\n");
-    b.append("The official URL for this profile is:\r\n");
+    b.append(translate("sd.header", "The official URL for this profile is:")+"\r\n");
     b.append("</p>\r\n");
     b.append("<pre>"+sd.getUrl()+"</pre>\r\n");
     b.append("<p>\r\n");
-    b.append(processMarkdown("description", sd.getDescription()));
+    b.append(processMarkdown("description", sd.getDescriptionElement()));
     b.append("</p>\r\n");
     if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT) {
       b.append("<p>\r\n");
       StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
       if (sdb != null)
-        b.append("This profile builds on <a href=\""+sdb.getUserString("path")+"\">"+sdb.getName()+"</a>.");
+        b.append(translate("sd.header", "This profile builds on")+" <a href=\""+sdb.getUserString("path")+"\">"+gt(sdb.getNameElement())+"</a>.");
       else
-        b.append("This profile builds on "+sd.getBaseDefinition()+".");
+        b.append(translate("sd.header", "This profile builds on")+" "+sd.getBaseDefinition()+".");
       b.append("</p>\r\n");
     }
     b.append("<p>\r\n");
-    b.append("This profile was published on "+sd.getDate().toString()+" as a "+sd.getStatus().toCode()+" by "+sd.getPublisher()+".\r\n");
+    b.append(translate("sd.header", "This profile was published on %s as a %s by %s.\r\n", toStr(sd.getDate()), egt(sd.getStatusElement()), gt(sd.getPublisherElement())));
     b.append("</p>\r\n");
     return b.toString();
   }

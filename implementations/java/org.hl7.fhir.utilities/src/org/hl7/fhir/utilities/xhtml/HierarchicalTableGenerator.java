@@ -46,12 +46,13 @@ import javax.imageio.ImageIO;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.utilities.TranslatingUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
 import com.github.rjeschke.txtmark.Processor;
 
 
-public class HierarchicalTableGenerator  {
+public class HierarchicalTableGenerator extends TranslatingUtilities {
   public static final String TEXT_ICON_REFERENCE = "Reference to another Resource";
   public static final String TEXT_ICON_PRIMITIVE = "Primitive Data Type";
   public static final String TEXT_ICON_DATATYPE = "Data Type";
@@ -332,24 +333,25 @@ public class HierarchicalTableGenerator  {
     
     model.setDocoImg(prefix+"help16.png");
     model.setDocoRef(prefix+"formats.html#table");
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Name", "The logical name of the element", null, 0));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Flags", "Information about the use of the element", null, 0));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Type", "Reference to the type of the element", null, 100));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Description & Constraints", "Additional information about the element", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Name"), translate("sd.hint", "The logical name of the element"), null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Flags"), translate("sd.hint", "Information about the use of the element"), null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Card."), translate("sd.hint", "Minimum and Maximum # of times the the element can appear in the instance"), null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Type"), translate("sd.hint", "Reference to the type of the element"), null, 100));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Description & Constraints"), translate("sd.hint", "Additional information about the element"), null, 0));
     if (isLogical) {
       model.getTitles().add(new Title(null, prefix+"structuredefinition.html#logical", "Implemented As", "How this logical data item is implemented in a concrete resource", null, 0));
     }
     return model;
   }
 
+
   public TableModel initGridTable(String prefix) {
     TableModel model = new TableModel();
     
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Name", "The name of the element (Slice name in brackets).  Mouse-over provides definition", null, 0));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance. Super-scripts indicate additional constraints on appearance", null, 0));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Type", "Reference to the type of the element", null, 100));
-    model.getTitles().add(new Title(null, model.getDocoRef(), "Constraints and Usage", "Fixed values, length limits, vocabulary bindings and other usage notes", null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Name"), translate("sd.hint", "The name of the element (Slice name in brackets).  Mouse-over provides definition"), null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Card."), translate("sd.hint", "Minimum and Maximum # of times the the element can appear in the instance. Super-scripts indicate additional constraints on appearance"), null, 0));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Type"), translate("sd.hint", "Reference to the type of the element"), null, 100));
+    model.getTitles().add(new Title(null, model.getDocoRef(), translate("sd.head", "Constraints and Usage"), translate("sd.hint", "Fixed values, length limits, vocabulary bindings and other usage notes"), null, 0));
     return model;
   }
 
@@ -377,10 +379,10 @@ public class HierarchicalTableGenerator  {
       tc.setAttribute("class", "hierarchy");
       tc.setAttribute("colspan", Integer.toString(model.getTitles().size()));
       tc.addTag("br");
-      XhtmlNode a = tc.addTag("a").setAttribute("title", "Legend for this format").setAttribute("href", model.getDocoRef());
+      XhtmlNode a = tc.addTag("a").setAttribute("title", translate("sd.doco", "Legend for this format")).setAttribute("href", model.getDocoRef());
       if (model.getDocoImg() != null)
         a.addTag("img").setAttribute("alt", "doco").setAttribute("style", "background-color: inherit").setAttribute("src", model.getDocoImg());
-      a.addText(" Documentation for this format");
+      a.addText(" "+translate("sd.doco", "Documentation for this format"));
     }
     return table;
   }

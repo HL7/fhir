@@ -54,6 +54,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.utils.TranslatingUtilities;
 import org.hl7.fhir.dstu3.utils.formats.CSVWriter;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -86,7 +87,7 @@ import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
  * @author Grahame
  *
  */
-public class ProfileUtilities {
+public class ProfileUtilities extends TranslatingUtilities {
 
   private static int nextSliceId = 0;
   
@@ -1394,6 +1395,7 @@ public class ProfileUtilities {
 
   public XhtmlNode generateExtensionTable(String defFile, StructureDefinition ed, String imageFolder, boolean inlineGraphics, boolean full, String corePath, String imagePath) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    gen.setTranslator(getTranslator());
     TableModel model = gen.initNormalTable(corePath, false);
 
     boolean deep = false;
@@ -1745,6 +1747,7 @@ public class ProfileUtilities {
   public XhtmlNode generateTable(String defFile, StructureDefinition profile, boolean diff, String imageFolder, boolean inlineGraphics, String profileBaseFileName, boolean snapshot, String corePath, String imagePath, boolean logicalModel, boolean allInvariants) throws IOException, FHIRException {
     assert(diff != snapshot);// check it's ok to get rid of one of these
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    gen.setTranslator(getTranslator());
     TableModel model = gen.initNormalTable(corePath, false);
     List<ElementDefinition> list = diff ? profile.getDifferential().getElement() : profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
@@ -1760,6 +1763,7 @@ public class ProfileUtilities {
 
   public XhtmlNode generateGrid(String defFile, StructureDefinition profile, String imageFolder, boolean inlineGraphics, String profileBaseFileName, String corePath, String imagePath) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, inlineGraphics);
+    gen.setTranslator(getTranslator());
     TableModel model = gen.initGridTable(corePath);
     List<ElementDefinition> list = profile.getSnapshot().getElement();
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
@@ -1826,18 +1830,18 @@ public class ProfileUtilities {
       String ref = defPath == null ? null : defPath + element.getId();
       UnusedTracker used = new UnusedTracker();
       used.used = true;
-      Cell left = gen.new Cell(null, ref, s, (element.hasSliceName() ? "Slice "+element.getSliceName() : "")+(hasDef && element.hasSliceName() ? ": " : "")+(!hasDef ? null : element.getDefinition()), null);
+      Cell left = gen.new Cell(null, ref, s, (element.hasSliceName() ? translate("sd.table", "Slice")+" "+element.getSliceName() : "")+(hasDef && element.hasSliceName() ? ": " : "")+(!hasDef ? null : gt(element.getDefinitionElement())), null);
       row.getCells().add(left);
       Cell gc = gen.new Cell();
       row.getCells().add(gc);
       if (element != null && element.getIsModifier())
-        checkForNoChange(element.getIsModifierElement(), gc.addImage(imagePath+"modifier.png", "This element is a modifier element", "?!", null, null));
+        checkForNoChange(element.getIsModifierElement(), gc.addImage(imagePath+"modifier.png", translate("sd.table", "This element is a modifier element"), "?!", null, null));
       if (element != null && element.getMustSupport())
-        checkForNoChange(element.getMustSupportElement(), gc.addImage(imagePath+"mustsupport.png", "This element must be supported", "S", "white", "red"));
+        checkForNoChange(element.getMustSupportElement(), gc.addImage(imagePath+"mustsupport.png", translate("sd.table", "This element must be supported"), "S", "white", "red"));
       if (element != null && element.getIsSummary())
-        checkForNoChange(element.getIsSummaryElement(), gc.addImage(imagePath+"summary.png", "This element is included in summaries", "∑", null, null));
+        checkForNoChange(element.getIsSummaryElement(), gc.addImage(imagePath+"summary.png", translate("sd.table", "This element is included in summaries"), "Σ", null, null));
       if (element != null && (!element.getConstraint().isEmpty() || !element.getCondition().isEmpty()))
-        gc.addImage(imagePath+"lock.png", "This element has or is affected by some invariants", "I", null, null);
+        gc.addImage(imagePath+"lock.png", translate("sd.table", "This element has or is affected by some invariants"), "I", null, null);
 
       ExtensionContext extDefn = null;
       if (ext) {
@@ -1851,14 +1855,14 @@ public class ProfileUtilities {
             String name = urltail(element.getType().get(0).getProfile());
             left.getPieces().get(0).setText(name);
             // left.getPieces().get(0).setReference((String) extDefn.getExtensionStructure().getTag("filename"));
-            left.getPieces().get(0).setHint("Extension URL = "+extDefn.getUrl());
+            left.getPieces().get(0).setHint(translate("sd.table", "Extension URL")+" = "+extDefn.getUrl());
             genCardinality(gen, element, row, hasDef, used, extDefn.getElement());
             ElementDefinition valueDefn = extDefn.getExtensionValueDefinition();
             if (valueDefn != null && !"0".equals(valueDefn.getMax()))
                genTypes(gen, row, valueDefn, profileBaseFileName, profile, corePath, imagePath);
              else // if it's complex, we just call it nothing
                 // genTypes(gen, row, extDefn.getSnapshot().getElement().get(0), profileBaseFileName, profile);
-              row.getCells().add(gen.new Cell(null, null, "(Complex)", null, null));
+              row.getCells().add(gen.new Cell(null, null, "("+translate("sd.table", "Complex")+")", null, null));
             generateDescription(gen, row, element, extDefn.getElement(), used.used, null, extDefn.getUrl(), profile, corePath, imagePath, root, logicalModel, allInvariants, valueDefn);
           }
         } else {
@@ -1926,9 +1930,9 @@ public class ProfileUtilities {
       used.used = true;
       Cell left = gen.new Cell();
       if (element.getType().size() == 1 && element.getType().get(0).isPrimitive())
-        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : element.getDefinition()).addStyle("font-weight:bold"));
+        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : gt(element.getDefinitionElement())).addStyle("font-weight:bold"));
       else
-        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : element.getDefinition()));
+        left.getPieces().add(gen.new Piece(ref, "\u00A0\u00A0" + s, !hasDef ? null : gt(element.getDefinitionElement())));
       if (element.hasSliceName()) {
         left.getPieces().add(gen.new Piece("br"));
         String indent = StringUtils.repeat('\u00A0', 1+2*(element.getPath().split("\\.").length));
@@ -2056,11 +2060,11 @@ public class ProfileUtilities {
     if (used) {
       if (logicalModel && ToolingExtensions.hasExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace")) {
         if (root) {
-          c.getPieces().add(gen.new Piece(null, "XML Namespace: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, translate("sd.table", "XML Namespace")+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"), null));        
         } else if (!root && ToolingExtensions.hasExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace") && 
             !ToolingExtensions.readStringExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").equals(ToolingExtensions.readStringExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))) {
-          c.getPieces().add(gen.new Piece(null, "XML Namespace: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, translate("sd.table", "XML Namespace")+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"), null));        
         }
       }
@@ -2068,19 +2072,19 @@ public class ProfileUtilities {
       if (definition.hasContentReference()) {
         ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), definition.getContentReference());
         if (ed == null)
-          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+definition.getContentReference(), null));
+          c.getPieces().add(gen.new Piece(null, translate("sd.table", "Unknown reference to %s", definition.getContentReference()), null));
         else
-          c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
+          c.getPieces().add(gen.new Piece("#"+ed.getPath(), translate("sd.table", "See %s", ed.getPath()), null));
       }
       if (definition.getPath().endsWith("url") && definition.hasFixed()) {
         c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "\""+buildJson(definition.getFixed())+"\"", null).addStyle("color: darkgreen")));
       } else {
         if (definition != null && definition.hasShort()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, definition.getShort(), null)));
+          c.addPiece(checkForNoChange(definition.getShortElement(), gen.new Piece(null, gt(definition.getShortElement()), null)));
         } else if (fallback != null && fallback != null && fallback.hasShort()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, fallback.getShort(), null)));
+          c.addPiece(checkForNoChange(fallback.getShortElement(), gen.new Piece(null, gt(fallback.getShortElement()), null)));
         }
         if (url != null) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
@@ -2093,13 +2097,13 @@ public class ProfileUtilities {
               ref = p.startsWith("http:") || igmode ? p : Utilities.pathReverse(corePath, p);
             }
           }
-          c.getPieces().add(gen.new Piece(null, "URL: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, translate("sd.table", "URL")+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(ref, fullUrl, null));
         }
 
         if (definition.hasSlicing()) {
           if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-          c.getPieces().add(gen.new Piece(null, "Slice: ", null).addStyle("font-weight:bold"));
+          c.getPieces().add(gen.new Piece(null, translate("sd.table", "Slice")+": ", null).addStyle("font-weight:bold"));
           c.getPieces().add(gen.new Piece(null, describeSlice(definition.getSlicing()), null));
         }
         if (definition != null) {
@@ -2112,11 +2116,12 @@ public class ProfileUtilities {
             if (!c.getPieces().isEmpty()) 
               c.addPiece(gen.new Piece("br"));
             BindingResolution br = pkp.resolveBinding(profile, binding, definition.getPath());
-            c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, "Binding: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, translate("sd.table", "Binding")+": ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(binding, gen.new Piece(br.url == null ? null : Utilities.isAbsoluteUrl(br.url) || !pkp.prependLinks() ? br.url : corePath+br.url, br.display, null)));
             if (binding.hasStrength()) {
               c.getPieces().add(checkForNoChange(binding, gen.new Piece(null, " (", null)));
-              c.getPieces().add(checkForNoChange(binding, gen.new Piece(corePath+"terminologies.html#"+binding.getStrength().toCode(), binding.getStrength().toCode(), binding.getStrength().getDefinition())));              c.getPieces().add(gen.new Piece(null, ")", null));
+              c.getPieces().add(checkForNoChange(binding, gen.new Piece(corePath+"terminologies.html#"+binding.getStrength().toCode(), egt(binding.getStrengthElement()), binding.getStrength().getDefinition())));              
+              c.getPieces().add(gen.new Piece(null, ")", null));
             }
           }
           for (ElementDefinitionConstraintComponent inv : definition.getConstraint()) {
@@ -2124,21 +2129,21 @@ public class ProfileUtilities {
               if (!c.getPieces().isEmpty()) 
                 c.addPiece(gen.new Piece("br"));
               c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getKey()+": ", null).addStyle("font-weight:bold")));
-              c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, inv.getHuman(), null)));
+              c.getPieces().add(checkForNoChange(inv, gen.new Piece(null, gt(inv.getHumanElement()), null)));
             }
           }
           if (definition.hasFixed()) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, "Fixed Value: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, translate("sd.table", "Fixed Value")+": ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getFixed(), gen.new Piece(null, buildJson(definition.getFixed()), null).addStyle("color: darkgreen")));
           } else if (definition.hasPattern()) {
             if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, "Required Pattern: ", null).addStyle("font-weight:bold")));
+            c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, translate("sd.table", "Required Pattern")+": ", null).addStyle("font-weight:bold")));
             c.getPieces().add(checkForNoChange(definition.getPattern(), gen.new Piece(null, buildJson(definition.getPattern()), null).addStyle("color: darkgreen")));
           } else if (definition.hasExample()) {
             for (ElementDefinitionExampleComponent ex : definition.getExample()) {
               if (!c.getPieces().isEmpty()) c.addPiece(gen.new Piece("br"));
-              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, "Example'"+("".equals("General")? "" : " "+ex.getLabel()+"'")+": ", null).addStyle("font-weight:bold")));
+              c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, translate("sd.table", "Example")+("".equals("General")? "" : " "+ex.getLabel()+"'")+": ", null).addStyle("font-weight:bold")));
               c.getPieces().add(checkForNoChange(ex, gen.new Piece(null, buildJson(ex.getValue()), null).addStyle("color: darkgreen")));
             }
           }
@@ -2290,7 +2295,7 @@ public class ProfileUtilities {
 
 
   public String describeSlice(ElementDefinitionSlicingComponent slicing) {
-    return (slicing.getOrdered() ? "Ordered, " : "Unordered, ")+describe(slicing.getRules())+", by "+commas(slicing.getDiscriminator());
+    return translate("sd.table", "%s, %s by %s", slicing.getOrdered() ? translate("sd.table", "Ordered") : translate("sd.table", "Unordered"), describe(slicing.getRules()), commas(slicing.getDiscriminator()));
   }
 
   private String commas(List<StringType> discriminator) {
@@ -2303,9 +2308,9 @@ public class ProfileUtilities {
 
   private String describe(SlicingRules rules) {
     switch (rules) {
-    case CLOSED : return "Closed";
-    case OPEN : return "Open";
-    case OPENATEND : return "Open At End";
+    case CLOSED : return translate("sd.table", "Closed");
+    case OPEN : return translate("sd.table", "Open");
+    case OPENATEND : return translate("sd.table", "Open At End");
     default:
       return "??";
     }
@@ -3160,6 +3165,7 @@ public class ProfileUtilities {
 
   public XhtmlNode generateSpanningTable(StructureDefinition profile, String imageFolder, boolean onlyConstraints, String constraintPrefix) throws IOException, FHIRException {
     HierarchicalTableGenerator gen = new HierarchicalTableGenerator(imageFolder, false);
+    gen.setTranslator(getTranslator());
     TableModel model = initSpanningTable(gen, "", false);
     Set<String> processed = new HashSet<String>();
     SpanEntry span = buildSpanningTable("(focus)", "", profile, processed, onlyConstraints, constraintPrefix);

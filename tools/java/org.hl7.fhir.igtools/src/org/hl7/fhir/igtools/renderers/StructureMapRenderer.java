@@ -35,31 +35,31 @@ public class StructureMapRenderer extends BaseRenderer {
 //    return "[--Summary goes here--]";
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(map.getUrl())+"</td></tr>\r\n");
-    b.append(" <tr><td>Name:</td><td>"+Utilities.escapeXml(map.getName())+"</td></tr>\r\n");
+    b.append(" <tbody><tr><td>"+translate("sm.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(map.getUrl())+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("sm.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(map.getNameElement()))+"</td></tr>\r\n");
     if (map.hasDescription())
-      b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", map.getDescription())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("sm.summary", "Definition")+":</td><td>"+processMarkdown("description", map.getDescriptionElement())+"</td></tr>\r\n");
     if (map.hasPublisher())
-      b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(map.getPublisher())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("sm.summary", "Publisher")+":</td><td>"+Utilities.escapeXml(gt(map.getPublisherElement()))+"</td></tr>\r\n");
     if (map.hasCopyright())
-      b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(map.getCopyright())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("sm.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(map.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>Source Resource</td><td>");
+      b.append(" <tr><td>"+translate("sm.summary", "Source Resource")+"</td><td>");
       boolean first = true;
       String filename = igp.getProperty(r, "format");
       if (filename == null)
         filename = "ValueSet-"+r.getId()+".{{[fmt]}}.html";
       if (xml) {
         first = false;
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "xml")+"\">"+translate("sm.summary", "XML")+"</a>");
       }
       if (json) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "json")+"\">JSON</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "json")+"\">"+translate("sm.summary", "JSON")+"</a>");
       }
       if (ttl) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "ttl")+"\">Turtle</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "ttl")+"\">"+translate("sm.summary", "Turtle")+"</a>");
       }
       b.append("</td></tr>\r\n");
     }
@@ -72,7 +72,7 @@ public class StructureMapRenderer extends BaseRenderer {
     StringBuilder b = new StringBuilder();
     b.append("<ul>\r\n");
     for (StructureDefinition sd : analysis.getProfiles()) {
-      b.append("  <li><a href=\""+sd.getUserString("path")+"\">"+Utilities.escapeXml(sd.getName())+"</a></li>\r\n");
+      b.append("  <li><a href=\""+sd.getUserString("path")+"\">"+Utilities.escapeXml(gt(sd.getNameElement()))+"</a></li>\r\n");
     }
     b.append("</ul>\r\n");
     return b.toString();

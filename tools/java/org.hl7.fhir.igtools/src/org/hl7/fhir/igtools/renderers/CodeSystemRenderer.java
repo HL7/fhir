@@ -11,6 +11,8 @@ import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.MetadataResource;
+import org.hl7.fhir.dstu3.model.PrimitiveType;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
@@ -34,30 +36,30 @@ public class CodeSystemRenderer extends BaseRenderer {
   public String summary(boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(cs.getUrl())+"</td></tr>\r\n");
-    b.append(" <tr><td>Name:</td><td>"+Utilities.escapeXml(cs.getName())+"</td></tr>\r\n");
-    b.append(" <tr><td>Status:</td><td>"+describeContent(cs.getContent())+"</td></tr>\r\n");
-    b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", cs.getDescription())+"</td></tr>\r\n");
+    b.append(" <tbody><tr><td>"+translate("cs.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(cs.getUrl())+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("cs.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(cs.getNameElement()))+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("cs.summary", "Status")+":</td><td>"+describeContent(cs.getContent())+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("cs.summary", "Definition")+":</td><td>"+processMarkdown("description", cs.getDescriptionElement())+"</td></tr>\r\n");
     if (cs.hasPublisher())
-      b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(cs.getPublisher())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("cs.summary", "Publisher")+":</td><td>"+Utilities.escapeXml(gt(cs.getPublisherElement()))+"</td></tr>\r\n");
     if (CodeSystemUtilities.hasOID(cs))
-      b.append(" <tr><td>OID:</td><td>"+CodeSystemUtilities.getOID(cs)+"(for OID based terminology systems)</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("cs.summary", "OID")+":</td><td>"+CodeSystemUtilities.getOID(cs)+"("+translate("cs.summary", "for OID based terminology systems")+")</td></tr>\r\n");
     if (cs.hasCopyright())
-      b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(cs.getCopyright())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("cs.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(cs.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>Source Resource</td><td>");
+      b.append(" <tr><td>"+translate("cs.summary", "Source Resource")+"</td><td>");
       boolean first = true;
       if (xml) {
         first = false;
-        b.append("<a href=\"CodeSystem-"+cs.getId()+".xml.html\">XML</a>");
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".xml.html\">"+translate("cs.summary", "XML")+"</a>");
       }
       if (json) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\"CodeSystem-"+cs.getId()+".json.html\">JSON</a>");
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".json.html\">"+translate("cs.summary", "JSON")+"</a>");
       }
       if (ttl) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\"CodeSystem-"+cs.getId()+".ttl.html\">Turtle</a>");
+        b.append("<a href=\"CodeSystem-"+cs.getId()+".ttl.html\">"+translate("cs.summary", "Turtle")+"</a>");
       }
       b.append("</td></tr>\r\n");
     }
@@ -66,12 +68,13 @@ public class CodeSystemRenderer extends BaseRenderer {
     return b.toString();
   }
 
+
   private String describeContent(CodeSystemContentMode content) {
     switch (content) {
-    case COMPLETE: return "All the concepts defined by the code system are included in the code system resource";
-    case NOTPRESENT: return "None of the concepts defined by the code system are included in the code system resource";
-    case EXAMPLAR: return "A few representative concepts are included in the code system resource";
-    case FRAGMENT: return "A subset of the code system concepts are included in the code system resource";
+    case COMPLETE: return translate("cs.summary", "All the concepts defined by the code system are included in the code system resource");
+    case NOTPRESENT: return translate("cs.summary", "None of the concepts defined by the code system are included in the code system resource");
+    case EXAMPLAR: return translate("cs.summary", "A few representative concepts are included in the code system resource");
+    case FRAGMENT: return translate("cs.summary", "A subset of the code system concepts are included in the code system resource");
     }
     return "?? illegal status";
   }
@@ -107,7 +110,7 @@ public class CodeSystemRenderer extends BaseRenderer {
         first = addLink(b, first, vc, ed, processed);
     }
     if (first)
-      b.append("<p>This codeSystem is not used</p>\r\n");
+      b.append("<p>"+translate("cs.xref", "This CodeSystem is not used")+"</p>\r\n");
     else
       b.append("</ul>\r\n");
     return b.toString();
@@ -119,7 +122,7 @@ public class CodeSystemRenderer extends BaseRenderer {
         first = false;
         b.append("<ul>\r\n");
       } else if (!processed.contains(vc.getUserString("path"))) {
-        b.append(" <li><a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
+        b.append(" <li><a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(gt(vc.getNameElement()))+"</a></li>\r\n");
         processed.add(vc.getUserString("path"));
       }
     }

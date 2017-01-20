@@ -34,32 +34,32 @@ public class ValueSetRenderer extends BaseRenderer {
   public String summary(FetchedResource r, boolean xml, boolean json, boolean ttl) throws Exception {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"grid\">\r\n");
-    b.append(" <tbody><tr><td>Defining URL:</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
-    b.append(" <tr><td>Name:</td><td>"+Utilities.escapeXml(vs.getName())+"</td></tr>\r\n");
-    b.append(" <tr><td>Definition:</td><td>"+processMarkdown("description", vs.getDescription())+"</td></tr>\r\n");
+    b.append(" <tbody><tr><td>"+translate("vs.summary", "Defining URL")+":</td><td>"+Utilities.escapeXml(vs.getUrl())+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("vs.summary", "Name")+":</td><td>"+Utilities.escapeXml(gt(vs.getNameElement()))+"</td></tr>\r\n");
+    b.append(" <tr><td>"+translate("vs.summary", "Definition")+":</td><td>"+processMarkdown("description", vs.getDescriptionElement())+"</td></tr>\r\n");
     if (vs.hasPublisher())
-      b.append(" <tr><td>Publisher:</td><td>"+Utilities.escapeXml(vs.getPublisher())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("vs.summary", "Publisher")+":</td><td>"+Utilities.escapeXml(gt(vs.getPublisherElement()))+"</td></tr>\r\n");
     if (ValueSetUtilities.hasOID(vs))
-      b.append(" <tr><td>OID:</td><td>"+ValueSetUtilities.getOID(vs)+"(for OID based terminology systems)</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("vs.summary", "OID")+":</td><td>"+ValueSetUtilities.getOID(vs)+"("+translate("vs.summary", "for OID based terminology systems")+")</td></tr>\r\n");
     if (vs.hasCopyright())
-      b.append(" <tr><td>Copyright:</td><td>"+Utilities.escapeXml(vs.getCopyright())+"</td></tr>\r\n");
+      b.append(" <tr><td>"+translate("vs.summary", "Copyright")+":</td><td>"+Utilities.escapeXml(gt(vs.getCopyrightElement()))+"</td></tr>\r\n");
     if (xml || json || ttl) {
-      b.append(" <tr><td>Source Resource</td><td>");
+      b.append(" <tr><td>"+translate("vs.summary", "Source Resource")+"</td><td>");
       boolean first = true;
       String filename = igp.getProperty(r, "format");
       if (filename == null)
         filename = "ValueSet-"+r.getId()+".{{[fmt]}}.html";
       if (xml) {
         first = false;
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "xml")+"\">XML</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "xml")+"\">"+translate("vs.summary", "XML")+"</a>");
       }
       if (json) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "json")+"\">JSON</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "json")+"\">"+translate("vs.summary", "JSON")+"</a>");
       }
       if (ttl) {
         if (first) first = false; else b.append(" / ");
-        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "ttl")+"\">Turtle</a>");
+        b.append("<a href=\""+igp.doReplacements(filename,  r,  null, "ttl")+"\">"+translate("vs.summary", "Turtle")+"</a>");
       }
       b.append("</td></tr>\r\n");
     }
@@ -102,7 +102,7 @@ public class ValueSetRenderer extends BaseRenderer {
               first = false;
               b.append("<ul>\r\n");
             }
-            b.append(" <li>Included into <a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
+            b.append(" <li>"+translate("vs.usage", "Included into ")+"<a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(gt(vc.getNameElement()))+"</a></li>\r\n");
             break;
           }
         }
@@ -114,7 +114,7 @@ public class ValueSetRenderer extends BaseRenderer {
               first = false;
               b.append("<ul>\r\n");
             }
-            b.append(" <li>Excluded from <a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(vc.getName())+"</a></li>\r\n");
+            b.append(" <li>"+translate("vs.usage", "Excluded from ")+"<a href=\""+vc.getUserString("path")+"\">"+Utilities.escapeXml(gt(vc.getNameElement()))+"</a></li>\r\n");
             break;
           }
         }
@@ -143,7 +143,7 @@ public class ValueSetRenderer extends BaseRenderer {
     }
     
     if (first)
-      b.append("<p>This value set is not used</p>\r\n");
+      b.append("<p>"+translate("vs.usage", "This value set is not used")+"</p>\r\n");
     else
       b.append("</ul>\r\n");
     return b.toString();

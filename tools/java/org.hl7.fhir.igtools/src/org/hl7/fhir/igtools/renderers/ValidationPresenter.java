@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
 import org.hl7.fhir.dstu3.utils.OperationOutcomeUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.utils.TranslatingUtilities;
 import org.hl7.fhir.igtools.publisher.FetchedFile;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -22,7 +23,7 @@ import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.validation.ValidationMessage.IssueSeverity;
 import org.stringtemplate.v4.ST;
 
-public class ValidationPresenter implements Comparator<FetchedFile> {
+public class ValidationPresenter extends TranslatingUtilities implements Comparator<FetchedFile> {
 
   private static final String INTERNAL_LINK = "internal";
 
