@@ -100,6 +100,7 @@
   Context = CareTeam
   English = CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
   XPath = true()
+  Expression = (onBehalfOf.exists()).not() or (member is Practitioner)
 
 === Sheet Data Elements =====================================
 
