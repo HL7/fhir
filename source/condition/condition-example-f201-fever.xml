@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f201"/>
-  <clinicalStatus value="active"/>
+  <identifier>
+    <value value="12345"/>
+  </identifier>
+  <clinicalStatus value="resolved"/>
   <verificationStatus value="confirmed"/>
   <category>
     <!--The fever is a mild problem-->
@@ -48,6 +51,7 @@
     <reference value="Encounter/f201"/>
   </context>
   <onsetDateTime value="2013-04-02"/>
+  <abatementString value="around April 9, 2013"/>
   <assertedDate value="2013-04-04"/>
   <asserter>
     <reference value="Practitioner/f201"/>

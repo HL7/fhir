@@ -60,5 +60,11 @@
         <display value="Temporary"/>
       </coding>
     </summary>
+	<assessment>
+		<display value="Genetic analysis master panel"/>
+	</assessment>
   </stage>
+   <note>
+    <text value="The patient is anuric."/>
+  </note>
 </Condition>

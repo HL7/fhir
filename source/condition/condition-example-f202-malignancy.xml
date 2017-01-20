@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/condition.xsd">
   <id value="f202"/>
-  <clinicalStatus value="active"/>
+  <clinicalStatus value="resolved"/>
   <verificationStatus value="confirmed"/>
   <category>
     <coding>
@@ -43,6 +43,12 @@
     <system value="http://unitsofmeasure.org"/>
     <code value="a"/>
   </onsetAge>
+   <abatementAge>
+    <value value="54"/>
+    <unit value="years"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="a"/>
+  </abatementAge>
   <assertedDate value="2012-12-01"/>
   <evidence>
     <!--Problem is confirmed in diagnostic report-->
