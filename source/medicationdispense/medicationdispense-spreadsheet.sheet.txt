@@ -363,6 +363,14 @@
   Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
 
  -- Row 24 -----------------------------------
+  Element = MedicationDispense.detectedIssue
+  Card. = 0..*
+  Aliases = Contraindication; Drug Utilization Review (DUR); Alert
+  Type = Reference (DetectedIssue)
+  Short Name = Clinical Issue with action
+  Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+
+ -- Row 25 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)

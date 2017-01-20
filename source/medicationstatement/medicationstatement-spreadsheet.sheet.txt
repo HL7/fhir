@@ -421,6 +421,12 @@
   Description = Returns statements that are part of another event.
   Path = MedicationStatement.partOf
 
+ -- Row 10 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = MedicationStatement.subject
+  Target Types = Patient
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

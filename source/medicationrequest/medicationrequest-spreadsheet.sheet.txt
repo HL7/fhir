@@ -573,6 +573,14 @@
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
  -- Row 33 -----------------------------------
+  Element = MedicationRequest.detectedIssue
+  Card. = 0..*
+  Aliases = Contraindication; Drug Utilization Review (DUR); Alert
+  Type = Reference (DetectedIssue)
+  Short Name = Clinical Issue with action
+  Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+
+ -- Row 34 -----------------------------------
   Element = MedicationRequest.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -654,6 +662,13 @@
   Type = token
   Description = Returns prescriptions with different intents
   Path = MedicationRequest.intent
+
+ -- Row 13 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Returns prescriptions for a specific patient
+  Path = MedicationRequest.subject
+  Target Types = Patient
 
 === Sheet Profiles =====================================
 
