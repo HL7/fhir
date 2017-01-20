@@ -360,7 +360,6 @@
   Short Name = Who is responsible for the substitution
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
-  Committee Notes = Who is this handled?  Elsewhere attribution is handled by FHIR
 
  -- Row 24 -----------------------------------
   Element = MedicationDispense.detectedIssue
@@ -371,6 +370,20 @@
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
 
  -- Row 25 -----------------------------------
+  Element = MedicationDispense.notDone
+  Card. = 0..1
+  Type = boolean
+  Short Name = Whether the dispense was or was not performed
+  Definition = True if the dispense was not peformed for some reason
+
+ -- Row 26 -----------------------------------
+  Element = MedicationDispense.notDoneReason[x]
+  Card. = 0..1
+  Type = CodeableConcept|Reference(DetectedIssue)
+  Short Name = Why a dispense was not performed
+  Definition = Indicates the reason why a dispense was not performed
+
+ -- Row 27 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
