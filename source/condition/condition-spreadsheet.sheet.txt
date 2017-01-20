@@ -420,7 +420,7 @@
   Path = Condition.identifier
 
  -- Row 3 -----------------------------------
-  Name = clinicalstatus
+  Name = clinical-status
   Type = token
   Description = The clinical status of the condition
   Path = Condition.clinicalStatus
@@ -524,6 +524,11 @@
   Name = evidence-detail
   Type = reference
   Path = Condition.evidence.detail
+
+ -- Row 22 -----------------------------------
+  Name = verification-status
+  Type = token
+  Path = Condition.verificationStatus
 
 === Sheet Profiles =====================================
 

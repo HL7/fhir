@@ -54,6 +54,7 @@
     </Goal>
   </contained>
   <status value="active"/>
+  <intent value="plan"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>

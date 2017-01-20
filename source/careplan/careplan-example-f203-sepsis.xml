@@ -45,6 +45,7 @@
     </Goal>
   </contained>
   <status value="completed"/>
+  <intent value="plan"/>
   <subject>
     <!--It entails Roel's careplan-->
     <reference value="Patient/f201"/>

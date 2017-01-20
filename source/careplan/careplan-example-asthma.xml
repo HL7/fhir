@@ -218,6 +218,7 @@
     </Goal>
   </contained>
   <status value="active"/>
+  <intent value="plan"/>
   <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>

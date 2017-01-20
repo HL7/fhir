@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<ValueSet xmlns="http://hl7.org/fhir">
-  <meta>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-  </meta>
+<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
   <url value="http://hl7.org/fhir/ValueSet/device-action"/>
-  <name value="Procedure Device Action Codes"/>
-  <status value="draft"/>
-  <publisher value="FHIR Project team"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <description value="Example value set for Procedure Device Action code (what happened to a device during a procedure."/>
-  <compose>
+	<name value="Procedure Device Action Codes"/>
+	<status value="draft"/>
+	<publisher value="HL7 International - Patient Care WG"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
+		</telecom>
+	</contact>
+	<description value="Example codes indicating the change that happened to the device during the procedure.  Note that these are in no way complete and may not even be appropriate for some uses."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+	<compose>
     <include>
-      <system value="http://hl7.org/fhir/device-action"/>
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <!-- Action (qualifier value) -->
+        <value value="129264002"/>
+      </filter>
     </include>
   </compose>
 </ValueSet>

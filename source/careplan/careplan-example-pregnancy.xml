@@ -105,6 +105,7 @@
     <valueDateTime value="2013-01-01"/>
   </extension>
   <status value="active"/>
+  <intent value="plan"/>
   <subject>
     <reference value="Patient/1"/>
     <display value="Eve Everywoman"/>

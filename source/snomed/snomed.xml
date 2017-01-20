@@ -14982,6 +14982,10 @@
     <display value="Bilirubin, conjugated measurement"/>
     <display value="Bilirubin, direct measurement (procedure)"/>
   </concept>
+  <concept id="397640006" display="Healthcare knowledge finding (finding)">
+    <display value="Healthcare knowledge finding (finding)"/>
+    <display value="Healthcare knowledge finding"/>
+  </concept>
   <concept id="398102009" display="Acute poliomyelitis (disorder)">
     <display value="Acute poliomyelitis (disorder)"/>
     <display value="Acute poliomyelitis"/>

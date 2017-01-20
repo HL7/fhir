@@ -12,6 +12,7 @@
   Binding = value set
   Reference = valueset-device-action
   Definition = A kind of change that happened to the device during the procedure.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureStatus
@@ -86,8 +87,10 @@
 
  -- Row 13 -----------------------------------
   Binding Name = ProcedureUsed
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/device-kind
   Definition = Codes describing items used during a procedure
+  Conformance = example
 
 === Sheet procedure-relationship-type =====================================
 
@@ -576,6 +579,31 @@
   Name = category
   Type = token
   Path = Procedure.category
+
+ -- Row 10 -----------------------------------
+  Name = definition
+  Type = reference
+  Path = Procedure.definition
+
+ -- Row 11 -----------------------------------
+  Name = based-on
+  Type = reference
+  Path = Procedure.basedOn
+
+ -- Row 12 -----------------------------------
+  Name = part-of
+  Type = reference
+  Path = Procedure.partOf
+
+ -- Row 13 -----------------------------------
+  Name = status
+  Type = token
+  Path = Procedure.status
+
+ -- Row 14 -----------------------------------
+  Name = context
+  Type = reference
+  Path = Procedure.context
 
 === Sheet Profiles =====================================
 

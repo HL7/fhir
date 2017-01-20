@@ -64,3 +64,9 @@
   Type = reference
   Description = Matches on the partOf extension value
   Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-partOf}
+
+ -- Row 3 -----------------------------------
+  Name = definition
+  Type = reference
+  Description = Matches on the definition extension value
+  Path = Condition.extension{http://hl7.org/fhir/StructureDefinition/condition-definition}
