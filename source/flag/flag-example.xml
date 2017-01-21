@@ -5,7 +5,10 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Large Dog warning for Peter Patient</div>
   </text>
-  <status value="active"/>
+  <identifier>
+       <value value="12345"/>
+  </identifier>
+  <status value="inactive"/>
   <category>
     <coding>
       <system value="http://example.org/local"/>
@@ -26,7 +29,10 @@
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </subject>
-  
+  <period>
+      <start value="2015-01-17"/>
+      <end value="2016-12-01"/>
+    </period>
   <author>
     <reference value="Practitioner/example"/>
     <display value="Nancy Nurse"/>
