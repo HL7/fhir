@@ -339,7 +339,7 @@
   Binding = MedicationCode
   Short Name = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\r\rMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\r\rMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\r\rMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
   RIM Mapping = consumable.administrableMedication
