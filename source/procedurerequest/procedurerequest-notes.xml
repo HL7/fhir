@@ -5,8 +5,8 @@
 Notes:
 </h2>
 		<ul>
-			<li>Many procedure requests will create a need to specify a specimen or body site or system.  The request <a href="procedurerequest-definitions.html#ProcedureRequest.code.html">code</a> will often have this information embedded in it - for example, 'serum glucose' or 'chest xray'.  Alternatively, the <a href="procedurerequest-definitions.html#ProcedureRequest.specimen.html">specimen</a>  or <a href="procedurerequest-definitions.html#ProcedureRequest.bodySite.html">bodysite</a> element may be used to specify it.</li>
+			<li>Many procedure requests will create a need to specify a specimen or body site or system.  The request <code>code</code> will often have this information embedded in it - for example, 'serum glucose' or 'chest xray'.  Alternatively, the <code>specimen</code>  or <code>bodysite</code> element may be used to specify it.</li>
 			<li>The ProcedureRequest should only reference the <a href="specimen.html">Specimen</a> resource directly when the diagnostic investigation is requested on already existing specimens. Conversely, if the request is entered first with an uncollected specimen, the Specimen resource will reference the DiagnosticRequest resource when it is created.</li>
-			<li>The <a href="procedurerequest-definitions.html#ProcedureRequest.specimen.html">reasonCode</a>  element is often for billing purposes. It may relate to the resources referred to in supportinginfo element and may be used to decide how a procedure or diagnostic investigation will be performed, or even if it will be performed at all</li>
+			<li>The <code>reasonCode</code> element is often for billing purposes. It may relate to the resources referred to in supportinginfo element and may be used to decide how a procedure or diagnostic investigation will be performed, or even if it will be performed at all</li>
 		</ul>
 </div>
