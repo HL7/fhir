@@ -54,7 +54,6 @@ on a patient's clinical record and context of care. Planned procedures reference
 <a href="careplan.html">CarePlan</a> may also be represented by this resource.
 </p>
 </div>
-<div style="color:#01538B;">
  <a name="bnr"> </a>
 
 		<h2>Boundaries and Relationships</h2>
@@ -80,58 +79,8 @@ Irrespective of the guidance above, systems should be prepared for some degree o
 The DiagnosticRequest supports references to the numerous other resources that define information about the subject - the requester, associated encounter, <!--specimen, -->body site and other supporting information.   For example, <a href = "patient.html">Patient</a>, <a href = "practitioner.html">Practitioner</a><!--, <a href="specimen.html">Specimen</a>--> and <a href="condition.html">Condition</a> are all referenced in this resource.  Some systems may choose to bundle up a DiagnosticRequest and this referenced information into a Document for delivery to the recipient. However, REST, Messaging and Services are also valid architectures for managing referrals and may be more appropriate where active workflow management is needed.
 </p>
 		<p>
-CarePlan typically references DiagnosticRequest with a stage of "plan" or "proposal", though the requests may have to be initiated and authorized outside of the CarePlan.  Similarly ClinicalImpression resource can reference DiagnosticRequest as part of a follow up to plan to the assessment.
+CarePlan typically references DiagnosticRequest with an <a href="procedurerequest-definitions.html#ProcedureRequest.intent.html">intent</a> of "plan" or "proposal", though the requests may have to be initiated and authorized outside of the CarePlan.  Similarly ClinicalImpression resource can reference DiagnosticRequest as part of a follow up to plan to the assessment.
 </p>
-	</div>
-	<!-- profiles? -->
 
-
-  <div style="color:#8B0153;">
-
-    <a name="bnr"> </a>
-  <h2>Boundaries and Relationships</h2>
-  <p>
-  ProcedureRequest is closely related to other types of "request" resources, particularly DiagnosticRequest
-  and <a href="referralrequest.html">ReferralRequest</a>.  In fact, for some services, it may be appropriate to use any one of these
-  resources to request that the procedure be performed.  Which one is used may be driven by organization practice and by context.  When
-  it is unclear which to use, the following principles may be helpful:
-  </p>
-  <ul>
-  <li>
-  ProcedureRequest or DiagnosticRequest are typically used when the requesting clinician has and wishes to exercise the authority
-  (and expertise) to decide exactly what action will be done.
-  </li>
-  <li>
-  A ReferralRequest is used when the requesting practitioner is seeking another practitioner or organization to use their own expertise
-  and/or authority to determine the specific action to take.
-  </li>
-  <li>
-  Whether an activity is deemed to be a procedure or only a diagnostic request is typically driven by how invasive the diagnostic process
-  is.  More invasive processes are typically represented as procedures, though the dividing line may vary by organization.
-  </li>
-  </ul>
-  <p>
-  Irrespective of the guidance above, systems should be prepared for some degree of overlap between these resources and be
-  prepared to execute searches against multiple resources in cases where differentiation cannot be guaranteed.  As well, in some workflows
-  more than one type of resource or even all three might exist; e.g. Upon receiving a ReferralRequest a practitioner might initiate a
-  DiagnosticRequest.  The diagnostic service might then initiate a ProcedureRequest.
-  </p>
-  <p>
-  The notion of ProcedureRequest and <a href="communicationrequest.html">CommunicationRequest</a> are also closely related.
-  The boundary between determining whether an action is
-  considered to be training or counseling (and thus a ProcedureRequest) as opposed to a CommunicationRequest is based on whether
-  there's a specific intent to change the mind-set of the patient.  A request to merely disclose information would be considered
-  a CommunicationRequest.  Invocation of a process that will involve verification of the patient's comprehension or an attempt to
-  change the patient's mental state would be a ProcedureRequest.
-  </p>
-  <p style="text-decoration: line-through;">
-  <b>PLANNED CHANGE:</b>
-  </p>
-  <p style="text-decoration: line-through;">
-  <b>ProcedureRequest</b> is one of the <a href="workflow.html#request">Request</a> resources in the FHIR <a href="workflow.html">Workflow</a> specification.  As such, it
-  is expected to be adjusted to align with the <a href="request.html">Request</a> workflow pattern which will involve adding a number of additional data elements and potentially
-  renaming a few elements.  Any concerns about performing such alignment are welcome as ballot comments and/or tracker items.
-  </p>
-  </div>
 
 </div>
