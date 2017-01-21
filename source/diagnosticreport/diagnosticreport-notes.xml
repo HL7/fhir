@@ -1,13 +1,40 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-Examples of nested report groups: the antibody hepatitis order panel code for a group of hepatitis antibody related tests, or the organism code for a group of antibiotic isolate/sensitivities, or a set of perinatal measurements on a single fetus.
-
-
 <a name="notes"> </a>
 
 <h2>
 Notes:
 </h2>
+<h3>Identifiers</h3>
+The <a href="datatypes.html#Identifier">identifier</a> datatype has a <code>type</code> element that may be used to distinguish the identifiers assigned by the requester and the performer of the request (known as the the 'Placer' and 'Filler' in the HL7 Version 2 Messaging Standard).  Use the identifier type code "PLAC" for the Placer Identifier and  "FILL" for the Filler identifier as is shown in the example below:
+<pre class="xml">
+
+&lt;!-- Placer identifier--&gt;
+&lt;identifier&gt;
+&lt;type&gt;
+&lt;coding&gt;
+  &lt;system value="http://hl7.org/fhir/identifier-type"/&gt;
+  &lt;code value="PLAC"/&gt;
+&lt;/coding&gt;
+&lt;text value="Placer"/&gt;
+&lt;/type&gt;
+&lt;system value="urn:oid:1.3.4.5.6.7"/&gt;
+&lt;value value="2345234234234"/&gt;
+&lt;/identifier&gt;
+&lt;!-- Filler identifier--&gt;
+&lt;identifier&gt;
+&lt;type&gt;
+&lt;coding&gt;
+  &lt;system value="http://hl7.org/fhir/identifier-type"/&gt;
+  &lt;code value="PLAC"/&gt;
+&lt;/coding&gt;
+&lt;text value="Placer"/&gt;
+&lt;/type&gt;
+&lt;system value=" http://hl7.org/fhir/identifier-type"/&gt;
+&lt;value value="567890"/&gt;
+&lt;/identifier&gt;
+</pre>
+
 <h3>Clinically Relevant Time</h3>
 	<p>
 If the diagnostic procedure was performed on the patient directly, the <a href="diagnosticreport-definitions.html#DiagnosticReport.effective_x_">effective[x]</a> element is a dateTime, the time it was performed.
