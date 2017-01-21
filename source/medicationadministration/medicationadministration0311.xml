@@ -33,16 +33,16 @@
       <display value="Patrick Pump"/>
     </actor>
  </performer>
-  <prescription>
-    <reference value="MedicationRequest/medrx0305"/>
-  </prescription>
-  <reasonGiven>
+  <reasonGivenCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="266599000"/>
       <display value="Dysmenorrhea"/>
     </coding>
-  </reasonGiven>
+  </reasonGivenCodeableConcept>
+  <prescription>
+    <reference value="MedicationRequest/medrx0305"/>
+  </prescription>
   <dosage>
     <text value="0.25mg PO every 6-12 hours as needed for menses from Jan 15-20, 2015.  Do not exceed more than 4mg per day" />
     <route>

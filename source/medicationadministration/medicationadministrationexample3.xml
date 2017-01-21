@@ -33,9 +33,6 @@
   <start value="2015-01-15T14:30:00+01:00"/>
   <end value="2015-01-15T14:30:00+01:00"/>
 </effectivePeriod>
-  <prescription>
-    <reference value="MedicationRequest/medrx0317"/>
-  </prescription>
   <notGiven value="true"></notGiven>
   <reasonNotGiven>
     <coding>
@@ -44,6 +41,10 @@
       <display value="Administration of medication not done due to a contraindication (situation)"/>
     </coding>
   </reasonNotGiven>
+  <prescription>
+    <reference value="MedicationRequest/medrx0317"/>
+  </prescription>
+  
   <note>
     <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
   </note>

@@ -36,16 +36,16 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
-    <reference value="MedicationRequest/medrx0318"/>
-  </prescription>
-  <reasonGiven>
+  <reasonGivenCodeableConcept>
     <coding>
       <system value="http://hl7.org/fhir/reason-medication-given"/>
       <code value="b"/>
       <display value="Given as Ordered"/>
     </coding>
-  </reasonGiven>
+  </reasonGivenCodeableConcept>
+  <prescription>
+    <reference value="MedicationRequest/medrx0318"/>
+  </prescription>
   <dosage>
     <text value="500mg IV q6h x 3 days" />
     <route>

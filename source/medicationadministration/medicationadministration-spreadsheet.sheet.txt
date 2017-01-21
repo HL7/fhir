@@ -158,8 +158,8 @@
   Id = 3
   Context = MedicationAdministration
   English = Reason given is only permitted if NotGiven is false
-  XPath = not(exists(f:reasonGiven) and f:notGiven/@value=true())
-  Expression = reasonGiven.empty() or notGiven.empty() or notGiven = \'false\'
+  XPath = not(exists(f:reasonGivenCodeableConcept) and f:notGiven/@value=true())
+  Expression = reasonGivenCodeableConcept.empty() or notGiven.empty() or notGiven = \'false\'
 
 === Sheet Data Elements =====================================
 
@@ -308,26 +308,6 @@
   Definition = The organization the device or practitioner was acting on behalf of.
 
  -- Row 16 -----------------------------------
-  Element = MedicationAdministration.reasonReference
-  Card. = 0..*
-  Type = Reference(Condition |Observation)
-  Short Name = Condition or Observation that supports why the medication was administered
-  Definition = Condition or observation that supports why the medication was administered
-  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
-  RIM Mapping = reason.observation[code=ASSERTION].value
-  Prov Mapping = no mapping
-  w5 = why
-
- -- Row 17 -----------------------------------
-  Element = MedicationAdministration.prescription
-  Card. = 0..1
-  Type = Reference(MedicationRequest)
-  Short Name = Request administration performed against
-  Definition = The original request, instruction or authority to perform the administration.
-  v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
-  RIM Mapping = InFullfillmentOf->SubstanceAdministration
-
- -- Row 18 -----------------------------------
   Element = MedicationAdministration.notGiven
   Card. = 0..1
   Is Modifier = Y
@@ -339,7 +319,7 @@
   RIM Mapping = actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..*
   Inv. = 2
@@ -350,8 +330,19 @@
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
- -- Row 20 -----------------------------------
-  Element = MedicationAdministration.reasonGiven
+ -- Row 18 -----------------------------------
+  Element = MedicationAdministration.reasonGivenReference
+  Card. = 0..*
+  Type = Reference(Condition |Observation)
+  Short Name = Condition or Observation that supports why the medication was administered
+  Definition = Condition or observation that supports why the medication was administered
+  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
+  RIM Mapping = reason.observation[code=ASSERTION].value
+  Prov Mapping = no mapping
+  w5 = why
+
+ -- Row 19 -----------------------------------
+  Element = MedicationAdministration.reasonGivenCodeableConcept
   Card. = 0..*
   Inv. = 3
   Type = CodeableConcept
@@ -360,6 +351,15 @@
   Definition = A code indicating why the medication was given.
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = . reasonCode
+
+ -- Row 20 -----------------------------------
+  Element = MedicationAdministration.prescription
+  Card. = 0..1
+  Type = Reference(MedicationRequest)
+  Short Name = Request administration performed against
+  Definition = The original request, instruction or authority to perform the administration.
+  v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
+  RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
  -- Row 21 -----------------------------------
   Element = MedicationAdministration.device
@@ -528,7 +528,7 @@
   Name = reason-given
   Type = token
   Description = Reasons for administering the medication
-  Path = MedicationAdministration.reasonGiven
+  Path = MedicationAdministration.reasonGivenCodeableConcept
 
  -- Row 13 -----------------------------------
   Name = reason-not-given

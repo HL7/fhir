@@ -25,16 +25,16 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
-    <reference value="MedicationRequest/medrx0324"/>
-  </prescription>
-  <reasonGiven>
+  <reasonGivenCodeableConcept>
     <coding>
       <system value="http://hl7.org/fhir/reason-medication-given"/>
       <code value="c"/>
       <display value="Emergency"/>
     </coding>
-  </reasonGiven>
+  </reasonGivenCodeableConcept>
+  <prescription>
+    <reference value="MedicationRequest/medrx0324"/>
+  </prescription>
   <dosage>
     <text value="Insert one suppository rectally twice daily as needed for fever to a maximim of 3 per day"/>
     <site>

@@ -82,16 +82,16 @@
     <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <prescription>
-    <reference value="MedicationRequest/medrx0322"/>
-  </prescription>
-  <reasonGiven>
+  <reasonGivenCodeableConcept>
     <coding>
       <system value="http://hl7.org/fhir/reason-medication-given"/>
       <code value="b"/>
       <display value="Given as Ordered"/>
     </coding>
-  </reasonGiven>
+  </reasonGivenCodeableConcept>
+  <prescription>
+    <reference value="MedicationRequest/medrx0322"/>
+  </prescription>
   <dosage>
     <text value="KCl 20 mEq in 1 L 0.9%NS IV at 100 ml/hr" />
     <site>
