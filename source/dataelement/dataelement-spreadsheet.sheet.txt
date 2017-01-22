@@ -92,6 +92,11 @@
   w5 = conformance.content
 
  -- Row 2 -----------------------------------
+  Element = DataElement.url
+  RIM Mapping = ./id[use=INSTANCE]
+  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
+
+ -- Row 3 -----------------------------------
   Element = DataElement.identifier
   Card. = 0..*
   IHE DEX mapping = id
@@ -99,11 +104,6 @@
   RIM Mapping = ./id[use=BUS]
   11179 Mapping = (Identified_Item).identifier
   LOINC Code = LOINC_NUM (the code is the identifier)
-
- -- Row 3 -----------------------------------
-  Element = DataElement.url
-  RIM Mapping = ./id[use=INSTANCE]
-  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
 
  -- Row 4 -----------------------------------
   Element = DataElement.version
