@@ -20,7 +20,7 @@
   Binding = value set
   Reference = valueset-referencerange-meaning
   Definition = Code for the meaning of a reference range.
-  Conformance = example
+  Conformance = extensible
 
  -- Row 4 -----------------------------------
   Binding Name = ObservationInterpretation
@@ -72,6 +72,13 @@
   Reference = #observation-statistics
   Definition = The statistical operation parameter -\"statistic\" -  codes
   Conformance = required
+
+ -- Row 11 -----------------------------------
+  Binding Name = ObservationRangeType
+  Binding = value set
+  Reference = valueset-referencerange-appliesto
+  Definition = Codes identifying the population the reference range applies to.
+  Conformance = example
 
 === Sheet observation-status =====================================
 
@@ -344,7 +351,7 @@
   Short Name = Classification of  type of observation
   Definition = A code that classifies the general type of observation being made.
   Requirements = Used for filtering what observations are retreived and displayed.
-  Comments = There may be multiple axis of categoriization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
+  Comments = In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   Committee Notes = #7879
   w5 = class
@@ -593,20 +600,34 @@
   RIM Mapping = value:IVL_PQ.high
 
  -- Row 24 -----------------------------------
-  Element = Observation.referenceRange.meaning
-  Card. = 0..*
+  Element = Observation.referenceRange.type
+  Card. = 0..1
   Type = CodeableConcept
   Binding = ObservationRangeMeaning
   Short Name = Reference range qualifier
-  Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
+  Definition = Codes to indicate the what part of targeted reference population it applies to. For example the normal or therapeutic range.
   Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
-  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed.
+  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal range is assumed.
   SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \r< 365860008 |General clinical state finding| \rOR \r< 250171008 |Clinical history or observation findings| OR  \r< 415229000 |Racial group| OR \r< 365400002 |Finding of puberty stage| OR\r< 443938003 |Procedure carried out on subject|
-  v2 Mapping = OBX-10?
+  v2 Mapping = OBX-10
   RIM Mapping = interpretationCode
-  Committee Notes = [$8941]
+  Committee Notes = [$8941][1115]
 
  -- Row 25 -----------------------------------
+  Element = Observation.referenceRange.appliesTo
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = ObservationRangeType
+  Short Name = Reference range population
+  Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex or race.
+  Requirements = Need to be able to identify the target population for proper interpretation.
+  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed.
+  SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \r< 365860008 |General clinical state finding| \rOR \r< 250171008 |Clinical history or observation findings| OR  \r< 415229000 |Racial group| OR \r< 365400002 |Finding of puberty stage| OR\r< 443938003 |Procedure carried out on subject|
+  v2 Mapping = OBX-10
+  RIM Mapping = interpretationCode
+  Committee Notes = [$8941][11115]
+
+ -- Row 26 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..1
   Type = Range
@@ -615,7 +636,7 @@
   Requirements = Some analytes vary greatly over age
   RIM Mapping = outboundRelationship[typeCode=PRCN].targetObservationCriterion[code=\"age\"].value
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Observation.referenceRange.text
   Card. = 0..1
   Type = string
@@ -624,7 +645,7 @@
   v2 Mapping = OBX-7
   RIM Mapping = value:ST
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = !Observation.derivedFrom
   Card. = 0..*
   Summary = Y
@@ -634,7 +655,7 @@
   Comments = Observations that are a group of observations should be separate resources referenced using the related element with type \"has-member\" or as component observation(s).
   RIM Mapping = .targetObservation
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Observation.related
   Card. = 0..*
   Summary = Y
@@ -646,7 +667,7 @@
   v2 Mapping = Relationships established by OBX-4 usage
   RIM Mapping = outBoundRelationship
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Observation.related.type
   Card. = 0..1
   Type = code
@@ -659,7 +680,7 @@
   RIM Mapping = .typeCode
   Committee Notes = [#7639]
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Observation.related.target
   Card. = 1..1
   Type = Reference(Observation|QuestionnaireResponse|Sequence)
@@ -668,7 +689,7 @@
   RIM Mapping = .targetObservation
   Committee Notes = can an invariant be made to limit code when referencing a resource type? [#10117]
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Observation.component
   Card. = 0..*
   Summary = Y
@@ -681,7 +702,7 @@
   RIM Mapping = outBoundRelationship[typeCode=COMP]
   Committee Notes = 5/15/2015:#7517
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Observation.component.code
   Card. = 1..1
   Summary = Y
@@ -695,7 +716,7 @@
   RIM Mapping = code
   w5 = what
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Observation.component.value[x]
   Card. = 0..1
   Summary = Y
@@ -710,7 +731,7 @@
   SNOMED CT Attribute = 363714003 |Interprets|
   Committee Notes = [#3125],[#3505],[#5853]
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Observation.component.dataAbsentReason
   Card. = 0..1
   Inv. = 6
@@ -724,7 +745,7 @@
   RIM Mapping = value.nullFlavor
   Committee Notes = [#3434], preapply [#5629]
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Observation.component.interpretation
   Card. = 0..1
   Aliases = Abnormal Flag
@@ -740,7 +761,7 @@
   SNOMED CT Attribute = 363713009 |Has interpretation|
   Committee Notes = #9676
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Observation.component.referenceRange
   Card. = 0..*
   Type = @Observation.referenceRange

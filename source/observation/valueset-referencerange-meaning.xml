@@ -13,26 +13,9 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range."/>
-  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population."/>
   <compose>
-    <include>
-      <valueSet value="http://hl7.org/fhir/ValueSet/v3-Race"/>
-    </include>
-    <include>
-      <system value="http://snomed.info/sct"/>
-      <concept>
-        <code value="248153007"/>
-      </concept>
-    <!--    Male (finding)    -->
-      <concept>
-        <code value="248152002"/>
-      </concept>
-    <!--    Female (finding)    -->
-      <concept>
-        <code value="77386006"/>
-      </concept>
-    </include>
+
     <include>
       <system value="http://hl7.org/fhir/referencerange-meaning"/>
     </include>

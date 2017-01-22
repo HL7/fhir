@@ -55,12 +55,12 @@
     <high>
       <value value="104"/>
     </high>
-    <meaning>
+    <type>
       <coding>
         <system value="http://hl7.org/fhir/referencerange-meaning"/>
         <code value="normal"/>
         <display value="Normal Range"/>
       </coding>
-    </meaning>
+    </type>
   </referenceRange>
 </Observation>

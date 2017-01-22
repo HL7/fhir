@@ -184,9 +184,9 @@
       <code value="{score}"/>
     </high>
   <!--  meaning as text  -->
-    <meaning>
+    <type>
       <text value="Severe TBI"/>
-    </meaning>
+    </type>
   </referenceRange>
   <referenceRange>
     <low>
@@ -200,9 +200,9 @@
       <code value="{score}"/>
     </high>
   <!--  meaning as text  -->
-    <meaning>
+    <type>
       <text value="Moderate TBI"/>
-    </meaning>
+    </type>
   </referenceRange>
   <referenceRange>
     <low>
@@ -211,9 +211,9 @@
       <code value="{score}"/>
     </low>
   <!--  meaning as text  -->
-    <meaning>
+    <type>
       <text value="Mild TBI"/>
-    </meaning>
+    </type>
   </referenceRange>
 <!--  put the references to the contained components here using the derived-From type   -->
   <related>
