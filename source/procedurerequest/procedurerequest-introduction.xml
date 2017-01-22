@@ -1,59 +1,12 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-  <div style="color:#01538B;">
+  <div>
   <a name="scope"> </a>
-  		<h2>Scope and Usage</h2>
-  	    <p><strong>This resource is a <em>request</em> resource from a FHIR workflow perspective - see <a href="workflow.html">Workflow</a>.</strong></p>
-  		<p>
-  A <i>Diagnostic Request</i> is a record of a request for a set of diagnostic investigations to be performed.
-  The investigation will lead to a <a href="diagnosticreport.html">Diagnostic Report</a> that summarizes the
-  outcome of the investigation, and includes any useful data and/or images that are relevant to the
-  treatment/management of the subject.
-  </p>
-  		<p>
-  The principal intention of the <i>Diagnostic Request</i> is to support ordering diagnostic investigations
-  on patients (which includes non-human patients in veterinary medicine). However in many contexts,
-  healthcare related processes include performing diagnostic  investigations on groups of subjects,
-  devices involved in the provision of healthcare, and even environmental locations such as ducts,
-  bodies of water, etc. The <i>Diagnostic Request</i> supports all these usages.
-  </p>
-  		<p>
-  The general work flow that this resource facilitates is that a clinical system creates a diagnostic
-  order. The diagnostic order is then exchanged, perhaps via intermediaries, with a system that
-  represents a diagnostic service that can perform the investigation as a request to do so.
-  The diagnostic service will update the request as the work is performed, and then finally
-  issue a report that references the requests that it fulfills.
-  </p>
-  <p>
-  The DiagnosticRequest resource allows requesting only a single investigation.
-  If a workflow requires requesting multiple items simultaneously, this is done using multiple instances of this resource.
-  These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to <a href="request.html#compound">the Request pattern</a>
-  </p>
-
-  	</div>
-
-<div style="color:#8B0153;">
-<a name="scope"> </a>
 <h2>Scope and Usage</h2>
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-<p>
-A <i>Procedure Request</i> is a record of a request for a procedure to be performed. It can
-be used to represent a procedure that is planned, that is proposed, or that is ordered, as distinguished by
-the value of the ProcedureRequestStatus field.
-</p>
-<p>
-A procedure is an activity
-that is performed with or on a patient as part of the provision of care. Examples include surgical
-procedures, diagnostic procedures, endoscopic procedures, biopsies, counseling, physiotherapy, exercise, etc.
-Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient
-themselves.
-</p>
-<p>
-The procedure request may represent an order that is entered by a practitioner in a CPOE
-system as well as a proposal made by a clinical decision support (CDS) system based
-on a patient's clinical record and context of care. Planned procedures referenced by a
-<a href="careplan.html">CarePlan</a> may also be represented by this resource.
-</p>
-</div>
+<p><strong>This resource is a request resource from a FHIR workflow perspective</strong> - see <a href="workflow.html">Workflow</a>.</p>
+<p><em>ProcedureRequest</em> is a record of a request for a procedure to be planned, proposed, or performed, as distinguished by the <code>ProcedureRequest.status</code> field value, with or on a patient.  Examples of procedures include diagnostic tests/studies, endoscopic procedures, counseling, biopsies, therapies (e.g., physio-, social-, psychological-), (exploratory) surgeries or procedures, exercises, and other clinical interventions.  Procedures may be performed by a healthcare professional, a friend or relative or in some cases by the patient themselves.  The procedure will lead to either a <a href="procedure.html">Procedure</a> or <a href="diagnosticreport.html">DiagnosticReport</a>, that in turn may reference one or more observations, that summarizes the performance of the procedures and associated documentation such as observations, images, findings that are relevant to the treatment/management of the subject.</p>
+<p>The principal intention of <em>ProcedureRequest</em> is to support ordering procedures for on patients (which includes non-human patients in veterinary medicine). However, in many contexts, healthcare related processes include performing diagnostic investigations on groups of subjects, devices involved in the provision of healthcare, and even environmental locations such as ducts, bodies of water, etc. <em>ProcedureRequest</em> supports all these usages.  The procedure request may represent an order that is entered by a practitioner in a CPOE system as well as a proposal made by a clinical decision support (CDS) system based on a patient&#39;s clinical record and context of care. Planned procedures referenced by a <a href="careplan.html">CarePlan</a> may also be represented by this resource. </p>
+<p>The general work flow that this resource facilitates is that a clinical system creates a procedure request. The procedure request is then accessed by or exchanged with a system, perhaps via intermediaries, that represents an organization (e.g., diagnostic or imaging service, surgical team, physical therapy department) that can perform the procedure. The organization receiving the procedure request will, after it accepts the request, update the request as the work is performed, and then finally issue a report that references the requests that it fulfilled.</p>
+<p>The <em>ProcedureRequest</em> resource allows requesting only a single procedure. If a workflow requires requesting multiple procedures simultaneously, this is done using multiple instances of this resource. These instances can be linked in different ways, depending on the needs of the workflow. For guidance, refer to the <a href="request.html">Request pattern</a></p></div>
  <a name="bnr"> </a>
 
 		<h2>Boundaries and Relationships</h2>

@@ -61,9 +61,10 @@
 
  -- Row 9 -----------------------------------
   Binding Name = ProcedureAsNeededReason
-  Binding = unbound
+  Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/medication-as-needed-reason
   Definition = A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.
+  Conformance = example
 
 === Sheet Invariants =====================================
 
@@ -198,7 +199,6 @@
   Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
   Requirements = Used for filtering what procedure request are retreived and displayed.
   Comments = There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
-  To Do = Rim Mapping
   Committee Notes = [#11119]
   w5 = class
 
