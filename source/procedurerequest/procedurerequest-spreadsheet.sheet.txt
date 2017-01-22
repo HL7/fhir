@@ -116,7 +116,7 @@
   Committee Notes = [#10296][#11119]
 
  -- Row 5 -----------------------------------
-  Element = ProcedureRequest.replaces
+  Element = ProcedureRequest.priorRequest
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
@@ -451,9 +451,9 @@
   Path = ProcedureRequest.basedOn
 
  -- Row 4 -----------------------------------
-  Name = replaces
+  Name = prior-request
   Type = reference
-  Path = ProcedureRequest.replaces
+  Path = ProcedureRequest.priorRequest
 
  -- Row 5 -----------------------------------
   Name = requisition

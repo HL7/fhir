@@ -92,11 +92,6 @@
   w5 = conformance.content
 
  -- Row 2 -----------------------------------
-  Element = DataElement.url
-  RIM Mapping = ./id[use=INSTANCE]
-  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
-
- -- Row 3 -----------------------------------
   Element = DataElement.identifier
   Card. = 0..*
   IHE DEX mapping = id
@@ -104,6 +99,11 @@
   RIM Mapping = ./id[use=BUS]
   11179 Mapping = (Identified_Item).identifier
   LOINC Code = LOINC_NUM (the code is the identifier)
+
+ -- Row 3 -----------------------------------
+  Element = DataElement.url
+  RIM Mapping = ./id[use=INSTANCE]
+  11179 Mapping = (Identified_Item).identifier  As assigned by registering authority
 
  -- Row 4 -----------------------------------
   Element = DataElement.version
@@ -125,20 +125,20 @@
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"experimental\"].value[type=BL]
 
  -- Row 7 -----------------------------------
-  Element = DataElement.publisher
-  IHE DEX mapping = registrationAuthority
-  v2 Mapping = OM1.16
-  RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]/name
-  11179 Mapping = (Administered_Item).stewardship_record.organization.name
-  LOINC Code = Fixed to Regenstrief or SOURCE
-
- -- Row 8 -----------------------------------
   Element = DataElement.date
   IHE DEX mapping = revisionDate
   v2 Mapping = OM1.21
   RIM Mapping = ./participation[typeCode=AUT]/time
   11179 Mapping = (Administered_item).last_change_date
   LOINC Code = DATE_LAST_CHANGED
+
+ -- Row 8 -----------------------------------
+  Element = DataElement.publisher
+  IHE DEX mapping = registrationAuthority
+  v2 Mapping = OM1.16
+  RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]/name
+  11179 Mapping = (Administered_Item).stewardship_record.organization.name
+  LOINC Code = Fixed to Regenstrief or SOURCE
 
  -- Row 9 -----------------------------------
   Element = DataElement.name
@@ -184,7 +184,6 @@
   Requirements = Allows determining the degree of comparability of data element instances. Less granular data elements result in data that is less comparable (or at least requires more work to compare)
   v2 Mapping = N/A
   RIM Mapping = ./target[typeCode=SUBJ]/source[classCode=OBS, moodCode=EVN, code=\"granularity\"]/value
-  To Do = Should this be an extension?
 
  -- Row 16 -----------------------------------
   Element = DataElement.mapping

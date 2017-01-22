@@ -62,6 +62,12 @@
   Display = Cancelled
   Definition = The orderer of the supply cancelled the request.
 
+ -- Row 5 -----------------------------------
+  Id = 6
+  Code = entered-in-error
+  Display = Entered in error
+  Definition = The supply request was entered in error
+
 === Sheet supplyrequest-reason =====================================
 
  -- Row 1 -----------------------------------
@@ -87,7 +93,6 @@
   Short Name = Request for a medication, substance or device
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
   RIM Mapping = Supply[moodCode=RQO]
-  To Do = should there be an element for supply requester?
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -127,7 +132,7 @@
   Is Modifier = Y
   Type = code
   Binding = SupplyRequestStatus
-  Short Name = requested | completed | failed | cancelled
+  Short Name = requested | completed | failed | cancelled | entered-in-error
   Definition = Status of the supply request
   RIM Mapping = .statusCode, also existence of fulfillment events
 

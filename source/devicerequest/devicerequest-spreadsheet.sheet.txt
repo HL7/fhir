@@ -62,7 +62,7 @@
   Card. = 0..*
   Summary = Y
   Type = Identifier
-  Short Name = Request identifier
+  Short Name = External Request identifier
   Definition = Identifiers assigned to this order by the orderer or by the receiver.
   v2 Mapping = ORC.2, ORC.3
   RIM Mapping = .identifier
@@ -93,7 +93,7 @@
   Committee Notes = DeviceRequest.prnReason
 
  -- Row 5 -----------------------------------
-  Element = DeviceRequest.replaces
+  Element = DeviceRequest.priorRequest
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
@@ -150,7 +150,6 @@
   Short Name = Indicates how quickly the {{title}} should be addressed with respect to other requests
   v2 Mapping = TQ1.9
   RIM Mapping = .priorityCode
-  To Do = .priorityCode
   Default Value = If missing, normal priority
   w5 = grade
 
@@ -394,10 +393,10 @@
   Path = DeviceRequest.performer
 
  -- Row 11 -----------------------------------
-  Name = replaces
+  Name = priorRequests
   Type = reference
   Description = Request takes the place of referenced completed or terminated requests
-  Path = DeviceRequest.replaces
+  Path = DeviceRequest.priorRequest
 
  -- Row 12 -----------------------------------
   Name = requester

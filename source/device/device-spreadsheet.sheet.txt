@@ -57,7 +57,6 @@
   Requirements = Allows institutions to track their devices.
   UDI Mapping = N/A
   RIM Mapping = Device
-  To Do = Determine whether HCT/TP stuff gos here or in new resource and determine boundaries.
   Committee Notes = 6209
   w5 = administrative.device
 

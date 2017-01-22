@@ -247,7 +247,6 @@
   Definition = Describes the type of participation (e.g.  a responsible party, author, or verifier).
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 12 -----------------------------------
   Element = DiagnosticReport.performer.actor
@@ -260,7 +259,6 @@
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.performer.onBehalfOf
@@ -271,7 +269,6 @@
   Requirements = Practitioners can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when performing the action.
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.request

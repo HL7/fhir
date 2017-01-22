@@ -42,6 +42,12 @@
   Display = Abandoned
   Definition = Dispensing was not completed.
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The information was entered in error
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -49,7 +55,7 @@
  -- Row 1 -----------------------------------
   Element = SupplyDelivery
   Type = DomainResource
-  Short Name = Delivery of Supply
+  Short Name = Delivery of bulk Supplies
   Definition = Record of delivery of what is supplied.
   RIM Mapping = Supply[moodCode=RQO]
   w5 = workflow.order
@@ -123,7 +129,7 @@
   Is Modifier = y
   Type = code
   Binding = SupplyDeliveryStatus
-  Short Name = in-progress | completed | abandoned
+  Short Name = in-progress | completed | abandoned|entered-in-error
   Definition = A code specifying the state of the dispense event.
   RIM Mapping = .statusCode, also existence of fulfillment events
 

@@ -68,7 +68,6 @@
   Type = DomainResource
   Short Name = A record of information transmitted from a sender to a receiver
   Definition = An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
-  Workflow Mapping = Event
   w5 = workflow.encounter
 
  -- Row 2 -----------------------------------
@@ -77,7 +76,6 @@
   Type = Identifier
   Short Name = Unique identifier
   Definition = Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
-  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -87,7 +85,6 @@
   Short Name = Request fulfilled by this communication
   Definition = An order, proposal or plan fulfilled in whole or in part by this Communication
   Comments = This must point to some sort of a \'Request\' resource, such as CarePlan, CommunicationRequest, ReferralRequest, MedicationRequest, etc.
-  Workflow Mapping = Event.basedOn
 
  -- Row 4 -----------------------------------
   Element = Communication.parent
@@ -95,7 +92,6 @@
   Type = Reference(Any)
   Short Name = Part of this action
   Comments = This must point to some sort of an \'Event\' resource such as Communication, Procedure, MedicationAdministration, etc.
-  Workflow Mapping = Event.partOf
 
  -- Row 5 -----------------------------------
   Element = Communication.status
@@ -105,7 +101,6 @@
   Binding = CommunicationStatus
   Short Name = in-progress | completed | suspended | rejected | failed
   Definition = The status of the transmission.
-  Workflow Mapping = Event.status (uses a different Valueset!)
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -115,7 +110,6 @@
   Binding = CommunicationCategory
   Short Name = Message category
   Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
-  Workflow Mapping = Event.code
   w5 = class
 
  -- Row 7 -----------------------------------
@@ -132,7 +126,6 @@
   Type = Reference(Patient|Group)
   Short Name = Focus of message
   Definition = The patient who was the focus of this communication.
-  Workflow Mapping = Event.subject
   w5 = who.focus
 
  -- Row 9 -----------------------------------
@@ -149,7 +142,6 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or episode leading to message
   Definition = The encounter within which the communication was sent.
-  Workflow Mapping = Event.context
   w5 = context
 
  -- Row 11 -----------------------------------
@@ -158,7 +150,6 @@
   Type = dateTime
   Short Name = When sent
   Definition = The time when this communication was sent.
-  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.init
 
  -- Row 12 -----------------------------------
@@ -167,7 +158,6 @@
   Type = dateTime
   Short Name = When received
   Definition = The time when this communication arrived at the destination.
-  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.done
 
  -- Row 13 -----------------------------------
@@ -176,7 +166,6 @@
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Message sender
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
-  Workflow Mapping = Event.performer.actor
   w5 = who.actor
 
  -- Row 14 -----------------------------------
@@ -194,7 +183,6 @@
   Binding = CommunicationReason
   Short Name = Indication for message
   Definition = The reason or justification for the communication.
-  Workflow Mapping = Event.reasonCodableConcept
   w5 = why
 
  -- Row 16 -----------------------------------
@@ -217,7 +205,6 @@
   Type = Annotation
   Short Name = Comments made about the communication
   Definition = Additional notes or commentary about the communication by the sender, receiver or other interested parties.
-  Workflow Mapping = Event.note
 
 === Sheet Search =====================================
 
