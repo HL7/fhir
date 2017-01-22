@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4755</WindowHeight>
-  <WindowWidth>14955</WindowWidth>
+  <WindowHeight>12210</WindowHeight>
+  <WindowWidth>-30811</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -1221,7 +1221,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">in-progress | completed | abandoned|entered-in-error</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">in-progress | completed | abandoned | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code specifying the state of the dispense event.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3587,7 +3587,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3602,8 +3602,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

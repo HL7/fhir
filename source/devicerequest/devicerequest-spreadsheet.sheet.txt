@@ -393,7 +393,7 @@
   Path = DeviceRequest.performer
 
  -- Row 11 -----------------------------------
-  Name = priorRequests
+  Name = priorrequest
   Type = reference
   Description = Request takes the place of referenced completed or terminated requests
   Path = DeviceRequest.priorRequest

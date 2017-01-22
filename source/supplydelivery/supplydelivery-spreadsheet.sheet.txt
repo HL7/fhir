@@ -129,7 +129,7 @@
   Is Modifier = y
   Type = code
   Binding = SupplyDeliveryStatus
-  Short Name = in-progress | completed | abandoned|entered-in-error
+  Short Name = in-progress | completed | abandoned | entered-in-error
   Definition = A code specifying the state of the dispense event.
   RIM Mapping = .statusCode, also existence of fulfillment events
 
