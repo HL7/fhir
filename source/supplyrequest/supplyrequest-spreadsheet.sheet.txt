@@ -62,12 +62,6 @@
   Display = Cancelled
   Definition = The orderer of the supply cancelled the request.
 
- -- Row 5 -----------------------------------
-  Id = 6
-  Code = entered-in-error
-  Display = Entered in error
-  Definition = The supply request was entered in error
-
 === Sheet supplyrequest-reason =====================================
 
  -- Row 1 -----------------------------------

@@ -42,12 +42,6 @@
   Display = Abandoned
   Definition = Dispensing was not completed.
 
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = entered-in-error
-  Display = Entered in Error
-  Definition = The information was entered in error
-
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
