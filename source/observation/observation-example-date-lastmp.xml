@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/build/schema/subscription.xsd">
+	<id value="date-lastmp"/>
+	<status value="final"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="survey"/>
+			<display value="Survey"/>
+		</coding>
+		<text value="AOE"/>
+	</category>
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="8665-2"/>
+			<display value="Date last menstrual period"/>
+		</coding>
+		<text value="Date last menstrual period"/>
+	</code>
+	<subject>
+		<reference value="Patient/pat2"/>
+	</subject>
+	<effectiveDateTime value="2016-01-24"/>
+	<valueDateTime value="2016-12-30"/>
+</Observation>

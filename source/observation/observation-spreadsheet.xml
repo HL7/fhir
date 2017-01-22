@@ -6,21 +6,21 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Eric Haas</LastAuthor>
+  <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-01-08T21:42:08Z</LastSaved>
+  <LastSaved>2017-01-21T21:22:48Z</LastSaved>
   <Version>15.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>18000</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>14280</WindowHeight>
+  <WindowWidth>27360</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>0</WindowTopY>
+  <WindowTopY>460</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1173,6 +1173,8 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+   </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Panes>
     <Pane>
@@ -1893,8 +1895,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Normally, an observation will have either a value or a set of related observations. A few observations (e.g. Apgar score) may have both a value and related observations (for an Apgar score, the observations from which the measure is derived). If a value is present, the datatype for this element should be determined by Observation.code. This element has a variable name depending on the type as follows: valueQuantity, valueCodeableConcept, valueString, valueBoolean, valueRange, valueRatio, valueSampledData, valueAttachment, valueTime, valueDateTime, or valuePeriod. (The name format is &quot;'value' + the type name&quot; with a capital on the first letter of the type).&#13;&#13;&#13;If the data element is usually coded or if the type associated with the Observation.value defines a coded value, use CodeableConcept instead of string datatype even if the value is uncoded text.  A value set is bound to the ValueCodeableConcept element.    For further discussion and examples see the  [notes section](observation.html#notes) below.&#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">verify invariant</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">value</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">OBX.2, OBX.5, OBX.6</Data><NamedCell
@@ -2428,7 +2429,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed. </Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">interpretationCode</Data><NamedCell
@@ -2439,7 +2440,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 260245000 |Findings values| OR  &#10;&lt; 365860008 |General clinical state finding| &#10;OR &#10;&lt; 250171008 |Clinical history or observation findings| OR  &#10;&lt; 415229000 |Racial group| OR &#10;&lt; 365400002 |Finding of puberty stage| OR&#10;&lt; 443938003 |Procedure carried out on subject|</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 260245000 |Findings values| OR  &#13;&lt; 365860008 |General clinical state finding| &#13;OR &#13;&lt; 250171008 |Clinical history or observation findings| OR  &#13;&lt; 415229000 |Racial group| OR &#13;&lt; 365400002 |Finding of puberty stage| OR&#13;&lt; 443938003 |Procedure carried out on subject|</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2746,7 +2747,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 363787002 |Observable entity| OR &#10;&lt; 386053000 |Evaluation procedure|</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 363787002 |Observable entity| OR &#13;&lt; 386053000 |Evaluation procedure|</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2898,9 +2899,9 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">unique(./interpretationCode)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">363713009 |Has interpretation|&#10;</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">363713009 |Has interpretation|&#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 260245000 |Findings values|&#10;</Data><NamedCell
+    <Cell ss:StyleID="s91"><Data ss:Type="String">&lt; 260245000 |Findings values|&#13;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="27" ss:StyleID="s90"><Data ss:Type="String">#9676</Data><NamedCell
@@ -5022,13 +5023,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5044,8 +5044,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
-     <ActiveCol>16</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5561,7 +5561,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
@@ -5715,7 +5715,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">5/15/2015:#7517,[#9734],[11087]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">combo-value-string</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">!combo-value-string</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">Observation.valueString | Observation.component.valueString</Data></Cell>
@@ -5723,7 +5723,7 @@
     <Cell ss:StyleID="s127"><Data ss:Type="String">5/15/2015:#7517,[#9734],[11087]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s128">
-    <Cell ss:StyleID="s150"><Data ss:Type="String">component-value-string</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">!component-value-string</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Observation.component.valueString</Data></Cell>
@@ -5785,7 +5785,7 @@
     <Cell><Data ss:Type="String">Observation | Observation.component; code; value.as(CodeableConcept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">combo-code-value-date</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">!combo-code-value-date</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">combo-code &amp; combo-value-date</Data></Cell>
@@ -5794,7 +5794,7 @@
     <Cell><Data ss:Type="String">Observation | Observation.component; code; value.as(DateTime) | value.as(Period)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">combo-code-value-string</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">!combo-code-value-string</Data></Cell>
     <Cell ss:StyleID="s148"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s148"/>
     <Cell ss:StyleID="s149"><Data ss:Type="String">combo-code &amp; combo-value-string</Data></Cell>
@@ -5821,7 +5821,7 @@
     <Cell><Data ss:Type="String">Observation.component; code; value.as(CodeableConcept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">component-code-value-date</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">!component-code-value-date</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">component-code &amp; component-value-date</Data></Cell>
@@ -5830,7 +5830,7 @@
     <Cell><Data ss:Type="String">Observation.component; code; value.as(DateTime) | value.as(Period)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s151"><Data ss:Type="String">component-code-value-string</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">!component-code-value-string</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">composite</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">component-code &amp; component-value-string</Data></Cell>
@@ -6037,12 +6037,13 @@
    </Print>
    <Zoom>130</Zoom>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>14</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6050,7 +6051,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6058,8 +6058,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7291,7 +7291,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s182" ss:DefaultColumnWidth="260"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s182" ss:AutoFitWidth="0" ss:Width="143"/>
@@ -7517,6 +7517,15 @@
     <Cell ss:StyleID="Default"><Data ss:Type="String">Real-world patient - hemoglobin</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">f005</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">observation-example-f005-hemoglobin.xml</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="Default"><Data ss:Type="String">Date last menstrual period</Data></Cell>
+    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">An &quot;ask at order&quot; response using the datetime datetype for the result value</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">date-lastmp</Data></Cell>
+    <Cell><Data ss:Type="String">observation-example-date-lastmp.xml</Data></Cell>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"><Data ss:Type="String">n</Data></Cell>
    </Row>
@@ -7772,7 +7781,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>36</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7789,8 +7798,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>49</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>26</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9613,6 +9622,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -10249,6 +10259,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -10868,6 +10879,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -11510,6 +11522,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

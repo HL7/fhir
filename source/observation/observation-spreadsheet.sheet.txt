@@ -442,7 +442,6 @@
   v2 Mapping = OBX.2, OBX.5, OBX.6
   RIM Mapping = value
   SNOMED CT Attribute = 363714003 |Interprets|
-  To Do = verify invariant
   Committee Notes = [#3125],[#3505],[#5853],8479,{#9375]
 
  -- Row 12 -----------------------------------
@@ -601,8 +600,8 @@
   Short Name = Reference range qualifier
   Definition = Codes to indicate the the target population this reference range applies to.  For example, a reference range may be based on the normal population or a particular sex, race, therapeutic status, or endocrine or reproductive status.
   Requirements = Need to be able to say what kind of reference range this is - normal, recommended, therapeutic, etc  - for proper interpretation.
-  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the norma population is assumed.
-  SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \n< 365860008 |General clinical state finding| \nOR \n< 250171008 |Clinical history or observation findings| OR  \n< 415229000 |Racial group| OR \n< 365400002 |Finding of puberty stage| OR\n< 443938003 |Procedure carried out on subject|
+  Comments = This SHOULD be populated if there is more than one range.  If this element is not present then the normal population is assumed.
+  SNOMED CT Concept Domain = < 260245000 |Findings values| OR  \r< 365860008 |General clinical state finding| \rOR \r< 250171008 |Clinical history or observation findings| OR  \r< 415229000 |Racial group| OR \r< 365400002 |Finding of puberty stage| OR\r< 443938003 |Procedure carried out on subject|
   v2 Mapping = OBX-10?
   RIM Mapping = interpretationCode
   Committee Notes = [$8941]
@@ -691,7 +690,7 @@
   Short Name = Type of component observation (code / type)
   Definition = Describes what was observed. Sometimes this is called the observation \"code\"
   Requirements = Knowing what kind of observation is being made is essential to understanding the observation.
-  SNOMED CT Concept Domain = < 363787002 |Observable entity| OR \n< 386053000 |Evaluation procedure|
+  SNOMED CT Concept Domain = < 363787002 |Observable entity| OR \r< 386053000 |Evaluation procedure|
   v2 Mapping = OBX-3
   RIM Mapping = code
   w5 = what
@@ -833,13 +832,13 @@
   Path = Observation.valueString
 
  -- Row 14 -----------------------------------
-  Name = combo-value-string
+  Name = !combo-value-string
   Type = string
   Description = The value or component value of the observation, if the value is a string, and also searches in CodeableConcept.text
   Path = Observation.valueString | Observation.component.valueString
 
  -- Row 15 -----------------------------------
-  Name = component-value-string
+  Name = !component-value-string
   Type = string
   Description = The value of the component observation, if the value is a string, and also searches in CodeableConcept.text
   Path = Observation.component.valueString
@@ -881,13 +880,13 @@
   Path = combo-code & combo-value-concept
 
  -- Row 22 -----------------------------------
-  Name = combo-code-value-date
+  Name = !combo-code-value-date
   Type = composite
   Description = Code and date/time value parameter pair, including in components
   Path = combo-code & combo-value-date
 
  -- Row 23 -----------------------------------
-  Name = combo-code-value-string
+  Name = !combo-code-value-string
   Type = composite
   Description = Code and string value parameter pair, including in components
   Path = combo-code & combo-value-string
@@ -905,13 +904,13 @@
   Path = component-code & component-value-concept
 
  -- Row 26 -----------------------------------
-  Name = component-code-value-date
+  Name = !component-code-value-date
   Type = composite
   Description = Component code and component date/time value parameter pair
   Path = component-code & component-value-date
 
  -- Row 27 -----------------------------------
-  Name = component-code-value-string
+  Name = !component-code-value-string
   Type = composite
   Description = Component code and component string value parameter pair
   Path = component-code & component-value-string
@@ -1218,185 +1217,191 @@
   Filename = observation-example-f005-hemoglobin.xml
 
  -- Row 21 -----------------------------------
+  Name = Date last menstrual period
+  Identity = date-lastmp
+  Description = An \"ask at order\" response using the datetime datetype for the result value
+  Filename = observation-example-date-lastmp.xml
+
+ -- Row 22 -----------------------------------
   Name = !BMI
   Identity = f201
   Description = Real-world patient - bmi
   Filename = observation-example-f201-bmi.xml
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = Temperature
   Identity = f202
   Description = Real-world patient - temperature
   Filename = observation-example-f202-temperature.xml
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Name = Bicarbonate
   Identity = f203
   Description = Real-world patient - CO2
   Filename = observation-example-f203-bicarbonate.xml
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Name = Creatinine
   Identity = f204
   Description = Real-world patient - creatinine
   Filename = observation-example-f204-creatinine.xml
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Name = Estimated GFR
   Identity = f205
   Description = Real-world patient - estimated gfr
   Filename = observation-example-f205-egfr.xml
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Name = Staphylococcus
   Identity = f206
   Description = Real-world patient - staphylococcus
   Filename = observation-example-f206-staphylococcus.xml
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Name = EKG
   Identity = ekg
   Description = EKG Example using SampledData data type
   Filename = observation-example-sample-data.xml
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Name = !EEG Example
   Identity = example-eeg
   Description = EEG Example
   Filename = observation-example-eeg.xml
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Name = Glasgow Score 1
   Identity = glasgow
   Description = Clinical assessment tool example - GCS using related Observations
   Filename = observation-example-glasgow.xml
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Name = Glasgow Score 2
   Identity = gcs-qa
   Description = Clinical assessment tool example - GCS using related QuestionnaireAnswer
   Filename = observation-example-glasgow-qa.xml
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Name = Genetics 1
   Identity = example-genetics-1
   Description = Genetics example 1
   Filename = observation-example-genetics-1.xml
   Profile = Observation-Genetics
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Name = Genetics 2
   Identity = example-genetics-2
   Description = Genetics example 2
   Filename = observation-example-genetics-2.xml
   Profile = Observation-Genetics
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Name = Genetics 3
   Identity = example-genetics-3
   Description = Genetics example 3
   Filename = observation-example-genetics-3.xml
   Profile = Observation-Genetics
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Name = Genetics 4
   Identity = example-genetics-4
   Description = Genetics example 4
   Filename = observation-example-genetics-4.xml
   Profile = Observation-Genetics
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Name = Genetics 5
   Identity = example-genetics-5
   Description = Genetics example 5
   Filename = observation-example-genetics-5.xml
   Profile = Observation-Genetics
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Name = 1 minute Apgar Score
   Identity = 1minute-apgar-score
   Description = Example of a 1 minute Apgar score including the individual score components
   Filename = observation-example-1minute-apgar-score.xml
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Name = 2 minute Apgar Score
   Identity = 2minute-apgar-score
   Description = Example of a 2 minute Apgar score including the individual score components
   Filename = observation-example-2minute-apgar-score.xml
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Name = 5 minute Apgar Score
   Identity = 5minute-apgar-score
   Description = Example of a 5 minute Apgar score including the individual score components
   Filename = observation-example-5minute-apgar-score.xml
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Name = 10 minute Apgar Score
   Identity = 10minute-apgar-score
   Description = Example of a 10 minute Apgar score including the individual score components
   Filename = observation-example-10minute-apgar-score.xml
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Name = 20 minute Apgar Score
   Identity = 20minute-apgar-score
   Description = Example of a 20 minute Apgar score including the individual score components
   Filename = observation-example-20minute-apgar-score.xml
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Name = Eye Color
   Identity = eye-color
   Description = Example of a very simple personal characteristic observation
   Filename = observation-example-eye-color.xml
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Name = Bone Density Measurement
   Identity = bmd
   Description = Example of an encoded BMD measurements of left femur
   Filename = observation-example-bmd.xml
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Name = Diplotype(with Haplotypes Ref)
   Identity = example-diplotype1
   Description = Example of diplotype data (with haplotypes observation as reference)
   Filename = observation-example-diplotype1.xml
   Profile = Observation-Genetics
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Name = Haplotype
   Identity = example-haplotype1
   Description = Example of haplotype data that is basis of a diplotype data
   Filename = observation-example-haplotype1.xml
   Profile = Observation-Genetics
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Name = Haplotype-2
   Identity = example-haplotype2
   Description = Example of another haplotype data that is basis of a diplotype data
   Filename = observation-example-haplotype2.xml
   Profile = Observation-Genetics
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Name = Phenotype
   Identity = example-phenotype
   Description = Example of phenotype data
   Filename = observation-example-phenotype.xml
   Profile = Observation-Genetics
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Name = TPMT-diplotype
   Identity = example-TPMT-diplotype
   Description = Example of a TPMT diplotype that link to two TPMT haplotype observations
   Filename = observation-example-TPMT-diplotype.xml
   Profile = Observation-Genetics
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Name = TPMT-haplotype-one
   Identity = example-TPMT-haplotype-one
   Description = Example of a TPMT haplotype observation
   Filename = observation-example-TPMT-haplotype-one.xml
   Profile = Observation-Genetics
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Name = TPMT-haplotype-two
   Identity = example-TPMT-haplotype-two
   Description = Example of another TPMT haplotype observation

@@ -256,7 +256,7 @@ profile:</p>
 		</h4>
 		<p>
 			<strong>Example:</strong>
-			Search for all Vitals Signs measuirements for a patient
+			Search for all Vitals Signs measurements for a patient
 		</p>
 		<p>
 			<a href="#.html">GET [base]/Observation?patient=1186747&amp;category=vital-signs</a>

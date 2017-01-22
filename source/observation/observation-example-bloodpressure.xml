@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/build/schema/subscription.xsd">
 	<id value="blood-pressure"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
@@ -82,6 +82,15 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mm[Hg]"/>
 		</valueQuantity>
+		<!--   an interpretation for the individual composite observation -->
+		<interpretation>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0078"/>
+				<code value="N"/>
+				<display value="normal"/>
+			</coding>
+			<text value="Normal"/>
+		</interpretation>
 		<!--  	Should have a refrange as well  -->
 	</component>
 	<component>
@@ -99,6 +108,15 @@ this is shown here to demonstrate  the concept of translations within the codeab
 			<system value="http://unitsofmeasure.org"/>
 			<code value="mm[Hg]"/>
 		</valueQuantity>
+		<!--   an interpretation for the individual composite observation -->
+		<interpretation>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0078"/>
+				<code value="L"/>
+				<display value="low"/>
+			</coding>
+			<text value="Below low normal"/>
+		</interpretation>
 		<!--  	Should have a refrange as well  -->
 	</component>
 </Observation>
