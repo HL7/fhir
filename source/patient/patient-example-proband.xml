@@ -13,6 +13,7 @@
 
     </div>
   </text>
+  <!--
   <extension url="http://hl7.org/fhir/StructureDefinition/us-core-race">
   <extension url="ombCategory">
     <valueCoding>
@@ -22,6 +23,7 @@
     </valueCoding>
     </extension>
   </extension>
+-->
   <identifier>
     <use value="usual"/>
     <type>
