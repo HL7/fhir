@@ -1514,6 +1514,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (r.getResource() == null)
             try {
               r.setResource(parse(f)); // we won't get to here if we're a bundle
+              r.getResource().setUserData("element", r.getElement());
             } catch (Exception e) {
               throw new Exception("Error parsing "+f.getName()+": "+e.getMessage(), e);
             }

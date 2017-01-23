@@ -104,7 +104,7 @@ import ca.uhn.fhir.util.ObjectUtil;
 
 
 /**
- * Thinking of using this in a java progam? Don't! 
+ * Thinking of using this in a java program? Don't! 
  * You should use on of the wrappers instead. Either in HAPI, or use ValidationEngine
  * 
  * @author Grahame Grieve
@@ -1148,7 +1148,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     checkFixedValue(errors, path + ".end", focus.getNamedChild("end"), fixed.getEndElement(), "end", focus);
   }
 
-  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) {
+  private void checkPrimitive(List<ValidationMessage> errors, String path, String type, ElementDefinition context, Element e, StructureDefinition profile) throws FHIRException {
     if (isBlank(e.primitiveValue())) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.hasChildren(), "primitive types must have a value or must have child extensions");
       return;
@@ -1160,10 +1160,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("oid:"), "URI values cannot start with oid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !e.primitiveValue().startsWith("uuid:"), "URI values cannot start with uuid:");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().equals(e.primitiveValue().trim()), "URI values cannot have leading or trailing whitespace");
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
     }
-    if (!type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
+    if (type.equalsIgnoreCase("string") && e.hasPrimitiveValue()) {
       if (rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().length() > 0, "@value cannot be empty")) {
         warning(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue() == null || e.primitiveValue().trim().equals(e.primitiveValue()), "value should not start or finish with whitespace");
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
       }
     }
     if (type.equals("dateTime")) {
@@ -1173,11 +1175,17 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           .matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?)?)?)?"),
           "Not a valid date time");
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, !hasTime(e.primitiveValue()) || hasTimeZone(e.primitiveValue()), "if a date has a time, it must have a timezone");
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
     }
     if (type.equals("date")) {
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, yearIsValid(e.primitiveValue()), "The value '" + e.primitiveValue() + "' does not have a valid year");
         rule(errors, IssueType.INVALID, e.line(), e.col(), path, e.primitiveValue().matches("-?[0-9]{4}(-(0[1-9]|1[0-2])(-(0[0-9]|[1-2][0-9]|3[0-1]))?)?"),
             "Not a valid date");
+        rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum value of " + context.getMaxLength());
+    }
+    if (type.equals("integer")) {
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxValueIntegerType() || !context.getMaxValueIntegerType().hasValue() || (context.getMaxValueIntegerType().getValue() >= new Integer(e.getValue()).intValue()), "value is greater than permitted maximum value of " + (context.hasMaxValueIntegerType() ? context.getMaxValueIntegerType() : ""));
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMinValueIntegerType() || !context.getMinValueIntegerType().hasValue() || (context.getMinValueIntegerType().getValue() <= new Integer(e.getValue()).intValue()), "value is less than permitted minimum value of " + (context.hasMinValueIntegerType() ? context.getMinValueIntegerType() : ""));
     }
     if (type.equals("instant")) {
       rule(errors, IssueType.INVALID, e.line(), e.col(), path,
@@ -1190,6 +1198,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       // Technically, a code is restricted to string which has at least one character and no leading or trailing whitespace, and where there is no whitespace
       // other than single spaces in the contents
       rule(errors, IssueType.INVALID, e.line(), e.col(), path, passesCodeWhitespaceRules(e.primitiveValue()), "The code '" + e.primitiveValue() + "' is not valid (whitespace rules)");
+      rule(errors, IssueType.INVALID, e.line(), e.col(), path, !context.hasMaxLength() || context.getMaxLength()==0 ||  e.primitiveValue().length() <= context.getMaxLength(), "value is longer than permitted maximum length of " + context.getMaxLength());
     }
 
     if (context.hasBinding() && e.primitiveValue() != null) {
@@ -3058,18 +3067,26 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
     // 5. inspect each child for validity
     for (ElementInfo ei : children) {
+      List<String> profiles = new ArrayList<String>();
       if (ei.definition != null) {
         String type = null;
         ElementDefinition typeDefn = null;
         if (ei.definition.getType().size() == 1 && !ei.definition.getType().get(0).getCode().equals("*") && !ei.definition.getType().get(0).getCode().equals("Element")
-            && !ei.definition.getType().get(0).getCode().equals("BackboneElement"))
+            && !ei.definition.getType().get(0).getCode().equals("BackboneElement")) {
           type = ei.definition.getType().get(0).getCode();
-        else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
+          // Excluding reference is a kludge to get around versioning issues
+          if (ei.definition.getType().get(0).hasProfile() && !type.equals("Reference"))
+            profiles.add(ei.definition.getType().get(0).getProfile());
+          
+        } else if (ei.definition.getType().size() == 1 && ei.definition.getType().get(0).getCode().equals("*")) {
           String prefix = tail(ei.definition.getPath());
           assert prefix.endsWith("[x]");
           type = ei.name.substring(prefix.length() - 3);
           if (isPrimitiveType(type))
             type = Utilities.uncapitalize(type);
+          // Excluding reference is a kludge to get around versioning issues
+          if (ei.definition.getType().get(0).hasProfile() && !type.equals("Reference"))
+            profiles.add(ei.definition.getType().get(0).getProfile());
         } else if (ei.definition.getType().size() > 1) {
 
           String prefix = tail(ei.definition.getPath());
@@ -3077,8 +3094,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
           prefix = prefix.substring(0, prefix.length() - 3);
           for (TypeRefComponent t : ei.definition.getType())
-            if ((prefix + Utilities.capitalize(t.getCode())).equals(ei.name))
+            if ((prefix + Utilities.capitalize(t.getCode())).equals(ei.name)) {
               type = t.getCode();
+              // Excluding reference is a kludge to get around versioning issues
+              if (t.hasProfile() && !type.equals("Reference"))
+                profiles.add(t.getProfile());
+            }
           if (type == null) {
             TypeRefComponent trc = ei.definition.getType().get(0);
             if (trc.getCode().equals("Reference"))
@@ -3124,9 +3145,53 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
               validateContains(appContext, errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei)); // if
             // (str.matches(".*([.,/])work\\1$"))
             else {
-              StructureDefinition p = getProfileForType(type);
-              if (rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown type " + type)) {
-                validateElement(appContext, errors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
+              StructureDefinition p = null;
+              boolean elementValidated = false;
+              if (profiles.isEmpty()) {
+                p = getProfileForType(type);
+                rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown type " + type);
+              } else if (profiles.size()==1) {
+                p = this.context.fetchResource(StructureDefinition.class, profiles.get(0));
+                rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + profiles.get(0));
+              } else {
+                elementValidated = true;
+                HashMap<String, List<ValidationMessage>> goodProfiles = new HashMap<String, List<ValidationMessage>>();
+                List<List<ValidationMessage>> badProfiles = new ArrayList<List<ValidationMessage>>();
+                for (String typeProfile : profiles) {
+                  p = this.context.fetchResource(StructureDefinition.class, typeProfile);
+                  if (rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, p != null, "Unknown profile " + typeProfile)) {
+                    List<ValidationMessage> profileErrors = new ArrayList<ValidationMessage>();
+                    validateElement(appContext, profileErrors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
+                    boolean hasError = false;
+                    for (ValidationMessage msg : profileErrors) {
+                      if (msg.getLevel()==ValidationMessage.IssueSeverity.ERROR || msg.getLevel()==ValidationMessage.IssueSeverity.FATAL) {
+                        hasError = true;
+                        break;
+                      }
+                    }
+                    if (hasError)
+                      badProfiles.add(profileErrors);
+                    else
+                      goodProfiles.put(typeProfile, profileErrors);
+                  }
+                  if (goodProfiles.size()==1) {
+                    errors.addAll(goodProfiles.get(0));
+                  } else if (goodProfiles.size()==0) {
+                    rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Unable to find matching profile among choices: " + String.join("; ", profiles));
+                    for (List<ValidationMessage> messages : badProfiles) {
+                      errors.addAll(messages);
+                    }
+                  } else {
+                    warning(errors, IssueType.STRUCTURE, ei.line(), ei.col(), ei.path, false, "Found multiple matching profiles among choices: " + String.join("; ", goodProfiles.keySet()));
+                    for (List<ValidationMessage> messages : goodProfiles.values()) {
+                      errors.addAll(messages);
+                    }                    
+                  }
+                }
+              }
+              if (p!=null) {
+                if (!elementValidated)
+                  validateElement(appContext, errors, p, p.getSnapshot().getElement().get(0), profile, ei.definition, resource, ei.element, type, localStack, thisIsCodeableConcept);
                 int index = profile.getSnapshot().getElement().indexOf(ei.definition);
                 if (index < profile.getSnapshot().getElement().size() - 1) {
                   String nextPath = profile.getSnapshot().getElement().get(index+1).getPath();

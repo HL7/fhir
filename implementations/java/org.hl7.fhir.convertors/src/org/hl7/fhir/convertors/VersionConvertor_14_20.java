@@ -5530,6 +5530,8 @@ public class VersionConvertor_14_20 {
       tgt.addContext(t.getValue());
     if (src.hasBaseDefinition())
       tgt.setBaseDefinition(src.getBaseDefinition());
+    if (src.hasType() && src.getDerivation() == org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule.CONSTRAINT)
+      tgt.setBaseType(src.getType());
     tgt.setDerivation(convertTypeDerivationRule(src.getDerivation()));
     if (src.hasSnapshot())
       tgt.setSnapshot(convertStructureDefinitionSnapshotComponent(src.getSnapshot()));

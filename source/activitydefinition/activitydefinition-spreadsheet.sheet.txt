@@ -113,23 +113,19 @@
   Type = MetadataResource
   Short Name = The definition of a specific activity to be taken, independent of any particular patient or context
   Definition = This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context
-  Workflow Mapping = Definition
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
   Element = ActivityDefinition.url
-  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = ActivityDefinition.identifier
   Card. = 0..*
-  Workflow Mapping = Definition.identifier
   To Do = Add constraint to require identifier for non-experimental active assets
 
  -- Row 4 -----------------------------------
   Element = ActivityDefinition.version
   Definition = & To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge assets, refer to the Decision Support Service specification. Note that a version is required for non-experimental active assets
-  Workflow Mapping = Definition.version
   To Do = Add constraint to require version for non-experimental active assets
 
  -- Row 5 -----------------------------------
@@ -137,27 +133,21 @@
 
  -- Row 6 -----------------------------------
   Element = ActivityDefinition.title
-  Workflow Mapping = Definition.title
 
  -- Row 7 -----------------------------------
   Element = ActivityDefinition.status
-  Workflow Mapping = Definitition.status (different ValueSet)
 
  -- Row 8 -----------------------------------
   Element = ActivityDefinition.experimental
-  Workflow Mapping = Definition.experimental
 
  -- Row 9 -----------------------------------
   Element = ActivityDefinition.date
-  Workflow Mapping = Definition.date
 
  -- Row 10 -----------------------------------
   Element = ActivityDefinition.description
-  Workflow Mapping = Definition.description
 
  -- Row 11 -----------------------------------
   Element = ActivityDefinition.purpose
-  Workflow Mapping = Definition.purpose
 
  -- Row 12 -----------------------------------
   Element = ActivityDefinition.usage
@@ -168,23 +158,18 @@
 
  -- Row 13 -----------------------------------
   Element = ActivityDefinition.approvalDate
-  Workflow Mapping = Definition.approvalDate
 
  -- Row 14 -----------------------------------
   Element = ActivityDefinition.lastReviewDate
-  Workflow Mapping = Definition.lastReviewDate
 
  -- Row 15 -----------------------------------
   Element = ActivityDefinition.effectivePeriod
-  Workflow Mapping = Definition.effectivePeriod
 
  -- Row 16 -----------------------------------
   Element = ActivityDefinition.useContext
-  Workflow Mapping = Definition.useContext
 
  -- Row 17 -----------------------------------
   Element = ActivityDefinition.jurisdiction
-  Workflow Mapping = Definition.jurisdiction
 
  -- Row 18 -----------------------------------
   Element = ActivityDefinition.topic
@@ -204,16 +189,13 @@
 
  -- Row 20 -----------------------------------
   Element = ActivityDefinition.publisher
-  Workflow Mapping = Definition.publisher (as string instead of CodeableConcept)
   To Do = Add constraint to require publisher on non-experimental active assets
 
  -- Row 21 -----------------------------------
   Element = ActivityDefinition.contact
-  Workflow Mapping = Definition.contact
 
  -- Row 22 -----------------------------------
   Element = ActivityDefinition.copyright
-  Workflow Mapping = Definition.copyright
 
  -- Row 23 -----------------------------------
   Element = ActivityDefinition.relatedArtifact
@@ -249,7 +231,6 @@
   Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.
-  Workflow Mapping = Definition.subjectCodeableConcept
 
  -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
@@ -311,7 +292,6 @@
   Definition = Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type
-  Workflow Mapping = Procedure.targetBodySite
   RIM Mapping = targetSiteCode
 
  -- Row 34 -----------------------------------

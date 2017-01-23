@@ -136,17 +136,17 @@ public class Validator {
       System.out.println(" -narrative");
       System.out.println("");
       System.out.println("-narrative requires the parameters -defn, -txserver, -source, and -output. ig and profile may be used");
-      } else { 
-        String definitions = "http://buid.fhir.org/";
-        List<String> igs = new ArrayList<String>();
+    } else { 
+      String definitions = "http://buid.fhir.org/";
+      List<String> igs = new ArrayList<String>();
       List<String> questionnaires = new ArrayList<String>();
-        String txServer = "http://fhir3.healthintersections.com.au/open";
-        boolean doNative = false;
-        List<String> profiles = new ArrayList<String>();
+      String txServer = "http://fhir3.healthintersections.com.au/open";
+      boolean doNative = false;
+      List<String> profiles = new ArrayList<String>();
       boolean transform = false;
       boolean narrative = false;
       String map = null;
-        String output = null;
+      String output = null;
       List<String> sources= new ArrayList<String>();
 
         // load the parameters - so order doesn't matter
@@ -218,7 +218,7 @@ public class Validator {
           validator.loadIg(src);
       }
       validator.setQuestionnaires(questionnaires);
-        validator.setNative(doNative);
+      validator.setNative(doNative);
 
       if (transform) {
         try {

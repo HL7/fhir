@@ -6,6 +6,7 @@
   Binding = code list
   Reference = #event-status
   Definition = Codes identifying the stage lifecycle stage of a event
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = EventCode
@@ -22,6 +23,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/performer-role
   Definition = Codes describing the types of functional roles performers can take on when performing events
+  Conformance = example
 
 === Sheet event-status =====================================
 

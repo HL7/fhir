@@ -34,8 +34,13 @@ public class ValidationServices implements IValidatorResourceFetcher {
   public Element fetch(Object appContext, String url) throws FHIRFormatError, DefinitionException, IOException {
     String turl = (!Utilities.isAbsoluteUrl(url)) ? Utilities.pathReverse(ipg.getCanonical(), url) : url;
     Resource res = context.fetchResource(getResourceType(turl), turl);
-    if (res != null)
-      return new ObjectConverter(context).convert(res);
+    if (res != null) {
+      Element e = (Element)res.getUserData("element");
+      if (e!=null)
+        return e;
+      else
+        return new ObjectConverter(context).convert(res);
+    }
    
     String[] parts = url.split("\\/");
     
