@@ -15,7 +15,7 @@ ethnicity</a></strong> - (0..1) A CodeableConcept bound to the v3 valueset for t
 <li><strong><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html">
 birthsex</a></strong> - (0..1)  A code classifying the person’s sex assigned at birth as specified by the Office of the National Coordinator for Health IT (ONC).</li>
 </ul>
-<h4>An example Patient showing these extensions can be found <a href="patient-example-us-extensions.html">here</a>.</h4>
+<h4>An example Patient showing these extensions can be found <a href="http://hl7.org/fhir/us/core/Patient-example.html">here</a>.</h4>
 
 <h3 id="extensions-to-contactpoint">Extensions to ContactPoint Datatype</h3>
 <ul>
