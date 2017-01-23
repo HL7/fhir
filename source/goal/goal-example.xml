@@ -7,7 +7,24 @@
 			<p> A simple care goal for a patient to lose weight due to obesity.</p>
 		</div>
 	</text>
-	<status value="in-progress"/>
+	<identifier>
+		<value value="123"/>
+	</identifier>
+	<status value="on-hold"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/valueset-goal-category"/>
+			<code value="dietary"/>
+		</coding>
+	</category>
+	<priority>
+		<coding>
+			<system value="http://hl7.org/fhir/goal-priority" />
+			<code value="high-priority" />
+			<display value="High Priority" />
+		</coding>
+		<text value="high" />
+	</priority>
 	<description>
     		<text value="Target weight is 160 to 180 lbs."/>
 	</description>
@@ -15,6 +32,7 @@
 		<reference value="Patient/example"/>
 		<display value="Peter James Chalmers"/>
 	</subject>
+	<startDate value="2015-04-05" />
 	<target>
 		<measure>
 			<coding>
@@ -37,9 +55,15 @@
 				<code value="[lb_av]"/>
 			</high>
 		</detailRange>
+		<dueDate value="2016-04-05" />
 	</target>
+	<statusDate value="2016-02-14" />
+	<statusReason value="Patient wants to defer weight loss until after honeymoon."/>
+	<expressedBy>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</expressedBy>
 	<addresses>
-		<reference value="Condition/12345"/>
-		<display value="obesity"/>
+		<display value="obesity condition"/>
 	</addresses>
 </Goal>

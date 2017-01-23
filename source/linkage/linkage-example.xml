@@ -8,6 +8,9 @@
       <p><b>Alternate:</b> Condition/condition-example - <i>Severe burn of left ear (Date: 24-May 2012)</i></p>
     </div>
   </text>
+  <author>
+    <reference value="Practitioner/f201"/>
+  </author>
   <item>
     <type value="source"/>
     <resource>
