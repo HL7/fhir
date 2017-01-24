@@ -33,10 +33,11 @@
                   <reference value="Observation/dgf1"/>
               </valueReference>
           </extension>
-          <patient>
+          <status value="completed"/>
+		  <patient>
               <reference value="Patient/example"/>
           </patient>
-          <status value="completed"/>
+          
           <relationship>
               <coding>
                   <system value="http://hl7.org/fhir/familial-relationship"/>

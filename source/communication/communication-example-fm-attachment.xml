@@ -77,7 +77,13 @@
   <subject>
     <reference value="Patient/1"/>
   </subject>
-
+  <recipient>
+    <!-- reference value="#payor"/ -->
+      <identifier>
+        <system value="http://www.jurisdiction.com/insurer"/>
+        <value value="123456"/>
+      </identifier>
+  </recipient>
   <!-- Example using topic 0..* Resource(Any) to provide focal resources -->
   <topic>
     <!-- reference value="#claim"/ -->
@@ -103,13 +109,7 @@
       </identifier>
 
   </sender>
-  <recipient>
-    <!-- reference value="#payor"/ -->
-      <identifier>
-        <system value="http://www.jurisdiction.com/insurer"/>
-        <value value="123456"/>
-      </identifier>
-  </recipient>
+  
 
   <payload>
     <contentAttachment>

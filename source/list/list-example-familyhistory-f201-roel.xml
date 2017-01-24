@@ -5,11 +5,12 @@
     <FamilyMemberHistory>
       <id value="fmh-1"/>
       <!--ROB's Mother has a hernia-->
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -33,11 +34,11 @@
     <FamilyMemberHistory>
       <id value="fmh-2"/>
       <!--ROB's uncle from mother's side died from cancer-->
+      <status value="completed"/>
       <patient>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </patient>
-      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://snomed.info/sct"/>

@@ -116,61 +116,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = CommunicationRequest.category
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = CommunicationCategory
-  Short Name = Message category
-  Definition = The type of message to be sent such as alert, notification, reminder, instruction, etc.
-  w5 = class
-
- -- Row 4 -----------------------------------
-  Element = CommunicationRequest.sender
-  Card. = 0..1
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
-  Short Name = Message sender
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication
-  w5 = who.actor
-
- -- Row 5 -----------------------------------
-  Element = CommunicationRequest.recipient
-  Card. = 0..*
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)
-  Short Name = Message recipient
-  Definition = The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication
-  w5 = who.focus
-
- -- Row 6 -----------------------------------
-  Element = CommunicationRequest.payload
-  Card. = 0..*
-  UML = 380;40
-  Short Name = Message payload
-  Definition = Text, attachment(s), or resource(s) to be communicated to the recipient
-
- -- Row 7 -----------------------------------
-  Element = CommunicationRequest.payload.content[x]
-  Card. = 1..1
-  Type = string|Attachment|Reference(Any)
-  Short Name = Message part content
-  Definition = The communicated content (or for multi-part communications, one portion of the communication)
-
- -- Row 8 -----------------------------------
-  Element = CommunicationRequest.medium
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = CommunicationMedium
-  Short Name = A channel of communication
-  Definition = A channel that was used for this communication (e.g. email, fax).
-
- -- Row 9 -----------------------------------
-  Element = CommunicationRequest.requester
-  Card. = 0..1
-  Type = Reference(Practitioner|Patient|RelatedPerson)
-  Short Name = An individual who requested a communication
-  Definition = The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
-  w5 = who.cause
-
- -- Row 10 -----------------------------------
   Element = CommunicationRequest.status
   Card. = 0..1
   Is Modifier = Y
@@ -180,7 +125,48 @@
   Definition = The status of the proposal or order.
   w5 = status
 
- -- Row 11 -----------------------------------
+ -- Row 4 -----------------------------------
+  Element = CommunicationRequest.priority
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CommunicationPriority
+  Short Name = Message urgency
+  Definition = Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+
+ -- Row 5 -----------------------------------
+  Element = CommunicationRequest.category
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = CommunicationCategory
+  Short Name = Message category
+  Definition = The type of message to be sent such as alert, notification, reminder, instruction, etc.
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = CommunicationRequest.medium
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = CommunicationMedium
+  Short Name = A channel of communication
+  Definition = A channel that was used for this communication (e.g. email, fax).
+
+ -- Row 7 -----------------------------------
+  Element = CommunicationRequest.subject
+  Card. = 0..1
+  Type = Reference(Patient|)
+  Short Name = Focus of message
+  Definition = The patient who is the focus of this communication request.
+  w5 = who.focus
+
+ -- Row 8 -----------------------------------
+  Element = CommunicationRequest.recipient
+  Card. = 0..*
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)
+  Short Name = Message recipient
+  Definition = The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
   Element = CommunicationRequest.topic
   Card. = 0..*
   Type = Reference(Any)
@@ -189,7 +175,7 @@
   Committee Notes = GF#11381
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CommunicationRequest.context
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
@@ -198,23 +184,21 @@
   Committee Notes = GF#11381
   w5 = context
 
- -- Row 13 -----------------------------------
-  Element = CommunicationRequest.scheduled[x]
-  Card. = 0..1
-  Type = dateTime|Period
-  Short Name = When scheduled
-  Definition = The time when this communication is to occur.
-  w5 = when.planned
-
- -- Row 14 -----------------------------------
-  Element = CommunicationRequest.reason
+ -- Row 11 -----------------------------------
+  Element = CommunicationRequest.payload
   Card. = 0..*
-  Type = CodeableConcept
-  Binding = CommunicationReason
-  Short Name = Indication for message
-  Definition = The reason or justification for the communication request.
+  UML = 380;40
+  Short Name = Message payload
+  Definition = Text, attachment(s), or resource(s) to be communicated to the recipient
 
- -- Row 15 -----------------------------------
+ -- Row 12 -----------------------------------
+  Element = CommunicationRequest.payload.content[x]
+  Card. = 1..1
+  Type = string|Attachment|Reference(Any)
+  Short Name = Message part content
+  Definition = The communicated content (or for multi-part communications, one portion of the communication)
+
+ -- Row 13 -----------------------------------
   Element = CommunicationRequest.requestedOn
   Card. = 0..1
   Type = dateTime
@@ -222,21 +206,38 @@
   Definition = The time when the request was made.
   w5 = when.init
 
- -- Row 16 -----------------------------------
-  Element = CommunicationRequest.subject
+ -- Row 14 -----------------------------------
+  Element = CommunicationRequest.scheduled[x]
   Card. = 0..1
-  Type = Reference(Patient|)
-  Short Name = Focus of message
-  Definition = The patient who is the focus of this communication request.
-  w5 = who.focus
+  Type = dateTime|Period
+  Short Name = When scheduled
+  Definition = The time when this communication is to occur.
+  w5 = when.planned
+
+ -- Row 15 -----------------------------------
+  Element = CommunicationRequest.sender
+  Card. = 0..1
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
+  Short Name = Message sender
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication
+  w5 = who.actor
+
+ -- Row 16 -----------------------------------
+  Element = CommunicationRequest.requester
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Short Name = An individual who requested a communication
+  Definition = The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
+  w5 = who.cause
 
  -- Row 17 -----------------------------------
-  Element = CommunicationRequest.priority
-  Card. = 0..1
+  Element = CommunicationRequest.reason
+  Card. = 0..*
   Type = CodeableConcept
-  Binding = CommunicationPriority
-  Short Name = Message urgency
-  Definition = Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+  Binding = CommunicationReason
+  Short Name = Indication for message
+  Definition = The reason or justification for the communication request.
+  w5 = why
 
 === Sheet Search =====================================
 

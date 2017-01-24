@@ -28,33 +28,59 @@
     </Organization>
   </contained>
 
+  <contained>
+    <Practitioner>
+      <id value="requester"/>
+      <identifier>
+         <value value="6789"/>
+      </identifier>
+    </Practitioner>
+  </contained>
   <!-- body of the resource -->
 
   <identifier>
     <system value="http://www.jurisdiction.com/insurer/123456"/>
     <value value="ABC123"/> <!-- this is the value to which the response will refer -->
   </identifier>
-  
+  <status value="requested"/>
+  <priority>
+    <coding>
+      <system value="http://hl7.org/fhir/request-priority"/>
+      <code value="routine"/>
+      <display value="Routine"/>
+    </coding>
+    <text value="Routine"/>
+  </priority>
   <category>
      <coding>
        <system value="http://acme.org/messagetypes"/>
        <code value="SolicitedAttachmentRequest"/>
      </coding>
   </category>
-
-   <sender>
-     <reference value="#payor"/>
-   </sender>
-   <recipient>
+  <medium>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ParticipationMode"/>
+      <code value="WRITTEN"/>
+      <display value="written"/>
+    </coding>
+    <text value="written"/>
+  </medium>
+  <recipient>
       <reference value="#provider"/>
   </recipient>
-  
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
   <payload>
     <contentString value="Please provide the accident report and any associated pictures to support your Claim# DEF5647."/>
   </payload>
-  
-  <status value="requested"/>
-  
   <requestedOn value="2016-06-10T11:01:10-08:00"/>
-  
+  <scheduledDateTime value="2016-06-10T11:01:10-08:00"/>
+  <sender>
+     <reference value="#payor"/>
+   </sender>
+   <requester>
+     <reference value="#requester"/>
+   </requester>
+
 </CommunicationRequest>

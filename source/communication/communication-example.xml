@@ -20,23 +20,36 @@
     </coding>
     <text value="Alert"/>
   </category>
+  <medium>
+    <coding>
+      <system value="http://hl7.org/fhir/v3/ParticipationMode"/>
+      <code value="WRITTEN"/>
+      <display value="written"/>
+    </coding>
+    <text value="written"/>
+  </medium>
   <subject>
-    <reference value="Patient/1"/>
+    <reference value="Patient/example"/>
   </subject>
+  <recipient>
+    <reference value="Practitioner/example"/>
+  </recipient>
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
   <sent value="2014-12-12T18:01:10-08:00"/>
+  <received value="2014-12-12T18:01:11-08:00"/>
   <sender>
     <reference value="Device/f001"/>
   </sender>
-  <recipient>
-    <reference value="Practitioner/21"/>
-  </recipient>
+  
   <payload>
     <contentString value="Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"/>
   </payload>
   <payload>
     <!--Reference to the lab result -->
     <contentReference>
-      <reference value="Observation/643666aa12f"/>
+      <display value="Serum Potassium Observation"/>
     </contentReference>
   </payload>
 </Communication>

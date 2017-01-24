@@ -49,11 +49,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Annie"/>
       <relationship>
         <coding>
@@ -106,11 +107,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Harriet"/>
       <relationship>
         <coding>
@@ -177,11 +179,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Donald"/>
       <relationship>
         <coding>
@@ -202,11 +205,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="4"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Gladys"/>
       <relationship>
         <coding>
@@ -241,11 +245,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="5"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Ian"/>
       <relationship>
         <coding>
@@ -265,11 +270,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="6"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Claire"/>
       <relationship>
         <coding>
@@ -289,11 +295,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="7"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Bob"/>
       <relationship>
         <coding>
@@ -360,11 +367,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Brian"/>
       <relationship>
         <coding>
@@ -432,11 +440,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Janet"/>
       <relationship>
         <coding>
@@ -473,11 +482,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="10"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -528,11 +538,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Ian"/>
       <relationship>
         <coding>
@@ -585,11 +596,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Helen"/>
       <relationship>
         <coding>
@@ -625,11 +637,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="13"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -680,11 +693,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Susan"/>
       <relationship>
         <coding>
@@ -736,11 +750,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -791,11 +806,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -855,11 +871,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -910,11 +927,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -933,11 +951,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="19"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -982,11 +1001,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -1053,11 +1073,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/proband"/>
         <display value="Annie Proband, female, born 1966"/>
       </patient>
-      <status value="completed"/>
+      
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>

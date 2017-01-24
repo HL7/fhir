@@ -4,11 +4,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="1"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Mary"/>
       <relationship>
         <coding>
@@ -40,11 +41,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="2"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Bob"/>
       <relationship>
         <coding>
@@ -75,11 +77,12 @@
   <contained>
     <FamilyMemberHistory>
       <id value="3"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Jon"/>
       <relationship>
         <coding>
@@ -113,11 +116,11 @@
             </valueReference>
         </extension>
       </extension>
+      <status value="completed"/>
       <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
       <name value="Alica"/>
       <!--This is a new relationship that here is a maternal grandmother who is paternal grandmonther's sibling -->
       <relationship>
@@ -157,11 +160,11 @@
           </valueReference>
         </extension>
       </extension>
+      <status value="completed"/>
       <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
       <name value="Aunt with Parent ID"/>
       <relationship>
         <coding>
@@ -201,11 +204,11 @@
             </valueReference>
         </extension>
     </extension>
+      <status value="completed"/>
       <patient>
         <reference value="Patient/147051"/>
         <display value="Pam Taylor"/>
       </patient>
-      <status value="completed"/>
       <name value="Paul"/>
       <!--This is a new relationship that here is a maternal grandmother who is paternal grandmonther's sibling -->
       <relationship>

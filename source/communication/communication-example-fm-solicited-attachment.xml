@@ -57,13 +57,14 @@
   <subject>
     <reference value="Patient/1"/>
   </subject>
+  <recipient>
+    <reference value="#payor"/>
+  </recipient>
   <sent value="2016-06-12T18:01:10-08:00"/>
   <sender>
     <reference value="#provider"/>
   </sender>
-  <recipient>
-    <reference value="#payor"/>
-  </recipient>
+  
   <payload>
     <contentAttachment>
 	  <contentType value="application/pdf" />

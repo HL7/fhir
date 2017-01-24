@@ -25,11 +25,11 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <name value="Dave"/>
       <relationship>
         <coding>
@@ -43,11 +43,11 @@
   <contained>
     <FamilyMemberHistory>
       <id value="2"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -77,11 +77,11 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -94,11 +94,11 @@
   <contained>
     <FamilyMemberHistory>
       <id value="4"/>
+	  <status value="completed"/>
       <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -111,11 +111,11 @@
   <contained>
     <FamilyMemberHistory>
       <id value="5"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <name value="Eve"/>
       <!--relationship>
         <coding>
@@ -136,11 +136,11 @@
   <contained>
     <FamilyMemberHistory>
       <id value="6"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
-      </patient>
-      <status value="completed"/>
+      </patient> 
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -153,11 +153,11 @@
   <contained>
     <FamilyMemberHistory>
       <id value="7"/>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
       <relationship>
         <coding>
           <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -187,11 +187,12 @@
           </valueReference>
         </extension>
       </extension>
-      <patient>
+      <status value="completed"/>
+	  <patient>
         <reference value="Patient/example"/>
         <display value="Peter Patient"/>
       </patient>
-      <status value="completed"/>
+      
       <name value="Alice"/>
       <relationship>
         <coding>

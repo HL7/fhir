@@ -95,6 +95,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = FamilyHistoryStatus
+  Short Name = partial | completed | entered-in-error | health-unknown
+  Definition = A code specifying the status of the record of the family history of a specific family member
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = FamilyMemberHistory.patient
   Card. = 1..1
   Aliases = Proband
@@ -106,7 +117,7 @@
   Committee Notes = [#3703]
   w5 = who.focus
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = FamilyMemberHistory.date
   Card. = 0..1
   Summary = y
@@ -117,17 +128,6 @@
   Comments = This should be captured even if the same as the date on the List aggregating the full family history
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
-
- -- Row 5 -----------------------------------
-  Element = FamilyMemberHistory.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = FamilyHistoryStatus
-  Short Name = partial | completed | entered-in-error | health-unknown
-  Definition = A code specifying the status of the record of the family history of a specific family member
-  w5 = status
 
  -- Row 6 -----------------------------------
   Element = FamilyMemberHistory.name

@@ -66,4 +66,8 @@
 	<addresses>
 		<display value="obesity condition"/>
 	</addresses>
+	<outcomeReference>
+		<reference value="Observation/example"/>
+		<display value="Body Weight Measured"/>
+	</outcomeReference>
 </Goal>

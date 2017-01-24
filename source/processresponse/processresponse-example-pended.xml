@@ -15,6 +15,8 @@
 				<value value="ABC123"/> <!--   this is the value to which the response will refer   -->
 			</identifier>
 
+			<status value="requested"/>
+			
 			<category>
 				<coding>
 					<system value="http://acme.org/messagetypes"/>
@@ -22,6 +24,17 @@
 				</coding>
 			</category>
 
+			<recipient>
+				<identifier>
+					<system value="http://www.jurisdiction.com/provideroffices"/>
+					<value value="3456"/>
+				</identifier>
+			</recipient>
+			<payload>
+				<contentString value="Please provide the accident report and any associated pictures to support your Claim#
+     DEF5647."/>
+			</payload>
+			<requestedOn value="2016-06-10T11:01:10-08:00"/>
 			<sender>
 				<identifier>
 					<system value="http://www.jurisdiction.com/insurer"/>
@@ -29,21 +42,7 @@
 				</identifier>
 			</sender>
 
-			<recipient>
-				<identifier>
-					<system value="http://www.jurisdiction.com/provideroffices"/>
-					<value value="3456"/>
-				</identifier>
-			</recipient>
-
-			<payload>
-				<contentString value="Please provide the accident report and any associated pictures to support your Claim#
-     DEF5647."/>
-			</payload>
-
-			<status value="requested"/>
-
-			<requestedOn value="2016-06-10T11:01:10-08:00"/>
+			
 
 		</CommunicationRequest>
 

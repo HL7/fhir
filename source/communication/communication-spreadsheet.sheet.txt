@@ -129,6 +129,14 @@
   w5 = who.focus
 
  -- Row 9 -----------------------------------
+  Element = Communication.recipient
+  Card. = 0..*
+  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
+  Short Name = Message recipient
+  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
   Element = Communication.topic
   Card. = 0..*
   Type = Reference(Any)
@@ -136,7 +144,7 @@
   Definition = The resources which were responsible for or related to producing this communication.
   w5 = context
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Communication.context
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
@@ -144,7 +152,7 @@
   Definition = The encounter within which the communication was sent.
   w5 = context
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
@@ -152,7 +160,7 @@
   Definition = The time when this communication was sent.
   w5 = when.init
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
@@ -160,21 +168,13 @@
   Definition = The time when this communication arrived at the destination.
   w5 = when.done
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Communication.sender
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Message sender
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
   w5 = who.actor
-
- -- Row 14 -----------------------------------
-  Element = Communication.recipient
-  Card. = 0..*
-  Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
-  Short Name = Message recipient
-  Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
-  w5 = who.focus
 
  -- Row 15 -----------------------------------
   Element = Communication.reason
