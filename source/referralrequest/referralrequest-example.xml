@@ -28,11 +28,19 @@
       <display value="Medium"/>
     </coding>
   </priority>
+  <serviceRequested>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="172676009"/>
+      <display value="Myringotomy and insertion of tympanic ventilation tube"/>
+    </coding>
+    <text value="Insertion of grommets"/>
+  </serviceRequested>
   <patient>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
     <display value="Beverly Weaver"/>
   </patient>
-  <authored value="2014-02-14"/>
+  <authoredOn value="2014-02-14"/>
   <requester>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
     <display value="Serena Shrink"/>
@@ -53,12 +61,5 @@
   </reason>
   <description value="In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is
     falling behind her peers at school, and displaying some learning difficulties."/>
-  <serviceRequested>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="172676009"/>
-      <display value="Myringotomy and insertion of tympanic ventilation tube"/>
-    </coding>
-    <text value="Insertion of grommets"/>
-  </serviceRequested>
+  
 </ReferralRequest>

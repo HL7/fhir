@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClinicalImpression xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/ClinicalImpression.xsd">
   <id value="example"/>
+  <identifier>
+       <value value="12345"/>
+  </identifier>
   <status value="completed"/>
   <description value="This 26 yo male patient is brought into ER by ambulance after being involved in a motor vehicle accident"/>
   <subject>
     <reference value="Patient/example"/>
   </subject>  
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
+  <effectivePeriod>
+      <start value="2014-12-06T20:00:00+11:00"/>
+      <end value="2014-12-06T22:33:00+11:00"/>
+  </effectivePeriod>
+  <date value="2014-12-06T22:33:00+11:00"/>
   <assessor>
     <reference value="Practitioner/example"/>
   </assessor>
-  <date value="2014-12-06T22:33:00+11:00"/>
   <problem>
     <display value="MVA"/> <!-- todo: reference to condition with snomed code 418399005 : Motor vehicle accident (event) -->
   </problem>

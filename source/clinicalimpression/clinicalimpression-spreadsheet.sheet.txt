@@ -99,6 +99,7 @@
  -- Row 4 -----------------------------------
   Element = ClinicalImpression.code
   Card. = 0..1
+  Aliases = type
   Summary = Y
   Type = CodeableConcept
   Binding = ClinicalImpressionCode
@@ -127,25 +128,16 @@
   w5 = who.focus
 
  -- Row 7 -----------------------------------
-  Element = ClinicalImpression.assessor
+  Element = ClinicalImpression.context
   Card. = 0..1
+  Aliases = encounter
   Summary = Y
-  Type = Reference(Practitioner)
-  Short Name = The clinician performing the assessment
-  Definition = The clinician performing the assessment
-  v2 Mapping = ROL-4
-  w5 = who.author
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter or Episode created from
+  Definition = The encounter or episode of care this impression was created as part of.
+  w5 = context
 
  -- Row 8 -----------------------------------
-  Element = ClinicalImpression.date
-  Card. = 0..1
-  Summary = Y
-  Type = dateTime
-  Short Name = When the assessment was documented
-  Definition = Indicates when the documentation of the assessment was complete
-  w5 = when.recorded
-
- -- Row 9 -----------------------------------
   Element = ClinicalImpression.effective[x]
   Card. = 0..1
   Summary = Y
@@ -156,13 +148,24 @@
   v2 Mapping = PRB-2
   w5 = when.done
 
- -- Row 10 -----------------------------------
-  Element = ClinicalImpression.context
+ -- Row 9 -----------------------------------
+  Element = ClinicalImpression.date
   Card. = 0..1
   Summary = Y
-  Type = Reference(Encounter|EpisodeOfCare)
-  Short Name = Encounter or Episode created from
-  Definition = The encounter or episode of care this impression was created as part of.
+  Type = dateTime
+  Short Name = When the assessment was documented
+  Definition = Indicates when the documentation of the assessment was complete
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = ClinicalImpression.assessor
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Name = The clinician performing the assessment
+  Definition = The clinician performing the assessment
+  v2 Mapping = ROL-4
+  w5 = who.author
 
  -- Row 11 -----------------------------------
   Element = ClinicalImpression.previous
