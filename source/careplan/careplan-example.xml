@@ -4,12 +4,7 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.
-            Some Notes: </p>
-      <ul>
-        <li>It would be good to have some way of specifying/coding a goal; e.g. what the target weight is</li>
-        <li>In the codeable concepts I've been lazy and just put the text. There should, of course, be a code behind these</li>
-      </ul>
+      <p> A simple care plan to indicate a patient taking their weight once a day because of obesity.</p>
     </div>
   </text>
   <contained>
@@ -26,76 +21,101 @@
       </subject>
     </Condition>
   </contained>
-  <contained>
-    <Goal>
-      <id value="goal"/>
-      <status value="planned"/>
-      <description>
-        <text value="Target weight is 80 kg"/>
-      </description>
-      <subject>
-        <reference value="Patient/example"/>
-        <display value="Peter James Chalmers"/>
-      </subject>
-	  <target>
-		<measure>
+	<identifier>
+		<value value="12345" />
+	</identifier>
+	<definition>
+		<display value="A PlanDefinition protocol for obesity" />
+	</definition>
+	<basedOn>
+		<display value="Management of Type 2 Diabetes" />
+	</basedOn>
+	<replaces>
+		<display value="Plan from urgent care clinic" />
+	</replaces>
+	<partOf>
+		<display value="Overall wellness plan" />
+	</partOf>
+	<status value="active"/>
+	<intent value="plan"/>
+	<category>
+		<text value="Weight management plan" />
+	</category>
+	<description value="Manage obesity and weight loss" />
+	<subject>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</subject>
+	<context>
+		<reference value="Encounter/home" />
+	</context>
+	<period>
+		<end value="2017-06-01"/>
+	</period>
+	<author>
+		<reference value="Practitioner/example" />
+		<display value="Dr Adam Careful" />
+	</author>
+	<careTeam>
+		<reference value="CareTeam/example"/>
+	</careTeam>
+	<addresses>
+		<reference value="#p1"/>
+		<display value="obesity"/>
+	</addresses>
+	<goal>
+		<reference value="Goal/example"/>
+	</goal>
+	<activity>
+		<outcomeCodeableConcept>
 			<coding>
-              <system value="http://loinc.org"/>
-              <code value="29463-7"/>
-              <display value="Body weight"/>
-            </coding>
-		</measure>
-		<detailQuantity>
-			<value value="80"/>
-            <system value="http://units-of-measure.org"/>
-            <code value="kg"/>
-		</detailQuantity>
-	  </target>
-    </Goal>
-  </contained>
-  <status value="active"/>
-  <intent value="plan"/>
-  <subject>
-    <reference value="Patient/example"/>
-    <display value="Peter James Chalmers"/>
-  </subject>
-  <period>
-    <end value="2013-01-01"/>
-  </period>
-  <careTeam>
-    <reference value="CareTeam/example"/>
-  </careTeam>
-  <addresses>
-    <reference value="#p1"/>
-    <display value="obesity"/>
-  </addresses>
-  <goal>
-    <reference value="#goal"/>
-  </goal>
-  <activity>
-    <detail>
-      <category>
-        <coding>
-          <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-          <code value="observation"/>
-        </coding>
-      </category>
-      <code>
-        <text value="a code for weight measurement"/>
-      </code>
-	  <status value="completed"/>
-      <prohibited value="false"/>
-      <scheduledTiming>
-        <repeat>
-          <frequency value="1"/>
-          <period value="1"/>
-          <periodUnit value="d"/>
-        </repeat>
-      </scheduledTiming>
-      <performer>
-        <reference value="Patient/example"/>
-        <display value="Peter James Chalmers"/>
-      </performer>
+				<system value="http://snomed.info/sct" />
+				<code value="161832001" />
+				<display value="Progressive weight loss" />
+			</coding>
+		</outcomeCodeableConcept>
+		<outcomeReference>
+			<reference value="Observation/example" />
+			<display value="Weight Measured" />
+		</outcomeReference>
+		<detail>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/care-plan-activity-category"/>
+					<code value="observation"/>
+				</coding>
+			</category>
+		<code>
+			<!--     LOINC code     -->
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="3141-9"/>
+				<display value="Weight Measured"/>
+			</coding>
+			<!--     SNOMED CT Code   -->
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="27113001"/>
+				<display value="Body weight"/>
+			</coding>
+		</code>
+		<status value="completed"/>
+		<statusReason value="Achieved weight loss to mitigate diabetes risk." />
+		<prohibited value="false"/>
+		<scheduledTiming>
+			<repeat>
+				<frequency value="1"/>
+				<period value="1"/>
+				<periodUnit value="d"/>
+			</repeat>
+		</scheduledTiming>
+		<location>
+			<display value="Patient's home" />
+		</location>
+		<performer>
+			<reference value="Patient/example"/>
+			<display value="Peter James Chalmers"/>
+		</performer>
     </detail>
   </activity>
 </CarePlan>

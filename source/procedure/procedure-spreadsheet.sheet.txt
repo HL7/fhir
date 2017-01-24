@@ -206,6 +206,7 @@
   Type = Reference(CarePlan|ProcedureRequest|ReferralRequest)
   Short Name = A request for this procedure
   Definition = A reference to a resource that contains details of the request for this procedure.
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=(various e.g. PROC, OBS, PCPR, ACT,  moodCode=RQO].code
 
  -- Row 5 -----------------------------------
   Element = Procedure.partOf
@@ -216,7 +217,7 @@
   Short Name = Part of referenced event
   Definition = A larger event of which this particular procedure is a component or step
   Comments = The MedicationAdministration has a partOf reference to Procedure, but this is not a circular reference.  For a surgical procedure, the anesthesia related medicationAdministration is part of the procedure.  For an IV medication administration,  the procedure to insert the IV port is part of the medication administration.
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=SBADM or PROC or OBS, moodCode=EVN]
 
  -- Row 6 -----------------------------------
   Element = Procedure.status
@@ -228,6 +229,7 @@
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown
   Definition = A code specifying the state of the procedure. Generally this will be in-progress or completed state.
   Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the procedure.
+  RIM Mapping = statusCode
   Committee Notes = GF#10626
   w5 = status
 
@@ -341,6 +343,7 @@
   Short Name = Where the procedure happened
   Definition = The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant
   Requirements = Ties a procedure to where the records are likely kept
+  RIM Mapping = .participation[typeCode=LOC].role[classCode=SDLOC]
   w5 = where
 
  -- Row 17 -----------------------------------
@@ -502,6 +505,7 @@
   Binding = DeviceActionKind
   Short Name = Kind of change to device
   Definition = The kind of change that happened to the device during the procedure
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"procedure device action\"].value=:procedure device action codes
 
  -- Row 34 -----------------------------------
   Element = Procedure.focalDevice.manipulated
@@ -509,6 +513,7 @@
   Type = Reference(Device)
   Short Name = Device that was changed
   Definition = The device that was manipulated (changed) during the procedure
+  RIM Mapping = .participation[typeCode=DEV].role[classCode=SDLOC]
 
  -- Row 35 -----------------------------------
   Element = Procedure.usedReference
@@ -518,6 +523,7 @@
   Definition = Identifies medications, devices and any other substance used as part of the procedure
   Requirements = Used for tracking contamination, etc.
   Comments = For devices actually implanted or removed, use Procedure.device
+  RIM Mapping = .participation[typeCode=DEV].role[classCode=MANU] or\n.participation[typeCode=CSM].role[classCode=ADMM] (for Medication or Substance)
 
  -- Row 36 -----------------------------------
   Element = Procedure.usedCode
@@ -527,6 +533,7 @@
   Short Name = Coded items used during the procedure
   Definition = Identifies coded items that were used as part of the procedure
   Comments = For devices actually implanted or removed, use Procedure.device
+  RIM Mapping = participation[typeCode=Dev].role[classCode=MANU]
 
 === Sheet Search =====================================
 

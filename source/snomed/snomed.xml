@@ -11176,6 +11176,12 @@
     <display value="History of heart failure"/>
     <display value="History of - heart failure (context-dependent category)"/>
   </concept>
+  <concept id="161832001" display="Weight decreasing">
+    <display value="Weight decreasing"/>
+    <display value="Losing weight"/>
+    <display value="Weight decreasing (finding)"/>
+    <display value="Progressive weight loss"/>
+  </concept>
   <concept id="16208003" display="Low fat diet (finding)">
     <display value="LF - Low fat diet"/>
     <display value="LFD - Low fat diet"/>
