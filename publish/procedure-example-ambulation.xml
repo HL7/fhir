@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><Procedure xmlns="http://hl7.org/fhir">
+  <id value="ambulation"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Ambulation procedure was not done</div>
+  </text>
+  <identifier>
+       <value value="12345"/>
+  </identifier>
+  <status value="suspended"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="62013009"/>
+      <display value="Ambulating patient (procedure)"/>
+    </coding>
+    <text value="Ambulation"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <location>
+    <reference value="Location/1"/>
+  </location>
+  <notDone value="true"/>
+  <notDoneReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="398254007"/>
+      <display value="  Pre-eclampsia (disorder)"/>
+    </coding>
+    <text value="Pre-eclampsia"/>
+  </notDoneReason>
+</Procedure>

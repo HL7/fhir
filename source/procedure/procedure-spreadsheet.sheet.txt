@@ -663,4 +663,10 @@
   Description = Example of a device manipulation
   Filename = procedure-example-implant.xml
 
+ -- Row 9 -----------------------------------
+  Name = Ambulation
+  Identity = ambulation
+  Description = Example of ambulation procedure
+  Filename = procedure-example-ambulation.xml
+
 === Sheet Examples =====================================
