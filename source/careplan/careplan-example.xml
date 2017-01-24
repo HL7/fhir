@@ -64,7 +64,7 @@
 		<display value="obesity"/>
 	</addresses>
 	<goal>
-		<reference value="Goal/example"/>
+		<reference value="Goal/example" />
 	</goal>
 	<activity>
 		<outcomeCodeableConcept>
