@@ -14997,6 +14997,19 @@
     <display value="Drug container (physical object)"/>
     <display value="Drug container"/>
   </concept>
+  <concept id="398254007" display="Pre-eclampsia (disorder)">
+    <display value="Pre-eclampsia (disorder)"/>
+    <display value="Pre-eclampsia"/>
+    <display value="EPH - Oedema, proteinuria and hypertension of pregnancy"/>
+    <display value="Pre-eclamptic toxaemia"/>
+    <display value="PET - Pre-eclamptic toxaemia"/>
+    <display value="EPH - Edema, proteinuria and hypertension of pregnancy"/>
+    <display value="PET - Pre-eclamptic toxemia"/>
+    <display value="Pre-eclamptic toxemia"/>
+    <display value="PE - Pre-eclampsia"/>
+    <display value="Proteinuric hypertension of pregnancy"/>
+    <display value="Preeclampsia"/>
+  </concept>
   <concept id="39839004" display="Diaphragmatic hernia (disorder)">
     <display value="Diaphragmatic hernia"/>
     <display value="Diaphragmatic hernia, NOS"/>
@@ -17540,6 +17553,10 @@
     <display value="Dekalb hybrid pig line 61"/>
     <display value="DK pig 61 (organism)"/>
   </concept>
+  <concept id="62013009" display="Ambulating patient">
+    <display value="Ambulating patient"/>
+    <display value="Ambulating patient (procedure)"/>
+  </concept>
   <concept id="62124009" display="Royal palm turkey">
     <display value="Royal palm turkey"/>
     <display value="Royal palm turkey (organism)"/>
@@ -17793,6 +17810,11 @@
     <display value="Structure of thoracic segment of trunk"/>
     <display value="Upper trunk structure"/>
     <display value="Upper trunk structure (body structure)"/>
+  </concept>
+  <concept id="67750007" display="Ineffective airway clearance">
+    <display value="Ineffective airway clearance"/>
+    <display value="Airway clearance impairment"/>
+    <display value="Ineffective airway clearance (finding)"/>
   </concept>
   <concept id="67889009" display="Irrigation (procedure)">
     <display value="Irrigation"/>
@@ -18341,6 +18363,11 @@
   <concept id="78994007" display="British landrace pig">
     <display value="British landrace pig"/>
     <display value="British landrace pig (organism)"/>
+  </concept>
+  <concept id="79068005" display="Needle">
+    <display value="Needle"/>
+    <display value="Needle, device (physical object)"/>
+    <display value="Needle, device"/>
   </concept>
   <concept id="79121003" display="Biopsy of stomach (procedure)">
     <display value="Biopsy of stomach"/>
