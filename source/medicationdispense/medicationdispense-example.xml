@@ -17,12 +17,24 @@
 	<medicationReference>
 		<reference value="Medication/example"/>
 	</medicationReference>
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
-	</patient>
-	<dispenser>
-		<reference value="Practitioner/example"/>
-	</dispenser>
+	</subject>
+	<performer>
+		<role>
+			<coding>
+				<system value="http://snomed.infor/sct"/>
+				<code value="46255001"/>
+				<display value="Pharmacist"/>
+			</coding>
+		</role>
+		<actor>
+			<reference value="Practitioner/f006"/>
+		</actor>
+		<onBehalfOf>
+			<reference value="Organization/2.16.840.1.113883.19.5"></reference>
+		</onBehalfOf>
+	</performer>
 	<authorizingPrescription>
 		<reference value="MedicationRequest/medicationrequest-example"/>
 	</authorizingPrescription>
@@ -36,12 +48,6 @@
 	<whenPrepared value="2012-05-30T16:20:00+00:00"/>
 	<whenHandedOver value="2012-05-31T10:20:00+00:00"/>
 	<substitution>
-		<type>
-			<coding>
-				<system value="http://example.org/MedDispSubType"/>
-				<code value="NoSub"/>
-				<display value="No substitution made or expected"/>
-			</coding>
-		</type>
+		<wasSubstituted value="false"></wasSubstituted>
 	</substitution>
 </MedicationDispense>

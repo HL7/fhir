@@ -93,38 +93,51 @@
   Definition = A code describing where the dispensed medication is expected to be consumed or administered
   Conformance = preferred
 
+ -- Row 14 -----------------------------------
+  Binding Name = MedicationDispensePerformer
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = A code describing the role that dispensed the medication
+  Conformance = example
+
 === Sheet medication-dispense-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
+  Code = preparation
+  Display = Preparation
+  Definition = The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.
+
+ -- Row 2 -----------------------------------
+  Id = 2
   Code = in-progress
   Display = In Progress
   Definition = The dispense has started but has not yet completed.
   v3 = ActStatus.active
 
- -- Row 2 -----------------------------------
-  Id = 2
+ -- Row 3 -----------------------------------
+  Id = 3
   Code = on-hold
   Display = On Hold
   Definition = Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\"
   v3 = ActStatus.suspended
 
- -- Row 3 -----------------------------------
-  Id = 3
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = completed
   Display = Completed
   Definition = All actions that are implied by the dispense have occurred.
   v3 = ActStatus.completed
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = entered-in-error
   Display = Entered in-Error
   Definition = The dispense was entered in error and therefore nullified.
   v3 = ActStatus.nullified
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = stopped
   Display = Stopped
   Definition = Actions implied by the dispense have been permanently halted, before all of them occurred.
@@ -173,7 +186,7 @@
 
  -- Row 2 -----------------------------------
   Element = MedicationDispense.identifier
-  Card. = 0..1
+  Card. = 0..*
   Type = Identifier
   Short Name = External identifier
   Definition = Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
@@ -181,19 +194,26 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MedicationDispense.partOf
+  Card. = 0..*
+  Type = Reference(Procedure)
+  Short Name = Event that dispense is part of
+  Definition = The procedure that the dispense is done because of
+
+ -- Row 4 -----------------------------------
   Element = MedicationDispense.status
   Card. = 0..1
   Is Modifier = Y
   Summary = y
   Type = code
   Binding = MedicationDispenseStatus
-  Short Name = in-progress | on-hold | completed | entered-in-error | stopped
+  Short Name = preparation | in-progress | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
   RIM Mapping = .status
   Committee Notes = Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = MedicationDispense.category
   Card. = 0..1
   Type = CodeableConcept
@@ -201,7 +221,7 @@
   Short Name = Type of medication dispense
   Definition = Indicates type of medication dispense and where the medication is expected to be consumed or administered.
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationDispense.medication[x]
   Card. = 1..1
   Summary = y
@@ -214,19 +234,26 @@
   RIM Mapping = .participation[typeCode=PRD].role
   w5 = what
 
- -- Row 6 -----------------------------------
-  Element = MedicationDispense.patient
+ -- Row 7 -----------------------------------
+  Element = MedicationDispense.subject
   Card. = 0..1
   Summary = y
-  Type = Reference(Patient)
+  Type = Reference(Patient | Group)
   Short Name = Who the dispense is for
-  Definition = A link to a resource representing the person to whom the medication will be given.
+  Definition = A link to a resource representing the person or the group to whom the medication will be given.
   Comments = SubstanceAdministration->subject->Patient
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
+  Element = MedicationDispense.context
+  Card. = 0..1
+  Type = Reference (Encounter | EpisodeofCare)
+  Short Name = Encounter / Episode associated with event
+  Definition = The encounter or episode of care that establishes the context for this event.
+
+ -- Row 9 -----------------------------------
   Element = MedicationDispense.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
@@ -235,35 +262,45 @@
   RIM Mapping = .outboundRelationship[typeCode=PERT].target[A_SupportingClinicalStatement CMET minimal with many different choices of classCodes(ORG, ENC, PROC, SPLY, SBADM, OBS) and each of the act class codes draws from one or more of the following moodCodes (EVN, DEF, INT PRMS, RQO, PRP, APT, ARQ, GOL)]
   w5 = context
 
- -- Row 8 -----------------------------------
-  Element = MedicationDispense.dispenser
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Name = Practitioner responsible for dispensing medication
-  Definition = The individual responsible for dispensing the medication
-  v2 Mapping = RXD-10-Dispensing Provider / PRT-5-Participation Person: PRT-4-Participation=\'DP\' (RXD-10 is deprecated)
-  RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
-  w5 = who.actor
+ -- Row 10 -----------------------------------
+  Element = MedicationDispense.performer
+  Card. = 0..*
+  Short Name = Who performed event
+  Definition = Indicates who or what performed the event.
 
- -- Row 9 -----------------------------------
-  Element = MedicationDispense.dispensingOrganization
+ -- Row 11 -----------------------------------
+  Element = MedicationDispense.performer.role
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MedicationDispensePerformer
+  Short Name = What type of role the performer fulfilled
+  Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
+
+ -- Row 12 -----------------------------------
+  Element = MedicationDispense.performer.actor
+  Card. = 1..1
+  Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
+  Short Name = Individual who was performing
+  Definition = The device, practitioner, etc. who performed the action.
+
+ -- Row 13 -----------------------------------
+  Element = MedicationDispense.performer.onBehalfOf
   Card. = 0..1
   Type = Reference(Organization)
-  Short Name = Organization responsible for the dispense of the medication
-  Definition = The organizaation responsible for the dispense of the medication.
-  RIM Mapping = .participation[typeCode=RESP].role[classCode=ASSIGNED]
-  w5 = who.actor
+  Short Name = Organization organization was acting for
+  Definition = The organization the device or practitioner was acting on behalf of.
 
- -- Row 10 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationRequest)
   Short Name = Medication order that authorizes the dispense
   Definition = Indicates the medication order that is being dispensed against.
+  Comments = Maps to basedOn in Event logical model
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 11 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -273,7 +310,7 @@
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
- -- Row 12 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -282,7 +319,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
 
- -- Row 13 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
@@ -291,7 +328,7 @@
   v2 Mapping = TQ1.6 Timing/Quantity Segment Service Duration.\rPrior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”\rFrom v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (<Quantity (NM)> ^ <Units (CWE)>), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^\rFor backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6
   RIM Mapping = effectiveUseTime
 
- -- Row 14 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationDispense.whenPrepared
   Card. = 0..1
   Summary = y
@@ -302,7 +339,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
   Committee Notes = This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.
 
- -- Row 15 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
@@ -312,7 +349,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).
 
- -- Row 16 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationDispense.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -322,7 +359,7 @@
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
- -- Row 17 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationDispense.receiver
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
@@ -331,7 +368,7 @@
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
 
- -- Row 18 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationDispense.note
   Card. = 0..*
   Type = Annotation
@@ -340,7 +377,7 @@
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
- -- Row 19 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
@@ -351,7 +388,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 20 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
@@ -360,7 +397,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
 
- -- Row 21 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationDispense.substitution.wasSubstituted
   Card. = 1..1
   Type = boolean
@@ -368,7 +405,7 @@
   Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
   RIM Mapping = not in RIM, could be modeled in RIM using OBS act with code specified as wasSubstituted, where value of the OBS act would Boulean would be captured
 
- -- Row 22 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationDispense.substitution.type
   Card. = 0..1
   Type = CodeableConcept
@@ -379,7 +416,7 @@
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 
- -- Row 23 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationDispense.substitution.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -388,7 +425,7 @@
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
- -- Row 24 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
@@ -396,7 +433,7 @@
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
 
- -- Row 25 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationDispense.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
@@ -404,21 +441,21 @@
   Short Name = Clinical Issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
 
- -- Row 26 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = MedicationDispense.notDone
   Card. = 0..1
   Type = boolean
   Short Name = Whether the dispense was or was not performed
   Definition = True if the dispense was not peformed for some reason
 
- -- Row 27 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = MedicationDispense.notDoneReason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(DetectedIssue)
   Short Name = Why a dispense was not performed
   Definition = Indicates the reason why a dispense was not performed
 
- -- Row 28 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)
@@ -436,10 +473,10 @@
   Path = MedicationDispense.destination
 
  -- Row 2 -----------------------------------
-  Name = dispenser
+  Name = performer
   Type = reference
   Description = Return dispenses performed by a specific individual
-  Path = MedicationDispense.dispenser
+  Path = MedicationDispense.performer.actor
 
  -- Row 3 -----------------------------------
   Name = identifier
@@ -463,7 +500,8 @@
   Name = patient
   Type = reference
   Description = The identity of a patient to list dispenses  for
-  Path = MedicationDispense.patient
+  Path = MedicationDispense.subject
+  Target Types = Patient
 
  -- Row 7 -----------------------------------
   Name = prescription
@@ -506,6 +544,12 @@
   Type = reference
   Description = The identity of a receiver to list dispenses for
   Path = MedicationDispense.receiver
+
+ -- Row 14 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = The identity of a patient to list dispenses  for
+  Path = MedicationDispense.subject
 
 === Sheet Profiles =====================================
 
