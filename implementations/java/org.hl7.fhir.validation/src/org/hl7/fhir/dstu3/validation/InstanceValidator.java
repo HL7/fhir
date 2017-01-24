@@ -301,7 +301,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private boolean allowUnknownExtension(String url) {
-    if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org") || url.startsWith("http://hl7.org/fhir/tools/StructureDefinition/"))
+    if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org") || url.startsWith("http://hl7.org/fhir/tools/StructureDefinition/") || url.equals("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"))
+      // Added structuredefinition-expression explicitly because it wasn't defined in the version of the spec it needs to be used with
       return true;
     for (String s : extensionDomains)
       if (url.startsWith(s))
@@ -310,7 +311,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
   private boolean isKnownExtension(String url) {
-    if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org") || url.startsWith("http://hl7.org/fhir/tools/StructureDefinition/"))
+    // Added structuredefinition-expression explicitly because it wasn't defined in the version of the spec it needs to be used with
+    if (url.contains("example.org") || url.contains("acme.com") || url.contains("nema.org") || url.startsWith("http://hl7.org/fhir/tools/StructureDefinition/") || url.equals("http://hl7.org/fhir/StructureDefinition/structuredefinition-expression"))
       return true;
     for (String s : extensionDomains)
       if (url.startsWith(s))
