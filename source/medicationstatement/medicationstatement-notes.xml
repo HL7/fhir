@@ -1,5 +1,86 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
-
+<h3>How to determine if the patient has taken the medication</h3>
+    <p>The MedicationStatement resource includes both a status and a "Taken" code.  In order to determine if the patient has actually consumed the medication systems need to use both MedicationStatement.status and MedicationStatement.taken.  The following table is intended to provide guidance on the interpretation of these two attributes with respect to the MedicationStatement.</p>
+    <table border="1" cellpadding="1" cellspacing="2" frame="box">
+        <tr>
+            <th>Taken</th>
+            <th> Information Source</th>
+            <th> Patient Reports </th>
+            <th> Active </th>
+            <th> Completed </th>
+            <th>Stopped</th>
+            <th> On Hold </th>
+            <th> Entered in Error </th>
+            <th> Intended </th>
+        </tr>
+            <tr>
+                <td>Y</td>
+                <td>Patient</td>
+                <td>Patient or related person states the medication is not currently being taken</td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+        </tr>
+            <tr>
+                <td>N</td>
+                <td>Patient</td>
+                <td>Patient or related person states the medication may be taken in the future</td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>UNK</td>
+                <td>Patient</td>
+                <td>Patient or related person states they may take this medication in the future</td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>NA</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>UNK</td>
+                <td></td>
+                <td>No assertion by patient or related person of whether the medication is being consumed</td>
+                <td>X</td>
+                <td></td>
+                <td></td>
+                <td>X</td>
+                <td></td>
+                <td>X</td>
+            </tr>
+            <tr>
+                <td>NA</td>
+                <td></td>
+                <td>Patient admitted or outpatient administration (MAR)</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+            </tr>
+    </table>
+    
+    
 </div>

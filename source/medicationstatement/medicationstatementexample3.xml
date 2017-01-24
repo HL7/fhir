@@ -17,7 +17,7 @@
     <display value="Donald Duck"/> 
   </informationSource>
   <dateAsserted value="2014-02-22"/>
-  <notTaken value="n"/>
+  <taken value="y"/>
   <note>
     <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>

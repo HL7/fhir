@@ -101,7 +101,7 @@
     <reference value="MedicationRequest/medrx002"></reference>
   </derivedFrom>
   <dateAsserted value="2015-02-22"/>
-  <notTaken value="n"/>
+  <taken value="n"/>
   <reasonForUseCodeableConcept>
     <coding>
       <system value="http://snomed.info/sct"/>

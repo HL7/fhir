@@ -73,9 +73,9 @@
   Conformance = preferred
 
  -- Row 11 -----------------------------------
-  Binding Name = MedicationStatementNotTaken
+  Binding Name = MedicationStatementTaken
   Binding = code list
-  Reference = #medication-statement-nottaken
+  Reference = #medication-statement-taken
   Definition = A coded concept identifying level of certainty if patient has taken or has not taken the medication
   Conformance = required
 
@@ -148,7 +148,7 @@
   Display = Patient Specified
   Definition = Includes statements about medication use, including over the counter medication, provided by the patient, agent or another provider
 
-=== Sheet medication-statement-nottaken =====================================
+=== Sheet medication-statement-taken =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -168,14 +168,20 @@
   Display = Unknown
   Definition = Unknown assertion if patient has taken medication
 
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = na
+  Display = Not Applicable
+  Definition = Patient reporting does not apply
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Context = MedicationStatement
-  English = Reason not taken is only permitted if notTaken is Yes
-  XPath = not(exists(f:reasonNotTaken) and (f:notTaken/@value=\'n\' or f:notTaken/@value=\'unk\'))
-  Expression = reasonNotTaken.empty() or notTaken=\'y\'
+  English = Reason not taken is only permitted if Taken is No
+  XPath = not(exists(f:reasonNotTaken)) or f:taken/@value=\'n\'
+  Expression = reasonNotTaken.exists().not() or (taken = \'n\')
 
 === Sheet Data Elements =====================================
 
@@ -307,13 +313,13 @@
   RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 14 -----------------------------------
-  Element = MedicationStatement.notTaken
-  Card. = 0..1
+  Element = MedicationStatement.taken
+  Card. = 1..1
   Is Modifier = y
   Summary = y
   Type = code
-  Binding = MedicationStatementNotTaken
-  Short Name = y | n | unk
+  Binding = MedicationStatementTaken
+  Short Name = y | n | unk | na
   Definition = Indicator of the certainty of whether the medication was taken by the patient
   RIM Mapping = .actionNegationInd
 

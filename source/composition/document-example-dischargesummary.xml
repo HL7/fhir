@@ -460,7 +460,7 @@
           <display value="Peter Patient"/>
         </subject>
         <dateAsserted value="2013-05-05T16:13:03Z"/>
-        <notTaken value="y"/>
+        <taken value="n"/>
         <reasonNotTaken>
           <text value="Management of Asthma"/>
         </reasonNotTaken>
