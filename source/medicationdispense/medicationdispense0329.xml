@@ -86,14 +86,25 @@
     <medicationReference>
         <reference value="#med0319"/>
     </medicationReference>
-    <patient>
+    <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>
-    </patient>
-    <dispenser>
-        <reference value="Practitioner/f006"/>
-        <display value="Rob van den Berk"/>
-    </dispenser>
+    </subject>
+    <performer>
+        <role>
+            <coding>
+                <system value="http://snomed.infor/sct"/>
+                <code value="46255001"/>
+                <display value="Pharmacist"/>
+            </coding>
+        </role>
+        <actor>
+            <reference value="Practitioner/f006"/>
+        </actor>
+        <onBehalfOf>
+            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
+        </onBehalfOf>
+    </performer>
     <authorizingPrescription>
         <reference value="MedicationRequest/medrx0329"/>
     </authorizingPrescription>

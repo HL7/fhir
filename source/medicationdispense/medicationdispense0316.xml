@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationDispense xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://hl7.org/fhir ../schema/medicationdispense.xsd"
-    xmlns="http://hl7.org/fhir">
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationdispense.xsd"
+ xmlns="http://hl7.org/fhir">
     <id value="meddisp0316"/>
     <status value="in-progress"/>
     <medicationCodeableConcept>
@@ -11,14 +11,25 @@
             <display value="Lantus 100 unit/ml injectable solution"/>
         </coding>
     </medicationCodeableConcept>
-    <patient>
+    <subject>
         <reference value="Patient/pat1"/>
         <display value="Donald Duck "/> 
-    </patient>
-    <dispenser>
-        <reference value="Practitioner/f006"/>
-        <display value="Rob van den Berk"/>
-    </dispenser>
+    </subject>
+    <performer>
+        <role>
+            <coding>
+                <system value="http://snomed.infor/sct"/>
+                <code value="46255001"/>
+                <display value="Pharmacist"/>
+            </coding>
+        </role>
+        <actor>
+            <reference value="Practitioner/f006"/>
+        </actor>
+        <onBehalfOf>
+            <reference value="Organization/2.16.840.1.113883.19.5"></reference>
+        </onBehalfOf>
+    </performer>
     <authorizingPrescription>
         <reference value="MedicationRequest/medrx0320"/>
     </authorizingPrescription>
