@@ -6,7 +6,8 @@
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">omitted for breviy</div>
 	</text>
-	<identifier>http://myHospital.org/ChargeItems"/>
+	<identifier>
+		<system value="http://myHospital.org/ChargeItems"/>
 		<value value="654321"/>
 	</identifier>
 	<code>
