@@ -65,6 +65,9 @@
 				<system value="http://unitsofmeasure.org"/>
 				<code value="mL/min/{1.73_m2}"/>
 			</low>
+			<appliesTo>
+				<text value="non-black/african-american"/>
+			</appliesTo>
 			<age>
 				<low>
 					<value value="18"/>
