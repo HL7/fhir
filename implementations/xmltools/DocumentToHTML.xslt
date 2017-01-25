@@ -74,25 +74,12 @@
         <h1>
           <xsl:value-of select="$title"/>
         </h1>
+        <hr/>
+        <xsl:apply-templates mode="reference" select="fhir:subject"/>
+        <hr/>
         <xsl:apply-templates select="fhir:text/xhtml:div">
           <xsl:with-param name="nesting-depth" select="2"/>
         </xsl:apply-templates>
-        <h2>
-          <xsl:value-of select="$subject-heading"/>
-        </h2>
-        <xsl:apply-templates mode="reference" select="fhir:subject"/>
-		<!-- RG: per https://www.hl7.org/fhir/documents.html it should only present Composition, subject reference, and section.text, so all the other info should be part of the Composition narrative -->
-		  <!--
-        <h2>
-          <xsl:value-of select="$author-heading"/>
-        </h2>
-        <xsl:apply-templates mode="reference" select="fhir:author"/>
-
-        <h2>
-          <xsl:value-of select="$encounter-heading"/>
-        </h2>
-        <xsl:apply-templates mode="reference" select="fhir:encounter"/>
-        -->
         <xsl:apply-templates select="fhir:section"/>
       </body>
     </html>
