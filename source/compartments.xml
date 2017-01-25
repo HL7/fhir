@@ -213,6 +213,14 @@
     <Cell ss:StyleID="s66"/>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ChargeItem</Data></Cell>
+    <Cell><Data ss:Type="String">subject</Data></Cell>
+    <Cell><Data ss:Type="String">context</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+    <Cell><Data ss:Type="String">enterer | participant-actor</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">

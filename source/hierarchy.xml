@@ -237,6 +237,7 @@ signatures.html
       <page type="resource" resource="ResearchStudy"/>
       <page type="resource" resource="ResearchSubject"/>
       <page type="resource" resource="Catalog"/>
+	  <page type="resource" resource="ChargeItem"/>
     </page>
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">

@@ -106,6 +106,10 @@
     <item id="Catalog">
         <translation lang="en">Catalog</translation>
     </item>
+
+	    <item id="ChargeItem">
+        <translation lang="en">ChargeItem</translation>
+    </item>
     <item id="Claim">
         <translation lang="en">Claim</translation>
         <translation lang="zh">声称</translation>

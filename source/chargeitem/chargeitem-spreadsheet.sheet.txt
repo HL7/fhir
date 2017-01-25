@@ -1,0 +1,433 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ChargeItemStatus
+  Binding = code list
+  Reference = #chargeitem-status
+  Definition = Codes identifying the stage lifecycle stage of a ChargeItem
+
+ -- Row 2 -----------------------------------
+  Binding Name = EventCode
+  Binding = unbound
+  Definition = Codes indicating the details of what is/was done.  These will vary significantly based on the type of request resource and will often be example/preferred rather than extensible/required.
+
+ -- Row 3 -----------------------------------
+  Binding Name = EventReason
+  Binding = unbound
+  Definition = Codes identifying why this event was necessary.  These may be clinical reasons (e.g. diagnoses, symptoms) and/or administrative reasons.  While the detailed constraints of relevant reasons will vary by resource, some degree of consistency across resources around recommended codes would be desirable.
+
+ -- Row 4 -----------------------------------
+  Binding Name = ChargeItemPerformerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Definition = Codes describing the types of functional roles performers can take on when performing events
+
+=== Sheet chargeitem-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = preparation
+  Display = Preparation
+  Definition = the charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization
+  v3 = =ActStatus.new
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = billable
+  Display = billable
+  Definition = the charge item is ready for billing
+  v3 = =ActStatus.active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = not-billable
+  Display = not billable
+  Definition = the charge item has been determined to be not billable (e.g. due to rules associated with the billing code)
+  v3 = =ActStatus.suspended
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = aborted
+  Display = aborted
+  Definition = The processing of the charge was aborted
+  v3 = =ActStatus.aborted
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = billed
+  Display = billed
+  Definition = the charge item has been billed (e.g. a billing engine has generated financial transactions by applying the associated ruled for the charge item to the context of the Encounter, and placed them into Claims/Invoices
+  v3 = =ActStatus.completed
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The charge item has been entered in error and should not be processed for billing
+  v3 = =ActStatus.nullified
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = unknown
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this charge item  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
+  v3 = =NullFlavor.unknown
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ChargeItem
+  Type = DomainResource
+  Short Name = ChargeItem
+  v2 Mapping = FT1
+  RIM Mapping = Act[moodCode=EVN]
+  w5 = financial.support
+
+ -- Row 2 -----------------------------------
+  Element = ChargeItem.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Business Identifer for item
+  Definition = Identifiers assigned to this event performer or other systems
+  Requirements = Allows identification of the charge Item as it is known by various participating systems and in a way that remains consistent across servers
+  v2 Mapping = FT1.2
+  RIM Mapping = .identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ChargeItem.definition
+  Card. = 0..*
+  Summary = N
+  Type = Reference(Definition)
+  Short Name = Definition of the Charge Item
+  Definition = Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource
+  v2 Mapping = Varies by domain
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+  To Do = Target Resource is yet to be defined as a container that holds information about list prices and rules  applicable to the charge item code
+
+ -- Row 4 -----------------------------------
+  Element = ChargeItem.partOf
+  Card. = 0..*
+  Aliases = container
+  Summary = N
+  Type = Reference(ChargeItem)
+  Short Name = Part of referenced ChargeItem
+  Definition = ChargeItems can be grouped to larger ChargeItems covering the whole set.
+  Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
+  v2 Mapping = Varies by domain
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
+
+ -- Row 5 -----------------------------------
+  Element = ChargeItem.code
+  Card. = 0..1
+  Aliases = type
+  Summary = Y
+  Type = CodeableConcept
+  Short Name = Code of the ChargeItem
+  Definition = A code that identifies the charge, like a billing code
+  v2 Mapping = FT1.7
+  RIM Mapping = .code
+  w5 = what
+
+ -- Row 6 -----------------------------------
+  Element = ChargeItem.subject
+  Card. = 1..1
+  Aliases = patient
+  Summary = Y
+  Type = Reference(Patient|Group)
+  Short Name = Individual service was done for/to
+  Definition = The individual or set of individuals the action is being or was performed on
+  Requirements = Links the event to the Patient context
+  v2 Mapping = PAT in proximity to FT1 segment
+  RIM Mapping = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 7 -----------------------------------
+  Element = ChargeItem.context
+  Card. = 0..1
+  Aliases = encounter
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter / Episode associated with event
+  Definition = The encounter or episode of care that establishes the context for this event
+  Requirements = Links the request to the Encounter context
+  v2 Mapping = PV1 in proximity to FT1 segment
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
+  w5 = context
+
+ -- Row 8 -----------------------------------
+  Element = ChargeItem.occurrence[x]
+  Card. = 0..1
+  Aliases = timing
+  Summary = Y
+  Type = dateTime|Period|Timing
+  Short Name = When the charged service was applied
+  Definition = Date/time(s) or duration when the charged service was applied
+  Comments = The list of types may be constrained as appropriate for the type of charge item
+  v2 Mapping = Varies by domain
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 9 -----------------------------------
+  Element = ChargeItem.participant
+  Card. = 0..*
+  Summary = N
+  Short Name = Who performed charged service
+  Definition = Indicates who or what performed or participated in the charged service
+  v2 Mapping = EVN.5 or by domain
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+
+ -- Row 10 -----------------------------------
+  Element = ChargeItem.participant.role
+  Card. = 0..1
+  Summary = N
+  Type = CodeableConcept
+  Binding = ChargeItemPerformerRole
+  Short Name = What type of performance was done
+  Definition = Describes the type of performance or participation(e.g. primary surgeon, anaesthesiologiest, etc.)
+  v2 Mapping = Varies by domain
+  RIM Mapping = .participation.functionCode
+
+ -- Row 11 -----------------------------------
+  Element = ChargeItem.participant.actor
+  Card. = 1..1
+  Summary = N
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Short Name = Individual who was performing
+  Definition = The device, practitioner, etc. who performed or participated in the service
+  v2 Mapping = EVN.5 or by domain
+  RIM Mapping = .player
+  w5 = who.actor
+
+ -- Row 12 -----------------------------------
+  Element = ChargeItem.performingOrganization
+  Card. = 0..1
+  Summary = N
+  Type = Reference(Organization)
+  Short Name = Organization providing the charged sevice
+  Definition = The organization requesting the service
+  Comments = Practitioners and Devices can be associated with multiple organizations. It has to be made clear, on behalf of which Organization the services have been rendered
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+
+ -- Row 13 -----------------------------------
+  Element = ChargeItem.requestingOrganization
+  Card. = 0..1
+  Summary = N
+  Type = Reference(Organization)
+  Short Name = Organization requesting the charged service
+  Definition = The organization performing the service
+  Comments = The rendered Service may not be associated with a Request. It has to be made clear, ob which Organization\'s Request, the services have been rendered. (In many cases, this may just be the Department associated with the Encounter.location)
+  v2 Mapping = N/A
+  RIM Mapping = .scoper
+
+ -- Row 14 -----------------------------------
+  Element = ChargeItem.quantity
+  Card. = 0..1
+  Summary = Y
+  Type = Quantity
+  Short Name = Quantity of which the charge item has been serviced
+  Definition = Quantity of which the charge item has been serviced
+  Comments = In many cases this may just be a value, if the underlying units are implicit in the definition of the charge item code.
+  v2 Mapping = FT1.10
+
+ -- Row 15 -----------------------------------
+  Element = ChargeItem.factorOverride
+  Card. = 0..1
+  Summary = N
+  Type = decimal
+  Short Name = Factor overriding the associated rules
+  Definition = Factor overriding the factor determined by the rules associated with the code
+  Comments = There is no reason to carry the factor in the instance of a ChargeItem unless special circumstances require a manual override. The factors are usually defined by a set of rules in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
+  v2 Mapping = FT1.26
+
+ -- Row 16 -----------------------------------
+  Element = ChargeItem.priceOverride
+  Card. = 0..1
+  Summary = N
+  Type = Money
+  Short Name = Price overriding the associated rules
+  Definition = Total price of the charge overriding the list price associated with the code
+  Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
+  v2 Mapping = FT1.22
+
+ -- Row 17 -----------------------------------
+  Element = ChargeItem.overrideReason
+  Card. = 0..1
+  Summary = N
+  Type = string
+  Short Name = Reason for overriding the list price/factor
+  Definition = If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action
+  Comments = Derived Profiles may chose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled
+
+ -- Row 18 -----------------------------------
+  Element = ChargeItem.enterer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Short Name = Individual who was entering
+  Definition = The device, practitioner, etc. who entered the charge item
+  Comments = The enterer is also te person considered responsible for factor/priceOverrides if applicable
+  v2 Mapping = EVN.5 or by domain
+  RIM Mapping = .player
+  w5 = who.actor
+
+ -- Row 19 -----------------------------------
+  Element = ChargeItem.enteredDate
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime
+  Short Name = Date the charge item was entered
+  Comments = The actual date when the service associated with the charge has been rendered is captured in occurence[x]
+
+ -- Row 20 -----------------------------------
+  Element = ChargeItem.reasonCodeableConcept
+  Card. = 0..*
+  Summary = N
+  Type = CodeableConcept
+  Short Name = Why was the charged service rendered?
+  Definition = Describes why the event occurred in coded or textual form.
+  Comments = If the application of the charge item requires a reason to be given, it can be captured here. Textual reasons can be captured using reasonCode.text
+  v2 Mapping = EVN.4 or by domain
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 21 -----------------------------------
+  Element = ChargeItem.service
+  Card. = 0..*
+  Summary = N
+  Type = Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)
+  Short Name = Which rendered service is being charged?
+  Definition = Indicated the rendered service that caused this charge
+  v2 Mapping = EVN.4 or by domain
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 22 -----------------------------------
+  Element = ChargeItem.account
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Account)
+  Short Name = Account to place this charge
+  Definition = Account into which this ChargeItems belongs
+  Comments = Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
+
+ -- Row 23 -----------------------------------
+  Element = ChargeItem.note
+  Card. = 0..*
+  Summary = N
+  Type = Annotation
+  Short Name = Comments made about the ChargeItem
+  Definition = Comments made about the event by the performer, subject or other participants.
+  v2 Mapping = NTE
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
+
+ -- Row 24 -----------------------------------
+  Element = ChargeItem.supportingInformation
+  Card. = 0..*
+  Summary = N
+  Type = Reference(Any)
+  Short Name = Further information supporting the this charge
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ChargeItem.identifier
+
+ -- Row 2 -----------------------------------
+  Name = partof
+  Type = reference
+  Path = ChargeItem.partOf
+
+ -- Row 3 -----------------------------------
+  Name = code
+  Type = token
+  Path = ChargeItem.code
+
+ -- Row 4 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = ChargeItem.subject
+
+ -- Row 5 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = ChargeItem.subject
+  Target Types = Patient
+
+ -- Row 6 -----------------------------------
+  Name = context
+  Type = reference
+  Path = ChargeItem.context
+
+ -- Row 7 -----------------------------------
+  Name = occurrence
+  Type = date
+  Path = ChargeItem.occurrence[x]
+
+ -- Row 8 -----------------------------------
+  Name = enterer
+  Type = reference
+  Path = ChargeItem.enterer
+
+ -- Row 9 -----------------------------------
+  Name = entered-date
+  Type = date
+  Path = ChargeItem.enteredDate
+
+ -- Row 10 -----------------------------------
+  Name = participant-actor
+  Type = reference
+  Path = ChargeItem.participant.actor
+
+ -- Row 11 -----------------------------------
+  Name = participant-role
+  Type = token
+  Path = ChargeItem.participant.role
+
+ -- Row 12 -----------------------------------
+  Name = performig-organization
+  Type = reference
+  Path = ChargeItem.performingOrganization
+
+ -- Row 13 -----------------------------------
+  Name = requesting-organization
+  Type = reference
+  Path = ChargeItem.requestingOrganization
+
+ -- Row 14 -----------------------------------
+  Name = quantity
+  Type = number
+  Path = ChargeItem.quantity
+
+ -- Row 15 -----------------------------------
+  Name = factor-override
+  Type = number
+  Path = ChargeItem.factorOverride
+
+ -- Row 16 -----------------------------------
+  Name = price-override
+  Type = number
+  Path = ChargeItem.priceOverride
+
+ -- Row 17 -----------------------------------
+  Name = service
+  Type = reference
+  Path = ChargeItem.service
+
+ -- Row 18 -----------------------------------
+  Name = account
+  Type = reference
+  Path = ChargeItem.account
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
