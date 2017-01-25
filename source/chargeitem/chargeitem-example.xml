@@ -15,5 +15,10 @@
 			<display value= "Zusatzpauschale für Beobachtung nach diagnostischer Koronarangiografie"/>
 		</coding>
 	</code>
-
+	<subject>
+		<reference value="Patient/123"/>
+	</subject>
+	<context>
+		<reference value="Encounter/345"/>
+	</context>
 </ChargeItem> 
