@@ -170,6 +170,7 @@
   Definition = The clinical status of the condition.
   SNOMED CT Concept Domain = < 303105007 |Disease phases|
   v2 Mapping = PRB-14 / DG1-6
+  RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"clinicalStatus\", moodCode=EVN].value
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -185,7 +186,7 @@
   Comments = verificationStatus is not required.  For example, when a patient has abdominal pain in the ED, there is not likely going to be a verification status.
   SNOMED CT Concept Domain = < 410514004 |Finding context value|
   v2 Mapping = PRB-13
-  RIM Mapping = .code (pre or post-coordinated in)  Can use valueNegationInd for refuted
+  RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value
   SNOMED CT Attribute = 408729009
   Committee Notes = GF#11281
   Default Value = unknown

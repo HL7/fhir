@@ -500,7 +500,7 @@
  -- Row 26 -----------------------------------
   Element = CarePlan.activity.detail.definition
   Card. = 0..1
-  Type = Reference(PlanDefinition|Questionnaire)
+  Type = Reference(PlanDefinition|ActivityDefinition|Questionnaire)
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
   Requirements = Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity.

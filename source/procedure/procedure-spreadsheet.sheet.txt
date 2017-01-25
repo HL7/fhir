@@ -439,7 +439,7 @@
   Short Name = Complication following the procedure
   Definition = Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any \'post procedure\' issues
   Comments = If complications are only expressed by the narrative text, they can be captured using the CodeableConcept.text.
-  RIM Mapping = Need specialization of OUT for this.
+  RIM Mapping = .outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=\"complication\", moodCode=EVN].value
 
  -- Row 26 -----------------------------------
   Element = Procedure.complicationDetail
@@ -448,6 +448,7 @@
   Short Name = A condition that is a result of the procedure
   Definition = Any complications that occurred during the procedure, or in the immediate post-performance period.
   Requirements = This is used to document a condition that is a result of the procedure, not the condition that was the reason for the procedure.
+  RIM Mapping = .outboundRelationship[typeCode=OUTC].target[classCode=OBS, code=\"complication\", moodCode=EVN].value
 
  -- Row 27 -----------------------------------
   Element = Procedure.followUp
@@ -497,6 +498,7 @@
   UML = 420;180
   Short Name = Device changed in procedure
   Definition = A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.
+  RIM Mapping = .participation[typeCode=DEV].role[classCode=MANU]
 
  -- Row 33 -----------------------------------
   Element = Procedure.focalDevice.action
