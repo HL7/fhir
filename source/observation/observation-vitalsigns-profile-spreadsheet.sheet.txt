@@ -654,7 +654,7 @@
   Value = 55284-4
 
  -- Row 6 -----------------------------------
-  Element = Observation.value[x]
+  Element = Observation.valueQuantity
   Card. = 0..0
 
  -- Row 7 -----------------------------------
