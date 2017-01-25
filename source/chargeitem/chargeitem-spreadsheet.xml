@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Simone Heckmann</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-01-25T13:23:35Z</LastSaved>
+  <LastSaved>2017-01-25T17:19:44Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -850,6 +850,19 @@
    <Borders/>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
   </Style>
+  <Style ss:ID="s171">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s172" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R15C1"/>
@@ -888,10 +901,10 @@
  </Worksheet>
  <Worksheet ss:Name="Data Elements">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R31C23"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='Data Elements'!R1C1:R32C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="32" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="14.25">
    <Column ss:StyleID="s70" ss:Width="147.75"/>
@@ -1484,6 +1497,41 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s91"><Data ss:Type="String">ChargeItem.bodysite</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CodeableConcept</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">BodySite</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Anatomical location, if relevant</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s94"><Data ss:Type="String">The anatomical location where the related service has been applied</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="16" ss:StyleID="s94"><Data ss:Type="String">Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><Data ss:Type="String">.targetBodySiteCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="23" ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s97"/>
+    <Cell ss:StyleID="s96"/>
+    <Cell ss:StyleID="s98"/>
+   </Row>
    <Row ss:Height="142.5">
     <Cell ss:StyleID="s91"><Data ss:Type="String">ChargeItem.factorOverride</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1962,13 +2010,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>11</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <FilterOn/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>11</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -1976,8 +2022,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1990,27 +2036,27 @@
    <Value>&quot;DomainResource,Type,Resource,Structure&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C5:R31C5,R3C5:R9C5,R11C5:R22C5,R14C4</Range>
+   <Range>R25C5:R32C5,R3C5:R9C5,R11C5:R23C5,R14C4</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C8:R31C9,R11C9:R13C9,R9C9,R2C8:R8C9,R15C8:R22C9,R9C8:R14C8,R14C7</Range>
+   <Range>R25C8:R32C9,R11C9:R13C9,R9C9,R2C8:R8C9,R15C8:R23C9,R9C8:R14C8,R14C7</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Bindings!A2..A30&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C6:R31C7,R3C6:R13C7,R15C6:R22C7,R14C6</Range>
+   <Range>R25C6:R32C7,R3C6:R13C7,R15C6:R23C7,R14C6</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;Y,N&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C21:R31C21,R2C21:R22C21</Range>
+   <Range>R25C21:R32C21,R16C20,R2C21:R15C21,R17C21:R23C21</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;left,right,up,down,[xpixels],[ypixels]&quot;</Value>
@@ -2018,20 +2064,20 @@
    <ErrorStyle>Info</ErrorStyle>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C18:R31C20,R2C18:R22C20</Range>
+   <Range>R25C18:R32C20,R16C17:R16C19,R2C18:R15C20,R17C18:R23C20</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;N/A&quot;</Value>
    <ErrorHide/>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C3:R31C3,R2C3:R22C3</Range>
+   <Range>R25C3:R32C3,R2C3:R23C3</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;0..1,1..1,0..*,1..*&quot;</Value>
   </DataValidation>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R24C4:R31C4,R2C4:R3C4,R5C4:R8C4,R15C4:R22C4</Range>
+   <Range>R25C4:R32C4,R2C4:R3C4,R5C4:R8C4,R15C4:R23C4</Range>
    <Type>List</Type>
    <Value>'\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
@@ -2042,7 +2088,7 @@
    <Value>'\work\subversion\fhir\build\source\colorectal\Archive\[Invariants]Invariants'!#REF!</Value>
    <ErrorHide/>
   </DataValidation>
-  <AutoFilter x:Range="R1C1:R31C23"
+  <AutoFilter x:Range="R1C1:R32C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
    <AutoFilterColumn x:Index="8" x:Type="NonBlanks"/>
   </AutoFilter>
@@ -4571,7 +4617,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="5" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="123.75"/>
@@ -4653,7 +4699,7 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">Reference may be too long ie there was a limit on the length of the code list name.</Data></Cell>
+    <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.46875">
     <Cell><Data ss:Type="String">EventCode</Data></Cell>
@@ -4672,6 +4718,22 @@
     <Cell ss:Index="5" ss:StyleID="s160" ss:HRef="http://hl7.org/fhir/ValueSet/performer-role"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/performer-role </Data></Cell>
    </Row>
+   <Row ss:Height="28.5">
+    <Cell ss:StyleID="s171"><Data ss:Type="String">BodySite</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Codes describing anatomical locations. May include laterality.</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s172" ss:HRef="http://hl7.org/fhir/ValueSet/body-site"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">SNOMED CT Body site concepts</Data></Cell>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s125"/>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4685,12 +4747,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4698,14 +4761,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

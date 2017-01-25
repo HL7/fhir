@@ -23,6 +23,13 @@
   Reference = http://hl7.org/fhir/ValueSet/performer-role
   Definition = Codes describing the types of functional roles performers can take on when performing events
 
+ -- Row 5 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality.
+  Description = SNOMED CT Body site concepts
+
 === Sheet chargeitem-status =====================================
 
  -- Row 1 -----------------------------------
@@ -236,6 +243,17 @@
   v2 Mapping = FT1.10
 
  -- Row 15 -----------------------------------
+  Element = ChargeItem.bodysite
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Name = Anatomical location, if relevant
+  Definition = The anatomical location where the related service has been applied
+  Comments = Only used if not implicit in code found in Condition.code. If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
+  RIM Mapping = .targetBodySiteCode
+
+ -- Row 16 -----------------------------------
   Element = ChargeItem.factorOverride
   Card. = 0..1
   Summary = N
@@ -245,7 +263,7 @@
   Comments = There is no reason to carry the factor in the instance of a ChargeItem unless special circumstances require a manual override. The factors are usually defined by a set of rules in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.26
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ChargeItem.priceOverride
   Card. = 0..1
   Summary = N
@@ -255,7 +273,7 @@
   Comments = There is no reason to carry the price in the instance of a ChargeItem unless circumstances require a manual override. The list prices or are usually defined in a back catalogue of the billing codes  (see ChargeItem.definition). Derived profiles may require a ChargeItem.overrideReason to be provided if either factor or price are manually overriden
   v2 Mapping = FT1.22
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ChargeItem.overrideReason
   Card. = 0..1
   Summary = N
@@ -264,7 +282,7 @@
   Definition = If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action
   Comments = Derived Profiles may chose to add invariants requiring this field to be populated if either priceOverride or factorOverride have been filled
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = ChargeItem.enterer
   Card. = 0..1
   Summary = Y
@@ -276,7 +294,7 @@
   RIM Mapping = .player
   w5 = who.actor
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = ChargeItem.enteredDate
   Card. = 0..1
   Summary = Y
@@ -284,7 +302,7 @@
   Short Name = Date the charge item was entered
   Comments = The actual date when the service associated with the charge has been rendered is captured in occurence[x]
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ChargeItem.reasonCodeableConcept
   Card. = 0..*
   Summary = N
@@ -296,7 +314,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ChargeItem.service
   Card. = 0..*
   Summary = N
@@ -307,7 +325,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ChargeItem.account
   Card. = 0..1
   Summary = Y
@@ -316,7 +334,7 @@
   Definition = Account into which this ChargeItems belongs
   Comments = Systems posting the ChargeItems may not always be able to determine, which accounts the Items need to be places into. It is up to the potprocessing Financial System to apply internal rules to decide based on the Encounter/EpisodeOfCare/Patient/Coverage context and the type of ChargeItem, which Account is appropriate
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ChargeItem.note
   Card. = 0..*
   Summary = N
@@ -326,7 +344,7 @@
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ChargeItem.supportingInformation
   Card. = 0..*
   Summary = N
