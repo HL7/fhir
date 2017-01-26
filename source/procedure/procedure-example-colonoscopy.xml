@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/procedure.xsd">
-  <id value="colon-biopsy"/>
+  <id value="colonoscopy"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Biopsy of colon, which was part of colonoscopy</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">Colonoscopy with complication</div>
   </text>
   <identifier>
        <value value="12345"/>
   </identifier>
-  <partOf>
-	<reference value="Procedure/colonoscopy"/>
-    <display value="Colonoscopy"/>
-  </partOf>
   <status value="completed"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="76164006"/>
-      <display value="Biopsy of colon (procedure)"/>
+      <code value="73761001"/>
+      <display value="Colonoscopy (procedure)"/>
     </coding>
-    <text value="Biopsy of colon"/>
+    <text value="Colonoscopy"/>
   </code>
   <subject>
     <reference value="Patient/example"/>
@@ -35,6 +31,12 @@
 	<display value="Burgers University Medical Center, South Wing, second floor"/>
   </location>
   <notDone value="false"/>
+  <complicationDetail>
+		<display value="Perforated intestine condition"/>
+  </complicationDetail>
+  <usedReference>
+		<display value="Colonoscope device"/>
+  </usedReference>
 </Procedure>
 <!-- 
 

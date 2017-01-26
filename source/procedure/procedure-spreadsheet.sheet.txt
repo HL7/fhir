@@ -681,7 +681,13 @@
  -- Row 10 -----------------------------------
   Name = Colon Biopsy
   Identity = colon-biopsy
-  Description = Example of colon biopsy procedure with complication
+  Description = Example of biopsy procedure that was part of a colonoscopy
   Filename = procedure-example-colon-biopsy.xml
+
+ -- Row 11 -----------------------------------
+  Name = Colonoscopy
+  Identity = colonoscopy
+  Description = Example of colonoscopy procedure with complication
+  Filename = procedure-example-colonoscopy.xml
 
 === Sheet Examples =====================================

@@ -6380,18 +6380,18 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"><Data ss:Type="String">Colon Biopsy</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of colon biopsy procedure with complication</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of biopsy procedure that was part of a colonoscopy</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">colon-biopsy</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">procedure-example-colon-biopsy.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">Colonoscopy</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of colonoscopy procedure with complication</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">colonoscopy</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">procedure-example-colonoscopy.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>

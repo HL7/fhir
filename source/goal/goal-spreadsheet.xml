@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8910</WindowHeight>
+  <WindowHeight>9210</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5286,7 +5286,7 @@
     <Cell ss:StyleID="s138"><Data ss:Type="String">Weight Loss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">General Person Example</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Goal of Weight Loss</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s79"><Data ss:Type="String">example</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5297,13 +5297,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">Stop Smoking</Data></Cell>
     <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s89"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Goal to Stop Smoking</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">stop-smoking</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">goal-example-stop-smoking.xml</Data></Cell>
     <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s141"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s140"/>
@@ -5557,6 +5557,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5576,8 +5577,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6039,7 +6040,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

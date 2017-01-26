@@ -5,7 +5,7 @@
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>A maternity care plan (for a pregnant woman).</p>
-      <p>LMP is 1st Jan, 2013 (a greaat new years party!) The plan has a scheduled first antenatal,
+      <p>LMP is 1st Jan, 2013 (a great new years party!) The plan has activities to take prenatal vitamins, schedule first antenatal,
             and 'placeholders' for the second antenatal and delivery (there would be lots of others of course)</p>
       <p>Note that where is a proposed 'status' element against each activity</p>
     </div>
@@ -125,6 +125,11 @@
   <goal>
     <reference value="#goal"/>
   </goal>
+  <activity>
+	<reference>
+		<display value = "Prenatal vitamin MedicationRequest"/>
+	</reference>
+  </activity>
   <activity>
     <!-- This will be the first antenatal encounter -->
     <!-- a link to further details about the first antenatal details -->

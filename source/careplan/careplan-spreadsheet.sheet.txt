@@ -282,7 +282,7 @@
   Type = Reference(CarePlan)
   Short Name = Part of referenced CarePlan
   Definition = A larger care plan of which this particular care plan is a component or step.
-  To Do = Each care plan is an independent request, such that having a care plan be part of another care plan can cause issues with cascading statuses.  As such, this element is still being discussed.
+  Comments = Each care plan is an independent request, such that having a care plan be part of another care plan can cause issues with cascading statuses.  As such, this element is still being discussed.
 
  -- Row 7 -----------------------------------
   Element = CarePlan.status

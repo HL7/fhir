@@ -405,7 +405,13 @@
  -- Row 1 -----------------------------------
   Name = Weight Loss
   Identity = example
-  Description = General Person Example
+  Description = Goal of Weight Loss
   Filename = goal-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Stop Smoking
+  Identity = stop-smoking
+  Description = Goal to Stop Smoking
+  Filename = goal-example-stop-smoking.xml
 
 === Sheet Examples =====================================
