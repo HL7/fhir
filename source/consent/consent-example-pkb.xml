@@ -19,20 +19,20 @@
 
   <status value="active"/>
     
-  <dateTime value="2016-06-16"/>
- 
   <patient>
     <reference value="Patient/example"/>
     <display value="...example patient..."/>
   </patient>
 
+  <dateTime value="2016-06-16"/>
+ 
   <organization>
     <reference value="Organization/pkb"/>
 	  <display value="Patients Know Best"/>
   </organization>
 
   <!-- nothing is approved unless the patient says it is -->	    
-  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
 
   <except>
     <!-- we permit -->

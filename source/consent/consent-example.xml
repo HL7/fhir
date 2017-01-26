@@ -16,17 +16,18 @@
 
   <status value="active"/>
     
-  <dateTime value="2016-05-11"/>
- <!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
-	 <period>
-		  <start value="1964-01-01"/>
-		  <end value="2016-01-01"/>
-	 </period>
-	 
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
+
+ <!-- bound by a timeframe between 1964 and 2016 - consent.applies -->
+    <period>
+		  <start value="1964-01-01"/>
+		  <end value="2016-01-01"/>
+    </period>
+	 
+  <dateTime value="2016-05-11"/>
 
   <organization>
      <reference value="Organization/Infoway"/>
@@ -40,6 +41,6 @@
 	</sourceAttachment>
 
   <!-- this is plain out opt-out with no exceptions -->
-  <policy value="http://goodhealth.org/consent/policy/opt-out"/>  
+  <policyRule value="http://goodhealth.org/consent/policy/opt-out"/>  
 
 </Consent>

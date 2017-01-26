@@ -3,7 +3,7 @@
 <h2>Policies</h2>
 
 <p>
-This speciifcation defines 2 magic values for consent policies:
+This speciifcation defines 2 magic values for consent policyRule:
 </p>
 <table class="grid">
  <tr>
@@ -23,8 +23,8 @@ This speciifcation defines 2 magic values for consent policies:
 Other jurisdictions (e.g. HL7 Affiliates) may define their additional lists of consent policy URI values that represent consent policies established by law or regulation
 </p>
 <p>
-The Consent resource has a reference to a single <code>policy</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
-In these cases, the single policy reference refers to a policy document that resolves and reconciles the various policies, and presents a single policy for patient
+The Consent resource has a reference to a single <code>policyRule</code>. Many organizations will work in a context where multiple different consent regulations and policies apply. 
+In these cases, the single policy rule reference refers to a policy document that resolves and reconciles the various policies, and presents a single policy for patient
 consent. If it is still necessary to track which of the underlying policies an exception is make in regard to, an <a href="extension-consent-basis.html">extension</a> may be used.
 </p>
 <h2>General Model</h2>

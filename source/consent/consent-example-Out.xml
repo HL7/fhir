@@ -19,13 +19,26 @@
 
    <status value="active"/>
     
-  <dateTime value="2015-11-18"/>
-   <!-- not bound by a timeframe - Consent.period -->
- 
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
+
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
+ 
+    <actor>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
+          <code value="CST"/> 
+        </coding>
+      </role>
+      <reference>
+         <reference value="Organization/2.16.840.1.113883.19.6"/>
+         <display value="Good Health Psychiatric Hospital"/>
+      </reference>
+    </actor>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
   <organization>
@@ -40,23 +53,9 @@
 	</sourceAttachment>
 
   <!-- this is opt-out - e.g. everything approved unless otherwise stated -->
-  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
 
-  <except>
-    <type value="deny"/>
-    <actor>
-      <role>
-        <coding>
-          <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-          <code value="CST"/> 
-        </coding>
-      </role>
-      <reference>
-         <reference value="Organization/2.16.840.1.113883.19.6"/>
-         <display value="Good Health Psychiatric Hospital"/>
-      </reference>
-    </actor>
-  </except>
+ 
   
 
 </Consent>

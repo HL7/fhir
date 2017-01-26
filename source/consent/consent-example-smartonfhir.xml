@@ -27,12 +27,6 @@
 <Consent xmlns="http://hl7.org/fhir"> 
   <id value="consent-example-smartonfhir"/>
   <status value="active"/>
-  <dateTime value="2016-06-23T17:02:33+10:00"/>
-  <period>
-    <start value="2016-06-23T17:02:33+10:00"/>
-    <end value="2016-06-23T17:32:33+10:00"/>
-  </period>
-
   <!-- 
    In this SMART on FHIR login, the user consents for data sharing 
    for their elderly parent's record
@@ -40,6 +34,12 @@
   <patient>
     <reference value="Patient/xcda"/>
   </patient>
+  <period>
+    <start value="2016-06-23T17:02:33+10:00"/>
+    <end value="2016-06-23T17:32:33+10:00"/>
+  </period>
+  <dateTime value="2016-06-23T17:02:33+10:00"/>
+
   <consentor>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person
@@ -56,7 +56,7 @@
   <!-- now the consent details itself start -->
 
   <!-- smart on fhir is always the base opt-in policy -->
-  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
 
   <!-- each scope that relates to FHIR resource access is represented as an exception -->
   <except>  

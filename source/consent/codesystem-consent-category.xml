@@ -22,6 +22,7 @@
   <concept>
     <code value="cat1"/>
     <display value="Advance Directive Consent examples"/>
+    <definition value="Advanced Directive example codes around medical treatment consent"/>    
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
@@ -49,6 +50,7 @@
   <concept>
     <code value="cat3"/>
     <display value="Example of US jurisdictional [federal and state] privacy consent"/>
+	<definition value="Example of US jurisdictional regulations or laws driving privacy consent"/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
@@ -86,6 +88,7 @@
   <concept>
     <code value="cat5"/>
     <display value="Example international health information exchange consent type"/>
+	<definition value="Example international health information exchange consent types"/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>
@@ -105,6 +108,7 @@
   <concept>
     <code value="cat6"/>
     <display value="Examples of US Research Consent Types"/>
+	<definition value="Example US Research consent tpes"/>
     <property>
       <code value="notSelectable"/>
       <valueBoolean value="true"/>

@@ -20,14 +20,14 @@
 
   <status value="active"/>
     
-  <dateTime value="2015-11-18"/>
-   <!-- not bound by a timeframe - Consent.period -->
- 
   <patient>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
   </patient>
 
+  <dateTime value="2015-11-18"/>
+   <!-- not bound by a timeframe - Consent.period -->
+ 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Consent.authority element -->
   <organization>
     <reference value="Organization/Infoway"/>
@@ -41,7 +41,7 @@
 	</sourceAttachment>
 
   <!-- this is opt-out - e.g. everything approved unless otherwise stated -->
-  <policy value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
 
   <except>
     <!-- no read or write access for this org -->
