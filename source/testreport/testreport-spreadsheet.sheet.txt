@@ -2,19 +2,19 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = TestReportStatus
+  Binding Name = TestReportResult
   Binding = code list
-  Reference = #report-status-codes
+  Reference = #report-result-codes
   Definition = The execution status of the TestReport.
-  Description = The execution status of the TestReport.
+  Description = The overall execution result of the TestScript.
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = TestReportResultCodes
+  Binding Name = TestReportActionResult
   Binding = code list
-  Reference = #report-result-codes
+  Reference = #report-action-result-codes
   Definition = The results of executing an action.
-  Description = The results of execution an action.
+  Description = The result of the execution of an individual action.
   Conformance = required
 
  -- Row 3 -----------------------------------
@@ -25,7 +25,7 @@
   Description = The type of participant.
   Conformance = required
 
-=== Sheet report-status-codes =====================================
+=== Sheet report-result-codes =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -45,7 +45,7 @@
   Display = error
   Definition = The TestReport failed with an error.
 
-=== Sheet report-result-codes =====================================
+=== Sheet report-action-result-codes =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -118,8 +118,8 @@
  -- Row 1 -----------------------------------
   Element = TestReport
   UML = 200;150
-  Type = DomainResource
-  Short Name = Describes a set of tests
+  Type = MetadataResource
+  Short Name = Describes the results of a TestScript execution
   Definition = TestReport is a resource that includes summary information on the results of executing a TestScript.
   RIM Mapping = n/a
   Object Impl = BaseConformance
@@ -128,20 +128,10 @@
  -- Row 2 -----------------------------------
   Element = TestReport.identifier
   Card. = 0..1
-  Summary = y
-  Type = Identifier
-  Short Name = External identifier
-  Definition = Identifier for the TestScript assigned for external purposes outside the context of FHIR.
   w5 = id
 
  -- Row 3 -----------------------------------
   Element = TestReport.name
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Name = Informal name of the executed TestScript
-  Definition = A free text natural language name identifying the executed TestScript
-  Comments = Not expected to be globally unique
   Object Impl = BaseConformance.name
 
  -- Row 4 -----------------------------------
@@ -154,16 +144,14 @@
   w5 = id
 
  -- Row 5 -----------------------------------
-  Element = TestReport.status
+  Element = TestReport.result
   Card. = 1..1
   Is Modifier = yes
   Summary = y
   Type = code
-  Binding = TestReportStatus
+  Binding = TestReportResult
   Short Name = complete | pending | error
-  Definition = The status of the TestReport
-  Object Impl = BaseConformance.status
-  w5 = status
+  Definition = The overall result from the execution of the TestScript.
 
  -- Row 6 -----------------------------------
   Element = TestReport.score
@@ -249,7 +237,7 @@
   Element = TestReport.setup.action.operation.result
   Card. = 1..1
   Type = code
-  Binding = TestReportResultCodes
+  Binding = TestReportActionResult
   Short Name = pass | skip | fail | warning | error
   Definition = The result of this operation.
 
@@ -278,7 +266,7 @@
   Element = TestReport.setup.action.assert.result
   Card. = 1..1
   Type = code
-  Binding = TestReportResultCodes
+  Binding = TestReportActionResult
   Short Name = pass | skip | fail | warning | error
   Definition = The result of this assertion
 
@@ -371,29 +359,19 @@
   Path = TestReport.issued
 
  -- Row 2 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = TestReport.identifier
+  Name = participant
+  Type = uri
+  Path = TestReport.participant.uri
 
  -- Row 3 -----------------------------------
-  Name = name
-  Type = string
-  Path = TestReport.name
-
- -- Row 4 -----------------------------------
   Name = tester
   Type = string
   Path = TestReport.tester
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = testscript
   Type = reference
   Path = TestReport.testScript
-
- -- Row 6 -----------------------------------
-  Name = participant
-  Type = uri
-  Path = TestReport.participant.uri
 
 === Sheet Profiles =====================================
 

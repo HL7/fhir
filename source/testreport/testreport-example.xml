@@ -9,7 +9,7 @@
 	<testScript>
 		<reference value="TestScript/testscript-example"/>
 	</testScript>
-	<status value="complete"/>
+	<result value="complete"/>
 	<score value="100.0"/>
 	<tester value="HL7 Execution Engine"/>
 	<issued value="2016-10-07T08:25:34-05:00"/>
