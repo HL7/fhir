@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9510</WindowHeight>
+  <WindowHeight>9210</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>759</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4211,7 +4211,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6379,11 +6378,11 @@
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">Colon Biopsy</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s89"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Example of colon biopsy procedure with complication</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">colon-biopsy</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">procedure-example-colon-biopsy.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>
@@ -6648,6 +6647,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6667,8 +6667,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

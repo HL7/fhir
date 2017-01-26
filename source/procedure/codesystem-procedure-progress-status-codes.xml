@@ -9,30 +9,32 @@
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
-    <code value="a"/>
+    <code value="in-operating-room"/>
     <display value="In Operating Room"/>
     <definition value="A patient is in the Operating Room."/>
   </concept>
   <concept>
-    <code value="b"/>
+    <code value="prepared"/>
     <display value="Prepared"/>
     <definition value="The patient is prepared for a procedure."/>
   </concept>
   <concept>
-    <code value="c"/>
-    <display value="Anesthesia induced"/>
+    <code value="anesthesia-induced"/>
+    <display value="Anesthesia Induced"/>
     <definition value="The patient is under anesthesia."/>
   </concept>
   <concept>
-    <code value="d"/>
-    <display value="Opened (skin)"/>
+    <code value="open-incision"/>
+    <display value="Open Incision"/>
+	<definition value="The patient has open incision(s)."/>
   </concept>
   <concept>
-    <code value="e"/>
-    <display value="Closed (skin)"/>
+    <code value="closed-incision"/>
+    <display value="Closed Incision"/>
+	<definition value="The patient has incision(s) closed."/>
   </concept>
   <concept>
-    <code value="f"/>
+    <code value="in-recovery-room"/>
     <display value="In Recovery Room"/>
     <definition value="The patient is in the recovery room."/>
   </concept>

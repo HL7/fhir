@@ -56,10 +56,6 @@
     </coding>
     <text value="Pre-eclampsia"/>
   </notDoneReason>
-  <usedReference>
-		<reference value="Device/ihe-pcd"/>
-		<display value="Hemodynamic monitor"/>
-  </usedReference>
 </Procedure>
 <!-- 
 

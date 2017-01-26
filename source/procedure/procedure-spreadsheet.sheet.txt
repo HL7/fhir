@@ -678,4 +678,10 @@
   Description = Example of ambulation procedure
   Filename = procedure-example-ambulation.xml
 
+ -- Row 10 -----------------------------------
+  Name = Colon Biopsy
+  Identity = colon-biopsy
+  Description = Example of colon biopsy procedure with complication
+  Filename = procedure-example-colon-biopsy.xml
+
 === Sheet Examples =====================================

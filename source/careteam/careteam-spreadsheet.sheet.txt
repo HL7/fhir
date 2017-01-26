@@ -97,10 +97,10 @@
 
  -- Row 1 -----------------------------------
   Id = !1
-  Context = CareTeam
+  Context = CareTeam.participant
   English = CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
   XPath = true()
-  Expression = (onBehalfOf.exists()).not() or (member.resolve() is Practitioner)
+  Expression = onBehalfOf.exists() implies (member.resolve() is Practitioner)
 
 === Sheet Data Elements =====================================
 

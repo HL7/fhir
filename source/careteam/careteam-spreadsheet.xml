@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7500</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>9210</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -3666,11 +3666,11 @@
     <Cell ss:StyleID="s83"><Data ss:Type="String">onBehalfOf can only be used with practitioner member</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">(onBehalfOf.exists()).not() or (member.resolve() is Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">onBehalfOf.exists() implies (member.resolve() is Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">true()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4127,7 +4127,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4135,15 +4135,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7281,7 +7280,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

@@ -11353,6 +11353,10 @@
     <display value="Extended right hemicolectomy"/>
     <display value="Extended right hemicolectomy (procedure)"/>
   </concept>
+  <concept id="17561000" display="Cardiologist">
+    <display value="Cardiologist"/>
+    <display value="Cardiologist (occupation)"/>
+  </concept>
   <concept id="176178006" display="Diagnostic cystoscopy">
     <display value="Diagnostic cystoscopy"/>
     <display value="Diagnostic cystoscopy (procedure)"/>
@@ -11716,6 +11720,11 @@
     <display value="Health care personnel"/>
     <display value="Health profession"/>
     <display value="Healthcare professional (occupation)"/>
+  </concept>
+  <concept id="224542009" display="Coronary care nurse">
+    <display value="Coronary care nurse"/>
+    <display value="CCU - Coronary care nurse"/>
+    <display value="Coronary care nurse (occupation)"/>
   </concept>
   <concept id="224565004" display="Renal nurse (occupation)">
     <display value="Renal nurse"/>
@@ -17066,6 +17075,11 @@
     <display value="Rectosigmoid junction"/>
     <display value="Rectosigmoid"/>
   </concept>
+  <concept id="49852007" display="Structure of median cubital vein">
+    <display value="Median cubital vein"/>
+    <display value="Structure of median cubital vein"/>
+    <display value="Structure of median cubital vein (body structure)"/>
+  </concept>
   <concept id="49890001" display="Hospital cart, device (physical object)">
     <display value="Hospital cart, device (physical object)"/>
     <display value="Hospital cart, device"/>
@@ -18213,6 +18227,10 @@
   <concept id="7598004" display="Wyandotte chicken">
     <display value="Wyandotte chicken"/>
     <display value="Wyandotte chicken (organism)"/>
+  </concept>
+  <concept id="76164006" display="Biopsy of colon">
+    <display value="Biopsy of colon"/>
+    <display value="Biopsy of colon (procedure)"/>
   </concept>
   <concept id="76168009" display="Group psychotherapy (regime/therapy)">
     <display value="Group psychotherapy (regime/therapy)"/>
