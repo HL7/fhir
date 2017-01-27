@@ -37,41 +37,34 @@
   Conformance = required
 
  -- Row 6 -----------------------------------
-  Binding Name = AllergyIntoleranceCertainty
-  Binding = code list
-  Reference = #reaction-event-certainty
-  Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.
-  Conformance = required
-
- -- Row 7 -----------------------------------
   Binding Name = Manifestation
   Binding = value set
   Reference = valueset-manifestation-codes
   Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.
   Conformance = example
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = AllergyIntoleranceSeverity
   Binding = code list
   Reference = #reaction-event-severity
   Definition = Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations.
   Conformance = required
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Binding Name = AllergyIntoleranceCode
   Binding = value set
   Reference = valueset-allergyintolerance-code
   Definition = Type of the substance/product, allergy or intolerance condition, or negation/exclusion codes for reporting no known allergies.
   Conformance = example
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Binding Name = RouteOfAdministration
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/route-codes
   Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
   Conformance = example
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Binding Name = SubstanceCode
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/substance-code
@@ -188,32 +181,6 @@
   Code = biologic
   Display = Biologic
   Definition = A preparation that is synthesized from living organisms or their products, especially a human or animal protein, such as a hormone or antitoxin, that is used as a diagnostic, preventive, or therapeutic agent. Examples of biologic medications include: vaccines; allergenic extracts, which are used for both diagnosis and treatment (for example, allergy shots); gene therapies; cellular therapies.  There are other biologic products, such as tissues, that are not typically associated with allergies.
-
-=== Sheet reaction-event-certainty =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = unlikely
-  Display = Unlikely
-  Definition = There is a low level of clinical certainty that the reaction was caused by the identified substance.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = likely
-  Display = Likely
-  Definition = There is a high level of clinical certainty that the reaction was caused by the identified substance.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = confirmed
-  Display = Confirmed
-  Definition = There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = unknown
-  Display = Unknown
-  Definition = The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.
 
 === Sheet reaction-event-severity =====================================
 
@@ -454,7 +421,7 @@
   RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
 
  -- Row 18 -----------------------------------
-  Element = AllergyIntolerance.reaction.certainty
+  Element = !AllergyIntolerance.reaction.certainty
   Card. = 0..1
   Aliases = Cause;
   Type = code
@@ -463,7 +430,7 @@
   Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
   Comments = When certainty is missing, it means no information exists (although it could be in narrative).  By contrast, the unknown code is used when there is an explicit assertion that certainty is not known, such as when a patient eats a meal and it is unknown which food caused the reaction.
   RIM Mapping = uncertaintyCode
-  Committee Notes = GF#11022
+  Committee Notes = GF#11022; GF#11020 - moved to extension
 
  -- Row 19 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation

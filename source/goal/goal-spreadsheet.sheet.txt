@@ -344,7 +344,6 @@
   Definition = Identifies the change (or lack of change) at the point when the status of the goal is assessed.
   Requirements = Outcome tracking is a key aspect of care planning
   Comments = Note that this should not duplicate the goal status.
-  To Do = Define a proper value set for this
   Committee Notes = GF#11116
 
  -- Row 19 -----------------------------------

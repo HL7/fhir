@@ -89,7 +89,6 @@
         <display value="cashew nut allergenic extract Injectable Product"/>
       </coding>  
     </substance>
-    <certainty value="confirmed"/>
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -111,7 +110,6 @@
 
   <!-- this was the first occurrence -->
   <reaction> 
-    <certainty value="likely"/>
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>

@@ -15,6 +15,13 @@
   Definition = The risk of an adverse reaction (allergy or intolerance) for this patient upon xposure to the substance (including pharmaceutical products).
   Conformance = required
 
+ -- Row 3 -----------------------------------
+  Binding Name = AllergyIntoleranceCertainty
+  Binding = code list
+  Reference = #reaction-event-certainty
+  Definition = Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event.
+  Conformance = required
+
 === Sheet allerg-intol-substance-exp-risk =====================================
 
  -- Row 1 -----------------------------------
@@ -28,6 +35,32 @@
   Code = no-known-reaction-risk
   Display = No Known Reaction Risk
   Definition = No known risk of allergy or intolerance reaction upon exposure to the specified substance.
+
+=== Sheet reaction-event-certainty =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = unlikely
+  Display = Unlikely
+  Definition = There is a low level of clinical certainty that the reaction was caused by the identified substance.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = likely
+  Display = Likely
+  Definition = There is a high level of clinical certainty that the reaction was caused by the identified substance.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = confirmed
+  Display = Confirmed
+  Definition = There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = unknown
+  Display = Unknown
+  Definition = The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.
 
 === Sheet Extensions-Inv =====================================
 
