@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8508</WindowHeight>
+  <WindowHeight>7644</WindowHeight>
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>683</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -5773,7 +5773,7 @@
    <Column ss:StyleID="s139" ss:Width="88.800000000000011"/>
    <Column ss:StyleID="s139" ss:Width="28.8"/>
    <Column ss:StyleID="s139" ss:Width="328.79999999999995"/>
-   <Column ss:StyleID="s139" ss:Width="57"/>
+   <Column ss:StyleID="s139" ss:Width="197.4"/>
    <Column ss:StyleID="s139" ss:Width="205.8" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s139" ss:Width="40.799999999999997"/>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5830,20 +5830,20 @@
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">ihe-iid</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Example of IHE-IID endpoint</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">example-iid</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">endpoint-example-iid.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">dicom-rs</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Example of DICOM WADO-RS endpoint</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">example-wadors</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">endpoint-example-wadors.xml</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s144"/>
    </Row>
@@ -6171,6 +6171,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6190,8 +6191,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6726,7 +6727,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

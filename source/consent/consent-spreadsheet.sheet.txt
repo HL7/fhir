@@ -138,7 +138,7 @@
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = authoredBy
+  Code = authoredby
   Display = AuthoredBy
   Definition = The consent applies to instances of resources that are authored by
 
@@ -376,7 +376,7 @@
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Name = instance | related | dependents | authoredBy
+  Short Name = instance | related | dependents | authoredby
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 23 -----------------------------------
@@ -513,7 +513,7 @@
   Summary = Y
   Type = code
   Binding = ConsentDataMeaning
-  Short Name = instance | related | dependents | authoredBy
+  Short Name = instance | related | dependents | authoredby
   Definition = How the resource reference is interpreted when testing consent restrictions
 
  -- Row 38 -----------------------------------

@@ -13,40 +13,24 @@
        <author> 
               <reference value="Practitioner/P2"/> 
        </author> 
-       <title> 
-              <coding> 
-                     <system value="http://nema.org/dicom/dicm"/> 
-                     <code value="113030"/> 
-                     <display value="Manifest"/> 
-              </coding> 
-              <text value="A set of objects that have been exported for sharing"/> 
-       </title> 
-       <description value="1 SC image (screen snapshot) and 2 CT images to share a chest CT exam"/> 
+	   <description value="1 SC image (screen snapshot) and 2 CT images to share a chest CT exam"/> 
        <study> 
               <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16749.2599092904"/> 
               <imagingStudy> 
                      <reference value="ImagingStudy/I3"/> 
               </imagingStudy> 
-              <baseLocation> 
-                     <type> 
-                        <code value="IID"/> 
-                     </type> 
-                     <url value="https://pacs.hospital.org/IHEInvokeImageDisplay"/> 
-              </baseLocation> 
-              <baseLocation> 
-                     <type> 
-                        <code value="WADO-RS"/> 
-                     </type> 
-                     <url value="https://pacs.hospital.org/wado-rs"/> 
-              </baseLocation> 
+			  <endpoint>
+				<reference value="Endpoint/example-iid"/>
+			  </endpoint>
+			  <endpoint>
+				<reference value="Endpoint/example-wadors"/>
+			  </endpoint>
               <series> 
                      <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16750.2599092901"/> 
-                     <baseLocation> 
-                           <type> 
-                              <code value="WADO-RS"/> 
-                           </type> 
-                           <url value="https://vna.healthexchange.org/wado-rs"/> 
-                     </baseLocation> 
+
+					  <endpoint>
+						<reference value="Endpoint/eample-wadors"/>
+					  </endpoint>
                      <instance> 
                            <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.7"/> 
                            <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092902"/> 

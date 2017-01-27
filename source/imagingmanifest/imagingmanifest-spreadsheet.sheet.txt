@@ -11,13 +11,6 @@
   Oid = 1.2.840.10008.6.1.7010
   Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright 2011 by the National Electrical Manufacturers Association.
 
- -- Row 2 -----------------------------------
-  Binding Name = dWebType
-  Binding = code list
-  Reference = #dWebType
-  Definition = The type of the service endpoint
-  Conformance = extensible
-
 === Sheet kos-title =====================================
 
  -- Row 1 -----------------------------------
@@ -120,23 +113,6 @@
   Code = 113036
   Definition = Group of Frames for Display
 
-=== Sheet dWebType =====================================
-
- -- Row 1 -----------------------------------
-  Code = WADO-RS
-  Display = WADO-RS
-  Definition = Web Access to DICOM Persistent Objects - RESTful Services
-
- -- Row 2 -----------------------------------
-  Code = WADO-URI
-  Display = WADO-URI
-  Definition = Web Access to DICOM Persistent Objects - URI
-
- -- Row 3 -----------------------------------
-  Code = IID
-  Display = IID
-  Definition = IHE - Invoke Image Display Profile
-
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -147,8 +123,7 @@
   UML = 0;0
   Type = DomainResource
   Short Name = Key Object Selection
-  Definition = A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
-  Requirements = A FHIR representation of DICOM Key Object Selection (KOS) SOP Instances enables access to a set of selected DICOM SOP Instances.
+  Definition = A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
   DICOM Mapping = Key Object Selection SOP Class (1.2.840.10008.5.1.4.1.1.88.59)
   w5 = clinical.diagnostics
 
@@ -203,7 +178,7 @@
   w5 = who.author
 
  -- Row 6 -----------------------------------
-  Element = ImagingManifest.title
+  Element = !ImagingManifest.title
   Card. = 1..1
   Summary = y
   Type = CodeableConcept
@@ -221,7 +196,7 @@
   Summary = y
   Type = string
   Short Name = Description text
-  Definition = Text description of the DICOM SOP instances selected in the ImagingManifest. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
+  Definition = Free text narrative description of the ImagingManifest.  \nThe value may be derived from the DICOM Standard Part 16, CID-7010 descriptions (e.g. Best in Set, Complete Study Content). Note that those values cover the wide range of uses of the DICOM Key Object Selection object, several of which are not supported by ImagingManifest. Specifically, there is no expected behavior associated with descriptions that suggest referenced images be removed or not used.
   Requirements = Need to provide a narrative description of the SOP instances in the selection.
   Comments = Free text narrative description of the ImagingManifest
   DICOM Mapping = (0040,A160) - Text Value SR content item immediately under the root item, concept name code = (113012, DCM, \"Key Object Description\")
@@ -259,7 +234,16 @@
   DICOM Mapping = imagingStudy (0020,000D) - Study Instance UID
 
  -- Row 11 -----------------------------------
-  Element = ImagingManifest.study.baseLocation
+  Element = ImagingManifest.study.endpoint
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Endpoint)
+  Short Name = Study access service endpoint
+  Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.
+  Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
+
+ -- Row 12 -----------------------------------
+  Element = !ImagingManifest.study.baseLocation
   Card. = 0..*
   UML = 300;175
   Type = =StudyBaseLocation
@@ -268,16 +252,16 @@
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   To Do = likely change to Endpoint Resource reference
 
- -- Row 12 -----------------------------------
-  Element = ImagingManifest.study.baseLocation.type
+ -- Row 13 -----------------------------------
+  Element = !ImagingManifest.study.baseLocation.type
   Card. = 1..1
   Type = Coding
   Binding = dWebType
   Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
 
- -- Row 13 -----------------------------------
-  Element = ImagingManifest.study.baseLocation.url
+ -- Row 14 -----------------------------------
+  Element = !ImagingManifest.study.baseLocation.url
   Card. = 1..1
   Type = uri
   Short Name = Study access URL
@@ -285,7 +269,7 @@
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to view, retrieve, or otherwise access the study or the study’s series or instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = ImagingManifest.study.series
   Card. = 1..*
   Summary = y
@@ -296,7 +280,7 @@
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series
   Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = ImagingManifest.study.series.uid
   Card. = 1..1
   Aliases = SeriesInstanceUID, Referenced series instance UID
@@ -307,8 +291,17 @@
   Requirements = Series instance UID is required to fully identify the DICOM SOP instances in the selection
   DICOM Mapping = (0020,000E) - Series Instance UID
 
- -- Row 16 -----------------------------------
-  Element = ImagingManifest.study.series.baseLocation
+ -- Row 17 -----------------------------------
+  Element = ImagingManifest.study.series.endpoint
+  Card. = 0..*
+  Summary = y
+  Type = Reference(Endpoint)
+  Short Name = Series access endpoint
+  Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
+  Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
+
+ -- Row 18 -----------------------------------
+  Element = !ImagingManifest.study.series.baseLocation
   Card. = 0..*
   UML = 300;300
   Type = =SeriesBaseLocation
@@ -317,16 +310,16 @@
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   To Do = likely change to Endpoint Resource reference
 
- -- Row 17 -----------------------------------
-  Element = ImagingManifest.study.series.baseLocation.type
+ -- Row 19 -----------------------------------
+  Element = !ImagingManifest.study.series.baseLocation.type
   Card. = 1..1
   Type = Coding
   Binding = dWebType
   Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
 
- -- Row 18 -----------------------------------
-  Element = ImagingManifest.study.series.baseLocation.url
+ -- Row 20 -----------------------------------
+  Element = !ImagingManifest.study.series.baseLocation.url
   Card. = 1..1
   Type = uri
   Short Name = Series access URL
@@ -334,7 +327,7 @@
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = ImagingManifest.study.series.instance
   Card. = 1..*
   Summary = y
@@ -345,7 +338,7 @@
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.
   Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ImagingManifest.study.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -358,7 +351,7 @@
   DICOM Mapping = (0008,0016) SOP Class UID
   Committee Notes = Define proficiency and mode as extensions
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ImagingManifest.study.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID, Referenced SOP instance UID
@@ -376,38 +369,44 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = uri
-  Description = UID of key DICOM object selection
+  Description = UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)
   Path = ImagingManifest.uid
 
  -- Row 2 -----------------------------------
-  Name = title
-  Type = token
-  Description = Title of key DICOM object selection
-  Path = ImagingManifest.title
-
- -- Row 3 -----------------------------------
   Name = author
   Type = reference
-  Description = Author of key DICOM object selection
+  Description = Author of the ImagingManifest (or a DICOM Key Object Selection which it represents)
   Path = ImagingManifest.author
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = authoring-time
   Type = date
-  Description = Time of key DICOM object selection authoring
+  Description = Time of the ImagingManifest (or a DICOM Key Object Selection which it represents) authoring
   Path = ImagingManifest.authoringTime
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = patient
   Type = reference
-  Description = Subject of key DICOM object selection
+  Description = Subject of the ImagingManifest (or a DICOM Key Object Selection which it represents)
   Path = ImagingManifest.patient
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = selected-study
   Type = uri
-  Description = Study selected in key DICOM object selection
+  Description = Study selected in the ImagingManifest (or a DICOM Key Object Selection which it represents)
   Path = ImagingManifest.study.uid
+
+ -- Row 6 -----------------------------------
+  Name = imaging-study
+  Type = reference
+  Description = ImagingStudy resource selected in the ImagingManifest (or a DICOM Key Object Selection which it represents)
+  Path = ImagingManifest.study.imagingStudy
+
+ -- Row 7 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Description = The endpoint for the study or series
+  Path = ImagingManifest.study.endpoint | ImagingManifest.study.series.endpoint
 
 === Sheet Profiles =====================================
 

@@ -33,16 +33,16 @@
   Conformance = example
 
  -- Row 5 -----------------------------------
-  Binding Name = dWebType
-  Binding = code list
-  Reference = #dWebType
-  Definition = The type of the service endpoint
-  Conformance = extensible
-
- -- Row 6 -----------------------------------
   Binding Name = ImagingReason
   Binding = unbound
   Definition = The reason for the study
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = ImagingProcedureCode
+  Binding = unbound
+  Definition = The performed procedure type
+  Description = LOINC/RSNA Radiology Playbook (https://loinc.org/collaboration/rsna or http://www.rsna.org/RadLex_Playbook.aspx)
   Conformance = example
 
 === Sheet instance-availability =====================================
@@ -66,23 +66,6 @@
   System = http://nema.org/dicom/dicm
   Code = UNAVAILABLE
   Definition = Resources cannot be retrieved.
-
-=== Sheet dWebType =====================================
-
- -- Row 1 -----------------------------------
-  Code = WADO-RS
-  Display = WADO-RS
-  Definition = Web Access to DICOM Persistent Objects - RESTful Services
-
- -- Row 2 -----------------------------------
-  Code = WADO-URI
-  Display = WADO-URI
-  Definition = Web Access to DICOM Persistent Objects - URI
-
- -- Row 3 -----------------------------------
-  Code = IID
-  Display = IID
-  Definition = IHE - Invoke Image Display Profile
 
 === Sheet Invariants =====================================
 
@@ -232,7 +215,17 @@
   w5 = who.witness
 
  -- Row 13 -----------------------------------
-  Element = ImagingStudy.baseLocation
+  Element = ImagingStudy.endpoint
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Endpoint)
+  Short Name = Study access endpoint
+  Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type
+  Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
+  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invokation of an imaging web viewer.
+
+ -- Row 14 -----------------------------------
+  Element = !ImagingStudy.baseLocation
   Card. = 0..*
   Summary = Y
   UML = 320;250
@@ -242,8 +235,8 @@
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   To Do = likely change to Endpoint Resource reference
 
- -- Row 14 -----------------------------------
-  Element = ImagingStudy.baseLocation.type
+ -- Row 15 -----------------------------------
+  Element = !ImagingStudy.baseLocation.type
   Card. = 1..1
   Summary = Y
   Type = Coding
@@ -251,8 +244,8 @@
   Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving, viewing) the DICOM instances.
 
- -- Row 15 -----------------------------------
-  Element = ImagingStudy.baseLocation.url
+ -- Row 16 -----------------------------------
+  Element = !ImagingStudy.baseLocation.url
   Card. = 1..1
   Summary = Y
   Type = uri
@@ -261,40 +254,49 @@
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to view, retrieve, or otherwise access the study or the study’s series or instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = ImagingStudy.numberOfSeries
-  Card. = 1..1
+  Card. = 0..1
   Aliases = NumberOfStudyRelatedSeries
   Summary = Y
   Type = unsignedInt
   Short Name = Number of Study Related Series
-  Definition = Number of Series in Study
+  Definition = Number of Series in the Study. This value given may be larger than the number of series elements this Resource contains due to resource availability, security, or other factors. This element should be present if any series elements are present
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=OBSSER, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1206)
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = ImagingStudy.numberOfInstances
-  Card. = 1..1
+  Card. = 0..1
   Aliases = NumberOfStudyRelatedInstances
   Summary = Y
   Type = unsignedInt
   Short Name = Number of Study Related Instances
-  Definition = Number of SOP Instances in Study
+  Definition = Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1208)
 
- -- Row 18 -----------------------------------
-  Element = ImagingStudy.procedure
+ -- Row 19 -----------------------------------
+  Element = ImagingStudy.procedureReference
   Card. = 0..*
-  Aliases = ProcedureCodeSequence
   Summary = Y
   Type = Reference(Procedure)
-  Short Name = Type of procedure performed
-  Definition = Type of procedure performed
+  Short Name = The performed Procedure Reference
+  Definition = A reference to the performed Procedure
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
   DICOM Mapping = (0008,1032)
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
+  Element = ImagingStudy.procedureCode
+  Card. = 0..*
+  Aliases = ProcedureCodeSequence
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ImagingProcedureCode
+  Short Name = The performed procedure code
+  Definition = The code for the performed procedure type
+
+ -- Row 21 -----------------------------------
   Element = ImagingStudy.reason
   Card. = 0..1
   Summary = Y
@@ -304,7 +306,7 @@
   Definition = Description of clinical codition indicating why the ImagingStudy was requested.
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = ImagingStudy.description
   Card. = 0..1
   Aliases = StudyDescription
@@ -315,7 +317,7 @@
   RIM Mapping = .text
   DICOM Mapping = (0008,1030)
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = ImagingStudy.series
   Card. = 0..*
   Summary = Y
@@ -324,7 +326,7 @@
   Definition = Each study has one or more series of images or other content
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBSSER, moodCode=EVN]
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = ImagingStudy.series.uid
   Card. = 1..1
   Aliases = SeriesInstanceUID
@@ -336,7 +338,7 @@
   DICOM Mapping = (0020,000E)
   Example = urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630
 
- -- Row 23 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ImagingStudy.series.number
   Card. = 0..1
   Aliases = SeriesNumber
@@ -348,7 +350,7 @@
   DICOM Mapping = (0020,0011)
   Example = 3
 
- -- Row 24 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ImagingStudy.series.modality
   Card. = 1..1
   Aliases = Modality
@@ -360,7 +362,7 @@
   RIM Mapping = .code
   DICOM Mapping = (0008,0060)
 
- -- Row 25 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ImagingStudy.series.description
   Card. = 0..1
   Aliases = SeriesDescription
@@ -372,18 +374,18 @@
   DICOM Mapping = (0008,103E)
   Example = CT Surview 180
 
- -- Row 26 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ImagingStudy.series.numberOfInstances
-  Card. = 1..1
+  Card. = 0..1
   Aliases = NumberOfSeriesRelatedInstances
   Summary = Y
   Type = unsignedInt
   Short Name = Number of Series Related Instances
-  Definition = Number of SOP Instances in Series.
+  Definition = Number of SOP Instances in Study. This value given may be larger than the number of instance elements this Resource contains due to resource availability, security, or other factors. This element should be present if any instance elements are present
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target[classCode=DGIMG, moodCode=EVN].repeatNumber
   DICOM Mapping = (0020,1209)
 
- -- Row 27 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ImagingStudy.series.availability
   Card. = 0..1
   Aliases = InstanceAvailability
@@ -395,8 +397,18 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"availability\"].value
   DICOM Mapping = (0008,0056)
 
- -- Row 28 -----------------------------------
-  Element = ImagingStudy.series.baseLocation
+ -- Row 30 -----------------------------------
+  Element = ImagingStudy.series.endpoint
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Endpoint)
+  Short Name = Series access endpoint
+  Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type
+  Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
+  Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances.
+
+ -- Row 31 -----------------------------------
+  Element = !ImagingStudy.series.baseLocation
   Card. = 0..*
   Summary = Y
   UML = 620;270
@@ -406,8 +418,8 @@
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   To Do = likely change to Endpoint Resource reference
 
- -- Row 29 -----------------------------------
-  Element = ImagingStudy.series.baseLocation.type
+ -- Row 32 -----------------------------------
+  Element = !ImagingStudy.series.baseLocation.type
   Card. = 1..1
   Summary = Y
   Type = Coding
@@ -415,8 +427,8 @@
   Short Name = WADO-RS | WADO-URI | IID
   Definition = The service type for accessing (e.g., retrieving) the DICOM instances.
 
- -- Row 30 -----------------------------------
-  Element = ImagingStudy.series.baseLocation.url
+ -- Row 33 -----------------------------------
+  Element = !ImagingStudy.series.baseLocation.url
   Card. = 1..1
   Summary = Y
   Type = uri
@@ -425,7 +437,7 @@
   Comments = This URL is to a service endpoint for the particular service indicated by ImagingManifest.study.series.baseLocation.type. Depending on the type of service, it is may be used to construct a URL to retrieve, or otherwise access, the series or the series’ instances. For example, this element may be a DICOMweb WADO-RS endpoint.
   DICOM Mapping = (0040,E023) WADO Retrieval Sequence > (0040,E010) Retrieve URI | \n(0040,E025) WADO-RS Retrieval Sequence > (0008,1190) Retrieve URI
 
- -- Row 31 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ImagingStudy.series.bodySite
   Card. = 0..1
   Aliases = BodyPartExamined
@@ -437,7 +449,7 @@
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0018,0015)
 
- -- Row 32 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ImagingStudy.series.laterality
   Card. = 0..1
   Summary = Y
@@ -448,7 +460,7 @@
   RIM Mapping = .targetSiteCode
   DICOM Mapping = (0020,0060)
 
- -- Row 33 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ImagingStudy.series.started
   Card. = 0..1
   Summary = Y
@@ -458,7 +470,19 @@
   RIM Mapping = .effectiveTime
   DICOM Mapping = (0008,0021) + (0008,0031)
 
- -- Row 34 -----------------------------------
+ -- Row 37 -----------------------------------
+  Element = ImagingStudy.series.performer
+  Card. = 0..*
+  Aliases = PerformingPysiciansName, OperatorsName
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Name = Who performed the series
+  Definition = The physician or operator (often the radiology technician)  who performed the series. The performer is recorded at the series level, since each series in a study may be performed by a different practitioner, at different times, and using different devices. A series may be performed by multiple practitioners.
+  RIM Mapping = .participation[typeCode=PRF].role
+  DICOM Mapping = (0008,1050) | (0008,1072)
+  w5 = who.actor
+
+ -- Row 38 -----------------------------------
   Element = ImagingStudy.series.instance
   Card. = 0..*
   UML = 620;70
@@ -466,7 +490,7 @@
   Definition = A single SOP Instance within the series, e.g. an image, or presentation state.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=DGIMG, moodCode=EVN]
 
- -- Row 35 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ImagingStudy.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID
@@ -477,7 +501,7 @@
   DICOM Mapping = (0008,0018)
   Example = urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903
 
- -- Row 36 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ImagingStudy.series.instance.number
   Card. = 0..1
   Aliases = InstanceNumber
@@ -488,7 +512,7 @@
   DICOM Mapping = (0020,0013)
   Example = 1
 
- -- Row 37 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ImagingStudy.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -499,7 +523,7 @@
   DICOM Mapping = (0008,0016)
   Example = urn:oid:1.2.840.10008.5.1.4.1.1.2
 
- -- Row 38 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = !ImagingStudy.series.instance.type
   Card. = 0..1
   Type = string
@@ -509,7 +533,7 @@
   RIM Mapping = .code
   DICOM Mapping = (0004,1430)
 
- -- Row 39 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = ImagingStudy.series.instance.title
   Card. = 0..1
   Type = string
@@ -598,6 +622,18 @@
   Type = token
   Description = The reason for the study
   Path = ImagingStudy.reason
+
+ -- Row 14 -----------------------------------
+  Name = performer
+  Type = reference
+  Description = The person who performed the study
+  Path = ImagingStudy.series.performer
+
+ -- Row 15 -----------------------------------
+  Name = endpoint
+  Type = reference
+  Description = The endpoint for te study or series
+  Path = ImagingStudy.endpoint | ImagingStudy.series.endpoint
 
 === Sheet Profiles =====================================
 

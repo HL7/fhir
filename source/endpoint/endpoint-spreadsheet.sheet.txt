@@ -282,4 +282,16 @@
   Filename = endpoint-examples-general-template.xml
   Type = csv
 
+ -- Row 3 -----------------------------------
+  Name = ihe-iid
+  Identity = example-iid
+  Description = Example of IHE-IID endpoint
+  Filename = endpoint-example-iid.xml
+
+ -- Row 4 -----------------------------------
+  Name = dicom-rs
+  Identity = example-wadors
+  Description = Example of DICOM WADO-RS endpoint
+  Filename = endpoint-example-wadors.xml
+
 === Sheet Examples =====================================

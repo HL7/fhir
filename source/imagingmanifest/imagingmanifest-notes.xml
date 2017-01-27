@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <!-- insert xhtml content here -->
-<a name="baseLocation"> </a>
+
 <h3>Implementation Notes</h3>
 <p>
 A referenced DICOM SOP instance could be:
@@ -19,143 +19,21 @@ UID values follow the FHIR convention of expressing UIDs as URNs. For example, t
 of <code>1.2.250.1.59.40211.12345678.678910</code> is expressed as <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>.
 </p>
 <p>
-ImagingManifest.study.baseLocation and ImagingManifest.study.series.baseLocation can each list multiple methods to retrieve
-the study, series or instances. If a study-level baseLocation of a particular type is present, it shall be applicable to all
-listed series and instances in the study, unless overridden by a series-level baseLocation of that type. (Series-level
-locations can be provided because all series of a study are not guaranteed to be on the same server. For the identified
-retrieval mechanisms, the services supporting instance-level retrieval do not differ from the series-level services,
-thus instance-level baseLocation is not defined.)
+The ImagingManifest.study.endpoint elements and ImagingManifest.study.series.endpoint elements indicate network 
+services that can be used to access the studies, series, or instances; for example, a DICOM WADO-RS server. An 
+ImagingManifest.study.series.endpoint of a particular Endpoint.connectionType provides that service for that 
+series, and all contained instances. An ImagingManifest.study.endpoint of a particularconnection type provides 
+that service for all series in that study that do not have a specified Endpoint of that type, and their 
+contained instances. That is, an ImagingManifest.study.series.endpoint overrides a ImagingManifest.study.endpoint 
+of the same connection type. (Since each study, or individual series of a study can be stored on different imaging 
+archive servers, per-series endpoints are required. For the identified services and use cases, all instances within 
+a series would be stored together, and thus instance-level endpoints are not defined.)
 </p>
 <p>
-The form, requirements, and necessary manipulation of the baseLocation.url depend on service identified in baseLocation.type:
+Different Endpoint connection types may have different capabilities, protocols or requirements; and the specified 
+Endpoint.url may require manipulation. For the details on use of imaging-related Endpoint connection types, 
+See <a href="imagingstudy.html#endpoint">ImagingStudy Implementation Notes</a> for details.
 </p>
-<h4>WADO-URI</h4>
-<p>
-WADO-URI: baseLocation.url shall contain the scheme, authority, and path. Neither the question mark (“?”) nor any  query
-parameters shall be included.
-</p>
-<p>
-The DICOM WADO-URI (Web Access to DICOM Objects, URI mode) service uses HTTP query parameter syntax. This service allows
-for retrieval of native DICOM instances, or instances “rendered” into other formats, including JPEG and MPEG. The media
-type of a response is specified by the request Accept header (preferred); or, by the contentType query parameter.
-Supported media types depend on the classification of the instance as “single frame,” “multi-frame,” “video,” “text,” or “other.”
-</p>
-<p>
-The query to retrieve a DICOM instance is constructed by appending the appropriate query parameters to the baseLocation.url.
-</p>
-<p>
-For example, a native DICOM PS3.10 instance file can be retrieved (if consistent with the Accept header) by performing
-a GET on a URL constructed from a baseLocation.url of <code>“https://pacs.hospital.org/wado-uri”</code>, the study.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
-</p>
-<pre>
-
-https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2
-
-</pre>
-
-<p>
-Additional query parameters can control other aspects of the rendering including rendered dimensions, quality (compression
-ratio), the region of interest within the image to render, brightness/contrast (window center/width) adjustments, whether
-to “burn” patient or study demographics into the rendered result, and which frame of a multi-frame instance to retrieve.
-</p>
-<p>
-For example, provided the Accept header indicates a preference for image/jpeg, the example above can be extended with
-parameters that cause a JPEG thumbnail (100 columns by 100 rows) of the left half of the image to be retrieved (additional
-parameters emphasized):
-</p>
-<pre>
-
-https://pacs.hospital.org/wado-uri?requestType=WADO&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;seriesUID=1.2.250.1.59.40211.789001276.14556172.67789&amp;objectUID=1.2.250.1.59.40211.2678810.87991027.899772.2&amp;<b>rows=100&amp;columns=100&amp;region=0,0,0.5,1 </b>
-
-</pre>
-<p>
-For further details on DICOM WADO-URI capabilities including additional rendering parameters,
-see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
-</p>
-<h4>WADO-RS</h4>
-<p>
-WADO-RS: baseLocation.url shall contain the scheme, authority, and path of the service. Sub-services, such as study,
-shall not be specified. The path shall not contain a trailing slash.
-</p>
-<p>
-The DICOM WADO-RS (Web Access to DICOM Objects, RESTful mode) service uses a RESTful approach to instance retrieval.
-This service allows for retrieval of native DICOM SOP instances, or instances “rendered” into other formats, including
-JPEG and MPEG. The media type of a response is specified by the request Accept header (preferred); or, by the accept
-query parameters. Supported media types depend on the classification of the instance
-as “single frame,” “multi-frame,” “video,” “text,” or “other.” The WADO-RS service also allows retrieval of study
-or series level information.
-</p>
-<p>
-The query to retrieve a DICOM instance is constructed by appending the appropriate sub-resource paths to baseLocation.url.
-</p>
-<p>
-For example, a native DICOM PS3.10 instance file can be retrieved (if consistent with the Accept header) by
-performing a GET on a URL constructed from a baseLocation.url of <code>“https://pacs.hospital.org/wado-rs”</code>, the
-study.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.12345678.678910”</code>, study.series.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.789001276.14556172.67789”</code>, and study.series.instance.uid value
-of <code>“urn:oid:1.2.250.1.59.40211.2678810.87991027.899772.2”</code>:
-</p>
-<pre>
-
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2
-
-</pre>
-<p>
-Query parameters on the "rendered" sub-resource can control other aspects of the rendering including: the rendered dimensions, the
-quality (compression ratio), the region of interest to render, the brightness/contrast (window center/width)
-adjustments, and whether to “burn” patient or study demographics into the rendered result. Specific frames
-of a multi-frame instance may be retrieved using the frames sub-resource.
-</p>
-<p>
-For example, provided the Accept header indicates a preference for image/jpeg, the example above can be
-extended with parameters that cause a JPEG thumbnail (100 columns by 100 rows) of a region extending from
-the top-left corner of the original image, across 1000 and down 3000 pixels, to be retrieved (additional
-sub-resource and parameters emphasized):
-</p>
-<pre>
-
-https://pacs.hospital.org/wado-rs/studies/1.2.250.1.59.40211.12345678.678910/series/1.2.250.1.59.40211.789001276.14556172.67789/instances/1.2.250.1.59.40211.2678810.87991027.899772.2<b>/rendered?viewport=100,100,0,0,1000,3000</b>
-
-</pre>
-<p>
-For further details on DICOM WADO-RS capabilities including additional rendering parameters,
-see <a href="http://dicom.nema.org/medical/dicom/current/output/chtml/part18/PS3.18.html">DICOM PS 3.18</a>.
-</p>
-<h4>IID</h4>
-<p>
-IID: baseLocation.url shall contain the scheme, authority, and path. Neither the question mark (“?”) nor any query
-parameters shall be included.
-</p>
-<p>
-The IHE Invoke Image Display (IID) service provides a standardized mechanism to launch a viewer in a particular
-study context. (IID also supports invoking a particular patient context, but that is not profiled here.)
-An IID baseLocation.type should be used only at the study level.
-As well invoking the viewer on a particular study, query parameters can request particular viewer capabilities,
-image quality, and more.
-</p>
-<p>
-To launch a viewer, append the appropriate query parameters to baseLocation.url.
-</p>
-<p>
-For example, given a baseLocation.url of <code>https://pacs.hospital.org/IHEInvokeImageDisplay</code>, to invoke a
-diagnostic quality viewer on the study with study.uid value
-of <code>“urn:uri:1.2.250.1.59.40211.12345678.678910”</code>, the following URL would be constructed:
-</p>
-<pre>
-
-https://pacs.hospital.org/IHEInvokeImageDisplay?requestType=STUDY&amp;studyUID=1.2.250.1.59.40211.12345678.678910&amp;diagnosticQuality=true
-
-</pre>
-<p>
-For further details on IHE Invoke Image Display capabilities including additional parameters, see
-the <a href="http://www.ihe.net/Technical_Frameworks/#radiology">IHE Technical Frameworks</a>.
-</p>
-
-
 
 
 <h3>Use Case</h3>
