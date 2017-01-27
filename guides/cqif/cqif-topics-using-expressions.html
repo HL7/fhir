@@ -12,7 +12,7 @@
 
 <a name="using-expressions"> </a>
 <h3>Using Expressions</h3>
-<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as FluentPath and Clinical Quality Language (CQL). The clinical reasoning module defines an approach to representing logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
+<p>This topic discusses the use of expression logic within FHIR resources using expression languages such as FHIRPath and Clinical Quality Language (CQL). The clinical reasoning module defines an approach to representing logic that enables dynamic functionality to be utilized directly within the Clinical Reasoning resources, as well as within FHIR resources more generally using extensions.</p>
 
 <a name="expression elements"> </a>
 <h4>Expression Elements</h4>
@@ -36,14 +36,19 @@
 <h5>Description</h5>
 <p>The <i>description</i> element can be used either alone, to communicate unstructured logic, or together with the other elements to provide a natural language narrative for the formal representation. The element is typically optional to enable usage in both contexts. Note that if both an expression and a description are provided, the expression is considered to override the description element, although the description should reflect the semantics of the expression as accurately as possible.</p>
 
+<pre><code>&lt;dynamicValue&gt;
+  &lt;description value=&quot;Now&quot;/&gt;
+&lt;/dynamicValue&gt;
+</code></pre>
+
 <a name="expression-language"> </a>
 <h5>Expression Language</h5>
-<p>The <i>language</i> element identifies the expression language used to represent the logic. The Clinical Reasoning module defines support for FluentPath and Clinical Quality Language, but support for other languages can be provided.</p>
+<p>The <i>language</i> element identifies the expression language used to represent the logic. The Clinical Reasoning module defines support for FHIRPath and Clinical Quality Language, but support for other languages can be provided.</p>
 
-<p>The language element is specified using the Media Type of the language. For inline expressions using FluentPath and Clinical Quality Language, the media type SHALL be specified as follows:</p>
+<p>The language element is specified using the Media Type of the language. For inline expressions using FHIRPath and Clinical Quality Language, the media type SHALL be specified as follows:</p>
 
 <ul>
-	<li>FluentPath - <code>text/fluentpath</code></li>
+	<li>FHIRPath - <code>text/fhirpath</code></li>
 	<li>Clinical Quality Language - <code>text/cql</code></li>
 </ul>
 
@@ -96,7 +101,7 @@
 
 <p>Note that this is the general case for establishing the evaluation context for expressions. Many of the clinical reasoning resources, such as the Measure, will define specific behavior for the evaluation context that overrides this general behavior.</p>
 
-<p>For FluentPath expressions, the expression is evaluated with the containing resource as the context.</p>
+<p>For FHIRPath expressions, the expression is evaluated with the containing resource as the context.</p>
 
 <p>For CQL expressions, an implicit <code>Context</code> parameter is defined that allows the expression access to the containing resource.</p>
 
@@ -121,17 +126,15 @@
 
 <p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the <a href="../operation-servicedefinition-data-requirements.html">$data-requirements</a> operation can also be used to infer the data requirements based on usage within the expression.</p>
 
-<a name="fluentpath"> </a>
-<h4>FluentPath</h4>
-<p>FluentPath is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fluentpath">here</a>.</p>
+<a name="fhirpath"> </a>
+<h4>FHIRPath</h4>
+<p>FHIRPath is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
 
 <a name="clinical-quality-language"> </a>
 <h4>Clinical Quality Language</h4>
 <p>Clinical Quality Language defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
 
-<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1</a>.</p>
-
-<p><i>September 2016 Ballot Note: The Clinical Quality Language specification is in the process of being published as Release 1.1. That version of the CQL specification should be used with this content.</i></p>
+<p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.1</a>.</p>
 
 </div>
 [%file newfooter%]
