@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1544,7 +1544,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Goal.outcomeCodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Goal.outcomeCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..*</Data><NamedCell
@@ -3241,7 +3241,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>15</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3258,8 +3258,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>18</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5557,7 +5557,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5698,9 +5697,9 @@
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s145"><Data ss:Type="String">GoalOutcome</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The result of the goal; e.g. &quot;25% increase in shoulder mobility&quot;, &quot;Anxiety reduced to moderate levels&quot;.  &quot;15 kg weight loss sustained over 6 months&quot;</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/clinical-findings</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -6040,6 +6039,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6059,7 +6059,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>

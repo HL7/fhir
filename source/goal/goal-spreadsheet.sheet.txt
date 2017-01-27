@@ -17,8 +17,10 @@
 
  -- Row 3 -----------------------------------
   Binding Name = GoalOutcome
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = The result of the goal; e.g. \"25% increase in shoulder mobility\", \"Anxiety reduced to moderate levels\".  \"15 kg weight loss sustained over 6 months\"
+  Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = GoalCategory
@@ -333,7 +335,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
  -- Row 18 -----------------------------------
-  Element = Goal.outcomeCodeableConcept
+  Element = Goal.outcomeCode
   Card. = 0..*
   UML = 400;100
   Type = CodeableConcept
