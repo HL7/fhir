@@ -116,7 +116,7 @@
   Committee Notes = [#10296][#11119]
 
  -- Row 5 -----------------------------------
-  Element = ProcedureRequest.priorRequest
+  Element = ProcedureRequest.replaces
   Card. = 0..*
   Summary = Y
   Type = Reference(Any)
@@ -451,9 +451,9 @@
   Path = ProcedureRequest.basedOn
 
  -- Row 4 -----------------------------------
-  Name = prior-request
+  Name = replaces
   Type = reference
-  Path = ProcedureRequest.priorRequest
+  Path = ProcedureRequest.replaces
 
  -- Row 5 -----------------------------------
   Name = requisition
@@ -608,5 +608,11 @@
   Identity = example
   Description = An example of a Head CT procedure
   Filename = procedurerequest-example.xml
+
+ -- Row 8 -----------------------------------
+  Name = Sub Request
+  Identity = subrequest
+  Description = Example with sub-requests derived from the request
+  Filename = procedurerequest-example-subrequest.xml
 
 === Sheet Examples =====================================

@@ -444,4 +444,10 @@
   Description = Wheelchair assignment
   Filename = devicerequest-example.xml
 
+ -- Row 2 -----------------------------------
+  Name = insulinpump
+  Identity = insulinpump
+  Description = Insulin Pump request
+  Filename = devicerequest-example-insulinpump.xml
+
 === Sheet Examples =====================================

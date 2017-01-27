@@ -2,6 +2,216 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
+  Binding Name = CatalogContentType
+  Binding = code list
+  Reference = #catalog-content-type
+  Definition = The type of the catalog content
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = CatalogContentStatus
+  Binding = code list
+  Reference = #catalog-content-status
+  Definition = The current reported status of the catalog content
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = CatalogUpdateMode
+  Binding = code list
+  Reference = #catalog-update-mode
+  Definition = The update mode for processing the catalog content
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = CatalogEntryType
+  Binding = code list
+  Reference = #catalog-entry-type
+  Definition = The type of entry that is mentioned in the catalog
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = CatalogEntryStatus
+  Binding = code list
+  Reference = #catalog-entry-status
+  Definition = The status of the entry that is mentioned in the catalog
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = CatalogEntryRelatedItemRelationtype
+  Binding = code list
+  Reference = #catalog-item-relation-type
+  Definition = The type of relation from the main entry to the related entry
+  Conformance = example
+
+ -- Row 7 -----------------------------------
+  Binding Name = CatalogEntryRelatedItemType
+  Binding = code list
+  Reference = #catalog-entry-type
+  Definition = The type of the related entry
+  Conformance = example
+
+=== Sheet catalog-content-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = single-submission
+  Display = Submission
+  Definition = This is a product submission
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = resubmission
+  Display = Resubmission
+  Definition = This is a resubmission of a previously submitted item
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = full-catalog
+  Display = Full Catalog
+  Definition = This is a full catalog transfer
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = catalog-update
+  Display = Update
+  Definition = This is a differential update
+
+ -- Row 5 -----------------------------------
+  Id = 4
+  Code = catalog-response
+  Display = Response
+  Definition = This is a response to a request for catalog information
+
+=== Sheet catalog-content-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = approved
+  Display = Approved
+  Definition = The catalog is approved
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = pending
+  Display = Pending
+  Definition = The catalog content is pending some action e.g. confirmation or approval
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = discontinued
+  Display = Discontinued
+  Definition = The catalog is discontinued
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = official
+  Display = Official
+  Definition = The catalog content is considered official
+
+=== Sheet catalog-update-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = update
+  Display = Update
+  Definition = This is a product submission
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = replace
+  Display = Replace
+  Definition = The catalog content is expected to be replacing the existing entries
+
+ -- Row 3 -----------------------------------
+  Code = upsert
+  Display = Upsert
+  Definition = The catalog content is expected to update the entries, and if not existing, insert the entry
+
+=== Sheet catalog-entry-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = medication
+  Display = medication
+  Definition = This is a medication
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = device
+  Display = device
+  Definition = This is a device
+
+=== Sheet catalog-entry-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = approved
+  Display = Approved
+  Definition = The entry is approved for use
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = pending
+  Display = Pending
+  Definition = The entry is pending some action e.g. confirmation or approval
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = discontinued
+  Display = Discontinued
+  Definition = The catalog entry is discontinued
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = official
+  Display = Official
+  Definition = The catalog entry is considered official
+
+=== Sheet catalog-item-relation-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = pkg-contains
+  Display = Package Contains
+  Definition = The entry is a package that contains the related entry
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = pkg-is-contained-in
+  Display = Is contained in Package
+  Definition = The entry is contained in the related entry
+
+ -- Row 3 -----------------------------------
+  Id = 2
+  Code = contains-sbst
+  Display = Contains Substance
+  Definition = The entry contains the related entry as a substance
+
+ -- Row 4 -----------------------------------
+  Id = 3
+  Code = combines-with
+  Display = Combines with
+  Definition = The entry combines with the related entry
+
+ -- Row 5 -----------------------------------
+  Id = 4
+  Code = requires
+  Display = Requires
+  Definition = The entry requires the related entry for use
+
+=== Sheet catalog-entry-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 0
+  Code = medication
+  Display = medication
+  Definition = This is a medication
+
+ -- Row 2 -----------------------------------
+  Id = 1
+  Code = device
+  Display = device
+  Definition = This is a device
 
 === Sheet Invariants =====================================
 
@@ -66,7 +276,7 @@
   Element = Catalog.document.contentVersion
   Card. = 0..1
   Type = Identifier
-  Short Name = The version of the catalog content
+  Short Name = The version of the bundle that is being transmitted
   Definition = To support versioning and deciding when to overwrite /update content
 
  -- Row 10 -----------------------------------
@@ -90,105 +300,105 @@
   Definition = To support delayed or timed deactivation of items, e.g. \"next year this product will no longer be available\"
 
  -- Row 13 -----------------------------------
-  Element = Catalog.item
+  Element = Catalog.entry
   Card. = 1..*
   Short Name = Each item of the catalog
 
  -- Row 14 -----------------------------------
-  Element = Catalog.item.type
+  Element = Catalog.entry.type
   Card. = 0..1
   Type = CodeableConcept
   Short Name = The type of item - medication, device, service, protocol or other
 
  -- Row 15 -----------------------------------
-  Element = Catalog.item.referencedItem
+  Element = Catalog.entry.referencedItem
   Card. = 0..1
   Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
   Short Name = The item itself
   Definition = Content of the catalog
 
  -- Row 16 -----------------------------------
-  Element = Catalog.item.identifier
+  Element = Catalog.entry.identifier
   Card. = 0..1
   Type = Identifier
   Short Name = Unique identifier of the catalog item
   Definition = Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code
 
  -- Row 17 -----------------------------------
-  Element = Catalog.item.additionalIdentifier
+  Element = Catalog.entry.additionalIdentifier
   Card. = 0..*
   Type = Identifier
   Short Name = Any additional identifier(s) for the catalog item, in the same granularity or concept
   Definition = Used in supporting related concepts, e.g. NDC to RxNorm
 
  -- Row 18 -----------------------------------
-  Element = Catalog.item.classification
+  Element = Catalog.entry.classification
   Card. = 0..*
   Type = Identifier
-  Short Name = Classification of the item
+  Short Name = Classification (category or class) of the item entry
   Definition = Classes of devices, or ATC for medication
 
  -- Row 19 -----------------------------------
-  Element = Catalog.item.status
+  Element = Catalog.entry.status
   Card. = 0..1
   Type = CodeableConcept
   Short Name = The status of the item, e.g. active, approved…
   Definition = Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.
 
  -- Row 20 -----------------------------------
-  Element = Catalog.item.validFrom
+  Element = Catalog.entry.validFrom
   Card. = 0..1
   Type = dateTime
   Short Name = The date from which this catalog entry is expected to be active
 
  -- Row 21 -----------------------------------
-  Element = Catalog.item.validTo
+  Element = Catalog.entry.validTo
   Card. = 0..1
   Type = dateTime
   Short Name = The date until which this catalog entry is expected to be active
 
  -- Row 22 -----------------------------------
-  Element = Catalog.item.lastUpdated
+  Element = Catalog.entry.lastUpdated
   Card. = 0..1
   Type = dateTime
   Short Name = Perhaps not needed
 
  -- Row 23 -----------------------------------
-  Element = Catalog.item.additionalCharacteristic
+  Element = Catalog.entry.additionalCharacteristic
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Additional characteristics of the catalog entry
   Definition = Used for examplefor Out of Formulary, or any specifics
 
  -- Row 24 -----------------------------------
-  Element = Catalog.item.additionalClassification
+  Element = Catalog.entry.additionalClassification
   Card. = 0..*
   Type = CodeableConcept
   Short Name = Additional classification of the catalog entry
   Definition = User for example for ATC classification, or
 
  -- Row 25 -----------------------------------
-  Element = Catalog.item.relatedItem
+  Element = Catalog.entry.relatedItem
   Card. = 0..*
   Short Name = An item that this catalog entry is related to
   Definition = Used for example,  to point to a substance, or to a device used to administer a medication
 
  -- Row 26 -----------------------------------
-  Element = Catalog.item.relatedItem.relationtype
+  Element = Catalog.entry.relatedItem.relationtype
   Card. = 1..1
   Type = CodeableConcept
   Short Name = The type of relation to the related item
   Definition = The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc
 
  -- Row 27 -----------------------------------
-  Element = Catalog.item.relatedItem.type
+  Element = Catalog.entry.relatedItem.type
   Card. = 0..1
   Type = CodeableConcept
-  Short Name = The type of related item
+  Short Name = The type of related item - medication, devices…
   Definition = The type of related item
 
  -- Row 28 -----------------------------------
-  Element = Catalog.item.relatedItem.identifier
+  Element = Catalog.entry.relatedItem.identifier
   Card. = 1..1
   Type = Reference(Medication|Device|Procedure|CarePlan|Organization|Practitioner|HealthcareService|ServiceDefinition)
   Short Name = The reference to the related item

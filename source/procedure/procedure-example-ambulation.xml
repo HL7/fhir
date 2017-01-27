@@ -8,15 +8,6 @@
   <identifier>
        <value value="12345"/>
   </identifier>
-  <definition>
-    <display value="Protocol for hypertension during pregnancy"/>
-  </definition>
-
-  <basedOn>
-    <reference value="CarePlan/preg"/>
-    <display value="Maternity care plan"/>
-  </basedOn>
-
   <status value="suspended"/>
   <code>
     <coding>
@@ -29,24 +20,9 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <performer>
-	<actor>
-		<reference value="Practitioner/f204"/>
-		<display value="Carla Espinosa"/>
-	</actor>
-	<onBehalfOf>
-		<reference value="Organization/f001"/>
-		<display value="University Medical Hospital"/>
-	</onBehalfOf>
-  </performer>
   <location>
     <reference value="Location/1"/>
-	<display value="Burgers University Medical Center, South Wing, second floor"/>
   </location>
-  <reasonReference>
-		<reference value="Observation/blood-pressure"/>
-		<display value="Blood Pressure"/>
-  </reasonReference>
   <notDone value="true"/>
   <notDoneReason>
     <coding>

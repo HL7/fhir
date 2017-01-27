@@ -6,7 +6,7 @@
   Binding = value set
   Reference = valueset-supplyrequest-kind
   Definition = Category of supply request
-  Conformance = required
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = SupplyRequestStatus
@@ -188,6 +188,20 @@
   Short Name = Formal fulfillment schedule
   Definition = Formal fulfillment schedule
 
+ -- Row 14 -----------------------------------
+  Element = SupplyRequest.from[x]
+  Card. = 0..1
+  Type = Reference(Organization|Location)
+  Short Name = The origin of the supply
+  Definition = Where the supply is expected to come from
+
+ -- Row 15 -----------------------------------
+  Element = SupplyRequest.to[x]
+  Card. = 0..1
+  Type = Reference(Organization|Location|Patient)
+  Short Name = The destination of the supply
+  Definition = Where the supply is destined to go
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -240,5 +254,11 @@
   Identity = example
   Description = General Supply Example
   Filename = supplyrequest-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Simple Order
+  Identity = simpleorder
+  Description = Simple order for resupply
+  Filename = supplyrequest-example-simpleorder.xml
 
 === Sheet Examples =====================================

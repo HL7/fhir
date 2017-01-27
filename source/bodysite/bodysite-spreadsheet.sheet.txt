@@ -55,7 +55,7 @@
   Card. = 1..1
   Summary = Y
   Type = Reference(Patient)
-  Short Name = Who this is about
+  Short Name = Patient
   Definition = The person to which the body site belongs
 
  -- Row 3 -----------------------------------

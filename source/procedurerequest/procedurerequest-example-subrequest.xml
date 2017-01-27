@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+This example is used for DetectedIssue/Duplicate Therapy example will need to edit that as well
+
+--><ProcedureRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="subrequest"/><!--	<extension url="http://hl7.org/fhir/StructureDefinition/bodysitecode">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="51185008"/>
+				<display value="Thoracic structure"/>
+			</coding>
+		</valueCodeableConcept>
+</extension>
+	-->
+	<definition>
+		<display value="Protocol for alergies"/>
+	</definition>
+	<basedOn>
+		<display value="Original Request"/>
+	</basedOn>
+	<replaces>
+		<display value="Previous allergy test"/>
+	</replaces>
+
+	<requisition>
+	    <!-- from Element: extension -->
+	    <value value="A13848392"/>  <!-- 0..1 The value that is unique -->
+	</requisition>
+
+	<status value="active"/>
+	<intent value="instance-order"/>
+	<priority value="routine"/>
+
+	<code>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="35542-0"/>
+		</coding>
+		<text value="Peanut IgG"/>
+	</code>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
+	<requester>
+		<agent>
+			<reference value="Practitioner/example"/>
+			<display value="Dr. Adam Careful"/>
+		</agent>
+	</requester>
+	<performerType>
+	    <coding>
+	        <display value='Qualified nurse'/>
+	    </coding>
+	    <text value='Nurse'/>
+	</performerType>
+	<reasonCode>
+		<text value="Check for Peanut Allergy"/>
+	</reasonCode>
+	<bodySite>
+			<coding>
+					<display value='Right arm'/>
+			</coding>
+			<text value='Right arm'/>
+	</bodySite>    <!-- insert contents here -->
+
+</ProcedureRequest>

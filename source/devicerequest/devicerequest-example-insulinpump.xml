@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+Insulin pump request
+
+--><DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
+	<id value="insulinpump"/><!--	<extension url="http://hl7.org/fhir/StructureDefinition/bodysitecode">
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="51185008"/>
+				<display value="Thoracic structure"/>
+			</coding>
+		</valueCodeableConcept>
+</extension>
+	-->
+	<identifier>
+		<value value="ip_request1.1"/>
+	</identifier>
+	<definition>
+		<display value="DM ambulatory protocol II"/>
+	</definition>
+	<basedOn>
+		<display value="Homecare - DM follow-up"/>
+	</basedOn>
+	<priorRequest>
+		<display value="CGM ambulatory"/>
+	</priorRequest>
+
+	<groupIdentifier>
+		<value value="ip_request1"/>
+	</groupIdentifier>
+
+	<status value="active"/>
+	<intent>
+		 <text value="instance-order"/>
+	 </intent>
+	<priority value="routine"/>
+
+	<codeCodeableConcept>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="43148-6"/>
+		</coding>
+		<text value="Insulin delivery device panel"/>
+	</codeCodeableConcept>
+	<subject>
+		<reference value="Patient/dicom"/>
+	</subject>
+	<context>
+		<display value="Encounter 1"/>
+	</context>
+	<occurrenceDateTime value="2013-05-08T09:33:27+07:00"/>
+	<authoredOn value="2013-05-08T09:33:27+07:00"/>
+
+
+	<requester>
+		<agent>
+			<reference value="Practitioner/example"/>
+			<display value="Dr. Adam Careful"/>
+		</agent>
+	</requester>
+	<performerType>
+	    <coding>
+	        <display value='Qualified nurse'/>
+	    </coding>
+	    <text value='Nurse'/>
+	</performerType>
+
+	<performer>
+		<display value="Nurse Rossignol"/>
+	</performer>
+
+
+	<reasonCode>
+		<text value="gastroparesis"/>
+	</reasonCode>
+	<reasonReference>
+		<display value="Gastroparesis"/>
+	</reasonReference>
+
+	<supportingInfo>
+		<display value="Previous results"/>
+	</supportingInfo>
+
+<note>
+	<text value="this is the right device brand and model"/>
+</note>
+
+<relevantHistory>
+	<display value="Request for unspecified device"/>
+</relevantHistory>
+
+</DeviceRequest>
