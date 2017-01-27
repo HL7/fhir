@@ -4,12 +4,12 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-DataElement is an infrastructure resource that supports the defining individual pieces of data that might be collected or stored.  While these definitions might apply 
-to elements found in FHIR resources and profiles, they can also apply to questionnaire questions, elements in data stores, and non-FHIR specification (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, CDISC, 
+DataElement is an infrastructure resource that supports the defining individual pieces of data that might be collected or stored.  While these definitions might apply
+to elements found in FHIR resources and profiles, they can also apply to questionnaire questions, elements in data stores, and non-FHIR specification (<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>, <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a>, CDISC,
 etc.)  I.e. the definitions aren't FHIR-specific.
 </p>
 <p>
-This resource covers two major use-cases: 
+This resource covers two major use-cases:
 </p>
 <ol>
   <li>Definitions of types of measurements or observations that may be requested or performed.  In HL7, these are sometimes referred to as service, test or observation "master files"</li>
@@ -25,11 +25,11 @@ The focus of the second use-case is standardizing data capture and reporting.  B
 the data gathered within and across organizations via questionnaires, as part of clinical studies, etc. can be made more consistent.  When designing clinical studies,
 constructing questionnaires, building profiles or performing other tasks that involve determining what data will be captured or exchanged and how, designers can query
 to find pre-defined data element definitions they can leverage or map to.  By encouraging consistency around data element definitions, data types, value sets, string
-lengths and other constraints, data becomes more easily exchangeable and comparable across systems.  This benefits interoperability and clinical research.  (For more 
+lengths and other constraints, data becomes more easily exchangeable and comparable across systems.  This benefits interoperability and clinical research.  (For more
 discussion, see the section on <a href="#standardization">standardization</a> below.)
 </p>
 <p>
-The scope covers base capabilities of the ISO 11179 Metadata Registries specification which defines DEs.  It also covers observation definitions by ontologies such as LOINC.  
+The scope covers base capabilities of the ISO 11179 Metadata Registries specification which defines DEs.  It also covers observation definitions by ontologies such as LOINC.
 The term "observation" is interpreted in its broadest sense as "any element that might be thought of as the 'value' in a name-value pair".  So it includes such concepts as
 patient gender, practitioner address and other data elements that would not typically be captured using the <a href="observation.html">Observation</a> resource.
 </p>
@@ -48,13 +48,13 @@ together in context.  <b>DataElement</b> defines only a single data element and 
 might define the value of an <a href="observation.html">Observation</a>, constrain the allowed answer to a question in a <a href="questionnaire.html">Questionnaire</a>
 (including providing a list of permitted answers), describe the permitted value captured of an element in some
 other resource (<a href="patient.html">Patient</a>, <a href="familymemberhistory.html">FamilyMemberHistory</a>, etc.) or even used outside FHIR entirely in a <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> document or <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a>
-specification.  
+specification.
 </p>
 <p>
-<a href="questionnaire.html">Questionnaire</a> is to both define forms, surveys and other structures that can be filled out.  <a href="questionnaire.html">Questionnaire</a> 
+<a href="questionnaire.html">Questionnaire</a> is to both define forms, surveys and other structures that can be filled out.  <a href="questionnaire.html">Questionnaire</a>
 also defines data elements.  However, it does so only in the context of a particular questionnaire
 design.  In contrast, <b>DataElement</b> is focused on defining data elements independent of their use in questionnaires
-and other structures.  A single <b>DataElement</b> might be referenced in numerous 
+and other structures.  A single <b>DataElement</b> might be referenced in numerous
 <a href="questionnaire.html">Questionnaire</a>s, or even potentially in multiple places within a single <a href="questionnaire.html">Questionnaire</a>.  This reference
 might either be implicit or may be explicit through an extension.  (For implementability reasons, the data constraints should still be explicitly exposed within the
 <a href="questionnaire.html">Questionnaire</a> rather than being included "by reference" to the <b>DataElement</b>.)
@@ -63,19 +63,13 @@ might either be implicit or may be explicit through an extension.  (For implemen
 <b>Note</b>: Extensions on <b>DataElement</b> that define the characteristics of a data element will typically also be applicable to <a href="profile.html">Profile</a>'s
 ElementDefinition and <a href="questionnaire.html">Questionnaire</a>'s Question data element as both are also used to define the characteristics of a data element.
 </p>
-<blockquote class="dstu-note">
-<a name="dstu"> </a>
 <p>
-<b>STU Note:</b>   Should a shared structure be used in <a href="structuredefinition.html">StructureDefinition</a>, <a href="questionnaire.html">Questionnaire</a> and <b>DataElement</b>
-to capture constraints on data elements, or is it acceptable for them to continue to be maintained in a separate, but "similar" manner?
-</p>
-<p>
-Feedback is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
-</p>
-</blockquote>
-<p>
-<b>DataElement</b> differs from <a href="observation.html">Observation</a> in that it describes what kind of observations <b>can</b> occur, while 
+<b>DataElement</b> differs from <a href="observation.html">Observation</a> in that it describes what kind of observations <b>can</b> occur, while
 <a href="observation.html">Observation</a> focuses on a specific observation of a specific subject at a particular time that <b>has</b> occurred.
+</p>
+
+<p>
+<a href="activitydefinition.html">ActivityDefinition</a> defines actions that can occur.  DataElement defines individual pieces of data that can be captured.  An ActivityDefinition that is focused on capturing data might be linked to the DataElement that defines the data to be captured.
 </p>
 </div>
 
