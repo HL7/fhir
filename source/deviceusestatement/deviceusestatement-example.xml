@@ -5,13 +5,15 @@
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">To be filled out at a later time</div>
   </text>
-  
+
   <!-- insert contents here -->
-  <device>
-    <reference value="Device/example"/>
-  </device>
-  
+
   <subject>
     <reference value="Patient/example"/>
   </subject>
+
+  <device>
+    <reference value="Device/example"/>
+  </device>
+
 </DeviceUseStatement>

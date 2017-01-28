@@ -22,6 +22,69 @@
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
+  Element = DeviceUseStatement.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Name = External identifier for this record
+  Definition = An external identifier for this statement such as an IRI.
+  QUICK mapping = ClinicalStatement.identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = DeviceUseStatement.subject
+  Card. = 1..1
+  Type = Reference(Patient)
+  Short Name = Patient using device
+  Definition = The patient who used the device.
+  QUICK mapping = ClinicalStatement.subject
+  w5 = who.focus
+
+ -- Row 4 -----------------------------------
+  Element = DeviceUseStatement.whenUsed
+  Card. = 0..1
+  Type = Period
+  Short Name = Period device was used
+  Definition = The time period over which the device was used.
+  QUICK mapping = Performance.performanceTime
+  w5 = when.done
+
+ -- Row 5 -----------------------------------
+  Element = DeviceUseStatement.timing[x]
+  Card. = 0..1
+  Type = Timing|Period|dateTime
+  Short Name = How often  the device was used
+  Definition = How often the device was used.
+  QUICK mapping = DeviceUse.applicationSchedule
+  w5 = when.done
+
+ -- Row 6 -----------------------------------
+  Element = DeviceUseStatement.recordedOn
+  Card. = 0..1
+  Type = dateTime
+  Short Name = When statement was recorded
+  Definition = The time at which the statement was made/recorded.
+  QUICK mapping = ClinicalStatement.statementDateTime
+  w5 = when.recorded
+
+ -- Row 7 -----------------------------------
+  Element = DeviceUseStatement.device
+  Card. = 1..1
+  Type = Reference(Device)
+  Short Name = Reference to device used
+  Definition = The details of the device used.
+  QUICK mapping = DeviceUse.device
+  w5 = who.actor
+
+ -- Row 8 -----------------------------------
+  Element = DeviceUseStatement.indication
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Name = Why device was used
+  Definition = Reason or justification for the use of the device.
+  QUICK mapping = Action.indication.reason
+  w5 = why
+
+ -- Row 9 -----------------------------------
   Element = DeviceUseStatement.bodySite
   Card. = 0..1
   Type = CodeableConcept
@@ -31,76 +94,13 @@
   Requirements = Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension [[[http://hl7.org/fhir/StructureDefinition/body-site-instance]]]
   RIM Mapping = targetSiteCode
 
- -- Row 3 -----------------------------------
-  Element = DeviceUseStatement.whenUsed
-  Card. = 0..1
-  Type = Period
-  Short Name = Period device was used
-  Definition = The time period over which the device was used.
-  QUICK mapping = Performance.performanceTime
-  w5 = when.done
-
- -- Row 4 -----------------------------------
-  Element = DeviceUseStatement.device
-  Card. = 1..1
-  Type = Reference(Device)
-  Short Name = Reference to device used
-  Definition = The details of the device used.
-  QUICK mapping = DeviceUse.device
-  w5 = who.actor
-
- -- Row 5 -----------------------------------
-  Element = DeviceUseStatement.identifier
-  Card. = 0..*
-  Type = Identifier
-  Short Name = External identifier for this record
-  Definition = An external identifier for this statement such as an IRI.
-  QUICK mapping = ClinicalStatement.identifier
-  w5 = id
-
- -- Row 6 -----------------------------------
-  Element = DeviceUseStatement.indication
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Name = Why device was used
-  Definition = Reason or justification for the use of the device.
-  QUICK mapping = Action.indication.reason
-  w5 = why
-
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DeviceUseStatement.notes
   Card. = 0..*
   Type = string
   Short Name = Addition details (comments, instructions)
   Definition = Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.
   QUICK mapping = ClinicalStatement.additionalText
-
- -- Row 8 -----------------------------------
-  Element = DeviceUseStatement.recordedOn
-  Card. = 0..1
-  Type = dateTime
-  Short Name = When statement was recorded
-  Definition = The time at which the statement was made/recorded.
-  QUICK mapping = ClinicalStatement.statementDateTime
-  w5 = when.recorded
-
- -- Row 9 -----------------------------------
-  Element = DeviceUseStatement.subject
-  Card. = 1..1
-  Type = Reference(Patient)
-  Short Name = Patient using device
-  Definition = The patient who used the device.
-  QUICK mapping = ClinicalStatement.subject
-  w5 = who.focus
-
- -- Row 10 -----------------------------------
-  Element = DeviceUseStatement.timing[x]
-  Card. = 0..1
-  Type = Timing|Period|dateTime
-  Short Name = How often  the device was used
-  Definition = How often the device was used.
-  QUICK mapping = DeviceUse.applicationSchedule
-  w5 = when.done
 
 === Sheet Search =====================================
 
