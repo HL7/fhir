@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient that include the primary vitals signs plus additional measurements such as height weigth and BMI. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
+		<p>Vital signs will be one of the first areas where there is a need for a single, global vocabularly to allow for ubiquitous access and re-use.  Particularly with the use of wearables by patients where they want to/need to share information from those devices.  To meet this need there must be a consistent vocabulary and a common syntax to achieve semantic interoperability. The FHIR Vitals Signs profile sets a minimum expectations for the Observation Resource to record, search and fetch the vital signs associated with a patient that include the primary vitals signs plus additional measurements such as height weigth and BMI. When a FHIR implementation supports any of the vital signs listed below, the implementation <strong>SHALL</strong> conform to this profile for the vitals sign observation.</p>
 		<p>This profile identifies the required core elements and values. Support for basic mandatory searching of resources are defined below in the Quick Start section. It is based on the <a href="http://argonautwiki.hl7.org">Argonaut DSTU2 Vital Signs Profile</a>.</p>
 	</div>
 	<div>
@@ -12,13 +12,13 @@
 		<p>
 			<strong>Example Usage Scenarios:</strong>
 		</p>
-		<p>The following are example usage scenarios for the US VitalSigns
+		<p>The following are example usage scenarios for this profile
 profile:</p>
 		<ul>
 			<li>Query for vital signs of a particular patient</li>
 		</ul>
 		<h5>Mandatory Data Elements and Terminology</h5>
-		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and a valid<a href="#example">example</a> are provided as well. Note that many of the examples capture more that the minimum required. The links to the <a href="#content">
+		<p>The following data-elements are mandatory (i.e data MUST be present). These are presented below in a simple human-readable explanation.  Profile specific guidance and valid examples are provided as well. Note that many of the examples capture more that the minimum required. The links to the <a href="#content">
 				<strong>Profile Definitions</strong>
 			</a> provide the formal views of the profile content, descriptions, mappings and the StructureDefinitions in JSON and XML.</p>
 		<p>
@@ -27,9 +27,9 @@ profile:</p>
 		<ol>
 			<li>a status</li>
 			<li>a category code of 'vital-signs'</li>
-			<li>a LOINC code which tells you what is being measured and is taken from the LOINC Code column in the table below.
+			<li>a "magic value" which tells you what is being measured
 <ul>
-					<li>note: If a more specific code is recorded, the generic code and the translated coded must be sent - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific (local) codes</li>
+					<li>LOINC was chosen for the "magic values" because this aligns with the most countries. But it can be treated as simply a fixed core set of common codes to communicate basic vital signs.  Implementers that need to use a different code system can still map accordingly.</li>
 				</ul>
 			</li>
 			<li>a patient</li>
@@ -44,19 +44,21 @@ profile:</p>
 			<strong>Profile specific implementation guidance:</strong>
 		</p>
 		<ul>
-			<li>This table represents a minimum set of vital sign concepts , the required LOINC codes, and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>This table represents a minimum set of vital sign concepts , the required codes ("magic values"), and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
 			<li>
-				Alternate codes may be provided in addition to the standard LOINC and UCUM codes defined here.  The examples illustrate using other codes as translations.
+				 If a more specific code or another code system is recorded or required, implementers must support both the LOINC listed below ("magic value") and the translated code - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific (local) codes.
+			 </li>
+			 <li>In addition the implementer may choose to provide alternate codes in addition to the standard LOINC and UCUM codes defined here.  The examples illustrate using other codes as translations.
 			</li>
 			<li>
-				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital sign.
+				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital sign. For implementers using LOINC, optional qualifier codes are provided in the notes below.
 			</li>
 		</ul>
 		<table class="grid">
 			<thead>
 				<tr>
-					<th>Vital Sign Name</th>
-					<th>LOINC Code</th>
+					<th>Profile Name</th>
+					<th>"Magic Value" (LOINC)</th>
 					<th>UCUM Unit Code</th>
 					<th>Notes</th>
 					<th id="example">Examples</th>
