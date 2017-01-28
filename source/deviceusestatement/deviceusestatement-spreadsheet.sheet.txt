@@ -122,6 +122,12 @@
   Description = Search by device
   Path = DeviceUseStatement.device
 
+ -- Row 4 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Search by identifier
+  Path = DeviceUseStatement.identifier
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

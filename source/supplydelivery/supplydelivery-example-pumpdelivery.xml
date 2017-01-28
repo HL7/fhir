@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SupplyDelivery xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/supplydelivery.xsd">
+<id value="pumpdelivery"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+  </text>
+
+  <!-- insert contents here -->
+	<identifier>
+		<!-- from Element: extension -->
+		<value value="98398459409"/>
+		<!-- 0..1 The value that is unique -->
+		<assigner>
+			<display value="SupplierDeliveryNr"/>
+		</assigner>
+	</identifier>
+
+	<status value="in-progress"/>
+
+	<patient>
+		<display value="Mr. Belpit"/>
+	</patient>
+
+	<supplier>
+		<display value="ACME distribution"/>
+	</supplier>
+
+</SupplyDelivery>
