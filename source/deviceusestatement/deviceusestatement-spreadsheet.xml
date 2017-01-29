@@ -16,12 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4755</WindowHeight>
-  <WindowWidth>14955</WindowWidth>
+  <WindowHeight>12210</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3723,7 +3722,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6317,11 +6315,11 @@
     <Cell ss:StyleID="s117"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s146"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">indication</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">A coded concept indicating why the device was ordered.</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-code</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6750,6 +6748,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6769,7 +6768,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
