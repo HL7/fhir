@@ -15,16 +15,9 @@
   </target>
   <period>
     <start value="2015-06-27"/>
+	<end value="2015-06-28"/>
   </period>
   <recorded value="2015-06-27T08:39:24+10:00"/>
-  <reason>
-      <system value="http://snomed.info/sct"/>
-      <code value="3457005"/>
-      <display value="Referral"/>
-  </reason>
-  <location>
-    <reference value="Location/1"/>
-  </location>
   <!-- reference to a patient consent to share inforamtion -->
   <policy value="http://acme.com/fhir/Consent/25"/>
   
@@ -63,8 +56,16 @@
 	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
     -->
     <reference>
-		<reference value="DocumentReference/90f55916-9d15-4b8f-87a9-2d7ade8670c8"/>    
+		<reference value="DocumentReference/example"/>    
 		<display value="CDA Document in XDS repository"/>
 	</reference>
   </entity>
+  <location>
+    <reference value="Location/1"/>
+  </location>
+  <reason>
+      <system value="http://snomed.info/sct"/>
+      <code value="3457005"/>
+      <display value="Referral"/>
+  </reason>
 </Provenance>

@@ -596,4 +596,10 @@
   Filename = xds-example.xml
   Profile = !xds-profile
 
+ -- Row 2 -----------------------------------
+  Name = Generic exampl
+  Identity = example
+  Description = Generic example
+  Filename = documentreference-example.xml
+
 === Sheet Examples =====================================

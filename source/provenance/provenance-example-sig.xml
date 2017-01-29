@@ -14,17 +14,7 @@
     <reference value="DocumentReference/example"/>    
   </target>
   <recorded value="2015-08-27T08:39:24+10:00"/>
-  <reason>
-		<system value="http://hl7.org/fhir/v3/ActReason"/>
-		<code value="TREAT"/>
-		<display value="treatment"/>
-  </reason>
-  <activity>
-      <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
-      <code value="AU"/>
-      <display value="authenticated"/>
-  </activity>
-  
+ 
   <!-- signer = Harold Hippocrates -->
   <agent>
     <role>
@@ -37,7 +27,17 @@
       Most of the time the userId is fully qualfied such as an email address	  -->
     <whoUri value="mailto://hhd@ssa.gov"/>
   </agent>
-  <signature>
+  <reason>
+		<system value="http://hl7.org/fhir/v3/ActReason"/>
+		<code value="TREAT"/>
+		<display value="treatment"/>
+  </reason>
+  <activity>
+      <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
+      <code value="AU"/>
+      <display value="authenticated"/>
+  </activity>
+   <signature>
   <!-- verification signature -->
     <type>
 		<system value="http://hl7.org/fhir/valueset-signature-type"/>

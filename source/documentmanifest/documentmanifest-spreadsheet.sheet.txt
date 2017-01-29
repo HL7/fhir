@@ -270,4 +270,10 @@
   Description = Financial Supporting Documentation
   Filename = documentmanifest-fm-attachment.xml
 
+ -- Row 2 -----------------------------------
+  Name = XDS-Example
+  Identity = example
+  Description = XDS SubmissionSet example
+  Filename = documentmanifest-example.xml
+
 === Sheet Examples =====================================

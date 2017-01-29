@@ -11,9 +11,6 @@
     <start value="2016-11-30"/>
   </period>
   <recorded value="2016-12-01T08:12:14+10:00"/>
-  <reason>
-      <display value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
-  </reason>
 
  <agent> 
     <role>
@@ -28,7 +25,11 @@
 <entity>
   <role value="source"/>
   <reference>
+  <!--
     <reference value="https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl"/>
+  removed this as it throws warnings in build. Could not figure out what to replace it with.
+  -->
+  
     <identifier>
       <type>
         <coding>
@@ -42,4 +43,7 @@
   <display value="CWL example"/>
   </reference>
 </entity>
+  <reason>
+      <display value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
+  </reason>
 </Provenance>
