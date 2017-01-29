@@ -43,7 +43,9 @@
   <item id="DecisionSupportServiceModule">
  		<translation lang="en">DecisionSupportServiceModule</translation>
 	</item>
-
+    <item id="AdverseEvent">
+         <translation lang="en">AdverseEvent</translation>
+    </item>
     <item id="AdverseReaction">
         <translation lang="en">AdverseReaction</translation>
         <translation lang="zh">不良反应</translation>
