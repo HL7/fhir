@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8880</WindowHeight>
-  <WindowWidth>20160</WindowWidth>
+  <WindowHeight>8628</WindowHeight>
+  <WindowWidth>18516</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -136,7 +136,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="119" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="120" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="64.8" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="157.19999999999999"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -162,6 +162,10 @@
     <Cell><Data ss:Type="String">subject</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">subject</Data></Cell>
     <Cell><Data ss:Type="String">subject</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AdverseEvent</Data></Cell>
+    <Cell><Data ss:Type="String">patient</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Appointment</Data></Cell>
@@ -728,8 +732,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>3</ActiveRow>
-     <RangeSelection>R4</RangeSelection>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

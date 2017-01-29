@@ -242,6 +242,7 @@ signatures.html
 
     <page title="Clinical Summary" filename="clinicalsummary-module.html" icon="clinical.png">
       <page type="resource" resource="AllergyIntolerance"/>
+      <page type="resource" resource="AdverseEvent"/>
       <page type="resource" resource="Condition"/>
       <page type="resource" resource="CarePlan"/>
       <page type="resource" resource="CareTeam"/>

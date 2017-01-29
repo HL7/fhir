@@ -108,30 +108,6 @@
   w5 = infrastructure.exchange
 
  -- Row 2 -----------------------------------
-  Element = Subscription.criteria
-  Card. = 1..1
-  Type = string
-  Short Name = Rule for server push criteria
-  Definition = The rules that the server should use to determine when to generate notifications for this subscription
-  Comments = The rules are a search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading \"/\"
-
- -- Row 3 -----------------------------------
-  Element = Subscription.contact
-  Card. = 0..*
-  Type = ContactPoint
-  Short Name = Contact details for source (e.g. troubleshooting)
-  Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
-  w5 = who.focus
-
- -- Row 4 -----------------------------------
-  Element = Subscription.reason
-  Card. = 1..1
-  Type = string
-  Short Name = Description of why this subscription was created
-  Definition = A description of why this subscription is defined
-  w5 = why
-
- -- Row 5 -----------------------------------
   Element = Subscription.status
   Card. = 1..1
   Is Modifier = Y
@@ -142,53 +118,15 @@
   Comments = A client can only submit subscription resources in the requested or off state. Only the server can  move a subscription from requested to active, and then to error. Either the server or the client can turn a subscription off
   w5 = status
 
- -- Row 6 -----------------------------------
-  Element = Subscription.error
-  Card. = 0..1
-  Type = string
-  Short Name = Latest error note
-  Definition = A record of the last error that occurred when the server processed a notification
+ -- Row 3 -----------------------------------
+  Element = Subscription.contact
+  Card. = 0..*
+  Type = ContactPoint
+  Short Name = Contact details for source (e.g. troubleshooting)
+  Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
+  w5 = who.focus
 
- -- Row 7 -----------------------------------
-  Element = Subscription.channel
-  Card. = 1..1
-  UML = 300;10
-  Short Name = The channel on which to report matches to the criteria
-  Definition = Details where to send notifications when resources are received that meet the criteria
-
- -- Row 8 -----------------------------------
-  Element = Subscription.channel.type
-  Card. = 1..1
-  Type = code
-  Binding = SubscriptionChannelType
-  Short Name = rest-hook | websocket | email | sms | message
-  Definition = The type of channel to send notifications on
-
- -- Row 9 -----------------------------------
-  Element = Subscription.channel.endpoint
-  Card. = 0..1
-  Type = uri
-  Short Name = Where the channel points to
-  Definition = The uri that describes the actual end-point to send messages to
-  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
-
- -- Row 10 -----------------------------------
-  Element = Subscription.channel.payload
-  Card. = 0..1
-  Type = string
-  Short Name = Mimetype to send, or omit for no payload
-  Definition = The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the payload is not present, then there is no payload in the notification, just a notification
-  Comments = Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured
-
- -- Row 11 -----------------------------------
-  Element = Subscription.channel.header
-  Card. = 0..1
-  Type = string
-  Short Name = Usage depends on the channel type
-  Definition = Additional headers / information to send as part of the notification
-  Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
-
- -- Row 12 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Subscription.end
   Card. = 0..1
   Type = instant
@@ -196,6 +134,68 @@
   Definition = The time for the server to turn the subscription off
   Comments = The server is permitted to deviate from this time, but should observe it
   w5 = when.done
+
+ -- Row 5 -----------------------------------
+  Element = Subscription.reason
+  Card. = 1..1
+  Type = string
+  Short Name = Description of why this subscription was created
+  Definition = A description of why this subscription is defined
+  w5 = why
+
+ -- Row 6 -----------------------------------
+  Element = Subscription.criteria
+  Card. = 1..1
+  Type = string
+  Short Name = Rule for server push criteria
+  Definition = The rules that the server should use to determine when to generate notifications for this subscription
+  Comments = The rules are a search criteria (without the [base] part). Like Bundle.entry.request.url, it has no leading \"/\"
+
+ -- Row 7 -----------------------------------
+  Element = Subscription.error
+  Card. = 0..1
+  Type = string
+  Short Name = Latest error note
+  Definition = A record of the last error that occurred when the server processed a notification
+
+ -- Row 8 -----------------------------------
+  Element = Subscription.channel
+  Card. = 1..1
+  UML = 300;10
+  Short Name = The channel on which to report matches to the criteria
+  Definition = Details where to send notifications when resources are received that meet the criteria
+
+ -- Row 9 -----------------------------------
+  Element = Subscription.channel.type
+  Card. = 1..1
+  Type = code
+  Binding = SubscriptionChannelType
+  Short Name = rest-hook | websocket | email | sms | message
+  Definition = The type of channel to send notifications on
+
+ -- Row 10 -----------------------------------
+  Element = Subscription.channel.endpoint
+  Card. = 0..1
+  Type = uri
+  Short Name = Where the channel points to
+  Definition = The uri that describes the actual end-point to send messages to
+  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+
+ -- Row 11 -----------------------------------
+  Element = Subscription.channel.payload
+  Card. = 0..1
+  Type = string
+  Short Name = Mimetype to send, or omit for no payload
+  Definition = The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the payload is not present, then there is no payload in the notification, just a notification
+  Comments = Sending the payload has obvious security implications. The server is responsible for ensuring that the content is appropriately secured
+
+ -- Row 12 -----------------------------------
+  Element = Subscription.channel.header
+  Card. = 0..1
+  Type = string
+  Short Name = Usage depends on the channel type
+  Definition = Additional headers / information to send as part of the notification
+  Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
 
  -- Row 13 -----------------------------------
   Element = Subscription.tag
@@ -211,36 +211,43 @@
  -- Row 1 -----------------------------------
   Name = status
   Type = token
+  Description = The current state of the subscription
   Path = Subscription.status
 
  -- Row 2 -----------------------------------
   Name = type
   Type = token
+  Description = The type of channel for the sent notifications
   Path = Subscription.channel.type
 
  -- Row 3 -----------------------------------
   Name = url
   Type = uri
+  Description = The uri that will receive the notifications
   Path = Subscription.channel.endpoint
 
  -- Row 4 -----------------------------------
   Name = criteria
   Type = string
+  Description = The search rules used to determine when to send a notification
   Path = Subscription.criteria
 
  -- Row 5 -----------------------------------
   Name = payload
   Type = string
+  Description = The mime-type of the notification payload
   Path = Subscription.channel.payload
 
  -- Row 6 -----------------------------------
   Name = contact
   Type = token
+  Description = Contact details for the subscription
   Path = Subscription.contact
 
  -- Row 7 -----------------------------------
-  Name = tag
+  Name = add-tag
   Type = token
+  Description = A tag to be added to the resource matching the criteria
   Path = Subscription.tag
 
 === Sheet Profiles =====================================
