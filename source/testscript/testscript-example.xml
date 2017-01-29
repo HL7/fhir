@@ -134,6 +134,33 @@
 				<responseCode value="201"/>
 			</assert>
 		</action>
+
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="read"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Read the created patient resource on the test server using the id from fixture-patient-create. Verify contents."/>
+				<targetId value="fixture-patient-create"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<response value="okay"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Patient contains the expected family name 'Chalmers'. Uses explicit compareToSourceId reference to fixture-patient-create used to create the Patient."/>
+				<compareToSourceId value="fixture-patient-create"/>
+				<compareToSourceExpression value="Patient.name.first().family"/>
+				<operator value="equals"/>
+			</assert>
+		</action>
 	</setup>
 
 	<test id="01-ReadPatient">

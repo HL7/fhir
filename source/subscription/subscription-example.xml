@@ -6,20 +6,20 @@
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>
 
-  <criteria value="Observation?code=http://loinc.org|1975-2"/>
+  <status value="requested"/>
   <contact>
     <system value="phone"/>
     <value value="ext 4123"/>
   </contact>
+  <end value="2021-01-01T00:00:00Z"/>
   <reason value="Monitor new neonatal function"/>
-  <status value="requested"/>
+  <criteria value="Observation?code=http://loinc.org|1975-2"/>
   <channel>
     <type value="rest-hook"/>
     <endpoint value="https://biliwatch.com/customers/mount-auburn-miu/on-result"/>
     <payload value="application/fhir+json"/>
     <header value="Authorization: Bearer secret-token-abc-123"/>
   </channel>  
-  <end value="2021-01-01T00:00:00Z"/>
   <tag>
     <system value="http://example.org/fhir/cs/internal"/>
     <code value="bili-done"/>

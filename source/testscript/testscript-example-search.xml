@@ -79,6 +79,48 @@
 		<expression value="Bundle.total.toInteger()"/>
 	</variable>
 
+	<setup>
+		<action>
+			<operation>
+				<type>
+					<system value="http://hl7.org/fhir/testscript-operation-codes"/>
+					<code value="search"/>
+				</type>
+				<resource value="Patient"/>
+				<description value="Test simple search to verify server support."/>
+				<accept value="xml"/>
+				<params value="?family=DONTEXPECTAMATCH&amp;given=DONTEXPECTAMATCH"/>
+			</operation>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the request url contains the family search parameter."/>
+				<direction value="request"/>
+				<operator value="contains"/>
+				<requestURL value="family"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned HTTP status is 200(OK)."/>
+				<direction value="response"/>
+				<responseCode value="200"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned resource type is Bundle."/>
+				<resource value="Bundle"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
+				<description value="Confirm that the returned Bundle correctly defines the navigation links."/>
+				<navigationLinks value="true"/>
+			</assert>
+		</action>
+	</setup>
+
 	<test id="01-PatientCreateSearch">
 		<name value="Patient Create Search"/>
 		<description value="Create a Patient resource and capture the returned HTTP Header Location. Then search for (read) that Patient using the Location URL value and validate the response."/>
