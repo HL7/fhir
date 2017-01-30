@@ -62,17 +62,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = MessageHeader.timestamp
-  Card. = 1..1
-  Type = instant
-  Short Name = Time that the message was sent
-  Definition = The time that the message was sent
-  Requirements = Allows limited detection of out-of-order and delayed transmission.  Also supports audit.
-  v2 Mapping = MSH-7
-  RIM Mapping = ./creationTime[isNormalDatatype()]
-  w5 = when.init
-
- -- Row 4 -----------------------------------
   Element = MessageHeader.event
   Card. = 1..1
   Is Modifier = y
@@ -85,7 +74,184 @@
   RIM Mapping = ./payload[classCode=\"CACT\" and moodCode=\"EVN\" and isNormalAct()]/code[isNormalDatatype()]/code
   w5 = what
 
+ -- Row 4 -----------------------------------
+  Element = MessageHeader.destination
+  Card. = 0..*
+  UML = 400;0
+  Type = =MessageDestination
+  Short Name = Message Destination Application(s)
+  Definition = The destination application which the message is intended for
+  Requirements = Indicates where message is to be sent for routing purposes.  Allows verification of \"am I the intended recipient\"
+  Comments = There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system
+  RIM Mapping = ./communicationFunction[typeCode=\"RCV\"]
+  w5 = who.focus
+
  -- Row 5 -----------------------------------
+  Element = MessageHeader.destination.name
+  Card. = 0..1
+  Type = string
+  Short Name = Name of system
+  Definition = Human-readable name for the target system
+  Requirements = May be used for routing of response and/or to support audit
+  v2 Mapping = MSH-5
+  RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]/name[type=\'ST\' and isNormalDatatype()])
+
+ -- Row 6 -----------------------------------
+  Element = MessageHeader.destination.target
+  Card. = 0..1
+  Type = Reference(Device)
+  Short Name = Particular delivery destination within the destination
+  Definition = Identifies the target end system in situations where the initial message transmission is to an intermediary system.
+  Requirements = Supports multi-hop routing
+  RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]
+
+ -- Row 7 -----------------------------------
+  Element = MessageHeader.destination.endpoint
+  Card. = 1..1
+  Type = uri
+  Short Name = Actual destination address or id
+  Definition = Indicates where the message should be routed to.
+  Requirements = Identifies where to route the message
+  Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
+  v2 Mapping = MSH-25 (or MSH-6)
+  RIM Mapping = ./telecom
+
+ -- Row 8 -----------------------------------
+  Element = MessageHeader.receiver
+  Card. = 0..1
+  Type = Reference(Practitioner | Organization)
+  Short Name = Intended \"real-world\" recipient for the data
+  Definition = Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn\'t sufficient.
+  Requirements = Allows routing beyond just the application level
+  v2 Mapping = PRT-5:PRT-4=\'WAYR\' / PRT-8:PRT-4=\'WAYR\'
+  RIM Mapping = Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText
+  Committee Notes = Is this in the 80%?
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = MessageHeader.timestamp
+  Card. = 1..1
+  Type = instant
+  Short Name = Time that the message was sent
+  Definition = The time that the message was sent
+  Requirements = Allows limited detection of out-of-order and delayed transmission.  Also supports audit.
+  v2 Mapping = MSH-7
+  RIM Mapping = ./creationTime[isNormalDatatype()]
+  w5 = when.init
+
+ -- Row 10 -----------------------------------
+  Element = MessageHeader.enterer
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Name = The source of the data entry
+  Definition = The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
+  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
+  Comments = Usually only for the request, but can be used in a response
+  v2 Mapping = EVN-5 / ORC-10 / PRT-5:PRT-4=\'EP\' / ROL where ROL.3 is EP or ORC.10
+  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[typeCode=\"ENT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
+  w5 = who.author
+
+ -- Row 11 -----------------------------------
+  Element = MessageHeader.author
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Name = The source of the decision
+  Definition = The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
+  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
+  Comments = Usually only for the request, but can be used in a response
+  v2 Mapping = ORC-19 / PRT-5:PRT-4=\'AUT\' / ROL where ROL.3 is IP or ORC.12
+  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"AUT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
+  w5 = who.author
+
+ -- Row 12 -----------------------------------
+  Element = MessageHeader.source
+  Card. = 1..1
+  UML = 420;95
+  Type = =MessageSource
+  Short Name = Message Source Application
+  Definition = The source application from which this message originated
+  Requirements = Allows replies, supports audit.
+  RIM Mapping = unique(./communicationFunction[typeCode=\"SND\"])
+  w5 = who.actor
+
+ -- Row 13 -----------------------------------
+  Element = MessageHeader.source.name
+  Card. = 0..1
+  Type = string
+  Short Name = Name of system
+  Definition = Human-readable name for the source system
+  Requirements = May be used to support audit
+  v2 Mapping = MSH-3
+  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/name[type=\'ST\' and isNormalDatatype()])
+
+ -- Row 14 -----------------------------------
+  Element = MessageHeader.source.software
+  Card. = 0..1
+  Type = string
+  Short Name = Name of software running the system
+  Definition = May include configuration or other information useful in debugging.
+  Requirements = Supports audit and possibly interface engine behavior
+  v2 Mapping = SFT-3 ( +SFT-1)
+  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/softwareName[isNormalDatatype()])
+
+ -- Row 15 -----------------------------------
+  Element = MessageHeader.source.version
+  Card. = 0..1
+  Type = string
+  Short Name = Version of software running
+  Definition = Can convey versions of multiple systems in situations where a message passes through multiple hands.
+  Requirements = Supports audit and possibly interface engine behavior
+  v2 Mapping = SFT-2
+  RIM Mapping = (Not supported)
+  Committee Notes = Version is not captured as a distinct property in v3
+
+ -- Row 16 -----------------------------------
+  Element = MessageHeader.source.contact
+  Card. = 0..1
+  Type = ContactPoint
+  Short Name = Human contact for problems
+  Definition = An e-mail, phone, website or other contact point to use to resolve issues with message communications.
+  Requirements = Allows escalation of technical issues.
+  v2 Mapping = (MSH-22?)
+  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/scopesRole[normalRole() and classCode=\"CON\" and layer[classCode=\"PSN\"]/telecom[isNormalDatatype()])
+  Committee Notes = Should actually have a code for the role in the v3 mapping to indicate that the contact is for \"problems\"
+
+ -- Row 17 -----------------------------------
+  Element = MessageHeader.source.endpoint
+  Card. = 1..1
+  Type = uri
+  Short Name = Actual message source address or id
+  Definition = Identifies the routing target to send acknowledgements to.
+  Requirements = Identifies where to send responses, may influence security permissions
+  Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
+  v2 Mapping = MSH-24
+  RIM Mapping = ./telecom[isNormalDatatype()]
+
+ -- Row 18 -----------------------------------
+  Element = MessageHeader.responsible
+  Card. = 0..1
+  Type = Reference(Practitioner|Organization)
+  Short Name = Final responsibility for event
+  Definition = The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party
+  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
+  Comments = Usually only for the request, but can be used in a response
+  v2 Mapping = ORC-12 /  PRT-5:PRT-4=\'OP\' /  PRT-8:PRT-4=\'OP\' / ROL where ROL.3 is RO or ORC.11
+  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=\"PSN\" and determinerCode=\"INST\"] or ./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/scoper[isNormalEntity() and classCode=\"ORG\" and determinerCode=\"INST\"])
+  w5 = who.witness
+
+ -- Row 19 -----------------------------------
+  Element = MessageHeader.reason
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = EventReason
+  Short Name = Cause of event
+  Definition = Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message
+  Requirements = Need to be able to track why resources are being changed and report in the audit log/history of the resource.  May affect authorization.
+  v2 Mapping = EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication
+  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/reasonCode[isNormalDatatype()])
+  w5 = why
+
+ -- Row 20 -----------------------------------
   Element = MessageHeader.response
   Card. = 0..1
   Is Modifier = y
@@ -95,7 +261,7 @@
   v2 Mapping = MSA
   RIM Mapping = ./conveyedAcknowledgement
 
- -- Row 6 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MessageHeader.response.identifier
   Card. = 1..1
   Type = id
@@ -105,7 +271,7 @@
   v2 Mapping = MSA-2
   RIM Mapping = ./acknowledges.id[isNormalDatatype()]
 
- -- Row 7 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MessageHeader.response.code
   Card. = 1..1
   Is Modifier = y
@@ -118,7 +284,7 @@
   v2 Mapping = MSA-1
   RIM Mapping = ./typeCode[isNormalDatatype()]
 
- -- Row 8 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MessageHeader.response.details
   Card. = 0..1
   Type = Reference(OperationOutcome)
@@ -128,172 +294,6 @@
   Comments = This SHALL be contained in the bundle. If any of the issues are errors, the response code SHALL be an error
   v2 Mapping = ERR
   RIM Mapping = AcknowledgementDetail or Observation[classCode=\"ALRT\" and moodCode=\"EVN\"]
-
- -- Row 9 -----------------------------------
-  Element = MessageHeader.source
-  Card. = 1..1
-  UML = 420;95
-  Type = =MessageSource
-  Short Name = Message Source Application
-  Definition = The source application from which this message originated
-  Requirements = Allows replies, supports audit.
-  RIM Mapping = unique(./communicationFunction[typeCode=\"SND\"])
-  w5 = who.actor
-
- -- Row 10 -----------------------------------
-  Element = MessageHeader.source.name
-  Card. = 0..1
-  Type = string
-  Short Name = Name of system
-  Definition = Human-readable name for the source system
-  Requirements = May be used to support audit
-  v2 Mapping = MSH-3
-  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/name[type=\'ST\' and isNormalDatatype()])
-
- -- Row 11 -----------------------------------
-  Element = MessageHeader.source.software
-  Card. = 0..1
-  Type = string
-  Short Name = Name of software running the system
-  Definition = May include configuration or other information useful in debugging.
-  Requirements = Supports audit and possibly interface engine behavior
-  v2 Mapping = SFT-3 ( +SFT-1)
-  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/softwareName[isNormalDatatype()])
-
- -- Row 12 -----------------------------------
-  Element = MessageHeader.source.version
-  Card. = 0..1
-  Type = string
-  Short Name = Version of software running
-  Definition = Can convey versions of multiple systems in situations where a message passes through multiple hands.
-  Requirements = Supports audit and possibly interface engine behavior
-  v2 Mapping = SFT-2
-  RIM Mapping = (Not supported)
-  Committee Notes = Version is not captured as a distinct property in v3
-
- -- Row 13 -----------------------------------
-  Element = MessageHeader.source.contact
-  Card. = 0..1
-  Type = ContactPoint
-  Short Name = Human contact for problems
-  Definition = An e-mail, phone, website or other contact point to use to resolve issues with message communications.
-  Requirements = Allows escalation of technical issues.
-  v2 Mapping = (MSH-22?)
-  RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/scopesRole[normalRole() and classCode=\"CON\" and layer[classCode=\"PSN\"]/telecom[isNormalDatatype()])
-  Committee Notes = Should actually have a code for the role in the v3 mapping to indicate that the contact is for \"problems\"
-
- -- Row 14 -----------------------------------
-  Element = MessageHeader.source.endpoint
-  Card. = 1..1
-  Type = uri
-  Short Name = Actual message source address or id
-  Definition = Identifies the routing target to send acknowledgements to.
-  Requirements = Identifies where to send responses, may influence security permissions
-  Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
-  v2 Mapping = MSH-24
-  RIM Mapping = ./telecom[isNormalDatatype()]
-
- -- Row 15 -----------------------------------
-  Element = MessageHeader.destination
-  Card. = 0..*
-  UML = 400;0
-  Type = =MessageDestination
-  Short Name = Message Destination Application(s)
-  Definition = The destination application which the message is intended for
-  Requirements = Indicates where message is to be sent for routing purposes.  Allows verification of \"am I the intended recipient\"
-  Comments = There SHOULD be at least one destination, but in some circumstances, the source system is unaware of any particular destination system
-  RIM Mapping = ./communicationFunction[typeCode=\"RCV\"]
-  w5 = who.focus
-
- -- Row 16 -----------------------------------
-  Element = MessageHeader.destination.name
-  Card. = 0..1
-  Type = string
-  Short Name = Name of system
-  Definition = Human-readable name for the target system
-  Requirements = May be used for routing of response and/or to support audit
-  v2 Mapping = MSH-5
-  RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]/name[type=\'ST\' and isNormalDatatype()])
-
- -- Row 17 -----------------------------------
-  Element = MessageHeader.destination.target
-  Card. = 0..1
-  Type = Reference(Device)
-  Short Name = Particular delivery destination within the destination
-  Definition = Identifies the target end system in situations where the initial message transmission is to an intermediary system.
-  Requirements = Supports multi-hop routing
-  RIM Mapping = unique(./entity[determinerCode=\"INST\" and (classCode=(\"DEV\", \"PSN\", \"ORG\"]
-
- -- Row 18 -----------------------------------
-  Element = MessageHeader.destination.endpoint
-  Card. = 1..1
-  Type = uri
-  Short Name = Actual destination address or id
-  Definition = Indicates where the message should be routed to.
-  Requirements = Identifies where to route the message
-  Comments = The id may be a non-resolvable URI for systems that do not use standard network-based addresses
-  v2 Mapping = MSH-25 (or MSH-6)
-  RIM Mapping = ./telecom
-
- -- Row 19 -----------------------------------
-  Element = MessageHeader.enterer
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Name = The source of the data entry
-  Definition = The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions
-  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
-  Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = EVN-5 / ORC-10 / PRT-5:PRT-4=\'EP\' / ROL where ROL.3 is EP or ORC.10
-  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[typeCode=\"ENT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
-  w5 = who.author
-
- -- Row 20 -----------------------------------
-  Element = MessageHeader.author
-  Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Name = The source of the decision
-  Definition = The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions
-  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
-  Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = ORC-19 / PRT-5:PRT-4=\'AUT\' / ROL where ROL.3 is IP or ORC.12
-  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"AUT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
-  w5 = who.author
-
- -- Row 21 -----------------------------------
-  Element = MessageHeader.receiver
-  Card. = 0..1
-  Type = Reference(Practitioner | Organization)
-  Short Name = Intended \"real-world\" recipient for the data
-  Definition = Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn\'t sufficient.
-  Requirements = Allows routing beyond just the application level
-  v2 Mapping = PRT-5:PRT-4=\'WAYR\' / PRT-8:PRT-4=\'WAYR\'
-  RIM Mapping = Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText
-  Committee Notes = Is this in the 80%?
-  w5 = who.focus
-
- -- Row 22 -----------------------------------
-  Element = MessageHeader.responsible
-  Card. = 0..1
-  Type = Reference(Practitioner|Organization)
-  Short Name = Final responsibility for event
-  Definition = The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party
-  Requirements = Need to know for audit/traceback requirements and possibly for authorization.
-  Comments = Usually only for the request, but can be used in a response
-  v2 Mapping = ORC-12 /  PRT-5:PRT-4=\'OP\' /  PRT-8:PRT-4=\'OP\' / ROL where ROL.3 is RO or ORC.11
-  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=\"PSN\" and determinerCode=\"INST\"] or ./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/scoper[isNormalEntity() and classCode=\"ORG\" and determinerCode=\"INST\"])
-  w5 = who.witness
-
- -- Row 23 -----------------------------------
-  Element = MessageHeader.reason
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = EventReason
-  Short Name = Cause of event
-  Definition = Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message
-  Requirements = Need to be able to track why resources are being changed and report in the audit log/history of the resource.  May affect authorization.
-  v2 Mapping = EVN.4 / ORC.16 / OBR-31-reason for study / BPO-13-BP indication for use / RXO-20-indication / RXE-27-give indication / RXD-21-indication / RXG-22-indication / RXA-19-indication
-  RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/reasonCode[isNormalDatatype()])
-  w5 = why
 
  -- Row 24 -----------------------------------
   Element = MessageHeader.data
@@ -308,74 +308,74 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = timestamp
-  Type = date
-  Path = MessageHeader.timestamp
-
- -- Row 2 -----------------------------------
   Name = event
   Type = token
   Path = MessageHeader.event
 
- -- Row 3 -----------------------------------
-  Name = response-id
-  Type = token
-  Path = MessageHeader.response.identifier
-
- -- Row 4 -----------------------------------
-  Name = code
-  Type = token
-  Path = MessageHeader.response.code
-
- -- Row 5 -----------------------------------
-  Name = source
-  Type = string
-  Path = MessageHeader.source.name
-
- -- Row 6 -----------------------------------
-  Name = source-uri
-  Type = uri
-  Path = MessageHeader.source.endpoint
-
- -- Row 7 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = destination
   Type = string
   Path = MessageHeader.destination.name
 
- -- Row 8 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = destination-uri
   Type = uri
   Path = MessageHeader.destination.endpoint
 
- -- Row 9 -----------------------------------
-  Name = data
+ -- Row 4 -----------------------------------
+  Name = target
   Type = reference
-  Path = MessageHeader.data
+  Path = MessageHeader.destination.target
 
- -- Row 10 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = receiver
   Type = reference
   Path = MessageHeader.receiver
 
- -- Row 11 -----------------------------------
-  Name = author
-  Type = reference
-  Path = MessageHeader.author
+ -- Row 6 -----------------------------------
+  Name = timestamp
+  Type = date
+  Path = MessageHeader.timestamp
 
- -- Row 12 -----------------------------------
-  Name = responsible
-  Type = reference
-  Path = MessageHeader.responsible
-
- -- Row 13 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = enterer
   Type = reference
   Path = MessageHeader.enterer
 
- -- Row 14 -----------------------------------
-  Name = target
+ -- Row 8 -----------------------------------
+  Name = author
   Type = reference
-  Path = MessageHeader.destination.target
+  Path = MessageHeader.author
+
+ -- Row 9 -----------------------------------
+  Name = source
+  Type = string
+  Path = MessageHeader.source.name
+
+ -- Row 10 -----------------------------------
+  Name = source-uri
+  Type = uri
+  Path = MessageHeader.source.endpoint
+
+ -- Row 11 -----------------------------------
+  Name = response-id
+  Type = token
+  Path = MessageHeader.response.identifier
+
+ -- Row 12 -----------------------------------
+  Name = code
+  Type = token
+  Path = MessageHeader.response.code
+
+ -- Row 13 -----------------------------------
+  Name = responsible
+  Type = reference
+  Path = MessageHeader.responsible
+
+ -- Row 14 -----------------------------------
+  Name = data
+  Type = reference
+  Path = MessageHeader.data
 
 === Sheet Profiles =====================================
 
