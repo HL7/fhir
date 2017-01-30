@@ -101,7 +101,7 @@
     </Goal>
   </contained>
   <!-- an extension to record the LMP, which is required at the plan level... -->
-  <extension url="http://example.org/DoNotUse/careplan#lmp">
+  <extension url="http://example.org/fhir/StructureDefinition/careplan#lmp">
     <valueDateTime value="2013-01-01"/>
   </extension>
   <status value="active"/>
@@ -133,7 +133,7 @@
   <activity>
     <!-- This will be the first antenatal encounter -->
     <!-- a link to further details about the first antenatal details -->
-    <extension url="http://example.org/DoNotUse/careplan#andetails">
+    <extension url="http://example.org/fhir/StructureDefinition/careplan#andetails">
       <valueUri value="http://orionhealth.com/fhir/careplan/1andetails"/>
     </extension>
     <detail>
