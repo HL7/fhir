@@ -22,7 +22,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>837</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1139,7 +1139,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>90</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1700,7 +1699,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="26" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s96" ss:DefaultColumnWidth="69"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s96" ss:AutoFitWidth="0" ss:Width="75.600000000000009"/>
@@ -1782,13 +1781,6 @@
     <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s100"><Data ss:Type="String">AdverseEvent.recorder</Data></Cell>
-    <Cell ss:StyleID="s76"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s99"><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s79"/>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">AdverseEvent.subject</Data></Cell>
     <Cell ss:StyleID="s76"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -1907,6 +1899,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1928,6 +1921,7 @@
      <Number>0</Number>
      <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R10</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
