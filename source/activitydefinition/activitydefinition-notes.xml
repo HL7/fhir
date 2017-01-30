@@ -35,6 +35,6 @@
 
 <p>More dynamic scenarios can be achieved in one of two ways, either by providing dynamicValue expressions, or by specifying a StructureMap that transforms the definition into the appropriate intent resource.</p>
 
-<p>Note that systems will likely vary widely in the degree of support they provide for the $apply operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated supported for the medication category, but no support at all for the encounter category.</p>
+<p>Note that systems will likely vary widely in the degree of support they provide for the <a href="activitydefinition-operations.html">$apply</a> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated supported for the medication category, but no support at all for the encounter category.</p>
 
 </div>

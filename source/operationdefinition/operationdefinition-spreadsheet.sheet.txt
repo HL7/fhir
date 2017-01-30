@@ -69,26 +69,21 @@
   Type = MetadataResource
   Short Name = Definition of an operation or a named query
   Definition = A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
-  Workflow Mapping = Definition
   RIM Mapping = n/a
   w5 = conformance.behavior
 
  -- Row 2 -----------------------------------
   Element = OperationDefinition.url
-  Workflow Mapping = Definition.url
 
  -- Row 3 -----------------------------------
   Element = OperationDefinition.version
-  Workflow Mapping = Definition.version
 
  -- Row 4 -----------------------------------
   Element = OperationDefinition.name
   Card. = 1..1
-  Workflow Mapping = Definition.title
 
  -- Row 5 -----------------------------------
   Element = OperationDefinition.status
-  Workflow Mapping = Definition.status (different ValueSet)
 
  -- Row 6 -----------------------------------
   Element = OperationDefinition.kind
@@ -102,35 +97,27 @@
 
  -- Row 7 -----------------------------------
   Element = OperationDefinition.experimental
-  Workflow Mapping = Definition.experimental
 
  -- Row 8 -----------------------------------
   Element = OperationDefinition.date
-  Workflow Mapping = Definition.date
 
  -- Row 9 -----------------------------------
   Element = OperationDefinition.publisher
-  Workflow Mapping = Definition.publisher
 
  -- Row 10 -----------------------------------
   Element = OperationDefinition.contact
-  Workflow Mapping = Definition.contact
 
  -- Row 11 -----------------------------------
   Element = OperationDefinition.description
-  Workflow Mapping = Definition.description
 
  -- Row 12 -----------------------------------
   Element = OperationDefinition.useContext
-  Workflow Mapping = Definition.useContext
 
  -- Row 13 -----------------------------------
   Element = OperationDefinition.jurisdiction
-  Workflow Mapping = Definition.jurisdiction
 
  -- Row 14 -----------------------------------
   Element = OperationDefinition.purpose
-  Workflow Mapping = Definition.purpose
 
  -- Row 15 -----------------------------------
   Element = OperationDefinition.idempotent
@@ -162,7 +149,6 @@
   Short Name = Marks this as a profile of the base
   Definition = Indicates that this operation definition is a constraining profile on the base
   Comments = A constrained profile can make optional parameters required or not used and clarify documentation
-  Workflow Mapping = Definition.definition
 
  -- Row 19 -----------------------------------
   Element = OperationDefinition.resource
@@ -172,7 +158,6 @@
   Short Name = Types this operation applies to
   Definition = The types on which this operation can be executed
   Comments = If the type is an abstract resource (\"Resource\" or \"DomainResource\") then the operation can be invoked on any concrete specialization
-  Workflow Mapping = Definition.subjectCodableConcept
 
  -- Row 20 -----------------------------------
   Element = OperationDefinition.system

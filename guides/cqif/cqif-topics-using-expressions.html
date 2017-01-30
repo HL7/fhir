@@ -89,11 +89,27 @@
 &lt;/library&gt;
 </code></pre>
 
-<p>If the containing resource has a <code>library</code> element (such as ActivityDefinition and PlanDefinition), and only specifies a single library, the expression is evaluated as though it is in scope in that library. However, if the resource references multiple libraries, the referenced expression must be qualified with the name of the library in order to ensure unambiguous resolution.</p>
+<p>If the containing resource has a <code>library</code> element (such as ActivityDefinition and PlanDefinition), and only specifies a single library, the expression is evaluated as though it is in scope in that library. However, if the resource references multiple libraries, the referenced expression must be qualified with the name of the library in order to ensure unambiguous resolution. For example, the following fragment illustrates multiple libraries being referenced by the containing resource:</p>
 
-<p>For resources that do not have a <code>library</code> element, the library extension can be used to reference a library from any resource.</p>
+<pre><code>&lt;library&gt;
+  &lt;reference value=&quot;Library/mmi-suiciderisk-orderset-logic&quot;/&gt;
+&lt;/library&gt;
+&lt;library&gt;
+  &lt;reference value=&quot;Library/another-orderset-logic&quot;/&gt;
+&lt;/library&gt;
+</code></pre>
 
-<p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references.</p>
+<p>The following fragment illustrates how an expression reference (reasonCode) would be qualified in the case of multiple library references:</p>
+
+<pre><code>&lt;dynamicValue&gt;
+  &lt;path value=&quot;mmi-suiciderisk-orderset-logic.reasonCode&quot;/&gt;
+  &lt;expression value=&quot;RiskAssessmentScore&quot;/&gt;
+&lt;/dynamicValue&gt;
+</code></pre>
+
+<p>For resources that do not have a <code>library</code> element, the library <a href="[%fhir-path%]extensibility.html#Extension">extension</a> can be used to reference a library from any resource. The library extension enables a resource to add a reference to a library when it could not otherwise.</p>
+
+<p>For simplicity, resources that use logic libraries SHOULD reference at most one library to avoid the need to qualify expression references. Take, for example, the case of updating a library reference in a resource. If the resource has multiple library references, then every expression qualifier that referred to the previous library must be updated. However, if the libraries were combined into a single reference, then only the reference would need to be updated.</p>
 
 <a name="evaluation-context"> </a>
 <h4>Evaluation Context</h4>
