@@ -34,15 +34,16 @@
 
  -- Row 5 -----------------------------------
   Binding Name = ImagingReason
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-category
   Definition = The reason for the study
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ImagingProcedureCode
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
   Definition = The performed procedure type
-  Description = LOINC/RSNA Radiology Playbook (https://loinc.org/collaboration/rsna or http://www.rsna.org/RadLex_Playbook.aspx)
   Conformance = example
 
 === Sheet instance-availability =====================================
@@ -302,7 +303,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ImagingReason
-  Short Name = Reason for study
+  Short Name = Why the study was requested
   Definition = Description of clinical codition indicating why the ImagingStudy was requested.
   w5 = why
 
