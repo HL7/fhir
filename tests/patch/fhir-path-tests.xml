@@ -1,0 +1,655 @@
+<tests>
+  <case name="No Difference" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1920-01-01"/>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1920-01-01"/>
+	  </Patient>
+	</output>
+  </case>
+  
+  <case name="Replace Primitive" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1920-01-01"/>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="replace"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.birthDate"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueDate value="1930-01-01"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1930-01-01"/>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Delete Primitive" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1920-01-01"/>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.birthDate"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Add Primitive" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="add"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient"/>
+		  </part>
+		  <part>
+		    <name value="name"/>
+			<valueString value="birthDate"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueDate value="1930-01-01"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1930-01-01"/>
+	  </Patient>
+	</output>
+  </case>
+  
+  <case name="Delete Primitive" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <birthDate value="1920-01-01"/>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.birthDate"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</output>
+  </case>
+
+  <!-- same operations, on a nested primitive -->
+  <case name="Replace Nested Primitive #1" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="replace"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0].gender"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueCode value="female"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="female"/>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Replace Nested Primitive #2" mode="both"> 
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="replace"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0].name.text"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueString value="the name"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="the name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Delete Nested Primitive #1" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0].gender"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Delete Nested Primitive #2" mode="forwards"><!-- because skip level -->
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0].name.text"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Add Nested Primitive" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="add"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0]"/>
+		  </part>
+		  <part>
+		    <name value="name"/>
+			<valueString value="gender"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueCode value="male"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+	      <gender value="male"/>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+  
+  <!-- moving on to operations on a complex -->
+  <case name="Add Complex" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="add"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient"/>
+		  </part>
+		  <part>
+		    <name value="name"/>
+			<valueString value="maritalStatus"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueCodeableConcept>
+			  <text value="married"/>
+			</valueCodeableConcept>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <maritalStatus>
+		  <text value="married"/>
+		</maritalStatus>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Replace Complex" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <maritalStatus id="1">
+		  <text value="married"/>
+		</maritalStatus>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="replace"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.maritalStatus"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<valueCodeableConcept id="2">
+			  <text value="not married"/>
+			</valueCodeableConcept>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <maritalStatus id="2">
+		  <text value="not married"/>
+		</maritalStatus>
+	  </Patient>
+	</output>
+  </case>
+
+  <case name="Delete Complex" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <maritalStatus>
+		  <text value="married"/>
+		</maritalStatus>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.maritalStatus"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</output>
+  </case>
+
+  <!-- anonymous type -->
+  <case name="Add Anonymous Type" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="add"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient"/>
+		  </part>
+		  <part>
+		    <name value="name"/>
+			<valueString value="contact"/>
+		  </part>
+		  <part>
+		    <name value="value"/>
+			<part>
+			  <name value="name"/>
+			  <valueHumanName>
+  		        <text value="a name"/>
+			  </valueHumanName>
+			</part>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+		</contact>
+	  </Patient>
+	</output>
+  </case>
+  
+  <case name="Delete Anonymous Type" mode="both">
+    <input> 
+	  <Patient xmlns="http://hl7.org/fhir">
+	    <contact>
+		  <name>
+		    <text value="a name"/>
+		  </name>
+		</contact>
+	  </Patient>
+	</input>
+	<diff>
+	  <Parameters xmlns="http://hl7.org/fhir">
+	    <parameter>
+		  <name value="operation"/>
+		  <part>
+		    <name value="type"/>
+			<valueCode value="delete"/>
+		  </part>
+		  <part>
+		    <name value="path"/>
+			<valueString value="Patient.contact[0]"/>
+		  </part>
+		</parameter>
+	  </Parameters>	  
+	</diff>
+	<output>
+	  <Patient xmlns="http://hl7.org/fhir">
+	  </Patient>
+	</output>
+  </case>
+  
+  
+  <!-- lists -->
+  <case name="List unchanged" mode="both">
+    <input> 
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 1"/>
+        </identifier>
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 2"/>
+        </identifier>
+      </Patient>
+    </input>
+    <diff>
+      <Parameters xmlns="http://hl7.org/fhir">
+      </Parameters>	  
+    </diff>
+    <output>
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 1"/>
+        </identifier>
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 2"/>
+        </identifier>
+      </Patient>
+    </output>
+  </case>
+  
+  <case name="List unchanged, contents changed" mode="both">
+    <input> 
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier id="a">
+          <system value="http://example.org"/>
+          <value value="value 1"/>
+        </identifier>
+        <identifier id="b">
+          <system value="http://example.org"/>
+          <value value="value 2"/>
+        </identifier>
+      </Patient>
+    </input>
+    <diff>
+      <Parameters xmlns="http://hl7.org/fhir">
+        <parameter>
+        <name value="operation"/>
+        <part>
+          <name value="type"/>
+          <valueCode value="replace"/>
+        </part>
+        <part>
+          <name value="path"/>
+          <valueString value="Patient.identifier[0].value"/>
+        </part>
+        <part>
+          <name value="value"/>
+          <valueString value="value 2"/>
+        </part>
+        </parameter>
+        <parameter>
+        <name value="operation"/>
+        <part>
+          <name value="type"/>
+          <valueCode value="replace"/>
+        </part>
+        <part>
+          <name value="path"/>
+          <valueString value="Patient.identifier[1].value"/>
+        </part>
+        <part>
+          <name value="value"/>
+          <valueString value="value 1"/>
+        </part>
+        </parameter>
+      </Parameters>	  
+    </diff>
+    <output>
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier id="a">
+        <system value="http://example.org"/>
+        <value value="value 2"/>
+      </identifier>
+      <identifier id="b">
+        <system value="http://example.org"/>
+        <value value="value 1"/>
+      </identifier>
+      </Patient>
+    </output>
+  </case>
+
+  <case name="Add to list" mode="both">
+    <input> 
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 1"/>
+        </identifier>
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 2"/>
+        </identifier>
+      </Patient>
+    </input>
+    <diff>
+      <Parameters xmlns="http://hl7.org/fhir">
+      </Parameters>	  
+    </diff>
+    <output>
+      <Patient xmlns="http://hl7.org/fhir">
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 1"/>
+        </identifier>
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 2"/>
+        </identifier>
+        <identifier>
+          <system value="http://example.org"/>
+          <value value="value 3"/>
+        </identifier>
+      </Patient>
+    </output>
+  </case>
+  
+
+</tests>
