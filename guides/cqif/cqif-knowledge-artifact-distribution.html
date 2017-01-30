@@ -13,13 +13,13 @@
 <a name="knowledge-artifact-distribution"> </a>
 <h3>Sharing Knowledge Artifacts</h3>
 
-<p>One of the primary goals of the Clinical Quality Framework is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
+<p>One of the primary use cases of the Clincal Reasoning Module is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
 
 <img alt="Knowledge Artifact Sharing" src="cqif-knowledge-artifact-distribution.png"/>
 
-<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]library.html">Library</a>, <a href="[%fhir-path%]activitydefinition.html">ActivityDefinition</a>, <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a>, <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>, and <a href="[%fhir-path%]plandefinition.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as resources via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]library.html">Library</a>, <a href="[%fhir-path%]activitydefinition.html">ActivityDefinition</a>, <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a>, <a href="[%fhir-path%]questionnaire.html">Questionnaire</a>, and <a href="[%fhir-path%]measure.html">Measure</a> resources can all be used to represent knowledge artifacts, and so define several search parameters specifically to enable searching based on the various attributes of a knowledge artifact. A FHIR service that supports at least searching and retrieval of these resources is then a basic Knowledge Artifact Repository. More advanced knowledge management capabilities such as change management, semantic indexing, and dependency tracking can all be provided on top of this basic infrastructure.</p>
 
-<p>In particular, the <code>coverage</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the coverage attribute to indicate semantic usage context for an example suicide risk order set:</p>
+<p>In particular, the <code>useContext</code> and <code>topic</code> elements are intended to provide both semantic and topical indexing functionality for use in knowledge repositories. For example, the following fragment illustrates the use of the useContext attribute to indicate semantic usage context for an example suicide risk order set:</p>
 
 <pre><code>  &lt;coverage&gt;
     &lt;patientAgeGroup&gt;
@@ -60,7 +60,7 @@
   &lt;/coverage&gt;
 </code></pre>
 
-<p>The <code>coverage</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that within a single coverage element, the intended semantics are that <i>all</i> the characteristics that are present apply. Because each artifact may have any number of <code>coverage</code> elements, combinations of coverage elements convey the intended semantics that <i>any</i> of the coverages apply.</p>
+<p>The <code>useContext</code> element can contain any number of characteristics that define the particular context of use for the artifact. Note that the base resource does not communicate the intended semantics when multiple useContext elements are present. To accomplish this, a core extension is defined, <a href="[%fhir-path%]extension-usagecontext-group.html">usagecontext-group</a>. All use contexts within a group apply, while groups of use contexts indicate that any group applies.</p>
 
 <p>In addition, the <code>coverage</code> element is intended to convey <i>prescriptive</i> semantics about the appropriate context of use for an artifact, while the <code>topic</code> element is intended to convey <i>descriptive</i> semantics suitable for indexing and searching using the <code>topic</code> search parameter.</p>
 
@@ -68,7 +68,14 @@
 
 <p>The algorithm for determining relevance is not prescribed by this guidance. When calculating relevance, implementations are encouraged to take advantage of the metadata represented within the artifact to help users understand the relevance of the returned artifacts to their search criteria.</p>
 
-<p>To reduce the size of returned results and ensure efficient searching and retrieval, the Bundle returned SHOULD consist only of resources of the requested type. Dependencies of the resources returned SHOULD NOT be included.</p>
+<p>To reduce the size of returned results and ensure efficient searching and retrieval, the Bundle returned SHOULD consist only of resources of the requested type. Dependencies of the resources returned SHOULD NOT be included unless specifically referenced by <a href="[%fhir-path%]search.html#include">including</a>  the resources using the <code>_include</code> and <code>_revinclude</code> parameters.</p>
+
+<p>Support for two different distribution use cases can be provided using the basic GET interaction:</p>
+
+<ul>
+	<li>Summary - Using the <code>_summary</code> parameter, the resources returned represent only the basic information and metadata about each matching artifact.</li>
+	<li>Full - Using the <code>_include</code> and <code>_revinclude</code> search parameters to include related resources in the result.</li>
+</ul>
 
 <p>The following table lists the search criteria elements defined by the Decision Support Service (DSS) standard along with their appropriate representation in FHIR:</p>
 

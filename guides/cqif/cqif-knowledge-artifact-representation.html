@@ -76,26 +76,28 @@
 		<tr><td>title</td><td>A user-friendly title for the artifact</td></tr>
 		<tr><td>status</td><td>The lifecycle status for the artifact (draft, active, or inactive)</td></tr>
 		<tr><td>experimental</td><td>Whether the artifact is for testing purposes, rather than production usage</td></tr>
+		<tr><td>date</td><td>The date the artifact was last changed</td></tr>
 		<tr><td>description</td><td>A natural language description of the artifact</td></tr>
 		<tr><td>purpose</td><td>Describes the purpose of the artifact</td></tr>
 		<tr><td>usage</td><td>Describes the clinical usage of the artifact</td></tr>
-		<tr><td>publicationDate</td><td>The date this version of the artifact was published</td></tr>
+		<tr><td>approvalDate</td><td>The date this version of the artifact was approved by the publisher</td></tr>
 		<tr><td>lastReviewDate</td><td>The date this version of the artifact was last reviewed</td></tr>
 		<tr><td>effectivePeriod</td><td>The effective date range for the artifact</td></tr>
-		<tr><td>coverage</td><td>Describes the context of use for this artifact</td></tr>
+		<tr><td>useContext</td><td>Describes the context of use for this artifact</td></tr>
+		<tr><td>jurisdiction</td><td>Specifies the intended jurisdiction for the artifact</td></tr>
 		<tr><td>topic</td><td>Descriptional topics for the artifact</td></tr>
 		<tr><td>contributor</td><td>A content contributor</td></tr>
 		<tr><td>publisher</td><td>The name of the publisher (either an organization or an individual)</td></tr>
 		<tr><td>contact</td><td>Contact details for the publisher</td></tr>
 		<tr><td>copyright</td><td>Legal copyright description for the artifact</td></tr>
-		<tr><td>relatedResource</td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies</td></tr>
+		<tr><td>relatedArtifact</td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies</td></tr>
 	</tbody>
 </table>
 
 <a name="documentation"> </a>
 <h6>Documentation</h6>
 
-<p>General documentation elements provide immediately available documentation for the description, purpose, and usage of the containing artifact. Additional documentation can be provided using the <code>relatedResource</code> element to link to detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
+<p>General documentation elements, including description, purpose, and usage, provide immediately available documentation as part of the artifact. Additional documentation can be provided using the <code>relatedResource</code> element to link to more detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
 
 <pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
 &lt;status value=&quot;active&quot;/&gt;
@@ -109,12 +111,12 @@
 &lt;/topic&gt;
 </code></pre>
 
-<p>For information on the <code>coverage</code> and <code>topic</code> elements, refer to the <a href="cqif-knowledge-artifact-distribution.html">Knowledge Artifact Distribution</a> section.</p>
+<p>For information on the <code>useContext</code> and <code>topic</code> elements, refer to the <a href="cqif-knowledge-artifact-distribution.html">Knowledge Artifact Distribution</a> section.</p>
 
 <a name="publication-information"> </a>
 <h6>Publication Information</h6>
 
-<p>The <code>status</code> element describes the lifecycle status of the artifact, indicating whether it is a <i>draft</i>, <i>active</i>, or <i>inactive</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Service (DSS) standard:</p>
+<p>The <code>status</code> element describes the lifecycle status of the artifact, indicating whether it is a <i>draft</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Service (DSS) standard:</p>
 
 <table class="list">
 	<thead>
@@ -124,7 +126,7 @@
 		<tr><td><b>draft</b></td><td>Draft</td><td>DRAFT</td></tr>
 		<tr><td><b>draft, experimental</b></td><td>InTest</td><td>DEFINED</td></tr>
 		<tr><td><b>active</b></td><td>Active</td><td>APPROVED, PROMOTED</td></tr>
-		<tr><td><b>inactive</b></td><td>Inactive</td><td>REJECTED, RETIRED</td></tr>
+		<tr><td><b>retired</b></td><td>Inactive</td><td>REJECTED, RETIRED</td></tr>
 	</tbody>
 </table>
 
@@ -133,7 +135,7 @@
 <a name="action-definitions"> </a>
 <h5>Action Definitions</h5>
 
-<p>Actions describe the "output" actions of the knowledge artifact. These actions may be in the form of messages (such as reminders), or structured clinical acts (e.g., a laboratory test order) that can be implemented via clinical systems such as a computerized provider entry system or a documentation system, or they may create new events (e.g., declaration of a patient state such as failure of a treatment). Each action definition contains the following basic information:</p>
+<p>Actions describe the "output" actions of the knowledge artifact. These actions may be in the form of messages (such as reminders), structured clinical acts (e.g., a laboratory test order) that can be implemented via clinical systems such as a computerized provider entry system or a documentation system, or they may create new events (e.g., declaration of a patient state such as failure of a treatment). Each action definition contains the following basic information:</p>
 
 <table class="grid">
 	<tbody>
@@ -232,7 +234,7 @@
 <a name="expression-logic"> </a>
 <h6>Expression Logic</h6>
 
-<p>Each action may have an associated condition that specifies whether the action is applicable. The $apply operation is used to render a plan definition, and the parameters to the apply are available as context to expressions within the plan definition, including the applicable condition and the dynamic value expressions.</p>
+<p>Each action may have associated conditions that specify whether the action is applicable, or when it should be started and stopped. The $apply operation is used to render a plan definition, and the parameters to the apply are available as context to expressions within the plan definition, including the applicable condition and the dynamic value expressions.</p>
 
 <p>For example, the following fragment shows the condition element of an action definition used in an ECA rule. The condition references the named expression "NoScreening":</p>
 
@@ -306,7 +308,6 @@
   &lt;/content&gt;
 &lt;/Library&gt;
 </code></pre>
-
 
 <a name="event-condition-action-rule"> </a>
 <h4>Event-Condition-Action (ECA) Rule</h4>

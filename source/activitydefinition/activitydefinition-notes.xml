@@ -35,6 +35,10 @@
 
 <p>More dynamic scenarios can be achieved in one of two ways, either by providing dynamicValue expressions, or by specifying a StructureMap that transforms the definition into the appropriate intent resource.</p>
 
-<p>Note that systems will likely vary widely in the degree of support they provide for the <a href="activitydefinition-operations.html">$apply</a> operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated supported for the medication category, but no support at all for the encounter category.</p>
+<p>Note that systems will likely vary widely in the degree of support they provide for the $apply operation. In particular, the fact that a system supports applying definitions of one category, does not imply that it supports applying definitions for all categories. For example, a service focused on medication order sets may have sophisticated support for the medication category, but no support at all for the encounter category.</p>
+
+<h3>Profiling ActivityDefinition</h3>
+
+<p>Because the ActivityDefinition resource can be used to describe many different types of intent resources, profiles of the resource will be useful in communicating additional constraints and expectations about how the resource should be used in a particular context. For example, a profile of ActivityDefinition may specify that it is intended to describe medication orders within an order set. Such a profile would indicate that the quantity element should not be used, but the dosageInstruction element must be.</p>
 
 </div>

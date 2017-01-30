@@ -3,7 +3,7 @@
 <div>
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
-<p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditions, options, and other decision points. The resource is flexible enough to be used to represent a variety of clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
+<p>A plan definition is a pre-defined group of actions to be taken in particular circumstances, often including conditional elements, options, and other decision points. The resource is flexible enough to be used to represent a variety of clinical decision support and quality improvement assets, including order sets, protocols, and decision support rules.</p>
 
 <p>PlanDefinitions can contain hierarchical groups of actions, where each specific action defines an activity to be performed (in terms of an ActivityDefinition resource), and each group defines additional behavior, relationships, and applicable conditions between the actions in the overall definition.</p>
 
