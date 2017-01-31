@@ -32,6 +32,8 @@
 	<li>Mixed - The logic in this case is communicated using both a natural language description, as well as a computable expression in a formal language. This information is useful for communicating to environments that may support the computation as well as to environments that do not, or to environments that support the computation but desire human-readable information to more easily understand the logic.</li>
 </ul>
 
+<p>For example, the <code>dynamicValue</code> element of the ActivityDefinition and PlanDefinition resources contains these three elements - <code>description</code>, <code>language</code>, and <code>expression</code> - directly. However, for resources that do not define these elements, extensions are provided to enable expression information to be associated with any FHIR resource.</p>
+
 <a name="expression-description"> </a>
 <h5>Description</h5>
 <p>The <i>description</i> element can be used either alone, to communicate unstructured logic, or together with the other elements to provide a natural language narrative for the formal representation. The element is typically optional to enable usage in both contexts. Note that if both an expression and a description are provided, the expression is considered to override the description element, although the description should reflect the semantics of the expression as accurately as possible.</p>
@@ -117,9 +119,11 @@
 
 <p>Note that this is the general case for establishing the evaluation context for expressions. Many of the clinical reasoning resources, such as the Measure, will define specific behavior for the evaluation context that overrides this general behavior.</p>
 
-<p>For FHIRPath expressions, the expression is evaluated with the containing resource as the context.</p>
+<p>For FHIRPath expressions, the expression is evaluated with the containing resource using the <code>%context</code> environment variable. For example, when evaluated against a Patient resource, the following expression will return all <code>given</code> elements of all <code>name</code> elements for the patient:</p>
 
-<p>For CQL expressions, an implicit <code>Context</code> parameter is defined that allows the expression access to the containing resource.</p>
+<pre><code>%context.name.given</code></pre>
+
+<p>And because FHIRPath expressions can be used within CQL, the same approach works for accessing the context in a CQL expression.</p>
 
 <a name="parameters"> </a>
 <h5>Parameters</h5>
@@ -127,9 +131,11 @@
 
 <p>If the expression uses parameters, a Library SHALL be used to define the required parameters.</p>
 
+<p>Note that the way that parameters are bound to the expression from the evaluation context varies based on where the evaluation is taking place, but in general, the parameters are bound by name to the parameters defined in the evaluation operation. For example, in the <code>$apply</code> operation, parameters defined by libraries can be provided as named parameters in the operation invocation. For more details on how parameter binding occurs within each context, refer to the specific documentation for the <code>$apply</code>, <code>$evaluate</code>, and <code>$evaluate-measure</code> operations.</p>
+
 <a name="data-requirements"> </a>
 <h5>Data Requirements</h5>
-<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference lab results for hemoglobin A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
+<p>The data requirements for a given expression describe the minimum data required in order to achieve a successful evaluation of the expression. More data may in general be provided, but not less. For example, an expression may reference laboratory test results for hemoglobin A1C tests over the past two years. If a system provides data for the last three years, the expression can still be successfully evaluated, but if a system provides data for only the last year, the expression may produce incorrect results based on the absence of the expected data.</p>
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a expression. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for an expression.</p>
 
@@ -147,11 +153,15 @@
 <h4>FHIRPath</h4>
 <p>FHIRPath is a lightweight path-based navigation language intended to provide simple but flexible access to graph-structured data. It is defined as a general purpose specification available <a href="http://hl7.org/fhirpath">here</a>.</p>
 
+<p>FHIRPath is used throughout the FHIR specification whenever path selection is needed, such as in the definition of search parameters, or when describing invariants as part of the definition of resources and profiles. FHIRPath expressions generally provide a simple and effective means of navigating and accessing the elements of FHIR resources to retrieve data.</p>
+
 <a name="clinical-quality-language"> </a>
 <h4>Clinical Quality Language</h4>
-<p>Clinical Quality Language defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
+<p>Clinical Quality Language (CQL) defines a high-level clinically-oriented syntax to enable formal representation of clinical logic. It is defined as a general purpose specification available here:</p>
 
 <p><a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">HL7 Standard: Clinical Quality Language Specification, Release 1.1</a>.</p>
+
+<p>CQL is used to describe the logic used by knowledge artifacts such as clinical decision support rules, quality measure logic, and conditions and actions within order sets and protocols. CQL expressions generally provide a means of computing new information from existing data.</p>
 
 </div>
 [%file newfooter%]

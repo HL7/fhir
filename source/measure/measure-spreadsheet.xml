@@ -24,8 +24,8 @@
   <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>12</ActiveSheet>
-  <FirstVisibleSheet>7</FirstVisibleSheet>
+  <ActiveSheet>4</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -5644,8 +5644,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Period Start</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The start of the measurement period</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.periodEnd</Data></Cell>
@@ -5655,8 +5655,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Period End</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The end of the measurement period</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.measure</Data></Cell>
@@ -5666,8 +5666,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Measure)</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Measure</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The measure to evaluate</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.reportType</Data></Cell>
@@ -5677,8 +5677,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Report type</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The type of measure report, patient, patient-list, or population</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The type of measure report, patient, patient-list, or population. If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.patient</Data></Cell>
@@ -5688,8 +5688,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Patient</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Patient to evaluate against</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Patient to evaluate against. If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.practitioner</Data></Cell>
@@ -5699,8 +5699,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Practitioner</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Practitioner to evaluate</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">If specified, the measure will be evaluated only for patients whose primary practitioner is the identified practitioner</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Practitioner to evaluate. If specified, the measure will be evaluated only for patients whose primary practitioner is the identified practitioner</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.lastReceivedOn</Data></Cell>
@@ -5710,8 +5710,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">dateTime</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Last Received On</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The date the results of this measure were last received</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The date the results of this measure were last received. This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">evaluate-measure.return</Data></Cell>
@@ -5721,8 +5721,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">MeasureReport</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Return</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The results of the measure calculation</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">See the MeasureReport resource for a complete description of the output of this operation</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The results of the measure calculation. See the MeasureReport resource for a complete description of the output of this operation</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">data-requirements</Data></Cell>
@@ -5743,8 +5743,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Period Start</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The start of the measurement period</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">data-requirements.periodEnd</Data></Cell>
@@ -5754,8 +5754,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Period End</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The end of the measurement period</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"><Data ss:Type="String">data-requirements.return</Data></Cell>
@@ -5765,8 +5765,8 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">Library</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Return</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The result of the requirements gathering</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the measure</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s115"/>
@@ -6206,12 +6206,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6219,14 +6220,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10316,7 +10318,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

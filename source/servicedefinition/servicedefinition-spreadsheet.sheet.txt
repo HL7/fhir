@@ -347,9 +347,8 @@
  -- Row 22 -----------------------------------
   Name = data-requirements.return
   Use = out
-  Documentation = The result of the requirements gathering
+  Documentation = The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the service.
   Type = Library
   Title = Return
-  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target.
   Min = 1
   Max = 1

@@ -255,7 +255,7 @@
 		<tr><th>Artifact Type</th><th>Description</th><th>Example</th></tr>
 	</thead>
 	<tbody>
-		<tr><td><a href="#library">Library</a></td><td>A general purpose container for clinical knowledge defined in non-FHIR structures. For example, a sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
+		<tr><td><a href="#library">Library</a></td><td>A general purpose container for clinical knowledge, potentially defined in non-FHIR structures. For example, a sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
 		<tr><td><a href="#event-condition-action-rule">Event-Condition-Action (ECA) Rule</a></td><td>A decision support rule of the form <code>[on Event] if Condition then Action</code>, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On a patient checking in to a clinic appointment, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
 		<tr><td><a href="#order-set">Order Set</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition or in a specific context. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific orders to be placed when a patient presents with diabetic ketoacidosis.</td></tr>
 		<tr><td><a href="#protocol">Protocol</a></td><td>A pre-defined procedural method for standardizing a set of activities. As examples, protocols can be used within laboratory settings to standardize handling of specimens for specific tests; standardize the treatment steps for a particular condition; or standardize the steps to be taken in a particular research trial.</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
@@ -351,6 +351,8 @@
   &lt;/actionDefinition&gt;
 &lt;/PlanDefinition&gt;
 </code></pre>
+
+<p>Note that the use of the tilde (<code>~</code>) in the <code>path</code> element here indicates that the result of the expression is the entire result for the action, rather than providing the value for a specific element of the result. In other words, the <code>ChlamydiaScreeningRequest</code> expression will result in an entire ProcedureRequest resource, which is the action to be performed.</p>
 
 <a name="order-set"> </a>
 <h4>Order Set</h4>

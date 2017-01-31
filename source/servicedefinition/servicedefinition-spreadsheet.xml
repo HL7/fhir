@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7230</WindowHeight>
-  <WindowWidth>22200</WindowWidth>
+  <WindowHeight>9720</WindowHeight>
+  <WindowWidth>21465</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -5166,8 +5166,8 @@
     <Cell ss:StyleID="s115"><Data ss:Type="String">Library</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:Index="8" ss:StyleID="s115"><Data ss:Type="String">Return</Data></Cell>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">The result of the requirements gathering</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target.</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the service.</Data></Cell>
+    <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s114"/>
@@ -5650,7 +5650,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5664,11 +5664,10 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
+     <ActiveRow>4</ActiveRow>
      <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>

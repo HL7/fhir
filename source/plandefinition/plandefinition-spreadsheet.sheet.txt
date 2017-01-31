@@ -817,7 +817,8 @@
   Use = Instance
   Documentation = The apply operation applies a PlanDefinition to a given context
   Type = operation
-  Title = Place
+  Title = Apply
+  Footer = The result of this operation is a CarePlan resource, with activities for each of the applicable actions based on evaluating the applicability condition in context. For each applicable action, the activitydefinition is applied as described in the $apply operation of the ActivityDefinition resource, and the resulting resource is added as an activity to the CarePlan. If the ActivityDefinition includes library references, those libraries will be available to the evaluated expressions. If those libraries have parameters, those parameters will be bound by name to the parameters given to the operation
 
  -- Row 2 -----------------------------------
   Name = apply.patient
@@ -920,9 +921,8 @@
  -- Row 13 -----------------------------------
   Name = data-requirements.return
   Use = out
-  Documentation = The result of the requirements gathering
+  Documentation = The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the plan definition
   Type = Library
   Title = Return
-  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
   Min = 1
   Max = 1

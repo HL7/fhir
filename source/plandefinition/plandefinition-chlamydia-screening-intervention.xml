@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="chlamydia-screening-intervention"/>
   <text>
     <status value="generated"/>
@@ -27,6 +27,7 @@
       <expression value="NoScreening"/>
     </condition>
     <dynamicValue>
+      <!-- The '~' here indicates the dynamic value is providing the entire result, rather than a value of a particular element -->
       <path value="~"/>
       <expression value="ChlamydiaScreeningRequest"/>
     </dynamicValue>

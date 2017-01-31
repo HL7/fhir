@@ -18,7 +18,7 @@
 
 <p>The <a href="[%fhir-path%]measure.html">Measure</a> resource builds on the general approach to representing knowledge artifacts and adds the metadata and structure information that is specific to quality measures:</p>
 
-<img alt="Measure Structure" src="cqif-measure-structure.png"/>
+<img alt="Measure Structure" src="cqif-measure-structure.png" style="width:600px;height:400px"/>
 
 <p>Quality measures follow a generally hierarchical structure that defines:</p>
 
@@ -70,9 +70,9 @@
 <a name="measure-logic"> </a>
 <h5>Measure Logic</h5>
 
-<p>As with other knowledge artifacts, logic is included by referencing a <a href="[%fhir-path%]library.html">Library</a> resource. Although the base resource allows for the measure to reference any number of libraries, for simplicity of managing sharing, this implementation guide requires that a measure reference only one Library, the <i>primary measure library</i>, and that this library contain all the named expressions required to define the measure structure.</p>
+<p>As with other knowledge artifacts, logic is included by referencing a <a href="[%fhir-path%]library.html">Library</a> resource. Although the base resource allows for the measure to reference any number of libraries, for simplicity of managing sharing, measures should reference only one Library, the <i>primary measure library</i>, and that library should contain all the named expressions required to define the measure structure.</p>
 
-<p>Note that this restriction does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure to reference multiple libraries directly.</p>
+<p>Note that this approach does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure to reference multiple libraries directly.</p>
 
 <a name="specifying-population-criteria"> </a>
 <h6>Specifying Population Criteria</h6>
@@ -126,7 +126,7 @@
 <a name="continuous-variable-measures"> </a>
 <h6>Continuous Variable Measures</h6>
 
-<p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to score particular aspects of performance. Measure observations are not population criteria in that they do not determine whether or not a patient is to be counted in a measure. Rather, measure observations are data elements to be collected on patients meeting the population criteria within a continuous variable measure.</p>
+<p>Continuous variable measures may include a measure observation section. This section defines variables (for example, time from check-in to time of antibiotic administration) used to measure particular aspects of a process or outcome. Measure observations are not population criteria in that they do not determine whether or not a patient is to be counted in a measure. Rather, measure observations are data elements to be collected on patients meeting the population criteria within a continuous variable measure.</p>
 
 <a name="stratification-and-supplemental-data"> </a>
 <h5>Stratification and Supplemental Data</h5>
@@ -158,7 +158,7 @@
 <a name="invoking-measures"> </a>
 <h4>Invoking Measures</h4>
 
-<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the <a href="[%fhir-path%]operationdefinition.html">OperationDefinition</a> resource. Prior sections of this specification described the Measure representation of an eMeasure, this section describes the evaluateMeasure operation that is used to invoke an eMeasure and obtain the results.</p>
+<p>The Health Quality Measure Format (HQMF) defines the electronic representation of an eMeasure but does not define a mechanism for invoking an eMeasure. FHIR defines both the representation of resources and a general mechanism for interacting with them via the <a href="[%fhir-path%]operationdefinition.html">OperationDefinition</a> resource. Prior sections of this specification described the Measure representation of an eMeasure, this section describes the <code>$evaluate-measure</code> operation that is used to invoke an eMeasure and obtain the results.</p>
 
 <a name="operation-definition"> </a>
 <h5>Operation Definition</h5>
@@ -231,7 +231,7 @@ The next example demonstrates how to obtain the results of evaluating the eMeasu
 
 <p>When using a MeasureReport resource to represent a patient-list, the MeasureReport SHALL have a type-code of "patient-list" and SHALL NOT have a reference to a patient. Instead, the resource SHALL include for each population a reference to a List resource that references individual level MeasureReport resources for the same measure, one for each patient in the overall population.</p>
 
-<img alt="Patient-List Measure Report" src="cqif-measure-report-patient-list.png"/>
+<img alt="Patient-List Measure Report" src="cqif-measure-report-patient-list.png" style="width:650px;height:550px"/>
 
 <p>For example, the initial population report, in addition to providing the count, provides a reference to a List resource that identifies each of the patients that make up that population. For each of those patients, the List will contain a reference to an individual-level report for that patient.</p>
 

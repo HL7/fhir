@@ -576,80 +576,72 @@
  -- Row 2 -----------------------------------
   Name = evaluate-measure.periodStart
   Use = in
-  Documentation = The start of the measurement period
+  Documentation = The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
   Type = date
   Title = Period Start
-  Footer = In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
   Min = 1
   Max = 1
 
  -- Row 3 -----------------------------------
   Name = evaluate-measure.periodEnd
   Use = in
-  Documentation = The end of the measurement period
+  Documentation = The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
   Type = date
   Title = Period End
-  Footer = The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
   Min = 1
   Max = 1
 
  -- Row 4 -----------------------------------
   Name = evaluate-measure.measure
   Use = in
-  Documentation = The measure to evaluate
+  Documentation = The measure to evaluate. This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance
   Type = Reference(Measure)
   Title = Measure
-  Footer = This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance
   Min = 0
   Max = 1
 
  -- Row 5 -----------------------------------
   Name = evaluate-measure.reportType
   Use = in
-  Documentation = The type of measure report, patient, patient-list, or population
+  Documentation = The type of measure report, patient, patient-list, or population. If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used
   Type = code
   Title = Report type
-  Footer = If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used
   Min = 0
   Max = 1
 
  -- Row 6 -----------------------------------
   Name = evaluate-measure.patient
   Use = in
-  Documentation = Patient to evaluate against
+  Documentation = Patient to evaluate against. If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated
   Type = Reference(Patient)
   Title = Patient
-  Footer = If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated
   Min = 0
   Max = 1
 
  -- Row 7 -----------------------------------
   Name = evaluate-measure.practitioner
   Use = in
-  Documentation = Practitioner to evaluate
+  Documentation = Practitioner to evaluate. If specified, the measure will be evaluated only for patients whose primary practitioner is the identified practitioner
   Type = Reference(Practitioner)
   Title = Practitioner
-  Footer = If specified, the measure will be evaluated only for patients whose primary practitioner is the identified practitioner
   Min = 0
   Max = 1
 
  -- Row 8 -----------------------------------
   Name = evaluate-measure.lastReceivedOn
   Use = in
-  Documentation = The date the results of this measure were last received
+  Documentation = The date the results of this measure were last received. This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report
   Type = dateTime
   Title = Last Received On
-  Footer = This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report
   Min = 0
   Max = 1
 
  -- Row 9 -----------------------------------
   Name = evaluate-measure.return
   Use = out
-  Documentation = The results of the measure calculation
+  Documentation = The results of the measure calculation. See the MeasureReport resource for a complete description of the output of this operation
   Type = MeasureReport
   Title = Return
-  Footer = See the MeasureReport resource for a complete description of the output of this operation
   Min = 1
   Max = 1
 
@@ -664,29 +656,26 @@
  -- Row 11 -----------------------------------
   Name = data-requirements.periodStart
   Use = in
-  Documentation = The start of the measurement period
+  Documentation = The start of the measurement period. In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
   Type = date
   Title = Period Start
-  Footer = In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
   Min = 1
   Max = 1
 
  -- Row 12 -----------------------------------
   Name = data-requirements.periodEnd
   Use = in
-  Documentation = The end of the measurement period
+  Documentation = The end of the measurement period. The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
   Type = date
   Title = Period End
-  Footer = The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
   Min = 1
   Max = 1
 
  -- Row 13 -----------------------------------
   Name = data-requirements.return
   Use = out
-  Documentation = The result of the requirements gathering
+  Documentation = The result of the requirements gathering is a module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the measure
   Type = Library
   Title = Return
-  Footer = A module-definition Library that describes the aggregate parameters, data requirements, and dependencies of the target
   Min = 1
   Max = 1

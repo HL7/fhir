@@ -205,7 +205,7 @@
  -- Row 2 -----------------------------------
   Name = version
   Type = token
-  Description = The version identifier of the {{title}}
+  Description = The business version of the {{title}}
   Path = MetadataResource.version
 
  -- Row 3 -----------------------------------
