@@ -245,7 +245,6 @@
   Definition = Either the age of onset, range of approximate age or descriptive string can be recorded.  For conditions with multiple occurrences, this describes the first known occurrence.
   Requirements = Age of onset of a condition in relatives is predictive of risk for the patient
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']  Use originalText for string
-  To Do = Define/find appropriate observation code
 
  -- Row 18 -----------------------------------
   Element = FamilyMemberHistory.condition.note
