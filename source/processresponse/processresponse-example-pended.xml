@@ -15,7 +15,7 @@
 				<value value="ABC123"/> <!--   this is the value to which the response will refer   -->
 			</identifier>
 
-			<status value="requested"/>
+			<status value="active"/>
 			
 			<category>
 				<coding>

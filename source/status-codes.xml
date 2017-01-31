@@ -11,7 +11,7 @@
   <LastAuthor>Richard J. Ettema (AEGIS.net)</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2017-01-28T17:00:21Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -20,10 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15915</WindowHeight>
-  <WindowWidth>28155</WindowWidth>
+  <WindowHeight>9210</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
-  <WindowTopY>465</WindowTopY>
+  <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -763,19 +763,19 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Communication.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">preparation</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">rejected</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">in-progress</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">aborted</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s78"/>
@@ -784,23 +784,23 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CommunicationRequest.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
-    <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">proposed</Data></Cell>
-    <Cell ss:StyleID="s82"><Data ss:Type="String">planned</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s84"><Data ss:Type="String">draft</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">requested</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">received</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">rejected</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">accepted</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">active</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">suspended</Data></Cell>
-    <Cell ss:StyleID="s72"><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">completed</Data></Cell>
     <Cell ss:StyleID="s78"/>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">cancelled</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">CompartmentDefinition.status</Data></Cell>
@@ -2390,9 +2390,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2400,13 +2400,16 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>4</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>17</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

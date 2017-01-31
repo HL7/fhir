@@ -42,7 +42,7 @@
     <system value="http://www.jurisdiction.com/insurer/123456"/>
     <value value="ABC123"/> <!-- this is the value to which the response will refer -->
   </identifier>
-  <status value="requested"/>
+  <status value="active"/>
   <priority>
     <coding>
       <system value="http://hl7.org/fhir/request-priority"/>

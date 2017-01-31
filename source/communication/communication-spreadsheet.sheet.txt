@@ -3,9 +3,10 @@
 
  -- Row 1 -----------------------------------
   Binding Name = CommunicationStatus
-  Binding = code list
-  Reference = #communication-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/event-status
   Definition = The status of the communication.
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
@@ -25,38 +26,6 @@
   Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
   Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
-
-=== Sheet communication-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 4
-  Code = in-progress
-  Display = In Progress
-  Definition = The communication transmission is ongoing.
-
- -- Row 2 -----------------------------------
-  Id = 6
-  Code = completed
-  Display = Completed
-  Definition = The message transmission is complete, i.e., delivered to the recipient\'s destination.
-
- -- Row 3 -----------------------------------
-  Id = 7
-  Code = suspended
-  Display = Suspended
-  Definition = The communication transmission has been held by originating system/user request.
-
- -- Row 4 -----------------------------------
-  Id = 8
-  Code = rejected
-  Display = Rejected
-  Definition = The receiving system has declined to accept the message.
-
- -- Row 5 -----------------------------------
-  Id = 9
-  Code = failed
-  Display = Failed
-  Definition = There was a failure in transmitting the message out.
 
 === Sheet Invariants =====================================
 
@@ -81,6 +50,7 @@
  -- Row 3 -----------------------------------
   Element = Communication.basedOn
   Card. = 0..*
+  Aliases = fulfills
   Type = Reference(Any)
   Short Name = Request fulfilled by this communication
   Definition = An order, proposal or plan fulfilled in whole or in part by this Communication
@@ -95,11 +65,12 @@
 
  -- Row 5 -----------------------------------
   Element = Communication.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = Y
+  Summary = Y
   Type = code
   Binding = CommunicationStatus
-  Short Name = in-progress | completed | suspended | rejected | failed
+  Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
   Definition = The status of the transmission.
   w5 = status
 
@@ -123,6 +94,7 @@
  -- Row 8 -----------------------------------
   Element = Communication.subject
   Card. = 0..1
+  Aliases = patient
   Type = Reference(Patient|Group)
   Short Name = Focus of message
   Definition = The patient who was the focus of this communication.
@@ -147,6 +119,7 @@
  -- Row 11 -----------------------------------
   Element = Communication.context
   Card. = 0..1
+  Aliases = encounter
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or episode leading to message
   Definition = The encounter within which the communication was sent.

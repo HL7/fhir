@@ -3,9 +3,10 @@
 
  -- Row 1 -----------------------------------
   Binding Name = CommunicationRequestStatus
-  Binding = code list
-  Reference = #communication-request-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-status
   Definition = The status of the communication request.
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
@@ -33,68 +34,6 @@
   Definition = Codes indicating the relative importance of a communication request.
   Conformance = example
 
-=== Sheet communication-request-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = proposed
-  Display = Proposed
-  Definition = The request has been proposed.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = planned
-  Display = Planned
-  Definition = The request has been planned.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = requested
-  Display = Requested
-  Definition = The request has been placed.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = received
-  Display = Received
-  Definition = The receiving system has received the request but not yet decided whether it will be performed.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = accepted
-  Display = Accepted
-  Definition = The receiving system has accepted the order, but work has not yet commenced.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = in-progress
-  Display = In Progress
-  Definition = The work to fulfill the order is happening.
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = completed
-  Display = Completed
-  Definition = The work has been complete, the report(s) released, and no further work is planned.
-
- -- Row 8 -----------------------------------
-  Id = 8
-  Code = suspended
-  Display = Suspended
-  Definition = The request has been held by originating system/user request.
-
- -- Row 9 -----------------------------------
-  Id = 9
-  Code = rejected
-  Display = Rejected
-  Definition = The receiving system has declined to fulfill the request
-
- -- Row 10 -----------------------------------
-  Id = 10
-  Code = failed
-  Display = Failed
-  Definition = The communication was attempted, but due to some procedural error, it could not be completed.
-
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -117,11 +56,11 @@
 
  -- Row 3 -----------------------------------
   Element = CommunicationRequest.status
-  Card. = 0..1
+  Card. = 1..1
   Is Modifier = Y
   Type = code
   Binding = CommunicationRequestStatus
-  Short Name = proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed
+  Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The status of the proposal or order.
   w5 = status
 
@@ -153,9 +92,10 @@
  -- Row 7 -----------------------------------
   Element = CommunicationRequest.subject
   Card. = 0..1
-  Type = Reference(Patient|)
+  Aliases = patient
+  Type = Reference(Patient|Group)
   Short Name = Focus of message
-  Definition = The patient who is the focus of this communication request.
+  Definition = The patient or group that is the focus of this communication request.
   w5 = who.focus
 
  -- Row 8 -----------------------------------
@@ -178,6 +118,7 @@
  -- Row 10 -----------------------------------
   Element = CommunicationRequest.context
   Card. = 0..1
+  Aliases = encounter
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or episode leading to message
   Definition = The encounter or episode of care within which the communication request was created.
