@@ -40,7 +40,13 @@
   Id = 3
   Code = abandoned
   Display = Abandoned
-  Definition = Dispensing was not completed.
+  Definition = Delivery was not completed.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = entered-in-error
+  Display = Entered In Error
+  Definition = This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
 
 === Sheet Invariants =====================================
 
@@ -55,60 +61,6 @@
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
-  Element = !SupplyDelivery.kind
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = SupplyKind
-  Short Name = The kind of supply (central, non-stock, etc.)
-  Definition = Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process
-  RIM Mapping = .code
-  Committee Notes = [3417]
-
- -- Row 3 -----------------------------------
-  Element = !SupplyDelivery.identifier
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Unique identifier
-  Definition = Unique identifier for this supply request
-  Comments = This is assigned by the orderer, and used to refer to this order in other external standards
-  RIM Mapping = .id
-
- -- Row 4 -----------------------------------
-  Element = !SupplyDelivery.status
-  Card. = 0..1
-  Is Modifier = Y
-  Type = code
-  Binding = SupplyStatus
-  Short Name = requested | dispensed | received | failed | cancelled
-  Definition = Status of the supply request
-  RIM Mapping = .statusCode, also existence of fulfillment events
-
- -- Row 5 -----------------------------------
-  Element = !SupplyDelivery.orderedItem
-  Card. = 0..1
-  Type = Reference(Medication|Substance|Device)
-  Short Name = Medication, Substance, or Device requested to be supplied
-  Definition = The item that is requested to be supplied
-  Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
-  RIM Mapping = .participation[typeCode=PRD].role
-
- -- Row 6 -----------------------------------
-  Element = !SupplyDelivery.patient
-  Card. = 0..1
-  Type = Reference(Patient)
-  Short Name = Patient for whom the item is supplied
-  Definition = A link to a resource representing the person whom the ordered item is for
-  RIM Mapping = .participation[typeCode=SBJ].role
-
- -- Row 7 -----------------------------------
-  Element = !SupplyDelivery
-  Card. = 0..*
-  UML = right
-  Short Name = Supply details
-  Definition = Indicates the details of the dispense event such as the days supply and quantity of a supply dispensed.
-  RIM Mapping = .inboundRelationship[typeCode=FLFS].source[classCode=SPLY, moodCode=EVN]
-
- -- Row 8 -----------------------------------
   Element = SupplyDelivery.identifier
   Card. = 0..1
   Type = Identifier
@@ -117,17 +69,41 @@
   Comments = This is assigned by the dispenser, and used to refer to this order in other external standards.
   RIM Mapping = .id
 
- -- Row 9 -----------------------------------
+ -- Row 3 -----------------------------------
+  Element = SupplyDelivery.basedOn
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(SupplyRequest)
+  Short Name = Fulfills plan, proposal or order
+  Definition = A plan, proposal or order that is fulfilled in whole or in part by this event
+  Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
+  v2 Mapping = ORC in proximity to EVN segment
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+
+ -- Row 4 -----------------------------------
+  Element = SupplyDelivery.partOf
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(SupplyDelivery|Contract)
+  Short Name = Part of referenced event
+  Definition = A larger event of which this particular event is a component or step
+  Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
+  Comments = Not to be used to link an event to an Encounter - use Event.context for that.\r\r[The allowed reference resources may be adjusted as appropriate for the event resource]
+  v2 Mapping = Varies by domain
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
+
+ -- Row 5 -----------------------------------
   Element = SupplyDelivery.status
   Card. = 0..1
   Is Modifier = y
+  Summary = Y
   Type = code
   Binding = SupplyDeliveryStatus
   Short Name = in-progress | completed | abandoned | entered-in-error
   Definition = A code specifying the state of the dispense event.
   RIM Mapping = .statusCode, also existence of fulfillment events
 
- -- Row 10 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = SupplyDelivery.patient
   Card. = 0..1
   Type = Reference(Patient)
@@ -135,7 +111,7 @@
   Definition = A link to a resource representing the person whom the delivered item is for
   RIM Mapping = .participation[typeCode=SBJ].role
 
- -- Row 11 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = SupplyDelivery.type
   Card. = 0..1
   Type = CodeableConcept
@@ -144,16 +120,22 @@
   Definition = Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
   RIM Mapping = .code
 
- -- Row 12 -----------------------------------
-  Element = SupplyDelivery.quantity
+ -- Row 8 -----------------------------------
+  Element = SupplyDelivery.suppliedItem
+  Card. = 0..1
+  Short Name = The item that is delivered or supplied
+  Definition = The item that is being delivered or has been supplied
+
+ -- Row 9 -----------------------------------
+  Element = SupplyDelivery.suppliedItem.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Name = Amount dispensed
   Definition = The amount of supply that has been dispensed. Includes unit of measure.
   RIM Mapping = .quantity
 
- -- Row 13 -----------------------------------
-  Element = SupplyDelivery.suppliedItem[x]
+ -- Row 10 -----------------------------------
+  Element = SupplyDelivery.suppliedItem.item[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication|Substance|Device)
   Binding = SupplyDeliveryItem
@@ -161,31 +143,27 @@
   Definition = Identifies the medication, substance or device being dispensed. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   RIM Mapping = .participation[typeCode=PRD].role
 
- -- Row 14 -----------------------------------
+ -- Row 11 -----------------------------------
+  Element = SupplyDelivery.occurrence[x]
+  Card. = 0..1
+  Summary = Y
+  Type = dateTime|Period|Timing
+  Short Name = When event occurred
+  Definition = The date or time(s) the activity occurred.
+  Comments = [The list of types may be constrained as appropriate for the type of event]
+  v2 Mapping = Varies by domain
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 12 -----------------------------------
   Element = SupplyDelivery.supplier
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Reference(Practitioner|Organization)
   Short Name = Dispenser
   Definition = The individual responsible for dispensing the medication, supplier or device.
   RIM Mapping = .participation[typeCode=PFM].role
 
- -- Row 15 -----------------------------------
-  Element = SupplyDelivery.whenPrepared
-  Card. = 0..1
-  Type = Period
-  Short Name = Dispensing time
-  Definition = The time the dispense event occurred.
-  RIM Mapping = .effectiveTime.low
-
- -- Row 16 -----------------------------------
-  Element = SupplyDelivery.time
-  Card. = 0..1
-  Type = dateTime
-  Short Name = Handover time
-  Definition = The time the dispensed item was sent or handed to the patient (or agent).
-  RIM Mapping = .effectiveTime.high
-
- -- Row 17 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = SupplyDelivery.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -194,10 +172,61 @@
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = [#3415]
 
- -- Row 18 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = SupplyDelivery.receiver
   Card. = 0..*
   Type = Reference(Practitioner)
   Short Name = Who collected the Supply
   Definition = Identifies the person who picked up the Supply.
   RIM Mapping = .participation[typeCode=RCV].role
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = supplier
+  Type = reference
+  Path = SupplyDelivery.supplier
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = SupplyDelivery.identifier
+
+ -- Row 3 -----------------------------------
+  Name = status
+  Type = token
+  Path = SupplyDelivery.status
+
+ -- Row 4 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = SupplyDelivery.patient
+
+ -- Row 5 -----------------------------------
+  Name = receiver
+  Type = reference
+  Path = SupplyDelivery.receiver
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !CCDA Non-Medicinal Supply Activity
+  IG Name = ccda
+  Filename = supply-ccda-nonmedsupplyactivity.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Supply Dispense Example
+  Filename = supplydelivery-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Pump Delivery
+  Identity = pumpdelivery
+  Description = Delivery of an insulin pump
+  Filename = supplydelivery-example-pumpdelivery.xml
+
+=== Sheet Examples =====================================
