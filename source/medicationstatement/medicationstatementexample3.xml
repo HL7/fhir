@@ -18,6 +18,9 @@
   </informationSource>
   <dateAsserted value="2014-02-22"/>
   <taken value="y"/>
+  <reasonForUseReference>
+    <reference value="Observation/blood-pressure"></reference>
+  </reasonForUseReference>
   <note>
     <text value="Patient can not remember the name of the tablet, but takes it every day in the morning for water retention"/>
   </note>
