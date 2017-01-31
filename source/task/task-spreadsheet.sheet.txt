@@ -505,8 +505,10 @@
   Element = Task.restriction.period
   Card. = 0..1
   Type = Period
-  Short Name = Over what time-period is fulfillment sought
+  Short Name = When fulfillment sought
+  Definition = Over what time-period is fulfillment sought
   Requirements = E.g. order that authorizes 1 year\'s services.  Fulfillment is sought for next 3 months.
+  Comments = Note that period.high is the due date representing the time by which the task should be completed.
   RIM Mapping = .effectiveTime(IVL<TS>)
 
  -- Row 31 -----------------------------------
