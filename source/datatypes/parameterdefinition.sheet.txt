@@ -31,7 +31,7 @@
   Card. = 1..1
   Type = code
   Binding = ParameterUse
-  Short Name = input | output
+  Short Name = in | out
   Definition = Whether the parameter is input or output for the module
 
  -- Row 4 -----------------------------------

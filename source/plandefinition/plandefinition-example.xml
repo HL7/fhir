@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/plandefinition.xsd">
+<PlanDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <id value="example"/>
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Low Suicide Risk Order Set...</div>
   </text>
-  <!-- The referral request here is only partially specified, additional information will be provided from context, see the action definition below -->
+  <!-- The referral and medication requests here are only partially specified, additional information will be provided from context, see the action definitions in the body of the plan definition below -->
   <contained>
     <ActivityDefinition>
       <id value="referralToMentalHealthCare"/>
-      <status value="draft"/>
-      <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-      <category value="referral"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="306206005"/>
-        </coding>
-      </code>
-      <timingTiming>
-        <event>
-          <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-cqlExpression">
-            <valueString value="Now()"/>
-          </extension>
-        </event>
-      </timingTiming>
-      <participantType value="practitioner"/>
+	  <status value="draft"/>
+	  <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
+	  <!-- Category indicates the overall type of resource that is defined by this activity, a ReferralRequest in this case -->
+	  <category value="referral"/>
+	  <code>
+		<coding>
+		  <system value="http://snomed.info/sct"/>
+		  <code value="306206005"/>
+		</coding>
+		<text value="Referral to service (procedure)"/>
+	  </code>
+	  <timingTiming>
+		<event>
+		  <!-- The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start -->
+		  <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
+			<valueString value="Now()"/>
+		  </extension>
+		</event>
+	  </timingTiming>
+	  <participantType value="practitioner"/>
     </ActivityDefinition>
   </contained>
   <contained>
@@ -57,15 +60,6 @@
           <unit value="{tbl}"/>
         </doseQuantity>
       </dosageInstruction>
-      <!-- Need a DispenseRequest type
-      <dispenseRequest>
-        <numberOfRepeatsAllowed value="3"/>
-        <quantity>
-          <value value="30"/>
-          <unit value="{tbl}"/>
-        </quantity>
-      </dispenseRequest>
-      -->
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
         <expression value="3"/>
@@ -133,7 +127,15 @@
   <title value="Low Suicide Risk Order Set"/>
   <status value="draft"/>
   <date value="2015-08-15"/>
-  <description value="..."/>
+  <description value="Orders to be applied to a patient characterized as low suicide risk."/>
+  <purpose value="This order set helps ensure consistent application of appropriate orders for the care of low suicide risk patients."/>
+  <usage value="This order set should be applied after assessing a patient for suicide risk, when the findings of that assessment indicate the patient has low suicide risk."/>
+  <approvalDate value="2016-03-12"/>
+  <lastReviewDate value="2016-08-15"/>
+  <effectivePeriod>
+    <start value="2016-01-01"/>
+    <end value="2017-12-31"/>
+  </effectivePeriod>
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
@@ -225,6 +227,12 @@
       </coding>
     </valueCodeableConcept>
   </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
   <topic>
     <text value="Suicide risk assessment"/>
   </topic>
@@ -259,59 +267,58 @@
   </contact>
   <library>
     <reference value="Library/mmi-suiciderisk-orderset-logic"/>
+    <display value="SuicideRiskLogic"/>
   </library>
   <!-- Actions -->
-  <!-- Suicide Risk Assessment and Outpatient Management -->
   <actionDefinition>
     <title value="Suicide Risk Assessment and Outpatient Management"/>
-    <!-- Consults and Referrals -->
     <actionDefinition>
       <title value="Consults and Referrals"/>
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="any"/>
       <actionDefinition>
-        <!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
         <textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
         <activityDefinition>
           <reference value="#referralToMentalHealthCare"/>
         </activityDefinition>
+        <!-- These expressions will be evaluated with the library referenced above as an include -->
         <dynamicValue>
           <path value="timing.event"/>
           <expression value="Now()"/>
         </dynamicValue>
         <dynamicValue>
           <path value="specialty"/>
-          <expression value="Code '261QM0850X' from &quot;urn:oid:2.16.840.1.113883.11.19462&quot;"/>
+          <!-- This expression is code selector syntax in CQL, returning the code from the NPI provider taxonomy -->
+          <expression value="Code '261QM0850X' from SuicideRiskLogic.&quot;NPI Taxonomy&quot;"/>
         </dynamicValue>
         <dynamicValue>
+		  <!-- The fulfillmentTime element of the resulting ReferralRequest will be set to the result of the ReferralRequestFulfillmentTime expression defined in the SuicideRiskLogic library -->
           <path value="fulfillmentTime"/>
-          <expression value="ReferralRequestFulfillmentTime"/>
+          <expression value="SuicideRiskLogic.ReferralRequestFulfillmentTime"/>
         </dynamicValue>
         <dynamicValue>
           <path value="patient"/>
-          <expression value="Patient"/>
+          <expression value="SuicideRiskLogic.Patient"/>
         </dynamicValue>
         <dynamicValue>
           <path value="requester"/>
-          <expression value="Practitioner"/>
+          <expression value="SuicideRiskLogic.Practitioner"/>
         </dynamicValue>
         <dynamicValue>
           <path value="reason"/>
-          <expression value="RiskAssessmentScore"/>
+          <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
         </dynamicValue>
         <dynamicValue>
           <path value="supportingInformation"/>
-          <expression value="RiskAssessment"/>
+          <expression value="SuicideRiskLogic.RiskAssessment"/>
         </dynamicValue>
       </actionDefinition>
     </actionDefinition>
-    <!-- Medications -->
     <actionDefinition>
       <title value="Medications"/>
       <groupingBehavior value="logical-group"/>
       <selectionBehavior value="at-most-one"/>
       <actionDefinition>
-        <!-- First-Line Antidepressants -->
         <title value="First-Line Antidepressants"/>
         <documentation>
           <type value="justification"/>
@@ -324,7 +331,6 @@
         <groupingBehavior value="logical-group"/>
         <selectionBehavior value="at-most-one"/>
         <actionDefinition>
-          <!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
           <title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
           <documentation>
             <type value="justification"/>
@@ -337,7 +343,6 @@
           <groupingBehavior value="logical-group"/>
           <selectionBehavior value="at-most-one"/>
           <actionDefinition>
-            <!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
             <textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
             <activityDefinition>
               <reference value="#citalopramPrescription"/>
@@ -348,54 +353,47 @@
             </dynamicValue>
             <dynamicValue>
               <path value="patient"/>
-              <expression value="Patient"/>
+              <expression value="SuicideRiskLogic.Patient"/>
             </dynamicValue>
             <dynamicValue>
               <path value="prescriber"/>
-              <expression value="Practitioner"/>
+              <expression value="SuicideRiskLogic.Practitioner"/>
             </dynamicValue>
             <dynamicValue>
               <path value="reasonCode"/>
-              <expression value="RiskAssessmentScore"/>
+              <expression value="SuicideRiskLogic.RiskAssessmentScore"/>
             </dynamicValue>
             <dynamicValue>
               <path value="reasonReference"/>
-              <expression value="RiskAssessment"/>
+              <expression value="SuicideRiskLogic.RiskAssessment"/>
             </dynamicValue>
           </actionDefinition>
           <actionDefinition>
-            <!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
             <textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
           </actionDefinition>
           <actionDefinition>
-            <!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) -->
             <textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
           </actionDefinition>
           <actionDefinition>
-            <!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
             <textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
           </actionDefinition>
           <actionDefinition>
-            <!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
             <textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
             <!-- Follows pattern established above -->
           </actionDefinition>
         </actionDefinition>
         <actionDefinition>
-          <!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
           <textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
           <!-- Follows pattern established above -->
         </actionDefinition>
         <actionDefinition>
-          <!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) -->
           <textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
           <!-- Follows pattern established above -->
         </actionDefinition>
         <actionDefinition>
-          <!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) -->
           <textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
           <!-- Follows pattern established above -->
         </actionDefinition>

@@ -223,6 +223,18 @@
   Description = FHIR Model Definition
   Filename = library-fhir-model-definition.xml
 
+ -- Row 7 -----------------------------------
+  Name = SuicideRisk
+  Identity = mmi-suiciderisk-orderset-logic
+  Description = Suicide Risk Order Set Logic
+  Filename = library-mmi-suiciderisk-orderset-logic.xml
+
+ -- Row 8 -----------------------------------
+  Name = FHIRHelpers
+  Identity = library-fhir-helpers
+  Description = FHIR Helpers
+  Filename = library-fhir-helpers.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

@@ -5,7 +5,7 @@
 <h2>Scope and Usage</h2>
 
 <p>
-The _evaluate_ operation of the Measure resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
+The <code>$evaluate-measure</code> operation of the Measure resource is defined to return a MeasureReport. The resource is capable of representing three different levels of report: patient-level, patient-list, and summary.
 
 The resource is based on the HL7 CDA R2 Implementation Guide: Quality Reporting Document Architecture - Category 1 (QRDA I) DSTU Release 3 (US Realm) and the HL7 Implementation Guide for CDA Release 2: Quality Reporting Document Architecture - Category III (QRDA III), DSTU Release 1 implementation guides.
 </p>

@@ -97,7 +97,7 @@
 <a name="documentation"> </a>
 <h6>Documentation</h6>
 
-<p>General documentation elements, including description, purpose, and usage, provide immediately available documentation as part of the artifact. Additional documentation can be provided using the <code>relatedResource</code> element to link to more detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
+<p>General documentation elements, including description, purpose, and usage, provide immediately available documentation as part of the artifact. Additional documentation can be provided using the <code>relatedArtifact</code> element to link to more detailed information, supporting evidence, and to additional required artifacts as appropriate.</p>
 
 <pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
 &lt;status value=&quot;active&quot;/&gt;
@@ -120,17 +120,19 @@
 
 <table class="list">
 	<thead>
-		<tr><th><b>Status</b></th><th><b>CDS KAS Mapping</b></th><th><b>DSS Mapping</b></th></tr>
+		<tr><th><b>Experimental?</b></th><th><b>Status</b></th><th><b>CDS KAS Mapping</b></th><th><b>DSS Mapping</b></th></tr>
 	</thead>
 	<tbody>
-		<tr><td><b>draft</b></td><td>Draft</td><td>DRAFT</td></tr>
-		<tr><td><b>draft, experimental</b></td><td>InTest</td><td>DEFINED</td></tr>
-		<tr><td><b>active</b></td><td>Active</td><td>APPROVED, PROMOTED</td></tr>
-		<tr><td><b>retired</b></td><td>Inactive</td><td>REJECTED, RETIRED</td></tr>
+		<tr><td><b>true</b></td><td><b>draft</b></td><td>Draft, InTest</td><td>DRAFT, DEFINED</td></tr>
+		<tr><td><b>true</b></td><td><b>active</b></td><td>InTest</td><td>DEFINED</td></tr>
+		<tr><td><b>true</b></td><td><b>retired</b></td><td>Inactive</td><td>REJECTED</td></tr>
+		<tr><td><b>false</b></td><td><b>draft</b></td><td>Draft</td><td>DRAFT</td></tr>
+		<tr><td><b>false</b></td><td><b>active</b></td><td>Active</td><td>APPROVED, PROMOTED</td></tr>
+		<tr><td><b>false</b></td><td><b>retired</b></td><td>Inactive</td><td>REJECTED, RETIRED</td></tr>
 	</tbody>
 </table>
 
-<p>Note that the <code>experimental</code> element can be used independent of the lifecycle status. This allows the full lifecycle of an artifact to be tested.</p>
+<p>Note that the <code>experimental</code> element can be used independent of the lifecycle status, allowing the full lifecycle of an artifact to be tested.</p>
 
 <a name="action-definitions"> </a>
 <h5>Action Definitions</h5>
@@ -289,12 +291,12 @@
   &lt;topic&gt;
     &lt;text value=&quot;Chlamydia Screening&quot;/&gt;
   &lt;/topic&gt;
-  &lt;relatedResource&gt;
+  &lt;relatedArtifact&gt;
     &lt;type value=&quot;depends-on&quot;/&gt;
     &lt;resource&gt;
       &lt;reference value=&quot;Library/library-quick-model-definition&quot;/&gt;
     &lt;/resource&gt;
-  &lt;/relatedResource&gt;
+  &lt;/relatedArtifact&gt;
   &lt;dataRequirement&gt;
     &lt;type value=&quot;Condition&quot;/&gt;
     &lt;codeFilter&gt;
@@ -358,6 +360,8 @@
 <p>The <a href="[%fhir-path%]plandefinition.html">PlanDefinition</a> resource can represent an Order Set using action definitions to define the orderable items in the order set. The items in an order set are typically organized hierarchically, as a set of sections, sub-sections, etc., with the actions themselves at the very bottom of the structure. In the PlanDefinition resource, each section, and sub-section, as well as the individual items are all represented as action definitions. Each group and/or subgroup may have behavior indicators associated with it, e.g., the number of actions that can/should/must be selected from the group of actions.</p>
 
 <p>For example, the following fragment illustrates the items in a suicide risk order set:</p>
+
+<i>Note that this example is a fragment of a larger example for the PlanDefinition resource, available <a href="[%fhir-path%]plandefinition-example.xml.html">here</a>.</i>
 
 <pre><code>&lt;!-- Suicide Risk Assessment and Outpatient Management --&gt;
 &lt;actionDefinition&gt;

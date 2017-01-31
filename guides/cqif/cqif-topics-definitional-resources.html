@@ -25,7 +25,7 @@
 
 <p>However, this level of conceptual description often does not carry enough information to enable computable description of activities. For example, medication activities will often involve specific drug and dosage information that must be captured as part of the definition. Further, it is often the case that the values for the elements of resources to be created cannot be specified exactly as part of the definition, but must be specified using a formula that allows for the calculation to be based on patient- or context-specific information.</p>
 
-<p>The ActivityDefinition resource supports the description of definitional resources within FHIR:</p>
+<p>The <a href="[%fhir-path%]activitydefinition.html">ActivityDefinition</a> resource supports the description of definitional resources within FHIR:</p>
 
 <table class="grid">
 	<tbody>
@@ -60,10 +60,9 @@
 &lt;/ActivityDefinition&gt;
 </code></pre>
 
-
 <p>Note the use of an expression to represent the value of the timing element as <code>Now()</code>.</p>
 
-<p>For medication activities, the ActivityDefinition resource has some basic elements such as the <i>product</i> and <i>quantity</i>, but there is not enough information to describe more complex dosing scenarios. In those cases, the <i>dynamicValue</i> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
+<p>For medication activities, the <a href="[%fhir-path%]activitydefinition.html">ActivityDefinition</a> resource has some basic elements such as the <code>product</code> and <code>quantity</code>, and <code>dosageInstruction</code> but there are cases where elements that need to be set on the resulting MedicationRequest are not present on the ActivityDefinition (such as <code>dispenseRequest</code>). In those cases, the <code>dynamicValue</code> expression elements can be used to describe the values for elements that are present on the target resource, but not in the definitional resource. For example:</p>
 
 <a name="medication-activity-definition"> </a>
 <pre><code>&lt;ActivityDefinition&gt;
@@ -83,6 +82,8 @@
   &lt;/dynamicValue&gt;
 &lt;/ActivityDefinition&gt;
 </code></pre>
+
+<p>Note to implementers: Although there is currently only one <i>definitional</i> resource defined (ActivityDefinition), the concept is general, and this was a deliberate design decision to avoid the overhead of defining and maintaining a different definitional resource for every category of request. We anticipate that as the use cases of ActivityDefinition require more specialized elements to be added, the resource may be split.</p>
 
 </div>
 [%file newfooter%]

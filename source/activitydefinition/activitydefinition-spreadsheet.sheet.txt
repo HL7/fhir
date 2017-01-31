@@ -17,18 +17,24 @@
 
  -- Row 3 -----------------------------------
   Binding Name = ActivityDefinitionType
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-code
   Definition = Detailed type of planned activity; e.g. CBC
+  Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = ActivityTiming
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/timing-abbreviation
   Definition = Code describing the timing of an activity; e.g. BID, QD
+  Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = ActivityProduct
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/medication-codes
   Definition = Code describing the type of substance or medication
+  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = BodySite

@@ -137,7 +137,8 @@
 
 <ul>
 	<li>No name element - Because there is no need for a name to inference on the data, there is no need to specify a name for the data required.</li>
-	<li>Code and date filters - The CQL retrieve also allows for data accessed to be filtered by membership in a specific valueset, as well as by date range. The DataRequirement type represents these filters via the <code>codeFilter</code> and <code>dateFilter</code> elements.</li>
+	<li>Code and date filters - Filtering by terminology and date range are widely used mechanisms for searching within clinical data, but profiling to achieve this is less dynamic and potentially a significant amount of overhead. The DataRequirement type provides a lightweight mechanism to represent these filters via the <code>codeFilter</code> and <code>dateFilter</code> elements.</li>
+	<li>Referenced elements - It is often important to communicate not only the type of data required, but which specific elements within that type will be referenced by a particular knowledge artifact or service module. This is accomplished in the DataRequirement type using the <code>mustSupport</code> element.</li>
 </ul>
 
 <p>For CQL expressions that contain retrieves, a Library SHOULD be used to describe the data requirements. However, the <a href="../operation-servicedefinition-data-requirements.html">$data-requirements</a> operation can also be used to infer the data requirements based on usage within the expression.</p>

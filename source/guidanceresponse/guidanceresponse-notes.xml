@@ -1,5 +1,5 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- insert xhtml content here -->
-
+<h2>GuidanceResponse Search</h2>
+<p>Although the GuidanceResponse resource does define search parameters, it is up to the individual decision support service whether or not historical records of guidance requests are preserved. A service may not support searching on GuidanceResponses at all, or it may support searching only for a pre-defined expiration period. The search parameters are defined to provide consumers with a consistent interface to searching if it is available for a specific service implementation. In any case, services should detail the support they do provide using a CapabilityStatement.</p>
 </div>
