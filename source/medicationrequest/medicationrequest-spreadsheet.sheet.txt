@@ -254,7 +254,7 @@
   Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
   SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
-  RIM Mapping = id
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -294,7 +294,7 @@
   Short Name = active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
   Definition = A code specifying the state of the order.  Generally this will be active or completed state
   SCRIPT 10.6 Mapping = no mapping
-  RIM Mapping = statusCode
+  RIM Mapping = .statusCode
   w5 = status
 
  -- Row 7 -----------------------------------
@@ -329,7 +329,7 @@
   Short Name = Type of medication usage
   Definition = Indicates where type of medication order and where the medication is expected to be consumed or administered
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG
-  RIM Mapping = not mapped
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
 
  -- Row 10 -----------------------------------
   Element = MedicationRequest.medication[x]
@@ -355,7 +355,7 @@
   Comments = The subject on a medicationRequest is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymyzed subject specified.
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\r\r(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
-  RIM Mapping = subject.role
+  RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.focus
 
  -- Row 12 -----------------------------------
@@ -367,7 +367,7 @@
   Comments = SubstanceAdministration->component->EncounterEvent
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = PV1-19-Visit Number
-  RIM Mapping = componentOf.patientEncounter
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
   w5 = context
 
  -- Row 13 -----------------------------------
@@ -471,6 +471,7 @@
   Type = DosageInstruction
   Short Name = How the medication should be taken
   Definition = Indicates how the medication is to be used by the patient.
+  RIM Mapping = see dosageInstruction mapping
 
  -- Row 23 -----------------------------------
   Element = MedicationRequest.dispenseRequest
@@ -529,7 +530,7 @@
   Type = Reference(Organization)
   Short Name = Intended dispenser
   Definition = Indicates the intended dispensing Organization specified by the prescriber.
-  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=RQO]  .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SPLY, moodCode=RQO] .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who
 
  -- Row 29 -----------------------------------
@@ -579,6 +580,7 @@
   Type = Reference (DetectedIssue)
   Short Name = Clinical Issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
  -- Row 34 -----------------------------------
   Element = MedicationRequest.eventHistory

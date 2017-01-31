@@ -86,6 +86,7 @@
   Short Name = active | inactive | entered-in-error
   Definition = A code to iindicate if the medication is in active use
   Comments = This status is not intended to specify if a medication is part of a formulary.
+  RIM Mapping = .statusCode
 
  -- Row 4 -----------------------------------
   Element = Medication.isBrand
@@ -194,7 +195,7 @@
   Definition = The assigned lot number of a batch of the specified product.
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
-  RIM Mapping = Not Mapped
+  RIM Mapping = .id
 
  -- Row 15 -----------------------------------
   Element = Medication.product.batch.expirationDate

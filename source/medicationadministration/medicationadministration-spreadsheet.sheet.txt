@@ -178,7 +178,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  RIM Mapping = id
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -188,6 +188,7 @@
   Type = Reference (PlanDefinition | ActivityDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that was adhered to in whole or in part by this event.
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
   Element = MedicationAdministration.partOf
@@ -196,6 +197,7 @@
   Type = Reference (MedicationAdministration | Procedure)
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
+  RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SBADM or PROC,moodCode=EVN]
 
  -- Row 5 -----------------------------------
   Element = MedicationAdministration.status
@@ -207,7 +209,7 @@
   Short Name = in-progress | on-hold | completed | entered-in-error | stopped | unknown
   Definition = Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
   v2 Mapping = RXA-20-Completion Status
-  RIM Mapping = statusCode
+  RIM Mapping = .statusCode
   w5 = status
 
  -- Row 6 -----------------------------------
@@ -217,6 +219,7 @@
   Binding = MedicationAdministrationCategory
   Short Name = Type of medication usage
   Definition = Indicates the type of medication administration and where the medication is expected to be consumed or administered.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
 
  -- Row 7 -----------------------------------
   Element = MedicationAdministration.medication[x]
@@ -228,7 +231,7 @@
   Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
   v2 Mapping = RXA-5-Administered Code
-  RIM Mapping = Consumeable->AdministerableMedication
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=ADMM]
   w5 = what
 
  -- Row 8 -----------------------------------
@@ -239,7 +242,7 @@
   Short Name = Who received medication
   Definition = The person or animal or group receiving the medication.
   v2 Mapping = PID-3-Patient ID List
-  RIM Mapping = subject->Patient
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
  -- Row 9 -----------------------------------
@@ -249,7 +252,7 @@
   Short Name = Encounter or Episode of Care administered as part of
   Definition = The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.
   v2 Mapping = PV1-19-Visit Number
-  RIM Mapping = component->EncounterEvent
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
   w5 = context
 
  -- Row 10 -----------------------------------
@@ -269,7 +272,7 @@
   Short Name = Start and end time of administration
   Definition = A specific date/time or interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
   v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
-  RIM Mapping = effectiveTime
+  RIM Mapping = .effectiveTime
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
   w5 = when.done
 
@@ -280,7 +283,7 @@
   Short Name = Who administered substance
   Definition = The individual who was responsible for giving the medication to the patient.
   v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
-  RIM Mapping = performer->Role
+  RIM Mapping = .participation[typeCode=PRF]
   w5 = who.actor
 
  -- Row 13 -----------------------------------
@@ -291,6 +294,7 @@
   Binding = MedicationAdministrationPerformerRole
   Short Name = Type of performer
   Definition = Describes the type of performer of the administration (e.g. nurse, physician, etc)
+  RIM Mapping = .functionCode
 
  -- Row 14 -----------------------------------
   Element = MedicationAdministration.performer.actor
@@ -299,6 +303,7 @@
   Type = Reference(Practitioner | Patient | RelatedPerson | Device)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.
+  RIM Mapping = .role
 
  -- Row 15 -----------------------------------
   Element = MedicationAdministration.performer.onBehalfOf
@@ -306,6 +311,7 @@
   Type = Reference (Organization)
   Short Name = Organization organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of.
+  RIM Mapping = .role.scopingOrganization
 
  -- Row 16 -----------------------------------
   Element = MedicationAdministration.notGiven
@@ -316,7 +322,7 @@
   Short Name = True if medication not administered
   Definition = Set this to true if the record is saying that the medication was NOT administered.
   v2 Mapping = RXA-20-Completion Status=\'NA\'
-  RIM Mapping = actionNegationInd
+  RIM Mapping = .actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
  -- Row 17 -----------------------------------
@@ -328,7 +334,7 @@
   Short Name = Reason administration not performed
   Definition = A code indicating why the administration was not performed.
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
-  RIM Mapping = Reason->Observation->Value
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value
 
  -- Row 18 -----------------------------------
   Element = MedicationAdministration.reasonGivenReference
@@ -337,7 +343,7 @@
   Short Name = Condition or Observation that supports why the medication was administered
   Definition = Condition or observation that supports why the medication was administered
   Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
-  RIM Mapping = reason.observation[code=ASSERTION].value
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use ASSERTION\"].value
   Prov Mapping = no mapping
   w5 = why
 
@@ -350,7 +356,7 @@
   Short Name = Reason administration performed
   Definition = A code indicating why the medication was given.
   v2 Mapping = RXE-27 Give Indication
-  RIM Mapping = . reasonCode
+  RIM Mapping = .reasonCode
 
  -- Row 20 -----------------------------------
   Element = MedicationAdministration.prescription
@@ -403,7 +409,7 @@
   Definition = A coded specification of the anatomic site where the medication first entered the body.  For example, \"left arm\"
   Comments = If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
   v2 Mapping = RXR-2 Administration Site / RXR-6 Administration Site Modifier
-  RIM Mapping = approachSiteCode
+  RIM Mapping = .approachSiteCode
 
  -- Row 26 -----------------------------------
   Element = MedicationAdministration.dosage.route
@@ -413,7 +419,7 @@
   Short Name = Path of substance into body
   Definition = A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.
   v2 Mapping = RXR-1-Route
-  RIM Mapping = routeCode
+  RIM Mapping = .routeCode
 
  -- Row 27 -----------------------------------
   Element = MedicationAdministration.dosage.method
@@ -424,7 +430,7 @@
   Definition = A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.
   Comments = One of the reasons this attribute is not used often, is that the method is often pre-coordinated with the route and/or form of administration.  This means the codes used in route or form may pre-coordinate the method in the route code or the form code.  The implementation decision about what coding system to use for route or form code will determine how frequently the method code will be populated e.g. if route or form code pre-coordinate method code, then this attribute will not be populated often; if there is no pre-coordination then method code may  be used frequently.
   v2 Mapping = RXR-4-Administration Method
-  RIM Mapping = methodCode
+  RIM Mapping = .methodCode
 
  -- Row 28 -----------------------------------
   Element = MedicationAdministration.dosage.dose
@@ -434,7 +440,7 @@
   Definition = The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.
   Comments = If the administration is not instantaneous (rate is present), this can be specified to convey the total amount administered over period of time of a single administration.
   v2 Mapping = RXA-6 Administered Amount / RXA-7 Administered Units
-  RIM Mapping = doseQuantity
+  RIM Mapping = .doseQuantity
 
  -- Row 29 -----------------------------------
   Element = MedicationAdministration.dosage.rate[x]
@@ -444,7 +450,7 @@
   Definition = Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.
   Comments = If the rate changes over time, and you want to capture this in MedicationAdministration, then each change should be captured as a distinct MedicationAdministration, with a specific MedicationAdministration.dosage.rate, and the date time when the rate change occurred. Typically, the MedicationAdministration.dosage.rate element is not used to convey an average rate.
   v2 Mapping = RXA-12-Administered Per (Time Unit)
-  RIM Mapping = rateQuantity
+  RIM Mapping = .rateQuantity
 
  -- Row 30 -----------------------------------
   Element = MedicationAdministration.eventHistory

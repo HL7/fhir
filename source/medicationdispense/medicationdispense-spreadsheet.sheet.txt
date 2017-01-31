@@ -199,6 +199,7 @@
   Type = Reference(Procedure)
   Short Name = Event that dispense is part of
   Definition = The procedure that the dispense is done because of
+  RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=PROC,moodCode=EVN]
 
  -- Row 4 -----------------------------------
   Element = MedicationDispense.status
@@ -209,7 +210,7 @@
   Binding = MedicationDispenseStatus
   Short Name = preparation | in-progress | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
-  RIM Mapping = .status
+  RIM Mapping = .statusCode
   Committee Notes = Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order
   w5 = status
 
@@ -220,6 +221,7 @@
   Binding = MedicationDispenseCategory
   Short Name = Type of medication dispense
   Definition = Indicates type of medication dispense and where the medication is expected to be consumed or administered.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication dispense\"].value
 
  -- Row 6 -----------------------------------
   Element = MedicationDispense.medication[x]
@@ -252,6 +254,7 @@
   Type = Reference (Encounter | EpisodeofCare)
   Short Name = Encounter / Episode associated with event
   Definition = The encounter or episode of care that establishes the context for this event.
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
 
  -- Row 9 -----------------------------------
   Element = MedicationDispense.supportingInformation
@@ -267,6 +270,7 @@
   Card. = 0..*
   Short Name = Who performed event
   Definition = Indicates who or what performed the event.
+  RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 11 -----------------------------------
   Element = MedicationDispense.performer.role
@@ -275,6 +279,7 @@
   Binding = MedicationDispensePerformer
   Short Name = What type of role the performer fulfilled
   Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
+  RIM Mapping = .functionCode
 
  -- Row 12 -----------------------------------
   Element = MedicationDispense.performer.actor
@@ -282,6 +287,7 @@
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.
+  RIM Mapping = .role
 
  -- Row 13 -----------------------------------
   Element = MedicationDispense.performer.onBehalfOf
@@ -289,6 +295,7 @@
   Type = Reference(Organization)
   Short Name = Organization organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of.
+  RIM Mapping = .role.scopingOrganization
 
  -- Row 14 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
@@ -403,7 +410,7 @@
   Type = boolean
   Short Name = Whether a substitution was or was not performed on the dispense
   Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
-  RIM Mapping = not in RIM, could be modeled in RIM using OBS act with code specified as wasSubstituted, where value of the OBS act would Boulean would be captured
+  RIM Mapping = .actionNegationInd
 
  -- Row 26 -----------------------------------
   Element = MedicationDispense.substitution.type
@@ -440,6 +447,7 @@
   Type = Reference (DetectedIssue)
   Short Name = Clinical Issue with action
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
  -- Row 30 -----------------------------------
   Element = MedicationDispense.notDone
@@ -447,6 +455,7 @@
   Type = boolean
   Short Name = Whether the dispense was or was not performed
   Definition = True if the dispense was not peformed for some reason
+  RIM Mapping = .actionNegationInd
 
  -- Row 31 -----------------------------------
   Element = MedicationDispense.notDoneReason[x]
@@ -454,6 +463,7 @@
   Type = CodeableConcept|Reference(DetectedIssue)
   Short Name = Why a dispense was not performed
   Definition = Indicates the reason why a dispense was not performed
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"not done reason\"].value
 
  -- Row 32 -----------------------------------
   Element = MedicationDispense.eventHistory

@@ -200,7 +200,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  RIM Mapping = SubstanceAdministration.id
+  RIM Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -219,6 +219,7 @@
   Type = Reference (MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
+  RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
  -- Row 5 -----------------------------------
   Element = MedicationStatement.context
@@ -227,7 +228,7 @@
   Type = Reference (Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with MedicationStatement
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
-  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=ENC, moodCode=EVN]
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
 
  -- Row 6 -----------------------------------
   Element = MedicationStatement.status
@@ -249,7 +250,7 @@
   Binding = MedicationStatementCategory
   Short Name = Type of medication usage
   Definition = Indicates where type of medication statement and where the medication is expected to be consumed or administered
-  RIM Mapping = not mapped
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
 
  -- Row 8 -----------------------------------
   Element = MedicationStatement.medication[x]
@@ -260,7 +261,7 @@
   Short Name = What medication was taken
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
-  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
+  RIM Mapping = .participation[typeCode=CSM].role[classCode=ADMM or MANU]
   w5 = what
 
  -- Row 9 -----------------------------------
@@ -271,7 +272,7 @@
   Short Name = Who is/was taking  the medication
   Definition = The person, animal or group who is/was taking the medication.
   v2 Mapping = PID-3-Patient ID List
-  RIM Mapping = SubstanceAdministration->subject->Patient
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
  -- Row 10 -----------------------------------
@@ -282,7 +283,7 @@
   Short Name = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
   Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
-  RIM Mapping = SubstanceAdministration.effectiveTime
+  RIM Mapping = .effectiveTime
   w5 = when.done
 
  -- Row 11 -----------------------------------
@@ -291,7 +292,7 @@
   Type = Reference(Patient | Practitioner | RelatedPerson |Organization)
   Short Name = Person or organization that provided the information about the taking of this medication
   Definition = The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
-  RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
+  RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
  -- Row 12 -----------------------------------
@@ -331,7 +332,7 @@
   Binding = MedicationStatementNotTakenReason
   Short Name = True if asserting medication was not given
   Definition = A code indicating why the medication was not taken.
-  RIM Mapping = SubstanceAdministration->Reason->Observation->Value
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not taken\"].value
 
  -- Row 16 -----------------------------------
   Element = MedicationStatement.reasonForUseCodeableConcept
@@ -350,7 +351,7 @@
   Short Name = Condition or observation that supports why the medication is being/was taken
   Definition = Condition or observation that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
-  RIM Mapping = not mapped
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use\"].value
 
  -- Row 18 -----------------------------------
   Element = MedicationStatement.note
@@ -368,7 +369,7 @@
   Short Name = Details of how medication was taken
   Definition = Indicates how the medication is/was used by the patient
   Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.
-  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest
+  RIM Mapping = refer dosageInstruction mapping
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
 === Sheet Search =====================================

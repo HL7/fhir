@@ -13237,6 +13237,11 @@
     <display value="Broad breasted bronze turkey"/>
     <display value="Broad breasted bronze turkey (organism)"/>
   </concept>
+  <concept id="304386008" display="O/E - itchy rash">
+    <display value="O/E - itchy rash"/>
+    <display value="On examination - itchy rash (disorder)"/>
+    <display value="On examination - itchy rash"/>
+  </concept>
   <concept id="30448006" display="Lacombe pig">
     <display value="Lacombe pig"/>
     <display value="Lacombe pig (organism)"/>
