@@ -314,11 +314,4 @@
 		<id>clinicaltrials-gov</id>
 		<sort>35</sort>
 	</space>
-	<space>
-		<url>http://hl7.org/fhir/workflow</url>
-		<columnName>Sept2016ProcedureRequest Mapping</columnName>
-		<title>STU3 Sept2016 ProcedureRequest Mapping</title>
-		<id>sept2016pr</id>
-		<sort>36</sort>
-	</space>
 </mappingSpaces>

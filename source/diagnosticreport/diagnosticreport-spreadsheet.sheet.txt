@@ -109,6 +109,7 @@
   Definition = The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
   Requirements = To support reporting for any diagnostic report into a clinical data repository.
   Comments = This is intended to capture a single report, and is not suitable for use in displaying summary information that covers multiple reports.  For example, this resource has not been designed for laboratory cumulative reporting formats nor detailed structured reports for sequencing.
+  Workflow Mapping = Event
   v2 Mapping = ORU -> OBR
   RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   Committee Notes = It\'s not clear how to handle cumulative reports
@@ -123,6 +124,7 @@
   Short Name = Id for external references to this report
   Definition = The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
+  Workflow Mapping = Event.identifier
   v2 Mapping = OBR-51
   RIM Mapping = id
   w5 = id
@@ -138,6 +140,7 @@
   Definition = The status of the diagnostic report as a whole
   Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
   Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn
+  Workflow Mapping = Event.status
   v2 Mapping = OBR-25 (not 1:1 mapping)
   RIM Mapping = statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type \"revise\"
   Committee Notes = [#5692]
@@ -166,6 +169,7 @@
   Binding = DiagnosticReportCodes
   Short Name = Name/Code for this diagnostic report
   Definition = A code or name that describes this diagnostic report
+  Workflow Mapping = Event.code
   v2 Mapping = OBR-4 (HL7 v2 doesn\'t provide an easy way to indicate both the ordered test and the performed panel)
   RIM Mapping = code
   Committee Notes = #5961
@@ -180,6 +184,7 @@
   Short Name = The subject of the report, usually, but not always, the patient
   Definition = The subject of the report. Usually, but not always, this is a patient. However diagnostic services also perform analyses on specimens collected from a variety of other sources.
   Requirements = SHALL know the subject context
+  Workflow Mapping = Event.subject
   v2 Mapping = PID-3 (no HL7 v2 mapping for Group or Device)
   RIM Mapping = participation[typeCode=SBJ]
   w5 = who.focus
@@ -191,6 +196,7 @@
   Type = Reference(Encounter)
   Short Name = Health care event when test ordered
   Definition = The link to the health care event (encounter) when the order was made.
+  Workflow Mapping = Event.context
   v2 Mapping = PV1-19
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   Committee Notes = [#3839]
@@ -206,6 +212,7 @@
   Definition = The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
   Requirements = Need to know where in the patient history to file/present this report
   Comments = If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = OBR-7
   RIM Mapping = effectiveTime
   w5 = when.done
@@ -232,6 +239,7 @@
   Summary = y
   Short Name = Participants in producing the report
   Definition = Indicates who or what participated in producing the report.
+  Workflow Mapping = Event.performer
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
   Committee Notes = 12/22/2016 EH: 8936,11428
@@ -245,8 +253,10 @@
   Binding = Role
   Short Name = Type of performer
   Definition = Describes the type of participation (e.g.  a responsible party, author, or verifier).
+  Workflow Mapping = Event.performer.role
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = edit mappings
 
  -- Row 12 -----------------------------------
   Element = DiagnosticReport.performer.actor
@@ -257,8 +267,10 @@
   Definition = The reference to the  practitioner or organization involved in producing the report. For example, the diagnostic service that is responsible for issuing the report
   Requirements = Need to know whom to contact if there are queries about the results. Also may need to track the source of reports for secondary data analysis
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
+  Workflow Mapping = Event.performer.actor
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = edit mappings
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.performer.onBehalfOf
@@ -267,8 +279,10 @@
   Short Name = Organization was acting for
   Definition = The organization the practitioner was acting on behalf of.
   Requirements = Practitioners can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when performing the action.
+  Workflow Mapping = Event.performer.onBehalfOf
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  To Do = edit mappings
 
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.request
@@ -278,6 +292,7 @@
   Definition = Details concerning a test or procedure requested.
   Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)
   Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
+  Workflow Mapping = Event.basedOn
   v2 Mapping = ORC? OBR-2/3?
   RIM Mapping = outboundRelationship[typeCode=FLFS].target
 
