@@ -452,8 +452,8 @@
   Short Name = The type of hospital re-admission that has occurred (if any). If the value is absent, then this is not identified as a readmission
   Definition = Whether this hospitalization is a readmission and why if known
   v2 Mapping = PV1-13
-  RIM Mapping = Propose at harmonization
-  To Do = Need a harmonization proposal for this
+  RIM Mapping = n/a
+  Committee Notes = This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in
 
  -- Row 30 -----------------------------------
   Element = !Encounter.hospitalization.period
@@ -513,6 +513,7 @@
   Type = CodeableConcept
   Binding = Arrangements
   Short Name = Wheelchair, translator, stretcher, etc.
+  Definition = Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.
   v2 Mapping = PV1-15 / OBR-30 / OBR-43
   RIM Mapping = .specialArrangementCode
 
