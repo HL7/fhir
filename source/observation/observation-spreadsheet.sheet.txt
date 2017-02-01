@@ -335,7 +335,7 @@
   Card. = 0..*
   Aliases = fufills
   Summary = Y
-  Type = Reference(CarePlan | DeviceRequest|DiagnosticRequest | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest | ReferralRequest)
+  Type = Reference(CarePlan | DeviceRequest | ProcedureRequest | ImmunizationRecommendation| MedicationRequest | NutritionOrder | ProcedureRequest | ReferralRequest)
   Short Name = Fulfills plan, proposal or order
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this event
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
