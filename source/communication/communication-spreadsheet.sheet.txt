@@ -116,8 +116,6 @@
   Short Name = Why communication did not occur
   Definition = Describes why the communication event did not occur in coded and/or textual form.
   Workflow Mapping = Event.notDoneReason
-  RIM Mapping = Varies by domain
-  To Do = .reasonCode
 
  -- Row 9 -----------------------------------
   Element = Communication.category

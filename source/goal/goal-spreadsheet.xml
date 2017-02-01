@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9210</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>7200</WindowHeight>
+  <WindowWidth>15330</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1246,7 +1246,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Backbone Element</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1279,7 +1280,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1312,7 +1314,8 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="Number">1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Quantity | Range | CodeableConcept</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3237,11 +3240,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>15</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3258,8 +3260,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3305,9 +3307,9 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><Data ss:Type="String">XPath</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -3315,13 +3317,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="Number">1</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
     <Cell ss:StyleID="s83"/>
     <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="s107"/>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Goal.target</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">Goal.target.measure is required if Goal.target.detail is populated</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">(detail.exists() and measure.exists()) or detail.exists().not()</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">(exists(f:detail) and exists(f:measure)) or not(exists(f:detail))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -3742,6 +3745,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3761,6 +3765,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -150,6 +150,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Goal.target
+  English = Goal.target.measure is required if Goal.target.detail is populated
+  XPath = (exists(f:detail) and exists(f:measure)) or not(exists(f:detail))
+  Expression = (detail.exists() and measure.exists()) or detail.exists().not()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -250,6 +257,7 @@
  -- Row 9 -----------------------------------
   Element = Goal.target
   Card. = 0..1
+  Inv. = 1
   Type = Backbone Element
   Short Name = Target outcome for the goal
   Definition = Indicates what should be done by when
@@ -260,6 +268,7 @@
   Element = Goal.target.measure
   Card. = 0..1
   Summary = Y
+  Inv. = 1
   Type = CodeableConcept
   Binding = GoalTargetMeasure
   Short Name = The parameter whose value is being tracked
@@ -269,6 +278,7 @@
   Element = Goal.target.detail[x]
   Card. = 0..1
   Summary = Y
+  Inv. = 1
   Type = Quantity | Range | CodeableConcept
   Binding = GoalTargetDetail
   Short Name = The target value to be achieved
