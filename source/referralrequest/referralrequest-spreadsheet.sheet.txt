@@ -17,8 +17,10 @@
 
  -- Row 3 -----------------------------------
   Binding Name = ReferralType
-  Binding = unbound
+  Binding = value set
+  Reference = valueset-referral-type
   Definition = Codes for types of referral; e.g. consult, transfer, temporary transfer.
+  Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = ReferralSpecialty
@@ -36,7 +38,8 @@
 
  -- Row 6 -----------------------------------
   Binding Name = ReferralReason
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = Codes indicating why the referral is being requested.
   Conformance = example
 
@@ -176,7 +179,6 @@
   Binding = ReferralType
   Short Name = Referral/Transition of care request type
   Definition = An indication of the type of referral (or where applicable the type of transfer of care) request
-  Comments = Examples of referral type: - consultation;         second opinion;          third opinion - Assume management - Request for procedure(s)  HL7 v2.8 Example - Table 0336: S = second opinion p = patient preference o = provider ordered w = work load
   v2 Mapping = RF1-10
   w5 = class
 

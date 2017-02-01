@@ -40,6 +40,11 @@ as described above, or using the <a href="list.html">List</a> resource with empt
 </p>
 </blockquote>
 
+  <p>
+    <b>Patient Denies Condition</b>
+  </p>
+  <p>When the patient denies a condition, that can be annotated in the Condition.note element.</p>
+  
 <h3>Assertions of Condition Absence</h3>
 <p>
 Generally, electronic records do not contain assertions of conditions that a patient does not have.  There are however two exceptions:
@@ -72,6 +77,11 @@ For example,  it is possible that a nurse records the condition on behalf of a p
 
 <p>
 The Condition.stage and Condition.clinicalStatus may have interdependencies. For example, some "stages" of cancer, etc. will be different for a remission than for the initial occurrence.
+</p>
+
+<h3>Known Issue</h3>
+
+<p> A known issue exists with circular references between Condition and ClinicalImpression, which is due to the low maturity level of ClinicalImpression. The Patient Care work group intends to address this issue when ClinicalImpression is considered substantially complete and ready for implementation.
 </p>
 
 </div>

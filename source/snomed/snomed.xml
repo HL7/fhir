@@ -17782,6 +17782,10 @@
     <display value="Hemoptysis"/>
     <display value="Haemoptysis"/>
   </concept>
+  <concept id="66862007" display="Radiologist">
+    <display value="Radiologist"/>
+    <display value="Radiologist (occupation)"/>
+  </concept>
   <concept id="66911005" display="Galloway cattle breed (organism)">
     <display value="Galloway cow"/>
     <display value="Galloway cow, NOS"/>
