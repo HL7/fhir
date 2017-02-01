@@ -10,7 +10,7 @@
   <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-01-19T07:42:51Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -21,11 +21,10 @@
    <SheetName>Invariants</SheetName>
   </SupBook>
   <WindowHeight>12210</WindowHeight>
-  <WindowWidth>-30811</WindowWidth>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1261,7 +1260,7 @@
     ss:Span="1"/>
    <Column ss:Index="28" ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="104.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="50.25"/>
-   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="66"/>
+   <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="153"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s71">
     <Cell ss:StyleID="s72"><Data ss:Type="String">RequestPattern Mapping</Data><Comment
@@ -1459,7 +1458,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ProcedureRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Unique identifier for the request&quot;,&quot;Identifiers assigned to this order by the order or by the receiver.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;ClinicalStatement.identifier&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Identifiers assigned to this order&quot;,&quot;Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.&quot;,&quot;&quot;,&quot;The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2). For further discussion and examples see the [notes section](diagnosticrequest.html#4.22.4) below.&quot;,&quot;&quot;,&quot;.id&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ProcedureRequest.identifier,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Identifier&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;id&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Identifiers assigned to this order&quot;,&quot;Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.&quot;,&quot;&quot;,&quot;The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the 'Placer' in HL7 v2) and the producer of the observations in response to the order (known as the 'Filler' in HL7 v2). For further discussion and examples see the [notes section](procedurerequest.html#notes) below.&quot;,&quot;&quot;,&quot;.id&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2200,8 +2199,6 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">[#10296][#11119]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27">
     <Cell ss:StyleID="s95"><Data ss:Type="String">Request.requester.agent</Data></Cell>
@@ -2428,7 +2425,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.reasonCode,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;CodeableConcept&quot;,&quot;&quot;,&quot;Y&quot;,&quot;ProcedureRequestReason&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2475,7 +2472,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">ProcedureRequest.reason[x],&quot;&quot;,&quot;0..1&quot;,&quot;&quot;,&quot;CodeableConcept|Reference(Condition)&quot;,&quot;&quot;,&quot;&quot;,&quot;ProcedureReason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Why procedure should occur&quot;,&quot;The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Action.indication.reason&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">ProcedureRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticrequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
+    <Cell><Data ss:Type="String">ProcedureRequest.reasonReference,&quot;&quot;,&quot;0..*&quot;,&quot;&quot;,&quot;Reference(Condition | Observation)&quot;,&quot;&quot;,&quot;Y&quot;,&quot;&quot;,&quot;why&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;Explanation/Justification for test&quot;,&quot;Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.&quot;,&quot;&quot;,&quot;This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).&quot;,&quot;&quot;,&quot;.reasonCode&quot;,&quot;&quot;,&quot;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5308,12 +5305,13 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>75</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>2</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>25</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5325,12 +5323,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>29</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6551,7 +6548,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>120</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7581,9 +7577,9 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s157"><Data ss:Type="String">!diagnosticrequest-extensions</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">diagnosticrequest-extensions.xml</Data></Cell>
-    <Cell ss:StyleID="s158"><Data ss:Type="String">diagnosticrequest-extensions-spreadsheet.xml</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">!procedurerequest-extensions</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">procedurerequest-extensions.xml</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">procedurerequest-extensions-spreadsheet.xml</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="String">spreadsheet</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>

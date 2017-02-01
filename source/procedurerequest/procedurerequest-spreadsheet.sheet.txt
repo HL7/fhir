@@ -76,7 +76,6 @@
   Type = DomainResource
   Short Name = A request for a procedure or diagnostic to be performed
   Definition = A record of a request for a diagnostic investigation service to be performed.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest,\"\",\"\",\"\",\"DomainResource\",\"\",\"\",\"\",\"clinical.general\",\"\",\"\",\"\",\"\",\"A request for a procedure to be performed\",\"A request for a procedure to be performed. May be a proposal or an order.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"
   RIM Mapping = Observation[classCode=OBS, moodCode=RQO, code<\"diagnostic order\"]
   Committee Notes = [#5279][#11119]
   w5 = clinical.general
@@ -89,7 +88,6 @@
   Short Name = Identifiers assigned to this order
   Definition = Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.
   Comments = The identifier.type element is used to distinguish between the identifiers assigned by the orderer (known as the \'Placer\' in HL7 v2) and the producer of the observations in response to the order (known as the \'Filler\' in HL7 v2).  For further discussion and examples see the resource notes section below.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.identifier,\"\",\"0..*\",\"\",\"Identifier\",\"\",\"\",\"\",\"id\",\"\",\"\",\"\",\"\",\"Unique identifier for the request\",\"Identifiers assigned to this order by the order or by the receiver.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.identifier\",\"\",\"\",\"\",\"
   RIM Mapping = .id
   QUICK mapping = ClinicalStatement.identifier
   Committee Notes = 7331[#11119]
@@ -146,7 +144,6 @@
   Short Name = draft | active | suspended | completed | entered-in-error | cancelled
   Definition = The status of the order
   Comments = The status is generally fully in the control of the requester - they determine whether the order is draft or active and, after it has been activated, competed, cancelled or suspended. States relating to the activities of the performer are reflected on either the corresponding event (see [Event Pattern](event.html) for general discussion) or using the [Task](task.html) resource
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.status,\"\",\"0..1\",\"\",\"code\",\"Y\",\"\",\"ProcedureRequestStatus\",\"status\",\"\",\"\",\"\",\"\",\"proposed | draft | requested | received | accepted | in-progress | completed | suspended | rejected | aborted\",\"The status of the order.\",\"\",\"\",\"\",\"\",\"\",\"Action.currentStatus\",\"\",\"\",\"\",\"
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   QUICK mapping = Action.currentStatus
   Committee Notes = [#3720][#10296][#11119]
@@ -172,7 +169,6 @@
   Binding = ProcedureRequestPriority
   Short Name = routine | urgent | asap | stat
   Definition = Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.priority,\"\",\"0..1\",\"\",\"code\",\"\",\"\",\"ProcedureRequestPriority\",\"grade\",\"\",\"\",\"\",\"\",\"routine | urgent | stat | asap\",\"The clinical priority associated with this order.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.urgency\",\"\",\"\",\"\",\"
   Committee Notes = [#3720][#10296][#11119]
   Missing Meaning = If missing, this task should be performed with normal priority
   w5 = class
@@ -211,7 +207,6 @@
   Short Name = What is being requested/ordered
   Definition = A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested
   Comments = Many laboratory and radiology procedure codes embed the specimen/organ system in the test ordeer name, for example,  serum or serum/plasma glucose, or a chest xray. The specimen may not be recorded separately from the test code.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.code,\"\",\"1..1\",\"\",\"CodeableConcept\",\"\",\"\",\"ProcedureCode\",\"class\",\"\",\"\",\"\",\"\",\"What procedure to perform\",\"The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.\",\"\",\"\",\"\",\"\",\"\",\"Procedure.procedureCode\",\"\",\"\",\"\",\"
   v2 Mapping = OBX-4
   RIM Mapping = .code
   QUICK mapping = Procedure.procedureCode
@@ -225,7 +220,6 @@
   Type = Reference(Patient|Group|Location|Device)
   Short Name = Individual the service is ordered for
   Definition = On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.subject,\"\",\"1..1\",\"\",\"Reference(Patient|Group)\",\"\",\"\",\"\",\"who.focus\",\"\",\"\",\"\",\"\",\"Who the procedure should be done to\",\"The person, animal or group that should receive the procedure.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.subject\",\"\",\"\",\"\",\"
   RIM Mapping = .participation[typeCode=SBJ].role
   QUICK mapping = ClinicalStatement.subject
   Committee Notes = [#10296][#11119]
@@ -239,7 +233,6 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or Episode during which request was created
   Definition = An encounter or episode of care that provides additional information about the healthcare context in which this request is made
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.encounter,\"\",\"0..1\",\"\",\"Reference(Encounter)\",\"\",\"\",\"\",\"context\",\"\",\"\",\"\",\"\",\"Encounter request created during\",\"The encounter within which the procedure proposal or request was created.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.encounter\",\"\",\"\",\"\",\"
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   QUICK mapping = ClinicalStatement.encounter
   Committee Notes = [#10296][#11119]
@@ -253,7 +246,6 @@
   Type = dateTime| Period| Timing
   Short Name = When procedure should occur
   Definition = The date/time at which the diagnostic testing should occur.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.scheduled[x],\"\",\"0..1\",\"\",\"dateTime|Period|Timing\",\"\",\"\",\"\",\"when.planned\",\"\",\"\",\"\",\"\",\"When procedure should occur\",\"The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".\",\"\",\"\",\"\",\"\",\"\",\"Procedure.procedureSchedule\",\"\",\"\",\"\",\"
   RIM Mapping = .effectiveTime
   QUICK mapping = Procedure.procedureSchedule
   Committee Notes = [#10296][#11119]
@@ -267,7 +259,6 @@
   Binding = ProcedureAsNeededReason
   Short Name = Preconditions for procedure or diagnostic
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.asNeeded[x],\"\",\"0..1\",\"\",\"boolean|CodeableConcept\",\"\",\"\",\"ProcedureAsNeededReason\",\"\",\"\",\"\",\"\",\"\",\"Preconditions for procedure\",\"If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.prnReason.reason\",\"\",\"\",\"\",\"
   QUICK mapping = Proposal.prnReason.reason
 
  -- Row 17 -----------------------------------
@@ -278,7 +269,6 @@
   Type = dateTime
   Short Name = Date request signed
   Definition = When the request transitioned to being actionable
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.orderedOn,\"\",\"0..1\",\"\",\"dateTime\",\"\",\"\",\"\",\"when.recorded\",\"\",\"\",\"\",\"\",\"When request was created\",\"The time when the request was made.\",\"\",\"\",\"\",\"\",\"\",\"Proposal.proposedAtTime\",\"\",\"\",\"\",\"
   QUICK mapping = Proposal.proposedAtTime
   Committee Notes = [#10296][#11119]
   w5 = when.recorded
@@ -291,11 +281,9 @@
   Short Name = Who/what is requesting procedure or diagnostic
   Definition = The individual who initiated the request and has responsibility for its activation
   Comments = This not the dispatcher, but rather who is the authorizer
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.orderer,\"\",\"0..1\",\"\",\"Reference(Practitioner|Patient|RelatedPerson|Device)\",\"\",\"\",\"\",\"who.author\",\"\",\"\",\"\",\"\",\"Who made request\",\"The healthcare professional responsible for proposing or ordering the procedure.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.statementAuthor\",\"\",\"\",\"\",\"
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
   QUICK mapping = ClinicalStatement.statementAuthor
-  Display Hint = [#10296][#11119]
 
  -- Row 19 -----------------------------------
   Element = ProcedureRequest.requester.agent
@@ -342,7 +330,6 @@
   Short Name = Requested perfomer
   Definition = The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative alternative performers and/or roles and/or preference.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.performer,\"\",\"0..1\",\"\",\"Reference(Practitioner|Organization|Patient|RelatedPerson)\",\"\",\"\",\"\",\"who.actor\",\"\",\"\",\"\",\"\",\"Who should perform the procedure\",\"For example, the surgeon, anaethetist, endoscopist, etc.\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"
   RIM Mapping = .participation[AUT or PFM]
   Committee Notes = [#10296][#11119]
   w5 = who.actor
@@ -356,7 +343,6 @@
   Short Name = Explanation/Justification for test
   Definition = An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.reason[x],\"\",\"0..1\",\"\",\"CodeableConcept|Reference(Condition)\",\"\",\"\",\"ProcedureReason\",\"\",\"\",\"\",\"\",\"\",\"Why procedure should occur\",\"The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.\",\"\",\"\",\"\",\"\",\"\",\"Action.indication.reason\",\"\",\"\",\"\",\"
   RIM Mapping = .reasonCode
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]
   w5 = why
@@ -369,7 +355,6 @@
   Short Name = Explanation/Justification for test
   Definition = Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.
   Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](procedurerequest-example-di.html).
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.reason[x],\"\",\"0..1\",\"\",\"CodeableConcept|Reference(Condition)\",\"\",\"\",\"ProcedureReason\",\"\",\"\",\"\",\"\",\"\",\"Why procedure should occur\",\"The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.\",\"\",\"\",\"\",\"\",\"\",\"Action.indication.reason\",\"\",\"\",\"\",\"
   RIM Mapping = .reasonCode
   Committee Notes = 7134. [#10296]  need to add reference as another inline element[#11119]
   w5 = why
@@ -381,7 +366,6 @@
   Type = Reference(Any)
   Short Name = Additional clinical information
   Definition = Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\".  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.supportingInfo,\"\",\"0..*\",\"\",\"Reference (Any)\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Extra information to use in performing request\",\"Information that may be needed by/relevant to the performer in their execution of this request\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"GF#11181
   v2 Mapping = OBR-13
   RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
   Committee Notes = [#3113][#3739][#10296][#11119]
@@ -408,7 +392,6 @@
   Definition = Anatomic location where the procedure should be performed. This is the target site.
   Requirements = Knowing where the procedure is made is important for tracking if multiple sites are possible.
   Comments = Only used if not implicit in the code found in ProcedureRequest.type.  If the use case requires BodySite to be handled as a separate resource instead of an inline coded element (e.g. to identify and track separately)  then use the standard extension [procedurerequest-targetBodySite](extension-procedurerequest-targetbodysite.html)
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.bodySite,\"\",\"0..*\",\"\",\"CodeableConcept\",\"\",\"\",\"BodySite\",\"\",\"\",\"\",\"\",\"\",\"What part of body to perform on\",\"Indicates the sites on the subject\'s body where the procedure should be performed (I.e. the target sites).\",\"Knowing where the procedure is made is important for tracking if multiple sites are possible.\",\"Only used if not implicit in the code found in ProcedureRequest.type\",\"\",\"targetSiteCode\",\"\",\"Procedure.targetBodySite\",\"\",\"\",\"\",\"
   RIM Mapping = targetSiteCode
   QUICK mapping = Procedure.targetBodySite
   Committee Notes = [#12505], [#12517][#11119]
@@ -419,7 +402,6 @@
   Type = Annotation
   Short Name = Comments
   Definition = Any other notes and comments made about the service request. For example, letting provider know that \"patient hates needles\" or other provider instructions.
-  Sept2016ProcedureRequest Mapping = ProcedureRequest.note,\"\",\"0..*\",\"\",\"Annotation\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"Additional information about desired procedure\",\"Any other notes associated with this proposal or order - e.g. provider instructions.\",\"\",\"\",\"\",\"\",\"\",\"ClinicalStatement.additionalText\",\"\",\"\",\"\",\"
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   QUICK mapping = ClinicalStatement.additionalText
   Committee Notes = 7134,8147,[#10296][#11119]
@@ -545,9 +527,9 @@
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = !diagnosticrequest-extensions
+  Name = !procedurerequest-extensions
   IG Name = core
-  Filename = diagnosticrequest-extensions.xml
+  Filename = procedurerequest-extensions.xml
   Type = spreadsheet
 
  -- Row 2 -----------------------------------
