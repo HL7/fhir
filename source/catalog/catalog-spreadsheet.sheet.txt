@@ -132,13 +132,13 @@
  -- Row 1 -----------------------------------
   Id = 0
   Code = medication
-  Display = medication
+  Display = Medication
   Definition = This is a medication
 
  -- Row 2 -----------------------------------
   Id = 1
   Code = device
-  Display = device
+  Display = Device
   Definition = This is a device
 
 === Sheet catalog-entry-status =====================================
@@ -204,13 +204,13 @@
  -- Row 1 -----------------------------------
   Id = 0
   Code = medication
-  Display = medication
+  Display = Medication
   Definition = This is a medication
 
  -- Row 2 -----------------------------------
   Id = 1
   Code = device
-  Display = device
+  Display = Device
   Definition = This is a device
 
 === Sheet Invariants =====================================

@@ -109,7 +109,7 @@
  -- Row 5 -----------------------------------
   Id = 5
   Code = cancelled
-  Display = cancelled
+  Display = Cancelled
   Definition = The observation is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").
 
  -- Row 6 -----------------------------------
@@ -208,73 +208,73 @@
  -- Row 7 -----------------------------------
   Id = 7
   Code = std-dev
-  Display = standard deviation
+  Display = Standard Deviation
   Definition = The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of N measurements over the stated period
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = sum
-  Display = sum
+  Display = Sum
   Definition = The [sum](https://en.wikipedia.org/wiki/Summation) of N measurements over the stated period
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = variance
-  Display = variance
+  Display = Variance
   Definition = The [variance](https://en.wikipedia.org/wiki/Variance) of N measurements over the stated period
 
  -- Row 10 -----------------------------------
   Id = 10
-  Code = %20
-  Display = 20th percentile
+  Code = 20-percent
+  Display = 20th Percentile
   Definition = The 20th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period
 
  -- Row 11 -----------------------------------
   Id = 11
-  Code = %80
-  Display = 80th percentile
+  Code = 80-percent
+  Display = 80th Percentile
   Definition = The 80th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period
 
  -- Row 12 -----------------------------------
   Id = 12
   Code = 4-lower
-  Display = lower quartile
+  Display = Lower Quartile
   Definition = The lower [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period
 
  -- Row 13 -----------------------------------
   Id = 13
   Code = 4-upper
-  Display = upper quartile
+  Display = Upper Quartile
   Definition = The upper [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period
 
  -- Row 14 -----------------------------------
   Id = 14
   Code = 4-dev
-  Display = quartile deviation
+  Display = Quartile Deviation
   Definition = The difference between the upper and lower [Quartiles](https://en.wikipedia.org/wiki/Quartile) is called the Interquartile range. (IQR = Q3-Q1) Quartile deviation or Semi-interquartile range is one-half the difference between the first and the third quartiles.
 
  -- Row 15 -----------------------------------
   Id = 15
   Code = 5-1
-  Display = 1st quintile
+  Display = 1st Quintile
   Definition = The lowest of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 16 -----------------------------------
   Id = 16
   Code = 5-2
-  Display = 2nd quintile
+  Display = 2nd Quintile
   Definition = The second of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 17 -----------------------------------
   Id = 17
   Code = 5-3
-  Display = 3rd quintile
+  Display = 3rd Quintile
   Definition = The third of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
 
  -- Row 18 -----------------------------------
   Id = 18
   Code = 5-4
-  Display = 4th quintile
+  Display = 4th Quintile
   Definition = The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population
 
 === Sheet Invariants =====================================

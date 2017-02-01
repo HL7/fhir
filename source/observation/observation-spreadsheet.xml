@@ -7,9 +7,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Microsoft Office User</LastAuthor>
+  <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-01-22T17:42:45Z</LastSaved>
+  <LastSaved>2017-02-01T20:45:04Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -21,7 +21,8 @@
   <WindowTopX>-15</WindowTopX>
   <WindowTopY>-15</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>12</ActiveSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1140,7 +1141,7 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s205">
+  <Style ss:ID="s204">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
@@ -6231,7 +6232,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>86</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9245,7 +9245,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Cancelled</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The observation is unavailable because the measurement was not started or not completed (also sometimes called &quot;aborted&quot;).</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -9765,7 +9765,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -10530,7 +10530,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">standard deviation</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Standard Deviation</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10541,7 +10541,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">8</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">sum</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Sum</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The [sum](https://en.wikipedia.org/wiki/Summation) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10552,29 +10552,29 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">variance</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Variance</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The [variance](https://en.wikipedia.org/wiki/Variance) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"><Data ss:Type="String" x:Ticked="1">%20</Data></Cell>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">20-percent</Data></Cell>
     <Cell ss:StyleID="s170"><Data ss:Type="Number">10</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">20th percentile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">20th Percentile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The 20th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s205"><Data ss:Type="String" x:Ticked="1">%80</Data></Cell>
+    <Cell ss:StyleID="s204"><Data ss:Type="String">80-percent</Data></Cell>
     <Cell ss:StyleID="s170"><Data ss:Type="Number">11</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">80th percentile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">80th Percentile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The 80th [Percentile](https://en.wikipedia.org/wiki/Percentile) of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10585,7 +10585,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">12</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">lower quartile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Lower Quartile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The lower [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10596,7 +10596,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">13</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">upper quartile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Upper Quartile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The upper [Quartile](https://en.wikipedia.org/wiki/Quartile) Boundary of N measurements over the stated period</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10607,7 +10607,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">14</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">quartile deviation</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Quartile Deviation</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The difference between the upper and lower [Quartiles](https://en.wikipedia.org/wiki/Quartile) is called the Interquartile range. (IQR = Q3-Q1) Quartile deviation or Semi-interquartile range is one-half the difference between the first and the third quartiles.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10618,7 +10618,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">15</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">1st quintile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">1st Quintile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The lowest of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10629,7 +10629,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">16</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">2nd quintile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">2nd Quintile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The second of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10640,7 +10640,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">17</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">3rd quintile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">3rd Quintile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The third of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -10651,7 +10651,7 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">18</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">4th quintile</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">4th Quintile</Data></Cell>
     <Cell ss:StyleID="s199"><Data ss:Type="String">The fourth of four values that divide the N measurementsinto a frequency distribution of five classes with each containing one fifth of the total population</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
@@ -11017,11 +11017,16 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <VerticalResolution>0</VerticalResolution>
+   </Print>
+   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

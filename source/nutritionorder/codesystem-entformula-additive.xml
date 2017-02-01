@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/entformula-additive"/>
-  <name value="Enteral Formula Additive Type Code"/>
-  <status value="draft"/>
-  <experimental value="false"/>
-  <description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
-  <caseSensitive value="true"/>
-  <content value="complete"/>
-  <concept>
-    <code value="lipid"/>
-    <display value="Modular lipid enteral formula component"/>
-  </concept>
-  <concept>
-    <code value="protein"/>
-    <display value="Modular protein enteral formula component"/>
-  </concept>
-  <concept>
-    <code value="carbohydrate"/>
-    <display value="Modular carbohydrate enteral formula component"/>
-  </concept>
-  <concept>
-    <code value="fiber"/>
-    <display value="Modular fiber enteral formula component"/>
-  </concept>
-  <concept>
-    <code value="water"/>
-    <display value="Added water"/>
-  </concept>
+	<url value="http://hl7.org/fhir/entformula-additive"/>
+	<name value="Enteral Formula Additive Type Code"/>
+	<status value="draft"/>
+	<experimental value="false"/>
+	<description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
+	<caseSensitive value="true"/>
+	<content value="complete"/>
+	<concept>
+		<code value="lipid"/>
+		<display value="Lipid"/>
+		<definition value="Modular lipid enteral formula component"/>
+	</concept>
+	<concept>
+		<code value="protein"/>
+		<display value="Protein"/>
+		<definition value="Modular protein enteral formula component"/>
+	</concept>
+	<concept>
+		<code value="carbohydrate"/>
+		<display value="Carbohydrate"/>
+		<definition value="Modular carbohydrate enteral formula component"/>
+	</concept>
+	<concept>
+		<code value="fiber"/>
+		<display value="Fiber"/>
+		<definition value="Modular fiber enteral formula component"/>
+	</concept>
+	<concept>
+		<code value="water"/>
+		<display value="Water"/>
+		<definition value="Added water"/>
+	</concept>
 </CodeSystem>

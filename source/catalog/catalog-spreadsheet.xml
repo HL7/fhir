@@ -10,19 +10,18 @@
   <LastAuthor>Jose Costa Teixeira</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2017-01-27T21:34:51Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>12210</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowWidth>10005</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>14</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
-  <RefModeR1C1/>
+  <ActiveSheet>12</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -9413,7 +9412,7 @@
     <Cell ss:StyleID="s128"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s127"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">medication</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Medication</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">This is a medication</Data></Cell>
     <Cell ss:StyleID="s128"/>
     <Cell ss:StyleID="s128"/>
@@ -9424,7 +9423,7 @@
     <Cell ss:StyleID="s131"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s151"/>
-    <Cell ss:StyleID="s151"><Data ss:Type="String">device</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">Device</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">This is a device</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
@@ -9962,6 +9961,7 @@
     <HorizontalResolution>2400</HorizontalResolution>
     <VerticalResolution>2400</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -9981,7 +9981,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11231,7 +11232,6 @@
     <HorizontalResolution>2400</HorizontalResolution>
     <VerticalResolution>2400</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
