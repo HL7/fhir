@@ -31,7 +31,7 @@
   Card. = 0..*
   Type = string
   Short Name = Indicates that specific structure elements are referenced by the knowledge module
-  Definition = Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available
+  Definition = Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available. Note that the value for this element can be a path to allow references to nested elements. In that case, all the elements along the path must be supported
 
  -- Row 5 -----------------------------------
   Element = DataRequirement.codeFilter
