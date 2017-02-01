@@ -180,6 +180,7 @@
   Short Name = Dispensing a medication to a named patient
   Definition = Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
   Comments = The WG will be updating the MedicationDispense resource  to adjust each affected resource to align with the workflow pattern (see workflow.html).
+  Workflow Mapping = ..Event
   RIM Mapping = Supply[moodCode=EVN]
   Committee Notes = Need to add confidentiality
   w5 = clinical.medication
@@ -190,6 +191,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
+  Workflow Mapping = …identifier
   RIM Mapping = .id
   w5 = id
 
@@ -199,6 +201,7 @@
   Type = Reference(Procedure)
   Short Name = Event that dispense is part of
   Definition = The procedure that the dispense is done because of
+  Workflow Mapping = …part of
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=PROC,moodCode=EVN]
 
  -- Row 4 -----------------------------------
@@ -210,6 +213,7 @@
   Binding = MedicationDispenseStatus
   Short Name = preparation | in-progress | on-hold | completed | entered-in-error | stopped
   Definition = A code specifying the state of the set of dispense events.
+  Workflow Mapping = …status
   RIM Mapping = .statusCode
   Committee Notes = Active - processed but not pickup Completed - process and pickup Aborted - process and put back in stock  This is not related to partialFill whioch is really a partialFulfillment of the order
   w5 = status
@@ -232,6 +236,7 @@
   Short Name = What medication was supplied
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
+  Workflow Mapping = …code
   v2 Mapping = RXD-2-Dispense/Give Code
   RIM Mapping = .participation[typeCode=PRD].role
   w5 = what
@@ -244,6 +249,7 @@
   Short Name = Who the dispense is for
   Definition = A link to a resource representing the person or the group to whom the medication will be given.
   Comments = SubstanceAdministration->subject->Patient
+  Workflow Mapping = …subject
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
@@ -254,6 +260,7 @@
   Type = Reference (Encounter | EpisodeofCare)
   Short Name = Encounter / Episode associated with event
   Definition = The encounter or episode of care that establishes the context for this event.
+  Workflow Mapping = …context
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
 
  -- Row 9 -----------------------------------
@@ -270,6 +277,7 @@
   Card. = 0..*
   Short Name = Who performed event
   Definition = Indicates who or what performed the event.
+  Workflow Mapping = …performer
   RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 11 -----------------------------------
@@ -279,6 +287,7 @@
   Binding = MedicationDispensePerformer
   Short Name = What type of role the performer fulfilled
   Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
+  Workflow Mapping = ….role
   RIM Mapping = .functionCode
 
  -- Row 12 -----------------------------------
@@ -287,6 +296,7 @@
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
   Short Name = Individual who was performing
   Definition = The device, practitioner, etc. who performed the action.
+  Workflow Mapping = ….actor
   RIM Mapping = .role
 
  -- Row 13 -----------------------------------
@@ -295,6 +305,7 @@
   Type = Reference(Organization)
   Short Name = Organization organization was acting for
   Definition = The organization the device or practitioner was acting on behalf of.
+  Workflow Mapping = ….onBehalfOf
   RIM Mapping = .role.scopingOrganization
 
  -- Row 14 -----------------------------------
@@ -304,6 +315,7 @@
   Short Name = Medication order that authorizes the dispense
   Definition = Indicates the medication order that is being dispensed against.
   Comments = Maps to basedOn in Event logical model
+  Workflow Mapping = …basedOn
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
@@ -352,6 +364,7 @@
   Type = dateTime
   Short Name = When product was given out
   Definition = The time the dispensed product was provided to the patient or their representative.
+  Workflow Mapping = …occurrenceDateTime
   v2 Mapping = RXD-3-Date/Time Dispensed
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).
@@ -381,6 +394,7 @@
   Type = Annotation
   Short Name = Information about the dispense
   Definition = Extra information about the dispense that could not be conveyed in the other attributes.
+  Workflow Mapping = …note
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
@@ -455,6 +469,7 @@
   Type = boolean
   Short Name = Whether the dispense was or was not performed
   Definition = True if the dispense was not peformed for some reason
+  Workflow Mapping = …notDone
   RIM Mapping = .actionNegationInd
 
  -- Row 31 -----------------------------------
@@ -463,6 +478,7 @@
   Type = CodeableConcept|Reference(DetectedIssue)
   Short Name = Why a dispense was not performed
   Definition = Indicates the reason why a dispense was not performed
+  Workflow Mapping = …notDoneReason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"not done reason\"].value
 
  -- Row 32 -----------------------------------

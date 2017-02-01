@@ -31,7 +31,7 @@
         <ns4:element name="criticality" type="QUICK.AllergyIntoleranceCriticality"/>
         <ns4:element name="type" type="QUICK.AllergyIntoleranceType"/>
         <ns4:element name="category" type="QUICK.AllergyIntoleranceCategory"/>
-        <ns4:element name="lastOccurence" type="System.DateTime"/>
+        <ns4:element name="lastoccurrence" type="System.DateTime"/>
         <ns4:element name="comment" type="System.String"/>
         <ns4:element name="event" type="list&lt;QUICK.AllergyIntolerance.Event&gt;"/>
     </ns4:typeInfo>

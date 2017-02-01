@@ -363,7 +363,7 @@
   Card. = 0..1
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Created during encounter/admission/stay
-  Definition = A link to a resource that identifies the particular occurrence or set oc occurences of contact between patient and health care provider
+  Definition = A link to a resource that identifies the particular occurrence or set oc occurrences of contact between patient and health care provider
   Comments = SubstanceAdministration->component->EncounterEvent
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = PV1-19-Visit Number

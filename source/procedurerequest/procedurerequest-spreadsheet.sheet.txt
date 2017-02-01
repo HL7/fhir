@@ -518,7 +518,7 @@
   Target Types = Encounter
 
  -- Row 14 -----------------------------------
-  Name = occurence
+  Name = occurrence
   Type = date
   Path = ProcedureRequest.occurrence[x]
 

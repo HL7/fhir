@@ -94,7 +94,7 @@ example is:
 A flavour that constrains TEL
 TEL.URL constrains TEL so that it SHALL point to a locatable resource that returns binary content. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  45
+ï¿½ ISO 2009 ï¿½ All rights reserved  45
 7.6.3.2  Invariants
 no use codes;
 the URL scheme SHALL be file, nfs, ftp, cid (for SOAP attachments), http, or https.
@@ -128,7 +128,7 @@ scheme("x-text-tel")
 A flavour that constrains TEL.PERSON
 TEL.EMAIL constrains the TEL.PERSON type to be an email address. 
 ISO/FDIS 21090:2009(E)
-46  © ISO 2009 – All rights reserved
+46  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.6.6.2  Invariants
 the URL scheme SHALL be mailto.
 OCL for Invariants:
@@ -172,10 +172,10 @@ namespace may transfer from organization to organization over time while the roo
 This field can be either a DCE UUID, an Object Identifier (OID), or a special identifier taken from lists that may 
 be published by ISO or HL7.  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  47
+ï¿½ ISO 2009 ï¿½ All rights reserved  47
 Comparison of root values is always case sensitive. UUIDs shall be represented in upper case, so UUID case 
 should always be preserved.
-The root shall not be used to carry semantic meaning – all it does is ensure global computational uniqueness.
+The root shall not be used to carry semantic meaning ï¿½ all it does is ensure global computational uniqueness.
 7.6.7.3.2  extension: String: A character string as a unique identifier within the scope of the identifier root.
 The root and extension scheme means that the concatenation of root and extension shall be a globally unique 
 identifier for the item that this II value identifies.
@@ -210,7 +210,7 @@ be ideal. However, formatting, capitalization, whitepace, language, etc. are com
 Information  processing entities claiming direct or indirect conformance  may  choose not to implement 
 displayable but shall not reject instances because displayable is present. 
 ISO/FDIS 21090:2009(E)
-48  © ISO 2009 – All rights reserved
+48  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.6.7.3.5  scope: IdentifierScope : The scope in which the identifier applies to the object with which it is 
 associated.
 If populated, the value of this attribute  shall  be taken from the HL7 IdentifierScope code system. The current 
@@ -259,7 +259,7 @@ existed at the specific point in time)
 ISO/IEC 11404 syntax for identifierScope attribute
 type IdentifierScope = enumeration (BUSN, OBJ, VER, VW)
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  49
+ï¿½ ISO 2009 ï¿½ All rights reserved  49
 7.6.7.3.6  reliability: IdentifierReliability : The reliability with which this identifier is known. This attribute 
 may be used to assist with identifier matching algorithms.
 If populated, the value of this attribute SHALL be taken from the HL7 IdentifierReliability code system. The 
@@ -303,13 +303,13 @@ use should provide support for the scope, issuer and type properties.
 NOTE  The II provides a field called "IdentifierName" but this field does not provide formal support for identifying the 
 issuer of the identifier.  
 ISO/FDIS 21090:2009(E)
-50  © ISO 2009 – All rights reserved
+50  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.6.7.7  Examples
 7.6.7.7.1  Driver's license
 <example xsi:type="II" root="2.16.840.1.113883.12.333" extension="45634353344" 
 reliability="UNV" scope="BUSN"/>
 The OID 2.16.840.1.113883.12.333 has been issued by HL7 as a generic driver's license authority. The 
-extension contains the actual driver's license number. The reliability is UNV –  the value has been entered into 
+extension contains the actual driver's license number. The reliability is UNV ï¿½  the value has been entered into 
 the system, but the system cannot verify the number. The scope of the driver's license is BUSN, because the 
 driver's license number may be used to identify several different objects associated with the same patient. 
 This example uses the generic  OID  for a driver's license authority, but it is recommended not to use this in 
@@ -324,7 +324,7 @@ Though the identifier is often formatted as 123-45-6789, the "-" should be remov
 reliability="VRF" scope="BUSN"/>
 This is an example of an NHS number from England/Wales. The NHS root OID is 2.16.840.1.113883.2.1.4.1. 
 Because the NHS number is reused in multiple instances of a clinical document for the same patient, and for 
-many other records, it will generally not have scope = OBJ  –  except on the NHS master repository itself. 
+many other records, it will generally not have scope = OBJ  ï¿½  except on the NHS master repository itself. 
 Usually the scope will be BUSN. Most NHS systems maintain patient information interfaces with the master 
 NHS patient registry, or with other systems that do, so the reliability in these cases is ?VRF?.
 7.6.7.7.4  Australian Medicare Number 
@@ -344,7 +344,7 @@ in the instance.
 <example xsi:type="II" root="2.16.840.1.113883.19.5.34" extension="2345344" 
 reliability="ISS" scope="OBJ"/> 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  51
+ï¿½ ISO 2009 ï¿½ All rights reserved  51
 A laboratory  identifier that identifies the report. This has scope=?OBJ? and will be retained throughout the lab 
 workflow as the sample is received, processed, reported and signed. This lab number is reported by the 
 laboratory system itself which issued the identifier.
@@ -375,15 +375,15 @@ version the snapshot is based on is identified by the identifier 351324 in the O
 7.7.1  Overview
 These datatypes provide support for names and addresses. See Figure 6. 
 ISO/FDIS 21090:2009(E)
-52  © ISO 2009 – All rights reserved
-Figure 6 — Name and address datatypes
+52  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure 6 ï¿½ Name and address datatypes
 7.7.2  XP (name or address part)
 Abstract private type
 7.7.2.1  Description
 A part of a name or address. Each part is a character string that may be coded, and that also may have a 
 nullFlavor. The string content shall always be provided whether a code is provided or not. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  53
+ï¿½ ISO 2009 ï¿½ All rights reserved  53
 7.7.2.2  ISO/IEC 11404 syntax
 type XP = class (
 nullFlavor : NullFlavor,
@@ -423,7 +423,7 @@ inv "codeSystemVersion only if codeSystem":
 codeSystemVersion.oclIsDefined implies 
 codeSystem.oclIsDefined
 ISO/FDIS 21090:2009(E)
-54  © ISO 2009 – All rights reserved
+54  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.7.3  ADXP (address part)
 7.7.3.1  Description
 Specializes XP.
@@ -479,7 +479,7 @@ out delivery mode, delivery installation, etc. An address
 generally has only a delivery address line or a street address 
 line, but not both. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  55
+ï¿½ ISO 2009 ï¿½ All rights reserved  55
 3    DINST
 Delivery 
 installation 
@@ -566,7 +566,7 @@ A sub-unit of a state or province. (49 of the United States of
 America use the term "county;" Louisiana uses the term 
 "parish"). 
 ISO/FDIS 21090:2009(E)
-56  © ISO 2009 – All rights reserved
+56  ï¿½ ISO 2009 ï¿½ All rights reserved
 1   CTY  Municipality
 The name of the city, town, village, or other community or 
 delivery center.
@@ -614,7 +614,7 @@ to be a container for additional information that might be useful for finding ge
 coordinates) or for performing epidemiological studies. Such additional information should be captured by 
 other, more appropriate data structures. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  57
+ï¿½ ISO 2009 ï¿½ All rights reserved  57
 Addresses are essentially sequences of address parts, but add a "use" code and a valid time range for 
 information about if and when the address can be used for a given purpos e.
 7.7.4.2  ISO/IEC 11404 Syntax
@@ -657,7 +657,7 @@ during business hours.
 Indicates a work place address or telecommunication address 
 that reaches the individual or organization directly without 
 intermediaries. For 'telephones, often referred to as a =private 
-line‘.
+lineï¿½.
 3    PUB  Public
 Indicates a work place address or telecommunication address 
 that is a "standard" address which may reach a reception 
@@ -665,7 +665,7 @@ service, mail-room, or other intermediary prior to the target
 entity.
 2    BAD  Bad address  A flag indicating that the address is bad, in fact, useless. 
 ISO/FDIS 21090:2009(E)
-58  © ISO 2009 – All rights reserved
+58  ï¿½ ISO 2009 ï¿½ All rights reserved
 2    PHYS
 Physical visit 
 address
@@ -706,7 +706,7 @@ convey this information. The default value for isNotOrdered is false.
 7.7.4.4  Equality
 Two address values are considered equal if  they  contain the same address parts, independent of ordering. 
 Use code, useablePeriod and isNotOrdered are excluded from the equality test.
-NOTE 1  Even if isNotOrdered is false – it is known that the order of the address parts is representationally significant  –
+NOTE 1  Even if isNotOrdered is false ï¿½ it is known that the order of the address parts is representationally significant  ï¿½
 the order of the parts is irrelevant for checking equality of addresses.
 NOTE 2  Two values that refer  to the same address but that are encoded using different address parts (perhaps to 
 different levels of detail) would not be considered equal.
@@ -717,7 +717,7 @@ inv "null or parts": isNull xor part->notEmpty
 inv "no updateMode or History on AD attributes":
 noUpdateOrHistory(useablePeriod) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  59
+ï¿½ ISO 2009 ï¿½ All rights reserved  59
 7.7.4.6  ISO 22220 comments
 The various address parts defined by ISO 22220,  map to address part types, and the address type maps to 
 the use attribute. The  start and end date accuracy indicators are partially supported by the precision of the 
@@ -742,7 +742,7 @@ to their semantic significance.
 <part type="ZIP" value="46240"/>
 </example>
 This is the same address using standard typing rather than a presentation focus. This is probably the most 
-common form of presentation for addresses – a series of address lines followed by city, state, zip and possibly 
+common form of presentation for addresses ï¿½ a series of address lines followed by city, state, zip and possibly 
 country.
 NOTE  Although this presentation of the address  suggests that lines are required after the two address lines, this is 
 not implied by this example. See 7.7.4.8.
@@ -767,7 +767,7 @@ This is the same address from a system that differentiates between different lin
 <part type="ZIP" value="46240"/>
 </example> 
 ISO/FDIS 21090:2009(E)
-60  © ISO 2009 – All rights reserved
+60  ï¿½ ISO 2009 ï¿½ All rights reserved
 The same address fully broken down; the form above is not used in the USA. However, it is useful in Germany, 
 where many systems keep house number as a distinct field.
 <example xsi:type="AD" use="HP">
@@ -785,13 +785,13 @@ interoperability.
 The work address is unknown.
 7.7.4.8  Presenting addresses
 The primary purpose of an address is to be presented on a delivery label affixed to  an  envelope. A fully 
-specified address  –  one that includes specified line breaks  –  can be presented directly by simply presenting 
+specified address  ï¿½  one that includes specified line breaks  ï¿½  can be presented directly by simply presenting 
 the text of the various parts with  whitespace separating them, and following the explicit line breaks. If the 
 elements are moved into the xhtml namespace, the AD content can be treated as html directly.
 For this reason, the address should always be generated with appropriate line breaks included in the address. 
 This enables applications that do not understand the semantics of the address to reproduce it correctly.
 However because there is no single presentation model for addresses, applications may ignore the explicitly 
-specified line breaks in addresses – they are not bound to follow the presentation as specified in any particular 
+specified line breaks in addresses ï¿½ they are not bound to follow the presentation as specified in any particular 
 address.
 7.7.5  ENXP (Entity Name Part)
 7.7.5.1  Description 
@@ -811,7 +811,7 @@ type : EntityNamePartType,
 qualifier : Set(EntityNamePartQualifier)
 ) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  61
+ï¿½ ISO 2009 ï¿½ All rights reserved  61
 7.7.5.3  Attributes
 7.7.5.3.1  type : EntityNamePartType: Indicates whether the name part is a given name, family name, 
 prefix, suffix, etc.
@@ -849,7 +849,7 @@ a certain subcategory of the name part in addition to the main name part type.
 EXAMPLE:  A given name can be flagged as a nickname (CL), a family name might be a name acquired by marriage 
 (SP) or a name from birth (BR). 
 ISO/FDIS 21090:2009(E)
-62  © ISO 2009 – All rights reserved
+62  ï¿½ ISO 2009 ï¿½ All rights reserved
 If populated, the values contained in this attribute  shall be taken from the HL7 EntityNamePartQualifier2 code 
 system. The current values are: 
 EntityNamePartQualifier Enumeration. OID: 2.16.840.1.113883.5.1122 
@@ -877,7 +877,7 @@ An honorific such as ?The Right Honorable? or
 A name that a person was given at birth or established as a 
 consequence of adoption.
 NOTE  This is not used for temporary names assigned at birth 
-such as ?Baby of Smith? – which is just a name with a use code of 
+such as ?Baby of Smith? ï¿½ which is just a name with a use code of 
 ?TEMP?.
 1   AD  Acquired
 A name part a person acquired.
@@ -888,7 +888,7 @@ acquired name part is acquired on a formal basis rather than an
 informal one (e.g. registered as part of the official name).
 2    SP  Spouse
 The name assumed from the partner in a marital relationship. 
-Usually the spouse‘s family name. No inference about gender 
+Usually the spouseï¿½s family name. No inference about gender 
 may be made from the existence of spouse names.
 1   MID  Middle Name
 Indicates that the name part is a middle name.
@@ -905,7 +905,7 @@ in different Scandinavian countries.
 Callme is used to indicate which of the various name parts is 
 used when interacting with the person. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  63
+ï¿½ ISO 2009 ï¿½ All rights reserved  63
 1   IN  Initial
 Indicates that a name part is just an initial. Initials do not imply 
 a trailing period since this would not work with non-Latin 
@@ -939,7 +939,7 @@ inv "value is required": isNotNull implies value.size > 0
 7.7.5.6  Binding
 Conformance statements may specify bindings for the various part types. 
 ISO/FDIS 21090:2009(E)
-64  © ISO 2009 – All rights reserved
+64  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.7.5.7  Implementation Notes
 There is a relationship between the part type and the qualifiers which can be used. This table summarizes the 
 qualifiers that can be used with the different part types:
@@ -991,7 +991,7 @@ part : Sequence(ENXP),
 use : Set(EntityNameUse)
 ) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  65
+ï¿½ ISO 2009 ï¿½ All rights reserved  65
 7.7.6.3  Attributes
 7.7.6.3.1  part : Sequence(ENXP): A sequence of name parts, such as given name or family name, prefix, 
 suffix, etc.
@@ -1049,7 +1049,7 @@ NOTE  Names can also carry valid time ranges. This code is used
 to cover the situations where it is known that the name is no longer 
 valid, but no particular time range for its use is known. 
 ISO/FDIS 21090:2009(E)
-66  © ISO 2009 – All rights reserved
+66  ï¿½ ISO 2009 ï¿½ All rights reserved
 2    DN  Do not use
 This name should no longer be used when interacting with the 
 person (i.e. in addition to no longer being used, the name 
@@ -1066,7 +1066,7 @@ name use is for use by applications that collect and store
 ?maiden? names. Though the concept of maiden name is often 
 gender specific, the use of this term is not gender specific. The 
 use of this term does not imply any particular history for a 
-person‘s name, nor should the maiden name be determined 
+personï¿½s name, nor should the maiden name be determined 
 algorithmically.
 1   SRCH  Search type uses  A name intended for use in searching or matching.
 2    PHON  Phonetic
@@ -1091,7 +1091,7 @@ either the EN is nullFlavored or it has at least one part.
 OCL for Invariants:
 inv "null or parts": isNull xor part-> notEmpty
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  67
+ï¿½ ISO 2009 ï¿½ All rights reserved  67
 7.7.6.6  Operations
 7.7.6.6.1  canonical():EN: The Entity Name with a standard ordering imposed on the parts.
 The canonical form is primarily defined for the purposes of defining equality, and may differ from the socially 
@@ -1120,21 +1120,21 @@ A very simple encoding of "Adam A. Everyman".
 <part type="GIV" value="Regina"/>
 <part type="GIV" value="Johanna"/>
 <part type="GIV" value="Maria"/>
-<part type="TITLE" qualifier="PFX NB" value="Gräfin"/>
+<part type="TITLE" qualifier="PFX NB" value="Grï¿½fin"/>
 <part type="FAM" qualifier="BR" value="Hochheim"/>
 <part type="DEL" value="-"/>
 <part type="FAM" qualifier="SP" value="Weilenfels"/>
 <part type="TITLE" qualifier="SFX PR" value="NCFSA" />
 </example>
-Dr.phil. Regina Johanna Maria Gräfin Hochheim-Weilenfels, NCFSA. This example shows extensive use of 
+Dr.phil. Regina Johanna Maria Grï¿½fin Hochheim-Weilenfels, NCFSA. This example shows extensive use of 
 multiple given names, prefixes, suffixes, for academic degrees, nobility titles, and professional designations.
 7.7.6.8.3  Organization name
 <example xsi:type="EN.TN">
 <part value="Health Level Seven, Inc"/>
 </example>
-An organization name, "Health Level Seven, Inc." in simple string form: (Trivial Name – EN.TN). 
+An organization name, "Health Level Seven, Inc." in simple string form: (Trivial Name ï¿½ EN.TN). 
 ISO/FDIS 21090:2009(E)
-68  © ISO 2009 – All rights reserved
+68  ï¿½ ISO 2009 ï¿½ All rights reserved
 <example xsi:type="EN.ON">
 <part value="Health Level Seven, "/>
 <part type="TITLE" qualifier="SFX LS" value="Inc."/>
@@ -1168,27 +1168,27 @@ A russian name in cyrillic with a latin alphabet transliteration. In  Russian  u
 the domestic and foreign names respectively. Systems should determine the appropriate form for a particular 
 use based on the character set of the name parts. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  69
+ï¿½ ISO 2009 ï¿½ All rights reserved  69
 7.7.6.8.6  Scandinavian examples
 <example xsi:type="EN" use="OR">
 <part type="GIV" value="Jan"/>
 <part type="GIV" value="Erik"/>
-<part type="FAM" qualifier="MID" value=" Östlund"/>
+<part type="FAM" qualifier="MID" value=" ï¿½stlund"/>
 <part type="FAM" value="Erikson"/>
 </example>
 <example xsi:type="EN">
 <part type="GIV" value="Jan"/>
 <part type="FAM" value="Erikson"/>
 </example>
-Erikson is the family name. Jan Erik are the given names, and Östlund the family name of the mother, which 
+Erikson is the family name. Jan Erik are the given names, and ï¿½stlund the family name of the mother, which 
 is taken as a Mellannamn.
 <example xsi:type="EN" use="T"> 
-<!—- Use could be OR+OLD, depends how record keeping is done -->
+<!ï¿½- Use could be OR+OLD, depends how record keeping is done -->
 <part type="GIV" value="Margrete Jente"/>
 <part type="FAM" value="Hansen"/>
 </example>
 Jan Erikson has a daughter, Karin, with his wife Margrete Hansen. The first communications of the new born 
-name is ?Margrete Jente? (Margrete‘s Girl) and the mother's family name, not the given name (Karin). The 
+name is ?Margrete Jente? (Margreteï¿½s Girl) and the mother's family name, not the given name (Karin). The 
 father's Family name is  not used at all. This is a known temporary name assigned directl y after the birth of 
 the child.
 <example xsi:type="EN" use="OR C">
@@ -1217,11 +1217,11 @@ family names as specified by naming laws of the country in question.
 <part type="GIV" qualifier="CL" value="James"/>
 <part type="FAM" value="Chalmers"/>
 </example>
-The full name is Peter James Chalmers. The person prefers to be called by James (not ?Jim? – no, don‘t call 
+The full name is Peter James Chalmers. The person prefers to be called by James (not ?Jim? ï¿½ no, donï¿½t call 
 him that).
 <example xsi:type="EN" use="OR"> 
 ISO/FDIS 21090:2009(E)
-70  © ISO 2009 – All rights reserved
+70  ï¿½ ISO 2009 ï¿½ All rights reserved
 <part type="GIV" value="David"/>
 <part type="GIV" value="Woodford"/>
 <part type="FAM" value="Smith"/>
@@ -1230,7 +1230,7 @@ ISO/FDIS 21090:2009(E)
 <part type="GIV" value="Woody"/>
 <part type="FAM" value="Smith"/>
 </example>
-The person‘s proper name is David Woodford Smith, but he prefers to be called ?Woody?.
+The personï¿½s proper name is David Woodford Smith, but he prefers to be called ?Woody?.
 <example xsi:type="EN" use="OR">
 <part type="GIV" value="Uy"/>
 <part type="GIV" value="Dung"/>
@@ -1275,14 +1275,14 @@ are not the same as an abbreviation. Titles are often abbreviated.
 Mary Jane are two specifically space separated and ordered portions of the first name, rather than  "Jane"
 being a middle name. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  71
+ï¿½ ISO 2009 ï¿½ All rights reserved  71
 NOTE  Generating initials algorithmically from this name, they would usually be MC not MJC.
 <example xsi:type="EN" use="OR C">
 <part type="GIV" value="Karen"/>
 <part type="FAM" value="Van"/>
 <part type="FAM" value="Hentenryck"/>
 </example>
-Karen Van Hentenryck is of Dutch origin, and the "Van"‘ is a voorvoegsel.
+Karen Van Hentenryck is of Dutch origin, and the "Van"ï¿½ is a voorvoegsel.
 <example xsi:type="EN" use="OR C">
 <part type="GIV" value="Selby"/>
 <part type="FAM" qualifier="SP" value="Butt"/>
@@ -1335,7 +1335,7 @@ name to ?Jacque-Ruth? and then just ?Jacque?. Out of all this, she reports her m
 <part type="FAM" qualifier="BR" value="Burgess"/>
 </example> 
 ISO/FDIS 21090:2009(E)
-72  © ISO 2009 – All rights reserved
+72  ï¿½ ISO 2009 ï¿½ All rights reserved
 <example xsi:type="EN" use="P">
 <part type="GIV" value="Yor-Led"/>
 <part type="FAM" value="Ssegrub"/>
@@ -1362,7 +1362,7 @@ nickname was Yor-Led Ssegrub. I changed my name to Abdul-Malik Shakir when adopt
 religion. The spelling is a phonetic spelling of an Arabic name using the Latin alphabet. If Abdul -Malik is a bit 
 of a mouthful, do not call me Abdul, please call me AMS instead. I recently began spelling my first name in 
 camel case and dropped the ?-? delimiter (i.e., AbdulMalik not Abdul-Malik). I also recently started using the 
-suffix Sr. to differentiate my identify from my son‘s with the same name. The suffix is not commonly used 
+suffix Sr. to differentiate my identify from my sonï¿½s with the same name. The suffix is not commonly used 
 except on a few official registries such as passport, driving  license and other areas where identity 
 disambiguation is important.
 7.7.7  EN.TN (trivial name)
@@ -1384,7 +1384,7 @@ or family name, prefix, suffix, etc.
 A name part is a restriction on entity name part that only allows those entity name parts qualifiers applicable to 
 person names. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  73
+ï¿½ ISO 2009 ï¿½ All rights reserved  73
 NOTE  Since the structure of entity name  is mostly determined by the requirements of person name, the restriction is 
 very minor.
 7.7.8.2  Invariants
@@ -1414,19 +1414,19 @@ or u = EntityNameUse.M)).M))
 7.8.1  Overview
 These datatypes provide support for quantitative values. See Figure 7. 
 ISO/FDIS 21090:2009(E)
-74  © ISO 2009 – All rights reserved
-Figure 7 — Quantity datatypes 
+74  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure 7 ï¿½ Quantity datatypes 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  75
+ï¿½ ISO 2009 ï¿½ All rights reserved  75
 Figure 7 (continued) 
 ISO/FDIS 21090:2009(E)
-76  © ISO 2009 – All rights reserved
+76  ï¿½ ISO 2009 ï¿½ All rights reserved
 Figure 7 (continued)
 7.8.2  QTY (quantity)
 7.8.2.1  Description
 Specializes ANY.
 The quantity datatype is an  abstract generalization for all datatypes whose domain values have  an order 
-relation (less-or-equal) and where difference is defined in all of the datatype‘s totally ordered value subsets.
+relation (less-or-equal) and where difference is defined in all of the datatypeï¿½s totally ordered value subsets.
 The quantity type abstraction is needed in defining certain other  types, such as the interval and probability 
 distributions.
 7.8.2.2  ISO/IEC 11404 syntax
@@ -1438,7 +1438,7 @@ controlInformationExtension : characterstring,
 nullFlavor : NullFlavor,
 updateMode : UpdateMode, 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  77
+ï¿½ ISO 2009 ï¿½ All rights reserved  77
 flavorId : Set(characterstring),
 expression : ED,
 originalText : ED.TEXT,
@@ -1448,7 +1448,7 @@ uncertainRange : IVL(QTY)
 )
 QTY defines three facilities that all quantities may carry: an expression that may be used to derive the actual 
 value, an originalText that carries the original form in which the quantity was represented and the uncertainty 
-associated with the value. There are two different ways to represent the uncertainty: one is a statistical form –
+associated with the value. There are two different ways to represent the uncertainty: one is a statistical form ï¿½
 usually suited for measured values, and a range form, which is usually associated with instructions (i.e. take 
 4-6 tablets).
 The presence of these attributes may considerably complicate proper understanding of the value. For this 
@@ -1480,7 +1480,7 @@ MathML  application/mathml xml
 NOTE  Factor is an HL7 specific language documented in the 
 Abstract Data Types Specification.
 ISO/FDIS 21090:2009(E)
-78  © ISO 2009 – All rights reserved
+78  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.2.3.2  originalText : ED.TEXT: The text representation from which the QTY was encoded, if such a 
 representation is the source of the QTY.
 Original text can be used in a structured user interface to capture what the user saw as a representation of the 
@@ -1508,7 +1508,7 @@ with no implied statistical distribution.
 This form of uncertainty  shall only be applied to value domains that have a continuous distribution (REAL, PQ, 
 MO and TS). Uncertainty may be applied separately to the numerator and denominator of an RTO.
 Uncertainty shall  not have an expression. Uncertainty  shall  not have uncertainty of its own. Uncertainty  shall 
-not have originalText  –  any uncertainty associated with the QTY should be conveyed as part of the 
+not have originalText  ï¿½  any uncertainty associated with the QTY should be conveyed as part of the 
 originalText of the QTY itself.
 Uncertainty does not have its own originalText because it is expected that the uncertainty of the quantity 
 should be expressed in the originalText of the quantity itself.
@@ -1520,7 +1520,7 @@ statistical distribution.
 The null value (unknown) for the type code indicates that the probability distribution type is unknown. In that 
 case, uncertainty has the meaning of an informal guess if it is populated. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  79
+ï¿½ ISO 2009 ï¿½ All rights reserved  79
 If populated, the value of this attribute  shall be taken from the HL7 DistributionType code system. The current 
 values are:
 UncertaintyType Enumeration. OID: 2.16.840.1.113883.5.1020
@@ -1531,7 +1531,7 @@ assumed to have zero probability. The width of this interval is 2 s  3.
 Thus, the uniform distribution assigns the probability densities 
 f(x) = (2 s v3)
 1
-to values µ   s v3 W x u µ   s v3 and f(x) = 0 otherwise.
+to values ï¿½   s v3 W x u ï¿½   s v3 and f(x) = 0 otherwise.
 1  N
 Normal 
 (gaussian)
@@ -1544,44 +1544,44 @@ mean is "far away" from the bound of the scale measured in terms of
 standard deviations.
 1  LN  Log-normal
 The logarithmic normal distribution is used to transform skewed random 
-variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean µ and 
-standard deviation s. However, mean µ and standard deviation s are the 
+variable X into a normally distributed random variable U = log X. The log-normal distribution can be specified with the properties mean ï¿½ and 
+standard deviation s. However, mean ï¿½ and standard deviation s are the 
 parameters of the raw value distribution, not the transformed parameters 
 of the log-normal distribution that are conventionally referred to by the 
-same letters. Those log-normal parameters µ
+same letters. Those log-normal parameters ï¿½
 log
 and s
 log
 relate to the 
-mean µ and standard deviation s of the data value through
+mean ï¿½ and standard deviation s of the data value through
 log
 2
 = log (s
 2
-/µ
+/ï¿½
 2
-1) and µlog = log µ   slog
+1) and ï¿½log = log ï¿½   slog
 2
 /2.
 1  G  ? (Gamma)
 The gamma-distribution used for data that is skewed and bounded to the 
 right, i.e. where the maximum of the distribution curve is located near the 
-origin. The ?-distribution has two parameters a and ß. The relationship to 
-mean µ and variance s
+origin. The ?-distribution has two parameters a and ï¿½. The relationship to 
+mean ï¿½ and variance s
 2
-is µ = a ß and s
+is ï¿½ = a ï¿½ and s
 2
-= a ß
+= a ï¿½
 2
 .
 1  E  Exponential
 Used for data that describes extinction. The exponential distribution is a 
 special form of ?-distribution where a = 1, hence, the relationship to mean 
-µ and variance s
+ï¿½ and variance s
 2
-are µ = ß and s
+are ï¿½ = ï¿½ and s
 2
-= ß
+= ï¿½
 2
 .
 1  X2  ?
@@ -1594,7 +1594,7 @@ degrees of freedom (which is the number of independent parts in the
 sum). The ?
 2
 -distribution is a special type of ?-distribution with parameter 
-a = ?/2 and ß = 2. Hence, µ = ? and s
+a = ?/2 and ï¿½ = 2. Hence, ï¿½ = ? and s
 2
 = 2 ?.
 1  T  t (Student)
@@ -1602,10 +1602,10 @@ Used to describe the quotient of a normal random variable and the square
 root of an ?
 2
 random variable. The t-distribution has one parameter ?, the 
-number of degrees of freedom. The relationship to mean µ and variance 
+number of degrees of freedom. The relationship to mean ï¿½ and variance 
 s
 2
-are: µ = 0 and s
+are: ï¿½ = 0 and s
 2
 = ?/(?   2).
 1  F  f
@@ -1617,10 +1617,10 @@ and ?
 2
 , which are the numbers of 
 degrees of freedom of the numerator and denominator variable 
-respectively. The relationship to mean µ and variance s
+respectively. The relationship to mean ï¿½ and variance s
 2
 are:
-µ = ?
+ï¿½ = ?
 2
 /(?
 2
@@ -1645,18 +1645,18 @@ are:
 1  B  ? (Beta)
 The beta-distribution is used for data that are bounded on both sides and 
 may or may not be skewed (e.g. occurs when probabilities are 
-estimated.) Two parameters a and ß are available to adjust the curve. The 
-mean µ and variance s
+estimated.) Two parameters a and ï¿½ are available to adjust the curve. The 
+mean ï¿½ and variance s
 2
-relate as follows: µ = a/(a   ß) and
+relate as follows: ï¿½ = a/(a   ï¿½) and
 (s
 2
-= a ß/[(a   ß)
+= a ï¿½/[(a   ï¿½)
 2
-(a   ß   1)]. 
+(a   ï¿½   1)]. 
 ISO/FDIS 21090:2009(E)
-80  © ISO 2009 – All rights reserved
-Many distribution types are defined in terms of special parameters (e.g. the parameters  a  and  ß  for the  ?-distribution, number of degrees of freedom for the  t-distribution, etc.). For all distribution types, however, the 
+80  ï¿½ ISO 2009 ï¿½ All rights reserved
+Many distribution types are defined in terms of special parameters (e.g. the parameters  a  and  ï¿½  for the  ?-distribution, number of degrees of freedom for the  t-distribution, etc.). For all distribution types, however, the 
 mean and standard deviation are defined.
 If no value (null) is provided for distributionType, then  the mean is estimated without any closer consideration 
 of its probability distribution. In this case, the meaning of the standard deviation is not crisply defined. 
@@ -1697,7 +1697,7 @@ inv "uncertainty rules": uncertainty.isNotNull implies
 inv "uncertainRange rules": uncertainRange.isNotNull implies 
 (uncertainRange.noSemantics) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  81
+ï¿½ ISO 2009 ï¿½ All rights reserved  81
 inv "uncertainty kind": not (uncertainty.isNotNull and 
 uncertainRange.isNotNull)
 inv "uncertainRange Type": uncertainRange.oclIsDefined implies 
@@ -1739,7 +1739,7 @@ with a unit that is a kind of time, and for PQ, where the units SHALL be compati
 7.8.3.1  Description
 Specializes QTY. 
 ISO/FDIS 21090:2009(E)
-82  © ISO 2009 – All rights reserved
+82  ï¿½ ISO 2009 ï¿½ All rights reserved
 Integer numbers ( 1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and 
 enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is 
 imposed on the range of integer numbers.
@@ -1783,7 +1783,7 @@ inv "null or value": isNull xor (value.oclIsDefined or
 uncertainRange.isNotNull)
 inv "null or value": isNull xor value.oclIsDefined 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  83
+ï¿½ ISO 2009 ï¿½ All rights reserved  83
 7.8.3.6  Operations
 7.8.3.6.1  negated[ ] : INT: The negative value of this.
 7.8.3.6.2  plus[ ] (other : INT) : INT: the value of the addition of this and other.
@@ -1814,7 +1814,7 @@ NT.NONNEG constrains INT so that it has a value of 0 or greater.
 7.8.4.2  Invariants
 the value SHALL be zero or greater if not nullFlavored, with no uncertainty. 
 ISO/FDIS 21090:2009(E)
-84  © ISO 2009 – All rights reserved
+84  ï¿½ ISO 2009 ï¿½ All rights reserved
 OCL for Invariants:
 inv "not negative": isNotNull implies value >= 0
 7.8.5  INT.POS
@@ -1854,7 +1854,7 @@ updateMode : UpdateMode,
 flavorId : Set(characterstring),
 expression : ED, 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  85
+ï¿½ ISO 2009 ï¿½ All rights reserved  85
 originalText : ED.TEXT,
 uncertainty : QTY,
 uncertaintyType : UncertaintyType,
@@ -1889,7 +1889,7 @@ order of the two values. If no order is defined, the result will be nullFlavor N
 NOTE  If the value attribute is not specified, the applicable terminology m ight  need to be consulted to determine the 
 order of the two values. If no order is defined, the result will be nullFlavor NI. 
 ISO/FDIS 21090:2009(E)
-86  © ISO 2009 – All rights reserved
+86  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.6.6.3  comparable(other : QTY):BL: This is false unless this and other have the same codeSystem, 
 and then only if the codeSystem defines an order amongst the codes.
 7.8.6.6.4  plus[+](other : QTY):QTY: This operation returns null unless this.comparable(other) is true, and 
@@ -1932,7 +1932,7 @@ This is an example of the primitive type wrapping pattern. See 6.3 for more deta
 Two nonNull REAL are equal if they are not nullFlavored and have the same value, or if their uncertainRanges 
 are not null and not nullFlavored and equal. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  87
+ï¿½ ISO 2009 ï¿½ All rights reserved  87
 7.8.7.6  Invariants
 a value or an uncertain range SHALL be provided if not nullFlavored;
 cannot provide both a value and an uncertain range;
@@ -1968,7 +1968,7 @@ one.
 by the precision.
 7.8.7.7.15  comparable(other : QTY):BL: Real numbers may always be compared. 
 ISO/FDIS 21090:2009(E)
-88  © ISO 2009 – All rights reserved
+88  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.7.8  Examples
 7.8.7.8.1  Precision
 <example xsi:type="REAL" value="23.0005"/>
@@ -2010,7 +2010,7 @@ expression : ED,
 originalText : ED.TEXT,
 uncertainty : QTY, 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  89
+ï¿½ ISO 2009 ï¿½ All rights reserved  89
 uncertaintyType : UncertaintyType,
 uncertainRange : IVL(QTY)
 numerator : QTY,
@@ -2048,7 +2048,7 @@ denominator can be compared.
 US$103/day.
 The inner xsi:type declarations are always required. 
 ISO/FDIS 21090:2009(E)
-90  © ISO 2009 – All rights reserved
+90  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.9  PQ (physical quantity)
 7.8.9.1  Description
 Specializes QTY.
@@ -2094,7 +2094,7 @@ examples are 5 Drinks of Beer, and 3 Acetominophen tablets. At first glance it i
 measurments like this: 5  drinks  of  Beer  and  3  Acetominophen  tablets. The problem with this is that UCUM 
 does not support units of "beer", "tablets" or "scoops".  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  91
+ï¿½ ISO 2009 ï¿½ All rights reserved  91
 The reason for this is that neither tablets  nor scoops are proper units. What kind of tablets? How big is the 
 glass? In these kinds of cases, the concept that appears to be a unit needs to further specified  before 
 interoperability is established. If a correct amount is required, then it is generally appropriate to specify an 
@@ -2140,7 +2140,7 @@ uncertainRange.high.oclIsDefined implies
 unitsMatch(uncertainRange.high) and
 uncertainty.oclIsDefined implies unitsMatch(uncertainty) 
 ISO/FDIS 21090:2009(E)
-92  © ISO 2009 – All rights reserved
+92  ï¿½ ISO 2009 ï¿½ All rights reserved
 context PQ::isDifference(other : QTY): Boolean
 post: other.oclIsKindOf(PQ) and 
 canonical.unit.equals(other.oclAsTypeOf(PQ).canonical.unit)
@@ -2177,7 +2177,7 @@ codeSystem="2.16.840.1.113883.19.10" code="grams/litre"/>
 </example>
 11 mg/ml as a translation from the original measurement of 0.011g/L in a local code system into UCUM units. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  93
+ï¿½ ISO 2009 ï¿½ All rights reserved  93
 7.8.9.7.2  Uncertain range
 <doseQuantity xsi:type="PQ" units="1">
 <uncertainRange>
@@ -2187,7 +2187,7 @@ ISO/FDIS 21090:2009(E)
 </doseQuantity>
 This URG(PQ) specifies that patient should take 1  to  2 tablets. This might be part of a prescription 
 order such as "By mouth, take  1-2 tablets every 4-6 hours when needed for severe pain to a 
-maximum of 8 per day". Note that the unit is "1" – the default UCUM unit, so this matches the units 
+maximum of 8 per day". Note that the unit is "1" ï¿½ the default UCUM unit, so this matches the units 
 on the low and high in the uncertainRange.
 7.8.9.7.3  Using expressions
 <substanceAdministration>
@@ -2211,7 +2211,7 @@ on the low and high in the uncertainRange.
 </derivedFrom>
 </substanceAdministration>         
 This example uses an HL7 specific language to illustrate how the expression attribute is used.
-The dose quantity of the substance that is being administered depends on the patient‘s body mass, 30 mg per 
+The dose quantity of the substance that is being administered depends on the patientï¿½s body mass, 30 mg per 
 kilogram  of body mass. Rather than providing an actual value for the patient=s body mass, since it may be 
 unknown or may change, the maximum   dose quantity is given in terms of an expression. Since no value 
 attribute is provided, a nullFlavor SHALL be provided; DER is the appropriate choice  when an expression is 
@@ -2225,7 +2225,7 @@ NOTE  Factor is an HL7 specific language documented in the Abstract Data Types S
 A flavour that constrains PQ.
 PQ.TIME constraints PQ so that it shall have units that describe a period of time. 
 ISO/FDIS 21090:2009(E)
-94  © ISO 2009 – All rights reserved
+94  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.10.2  Invariants
 the  units  shall  be a measure of time  ["such as, "s" (second), "min"  (minute), "h" (hour), "d" (day), 
 "wk" (week), "a" (year)].
@@ -2266,7 +2266,7 @@ code.
 Two PQR values are equal if their value, code and codeSystem are equal. The other attributes do not 
 participate in the determination of equality. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  95
+ï¿½ ISO 2009 ï¿½ All rights reserved  95
 7.8.11.5  Invariants
 a unit is required;
 no source;
@@ -2304,7 +2304,7 @@ value : Decimal,
 currency : characterstring
 ) 
 ISO/FDIS 21090:2009(E)
-96  © ISO 2009 – All rights reserved
+96  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.12.3  Attributes
 7.8.12.3.1  value : Decimal:  The value of the MO. MO values are usually precise to 0.01 (one cent, penny, 
 paisa, etc.) or 1 (yen, forint, etc.), though other precisions exist. ISO 4217 documents the appropriate precision 
@@ -2343,7 +2343,7 @@ currencyMatches(uncertainty)
 context CO::isDifference(other : QTY): Boolean
 post: other.oclIsKindOf(MO)
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  97
+ï¿½ ISO 2009 ï¿½ All rights reserved  97
 7.8.12.6  Operations
 7.8.12.6.1  plus[ ] (other : MO) : MO:  The value of the addition of this and other; if the currencies do not 
 match, NullFlavor NI.
@@ -2380,7 +2380,7 @@ uncertainRange : IVL(QTY)
 value : characterstring
 ) 
 ISO/FDIS 21090:2009(E)
-98  © ISO 2009 – All rights reserved
+98  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.13.3  Attributes
 7.8.13.3.1  value : String: The value of the TS. value is a string with the format 
 "YYYY[MM[DD[HH[MM[SS[.U[U[U[U]]]]]]]]][+|-ZZzz]" that conforms to the constrained ISO 8601 defined in ISO 
@@ -2418,7 +2418,7 @@ uncertainty.canonical.unit = "s"
 context TS::isDifference(other : QTY): Boolean
 post: other.oclIsKindOf(TS) and canonical.unit = "s"
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  99
+ï¿½ ISO 2009 ï¿½ All rights reserved  99
 7.8.13.6  Operations
 7.8.13.6.1  plus( ) (other : PQ) : TS: The value of the addition of this and other; if other.units are not a time, 
 NullFlavor NI.
@@ -2449,7 +2449,7 @@ The outcome of toIVL() for this example would be the following interval:
 A flavour that constrains TS.
 TS.DATE constrains TS so that it may only contain a date value. 
 ISO/FDIS 21090:2009(E)
-100  © ISO 2009 – All rights reserved
+100  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.8.14.2  Invariants
 no timezone;
 no hours, minutes, seconds or milliseconds.
@@ -2478,7 +2478,7 @@ A flavour that constrains TS.DATETIME.
 TS.DATETIME.FULL  constrains TS.DATETIME so that it shall  contain reference to a particular second with a 
 timezone. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  101
+ï¿½ ISO 2009 ï¿½ All rights reserved  101
 7.8.17.2  Invariants
 a timezone is required;
 a full time, including seconds and timezone, is required.
@@ -2495,18 +2495,18 @@ a full time, including fractions of seconds to 4 decimal and timezone, is requir
 OCL for Invariants
 inv "Instant": value.size = 24 and hasTimezone 
 ISO/FDIS 21090:2009(E)
-102  © ISO 2009 – All rights reserved
+102  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9  Collections Of datatypes
 7.9.1  Overview
 These datatypes data types are collections of discrete elements. See Figure 8.
-Figure 8 — Collection datatypes
+Figure 8 ï¿½ Collection datatypes
 7.9.2  COLL
 7.9.2.1  Description
 Abstract. Specializes ANY.
 Parameter: T : ANY
 A collection of values which can be enumerated using an iterator. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  103
+ï¿½ ISO 2009 ï¿½ All rights reserved  103
 7.9.2.2  Operations
 7.9.2.2.1  size() : INT: The number of elements in this collection.
 7.9.2.2.2  includes(object : T) : BL:  True if object is an element of this  collection. The equals operation is 
@@ -2545,7 +2545,7 @@ validTimeLow : characterstring,
 validTimeHigh : characterstring,
 controlInformationRoot : characterstring, 
 ISO/FDIS 21090:2009(E)
-104  © ISO 2009 – All rights reserved
+104  ï¿½ ISO 2009 ï¿½ All rights reserved
 controlInformationExtension : characterstring,
 nullFlavor : NullFlavor,
 updateMode : UpdateMode,
@@ -2559,7 +2559,7 @@ IVL(2..5). However for all other cases, there is no overlap between QSET and DSE
 7.9.3.3.1  item : Bag(T): The contents of the set.
 This is an example of the primitive type wrapping pattern. See 6.3 for more details.
 The items are held in a bag because the context of use specifies exactly how uniqueness is specified for t he 
-DSET. The OCL kernel  set  applies a fixed definition of equality  –  the equality specified for the type  –  which 
+DSET. The OCL kernel  set  applies a fixed definition of equality  ï¿½  the equality specified for the type  ï¿½  which 
 may be less granular that the context of use. Though the internal structure allows duplicates, all the items in 
 the set  shall  be unique according the definition provided by the context of use. If the context of use does not 
 make this clear, the default behavior is the equality definitions provided in this International Standard. 
@@ -2574,7 +2574,7 @@ NOTE 2  It is possible for a DSET(INT) and a QSET(INT) to be equal, if they both
 (none)
 NOTE  Rules about updateMode or history are applied to item where BAG(T) is used. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  105
+ï¿½ ISO 2009 ï¿½ All rights reserved  105
 7.9.3.6  Operations
 7.9.3.6.1  union(s : DSET(T)) : DSET(T): The SET containing all elements of this plus all the elements of 
 other, with any duplicates removed. union is an alias for including.
@@ -2611,9 +2611,9 @@ correct as SET is a generic type).
 <item value="9"/>
 <item value="3"/>
 </example>
-This set is identical to the previous set – order has no significant in sets. 
+This set is identical to the previous set ï¿½ order has no significant in sets. 
 ISO/FDIS 21090:2009(E)
-106  © ISO 2009 – All rights reserved
+106  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9.3.7.2  Problems with sets
 <example xsi:type="DSET_TEL">
 <item value="tel:+15556667777" use="H"/>
@@ -2656,12 +2656,12 @@ flavorId : Set(characterstring),
 item : Sequence(T)
 ) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  107
+ï¿½ ISO 2009 ï¿½ All rights reserved  107
 7.9.4.3  Attributes
 7.9.4.3.1  item : Sequence(T): The contents of the sequence.
 This is an example of the primitive type wrapping pattern. See 6.3 for more details.
 7.9.4.4  Equality
-Two lists are equal if  –  and only if  –  they are both  empty, or if they contain the same elements in the same 
+Two lists are equal if  ï¿½  and only if  ï¿½  they are both  empty, or if they contain the same elements in the same 
 order.
 NOTE 1  The determination of element content is based on the same semantic equals as defined in  this International 
 Standard, so it is possible that a LIST(ED) can be equal to LIST(ST), for inst ance.
@@ -2690,7 +2690,7 @@ once (not at all, or multiple times).
 7.9.4.6.10  last() : T: The last element in this or null if it is empty.
 7.9.4.6.11  tail() : LIST(T): The list with the first element removed or null if it is empty. 
 ISO/FDIS 21090:2009(E)
-108  © ISO 2009 – All rights reserved
+108  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9.4.6.12  including(object : T) : LIST(T): The LIST containing all elements of this plus object added as the 
 last element. This is an alias for append.
 7.9.4.6.13  excluding(object : T) : LIST(T):  The LIST containing all elements of this apart from all 
@@ -2733,7 +2733,7 @@ EXAMPLE:  To generate the sequence (1; 4; 7; 10; 13; ...) the increment is 3; li
 4; 4; 7; 7; 10; 10; 13; 13; ...) the increment is also 3. The actual type QTY will be dictated by the type of T. The value of
 increment SHALL be positive. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  109
+ï¿½ ISO 2009 ï¿½ All rights reserved  109
 7.9.5.3.3  denominator : Integer: The integer by which the index for the sequence is divided, effectively the 
 number of times the sequence generates the same sequence item value before incrementing to the next 
 sequence item value.
@@ -2771,7 +2771,7 @@ LIST or less than 0, or lower is greater than upper, the value will be null.
 7.9.5.6.2  at(i : Integer) : T:  The i-th element of LIST. If i is equal or greater than the length of the LIST, the 
 value will be null. 
 ISO/FDIS 21090:2009(E)
-110  © ISO 2009 – All rights reserved
+110  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9.5.7  Examples
 <example xsi:type="GLIST_PQ" period="100" denominator="100">
 <head value="0" unit="V"/>
@@ -2784,8 +2784,8 @@ Example 65
 <head value="20020729203000"/>
 <increment xsi:type="PQ" value="100" unit="us"/>
 </example>
-A timebase from June 29, 2002 at 8:30 PM with 100 µs between each steps of the index. If combined with the 
-previous generator as a second sampling dimension this would now describe our digital oscilloscope's x -timebase as 1 mV per 100  µs. At 100 steps per period, the period is 10 ms, which is equal to a frequency of 
+A timebase from June 29, 2002 at 8:30 PM with 100 ï¿½s between each steps of the index. If combined with the 
+previous generator as a second sampling dimension this would now describe our digital oscilloscope's x -timebase as 1 mV per 100  ï¿½s. At 100 steps per period, the period is 10 ms, which is equal to a frequency of 
 100 Hz. 
 Other examples:
 Head  Increment  Deno-minator
@@ -2809,20 +2809,20 @@ in 100 steps of 1 mV. The frequency
 is unknown from these data as we do 
 not know how much time elapses 
 between each step of the index.
-2002072920300  100 µs  1
+2002072920300  100 ï¿½s  1
 8 (NullFlavor.
 PINF)
 A timebase from June 29, 2002 at 
-8:30 PM with 100 µs between each 
+8:30 PM with 100 ï¿½s between each 
 step of the index. If combined with 
 the previous generator as a second 
 sampling dimension this would now 
-describe our digital oscilloscope's x-timebase as 1 mV per 100 µs. At 
+describe our digital oscilloscope's x-timebase as 1 mV per 100 ï¿½s. At 
 100 steps per period, the period is 
 10 ms, which is equal to a frequency 
 of 100 Hz.
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  111
+ï¿½ ISO 2009 ï¿½ All rights reserved  111
 0 V  1 mV  100  100
 Combining this generator to the 
 previous two generators could 
@@ -2868,7 +2868,7 @@ will be dictated by the type of T.
 7.9.6.3.3  digits : Sequence(INT): A sequence of raw digits for the sample values. This is typically the raw 
 output of an A/D converter. 
 ISO/FDIS 21090:2009(E)
-112  © ISO 2009 – All rights reserved
+112  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9.6.4  Equality
 SLIST specifies a LIST. Two SLISTs are equal if they specify the same sequence of values.
 NOTE  Because SLIST specifies a LIST, and equality is basd on the LIST that is specified, it is possible that a 
@@ -2903,7 +2903,7 @@ the last element.
 7.9.6.6.9  excluding(object : T) : SLIST(T): The LIST containing all elements of this apart from all 
 occurrences of object. The order of the remaining elements is not changed. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  113
+ï¿½ ISO 2009 ï¿½ All rights reserved  113
 7.9.6.7  Examples
 <example xsi:type="SLIST_PQ">
 <origin value='0' unit='uV'/>
@@ -2971,7 +2971,7 @@ ISO/FDIS 21090:2009(E)
 <digit value="4"/>
 <digit value="46"/> 
 ISO/FDIS 21090:2009(E)
-114  © ISO 2009 – All rights reserved
+114  ï¿½ ISO 2009 ï¿½ All rights reserved
 <digit value="46"/>
 <digit value="46"/>
 <digit value="46"/>
@@ -3040,7 +3040,7 @@ ISO/FDIS 21090:2009(E)
 <digit value="1"/>
 <digit value="0"/> 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  115
+ï¿½ ISO 2009 ï¿½ All rights reserved  115
 <digit value="0"/>
 <digit value="0"/>
 <digit value="1"/>
@@ -3059,7 +3059,7 @@ ISO/FDIS 21090:2009(E)
 <digit value="2"/>
 <digit nullFlavor="UNK"/>
 </example>
-This example shows Lead II of an EKG tracing, with origin calibrated at 0 µV and with a scale factor of 2,5 µV. 
+This example shows Lead II of an EKG tracing, with origin calibrated at 0 ï¿½V and with a scale factor of 2,5 ï¿½V. 
 The last measurement failed (to show example of nullFlavor).
 7.9.7  HIST (history)
 7.9.7.1  Description
@@ -3088,7 +3088,7 @@ inv "validTime required": item->forAll(i |
 i.validTimeLow.oclIsDefined or 
 i.validTimeHigh.oclIsDefined) 
 ISO/FDIS 21090:2009(E)
-116  © ISO 2009 – All rights reserved
+116  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.9.7.4  Examples
 <example xsi:type="HIST_TEL">
 <item nullFlavor="UNK" use="WP H" validTimeHigh="199206"/>
@@ -3117,7 +3117,7 @@ item : Bag(T)
 7.9.8.3.1  item : Bag(T): The contents of the Bag.
 This is an example of the primitive type wrapping pattern. See 6.3 for more details.
 7.9.8.4  Equality
-Two bags are equal if  –  and only if  –  they are both empty, or if they contain the same items, with the same 
+Two bags are equal if  ï¿½  and only if  ï¿½  they are both empty, or if they contain the same items, with the same 
 number of each item present.
 NOTE  the determination of element content is based on the same semantic equals as defined in  this International 
 Standard, so it is possible that a BAG(CD) can be equal to BAG(CO), for instance.
@@ -3126,12 +3126,12 @@ Standard, so it is possible that a BAG(CD) can be equal to BAG(CO), for instance
 NOTE  Rules about updateMode or history are applied to item where BAG(T) is used.
 7.9.8.6  Operations 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  117
+ï¿½ ISO 2009 ï¿½ All rights reserved  117
 7.9.8.6.1  union(bag : BAG(T)) : BAG(T):  The union of this and bag. If a value is contained multiple times, 
-the total count of the value‘s occurance in the result of the union w ill the sum of the occurances in this and bag. 
+the total count of the valueï¿½s occurance in the result of the union w ill the sum of the occurances in this and bag. 
 This is an alias for including.
 7.9.8.6.2  union(set : DSET(T)) : BAG(T):  The union of this and set. If a value is contained in both the bag
-and the set, the total count of the value‘s occurance in the result of the union will be one greater than the 
+and the set, the total count of the valueï¿½s occurance in the result of the union will be one greater than the 
 number of occurances in this. This is an alias for including.
 7.9.8.6.3  intersection(bag : BAG(T)) : BAG(T): The intersection of this and bag.
 7.9.8.6.4  intersection(set : DSET(T)) : DSET(T): The intersection of this and set.
@@ -3161,7 +3161,7 @@ telephone number has a nullFlavor, and equality cannot be evaluated.
 7.10.1  Overview
 These datatypes provide support for collections of data. See Figure 9. 
 ISO/FDIS 21090:2009(E)
-118  © ISO 2009 – All rights reserved
+118  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.10.2  QSET (continuous set)
 7.10.2.1  Description
 Abstract; specializes ANY.
@@ -3186,10 +3186,10 @@ flavorId : Set(characterstring),
 originalText : ED.TEXT
 )
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  119
-Figure 9 — Continuous set datatypes 
+ï¿½ ISO 2009 ï¿½ All rights reserved  119
+Figure 9 ï¿½ Continuous set datatypes 
 ISO/FDIS 21090:2009(E)
-120  © ISO 2009 – All rights reserved
+120  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.10.2.3  Attributes
 7.10.2.3.1  originalText : ED.TEXT: The text representation from which the QSET was encoded, if such a 
 representation is the source of the QSET.
@@ -3223,9 +3223,9 @@ noUpdateOrHistory(originalText)
 7.10.2.6.1  contains (x: T): BL: True if the QSET contains the value x.
 7.10.2.6.2  hull (x: QSET(T)): IVL(T) : The convex hull of this set with x, which is the smallest interval that is 
 a superset of this and x. See Figure 10.
-Figure 10 — Convex hull 
+Figure 10 ï¿½ Convex hull 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  121
+ï¿½ ISO 2009 ï¿½ All rights reserved  121
 NOTE  The convex hull of a  QSET  can less formally be called the "outer bound interval". Thus the  convex hull of a 
 QSET  describes the absolute beginning and end of a schedule. For some set specifications, where there is infinite 
 repetition  [e.g. a PIVL(TS)]  the convex hull has infinite bounds. The term  "schedule"  is used throughout this section in its
@@ -3278,7 +3278,7 @@ Example 80
 <!-- labor day : intersection of first week of Sept and mondays -->
 <term xsi:type='PIVL_TS'> 
 ISO/FDIS 21090:2009(E)
-122  © ISO 2009 – All rights reserved
+122  ï¿½ ISO 2009 ï¿½ All rights reserved
 <phase highClosed='false'>
 <low value='19870901'/>
 <high value='19870908'/>
@@ -3321,7 +3321,7 @@ inv "not null": isNotNull implies terms->forAll(t |
 t.isNotNull)
 inv "size": isNotNull implies terms->size >= 2
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  123
+ï¿½ ISO 2009 ï¿½ All rights reserved  123
 7.10.4  QSI (QSET intersection)
 7.10.4.1  Description
 Specializes QSET.
@@ -3360,7 +3360,7 @@ controlInformationExtension : characterstring,
 nullFlavor : NullFlavor,
 updateMode : UpdateMode, 
 ISO/FDIS 21090:2009(E)
-124  © ISO 2009 – All rights reserved
+124  ï¿½ ISO 2009 ï¿½ All rights reserved
 flavorId : Set(characterstring),
 originalText : ED.TEXT,
 minuend : QSET(T)
@@ -3379,7 +3379,7 @@ subtrahend.isNotNull)
 7.10.6.1  Description
 Specializes QSET.
 Specifies a QSET as the periodic hull between two sets as shown in Figure 11.
-Figure 11 — Periodic hull
+Figure 11 ï¿½ Periodic hull
 A periodic hull may be generated by comparing two sets that interleave. For QSET values  A  and  B  to 
 interleave, the occurrence intervals of both groups can be arranged in pairs of corresponding occurrence 
 intervals. It SHALL further hold that for all corresponding occurrence intervals a   A and b   B, a starts before b 
@@ -3396,7 +3396,7 @@ controlInformationExtension : characterstring,
 nullFlavor : NullFlavor,
 updateMode : UpdateMode, 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  125
+ï¿½ ISO 2009 ï¿½ All rights reserved  125
 flavorId : Set(characterstring),
 originalText : ED.TEXT,
 low : QSET(T)
@@ -3430,13 +3430,13 @@ terms : Set(T)
 7.10.7.3  Attributes
 7.10.7.3.1  terms : Set(T): a list of values that are in the set. The set is actually co nstructed as the union of 
 the intervals implied by the precision implicit in the definition of T. For some types of QTY, this is either trivial 
-(INT) or ambiguous (RTO) and QSS doesn‘t really make sense for these type. QSS is a useful type for TS in 
+(INT) or ambiguous (RTO) and QSS doesnï¿½t really make sense for these type. QSS is a useful type for TS in 
 particular.
 7.10.7.4  Invariants
 a nonNull QSS may only contain nonNull values;
 at least 1 value SHALL be specified. 
 ISO/FDIS 21090:2009(E)
-126  © ISO 2009 – All rights reserved
+126  ï¿½ ISO 2009 ï¿½ All rights reserved
 OCL for invariants:
 inv "not null": isNotNull implies terms->forAll(t | 
 t.isNotNull)
@@ -3479,7 +3479,7 @@ this value set 2.16.840.1.113883.1.11.10720)
 1   JB  Regular business days (Monday to Friday excluding holidays). 
 1   JE  Regular weekends (Saturday and Sunday excluding holidays).  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  127
+ï¿½ ISO 2009 ï¿½ All rights reserved  127
 In addition to the core codes described above, HL7 has also defined additional codes for the designated 
 official or unofficial holidays of source countries:
 Code System GTSAbbreviation. OID: 2.16.840.1.113883.5.1022 (Additional Holiday Codes, 
@@ -3528,7 +3528,7 @@ in this code system.
 NOTE 2  Holidays are locale-specific. Exactly which religious holidays are subsumed under JH depends on the locale 
 and other tradition. For global interoperability, using constructed QSET expressions is  safer than named holidays. 
 ISO/FDIS 21090:2009(E)
-128  © ISO 2009 – All rights reserved
+128  ï¿½ ISO 2009 ï¿½ All rights reserved
 However, some holidays that depend on moon phases (e.g. Easter, Ramadan) or ad-hoc decree cannot be easily 
 expressed in a QSET other than by using QSC.
 NOTE 3  Information processing entities might define their own set of codes to be supported by creating an appropriate 
@@ -3570,7 +3570,7 @@ width : QTY,
 any : T
 ) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  129
+ï¿½ ISO 2009 ï¿½ All rights reserved  129
 7.10.9.3  Attributes
 7.10.9.3.1  low : T: This is the low limit. If the low limit is not known, a nullFlavor may be specified.
 The low limit shall not be positive infinity.
@@ -3608,11 +3608,11 @@ def: let noSemantics : Boolean = (low.oclIsUndefined or
 low.noSemantics) and (width.oclIsUndefined or 
 width.noSemantics) and (high.oclIsUndefined or  
 ISO/FDIS 21090:2009(E)
-130  © ISO 2009 – All rights reserved
+130  ï¿½ ISO 2009 ï¿½ All rights reserved
 high.noSemantics) 
 inv "null rules": isNonNull implies (hasBounds or any_.isNotNull 
 or width.isNotNull)
-inv "co-occurence rules": isNotNull implies ((any_.isNotNull 
+inv "co-occurrence rules": isNotNull implies ((any_.isNotNull 
 or width.isNotNull) xor hasBounds)
 inv "closed attributes only if limited": 
 (not low.isNotNull implies lowClosed.oclIsUndefined) and 
@@ -3654,7 +3654,7 @@ since its type is abstract (QTY)
 A flavour that constrains IVL.
 IVL.LOW constrains IVL so that low is provided and lowClosed is true. All other properties are prohibited . 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  131
+ï¿½ ISO 2009 ï¿½ All rights reserved  131
 7.10.10.2  Invariants
 low and lowClosed SHALL be populated;
 high and highClosed SHALL be null.
@@ -3684,7 +3684,7 @@ inv "width": isNotNull implies width.isNotNull
 inv "low": low.oclIsUndefined and lowClosed.oclIsUndefined
 inv "high": high.oclIsUndefined and highClosed.oclIsUndefined 
 ISO/FDIS 21090:2009(E)
-132  © ISO 2009 – All rights reserved
+132  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.10.13  PIVL (PeriodicInterval)
 7.10.13.1  Description
 Specializes QSET.
@@ -3722,7 +3722,7 @@ conveys the idea to humans, i.e. every 10 min (period) or twice a day (frequency
 calendar (e.g. to distinguish every 30 d from "the 5th of every month".) A non-aligned PIVL recurs 
 independently from the calendar. An aligned PIVL is synchronized with the calendar.  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  133
+ï¿½ ISO 2009 ï¿½ All rights reserved  133
 If populated, the value of this attribute  shall  be taken from the HL7 CalendarCycle code system. The current 
 values are:
 CalendarCycle Enumeration. OID: 2.16.840.1.113883.5.9
@@ -3762,7 +3762,7 @@ noUpdateOrHistory(phase) and noUpdateOrHistory(period)
 inv "phase width": isNotNull implies 
 ((phase.isNotNull implies phase.width < x.period) or  
 ISO/FDIS 21090:2009(E)
-134  © ISO 2009 – All rights reserved
+134  ï¿½ ISO 2009 ï¿½ All rights reserved
 (frequency.isNotNull implies phase.width < 
 (frequency.denominator / frequency.numerator)))
 7.10.13.5  Examples
@@ -3807,12 +3807,12 @@ Twice a day (every 12 h) for 10 min.
 <low value='198709'/>
 <high value='198710'/>
 </phase>
-<period value='1' unit='a'/> <!—- a means year in UCUM -->
+<period value='1' unit='a'/> <!ï¿½- a means year in UCUM -->
 </example>
 This example is slightly more complex and shows the month of September that recurs every year (In 1987 this 
 form is irrelevant since the periodic interval recurs  every year past and future.) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  135
+ï¿½ ISO 2009 ï¿½ All rights reserved  135
 7.10.13.5.4  Every other Saturday. 
 <example xsi:type='PIVL_TS' alignment='DW'>
 <phase highClosed='true' lowClosed='false'>
@@ -3857,7 +3857,7 @@ the event is not entirely determined by time.
 If these criteria are not met, the relationship of the event and its time SHALL be communicated using structur es 
 outside the datatypes defined in this International Standard. 
 ISO/FDIS 21090:2009(E)
-136  © ISO 2009 – All rights reserved
+136  ï¿½ ISO 2009 ï¿½ All rights reserved
 If populated, the value of this attribute  shall  be taken from the HL7 TimingEvent code  system. The current 
 values are:
 TimingEvent Enumeration. OID: 2.16.840.1.113883.5.139
@@ -3898,7 +3898,7 @@ inv "required attributes": isNotNull implies
 inv "no updateMode or History on EIVL attributes": 
 noUpdateOrHistory(offset) 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  137
+ï¿½ ISO 2009 ï¿½ All rights reserved  137
 7.10.14.5  Examples
 <example xsi:type='EIVL_TS' event='CM'>
 <offset>
@@ -3935,9 +3935,9 @@ These datatypes  provide support for uncertain values.  The support provided her
 provided for uncertainty on QTY, provides support for quantitative uncertainty, not with the medical kinds of 
 uncertainty encountered in clinical practice such as ?likely to be x?, or a differential diagnoses. See Figure 12. 
 ISO/FDIS 21090:2009(E)
-138  © ISO 2009 – All rights reserved
-Figure 12 — Uncertainty datatypes
-7.11.1  UVP (Uncertain value – probabilistic)
+138  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure 12 ï¿½ Uncertainty datatypes
+7.11.1  UVP (Uncertain value ï¿½ probabilistic)
 7.11.1.1  Description
 Specializes ANY.
 Parameter: T : ANY.
@@ -3966,7 +3966,7 @@ or 1, which is quite certain, where a simple T value could be a very vague guess
 7.11.1.4  Equality
 Two nonNull UVP values are equal if their probability and value are equal. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  139
+ï¿½ ISO 2009 ï¿½ All rights reserved  139
 7.11.1.5  Invariants
 a value shall be provided;
 a probability shall be provided;
@@ -4005,7 +4005,7 @@ Two nonNull NPPDs are equal if they contain the same elements.
 NOTE  The determination of element content is based on the same semantic equals as defined in  this International 
 Standard, so it is possible that a NPPD(CD) can be equal to NPPD(CS), for instance. 
 ISO/FDIS 21090:2009(E)
-140  © ISO 2009 – All rights reserved
+140  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.11.2.5  Invariants
 at least one value SHALL be provided.
 OCL for Invariants:
@@ -4043,8 +4043,8 @@ This subclause  documents the SD.TEXT and SD.TITLE datatypes. Both SD.TEXT and S
 document-like structures. In addition to text, the content may contain multi -media content, lists, tables, 
 formatting, presentation and referencing information. See Figure 13. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  141
-Figure 13 — Structured text model
+ï¿½ ISO 2009 ï¿½ All rights reserved  141
+Figure 13 ï¿½ Structured text model
 These structures are not intended to be complete documents. They are building blocks that are intended to be 
 integrated into a larger context with other classes that use these document formats and ot her datatypes to 
 build a complete document that is useful for clinical or other healthcare use. However these document formats 
@@ -4056,7 +4056,7 @@ Any Information Processing Entity claiming direct or  indirect conformance to th
 supports the use of the document formats defined in  this International Standard  shall  document the scope of 
 the context and clearly define how references within the document context are resolved.  
 ISO/FDIS 21090:2009(E)
-142  © ISO 2009 – All rights reserved
+142  ï¿½ ISO 2009 ï¿½ All rights reserved
 There is special support in this subclause for relating content changes to previous versions of the content. If it 
 is supported, the conformance statement  shall  make it clear how the applicable version information is made 
 available and integrated with the change control content.
@@ -4114,10 +4114,10 @@ There was extensive damage to the outer ears:
 The patient should apply a cream to the outer ears until
 they are healed. <content revised="insert">The patient 
 should wear a woollen balaclava in the future while ironing 
-his shirts to prevent a  re-occurence of the accident<footnote>This 
+his shirts to prevent a  re-occurrence of the accident<footnote>This 
 has been proven to offer the best protection against a repeat  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  143
+ï¿½ ISO 2009 ï¿½ All rights reserved  143
 injury. See <linkHtml href="http://www.wikipedia.org/wiki/burnt_ears">
 the wikipedia article about burnt ears</linkHtml> for further 
 information.</footnote>.</content>
@@ -4135,13 +4135,13 @@ NOTE 5  There SHALL be some other item with the ID "i1" in the scope of the docu
 kind of class that unambiguously provides some multimedia content.
 NOTE 6  While the actual presentation process is outside  the Scope  of  this International Standard, one possible 
 presentation of the document would take the form shown in Figure 14.
-Figure 14 — Presentation form
+Figure 14 ï¿½ Presentation form
 7.12.3  StrucDoc.Base
 7.12.3.1  Description
 Abstract.
 Defines basic identification and styling attributes shared by many structured document elements. 
 ISO/FDIS 21090:2009(E)
-144  © ISO 2009 – All rights reserved
+144  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.3.2  Attributes
 7.12.3.2.1  ID : String: Unique Identity of this element within a document.
 7.12.3.2.2  language : Code:  Language of the element. See  7.4.2.3.7  for more information. Within a 
@@ -4179,14 +4179,14 @@ combination of upper and lower case letters or numbers).
 Definition
 A hard line break, like in XHTML. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  145
+ï¿½ ISO 2009 ï¿½ All rights reserved  145
 7.12.5  StrucDoc.Sup
 7.12.5.1  Description
 Indicates that the value text should be rendered as superscript when presented. i.e. x
 2
 .
 7.12.5.2  Attributes
-7.12.5.2.1  text : String «XMLText»: The text that is to be represented as superscript.
+7.12.5.2.1  text : String ï¿½XMLTextï¿½: The text that is to be represented as superscript.
 Refer to Clause A.2 for the meaning of the XMLText stereotype.
 7.12.5.3  Invariants
 text shall not be empty.
@@ -4198,7 +4198,7 @@ Indicates that the value text should be rendered as subscript when presented. i.
 2
 O.
 7.12.6.2  Attributes
-7.12.6.2.1  text : String «XMLText»: The text that is to be represented as subscript.
+7.12.6.2.1  text : String ï¿½XMLTextï¿½: The text that is to be represented as subscript.
 Refer to Clause A.2 for the meaning of the XMLText stereotype.
 7.12.6.3  Invariants
 text shall not be empty.
@@ -4216,12 +4216,12 @@ Multimedia that is integral to a document  shall  be referenced by the renderMul
 that is simply referenced by the document and not an integral part of the document can b e  provided by a link. 
 There is no requirement that a receiver render an internal or external link, or the target of an external link. 
 ISO/FDIS 21090:2009(E)
-146  © ISO 2009 – All rights reserved
+146  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.7.2  Attributes
 7.12.7.2.1  href : String:  The URL that identifiers the target documen/object of the link. The target is an XML 
 identifier either internal or external to the documen t.The context of use SHALL clearly define the scope of 
-resolution of the link. Following the conventions of HTML, an internal link  –  usually a link within the scope of 
-the context of the document – is prefaced with the pound sign.
+resolution of the link. Following the conventions of HTML, an internal link  ï¿½  usually a link within the scope of 
+the context of the document ï¿½ is prefaced with the pound sign.
 7.12.7.2.2  rel : Set(StrucDoc.LinkType):  This attribute describes the relationship from the current 
 document to the anchor specified by the href attribute. The value of this attribute is a space -separated list of 
 link types.
@@ -4272,7 +4272,7 @@ example, to label the bookmark. Several bookmarks may be
 defined in each document
 This list is taken from the HTML specification. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  147
+ï¿½ ISO 2009 ï¿½ All rights reserved  147
 7.12.7.2.3  rev : Set(StrucDoc.LinkType): This attribute is used to describe a reverse link from the anchor 
 specified by the href attribute to the current document. The value of this attribute is a space-separated list of 
 link types. See 7.12.7.2.2 for valid values.
@@ -4284,7 +4284,7 @@ frequently display the title as a "tool tip" (a short message that appears when 
 Audio user agents  can  speak the title information in a similar context. For example, setting the attribute on a link allows 
 user agents (visual and non-visual) to tell users about the nature of the linked resource:
 7.12.7.3  Associations
-7.12.7.3.1  parts: CMFootnotes [0..* ordered] «Anonymous»: The content (text and footnotes) that 
+7.12.7.3.1  parts: CMFootnotes [0..* ordered] ï¿½Anonymousï¿½: The content (text and footnotes) that 
 represent the text with which the activatable link is associated.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.7.4  Invariants
@@ -4310,10 +4310,10 @@ There is an optional caption and  it  contains  a required referencedObject attr
 values of which shall  equal the XML ID value(s) of ObservationMedia or RegionOfInterest CDA entries within 
 the document context. 
 ISO/FDIS 21090:2009(E)
-148  © ISO 2009 – All rights reserved
+148  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.8.2  Attributes
 7.12.8.2.1  caption : StrucDoc.Caption: An optional caption for the multimedia content.
-7.12.8.2.2  referencedObject : Set(String) «XMLIDREF» : The references are to other identified objects 
+7.12.8.2.2  referencedObject : Set(String) ï¿½XMLIDREFï¿½ : The references are to other identified objects 
 within the document context.
 Refer to Clause A.2 for the meaning of the XMLIDREF stereotype.
 7.12.8.3  Invariants
@@ -4327,7 +4327,7 @@ A reference to an existing footnote within the document context. This may be use
 being used multiple times. The value of the footnoteRef.IDREF SHALL be an footnote.ID value in the same 
 document.
 7.12.9.2  Attributes
-7.12.9.2.1  IDREF: String «XMLIDREF»: The identity of the referenced footnote.
+7.12.9.2.1  IDREF: String ï¿½XMLIDREFï¿½: The identity of the referenced footnote.
 Refer to Clause A.2 for the meaning of the XMLIDREF stereotype.
 7.12.9.3  Invariants
 a reference shall be provided.
@@ -4343,9 +4343,9 @@ The exact rendition is at the discretion of the recipient, and might include a m
 with a hyperlink to the footnoted text, a simple demarcation [such as "This is the text (this is the footnote)  that 
 is being footnoted"], etc. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  149
+ï¿½ ISO 2009 ï¿½ All rights reserved  149
 7.12.10.2  Associations
-7.12.10.2.1  parts : StrucDoc.CMGeneral[0..* ordered] «Anonymous»: The contents of the footnote.
+7.12.10.2.1  parts : StrucDoc.CMGeneral[0..* ordered] ï¿½Anonymousï¿½: The contents of the footnote.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.10.3  Invariants
 the footnote SHALL contain some content;
@@ -4360,7 +4360,7 @@ Specializes StrucDoc.Base.
 Same functionality as a normal footnote, but the content model in the parts is restricted to the kind of content 
 that can appear in a title.
 7.12.11.2  Associations
-7.12.11.2.1  parts : StrucDoc.CMTitle[0..* ordered] «Anonymous»: The contents of the footnote.
+7.12.11.2.1  parts : StrucDoc.CMTitle[0..* ordered] ï¿½Anonymousï¿½: The contents of the footnote.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.11.3  Invariants
 the footnote shall contain some content.
@@ -4377,7 +4377,7 @@ XML ID attribute, SHALL be unique within the document context. The originalText 
 in this International Standard may make explicit reference to the content using the identifier, thereby indicating 
 the original text associated with the datatype. 
 ISO/FDIS 21090:2009(E)
-150  © ISO 2009 – All rights reserved
+150  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.12.2  Attributes
 7.12.12.2.1  revised: Revised: can be used to indicate narrative changes from the last   version of a CDA 
 document.  The attribute is limited to a single generation, in that it only reflects the changes from the 
@@ -4390,7 +4390,7 @@ StrucDoc.Revised Enumeration
 1  Insert  insert  This content was inserted in this revision of the document
 1  delete  delete  This content was deleted in this revision of the document
 7.12.12.3  Associations
-7.12.12.3.1  parts : StrucDoc.CMContent[0..* ordered] «Anonymous»: The contents of the Content.
+7.12.12.3.1  parts : StrucDoc.CMContent[0..* ordered] ï¿½Anonymousï¿½: The contents of the Content.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.12.4  Invariants
 the content shall contain some content.
@@ -4405,14 +4405,14 @@ and may contain links and footnotes.
 If a caption is defined, it  shall  be rendered, and  shall  be presented before any the element with which it is 
 associated.
 7.12.13.2  Associations
-7.12.13.2.1  parts : StrucDoc.CMInline[0..* ordered] «Anonymous»: The contents of the Content.
+7.12.13.2.1  parts : StrucDoc.CMInline[0..* ordered] ï¿½Anonymousï¿½: The contents of the Content.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.13.3  Invariants
 the caption shall contain some content.
 OCL for Invariants:
 inv "Some content required": parts->notEmpty 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  151
+ï¿½ ISO 2009 ï¿½ All rights reserved  151
 7.12.14 StrucDoc.Captioned
 7.12.14.1  Description
 Abstract. Specializes StrucDoc.Base.
@@ -4428,7 +4428,7 @@ Specializes StrucDoc.Captioned.
 Similar to the HTML paragraph, which allows blocks of narrative to be broken up into logically consistent 
 structures
 7.12.15.2  Associations
-7.12.15.2.1  parts: StrucDoc.CMInline[0..* ordered] «Anonymous»: The contents of the Content.
+7.12.15.2.1  parts: StrucDoc.CMInline[0..* ordered] ï¿½Anonymousï¿½: The contents of the Content.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.15.3  Invariants
 the caption shall contain some content.
@@ -4436,20 +4436,20 @@ OCL for Invariants:
 inv "Some content required": parts->notEmpty
 7.12.16 StrucDoc.CMFootnotes
 7.12.16.1  Description
-Stereotype: «Choice»
+Stereotype: ï¿½Choiceï¿½
 Content model that allows text and footnotes. The choice stereotype denotes that exactly one of the attributes 
 shall have a value. All the others shall be null.
 7.12.16.2  Attributes
-7.12.16.2.1  Text : String «XMLText»: Plain text.
+7.12.16.2.1  Text : String ï¿½XMLTextï¿½: Plain text.
 Refer to Clause A.2 for the meaning of the XMLText stereotype. 
 ISO/FDIS 21090:2009(E)
-152  © ISO 2009 – All rights reserved
+152  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.16.2.2  footnote : StrucDoc.Footnote: A footnote.
 7.12.16.2.3  footnoteRef : StrucDoc.FootnoteRef: A reference to a footnote.
 7.12.17 StrucDoc.CMInline
 7.12.17.1  Description
 Specializes StrucDoc.CMFootnotes.
-Stereotype: «Choice».
+Stereotype: ï¿½Choiceï¿½.
 Content model that allows text, footnotes, links, and superscript and subscript text. The choice stereotype 
 denotes that exactly one of the attributes (including inherited attributes) shall have a value. All the others SHALL 
 be null.
@@ -4474,19 +4474,19 @@ Content model that allows text, footnotes, links, superscript and subscript text
 nested Content items, paragraphs, lists and tables. The choice stereotype denotes that exactly one of the 
 attributes (including inherited attributes) shall have a value. All the others shall be null. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  153
+ï¿½ ISO 2009 ï¿½ All rights reserved  153
 7.12.19.2  Attributes
 7.12.19.2.1  paragraph : StrucDoc.Paragaph: A paragraph of text and other CMContent content.
 7.12.19.2.2  list : StrucDoc.List: List based content.
 7.12.19.2.3  table : StrucDoc.Table: Table.
 7.12.20 StrucDoc.CMTitle
 7.12.20.1  Description
-Stereotype: «Choice».
+Stereotype: ï¿½Choiceï¿½.
 Content model that allows text and footnotes, hard line breaks, links, superscript and subscript text and nested 
 content sections. Multimedia content is not allowed. The choice stereotype denotes that exactly one of the 
 attributes (including inherited attributes) shall have a value. All the others shall be null.
 7.12.20.2  Attributes
-7.12.20.2.1  Text : String «XMLText»: Plain text.
+7.12.20.2.1  Text : String ï¿½XMLTextï¿½: Plain text.
 Refer to Clause A.2 for the meaning of the XMLText stereotype.
 7.12.20.2.2  footnote : StrucDoc.Footnote: A footnote.
 7.12.20.2.3  footnoteRef : StrucDoc.FootnoteRef: A reference to a footnote.
@@ -4501,7 +4501,7 @@ Specializes StrucDoc.Captioned.
 Similar to an HTML list. There is an optional caption, and one or more items. The list  shall  be ordered or not 
 ordered; this shall always be known. 
 ISO/FDIS 21090:2009(E)
-154  © ISO 2009 – All rights reserved
+154  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.21.2  Attributes
 7.12.21.2.1  listType : StrucDoc.ListType: Whether the list is ordered or unordered.
 If populated, the value of this attribute SHALL be taken from one of these values: 
@@ -4522,7 +4522,7 @@ inv "SHALL have at least one item": item->notEmpty
 Specializes StrucDoc.Captioned.
 An item in a list.
 7.12.22.2  Associations
-7.12.22.2.1  parts : StrucDoc.CMGeneral[0..* ordered] «Anonymous»: The contents of the footnote.
+7.12.22.2.1  parts : StrucDoc.CMGeneral[0..* ordered] ï¿½Anonymousï¿½: The contents of the footnote.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.23 StrucDoc.TableItem
 7.12.23.1  Description
@@ -4531,7 +4531,7 @@ An abstract container for table items that may specify table layout details such
 Any attributes applied to the table item also apply to any other nested table items unless specifically 
 overridden. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  155
+ï¿½ ISO 2009 ï¿½ All rights reserved  155
 7.12.23.2  Attributes
 7.12.23.2.1  align : StrucDoc.Align: The text alignment that applies within the cell.
 If populated, the value of this attribute shall be taken from one of these values: 
@@ -4557,9 +4557,9 @@ align=char aligns a cell's contents on the
 character given in the char attribute. 
 The default value is left.
 7.12.23.2.2  char : String:  The character on which to align cells if align is set to char. The default value for the 
-CHAR attribute is the decimal point of the current language – a fullstop in English.
+CHAR attribute is the decimal point of the current language ï¿½ a fullstop in English.
 7.12.23.2.3  charoff : StrucDoc.Length:  When present, this attribute specifies the offset to the first 
-occurrence of the alignment character on each line. If  a line doesn‘t include the alignment character, it should 
+occurrence of the alignment character on each line. If  a line doesnï¿½t include the alignment character, it should 
 be horizontally shifted to end at the alignment position. Information Processing Entities  shall not be required to 
 support this attribute.
 7.12.23.2.4  valign : StrucDoc.VAlign: The vertical alignment that applies within the cell.
@@ -4583,21 +4583,21 @@ This constraint does not apply to subsequent
 text lines in these cells
 The default value is top. 
 ISO/FDIS 21090:2009(E)
-156  © ISO 2009 – All rights reserved
+156  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.24 StrucDoc.TCell
 7.12.24.1  Description
 Specializes StrucDoc.TableItem.
-A cell in a table – may be either a normal cell or a header cell.
+A cell in a table ï¿½ may be either a normal cell or a header cell.
 7.12.24.2  Attributes
-7.12.24.2.1  abbr : String:  This attribute should be used to provide an abbreviated form of the cell‘s content, 
-and may be rendered by user agents when appropriate  in place of the cell‘s content. Abbreviated names 
+7.12.24.2.1  abbr : String:  This attribute should be used to provide an abbreviated form of the cellï¿½s content, 
+and may be rendered by user agents when appropriate  in place of the cellï¿½s content. Abbreviated names 
 should be short since user agents may render them repeatedly.
 7.12.24.2.2  axis : String:  This attribute may be used to place a cell into conceptual categories that can be 
 considered to form axes in an n-dimensional space. User agents may give users access to these categories 
 (e.g. the user may query the user agent for all cells that belong to certain categories, the user agent may 
 present a table in the form of a table of contents, etc.). Please consult the HTML specification for more 
 information. The value of this attribute is a comma-separated list of category names
-7.12.24.2.3  headers : Set(String)  «XMLIDREF»:  This attribute specifies the list of header cells that provide 
+7.12.24.2.3  headers : Set(String)  ï¿½XMLIDREFï¿½:  This attribute specifies the list of header cells that provide 
 header information for the current data cell. The value  of this attribute is a space-separated list of ID 
 references to header cells; those cells SHALL be named by setting their id attribute. Authors generally use the 
 headers attribute to help non-visual user agents render header information about data cells (e.g. header 
@@ -4624,11 +4624,11 @@ The header cell provides header information for the
 rest of the column group that contains it.
 The default value is Col 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  157
+ï¿½ ISO 2009 ï¿½ All rights reserved  157
 7.12.24.2.5  rowspan : Integer: The number of rows that this cell spans. Default value is 1.
 7.12.24.2.6  colspan : Integer: The number of columns that this cell spans. Default value is 1.
 7.12.24.3  Associations
-7.12.24.3.1  parts : StrucDoc.CMGeneral[0..* ordered] «Anonymous»: The contents of the footnote.
+7.12.24.3.1  parts : StrucDoc.CMGeneral[0..* ordered] ï¿½Anonymousï¿½: The contents of the footnote.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.24.4  Invariants
 tables are not allowed to nest directly.
@@ -4639,7 +4639,7 @@ inv "no nested tables": parts.forAll(t | t.table.oclIsUndefined)
 Specializes StrucDoc.TableItem.
 A Row in a table.
 7.12.25.2  Associations
-7.12.25.2.1  parts : Sequence(StrucDoc.TRowPart) «Anonymous»: The contents of the row.
+7.12.25.2.1  parts : Sequence(StrucDoc.TRowPart) ï¿½Anonymousï¿½: The contents of the row.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.25.3  Invariants
 at least one row part shall be provided.
@@ -4647,11 +4647,11 @@ OCL for Invariants:
 inv "SHALL have at least one item": parts->notEmpty
 7.12.26 StrucDoc.TRowPart
 7.12.26.1  Description
-Stereotype: «Choice».
+Stereotype: ï¿½Choiceï¿½.
 Content model that allows cells (td) or header cells (th). The choice stereotype denotes that exactly one of the 
 attributes shall have a value. The other shall be null. 
 ISO/FDIS 21090:2009(E)
-158  © ISO 2009 – All rights reserved
+158  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.26.2  Attributes
 7.12.26.2.1  td : StrucDoc.TCell: A cell in a table.
 7.12.26.2.2  th : StrucDoc.TCell: A header cell in a table.
@@ -4659,7 +4659,7 @@ NOTE  Header cells are sometimes rendered differently, such as using bold, and m
 7.12.27 StrucDoc.TRowGroup
 7.12.27.1  Description
 Specializes StrucDoc.TableItem.
-A grop of rows – may be used to associate consistent styling across a group of rows.
+A grop of rows ï¿½ may be used to associate consistent styling across a group of rows.
 7.12.27.2  Attributes
 7.12.27.2.1  tr : Sequence(StrucDoc.Trow): The rows in the group.
 7.12.27.3  Invariants
@@ -4678,7 +4678,7 @@ Abstract ancestor for common properties of col and colgroup.
 Specializes StrucDoc.ColItem.
 Applies a consistent style to every cell in a column. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  159
+ï¿½ ISO 2009 ï¿½ All rights reserved  159
 7.12.30 StrucDoc.ColGroup
 7.12.30.1  Description
 Specializes T+.
@@ -4696,7 +4696,7 @@ A table. May have a caption, and  shall  have at least one row. A table may have
 rows. All rows are defined in groups. A table may also have col and colgroup elements to define styles for 
 columns.
 7.12.31.2  Attributes
-7.12.31.2.1  summary : String : This attribute provides a summary of the table‘s purpose and structure for 
+7.12.31.2.1  summary : String : This attribute provides a summary of the tableï¿½s purpose and structure for 
 user agents rendering to non-visual media such as speech and Braille. This is different from the caption in that 
 it SHALL be plain text, and it is usually longer.
 7.12.31.2.2  width  : StrucDoc.Length : This attribute specifies the desired width of the entire table and is 
@@ -4706,7 +4706,7 @@ The rules described in the html specification for table width calculations apply
 7.12.31.2.4  frame  : StrucDoc.Frame : This attribute specifies which sides of the frame surrounding a table 
 will be visible (i.e. which borders are visible). 
 ISO/FDIS 21090:2009(E)
-160  © ISO 2009 – All rights reserved
+160  ï¿½ ISO 2009 ï¿½ All rights reserved
 If populated, the value of this attribute shall be taken from one of these values:
 StrucDoc.Frame Enumeration
 1  void  void  No sides.
@@ -4743,7 +4743,7 @@ left and right margins should be equally separated from the content based on a p
 horizontal space.
 NOTE  Consult the HTML specification for further information. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  161
+ï¿½ ISO 2009 ï¿½ All rights reserved  161
 7.12.31.3  Associations
 7.12.31.3.1  thead : TRowGroup: The optional group of rows that defines the header for the table.
 7.12.31.3.2  tfoot : TRowGroup: The optional group of rows that defines the footer for the table.
@@ -4761,8 +4761,8 @@ The structured text is based on an XHTML-like arrangement that ensures the text 
 semantics, and provides a common base line for implementation in healthcare.
 The type SD.TEXT is also known as StrucDoc.Text (for legacy reasons).
 7.12.32.2  Associations
-7.12.32.2.1  base : StrucDoc.Base[1..1] «Anonymous»: basic identification and styling attributes.
-7.12.32.2.2  parts : StrucDoc.CMGeneral[0..* ordered] «Anonymous»: The contents of the structured text.
+7.12.32.2.1  base : StrucDoc.Base[1..1] ï¿½Anonymousï¿½: basic identification and styling attributes.
+7.12.32.2.2  parts : StrucDoc.CMGeneral[0..* ordered] ï¿½Anonymousï¿½: The contents of the structured text.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.32.3  Equality
 Two SD.TEXT values are equal if they are not nullFlavored and have content (language, styleCode, and
@@ -4773,7 +4773,7 @@ OCL for invariants:
 inv "value if not nullFlavored":
 isNotNull implies parts->count > 0
 ISO/FDIS 21090:2009(E)
-162  © ISO 2009 – All rights reserved
+162  ï¿½ ISO 2009 ï¿½ All rights reserved
 7.12.32.5  Operations
 7.12.32.5.1  asED() : ED: The SD.TEXT as an ED.  The parts become the value of the ED.xml attribute 
 following the XML representation rules laid out in  Annex A. The language is populated from base.language, 
@@ -4787,8 +4787,8 @@ The structured text is based on the  structured text definition, but only a narr
 consistent with a title rather than a general document.
 The type SD.TITLE is also known as StrucDoc.Title (for legacy reasons).
 7.12.33.2  Associations
-7.12.33.2.1  base : StrucDoc.Base[1..1] «Anonymous»: basic identification and styling attributes.
-7.12.33.2.2  parts : StrucDoc.CMTitle[0..* ordered] «Anonymous»: The contents of the title.
+7.12.33.2.1  base : StrucDoc.Base[1..1] ï¿½Anonymousï¿½: basic identification and styling attributes.
+7.12.33.2.2  parts : StrucDoc.CMTitle[0..* ordered] ï¿½Anonymousï¿½: The contents of the title.
 Refer to Clause A.2 for the meaning of the Anonymous stereotype.
 7.12.33.3  Equality
 Two SD.TITLE values are equal if they are not nullFlavored and have  content (language, styleCode, and 
@@ -4804,7 +4804,7 @@ following the XML representation rules laid out in  Annex A. The language is pop
 the mediaType is is populated from base.language, the mediaType is "text/x -hl7-title+xml", the charset is 
 determined the context in which the SD.TITLE occurs, and the other properties of the ED result are null. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  163
+ï¿½ ISO 2009 ï¿½ All rights reserved  163
 Annex A
 (normative)
 XML representation
@@ -4841,7 +4841,7 @@ this is the equivalent of the schema type anyType.
 UML  attributes  with a stereotype of XMLID are represented as an XML ID atttribute. The name of the 
 attribute is the same is the UML attribute.  
 ISO/FDIS 21090:2009(E)
-164  © ISO 2009 – All rights reserved
+164  ï¿½ ISO 2009 ï¿½ All rights reserved
 UML attributes  with a stereotype of XMLIDREF are represented as an XML IDREF atttribute. The name 
 of the attribute is the same is the UML attribute. If the type of the UML attribute is a UML collection, then 
 the attribute will be a space delimited list of XML IDREF tokens.
@@ -4877,7 +4877,7 @@ The schema type name of a type is the same as its UML name, except for bound par
 For bound parameterized classes (where the class has type parameters) then the actual param eters 
 bound to the class are added to the type using _ as a separator. i.e. DSET(AD) becomes DSET_AD. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  165
+ï¿½ ISO 2009 ï¿½ All rights reserved  165
 If an attribute is contained by reference, then this is represented using XML ID/IDREF attributes. The 
 reference SHALL be contained within same document. The attribute itself may make other constraints about 
 where the target of the reference might be found. The reference may be a forward reference.
@@ -4913,20 +4913,20 @@ the instance is not conformant to this International Standard.
 It is the responsibility of any importing schema to assign a namespace to the types declared in this schema. 
 Any elements assigned types defined in this schema should not be declared as nillable. 
 ISO/FDIS 21090:2009(E)
-166  © ISO 2009 – All rights reserved
+166  ï¿½ ISO 2009 ï¿½ All rights reserved
 Annex B
 (normative)
 UML support types
 B.1  Introduction
 This  annex  declares some UML types that are needed to support the UML type declarations for the UML 
 types above. See Figure B.1.
-Figure B.1 — UML support datatypes
+Figure B.1 ï¿½ UML support datatypes
 B.2  UML datatypes
 B.2.1  Octet
 Represents a number that can take values from 0-255 (also sometimes known as a byte). This is defined to 
 allow a formal UML definition of binary. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  167
+ï¿½ ISO 2009 ï¿½ All rights reserved  167
 B.2.2  Binary
 Represents a sequence of Octets. This type is specifically created to allow UML declarations to refer to binary 
 content (also sometimes known as streams).
@@ -4964,7 +4964,7 @@ before the decimal point are consistently regarded significant here. Elsewhere, 
 zeroes are significant. This deviation from the common custom is warranted for the purpose of unambiguous 
 communication. 
 ISO/FDIS 21090:2009(E)
-168  © ISO 2009 – All rights reserved
+168  ï¿½ ISO 2009 ï¿½ All rights reserved
 Examples for the Precision of Real Number Literals.
 Literal  Number of significant digits
 2000  4
@@ -4996,7 +4996,7 @@ etc. However, since the precision in the digit string is granular to 0.5 in the 
 uncertainty may be anywhere between these "grid lines", 0.123   0.005 would also be an adequate 
 representation for the value between 0.118 and 0.128. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  169
+ï¿½ ISO 2009 ï¿½ All rights reserved  169
 Annex C
 (informative)
 RM-ODP viewpoint mappings
@@ -5010,7 +5010,7 @@ activities of the specified system within the organization of which it is a part
 the  information viewpoint, which is concerned with the kinds of information handled by the system and 
 constraints on the use and interpretation of that information;
 the computational viewpoint, which is concerned with the functional decomposition of the system into a 
-set of objects that interact at interfaces – enabling system distribution;
+set of objects that interact at interfaces ï¿½ enabling system distribution;
 the  engineering viewpoint, which is concerned with the infrastructure required to support system 
 distribution;
 the  technology viewpoint, which is concerned with the choice of technology to support system 
@@ -5028,7 +5028,7 @@ This International Standard  allows for tools to take the UML specifications and
 specifications relate to the technology and engineering viewpoints and their interface with the computational 
 viewpoint. 
 ISO/FDIS 21090:2009(E)
-170  © ISO 2009 – All rights reserved
+170  ï¿½ ISO 2009 ï¿½ All rights reserved
 Annex D
 (informative)
 HL7 V3 Abstract Data Types mapping
@@ -5040,39 +5040,39 @@ compatible changes from R1 of the HL7 V3 datatypes. This issue is further discus
 Statement in the HL7 V3 Specification.
 This International Standard  is an implementation of the HL7 V3 Abstract Data Types (R2). This UML diagram 
 (Figure D.1) summarizes the types defined in the HL7 V3 Abstract Data Types Specification
-Figure D.1 — Abstract data types summary
+Figure D.1 ï¿½ Abstract data types summary
 NOTE 2  In this diagram, the HL7 Abstract Data Types are defined as interfaces. There is a custom stereotype used 
 called ?mixin?. A mixin interface acts like a parameterized interface, but rather than expressing properties of the type of the 
 parameter, the interface itself extends the interface that it takes as a parameter. This is a technique that is not supported 
 in many implementation technologies, and is also not directly supported in UML.  
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  171
+ï¿½ ISO 2009 ï¿½ All rights reserved  171
 The following UML diagrams (Figures D.2 to D.11)  describe how the ISO datatype classes implement the HL7 
 V3 Abstract Data Types.
-Figure D.2 — Basic type mappings
-Figure D.3 — Collection type mappings 
+Figure D.2 ï¿½ Basic type mappings
+Figure D.3 ï¿½ Collection type mappings 
 ISO/FDIS 21090:2009(E)
-172  © ISO 2009 – All rights reserved
-Figure D.4 — Text type mappings
-Figure D.5 — Terminology type mappings 
+172  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure D.4 ï¿½ Text type mappings
+Figure D.5 ï¿½ Terminology type mappings 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  173
-Figure D.6 — Identification and location type mappings
-Figure D.7 — Name and address type mappings 
+ï¿½ ISO 2009 ï¿½ All rights reserved  173
+Figure D.6 ï¿½ Identification and location type mappings
+Figure D.7 ï¿½ Name and address type mappings 
 ISO/FDIS 21090:2009(E)
-174  © ISO 2009 – All rights reserved
-Figure D.8 — Basic quantity type mappings
+174  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure D.8 ï¿½ Basic quantity type mappings
 NOTE  The QTY attribute expression comes from the EXPR<T> type, the attributes uncertainty and uncertaintyType 
 come from the PPD<T> type, and the attribute uncertainRange comes from the URG<T> type. 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  175
-Figure D.9 — Quantity type mappings 
+ï¿½ ISO 2009 ï¿½ All rights reserved  175
+Figure D.9 ï¿½ Quantity type mappings 
 ISO/FDIS 21090:2009(E)
-176  © ISO 2009 – All rights reserved
-Figure D.10 — Quantity set type mappings
-Figure D.11 — Uncertainty set type mappings 
+176  ï¿½ ISO 2009 ï¿½ All rights reserved
+Figure D.10 ï¿½ Quantity set type mappings
+Figure D.11 ï¿½ Uncertainty set type mappings 
 ISO/FDIS 21090:2009(E)
-© ISO 2009 – All rights reserved  177
+ï¿½ ISO 2009 ï¿½ All rights reserved  177
 Annex E
 (informative)
 Schema for XML representation
@@ -5081,13 +5081,13 @@ be rewritten accordingly). For the period of the FDIS, the schema can be found a
 http://svn.hl7.nscee.edu/svn/hl7v3/hl7v3/trunk/dt/iso/iso-21090-datatypes.xsd 
 (and http://svn.hl7.nscee.edu/svn/hl7v3/hl7v3/trunk/dt/iso/iso-21090-datatypes-tester.xsd) 
 ISO/FDIS 21090:2009(E)
-178  © ISO 2009 – All rights reserved
+178  ï¿½ ISO 2009 ï¿½ All rights reserved
 Bibliography
-[1]  ISO 3166-1,  Codes for the representation of names of countries and their subdivisions —  Part 1: 
+[1]  ISO 3166-1,  Codes for the representation of names of countries and their subdivisions ï¿½  Part 1: 
 Country codes
-[2]  ISO/IEC 11179 (all parts), Information technology — Metadata registries (MDR)
-[3]  ISO/IEC 10646-1:2000,  Information technology —  Universal Multiple-Octet Coded Character Set 
-(UCS) — Part 1: Architecture and Basic Multilingual Plane
-[4]  ISO 13606 (all parts), Health informatics — Electronic health record communication
-[5]  IETF RFC 2978 — IANA Charset Registration Procedures
-[6]  OASIS CIQ — http://www.oasis-open.org/committees/ciq
+[2]  ISO/IEC 11179 (all parts), Information technology ï¿½ Metadata registries (MDR)
+[3]  ISO/IEC 10646-1:2000,  Information technology ï¿½  Universal Multiple-Octet Coded Character Set 
+(UCS) ï¿½ Part 1: Architecture and Basic Multilingual Plane
+[4]  ISO 13606 (all parts), Health informatics ï¿½ Electronic health record communication
+[5]  IETF RFC 2978 ï¿½ IANA Charset Registration Procedures
+[6]  OASIS CIQ ï¿½ http://www.oasis-open.org/committees/ciq

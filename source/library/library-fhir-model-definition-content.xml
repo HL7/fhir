@@ -1547,7 +1547,7 @@
         <ns4:element name="referralIdentifier" type="FHIR.Identifier"/>
         <ns4:element name="referralReference" type="FHIR.Reference"/>
         <ns4:element name="occurrenceCode" type="list&lt;FHIR.Coding&gt;"/>
-        <ns4:element name="occurenceSpanCode" type="list&lt;FHIR.Coding&gt;"/>
+        <ns4:element name="occurrenceSpanCode" type="list&lt;FHIR.Coding&gt;"/>
         <ns4:element name="valueCode" type="list&lt;FHIR.Coding&gt;"/>
         <ns4:element name="diagnosis" type="list&lt;FHIR.ExplanationOfBenefit.Diagnosis&gt;"/>
         <ns4:element name="procedure" type="list&lt;FHIR.ExplanationOfBenefit.Procedure&gt;"/>
@@ -2226,7 +2226,7 @@
         <ns4:element name="recorder" type="FHIR.Reference"/>
         <ns4:element name="reporter" type="FHIR.Reference"/>
         <ns4:element name="onset" type="FHIR.dateTime"/>
-        <ns4:element name="lastOccurence" type="FHIR.dateTime"/>
+        <ns4:element name="lastoccurrence" type="FHIR.dateTime"/>
         <ns4:element name="note" type="list&lt;FHIR.Annotation&gt;"/>
         <ns4:element name="reaction" type="list&lt;FHIR.AllergyIntolerance.Reaction&gt;"/>
     </ns4:typeInfo>
@@ -4665,7 +4665,7 @@
         <ns4:element name="referralIdentifier" type="FHIR.Identifier"/>
         <ns4:element name="referralReference" type="FHIR.Reference"/>
         <ns4:element name="occurrenceCode" type="list&lt;FHIR.Coding&gt;"/>
-        <ns4:element name="occurenceSpanCode" type="list&lt;FHIR.Coding&gt;"/>
+        <ns4:element name="occurrenceSpanCode" type="list&lt;FHIR.Coding&gt;"/>
         <ns4:element name="valueCode" type="list&lt;FHIR.Coding&gt;"/>
         <ns4:element name="diagnosis" type="list&lt;FHIR.Claim.Diagnosis&gt;"/>
         <ns4:element name="procedure" type="list&lt;FHIR.Claim.Procedure&gt;"/>

@@ -6274,7 +6274,7 @@
     <Cell ss:StyleID="Default"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s156"><Data ss:Type="String">occurence</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">occurrence</Data></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">ProcedureRequest.occurrence[x]</Data></Cell>
