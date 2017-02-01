@@ -44,7 +44,7 @@ enhanced to contain a complete set of extensions and a full 11179 in a future re
 	<p>
 Data elements (and their registries) and codes (and their code systems) serve different purposes.  Data elements describe the characteristics of a piece of
 data - identifier, name, definition, data type, length, permitted value set, usage notes, etc.  On the other hand, while codes describe a particular concept
-including a symbol for use when exchanging the concept, display names, definitions and often relationships to other concepts.  There is a subset of information
+including a symbol for use when exchanging the concept, display names, definitions and relationships to other concepts.  There is a subset of information
 that is common for both codes and data elements - identifier, name and definition.  Because of this, a list of data elements might sometimes be seen as
 a list of codes.
 </p>
