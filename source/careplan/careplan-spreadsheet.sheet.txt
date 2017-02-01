@@ -229,6 +229,7 @@
   Type = DomainResource
   Short Name = Healthcare plan for patient or group
   Definition = Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
+  Workflow Mapping = Request
   RIM Mapping = Act[classCode=PCPR, moodCode=INT]
   Committee Notes = At present, this resource combines the concepts of CarePlan and CareTeam.  Should they be split?
   w5 = clinical.careprovision
@@ -241,6 +242,7 @@
   Short Name = External Ids for this plan
   Definition = This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
+  Workflow Mapping = Request.identifier
   v2 Mapping = PTH-3
   RIM Mapping = .id
   w5 = id
@@ -252,6 +254,7 @@
   Type = Reference(PlanDefinition|Questionnaire)
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the care plan should be conducted in accordance with.
+  Workflow Mapping = Request.definition
   Committee Notes = GF#11343
 
  -- Row 4 -----------------------------------
@@ -295,6 +298,7 @@
   Definition = Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
   Requirements = Allows clinicians to determine whether the plan is actionable or not
   Comments = The unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the care plan.
+  Workflow Mapping = Request.status (uses different ValueSet)
   v2 Mapping = PTH-5
   RIM Mapping = .statusCode planned = new active = active completed = completed
   Committee Notes = GF#10617
@@ -321,9 +325,18 @@
   Definition = Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.
   Requirements = Used for filtering what plan(s) are retrieved and displayed to different types of users
   Comments = There may be multiple axis of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.
+  Workflow Mapping = Request.supportingInfo
   w5 = class
 
  -- Row 10 -----------------------------------
+  Element = CarePlan.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = Human-friendly name for the CarePlan
+  Definition = Human-friendly name for the CarePlan
+
+ -- Row 11 -----------------------------------
   Element = CarePlan.description
   Card. = 0..1
   Summary = Y
@@ -331,9 +344,10 @@
   Short Name = Summary of nature of plan
   Definition = A description of the scope and nature of the plan
   Requirements = Provides more detail than conveyed by category
+  Workflow Mapping = Request.note
   w5 = what
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = CarePlan.subject
   Card. = 1..1
   Aliases = patient
@@ -341,12 +355,13 @@
   Type = Reference(Patient | Group)
   Short Name = Who care plan is for
   Definition = Identifies the patient or group whose intended care is described by the plan.
+  Workflow Mapping = Request.cubject
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=PAT].role[classCode=PAT]
   Committee Notes = GF#12341
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CarePlan.context
   Card. = 0..1
   Aliases = encounter
@@ -355,11 +370,12 @@
   Short Name = Created in context of
   Definition = Identifies the original context in which this particular CarePlan was created.
   Comments = Activities conducted as a result of the care plan may well occur as part of other encounters/episodes
+  Workflow Mapping = Request.context
   v2 Mapping = Associated PV1
   RIM Mapping = .
   w5 = context
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = CarePlan.period
   Card. = 0..1
   Summary = Y
@@ -368,11 +384,12 @@
   Definition = Indicates when the plan did (or is intended to) come into effect and end.
   Requirements = Allows tracking what plan(s) are in effect at a particular time.
   Comments = Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g. the longitudinal management of a chronic condition).
+  Workflow Mapping = Request.occurencePeriod
   v2 Mapping = GOL-7 / GOL-8
   RIM Mapping = .effectiveTime
   w5 = when.init
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = CarePlan.author
   Card. = 0..*
   Summary = Y
@@ -380,18 +397,20 @@
   Short Name = Who is responsible for contents of the plan
   Definition = Identifies the individual(s) or ogranization who is responsible for the content of the care plan.
   Comments = Collaborative care plans may have multiple authors.
+  Workflow Mapping = Request.requester.agent (if only one author)
   w5 = who.source
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = CarePlan.careTeam
   Card. = 0..*
   Type = Reference(CareTeam)
   Short Name = Who\'s involved in plan?
   Definition = Identifies all people and organizations who are expected to be involved in the care envisioned by this plan.
   Requirements = Allows representation of care teams, helps scope care plan.  In some cases may be a determiner of access permissions.
+  Workflow Mapping = Request.performer (similar but does not entail CareTeam)
   w5 = who.actor
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CarePlan.addresses
   Card. = 0..*
   Summary = Y
@@ -399,12 +418,13 @@
   Short Name = Health issues this plan addresses
   Definition = Identifies the conditions/problems/concerns/diagnoses/etc. whose management and/or mitigation are handled by this plan.
   Requirements = Links plan to the conditions it manages.  The element can identify risks addressed by the plan as well as active conditions.  (The Condition resource can include things like \"at risk for hypertension\" or \"fall risk\".)  Also scopes plans - multiple plans may exist addressing different concerns.
+  Workflow Mapping = Request.RreasonReference
   v2 Mapping = PRB-4
   RIM Mapping = .actRelationship[typeCode=SUBJ].target[classCode=CONC, moodCode=EVN]
   Committee Notes = GF#11170
   w5 = why
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = CarePlan.supportingInfo
   Card. = 0..*
   Type = Reference(Any)
@@ -412,8 +432,9 @@
   Definition = Identifies portions of the patient\'s record that specifically influenced the formation of the plan.  These might include co-morbidities, recent procedures, limitations, recent assessments, etc.
   Requirements = Identifies barriers and other considerations associated with the care plan.
   Comments = Use \"concern\" to identify specific conditions addressed by the care plan.
+  Workflow Mapping = Request.supportingInfo
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = CarePlan.goal
   Card. = 0..*
   Type = Reference(Goal)
@@ -425,16 +446,17 @@
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
   Committee Notes = Should this be expanded into code + value + timeframe?
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = CarePlan.activity
   Card. = 0..*
   UML = 350;0
   Short Name = Action to occur as part of plan
   Definition = Identifies a planned action to occur as part of the plan.  For example, a medication to be used, lab tests to perform, self-monitoring, education, etc.
   Requirements = Allows systems to prompt for performance of planned activities, and validate plans against best practice.
+  Workflow Mapping = no mapping\nNOTE: This is a list of contained Request-Event tuples!
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = CarePlan.activity.outcomeCodeableConcept
   Card. = 0..*
   Type = CodeableConcept
@@ -443,7 +465,7 @@
   Definition = Identifies the outcome at the point when the status of the activity is assessed.  For example, the outcome of an education activity could be patient understands (or not).
   Comments = Note that this should not duplicate the activity status (e.g. completed or in progress).
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = CarePlan.activity.outcomeReference
   Card. = 0..*
   Type = Reference(Any)
@@ -451,10 +473,11 @@
   Definition = Details of the outcome or action resulting from the activity.  The reference to an \"event\" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself.  The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a “request” resource).
   Requirements = Links plan to resulting actions
   Comments = The activity outcome is independent of the outcome of the related goal(s).  For example, if the goal is to achieve a target body weight of 150 lb and an activity is defined to diet, then the activity outcome could be calories consumed whereas the goal outcome is an observation for the actual body weight measured.
+  Workflow Mapping = Event that is outcome of Request in activity.reference
   RIM Mapping = .inboundRelationship[typeCode=FLFS].source
   Committee Notes = GF#11116
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = CarePlan.activity.progress
   Card. = 0..*
   Type = Annotation
@@ -462,21 +485,23 @@
   Definition = Notes about the adherence/status/progress of the activity
   Requirements = Can be used to capture information about adherence, progress, concerns, etc.
   Comments = This element should NOT be used to describe the activity to be performed - that occurs either within the resource pointed to by activity.detail.reference or in activity.detail.description
+  Workflow Mapping = Event.status (Annotation instead of CodableConcept)
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = CarePlan.activity.reference
   Card. = 0..1
   Inv. = 3
-  Type = Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|ProcedureRequest|ProcessRequest|ReferralRequest|VisionPrescription|RequestGroup)
+  Type = Reference(Appointment|CommunicationRequest|DeviceRequest|MedicationRequest|NutritionOrder|Task|ProcessRequest|ReferralRequest|VisionPrescription|RequestGroup)
   Short Name = Activity details defined in specific resource
   Definition = The details of the proposed activity represented in a specific resource
   Requirements = Details in a form consistent with other applications and contexts of use
   Comments = Standard extension exists ([goal-pertainstogoal](extension-goal-pertainstogoal.html)) that allows goals to be referenced from any of the referenced resources in CarePlan.activity.reference.  \rThe goal should be visible when the resource referenced by CarePlan.activity.reference is viewed indepedently from the CarePlan.  Requests that are pointed to by a CarePlan using this element should *not* point to this CarePlan using the \"basedOn\" element.  i.e. Requests that are part of a CarePlan are not \"based on\" the CarePlan.
+  Workflow Mapping = Request that resulted in Event in activity.actionResulting
   RIM Mapping = .outboundRelationship[typeCode=COMP].target
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = CarePlan.activity.detail
   Card. = 0..1
   UML = 350;200
@@ -486,7 +511,7 @@
   Requirements = Details in a simple form for generic care plan systems
   RIM Mapping = .outboundRelationship[typeCode=COMP, subsetCode=SUMM].target
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = CarePlan.activity.detail.category
   Card. = 0..1
   Type = CodeableConcept
@@ -494,19 +519,21 @@
   Short Name = diet | drug | encounter | observation | procedure | supply | other
   Definition = High-level categorization of the type of activity in a care plan.
   Requirements = May determine what types of extensions are permitted
+  Workflow Mapping = Request.supportingInformation
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=LIST].code
   Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = CarePlan.activity.detail.definition
   Card. = 0..1
   Type = Reference(PlanDefinition|ActivityDefinition|Questionnaire)
   Short Name = Protocol or definition
   Definition = Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.
   Requirements = Allows Questionnaires that the patient (or practitioner) should fill in to fulfill the care plan activity.
+  Workflow Mapping = Request.definition
   Committee Notes = GF#11051
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = CarePlan.activity.detail.code
   Card. = 0..1
   Type = CodeableConcept
@@ -515,10 +542,11 @@
   Definition = Detailed description of the type of planned activity; e.g. What lab test, what procedure, what kind of encounter.
   Requirements = Allows matching performed to planned as well as validation against protocols
   Comments = Tends to be less relevant for activities involving particular products.  Codes should not convey negation - use \"prohibited\" instead.
+  Workflow Mapping = Request.code
   v2 Mapping = OBR-4 / RXE-2 / RXO-1  / RXD-2
   RIM Mapping = .code
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = CarePlan.activity.detail.reasonCode
   Card. = 0..*
   Type = CodeableConcept
@@ -526,25 +554,28 @@
   Short Name = Why activity should be done or why activity was prohibited
   Definition = Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.
   Comments = This could be a diagnosis code.  If a full condition record exists or additional detail is needed, use reasonCondition instead
+  Workflow Mapping = Request.reasonCode
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = CarePlan.activity.detail.reasonReference
   Card. = 0..*
   Type = Reference(Condition)
   Short Name = Condition triggering need for activity
   Definition = Provides the health condition(s) that drove the inclusion of this particular activity as part of the plan.
   Comments = Conditions can be identified at the activity level that are not identified as reasons for the overall plan
+  Workflow Mapping = Request.reasonReference
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = CarePlan.activity.detail.goal
   Card. = 0..*
   Type = Reference(Goal)
   Short Name = Goals this activity relates to
   Definition = Internal reference that identifies the goals that this activity is intended to contribute towards meeting
   Requirements = So that participants know the link explicitly
+  Workflow Mapping = Request.goal
   RIM Mapping = .outboundRelationship[typeCode<=OBJ].
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = CarePlan.activity.detail.status
   Card. = 1..1
   Is Modifier = Y
@@ -554,11 +585,12 @@
   Definition = Identifies what progress is being made for the specific activity.
   Requirements = Indicates progress against the plan, whether the activity is still relevant for the plan
   Comments = Some aspects of status can be inferred based on the resources linked in actionTaken.  Note that \"status\" is only as current as the plan was most recently updated.  \nThe unknown code is not to be used to convey other statuses.  The unknown code should be used when one of the statuses applies, but the authoring system doesn\'t know the current state of the activity.
+  Workflow Mapping = Request.status (uses different ValueSet)
   v2 Mapping = ORC-5?
   RIM Mapping = .statusCode not-started = new scheduled = not-started (and fulfillment relationship to appointent) in-progress = active on-hold = suspended completed = completed cancelled = aborted
   Committee Notes = GF#10617, 10643
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = CarePlan.activity.detail.statusReason
   Card. = 0..1
   Type = string
@@ -566,7 +598,7 @@
   Definition = Provides reason why the activity isn\'t yet started, is on hold, was cancelled, etc.
   Comments = Will generally not be present if status is \"complete\".  Be sure to prompt to update this (or at least remove the existing value) if the status is changed.
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = CarePlan.activity.detail.prohibited
   Card. = 0..1
   Is Modifier = Y
@@ -577,17 +609,18 @@
   RIM Mapping = actionNegationInd
   Default Value = False
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = CarePlan.activity.detail.scheduled[x]
   Card. = 0..1
   Type = Timing|Period | string
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
+  Workflow Mapping = Request.occurence
   v2 Mapping = TQ1
   RIM Mapping = .effectiveTime
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = CarePlan.activity.detail.location
   Card. = 0..1
   Type = Reference(Location)
@@ -598,7 +631,7 @@
   v2 Mapping = OBR-24(???!!)
   RIM Mapping = .participation[typeCode=LOC].role
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = CarePlan.activity.detail.performer
   Card. = 0..*
   Type = Reference(Practitioner|Organization|RelatedPerson|Patient|CareTeam)
@@ -606,10 +639,11 @@
   Definition = Identifies who\'s expected to be involved in the activity.
   Requirements = Helps in planning of activity
   Comments = A performer MAY also be a participant in the care plan
+  Workflow Mapping = Request.performer
   v2 Mapping = PRT-5 : ( PRV-4 e {provider participations} ) / PRT-5 : ( PRV-4 e {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = CarePlan.activity.detail.product[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Medication|Substance)
@@ -619,7 +653,7 @@
   v2 Mapping = RXE-2 / RXO-1 / RXD-2
   RIM Mapping = .participation[typeCode=PRD].role
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = CarePlan.activity.detail.dailyAmount
   Card. = 0..1
   Aliases = daily dose
@@ -630,7 +664,7 @@
   v2 Mapping = RXO-23 / RXE-19 / RXD-12
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SBADM].doseQuantity
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = CarePlan.activity.detail.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -639,22 +673,24 @@
   v2 Mapping = RXO-11 / RXE-10 / RXD-4 / RXG-5 / RXA-6 /  TQ1-2.1  *and*  RXO-12 /  RXE-11 / RXD-5 / RXG-7 / RXA-7 / TQ1-2.2
   RIM Mapping = .outboundRelationship[typeCode=COMP][classCode=SPLY].quantity
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = CarePlan.activity.detail.description
   Card. = 0..1
   Type = string
   Short Name = Extra info describing activity to perform
   Definition = This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+  Workflow Mapping = Request.note
   v2 Mapping = NTE?
   RIM Mapping = .text
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = CarePlan.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments about the plan
   Definition = General notes about the care plan not covered elsewhere
   Requirements = Used to capture information that applies to the plan as a whole that doesn\'t fit into discrete elements.
+  Workflow Mapping = Request.note
   v2 Mapping = NTE?
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 

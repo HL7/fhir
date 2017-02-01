@@ -232,6 +232,13 @@
   Requirements = Allows for multiple organizations to collaboratively manage cross-organizational, longitudinal care plan
   Committee Notes = GF#11335
 
+ -- Row 14 -----------------------------------
+  Element = CareTeam.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Comments made about the CareTeam
+  Definition = Comments made about the CareTeam
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------

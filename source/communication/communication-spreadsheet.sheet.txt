@@ -29,6 +29,13 @@
 
 === Sheet Invariants =====================================
 
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Communication
+  English = Not Done Reason can only be specified if NotDone is \"true\"
+  XPath = f:notDone=\'true\' or not(exists(f:notDoneReason))
+  Expression = notDone or notDoneReason.exists().not()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -37,6 +44,7 @@
   Type = DomainResource
   Short Name = A record of information transmitted from a sender to a receiver
   Definition = An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
+  Workflow Mapping = Event
   w5 = workflow.encounter
 
  -- Row 2 -----------------------------------
@@ -45,9 +53,19 @@
   Type = Identifier
   Short Name = Unique identifier
   Definition = Identifiers associated with this Communication that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
+  Workflow Mapping = Event.identifier
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Communication.definition
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(PlanDefinition|ActivityDefinition)
+  Short Name = Instantiates protocol or definition
+  Definition = A protocol, guideline, or other definition that was adhered to in whole or in part by this communication event
+  Workflow Mapping = Event.definition
+
+ -- Row 4 -----------------------------------
   Element = Communication.basedOn
   Card. = 0..*
   Aliases = fulfills
@@ -55,15 +73,17 @@
   Short Name = Request fulfilled by this communication
   Definition = An order, proposal or plan fulfilled in whole or in part by this Communication
   Comments = This must point to some sort of a \'Request\' resource, such as CarePlan, CommunicationRequest, ReferralRequest, MedicationRequest, etc.
-
- -- Row 4 -----------------------------------
-  Element = Communication.parent
-  Card. = 0..*
-  Type = Reference(Any)
-  Short Name = Part of this action
-  Comments = This must point to some sort of an \'Event\' resource such as Communication, Procedure, MedicationAdministration, etc.
+  Workflow Mapping = Event.basedOn
 
  -- Row 5 -----------------------------------
+  Element = Communication.partOf
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Any)
+  Short Name = Part of this action
+  Workflow Mapping = Event.partOf
+
+ -- Row 6 -----------------------------------
   Element = Communication.status
   Card. = 1..1
   Is Modifier = Y
@@ -72,18 +92,44 @@
   Binding = CommunicationStatus
   Short Name = preparation | in-progress | suspended | aborted | completed | entered-in-error
   Definition = The status of the transmission.
+  Workflow Mapping = Event.status
   w5 = status
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
+  Element = Communication.notDone
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Name = Communication did not occur
+  Definition = If true, indicates that the described communication event did not actually occur.
+  Requirements = Creating a Communication where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
+  Comments = The more attributes are populated, the more constrained the negated statement is.
+  Workflow Mapping = Event.notDone
+
+ -- Row 8 -----------------------------------
+  Element = Communication.notDoneReason
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = CodeableConcept
+  Short Name = Why communication did not occur
+  Definition = Describes why the communication event did not occur in coded and/or textual form.
+  Workflow Mapping = Event.notDoneReason
+  RIM Mapping = Varies by domain
+  To Do = .reasonCode
+
+ -- Row 9 -----------------------------------
   Element = Communication.category
   Card. = 0..1
   Type = CodeableConcept
   Binding = CommunicationCategory
   Short Name = Message category
   Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
+  Workflow Mapping = Event.code
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Communication.medium
   Card. = 0..*
   Type = CodeableConcept
@@ -91,16 +137,17 @@
   Short Name = A channel of communication
   Definition = A channel that was used for this communication (e.g. email, fax).
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Communication.subject
   Card. = 0..1
   Aliases = patient
   Type = Reference(Patient|Group)
   Short Name = Focus of message
-  Definition = The patient who was the focus of this communication.
+  Definition = The patient or group that was the focus of this communication.
+  Workflow Mapping = Event.subject
   w5 = who.focus
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Communication.recipient
   Card. = 0..*
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group)
@@ -108,7 +155,7 @@
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the target of the communication. If receipts need to be tracked by individual, a separate resource instance will need to be created for each recipient.  Multiple recipient communications are intended where either a receipt(s) is not tracked (e.g. a mass mail-out) or is captured in aggregate (all emails confirmed received by a particular time).
   w5 = who.focus
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Communication.topic
   Card. = 0..*
   Type = Reference(Any)
@@ -116,68 +163,74 @@
   Definition = The resources which were responsible for or related to producing this communication.
   w5 = context
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Communication.context
   Card. = 0..1
   Aliases = encounter
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Encounter or episode leading to message
   Definition = The encounter within which the communication was sent.
+  Workflow Mapping = Event.context
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Communication.sent
   Card. = 0..1
   Type = dateTime
   Short Name = When sent
   Definition = The time when this communication was sent.
+  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.init
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Communication.received
   Card. = 0..1
   Type = dateTime
   Short Name = When received
   Definition = The time when this communication arrived at the destination.
+  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.done
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Communication.sender
   Card. = 0..1
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Message sender
   Definition = The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.
+  Workflow Mapping = Event.performer.actor
   w5 = who.actor
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Communication.reason
   Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationReason
   Short Name = Indication for message
   Definition = The reason or justification for the communication.
+  Workflow Mapping = Event.reasonCodableConcept
   w5 = why
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Communication.payload
   Card. = 0..*
   UML = 380;50
   Short Name = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Communication.payload.content[x]
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Name = Message part content
   Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Communication.note
   Card. = 0..*
   Type = Annotation
   Short Name = Comments made about the communication
   Definition = Additional notes or commentary about the communication by the sender, receiver or other interested parties.
+  Workflow Mapping = Event.note
 
 === Sheet Search =====================================
 
@@ -241,6 +294,16 @@
   Name = based-on
   Type = reference
   Path = Communication.basedOn
+
+ -- Row 13 -----------------------------------
+  Name = definition
+  Type = reference
+  Path = Communication.definition
+
+ -- Row 14 -----------------------------------
+  Name = part-of
+  Type = reference
+  Path = Communication.partOf
 
 === Sheet Profiles =====================================
 
