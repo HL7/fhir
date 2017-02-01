@@ -627,4 +627,16 @@
   Description = Example with sub-requests derived from the request
   Filename = procedurerequest-example-subrequest.xml
 
+ -- Row 9 -----------------------------------
+  Name = Physiotherapy
+  Identity = physiotherapy
+  Description = An example of an order for home physiotherapy
+  Filename = procedurerequest-example2.xml
+
+ -- Row 10 -----------------------------------
+  Name = Do Not Turn
+  Identity = do-not-turn
+  Description = An example of an order to not turn a patient
+  Filename = procedurerequest-example3.xml
+
 === Sheet Examples =====================================

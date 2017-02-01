@@ -171,7 +171,7 @@
   Id = 4
   Code = stat
   Display = STAT
-  Definition = The request should be actioned immediately - highest possible priority.  E.g., emergency
+  Definition = The request should be actioned immediately - highest possible priority.  E.g. an emergency
   v2 = 0485.S
   v3 = ActPriority.S
 

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProcedureRequest xmlns="http://hl7.org/fhir">
+	<id value="physiotherapy"/>
+	<!-- demonstrating in this example the reason reference element using contained resources for the purpose of this example only typically this would be a separate independent resource-->
+	<contained>
+		<Provenance>
+			<id value="signature"/>
+			<target>
+				<reference value="ProcedureRequest/physiotherapy"/>
+			</target>
+			<recorded value="2017-02-01T17:23:07Z"/>
+			<agent>
+				<role>
+					<system value="http://hl7.org/fhir/provenance-participant-role"/>
+					<code value="author"/>
+				</role>
+				<whoReference>
+					<reference value="Practitioner/example"/>
+					<display value="Dr Adam Careful"/>
+				</whoReference>
+			</agent>
+			<signature>
+				<type>
+					<system value="urn:iso-astm:E1762-95:2013"/>
+					<code value="1.2.840.10065.1.12.1.1"/>
+					<display value="Author's Signature"/>
+				</type>
+				<when value="2017-02-01T17:23:07Z"/>
+				<whoReference>
+					<reference value="Practitioner/example"/>
+					<display value="Dr Adam Careful"/>
+				</whoReference>
+				<contentType value="application/signature+xml"/>
+				<blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
+			</signature>
+		</Provenance>
+	</contained>
+	<contained>
+		<Condition>
+			<id value="cystic-fibrosis"/>
+			<clinicalStatus value="active"/>
+			<verificationStatus value="confirmed"/>
+			<category>
+				<coding>
+					<system value="http://hl7.org/fhir/condition-category"/>
+					<code value="problem-list-item"/>
+					<display value="Problem List Item"/>
+				</coding>
+			</category>
+			<severity>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="255604002"/>
+					<display value="Mild"/>
+				</coding>
+			</severity>
+			<code>
+				<coding>
+					<system value="http://hl7.org/fhir/sid/icd-10-cm"/>
+					<code value="E84.0"/>
+					<display value="Cystic fibrosis with pulmonary manifestations"/>
+				</coding>
+				<text value="Cystic Fibrosis"/>
+			</code>
+			<subject>
+				<reference value="Patient/example"/>
+			</subject>
+			<onsetDateTime value="2012-11-12"/>
+		</Condition>
+	</contained>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="PLAC"/>
+				<display value="Placer Identifier"/>
+			</coding>
+			<text value="Placer"/>
+		</type>
+		<system value="http://goodhealth.org/placer-ids">
+		</system>
+		<value value="20170201-0001"/>
+	</identifier>
+	<!--  example to show how a CarePlan can be referenced from a request -->
+	<basedOn>
+		<reference value="CarePlan/gpvisit"/>
+	</basedOn>
+	<status value="active"/>
+	<intent value="order"/>
+	<!-- Physiotherapy or home excercises would be a common use case for as needed. E.g. exercises for cystic fibrosis - "Chest therapy 1-4 times per day as needed to clear mucus" -->
+	<code>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="34431008"/>
+			<display value="Physiotherapy of chest (regime/therapy) "/>
+		</coding>
+	</code>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<occurrenceTiming>
+		<repeat>
+			<frequency value="1"/>
+			<frequencyMax value="4"/>
+			<period value="1"/>
+			<periodUnit value="d"/>
+		</repeat>
+	</occurrenceTiming>
+	<asNeededCodeableConcept>
+		<text value="as needed to clear mucus"/>
+	</asNeededCodeableConcept>
+	<!-- TimeStamp when order authorized-->
+	<authoredOn value="2017-02-01T17:23:07Z"/>
+	<requester>
+		<agent>
+			<reference value="Practitioner/example"/>
+			<display value="Dr Adam Careful"/>
+		</agent>
+		<onBehalfOf>
+			<reference value="Organization/2"/>
+			<display value="Good Health Clinic"/>
+		</onBehalfOf>
+	</requester>
+	<!-- demonstrating in this example the reason reference element using a contained resource for the purpose of this example only typically would reference an external resource-->
+	<reasonReference>
+		<reference value="#cystic-fibrosis"/>
+	</reasonReference>
+	<!-- demonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource-->
+	<relevantHistory>
+		<reference value="#signature"/>
+		<display value="Author's Signature"/>
+	</relevantHistory>
+</ProcedureRequest>
