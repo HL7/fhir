@@ -13339,7 +13339,7 @@
     <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30" ss:StyleID="s175">
-    <Cell ss:StyleID="s192"><Data ss:Type="String">!ExplanationOfBenefit.occurenceSpanCode</Data></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">!ExplanationOfBenefit.occurrenceSpanCode</Data></Cell>
     <Cell ss:StyleID="s177"/>
     <Cell ss:StyleID="s177"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:StyleID="s177"/>

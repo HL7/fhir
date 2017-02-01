@@ -82,6 +82,7 @@
   Type = Reference(Any)
   Short Name = Part of this action
   Workflow Mapping = Event.partOf
+  Workflow Mapping = Event.partOf
 
  -- Row 6 -----------------------------------
   Element = Communication.status
@@ -143,6 +144,7 @@
   Short Name = Focus of message
   Definition = The patient or group that was the focus of this communication.
   Workflow Mapping = Event.subject
+  Workflow Mapping = Event.subject
   w5 = who.focus
 
  -- Row 12 -----------------------------------
@@ -177,7 +179,7 @@
   Type = dateTime
   Short Name = When sent
   Definition = The time when this communication was sent.
-  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
+  Workflow Mapping = Event.occurrenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.init
 
  -- Row 16 -----------------------------------
@@ -186,7 +188,7 @@
   Type = dateTime
   Short Name = When received
   Definition = The time when this communication arrived at the destination.
-  Workflow Mapping = Event.occurenceDateTime (Invariant: maps to either sent OR received)
+  Workflow Mapping = Event.occurrenceDateTime (Invariant: maps to either sent OR received)
   w5 = when.done
 
  -- Row 17 -----------------------------------

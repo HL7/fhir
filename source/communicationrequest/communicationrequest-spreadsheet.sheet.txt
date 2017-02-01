@@ -163,7 +163,7 @@
   Type = dateTime|Period
   Short Name = When scheduled
   Definition = The time when this communication is to occur.
-  Workflow Mapping = Request.occurence
+  Workflow Mapping = Request.occurrence
   w5 = when.planned
 
  -- Row 15 -----------------------------------

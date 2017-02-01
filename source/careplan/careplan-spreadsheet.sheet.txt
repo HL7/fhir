@@ -384,7 +384,7 @@
   Definition = Indicates when the plan did (or is intended to) come into effect and end.
   Requirements = Allows tracking what plan(s) are in effect at a particular time.
   Comments = Any activities scheduled as part of the plan should be constrained to the specified period regardless of whether the activities are planned within a single encounter/episode or across multiple encounters/episodes (e.g. the longitudinal management of a chronic condition).
-  Workflow Mapping = Request.occurencePeriod
+  Workflow Mapping = Request.occurrencePeriod
   v2 Mapping = GOL-7 / GOL-8
   RIM Mapping = .effectiveTime
   w5 = when.init
@@ -616,7 +616,7 @@
   Short Name = When activity is to occur
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
-  Workflow Mapping = Request.occurence
+  Workflow Mapping = Request.occurrence
   v2 Mapping = TQ1
   RIM Mapping = .effectiveTime
 

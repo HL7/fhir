@@ -300,7 +300,7 @@
   Summary = Y
   Type = dateTime
   Short Name = Date the charge item was entered
-  Comments = The actual date when the service associated with the charge has been rendered is captured in occurence[x]
+  Comments = The actual date when the service associated with the charge has been rendered is captured in occurrence[x]
 
  -- Row 21 -----------------------------------
   Element = ChargeItem.reasonCodeableConcept
