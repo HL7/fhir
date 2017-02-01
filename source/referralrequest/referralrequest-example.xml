@@ -9,6 +9,9 @@
     <system value="http://orionhealth.com/fhir/apps/referralids"/>
     <value value="ret4421"/>
   </identifier>
+  <groupIdentifier>
+    <value value="1234"/>
+  </groupIdentifier>
   <status value="active"/>
   <category value="request"/>
   <!-- replace with a code from a recognized coding system-->
@@ -40,6 +43,9 @@
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
     <display value="Beverly Weaver"/>
   </patient>
+  <context>
+    <display value="Beverly Waver's encounter on 2014-02-14"/>
+  </context>
   <authoredOn value="2014-02-14"/>
   <requester>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
