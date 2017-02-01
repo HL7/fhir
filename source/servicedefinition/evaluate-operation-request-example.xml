@@ -127,7 +127,7 @@
           <ProcedureRequest>
             <id value="ProcedureRequest1"/>
             <meta>
-              <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticrequest"/>
+              <profile value="http://hl7.org/fhir/StructureDefinition/gao-procedurerequest"/>
             </meta>
             <subject>
               <reference value="Patient/example"/>
