@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIR/build/schema/subscription.xsd">
+<Observation xmlns="http://hl7.org/fhir">
 	<id value="blood-pressure"/>
 	<identifier>
 		<system value="urn:ietf:rfc:3986"/>
 		<value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
 	</identifier>
+	<!--  demonstrating the use of the baseOn element with a fictive identifier-->
+	<basedOn>
+		<identifier>
+			<system value="https://acme.org/identifiers"/>
+			<value value="1234"/>
+		</identifier>
+	</basedOn>
 	<status value="final"/>
 	<category>
 		<coding>
