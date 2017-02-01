@@ -189,14 +189,14 @@
   Definition = Formal fulfillment schedule
 
  -- Row 14 -----------------------------------
-  Element = SupplyRequest.from[x]
+  Element = SupplyRequest.from
   Card. = 0..1
   Type = Reference(Organization|Location)
   Short Name = The origin of the supply
   Definition = Where the supply is expected to come from
 
  -- Row 15 -----------------------------------
-  Element = SupplyRequest.to[x]
+  Element = SupplyRequest.to
   Card. = 0..1
   Type = Reference(Organization|Location|Patient)
   Short Name = The destination of the supply
