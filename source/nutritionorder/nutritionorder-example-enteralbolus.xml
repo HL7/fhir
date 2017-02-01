@@ -39,7 +39,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 		</coding>
 	</excludeFoodModifier>
 	<enteralFormula>
-		
+
 		<baseFormulaType>
 			<coding>
 				<!--EH:  bolus tube feeding instruction in text-->
@@ -55,7 +55,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 			<coding>
 				<system value="http://hl7.org/fhir/entformula-additive"/>
 				<code value="lipid"/>
-				<display value="Modular lipid enteral formula component"/>
+				<display value="Lipid"/>
 			</coding>
 		</additiveType>
 		<additiveProductName value="Acme Lipid Additive"/>

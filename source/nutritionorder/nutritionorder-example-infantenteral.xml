@@ -29,12 +29,12 @@ edited by Eric Haas Health eData Inc
 			</coding>
 		</baseFormulaType>
 		<baseFormulaProductName value="Acme Infant Formula + Iron"/>
-		
+
 		<additiveType>
 			<coding>
 				<system value="http://hl7.org/fhir/entformula-additive"/>
 				<code value="carbohydrate"/>
-				<display value="Modular carbohydrate enteral formula component"/>
+				<display value="Carbohydrate"/>
 			</coding>
 		</additiveType>
 		<additiveProductName value="Acme High Carbohydrate Additive"/>
@@ -79,6 +79,6 @@ edited by Eric Haas Health eData Inc
 		</maxVolumeToDeliver>
 		<!-- EH infant feeding instruction and additional instructions -->
 		<administrationInstruction value="Add high calorie high carbohydrate additive to increase cal/oz from 24 cal/oz to 27 cal/oz."/>
-		
+
 	</enteralFormula>
 </NutritionOrder>
