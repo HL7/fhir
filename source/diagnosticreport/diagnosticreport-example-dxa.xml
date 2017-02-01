@@ -108,7 +108,7 @@
 				<b>COMMENT</b>
 			</p>
 			<p>Osteopenia on measured BMD. The estimated 10-year probability of fracture based on present age, gender and measured BMD is less than 10%. This absolute fracture risk remains low. A follow-up assessment may be considered in 2 to 3 years to monitor the trend in BMD.</p>
-			<p>Thank you for your referral.  Dr Peter Ng  17/06/2008</p>
+			<p>Thank you for your referral.  Dr Henry Seven  17/06/2008</p>
 			<pre>
 Note:
 WHO classification of osteoporosis (WHO Technical Report Series 1994: 843)
@@ -141,14 +141,27 @@ GE LUNAR PRODIGY DENSITOMETER
 	<issued value="2008-06-18T09:23:00+10:00"/>
 	<!--      well, actually. this isn't the patient, but it'll do for now      -->
 	<performer>
+		<!-- putting in the role and actor here to iluustrate how these elements are used-->
+		<role>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="66862007"/>
+				<display value="Radiologist"/>
+			</coding>
+			<text value="Radiologist"/>
+		</role>
 		<actor>
+			<reference value="Practitioner/3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+			<display value="Dr Henry Seven"/>
+		</actor>
+		<onBehalfOf>
 			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
 			<display value="Acme Imaging Diagnostics"/>
-		</actor>
+		</onBehalfOf>
 	</performer>
 	<result>
 		<reference value="Observation/bmd"/>
-<!--	 but just one for now,  but for this example there should be more as listed here 
+		<!--	 but just one for now,  but for this example there should be more as listed here 
 <reference value="Observation/bmd1"/>      (LEFT  24701-5  Femur DXA Bone densityO g/cm2) 
 <reference value="Observation/bmd2>      (LEFT 8263-0  Femur DXA [T-score] Bone densityO {T-score})
 
@@ -157,7 +170,8 @@ GE LUNAR PRODIGY DENSITOMETER
 
 <reference value="Observation/bmd5"/>      (24966-4  Lumbar spine DXA Bone densityO g/cm2)
 <reference value="Observation/bmd6"/>     (38267-1  Lumbar spine DXA [T-score] Bone densityO {T-score})
--->	</result>
+-->
+	</result>
 	<!--      the imaging service marks this to help find categories of patient      -->
 	<codedDiagnosis>
 		<coding>

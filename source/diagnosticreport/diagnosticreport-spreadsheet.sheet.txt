@@ -256,7 +256,6 @@
   Workflow Mapping = Event.performer.role
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 12 -----------------------------------
   Element = DiagnosticReport.performer.actor
@@ -270,7 +269,6 @@
   Workflow Mapping = Event.performer.actor
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.performer.onBehalfOf
@@ -282,7 +280,6 @@
   Workflow Mapping = Event.performer.onBehalfOf
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-  To Do = edit mappings
 
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.request
