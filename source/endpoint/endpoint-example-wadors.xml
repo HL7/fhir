@@ -9,11 +9,11 @@
 	</text>
 		
 	<status value="active" />
-	<name value="PACS Hospital DICOM WADO-RS endpoint" />
 	<connectionType>
 		<system value="http://hl7.org/fhir/endpoint-connection-type" />
 		<code value="dicom-wado-rs" />
 	</connectionType>
+	<name value="PACS Hospital DICOM WADO-RS endpoint" />
 	<payloadType>
 		<text value="DICOM WADO-RS"/>
 	</payloadType>

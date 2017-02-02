@@ -9,11 +9,11 @@
 	</text>
 		
 	<status value="active" />
-	<name value="PACS Hospital Invoke Image Display endpoint" />
 	<connectionType>
 		<system value="http://hl7.org/fhir/endpoint-connection-type" />
 		<code value="ihe-iid" />
 	</connectionType>
+	<name value="PACS Hospital Invoke Image Display endpoint" />
 	<payloadType>
 		<text value="DICOM IID"/>
 	</payloadType>

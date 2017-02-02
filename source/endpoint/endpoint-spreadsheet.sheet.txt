@@ -108,35 +108,6 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = Endpoint.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Name = A name that this endpoint can be identified by
-  Definition = A friendly name that this endpoint can be referred to with
-  RIM Mapping = n/a
-  w5 = what
-
- -- Row 5 -----------------------------------
-  Element = Endpoint.managingOrganization
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Organization)
-  Short Name = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
-  Definition = The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
-  Comments = This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an aplicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don\'t have to be within the same organization resource, but most likely within the same organizational heirarchy
-  RIM Mapping = n/a
-  Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
-
- -- Row 6 -----------------------------------
-  Element = Endpoint.contact
-  Card. = 0..*
-  Type = ContactPoint
-  Short Name = Contact details for source (e.g. troubleshooting)
-  Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
-  RIM Mapping = n/a
-
- -- Row 7 -----------------------------------
   Element = Endpoint.connectionType
   Card. = 1..1
   Summary = Y
@@ -147,6 +118,35 @@
   Comments = For additional connectivity details for the protocol, extensions will be used at this point, as in the XDS example.
   RIM Mapping = n/a
   w5 = class
+
+ -- Row 5 -----------------------------------
+  Element = Endpoint.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Name = A name that this endpoint can be identified by
+  Definition = A friendly name that this endpoint can be referred to with
+  RIM Mapping = n/a
+  w5 = what
+
+ -- Row 6 -----------------------------------
+  Element = Endpoint.managingOrganization
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Name = Organization that manages this endpoint (may not be the organization that exposes the endpoint)
+  Definition = The organization that manages this endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
+  Comments = This property is not typically used when searching for Endpoint resources for usage. The typical usage is via the reference from an aplicable Organization/Location/Practitioner resource, which is where the context is provided. Multiple Locations may reference a single endpoint, and don\'t have to be within the same organization resource, but most likely within the same organizational heirarchy
+  RIM Mapping = n/a
+  Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
+
+ -- Row 7 -----------------------------------
+  Element = Endpoint.contact
+  Card. = 0..*
+  Type = ContactPoint
+  Short Name = Contact details for source (e.g. troubleshooting)
+  Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
+  RIM Mapping = n/a
 
  -- Row 8 -----------------------------------
   Element = Endpoint.period

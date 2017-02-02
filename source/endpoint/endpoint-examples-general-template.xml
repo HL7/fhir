@@ -18,14 +18,14 @@
               Address: [%address%]</div>
         </text>
         <status value="[%status%]"/>
-        <name value="[%name%]"/>
-        <managingOrganization>
-          <display value="[%managingOrganization%]"/>
-        </managingOrganization>
         <connectionType>
            <system value="http://hl7.org/fhir/endpoint-connection-type" />
            <code value="[%connectionType%]" />
         </connectionType>
+        <name value="[%name%]"/>
+        <managingOrganization>
+          <display value="[%managingOrganization%]"/>
+        </managingOrganization>
         <!--<method>
           <system value="http://hl7.org/fhir/ValueSet/http-verb" />
           <code value="[%method%]" />
