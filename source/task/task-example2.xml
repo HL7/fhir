@@ -1,0 +1,78 @@
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
+	<!--This is an example to demonstrate using task for actioning a filler generated procedurerequest and to illustrate how to populate many of the task elements - this is the child task from task example1 to grab the specimen -->
+	<id value="example2"/>
+	<identifier>
+		<use value="official"/>
+		<system value="http:/goodhealth.org/identifiers"/>
+		<value value="20170201-002"/>
+	</identifier>
+	<groupIdentifier>
+		<use value="official"/>
+		<system value="http:/goodhealth.org/accession/identifiers"/>
+		<value value="G20170201-001"/>
+	</groupIdentifier>
+	<!--	This Task is a child task of the submitted lipid panel requet 
+-->
+	<partOf>
+		<reference value="Task/example1"/>
+		<display value="Lipid Panel"/>
+	</partOf>
+	<status value="accepted"/>
+	<!--fictive business status populated for this example-->
+	<businessStatus>
+		<text value="waiting for patient"/>
+	</businessStatus>
+	<intent value="filler-order"/>
+	<priority value="routine"/>
+	<!--fictive code and description elements populated for this example -->
+	<code>
+		<text value="Specimen Collection"/>
+	</code>
+	<!--	Filler generated order using a fictive  procedurerequest to complete the loop-->
+	<focus>
+		<display value="BloodDraw ProcedureRequest"/>
+	</focus>
+	<!--	who the task is for 
+-->
+	<for>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</for>
+	<context>
+		<reference value="Encounter/example"/>
+		<display value="Example In-Patient Encounter"/>
+	</context>
+	<!--	Lots of dates -->
+	<executionPeriod>
+		<start value="2016-10-31T08:45:05+10:00"/>
+	</executionPeriod>
+	<authoredOn value="2016-10-31T08:45:05+10:00"/>
+	<lastModified value="2016-10-31T09:45:05+10:00"/>
+	<!--requester is filler-->
+	<requester>
+		<agent>
+			<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+			<display value="Clinical Laboratory @ Acme Hospital"/>
+		</agent>
+	</requester>
+	<performerType>
+		<coding>
+			<system value="http://hl7.org/fhir/task-performer-type"/>
+			<code value="performer"/>
+			<display value="Performer"/>
+		</coding>
+		<text value="Performer"/>
+	</performerType>
+	<!--assume at draw station-->
+	<owner>
+		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+		<display value="Clinical Laboratory @ Acme Hospital"/>
+	</owner>
+	<restriction>
+		<repetitions value="1"/>
+		<period>
+			<end value="2016-11-01T09:45:05+10:00"/>
+		</period>
+	</restriction>
+	<!--The expected output of this task is a Specimen and will generated once the task is completed -->
+</Task>

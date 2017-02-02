@@ -1,0 +1,129 @@
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/observation.xsd">
+	<!--This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen -->
+	<id value="example1"/>
+	<contained>
+		<!-- using contained resource for the purpose of this example only typically this would be a separate independent resource
+     -->
+		<Provenance>
+			<id value="signature"/>
+			<target>
+				<reference value="ProcedureRequest/physiotherapy"/>
+			</target>
+			<recorded value="2016-10-31T08:25:05+10:00"/>
+			<agent>
+				<role>
+					<system value="http://hl7.org/fhir/provenance-participant-role"/>
+					<code value="author"/>
+				</role>
+				<whoReference>
+					<reference value="Practitioner/f202"/>
+					<display value="Luigi Maas"/>
+				</whoReference>
+			</agent>
+			<signature>
+				<type>
+					<system value="urn:iso-astm:E1762-95:2013"/>
+					<code value="1.2.840.10065.1.12.1.1"/>
+					<display value="Author's Signature"/>
+				</type>
+				<when value="2016-10-31T08:25:05+10:00"/>
+				<whoReference>
+					<reference value="Practitioner/example"/>
+					<display value="Dr Adam Careful"/>
+				</whoReference>
+				<contentType value="application/signature+xml"/>
+				<blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
+			</signature>
+		</Provenance>
+	</contained>
+	<identifier>
+		<use value="official"/>
+		<system value="http:/goodhealth.org/identifiers"/>
+		<value value="20170201-001"/>
+	</identifier>
+	<groupIdentifier>
+		<use value="official"/>
+		<system value="http:/goodhealth.org/accession/identifiers"/>
+		<value value="G20170201-001"/>
+	</groupIdentifier>
+	<status value="in-progress"/>
+	<!--fictive business status populated for this example -->
+	<businessStatus>
+		<text value="waiting for specimen"/>
+	</businessStatus>
+	<intent value="order"/>
+	<priority value="routine"/>
+	<!--fictive code and description elements populated for this example -->
+	<code>
+		<text value="Lipid Panel"/>
+	</code>
+	<description value="Create order for getting specimen, Set up inhouse testing,  generate order for any sendouts and submit with specimen"/>
+	<!--	Use the lipid procedurerequest example -->
+	<focus>
+		<reference value="ProcedureRequest/lipid"/>
+		<display value="Lipid Panel Request"/>
+	</focus>
+	<!--	who the task is for 
+-->
+	<for>
+		<reference value="Patient/example"/>
+		<display value="Peter James Chalmers"/>
+	</for>
+	<context>
+		<reference value="Encounter/example"/>
+		<display value="Example In-Patient Encounter"/>
+	</context>
+	<!--	Lots of dates -->
+	<executionPeriod>
+		<start value="2016-10-31T08:25:05+10:00"/>
+	</executionPeriod>
+	<authoredOn value="2016-10-31T08:25:05+10:00"/>
+	<lastModified value="2016-10-31T09:45:05+10:00"/>
+	<requester>
+		<agent>
+			<reference value="Practitioner/example"/>
+			<display value="Dr Adam Careful"/>
+		</agent>
+		<onBehalfOf>
+			<reference value="Organization/2.16.840.1.113883.19.5"/>
+			<display value="Good Health Clinic"/>
+		</onBehalfOf>
+	</requester>
+	<performerType>
+		<coding>
+			<system value="http://hl7.org/fhir/task-performer-type"/>
+			<code value="performer"/>
+			<display value="Performer"/>
+		</coding>
+		<text value="Performer"/>
+	</performerType>
+	<owner>
+		<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+		<display value="Clinical Laboratory @ Acme Hospital"/>
+	</owner>
+	<!--	populate the reason just to demonstrate it use in this example
+-->
+	<reason>
+		<text value="The Task.reason should only be included if there is no Task.focus or if it differs from the reason indicated on the focus"/>
+	</reason>
+	<note>
+		<text value="This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
+	</note>
+	<!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource 
+
+-->
+	<relevantHistory>
+		<reference value="#signature"/>
+		<display value="Author's Signature"/>
+	</relevantHistory>
+	<!--	complete the request within 48 hrs
+-->
+	<restriction>
+		<repetitions value="1"/>
+		<period>
+			<end value="2016-11-02T09:45:05+10:00"/>
+		</period>
+	</restriction>
+	<!--The expected output of this task is a DiagnosticRequest and will generated once the task is near completion -->
+
+</Task>
