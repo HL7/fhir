@@ -22,13 +22,13 @@
 		<value value="endpointmanager@example.org"/>
 		<use value="work"/>
     </contact>
-	<period>
-		<start value="2014-09-01"/>
-	</period>
 	<connectionType>
 		<system value="http://hl7.org/fhir/endpoint-connection-type" />
 		<code value="hl7-fhir-rest" />
 	</connectionType>
+	<period>
+		<start value="2014-09-01"/>
+	</period>
 	<payloadType>
 		<coding>
         <system value="http://hl7.org/fhir/resource-types" />
@@ -40,11 +40,4 @@
 	<address value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
 	<!-- Not a valid bearer token, but is here for demonstration purposes -->
 	<header value="bearer-code BASGS534s4"/>
-
-	<!-- Example public key extracted from http://phpseclib.sourceforge.net/rsa/examples.html -->
-	<publicKey value="-----BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0
-FPqri0cb2JZfXJ/DgYSF6vUpwmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/
-3j+skZ6UtW+5u09lHNsj6tQ51s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQAB
------END PUBLIC KEY-----"/>
 </Endpoint>

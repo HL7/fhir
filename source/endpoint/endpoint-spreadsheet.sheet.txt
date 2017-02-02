@@ -115,6 +115,7 @@
   Short Name = A name that this endpoint can be identified by
   Definition = A friendly name that this endpoint can be referred to with
   RIM Mapping = n/a
+  w5 = what
 
  -- Row 5 -----------------------------------
   Element = Endpoint.managingOrganization
@@ -136,19 +137,6 @@
   RIM Mapping = n/a
 
  -- Row 7 -----------------------------------
-  Element = Endpoint.period
-  Card. = 0..1
-  Summary = Y
-  Type = Period
-  Short Name = Interval the endpoint is expected to be operational
-  Definition = The interval during which the endpoint is expected to be operational
-  RIM Mapping = n/a
-  w5 = when.init
-
- -- Row 8 -----------------------------------
-  Element = !
-
- -- Row 9 -----------------------------------
   Element = Endpoint.connectionType
   Card. = 1..1
   Summary = Y
@@ -160,7 +148,17 @@
   RIM Mapping = n/a
   w5 = class
 
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
+  Element = Endpoint.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Name = Interval the endpoint is expected to be operational
+  Definition = The interval during which the endpoint is expected to be operational
+  RIM Mapping = n/a
+  w5 = when.done
+
+ -- Row 9 -----------------------------------
   Element = !Endpoint.method
   Card. = 0..*
   Summary = Y
@@ -170,10 +168,10 @@
   Comments = This is the HTTP method that must be used when using the connection
   RIM Mapping = n/a
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = !
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Endpoint.payloadType
   Card. = 1..*
   Summary = Y
@@ -184,7 +182,7 @@
   Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
   RIM Mapping = n/a
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Endpoint.payloadMimeType
   Card. = 0..*
   Summary = Y
@@ -195,7 +193,7 @@
   Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
   RIM Mapping = n/a
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !Endpoint.payloadSubType
   Card. = 0..*
   Summary = Y
@@ -203,7 +201,7 @@
   Short Name = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
   RIM Mapping = n/a
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Endpoint.address
   Card. = 1..1
   Summary = y
@@ -213,7 +211,7 @@
   Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
   RIM Mapping = n/a
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Endpoint.header
   Card. = 0..*
   Summary = n
@@ -222,8 +220,8 @@
   Definition = Additional headers / information to send as part of the notification
   Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
 
- -- Row 17 -----------------------------------
-  Element = Endpoint.publicKey
+ -- Row 16 -----------------------------------
+  Element = !Endpoint.publicKey
   Card. = 0..1
   Type = string
   Short Name = PKI Public keys to support secure communications
