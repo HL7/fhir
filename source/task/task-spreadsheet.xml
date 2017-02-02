@@ -6486,16 +6486,16 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">example2</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">task-example2.xml</Data></Cell>
     <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s143"/>
+    <Cell ss:StyleID="s140"><Data ss:Type="String">example1</Data></Cell>
+    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s80"><Data ss:Type="String">Example of simple prescription task</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">example3</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">task-example3.xml</Data></Cell>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s142"/>
@@ -6850,8 +6850,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
