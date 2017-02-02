@@ -168,6 +168,11 @@
 		<source value="cqif-knowledge-artifact-representation.html"/>
 		<title value="Representing Knowledge Artifacts"/>
 		<kind value="page"/>
+		<page>
+			<source value="cqif-topics-supporting-documentation.html"/>
+			<title value="Supporting Documentation"/>
+			<kind value="page"/>
+		</page>
     </page>
     <page>
 		<source value="cqif-knowledge-artifact-distribution.html"/>

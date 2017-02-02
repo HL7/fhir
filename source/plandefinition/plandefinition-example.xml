@@ -323,6 +323,15 @@
         <documentation>
           <type value="justification"/>
           <document>
+            <extension url="http://hl7.org/fhir/StructureDefinition/cqif-qualityOfEvidence">
+			  <valueCodeableConcept>
+			    <coding>
+			      <system value="http://hl7.org/fhir/evidence-quality"/>
+			      <code value="high"/>
+			    </coding>
+			    <text value="High Quality"/>
+			  </valueCodeableConcept>
+            </extension>
             <contentType value="text/html"/>
             <url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
             <title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
