@@ -24,7 +24,7 @@
 <availability value="ONLINE"/>
 <modalityList>
      <system value="http://nema.org/dicom/dicm"/>
-     <code value="DR"/>
+     <code value="DX"/>
 </modalityList> 
   <patient>
     <reference value="Patient/dicom"/>
