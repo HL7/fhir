@@ -6512,7 +6512,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Element,Attachment,Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell><Data ss:Type="String">qualityOfEvidence</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
@@ -6523,7 +6523,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell><Data ss:Type="String">DataType</Data></Cell>
-    <Cell><Data ss:Type="String">Element,Attachment,Resource</Data></Cell>
+    <Cell><Data ss:Type="String">Attachment</Data></Cell>
     <Cell><Data ss:Type="String">strengthOfRecommendation</Data></Cell>
     <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">CodeableConcept</Data></Cell>
