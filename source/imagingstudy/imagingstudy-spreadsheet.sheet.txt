@@ -35,14 +35,14 @@
  -- Row 5 -----------------------------------
   Binding Name = ImagingReason
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/procedure-category
+  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
   Definition = The reason for the study
   Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ImagingProcedureCode
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
+  Reference = http://hl7.org/fhir/ValueSet/procedure-category
   Definition = The performed procedure type
   Conformance = example
 
@@ -165,6 +165,7 @@
   Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Originating context
   Definition = The encounter at which the request is initiated
+  RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
  -- Row 9 -----------------------------------
@@ -224,6 +225,7 @@
   Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
   Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances; or IHE Invoke Image Display (IID), which provides standard invokation of an imaging web viewer.
+  RIM Mapping = Not supported
 
  -- Row 14 -----------------------------------
   Element = !ImagingStudy.baseLocation
@@ -296,6 +298,7 @@
   Binding = ImagingProcedureCode
   Short Name = The performed procedure code
   Definition = The code for the performed procedure type
+  RIM Mapping = .reasonCode
 
  -- Row 21 -----------------------------------
   Element = ImagingStudy.reason
@@ -407,6 +410,7 @@
   Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
   Comments = Typical endpoint types include DICOM WADO-RS, which is used to retrieve DICOM instances in native or rendered (e.g., JPG, PNG), formats using a RESTful API; DICOM WADO-URI, which can similarly retrieve native or rendered instances, except using an HTTP query-based approach; and DICOM QIDO-RS, which allows RESTful query for DICOM information without retrieving the actual instances.
+  RIM Mapping = Not supported
 
  -- Row 31 -----------------------------------
   Element = !ImagingStudy.series.baseLocation
