@@ -10,6 +10,9 @@
     <start value="2017-06-06"/>
   </period>
   <recorded value="2016-06-09T08:12:14+10:00"/>
+  <reason>
+      <display value="antiviral resistance detection"/>
+  </reason>
 
 <agent>
     <role>
@@ -38,7 +41,4 @@
     <display value="Biocompute example"/>
   </reference>
 </entity>
-  <reason>
-      <display value="antiviral resistance detection"/>
-  </reason>
 </Provenance>

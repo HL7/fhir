@@ -20,6 +20,14 @@
   <recorded value="2015-06-27T08:39:24+10:00"/>
   <!-- reference to a patient consent to share inforamtion -->
   <policy value="http://acme.com/fhir/Consent/25"/>
+  <location>
+    <reference value="Location/1"/>
+  </location>
+  <reason>
+      <system value="http://snomed.info/sct"/>
+      <code value="3457005"/>
+      <display value="Referral"/>
+  </reason>
   
   <!-- author = Harold Hippocrates -->
   <agent>
@@ -60,12 +68,4 @@
 		<display value="CDA Document in XDS repository"/>
 	</reference>
   </entity>
-  <location>
-    <reference value="Location/1"/>
-  </location>
-  <reason>
-      <system value="http://snomed.info/sct"/>
-      <code value="3457005"/>
-      <display value="Referral"/>
-  </reason>
 </Provenance>

@@ -12,6 +12,9 @@
   </period>
   <recorded value="2016-12-01T08:12:14+10:00"/>
 
+  <reason>
+      <display value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
+  </reason>
  <agent> 
     <role>
       <system value="http://hl7.org/fhir/provenance-participant-role"/>
@@ -43,7 +46,4 @@
   <display value="CWL example"/>
   </reference>
 </entity>
-  <reason>
-      <display value="profiling Short Tandem Repeats (STRs) from high throughput sequencing data."/>
-  </reason>
 </Provenance>

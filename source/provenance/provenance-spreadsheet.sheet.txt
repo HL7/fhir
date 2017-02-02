@@ -150,6 +150,41 @@
   Auditevent Mapping = AuditEvent.agent.policy
 
  -- Row 6 -----------------------------------
+  Element = Provenance.location
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Name = Where the activity occurred, if relevant
+  Definition = Where the activity occurred, if relevant
+  RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=\"LOC\" and determinerCode=\"INST\"]
+  Auditevent Mapping = AuditEvent.agent.location
+  Prov Mapping = Activity.location
+  w5 = where
+
+ -- Row 7 -----------------------------------
+  Element = Provenance.reason
+  Card. = 0..*
+  Type = Coding
+  Binding = ProvenanceReason
+  Short Name = Reason the activity is occurring
+  Definition = The reason that the activity was taking place
+  RIM Mapping = unique(./reasonCode)
+  Auditevent Mapping = AuditEvent.purposeOfEvent
+  Prov Mapping = Activity.Activity
+  w5 = why
+
+ -- Row 8 -----------------------------------
+  Element = Provenance.activity
+  Card. = 0..1
+  Type = Coding
+  Binding = ProvenanceActivity
+  Short Name = Activity that occurred
+  Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
+  RIM Mapping = Act.code
+  Auditevent Mapping = AuditEvent.purposeOfEvent
+  Prov Mapping = Activity.Activity
+  w5 = why
+
+ -- Row 9 -----------------------------------
   Element = Provenance.agent
   Card. = 1..*
   UML = 0;200
@@ -162,7 +197,7 @@
   Prov Mapping = Agent
   w5 = who
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Provenance.agent.role
   Card. = 1..1
   Summary = y
@@ -175,7 +210,7 @@
   Auditevent Mapping = AuditEvent.agent.role
   Prov Mapping = Agent.Attribution
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Provenance.agent.who[x]
   Card. = 1..1
   Summary = y
@@ -184,14 +219,14 @@
   Definition = The individual, device or organization that participated in the event
   w5 = who.actor
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Provenance.agent.onBehalfOf[x]
   Card. = 0..1
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Name = Who the agent is representing
   Definition = The individual, device, or organization for whom the change was made
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Provenance.agent.relatedAgentType
   Card. = 0..1
   Type = CodeableConcept
@@ -201,7 +236,7 @@
   RIM Mapping = .typeCode
   Prov Mapping = type
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !Provenance.agent.actor
   Card. = 0..1
   Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
@@ -212,7 +247,7 @@
   Prov Mapping = Agent.Identity
   w5 = who.actor
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !Provenance.agent.userId
   Card. = 0..1
   Type = Identifier
@@ -223,7 +258,7 @@
   Prov Mapping = Agent.Identity
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = !Provenance.agent.relatedAgent
   Card. = 0..*
   UML = 420;200
@@ -232,7 +267,7 @@
   RIM Mapping = .rolelink
   Prov Mapping = Agent.actedOnBehalfOf
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = !Provenance.agent.relatedAgent.target
   Card. = 1..1
   Type = uri
@@ -242,7 +277,7 @@
   RIM Mapping = .target
   Prov Mapping = responsible
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Provenance.entity
   Card. = 0..*
   UML = 440;30
@@ -253,7 +288,7 @@
   Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Provenance.entity.role
   Card. = 1..1
   Summary = y
@@ -266,7 +301,7 @@
   Prov Mapping = Entity.role
   Committee Notes = No uses cases have been identified for extensibility for this role
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = !Provenance.entity.type
   Card. = 1..1
   Type = Coding
@@ -278,7 +313,7 @@
   Auditevent Mapping = AuditEvent.entity.type
   Prov Mapping = Entity.type
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Provenance.entity.reference
   Card. = 1..1
   Summary = y
@@ -290,7 +325,7 @@
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = !Provenance.entity.display
   Card. = 0..1
   Type = string
@@ -300,7 +335,7 @@
   Auditevent Mapping = AuditEvent.entity.description
   Prov Mapping = Entity.Label
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Provenance.entity.agent
   Card. = 0..*
   Type = @Provenance.agent
@@ -308,41 +343,6 @@
   Definition = The entity is attributed to an agent to express the agent\'s responsibility for that entity, possibly along with other agents. This description can be understood as shorthand for saying that the agent was responsible for the activity which generated the entity
   Comments = A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity\'s use in the context of this Provenance activity.
   RIM Mapping = ./author/role
-
- -- Row 21 -----------------------------------
-  Element = Provenance.location
-  Card. = 0..1
-  Type = Reference(Location)
-  Short Name = Where the activity occurred, if relevant
-  Definition = Where the activity occurred, if relevant
-  RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=\"LOC\" and determinerCode=\"INST\"]
-  Auditevent Mapping = AuditEvent.agent.location
-  Prov Mapping = Activity.location
-  w5 = where
-
- -- Row 22 -----------------------------------
-  Element = Provenance.reason
-  Card. = 0..*
-  Type = Coding
-  Binding = ProvenanceReason
-  Short Name = Reason the activity is occurring
-  Definition = The reason that the activity was taking place
-  RIM Mapping = unique(./reasonCode)
-  Auditevent Mapping = AuditEvent.purposeOfEvent
-  Prov Mapping = Activity.Activity
-  w5 = why
-
- -- Row 23 -----------------------------------
-  Element = Provenance.activity
-  Card. = 0..1
-  Type = Coding
-  Binding = ProvenanceActivity
-  Short Name = Activity that occurred
-  Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
-  RIM Mapping = Act.code
-  Auditevent Mapping = AuditEvent.purposeOfEvent
-  Prov Mapping = Activity.Activity
-  w5 = why
 
  -- Row 24 -----------------------------------
   Element = Provenance.signature
