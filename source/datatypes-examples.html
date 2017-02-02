@@ -17,12 +17,16 @@
 <p>This page includes additional examples of the data types, based on common usages and questions</p>
 
 <p><b>Table of Contents</b></p>
-<table class="grid">
+<div class="row">
+    <div class="col-6" style="width: auto"><b>Primitive Types</b><br />[%diagram datatypes/allprimitivetypes.diagram 1%]</div>
+    <div class="col-6" style="width: auto; padding-right: 0px; margin-right: -25px;"><b>Complex Types</b><br />[%diagram datatypes/alltypes.diagram 2%]</div>
+</div>
+<!--<table class="grid">
  <tr>
   <td><b>Primitive Types</b><br/>[%diagram datatypes/allprimitivetypes.diagram 1%]</td>
   <td><b>Complex Types</b><br/>[%diagram datatypes/alltypes.diagram 2%]</td>
  </tr>
-</table>
+</table>-->
 
 
 <a name="primitive"> </a>
@@ -296,7 +300,7 @@ In this case, there is no display element, because no display is defined for SNO
 <p>
 And where the value set would be something like this:
 </p>
-<pre>
+<pre class="xml" fragment="ValueSet">
   &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
     &lt;text&gt;
       &lt;status value=&quot;generated&quot;/&gt;
@@ -784,6 +788,7 @@ These examples are taken from the <a href="http://www.w3.org/International/quest
 which should be consulted for further information.
 </p>
 
+<div class="example">
 <p>
 A patronymic is "The part of a name that links to the genealogy":
 </p>
@@ -978,7 +983,7 @@ Note that collecting and storing the <i>text</i> element makes the
 primary purpose of the structured parts for index/searching, and
 fidelity of the name parts is not critical.
 </p>
-
+</div>
 
 
 
