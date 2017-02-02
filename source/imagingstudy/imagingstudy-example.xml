@@ -1,105 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This example is used with detectedissue-example-dup, so don't make changes that would cause it to no longer be a duplicate -->
 <ImagingStudy xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/imagingstudy.xsd">
-  <id value="example"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
-  </text>
-  <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
-<accession>
-      <use value="usual" /> 
-      <type> 
-            <coding>
-                  <system value="http://hl7.org/fhir/v2/0203"/> 
-                  <code value="ACSN"/>
-            </coding>
-     </type>
-     <value value="20170100001"/>
-</accession>
-<identifier>
-      <use value="secondary"/> 
-     <value value="55551234"/>
-</identifier>
-<availability value="ONLINE"/>
-<modalityList>
-     <system value="http://nema.org/dicom/dicm"/>
-     <code value="DX"/>
-</modalityList> 
-  <patient>
-    <reference value="Patient/dicom"/>
-  </patient>
-  <context>
-     <reference value="Encounter/example"/>
-</context>
-  <started value="2011-01-01T11:01:20+03:00"/>
-<basedOn>
-     <reference value="ProcedureRequest/example"/>
-</basedOn>
-<referrer>
-     <reference value="Practitioner/example"/>
-</referrer>
-<interpreter>
-     <reference value="Practitioner/example"/>
-</interpreter>
-  <endpoint>
-	<reference value="Endpoint/example-wadors"/>
-  </endpoint>
-  <numberOfSeries value="1"/>
-  <numberOfInstances value="1"/>
-  <procedureReference>
-     <reference value="Procedure/example"/>
-</procedureReference>
-
-  <procedureCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="49345004"/>
-      <display value="Radiography of hand"/>
-    </coding>
-    <text value="Radiography of hand"/>
-  </procedureCode>
-  <reason>
-    <coding>
-      <system value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
-      <code value="357009"/>
-      <display value="Closed fracture of trapezoidal bone of wrist"/>
-    </coding>
-  </reason>
-  <description value="X-RAY OF WRIST"/>
-  <series>
-    <uid value="urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
-    <number value="3"/>
-    <modality>
-		  <system value="http://nema.org/dicom/dicm"/>
-		  <code value="CT"/>
-		</modality> 
-    <description value="CT Surview 180"/>
-    <numberOfInstances value="1"/>
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">CT Chest.  John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</div>
+	</text>
+	<uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
+	<accession>
+		<use value="usual" /> 
+		<type> 
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0203"/> 
+				<code value="ACSN"/>
+			</coding>
+		</type>
+		<value value="20170100001"/>
+	</accession>
+	<identifier>
+		<use value="secondary"/> 
+		<value value="55551234"/>
+	</identifier>
 	<availability value="ONLINE"/>
-	<endpoint>
-     <reference value="Endpoint/example"/>
-</endpoint>
-    <bodySite>
-      <!-- Added body site to support duplicate checking example -->
-      <system value="http://snomed.info/sct"/>
-      <code value="67734004"/>
-      <display value="Upper Trunk Structure"/>
-    </bodySite>
-	 <laterality>
-      <system value="http://snomed.info/sct"/>
-      <code value="419161000"/>
-      <display value="Unilateral left"/>
-    </laterality>
+	<modalityList>
+		<system value="http://nema.org/dicom/dicm"/>
+		<code value="DX"/>
+	</modalityList> 
+	<patient>
+		<reference value="Patient/dicom"/>
+	</patient>
+	<context>
+		<reference value="Encounter/example"/>
+	</context>
 	<started value="2011-01-01T11:01:20+03:00"/>
-	<performer>
-     <reference value="Practitioner/example"/>
-</performer>
-    <instance>
-      <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
-      <number value="1"/>
-      <sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
-	  <title value="ORIGINAL"/>
-    </instance>
-  </series>   
+	<basedOn>
+		<reference value="ProcedureRequest/example"/>
+	</basedOn>
+	<referrer>
+		<reference value="Practitioner/example"/>
+	</referrer>
+	<interpreter>
+		<reference value="Practitioner/example"/>
+	</interpreter>
+	<endpoint>
+		<reference value="Endpoint/example-wadors"/>
+	</endpoint>
+	<numberOfSeries value="1"/>
+	<numberOfInstances value="1"/>
+	<procedureReference>
+		<reference value="Procedure/example"/>
+	</procedureReference>
+
+	<procedureCode>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="49345004"/>
+			<display value="Radiography of hand"/>
+		</coding>
+		<text value="Radiography of hand"/>
+	</procedureCode>
+	<reason>
+		<coding>
+			<system value="http://hl7.org/fhir/ValueSet/procedure-reason"/>
+			<code value="357009"/>
+			<display value="Closed fracture of trapezoidal bone of wrist"/>
+		</coding>
+	</reason>
+	<description value="X-RAY OF WRIST"/>
+	<series>
+		<uid value="urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
+		<number value="3"/>
+		<modality>
+			<system value="http://nema.org/dicom/dicm"/>
+			<code value="CT"/>
+		</modality> 
+		<description value="CT Surview 180"/>
+		<numberOfInstances value="1"/>
+		<availability value="ONLINE"/>
+		<endpoint>
+			<reference value="Endpoint/example"/>
+		</endpoint>
+		<bodySite>
+			<!-- Added body site to support duplicate checking example -->
+			<system value="http://snomed.info/sct"/>
+			<code value="67734004"/>
+			<display value="Upper Trunk Structure"/>
+		</bodySite>
+		<laterality>
+			<system value="http://snomed.info/sct"/>
+			<code value="419161000"/>
+			<display value="Unilateral left"/>
+		</laterality>
+		<started value="2011-01-01T11:01:20+03:00"/>
+		<performer>
+			<reference value="Practitioner/example"/>
+		</performer>
+		<instance>
+			<uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903"/>
+			<number value="1"/>
+			<sopClass value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>
+			<title value="ORIGINAL"/>
+		</instance>
+	</series>   
 </ImagingStudy>
