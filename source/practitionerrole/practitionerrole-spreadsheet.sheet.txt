@@ -65,6 +65,20 @@
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = PractitionerRole.period
+  Card. = 0..1
+  Summary = y
+  Type = Period
+  Short Name = The period during which the practitioner is authorized to perform in these role(s)
+  Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
+  Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
+  v2 Mapping = PRD-8/9 / PRA-5.4
+  RIM Mapping = ./effectiveTime
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+  Committee Notes = Is this separate from the period of validity of the qualification?
+  w5 = when.done
+
+ -- Row 5 -----------------------------------
   Element = PractitionerRole.practitioner
   Card. = 0..1
   Summary = y
@@ -72,7 +86,7 @@
   Short Name = Practitioner that is able to provide the defined services for the organation
   RIM Mapping = .player
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = PractitionerRole.organization
   Card. = 0..1
   Summary = y
@@ -81,7 +95,7 @@
   Definition = The organization where the Practitioner performs the roles associated
   RIM Mapping = scopingOrganization
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = PractitionerRole.code
   Card. = 0..*
   Summary = y
@@ -95,7 +109,7 @@
   RIM Mapping = ./code
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = PractitionerRole.specialty
   Card. = 0..*
   Summary = y
@@ -107,7 +121,7 @@
   RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
   ServD Mapping = ./Specialty
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = PractitionerRole.location
   Card. = 0..*
   Summary = y
@@ -118,14 +132,14 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
   w5 = where
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = PractitionerRole.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
   Short Name = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = PractitionerRole.telecom
   Card. = 0..*
   Summary = y
@@ -133,20 +147,6 @@
   Short Name = Contact details that are specific to the role/location/service
   Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
   RIM Mapping = .telecom
-
- -- Row 11 -----------------------------------
-  Element = PractitionerRole.period
-  Card. = 0..1
-  Summary = y
-  Type = Period
-  Short Name = The period during which the practitioner is authorized to perform in these role(s)
-  Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
-  Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
-  v2 Mapping = PRD-8/9 / PRA-5.4
-  RIM Mapping = ./effectiveTime
-  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
-  Committee Notes = Is this separate from the period of validity of the qualification?
-  w5 = when.done
 
  -- Row 12 -----------------------------------
   Element = PractitionerRole.availableTime

@@ -18,6 +18,14 @@
 		<value value="23"/>
 	</identifier>
 	<active value="true"/>
+	<period>
+		<start value="2012-01-01"/>
+		<end value="2012-03-31"/>
+	</period>
+	<practitioner>
+		<reference value="Practitioner/example"/>
+		<display value="Dr Adam Careful"/>
+	</practitioner>
 	<organization>
 		<reference value="Organization/f001"/>
 	</organization>
@@ -29,6 +37,13 @@
 			<code value="RP"/>
 		</coding>
 	</code>
+	<specialty>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="408443003"/>
+			<display value="General medical practice" />
+		</coding>
+	</specialty>
 
 	<location>
 		<reference value="Location/1"/>
@@ -40,13 +55,35 @@
 	<telecom>
 		<system value="phone" />
 		<value value="(03) 5555 6473" />
-		<use value="home"/>
+		<use value="work"/>
 	</telecom>
-	<period>
-		<start value="2012-01-01"/>
-		<end value="2012-03-31"/>
-	</period>
-  <endpoint>
+	<telecom>
+		<system value="email" />
+		<value value="adam.southern@example.org" />
+		<use value="work"/>
+	</telecom>
+	<availableTime>
+		<daysOfWeek value="mon"/>
+		<daysOfWeek value="tue"/>
+		<daysOfWeek value="wed"/>
+		<availableStartTime value="09:00:00"/>
+		<availableEndTime value="16:30:00"/>
+	</availableTime>
+	<availableTime>
+		<daysOfWeek value="thu"/>
+		<daysOfWeek value="fri"/>
+		<availableStartTime value="09:00:00"/>
+		<availableEndTime value="12:00:00"/>
+	</availableTime>
+	<notAvailable>
+		<description value="Adam will be on extended leave during May 2017"/>
+		<during>
+			<start value="2017-05-01"/>
+			<end value="2017-05-20"/>
+		</during>
+	</notAvailable>
+	<availabilityExceptions value="Adam is generally unavailable on public holidays and during the Christmas/New Year break"/>
+	<endpoint>
     <!-- Endpoint that handles the v2 messaging for the external organization -->
     <reference value="Endpoint/example"/>
   </endpoint>
