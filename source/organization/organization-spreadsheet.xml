@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7968</WindowHeight>
-  <WindowWidth>10284</WindowWidth>
+  <WindowHeight>7932</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>3</ActiveSheet>
@@ -4511,7 +4511,7 @@
     <Cell ss:StyleID="s78"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s115"><Data ss:Type="String">Organization.name | Organization.alias</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">Organization.name or Organization.alias</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">Organization.name | Organization.alias</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s116"><Data ss:Type="String">A portion of the organization's name, or alias</Data></Cell>
    </Row>
@@ -4846,7 +4846,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

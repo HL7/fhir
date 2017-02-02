@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7968</WindowHeight>
-  <WindowWidth>10284</WindowWidth>
+  <WindowHeight>7932</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>3</ActiveSheet>
@@ -4349,7 +4349,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Location.name | Location.alias</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Location.name or Location.alias</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Location.name | Location.alias</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">A (portion of the) name of the location or alias</Data></Cell>
    </Row>
@@ -4675,9 +4675,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R16C1:R16C4</RangeSelection>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
