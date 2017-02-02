@@ -72,25 +72,23 @@
 		<tr><th>Element</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>name</td><td>A machine-friendly name for the artifact</td></tr>
-		<tr><td>title</td><td>A user-friendly title for the artifact</td></tr>
-		<tr><td>status</td><td>The lifecycle status for the artifact (draft, active, or inactive)</td></tr>
-		<tr><td>experimental</td><td>Whether the artifact is for testing purposes, rather than production usage</td></tr>
-		<tr><td>date</td><td>The date the artifact was last changed</td></tr>
-		<tr><td>description</td><td>A natural language description of the artifact</td></tr>
-		<tr><td>purpose</td><td>Describes the purpose of the artifact</td></tr>
-		<tr><td>usage</td><td>Describes the clinical usage of the artifact</td></tr>
-		<tr><td>approvalDate</td><td>The date this version of the artifact was approved by the publisher</td></tr>
-		<tr><td>lastReviewDate</td><td>The date this version of the artifact was last reviewed</td></tr>
-		<tr><td>effectivePeriod</td><td>The effective date range for the artifact</td></tr>
-		<tr><td>useContext</td><td>Describes the context of use for this artifact</td></tr>
-		<tr><td>jurisdiction</td><td>Specifies the intended jurisdiction for the artifact</td></tr>
-		<tr><td>topic</td><td>Descriptional topics for the artifact</td></tr>
-		<tr><td>contributor</td><td>A content contributor</td></tr>
-		<tr><td>publisher</td><td>The name of the publisher (either an organization or an individual)</td></tr>
-		<tr><td>contact</td><td>Contact details for the publisher</td></tr>
-		<tr><td>copyright</td><td>Legal copyright description for the artifact</td></tr>
-		<tr><td>relatedArtifact</td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies</td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.name">name</a></td><td>A machine-friendly name for the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.title">title</a></td><td>A user-friendly title for the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.status">status</a></td><td>The lifecycle status for the artifact (draft, active, or inactive) <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.experimental">experimental</a></td><td>Whether the artifact is for testing purposes, rather than production usage <a href="[%fhir-path%]plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.description">description</a></td><td>A natural language description of the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.purpose">purpose</a></td><td>Describes the purpose of the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.usage">usage</a></td><td>Describes the clinical usage of the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.approvalDate">approvalDate</a></td><td>The date when this artifact was approved by the publisher <a href="[%fhir-path%]plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.lastReviewDate">lastReviewDate</a></td><td>The date this version of the artifact was last reviewed <a href="[%fhir-path%]plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.effectivePeriod">effectivePeriod</a></td><td>The effective date range for the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.useContext">useContext</a></td><td>Describes the context of use for this artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.topic">topic</a></td><td>Descriptional topics for the artifact <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.contributor">contributor</a></td><td>A content contributor <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.publisher">publisher</a></td><td>The name of the publisher (either an organization or an individual) <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.contact">contact</a></td><td>Contact details for the publisher <a href="[%fhir-path%]plandefinition-example.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.copyright">copyright</a></td><td>Legal copyright description for the artifact <a href="[%fhir-path%]plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
+		<tr><td><a href="[%fhir-path%]library-definitions.html#Library.relatedArtifact">relatedArtifact</a></td><td>Related resources for the artifact, including additional documentation, supporting evidence, or knowledge management dependencies <a href="[%fhir-path%]plandefinition-example-kdn5-simplified.xml.html">example</a></td></tr>
 	</tbody>
 </table>
 
@@ -225,11 +223,31 @@
 
 <p>A named event is an event identified by the implementation environment. This type of event allows Event-Condition-Action (ECA) rules to be triggered by any event generated within the implementation environment. A scheduled event occurs on a fixed or periodic schedule. And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated.</p>
 
-<p>As an example, the following fragment illustrates the use of a named event as part of an ECA rule definition:</p>
+<p>As examples, the following fragments illustrate the use of a named event, a scheduled event, and a data event as part of an ECA rule definition:</p>
 
 <pre><code>&lt;triggerDefinition&gt;
   &lt;type value=&quot;named-event&quot;/&gt;
   &lt;eventName value=&quot;Admission&quot;/&gt;
+&lt;/triggerDefinition&gt;
+</code></pre>
+
+<pre><code>&lt;triggerDefinition&gt;
+  &lt;type value=&quot;scheduled-event&quot;/&gt;
+  &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
+&lt;/triggerDefinition&gt;
+</code></pre>
+
+<pre><code>&lt;triggerDefinition&gt;
+  &lt;type value=&quot;data-added&quot;/&gt;
+  &lt;eventData&gt;
+    &lt;dataRequirement&gt;
+      &lt;type value=&quot;Condition&quot;/&gt;
+      &lt;codeFilter&gt;
+        &lt;path value="code"/&gt;
+        &lt;valueSetString value=&quot;Other Female Reproductive Conditions&quot;/&gt;
+      &lt;/codeFilter&gt;
+    &lt;/dataRequirement&gt;
+  &lt;/eventData&gt;
 &lt;/triggerDefinition&gt;
 </code></pre>
 

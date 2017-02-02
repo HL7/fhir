@@ -136,6 +136,7 @@
   Type = CodeableConcept
   Short Name = Code of the ChargeItem
   Definition = A code that identifies the charge, like a billing code
+  Workflow Mapping = Event.code
   v2 Mapping = FT1.7
   RIM Mapping = .code
   w5 = what
@@ -149,6 +150,7 @@
   Short Name = Individual service was done for/to
   Definition = The individual or set of individuals the action is being or was performed on
   Requirements = Links the event to the Patient context
+  Workflow Mapping = Event.subject
   v2 Mapping = PAT in proximity to FT1 segment
   RIM Mapping = .participation[typeCode=SBJ].role
   w5 = who.focus
@@ -162,6 +164,7 @@
   Short Name = Encounter / Episode associated with event
   Definition = The encounter or episode of care that establishes the context for this event
   Requirements = Links the request to the Encounter context
+  Workflow Mapping = Event.context
   v2 Mapping = PV1 in proximity to FT1 segment
   RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
   w5 = context
@@ -310,6 +313,7 @@
   Short Name = Why was the charged service rendered?
   Definition = Describes why the event occurred in coded or textual form.
   Comments = If the application of the charge item requires a reason to be given, it can be captured here. Textual reasons can be captured using reasonCode.text
+  Workflow Mapping = Event.reasonCodeableConcept
   v2 Mapping = EVN.4 or by domain
   RIM Mapping = .reasonCode
   w5 = why
@@ -321,6 +325,7 @@
   Type = Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)
   Short Name = Which rendered service is being charged?
   Definition = Indicated the rendered service that caused this charge
+  Workflow Mapping = Event.reasonReference
   v2 Mapping = EVN.4 or by domain
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
@@ -341,6 +346,7 @@
   Type = Annotation
   Short Name = Comments made about the ChargeItem
   Definition = Comments made about the event by the performer, subject or other participants.
+  Workflow Mapping = Event.note
   v2 Mapping = NTE
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
