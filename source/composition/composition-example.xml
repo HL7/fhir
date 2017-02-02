@@ -12,7 +12,7 @@
 		<system value="http://healthintersections.com.au/test"/>
 		<value value="1"/>
 	</identifier>
-	<date value="2012-01-04T09:10:14Z"/>
+	<status value="final"/>
 	<type>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -27,17 +27,20 @@
 			<display value="Report"/>
 		</coding>
 	</class>
-	<title value="Consultation Note"/>
-	<status value="final"/>
-	<confidentiality value="N"/>
 	<subject>
 		<reference value="Patient/xcda"/>
 		<display value="Henry Levin the 7th"/>
 	</subject>
+	<encounter>
+		<reference value="Encounter/xcda"/>
+	</encounter>
+	<date value="2012-01-04T09:10:14Z"/>
 	<author>
 		<reference value="Practitioner/xcda-author"/>
 		<display value="Harold Hippocrates, MD"/>
 	</author>
+	<title value="Consultation Note"/>
+	<confidentiality value="N"/>
 	<attester>
 		<mode value="legal"/>
 		<time value="2012-01-04T09:10:14Z"/>
@@ -66,9 +69,6 @@
 			<reference value="Observation/example"/>
 		</detail>
 	</event>
-	<encounter>
-		<reference value="Encounter/xcda"/>
-	</encounter>
 	<section>
 		<title value="History of present illness"/>
 		<code>

@@ -22,7 +22,7 @@
         <meta>
           <lastUpdated value="2013-05-28T22:12:21Z"/>
         </meta>
-        <date value="2013-02-01T12:30:02Z"/>
+        <status value="final"/>
         <type>
           <coding>
             <system value="http://loinc.org"/>
@@ -30,21 +30,21 @@
           </coding>
           <text value="Discharge Summary from Responsible Clinician"/>
         </type>
-        <title value="Discharge Summary"/>
-        <status value="final"/>
-        <confidentiality value="N"/>
         <subject>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </subject>
-        <author>
-          <reference value="Practitioner/example"/>
-          <display value="Doctor Dave"/>
-        </author>
       <!--   The Encounter resource. Points directly to an Encounter resource. Contains the dates of admission, specialtyu etc.   -->
         <encounter>
           <reference value="http://fhir.healthintersections.com.au/open/Encounter/doc-example"/>
         </encounter>
+        <date value="2013-02-01T12:30:02Z"/>
+        <author>
+          <reference value="Practitioner/example"/>
+          <display value="Doctor Dave"/>
+        </author>
+        <title value="Discharge Summary"/>
+        <confidentiality value="N"/>
         <section>
           <title value="Reason for admission"/>
           <code>

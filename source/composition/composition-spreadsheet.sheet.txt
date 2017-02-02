@@ -181,17 +181,19 @@
   CDA Mapping = .id
 
  -- Row 4 -----------------------------------
-  Element = Composition.date
+  Element = Composition.status
   Card. = 1..1
+  Is Modifier = y
   Summary = y
-  Type = dateTime
-  Short Name = Composition editing time
-  Definition = The composition editing time, when the composition was last logically changed by the author
-  Requirements = dateTime is used for tracking, organizing versions and searching.
-  Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
-  RIM Mapping = .effectiveTime[type=\"TS\"]
-  CDA Mapping = .effectiveTime
-  w5 = when.done
+  Type = code
+  Binding = CompositionStatus
+  Short Name = preliminary | final | amended | entered-in-error
+  Definition = The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document
+  Requirements = Need to be able to mark interim, amended, or withdrawn compositions or documents
+  Comments = If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"withdrawn\" is why this element is labeled as a modifier of other elements. \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required
+  RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
+  CDA Mapping = n/a
+  w5 = status
 
  -- Row 5 -----------------------------------
   Element = Composition.type
@@ -222,57 +224,6 @@
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = Composition.title
-  Card. = 1..1
-  Summary = y
-  Type = string
-  Short Name = Human Readable name/title
-  Definition = Official human-readable label for the composition
-  Comments = For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a \"consultation\" or \"progress note\"). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period
-  RIM Mapping = ./title
-  CDA Mapping = .title
-
- -- Row 8 -----------------------------------
-  Element = Composition.status
-  Card. = 1..1
-  Is Modifier = y
-  Summary = y
-  Type = code
-  Binding = CompositionStatus
-  Short Name = preliminary | final | amended | entered-in-error
-  Definition = The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document
-  Requirements = Need to be able to mark interim, amended, or withdrawn compositions or documents
-  Comments = If a composition is marked as withdrawn, the compositions/documents in the series, or data from the composition or document series, should never be displayed to a user without being clearly marked as untrustworthy. The flag \"withdrawn\" is why this element is labeled as a modifier of other elements. \n\nSome reporting work flows require that the original narrative of a final document never be altered; instead, only new narrative can be added. The composition resource has no explicit status for explicitly noting whether this business rule is in effect. This would be handled by an extension if required
-  RIM Mapping = interim: .completionCode=\"IN\" & ./statusCode[isNormalDatatype()]=\"active\";  final: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and not(./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct()]);  amended: .completionCode=\"AU\" &&  ./statusCode[isNormalDatatype()]=\"complete\" and ./inboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()]/source[subsumesCode(\"ActClass#CACT\") and moodCode=\"EVN\" and domainMember(\"ReviseComposition\", code) and isNormalAct() and statusCode=\"completed\"];  withdrawn : .completionCode=NI &&  ./statusCode[isNormalDatatype()]=\"obsolete\"
-  CDA Mapping = n/a
-  w5 = status
-
- -- Row 9 -----------------------------------
-  Element = !Composition.enterer
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner)
-  Short Name = The source of the data entry
-  Definition = The person or device that performed the data entry leading to this composition. Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis.
-  Requirements = Identifies who is responsible for the entry of the data.
-  Comments = Can provide other enterers in extensions
-  RIM Mapping = unique(highest(./participation[typeCode=\"INT\" and isNormalParticipation], priorityNumber)/role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()])
-  CDA Mapping = .dataEnterer
-
- -- Row 10 -----------------------------------
-  Element = Composition.confidentiality
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = y
-  Type = code
-  Binding = DocumentConfidentiality
-  Short Name = As defined by affinity domain
-  Definition = The code specifying the level of confidentiality of the Composition
-  Comments = The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section)
-  RIM Mapping = .confidentialityCode
-  CDA Mapping = .confidentialityCode
-
- -- Row 11 -----------------------------------
   Element = Composition.subject
   Card. = 1..1
   Summary = y
@@ -285,7 +236,32 @@
   CDA Mapping = .recordTarget
   w5 = who.focus
 
- -- Row 12 -----------------------------------
+ -- Row 8 -----------------------------------
+  Element = Composition.encounter
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Encounter)
+  Short Name = Context of the Composition
+  Definition = Describes the clinical encounter or type of care this documentation is associated with.
+  Requirements = Provides context for the composition and supports searching.
+  RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
+  CDA Mapping = .componentOf.encompassingEncounter
+  w5 = context
+
+ -- Row 9 -----------------------------------
+  Element = Composition.date
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Name = Composition editing time
+  Definition = The composition editing time, when the composition was last logically changed by the author
+  Requirements = dateTime is used for tracking, organizing versions and searching.
+  Comments = The Last Modified Date on the composition may be after the date of the document was attested without being changed
+  RIM Mapping = .effectiveTime[type=\"TS\"]
+  CDA Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 10 -----------------------------------
   Element = Composition.author
   Card. = 1..*
   Summary = y
@@ -297,7 +273,43 @@
   CDA Mapping = .author.assignedAuthor
   w5 = who.author
 
+ -- Row 11 -----------------------------------
+  Element = Composition.title
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Name = Human Readable name/title
+  Definition = Official human-readable label for the composition
+  Comments = For many compositions, the title is the same as the text or a display name of Composition.type (e.g. a \"consultation\" or \"progress note\"). Note that CDA does not make title mandatory, but there are no known cases where it is useful for title to be omitted, so it is mandatory here. Feedback on this requirement is welcome during the trial use period
+  RIM Mapping = ./title
+  CDA Mapping = .title
+
+ -- Row 12 -----------------------------------
+  Element = !Composition.enterer
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Name = The source of the data entry
+  Definition = The person or device that performed the data entry leading to this composition. Where there is more than one candidate, pick the most proximal to the document creation or capture on a per-section basis.
+  Requirements = Identifies who is responsible for the entry of the data.
+  Comments = Can provide other enterers in extensions
+  RIM Mapping = unique(highest(./participation[typeCode=\"INT\" and isNormalParticipation], priorityNumber)/role[classCode=\"ASSIGNED\" and isNormalRole]/player[determinerCode=\"INST\" and classCode=(\"DEV\", \"PSN\") and isNormalEntity()])
+  CDA Mapping = .dataEnterer
+
  -- Row 13 -----------------------------------
+  Element = Composition.confidentiality
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = y
+  Type = code
+  Binding = DocumentConfidentiality
+  Short Name = As defined by affinity domain
+  Definition = The code specifying the level of confidentiality of the Composition
+  Comments = The exact use of this element, and enforcement and issues related to highly sensitive documents are out of scope for the base specification, and delegated to implementation profiles (see security section)
+  RIM Mapping = .confidentialityCode
+  CDA Mapping = .confidentialityCode
+
+ -- Row 14 -----------------------------------
   Element = Composition.attester
   Card. = 0..*
   Summary = y
@@ -309,7 +321,7 @@
   RIM Mapping = .participation[typeCode=\"AUTHEN\"].role[classCode=\"ASSIGNED\"]
   CDA Mapping = .authenticator/.legalAuthenticator
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Composition.attester.mode
   Card. = 1..*
   Summary = y
@@ -322,7 +334,7 @@
   RIM Mapping = unique(./modeCode)
   CDA Mapping = implied by .authenticator/.legalAuthenticator
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Composition.attester.time
   Card. = 0..1
   Summary = y
@@ -333,7 +345,7 @@
   RIM Mapping = ./time[type=\"TS\" and isNormalDatatype()]
   CDA Mapping = .authenticator.time
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Composition.attester.party
   Card. = 0..1
   Summary = y
@@ -345,7 +357,7 @@
   CDA Mapping = .authenticator.assignedEnttty
   w5 = who.witness
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Composition.custodian
   Card. = 0..1
   Summary = y
@@ -357,7 +369,7 @@
   RIM Mapping = .participation[typeCode=\"RCV\"].role[classCode=\"CUST\"].scoper[classCode=\"ORG\" and determinerCode=\"INST\"]
   CDA Mapping = .custodian.assignedCustodian
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Composition.event
   Card. = 0..*
   Summary = y
@@ -369,7 +381,7 @@
   RIM Mapping = outboundRelationship[typeCode=\"SUBJ\"].target[classCode<\'ACT\']
   CDA Mapping = .documentationOf.serviceEvent
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Composition.event.code
   Card. = 0..*
   Summary = y
@@ -381,7 +393,7 @@
   RIM Mapping = .code
   CDA Mapping = .code
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Composition.event.period
   Card. = 0..1
   Summary = y
@@ -391,7 +403,7 @@
   RIM Mapping = .effectiveTime
   CDA Mapping = .effectiveTime
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Composition.event.detail
   Card. = 0..*
   Summary = y
@@ -400,18 +412,6 @@
   Definition = The description and/or reference of the event(s) being documented. For example, this could be used to document such a colonoscopy or an appendectomy
   RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target
   CDA Mapping = n/a
-
- -- Row 22 -----------------------------------
-  Element = Composition.encounter
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Encounter)
-  Short Name = Context of the Composition
-  Definition = Describes the clinical encounter or type of care this documentation is associated with.
-  Requirements = Provides context for the composition and supports searching.
-  RIM Mapping = unique(highest(./outboundRelationship[typeCode=\"SUBJ\" and isNormalActRelationship()], priorityNumber)/target[moodCode=\"EVN\" and classCode=(\"ENC\", \"PCPR\") and isNormalAct])
-  CDA Mapping = .componentOf.encompassingEncounter
-  w5 = context
 
  -- Row 23 -----------------------------------
   Element = Composition.section
