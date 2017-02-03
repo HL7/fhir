@@ -335,7 +335,7 @@ Where they can indicate one of three levels for versioning support:
  <li><b>versioned</b>: Versioning and meta.version is supported (server) or used (client)</li>
  <li><b>versioned-update</b>:	Versioning and meta.version is supported, and version aware updates are used - Version ID must be correct for updates (server) or will be specified (If-match header) for updates (client)</li>
 </ul>
- 
+
 <p>
 Server should always return the default timezone for <a href="search.html#date">date searches</a>
 in the HTTP Response headers using the Date header. Note: Servers are not required to have a
@@ -379,8 +379,8 @@ as specified in the <code>_summary</code> parameter, which can have the values
 Note that a resource that only contains a subset of the data is
 not suitable for use as a base to update the resource, and may not
 be suitable for other uses. The same applies to the <a href="search.html#elements">_elements</a> parameter - both
-that it should be supported, and the subset implications. Servers SHOULD use
-the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> <a href="security-labels.html">Security Label</a>
+that it should be supported, and the subset implications. Servers SHOULD define a Resource.meta.tag with
+the <a href="v3/ObservationValue/cs.html#v3-ObservationValue-SUBSETTED">SUBSETTED</a> as a <a href="resource.html#simple-tags">Simple Tag</a>
 to explicitly mark such resources.
 </p>
 
@@ -582,8 +582,8 @@ status codes when no <code>If-Match</code> header is found.
 <h3>patch</h3>
 <p>
 As an alternative to updating an entire resource, clients can perform a patch operation.
-This can be useful when a client is seeking to minimise it's bandwidth utilization, or 
-in scenarios where a client has only partial access or support for a resource. The <code>patch</code> 
+This can be useful when a client is seeking to minimise it's bandwidth utilization, or
+in scenarios where a client has only partial access or support for a resource. The <code>patch</code>
 interaction is performed by an HTTP <code>PATCH</code> command as shown:
 </p>
 <pre class="http">
@@ -597,17 +597,17 @@ The body of a PATCH operation SHALL be either:
  <li>an <a href="http://tools.ietf.org/html/rfc5261">XML Patch</a> document with a content type of <code>application/xml-patch+xml</code></li>
 </ul>
 <p>
-In either case, the server SHALL process it's own copy of the resource in the format indicated, applying 
-the operations specified in the document, following the relevant PATCH specification. When the operations 
-have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a> 
+In either case, the server SHALL process it's own copy of the resource in the format indicated, applying
+the operations specified in the document, following the relevant PATCH specification. When the operations
+have all been processed, the server processes the resulting document as an <a href="#update"><code>Update</code></a>
 operation; all the version and error handling etc applies as specified, as does the <a href="#prefer">Prefer Header</a>.
 </p>
 <p>
-Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support 
-conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>. 
-Clients SHOULD always consider using version specific PATCH operations so that inappropriate 
-actions are not executed. In addition, servers SHALL support Conditional PATCH, which works 
-exactly as described for <a href="#cond-update">Conditional Update</a>. 
+Processing PATCH operations may be very version sensitive. For this reason, servers SHALL support
+conditional PATCH, which works exactly the same as specified for update in <a href="#versionaware">Concurrency Management</a>.
+Clients SHOULD always consider using version specific PATCH operations so that inappropriate
+actions are not executed. In addition, servers SHALL support Conditional PATCH, which works
+exactly as described for <a href="#cond-update">Conditional Update</a>.
 </p>
 <p>
 The server SHALL ensure that the narrative in a resource is not clinically unsafe after the PATCH operation is performed.
@@ -621,7 +621,7 @@ Exactly how this is defined and can be achieved depends on the context, and how 
 </ul>
 <p>
 Processing XML Patch documents is tricky because of namespace handling. Servers SHALL handle
-namespaces correctly, but note that FHIR resources only contain two XML namespaces, 
+namespaces correctly, but note that FHIR resources only contain two XML namespaces,
 for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1999/xhtml</code>).
 </p>
 <p>
@@ -631,7 +631,7 @@ For PATCH Examples, see (link todo).
 Note: There is, as yet, no support for preforming patch operations as part of Batch or Transaction
 Operations. This may be addressed in a future version of the specification.
 </p>
- 
+
 <a name="delete"> </a>
 <h3>delete</h3>
 <p>
@@ -870,9 +870,9 @@ It's also possible to search across multiple resource types:
 </pre>
 <p>
 This is a request to search on both Condition and Observation. In this case,
-the only parameters that can be used are those defined for both Condition and Observation 
+the only parameters that can be used are those defined for both Condition and Observation
 (using <a href="searchparameter-definitions.html#SearchParameter.base">SearchParameter.base</a> - see <a href="searchparameter-registry.html#common">Cross-resource Search Parameters</a>),
-or the <a href="resource.html#search">parameters defined for all resources</a>. If a search lists types not listed <code>SearchParameter.base</code> 
+or the <a href="resource.html#search">parameters defined for all resources</a>. If a search lists types not listed <code>SearchParameter.base</code>
 for any of the parameters, this is an error, and a server SHOULD return a 400 status. It's also possible to search on all types at once:
 </p>
 <pre class="http">
@@ -936,8 +936,8 @@ just like any other end-point.
 <a name="cap-st-note"> </a>
 <p>
 <b>Implementation Note:</b> In DSTU 2 and earlier, the resource that this interaction returned was named "Conformance".
-Clients often connect to a server, and use the <code>capabilities</code> interaction to check whether they are version 
-and/or feature compatible with the server. Such clients should be able to process either a Conformance or a 
+Clients often connect to a server, and use the <code>capabilities</code> interaction to check whether they are version
+and/or feature compatible with the server. Such clients should be able to process either a Conformance or a
 CapabilityStatement resource.
 </p>
 </blockquote>
