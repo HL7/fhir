@@ -109,34 +109,46 @@
 
  -- Row 3 -----------------------------------
   Id = 3
+  Code = triaged
+  Display = Triaged
+  Definition = The patient has been assessed for the priority of their treatment based on the severity of their condition.
+
+ -- Row 4 -----------------------------------
+  Id = 4
   Code = in-progress
   Display = In Progress
   Definition = The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
 
- -- Row 4 -----------------------------------
-  Id = 4
+ -- Row 5 -----------------------------------
+  Id = 5
   Code = onleave
   Display = On Leave
   Definition = The Encounter has begun, but the patient is temporarily on leave.
 
- -- Row 5 -----------------------------------
-  Id = 5
+ -- Row 6 -----------------------------------
+  Id = 6
   Code = finished
   Display = Finished
   Definition = The Encounter has ended.
 
- -- Row 6 -----------------------------------
-  Id = 6
+ -- Row 7 -----------------------------------
+  Id = 7
   Code = cancelled
   Display = Cancelled
   Definition = The Encounter has ended before it has begun.
 
- -- Row 7 -----------------------------------
-  Id = 7
+ -- Row 8 -----------------------------------
+  Id = 8
   Code = entered-in-error
   Display = Entered in Error
   Definition = This instance should not have been part of this patient\'s medical record.
   v3 = ActStatus.nullified
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = unknown
+  Display = Unknown
+  Definition = The encounter status is unknown. Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
 
 === Sheet encounter-location-status =====================================
 
@@ -195,7 +207,8 @@
   Summary = y
   Type = code
   Binding = EncounterStatus
-  Short Name = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
+  Short Name = planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
+  Comments = Note that internal business rules will detemine the appropraite transitions that may occur between statuses (and also classes)
   v2 Mapping = No clear equivalent in HL7 v2; active/finished could be inferred from PV1-44, PV1-45, PV2-24; inactive could be inferred from PV2-16
   RIM Mapping = .statusCode
   w5 = status
@@ -204,7 +217,7 @@
   Element = Encounter.statusHistory
   Card. = 0..*
   UML = 20;300
-  Type = event
+  Type = =StatusHistory
   Short Name = List of past encounter statuses
   Definition = The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them
   Comments = The current status is always found in the current version of the resource, not the status history
@@ -215,7 +228,7 @@
   Card. = 1..1
   Type = code
   Binding = EncounterStatus
-  Short Name = planned | arrived | in-progress | onleave | finished | cancelled | entered-in-error
+  Short Name = planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown
   RIM Mapping = n/a
 
  -- Row 6 -----------------------------------
@@ -237,6 +250,26 @@
   w5 = class
 
  -- Row 8 -----------------------------------
+  Element = Encounter.classHistory
+  Card. = 0..*
+  Type = =ClassHistory
+  Short Name = List of past encounter classes
+  Definition = The class history permits the tracking of the encounters transitions without needing to go  through the resource history.\n\nThis would be used for a case where an admission starts of as an emergency encounter, then transisions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kindof discharge from emergency to inpatient.
+
+ -- Row 9 -----------------------------------
+  Element = Encounter.classHistory.class
+  Card. = 1..1
+  Type = Coding
+  Binding = EncounterClass
+  Short Name = inpatient | outpatient | ambulatory | emergency +
+
+ -- Row 10 -----------------------------------
+  Element = Encounter.classHistory.period
+  Card. = 1..1
+  Type = Period
+  Short Name = The time that the episode was in the specified class
+
+ -- Row 11 -----------------------------------
   Element = Encounter.type
   Card. = 0..*
   Summary = y
@@ -249,7 +282,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Encounter.priority
   Card. = 0..1
   Type = CodeableConcept
@@ -259,7 +292,7 @@
   RIM Mapping = .priorityCode
   w5 = grade
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Encounter.subject
   Card. = 0..1
   Aliases = patient
@@ -271,7 +304,7 @@
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
   w5 = who.focus
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Encounter.episodeOfCare
   Card. = 0..*
   Summary = Y
@@ -282,7 +315,7 @@
   RIM Mapping = n/a
   w5 = context
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Encounter.incomingReferral
   Card. = 0..*
   Type = Reference(ReferralRequest)
@@ -290,7 +323,7 @@
   Definition = The referral request this encounter satisfies (incoming referral)
   RIM Mapping = .reason.ClinicalDocument
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Encounter.participant
   Card. = 0..*
   Summary = y
@@ -300,7 +333,7 @@
   v2 Mapping = ROL
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Encounter.participant.type
   Card. = 0..*
   Summary = y
@@ -312,7 +345,7 @@
   v2 Mapping = ROL-3 (or maybe PRT-4)
   RIM Mapping = .functionCode
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Encounter.participant.period
   Card. = 0..1
   Type = Period
@@ -321,7 +354,7 @@
   v2 Mapping = ROL-5, ROL-6 (or maybe PRT-5)
   RIM Mapping = .time
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Encounter.participant.individual
   Card. = 0..1
   Summary = y
@@ -331,7 +364,7 @@
   RIM Mapping = .role
   w5 = who
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Encounter.appointment
   Card. = 0..1
   Summary = y
@@ -340,7 +373,7 @@
   v2 Mapping = SCH-1 / SCH-2
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=ENC, moodCode=APT]
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Encounter.period
   Card. = 0..1
   Type = Period
@@ -351,7 +384,7 @@
   RIM Mapping = .effectiveTime (low & high)
   w5 = when.done
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Encounter.length
   Card. = 0..1
   Type = Duration
@@ -361,7 +394,7 @@
   v2 Mapping = (PV1-45 less PV1-44) iff ( (PV1-44 not empty) and (PV1-45 not empty) ); units in minutes
   RIM Mapping = .lengthOfStayQuantity
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Encounter.reason
   Card. = 0..*
   Aliases = Indication, Admission diagnosis
@@ -375,7 +408,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Encounter.indication
   Card. = 0..*
   Aliases = Admission diagnosis
@@ -387,7 +420,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON].target
   w5 = why
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Encounter.account
   Card. = 0..*
   Type = Reference(Account)
@@ -395,7 +428,7 @@
   Comments = The billing system may choose to allocate billable items associated with the Encounter to different referenced Accounts based on internal business rules.
   RIM Mapping = .pertains.A_Account
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Encounter.hospitalization
   Card. = 0..1
   UML = 350;200
@@ -403,7 +436,7 @@
   Comments = An Encounter may cover more than just the inpatient stay. Contexts such as outpatients, community clinics, and aged care facilities are also included.\r\rThe duration recorded in the period of this encounter covers the entire scope of this hospitalization record.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ENC, moodCode=EVN]
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Encounter.hospitalization.preAdmissionIdentifier
   Card. = 0..1
   Type = Identifier
@@ -411,7 +444,7 @@
   v2 Mapping = PV1-5
   RIM Mapping = .id
 
- -- Row 25 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = !Encounter.hospitalization.preAdmissionTest
   Card. = 0..1
   Type = CodeableConcept
@@ -420,14 +453,14 @@
   v2 Mapping = PV1-12
   RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, isCriterion=true]
 
- -- Row 26 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Encounter.hospitalization.origin
   Card. = 0..1
   Type = Reference(Location)
   Short Name = The location from which the patient came before admission
   RIM Mapping = .participation[typeCode=ORG].role
 
- -- Row 27 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Encounter.hospitalization.admitSource
   Card. = 0..1
   Type = CodeableConcept
@@ -436,7 +469,7 @@
   v2 Mapping = PV1-14
   RIM Mapping = .admissionReferralSourceCode
 
- -- Row 28 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Encounter.hospitalization.admittingDiagnosis
   Card. = 0..*
   Type = Reference(Condition)
@@ -444,7 +477,7 @@
   Definition = The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter
   RIM Mapping = .reason.A_ObservationDx
 
- -- Row 29 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Encounter.hospitalization.reAdmission
   Card. = 0..1
   Type = CodeableConcept
@@ -455,7 +488,7 @@
   RIM Mapping = n/a
   Committee Notes = This concept doesn’t exist in v3 and since unlikely to start adopting v3 encounters, will leave until a direct request comes in
 
- -- Row 30 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = !Encounter.hospitalization.period
   Card. = 0..1
   Type = Period
@@ -465,14 +498,14 @@
   v2 Mapping = PV2-11 / PV1-44 / PV1-45
   RIM Mapping = .effectiveTime
 
- -- Row 31 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = !Encounter.hospitalization.accomodation
   Card. = 0..*
   UML = down
   Short Name = Where the patient stays during this encounter
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=ACCOM, moodCode=EVN]
 
- -- Row 32 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = !Encounter.hospitalization.accomodation.bed
   Card. = 0..1
   Type = Reference(Location)
@@ -480,14 +513,14 @@
   v2 Mapping = PV1-3
   RIM Mapping = .participation[typeCode=LOC].role.player[classCode=PLC, code=BED]
 
- -- Row 33 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = !Encounter.hospitalization.accomodation.period
   Card. = 0..1
   Type = Period
   Short Name = Period during which the patient was assigned the bed
   RIM Mapping = .effectiveTime
 
- -- Row 34 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Encounter.hospitalization.dietPreference
   Card. = 0..*
   Type = CodeableConcept
@@ -498,7 +531,7 @@
   v2 Mapping = PV1-38
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=EVN, code=\"diet\"]
 
- -- Row 35 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Encounter.hospitalization.specialCourtesy
   Card. = 0..*
   Type = CodeableConcept
@@ -507,7 +540,7 @@
   v2 Mapping = PV1-16
   RIM Mapping = .specialCourtesiesCode
 
- -- Row 36 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Encounter.hospitalization.specialArrangement
   Card. = 0..*
   Type = CodeableConcept
@@ -517,7 +550,7 @@
   v2 Mapping = PV1-15 / OBR-30 / OBR-43
   RIM Mapping = .specialArrangementCode
 
- -- Row 37 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Encounter.hospitalization.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -525,7 +558,7 @@
   v2 Mapping = PV1-37
   RIM Mapping = .participation[typeCode=DST]
 
- -- Row 38 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Encounter.hospitalization.dischargeDisposition
   Card. = 0..1
   Type = CodeableConcept
@@ -534,14 +567,14 @@
   v2 Mapping = PV1-36
   RIM Mapping = .dischargeDispositionCode
 
- -- Row 39 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Encounter.hospitalization.dischargeDiagnosis
   Card. = 0..*
   Type = Reference(Condition)
   Short Name = The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete
   RIM Mapping = .outboundRelationship[typeCode=OUT].target[classCode=OBS, moodCode=EVN, code=ASSERTION].value
 
- -- Row 40 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Encounter.location
   Card. = 0..*
   UML = 350;100
@@ -550,7 +583,7 @@
   Comments = Virtual encounters can be recorded in the Encounter by specifying a location reference to a location of type \"kind\" such as \"client\'s home\" and an encounter.class = \"virtual\"
   RIM Mapping = .participation[typeCode=LOC]
 
- -- Row 41 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Encounter.location.location
   Card. = 1..1
   Type = Reference(Location)
@@ -560,7 +593,7 @@
   RIM Mapping = .role
   w5 = where
 
- -- Row 42 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Encounter.location.status
   Card. = 0..1
   Type = code
@@ -570,14 +603,14 @@
   Comments = When the patient is no longer active at a location, then the period end date is entered, and the status may be changed to completed
   RIM Mapping = .role.statusCode
 
- -- Row 43 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Encounter.location.period
   Card. = 0..1
   Type = Period
   Short Name = Time period during which the patient was present at the location
   RIM Mapping = .time
 
- -- Row 44 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Encounter.serviceProvider
   Card. = 0..1
   Type = Reference(Organization)
@@ -586,7 +619,7 @@
   v2 Mapping = PV1-10 / PL.6  & PL.1  (note: HL7 v2 definition is \"the treatment or type of surgery that the patient is scheduled to receive\"; seems slightly out of alignment with the concept name \'hospital service\'. Would not trust that implementations apply this semantic by default)
   RIM Mapping = .particiaption[typeCode=PFM].role
 
- -- Row 45 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Encounter.partOf
   Card. = 0..1
   Type = Reference(Encounter)
@@ -787,6 +820,12 @@
   Identity = xcda
   Description = for Clinical Document example patient
   Filename = encounter-example-xcda.xml
+
+ -- Row 10 -----------------------------------
+  Name = emergency
+  Identity = emerg
+  Description = Emergency transitioning into inpatient example
+  Filename = encounter-example-emerg.xml
 
 === Sheet Examples =====================================
 

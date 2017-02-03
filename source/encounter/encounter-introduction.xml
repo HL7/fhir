@@ -57,7 +57,7 @@ histories) a status history component is included.
 There is no direct indication purely by the status field as to if an encounter is considered "admitted".<br/>
 The context of the encounter and business practices/policies/workflows/types can influence this definition.
 (e.g., acute care facility, aged care center, outpatient clinic, emergency department, community based clinic).<br/>
-Statuses of "arrived" or "in progress" could be considered the start of the admission, and also have the 
+Statuses of "arrived", "triaged" or "in progress" could be considered the start of the admission, and also have the 
 presence of the hospitalization sub-component entered.
 </p>
 <p>
