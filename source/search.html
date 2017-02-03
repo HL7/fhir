@@ -497,7 +497,7 @@ The use of the prefixes:
     </ul>
    </td>
  </tr>
- <tr> 
+ <tr>
    <td><code>[parameter]=gt2013-01-14T10:00</code></td>
    <td>
     <ul>
@@ -604,7 +604,7 @@ When a string search parameter refers to the types <a href="datatypes.html#Human
 the search covers the elements of type string, and does not cover elements such as <code>use</code> and <code>period</code>.
 For robust search, servers should search the parts of a family name independently.
 E.g. Searching either Carreno or Quinones should match a family name of "Carreño Quiñones".
-HL7 affiliates may make more specific recommendations about how search should work 
+HL7 affiliates may make more specific recommendations about how search should work
 in their specific culture.
 </p>
 <p>
@@ -644,22 +644,22 @@ OIDs.
 </p>
 <p>
 Note that for <a href="references.html#canonical">Canonical URLs</a>, servers SHOULD support searching by
-Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the 
+Canonical URL, and SHOULD support automatically detecting a <code>|[version]</code> portion as part of the
 Canonical URL, and interpreting that portion as a search on the version.
 </p>
 
 <a name="token"> </a>
 <h4>token</h4>
 <p>
-A token type is a parameter that provides an exact match search, either on a string of characters, potentially 
+A token type is a parameter that provides an exact match search, either on a string of characters, potentially
 scoped by a URI. It is mostly used against a code or identifier data type where the value may have a
-URI that scopes its meaning, where the search is performed against the  pair from a Coding or an 
+URI that scopes its meaning, where the search is performed against the  pair from a Coding or an
 Identifier. Tokens are also used against other fields where exact matches are required - uris,
 booleans, and <a href="datatypes.html#ContactPoint">ContactPoints</a>. In these cases, the URI portion is not used.
 </p>
 <p>
-For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features), 
-but not case sensitive. To use subsumption based logic, use the modifiers below, or list 
+For tokens, matches are literal (e.g. not based on <a href="codesystem.html#subsumption">subsumption</a> or other code system features),
+but not case sensitive. To use subsumption based logic, use the modifiers below, or list
 all the codes in the heirarchy. The syntax for the value is one of the following:
 </p>
 <ul>
@@ -669,7 +669,7 @@ all the codes in the heirarchy. The syntax for the value is one of the following
  <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
 </ul>
 <p>
-Note: The namespace URI and code both must be <a href="#escaping">escaped</a> correctly. 
+Note: The namespace URI and code both must be <a href="#escaping">escaped</a> correctly.
 If a system is not applicable (e.g. an element of type <a href="datatypes.html#uri">uri</a>,
 then just the form [parameter]=[code] is used.
 </p>
@@ -1150,7 +1150,7 @@ For example, "Find all the
 observations for patient with a name including <code>peter</code> that have a LOINC code <code>1234-5</code>":
 </p>
 <pre>
-GET [base]/Observation?name=http://loinc.org|1234-5&amp;subject.name=peter
+GET [base]/Observation?code=http://loinc.org|1234-5&amp;subject.name=peter
 </pre>
 <p>
 Using the <code>_filter</code> parameter, the search would be expressed like this:
@@ -1234,8 +1234,8 @@ Notes:
   <li>When sorting on string search parameters, sorting SHOULD be performed
      on a case-insensitive basis. Accents may either be ignored or sorted as
      per realm convention.</li>
-  <li>This specification does not specify exacts rules for consistency of sorting 
-     across servers. In general, this is deemed to be not as essential as 
+  <li>This specification does not specify exacts rules for consistency of sorting
+     across servers. In general, this is deemed to be not as essential as
      consistency of filtering (though even that is a little variable). The
      purpose of sorting is to provide data in a "reasonable" order for end-users.
     "Reasonable" may vary by use case and realm, particularly for accented characters.</li>
