@@ -88,10 +88,11 @@
 
  -- Row 7 -----------------------------------
   Element = Schedule.actor
-  Card. = 1..1
+  Card. = 1..*
   Summary = Y
   Type = Reference(Patient|Practitioner|RelatedPerson|Device|HealthcareService|Location)
   Short Name = The resource this Schedule resource is providing availability information for. These are expected to usually be one of HealthcareService, Location, Practitioner, Device, Patient or RelatedPerson
+  Comments = The capacity to support multiple referenced resource types should be used in cases where the specific resources themselves cannot be scheduled without the other, and thus only make sense to the system exposing them as a group. Common examples of this are where the combination of a pracitioner and a room(location) are always required by a system.
   iCal Mapping = ATTENDEE:MAILTO:john_public@host2.com This can be populated with a value from the referenced resource
   Committee Notes = Many discussions were had at 2 WGMs over the name of this field, and considered individual, subject and several others, but landed on this property name as it doesn\'t have other meanings and is applicable for people, services, locations and devices
   w5 = who.focus

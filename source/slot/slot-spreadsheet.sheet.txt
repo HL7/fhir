@@ -117,7 +117,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = appointment-type
-  Short Name = The style of appointment or patient that has been booked in the slot (not service type)
+  Short Name = The style of appointment or patient that may be booked in the slot (not service type)
 
  -- Row 7 -----------------------------------
   Element = Slot.schedule
