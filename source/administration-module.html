@@ -187,12 +187,40 @@ in order to support consistent definitions for schema and UML derived code.
         <a name="uses"> </a>
         <h3>Common use Cases</h3>
         <p>
-            All systems require access to administrative resources, such as for:
+            Administration Resources are cornerstone resources that are used by clinical and other domains of the FHIR Standard.
         </p>
         <ul>
-            <li>Maintaining master file lists of patients, practitioners, organizations, locations, etc.</li>
-            <li>Synchronizing/interrogating content from an external registry. Such as a Services Directory or centralized Person register</li>
-            <li></li>
+            <li>
+                <b>Managing a Master Record of a Patient and a Person</b> (e.g. MPI)<br/>
+                A #Patient resource is used to describe patient demographic and visit information and any updates to it.
+                It can be used to communicate #Patient information to other systems
+                (e.g. other registries, clinical, ancillary and financial systems).
+                Some systems distinguish the Patient Registry (or Client Registry) from the Person Registry.
+                A #Person resource is a base for the Person Registry system.
+                The Patient/Person Management use case includes creation, update, as well as merge/unmerge and link/unlink scenarios.
+            </li>
+            <li>
+                <b>Managing a Master Record of a Provider and Service Catalogue</b> (e.g. Provider Registry, Service Directory)<br />
+                A #Practitioner resource is a base resource for enabling the registry of individuals, related to providing health care services.
+                Other resources, such as #Organization, #Location, #HealthcareService, are creating a complete picture of where, how and by whom
+                the care services are enabled to a patient. The resources can be used for managing the master record or as a reference in
+                clinical resources to inform about participants and places for various clinical resources.
+            </li>
+            <li>
+                <b>Managing Other Administrative Records</b><br />
+                The Administration domain of the FHIR standard includes creation and update of #Device and #Substance records.
+                Resources can be used for managing a master record or communicating its information to other systems.
+            </li>
+            <li>
+                <b>Enabling Patient Profiles, Clinical Reporting, Connecting clinical records</b><br />
+                Administration Resources are referred by almost all clinical resources.
+                Querying systems, using the references to Administration Resources enables the creation of profiles and reports of various complexities.
+            </li>
+            <li>
+                <b>Enabling Clinical Grouping and Financial Reporting</b><br />
+                Other use cases are included in the roadmap of resources, developed by the Patient Administration group.
+                The roadmap section lists plans and updates of the current work.
+            </li>
         </ul>
 
         <a name="roadmap"> </a>
@@ -203,7 +231,7 @@ in order to support consistent definitions for schema and UML derived code.
         <ul>
             <li>Encounters and Scheduling <i>(enhance maturity of encounters and further develop in/outpatient scheduling)</i></li>
             <li>Service Provider Directory <i>(in co-ordination with the Argonaut Provider Directory group)</i></li>
-            <li>Financial Management interactions <i>(account/coverage, then billable item, which links administration to billing)</i></li>
+            <li>Financial Management interactions <i>(account/coverage, then charge item, which links administration to billing)</i></li>
         </ul>
         <p>
             Many of the administrative resources are part of the core resources that most systems
