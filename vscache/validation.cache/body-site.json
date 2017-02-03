@@ -11,6 +11,11 @@
         "definition": null,
         "display": "Upper trunk"
       }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|T-15460|Wrist Joint",
+      "severity": "error",
+      "message": "Concept not found (next char = \"T\") at character 1"
     }
   ]
 }

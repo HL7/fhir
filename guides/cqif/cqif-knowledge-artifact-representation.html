@@ -100,7 +100,11 @@
 <pre><code>&lt;title value=&quot;Appropriate Testing for Children with Pharyngitis&quot;/&gt;
 &lt;status value=&quot;active&quot;/&gt;
 &lt;experimental value=&quot;true&quot;/&gt;
-&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode.&quot;/&gt;
+&lt;description value=&quot;Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and 
+	received a group A streptococcus (strep) test for the episode.&quot;/&gt;
+&lt;purpose value=&quot;The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS 
+	pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate 
+	between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;&quot;/&gt;
 &lt;topic&gt;
   &lt;coding&gt;
     &lt;system value=&quot;http://hl7.org/fhir/c80-doc-typecodes&quot; /&gt;
@@ -359,6 +363,10 @@
   &lt;/library&gt;
   &lt;actionDefinition&gt;
     &lt;title value=&quot;Patient has not had chlamydia screening within the recommended timeframe...&quot;/&gt;
+    &lt;triggerDefinition&gt;
+      &lt;type value=&quot;scheduled-event&quot;/&gt;
+      &lt;eventTimingDate&gt;10/12/2015&lt;/eventTimingDate&gt;
+    &lt;/triggerDefinition&gt;
     &lt;condition&gt;
       &lt;expression value=&quot;NoScreening&quot;/&gt;
     &lt;/condition&gt;

@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Computed Tomography"
       }
+    },
+    {
+      "hash": "|http://nema.org/dicom/dicm|null|DX|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DX",
+        "definition": null,
+        "display": "Digital Radiography"
+      }
     }
   ]
 }

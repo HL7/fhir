@@ -9,21 +9,22 @@
       (strep) test for the episode.
     </div>
   </text>
-    <identifier>
+  <identifier>
     <use value="official" />
     <system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms" />
     <value value="146" />
-    </identifier>
-    <identifier>
+  </identifier>
+  <identifier>
     <use value="official" />
     <system value="http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/nqf" />
     <value value="0002" />
-    </identifier>
-    <version value="1.0.0"/>
-    <title value="Appropriate Testing for Children with Pharyngitis"/>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Appropriate Testing for Children with Pharyngitis"/>
   <status value="active"/>
   <experimental value="true"/>
   <description value="Percentage of children 2-18 years of age who were diagnosed with pharyngitis, ordered an antibiotic and received a group A streptococcus (strep) test for the episode."/>
+  <purpose value="The Infectious Diseases Society of America (IDSA) &quot;recommends swabbing the throat and testing for GAS pharyngitis by rapid antigen detection test (RADT) and/or culture because the clinical features alone do not reliably discriminate between GAS and viral pharyngitis except when overt viral features like rhinorrhea, cough, oral ulcers, and/or hoarseness are present&quot;"/>
   <topic>
     <coding>
       <system value="http://hl7.org/fhir/c80-doc-typecodes" />

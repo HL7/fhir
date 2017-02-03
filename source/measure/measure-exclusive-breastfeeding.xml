@@ -4,18 +4,19 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Measure</div>
   </text>
-    <identifier>
+  <identifier>
     <use value="official"/>
     <value value="exclusive-breastfeeding-measure"/>
-    </identifier>
-    <version value="1.0.0"/>
-    <title value="Exclusive Breastfeeding Measure"/>
-    <status value="active"/>
-    <date value="2015-03-08"/>
-    <description value="Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns."/>
-    <topic>
+  </identifier>
+  <version value="1.0.0"/>
+  <title value="Exclusive Breastfeeding Measure"/>
+  <status value="active"/>
+  <date value="2015-03-08"/>
+  <description value="Exclusive breastfeeding measure of outcomes for exclusive breastmilk feeding of newborns."/>
+  <purpose value="Exclusive breast milk feeding for the first 6 months of neonatal life can result in numerous long-term health benefits for both mother and newborn and is recommended by a number of national and international organizations. Evidence suggests that the prenatal and intrapartum period is critical for the success of exclusive (or any) breast feeding. Therefore, it is recommended that newborns are fed breast milk only from birth to discharge."/>
+  <topic>
     <text value="Exclusive Breastfeeding"/>
-    </topic>
+  </topic>
   <library>
     <reference value="Library/library-exclusive-breastfeeding-cqm-logic"/>
   </library>
