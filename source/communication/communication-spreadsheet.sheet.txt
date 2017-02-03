@@ -82,7 +82,6 @@
   Type = Reference(Any)
   Short Name = Part of this action
   Workflow Mapping = Event.partOf
-  Workflow Mapping = Event.partOf
 
  -- Row 6 -----------------------------------
   Element = Communication.status
@@ -143,7 +142,6 @@
   Type = Reference(Patient|Group)
   Short Name = Focus of message
   Definition = The patient or group that was the focus of this communication.
-  Workflow Mapping = Event.subject
   Workflow Mapping = Event.subject
   w5 = who.focus
 

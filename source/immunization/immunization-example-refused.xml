@@ -14,7 +14,7 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-	<wasNotGiven value="true"/>
+	<notGiven value="true"/>
 	<primarySource value="true"/>
 	<explanation>
 		<reasonNotGiven>

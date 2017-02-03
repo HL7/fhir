@@ -16,12 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8688</WindowHeight>
-  <WindowWidth>22368</WindowWidth>
+  <WindowHeight>7620</WindowHeight>
+  <WindowWidth>23016</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1210,7 +1209,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Immunization.wasNotGiven</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Immunization.notGiven</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
@@ -4117,6 +4116,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4138,9 +4138,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
      <ActiveCol>0</ActiveCol>
-     <RangeSelection>R9:R10</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4203,11 +4201,11 @@
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><Data ss:Type="String">Immunization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">If immunization was not administered (wasNotGiven=true) then there SHALL be no reaction nor explanation.reason present</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">If immunization was not administered (notGiven=true) then there SHALL be no reaction nor explanation.reason present</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">(wasNotGiven = true).not() or (reaction.empty() and explanation.reason.empty())</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">(notGiven = true).not() or (reaction.empty() and explanation.reason.empty())</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String">not(f:wasNotGiven/@value=true() and (count(f:reaction) &gt; 0 or exists(f:explanation/f:reason)))</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">not(f:notGiven/@value=true() and (count(f:reaction) &gt; 0 or exists(f:explanation/f:reason)))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4216,9 +4214,9 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Given administration</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Immunization</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If immunization was administered (wasNotGiven=false) then explanation.reasonNotGiven SHALL be absent.</Data></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">(wasNotGiven = true) or explanation.reasonNotGiven.empty()</Data></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">not(f:wasNotGiven/@value=false() and exists(f:explanation/f:reasonNotGiven))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If immunization was administered (notGiven=false) then explanation.reasonNotGiven SHALL be absent.</Data></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">(notGiven = true) or explanation.reasonNotGiven.empty()</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">not(f:notGiven/@value=false() and exists(f:explanation/f:reasonNotGiven))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s106"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4802,7 +4800,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">notgiven</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Immunization.wasNotGiven</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Immunization.notGiven</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Administrations which were not given</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4950,9 +4948,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R18:R19</RangeSelection>
+     <ActiveRow>12</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7127,7 +7124,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
