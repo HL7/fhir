@@ -22,9 +22,9 @@
 		<display value="home health"/>
 	</class>
 
-	<patient>
+	<subject>
 		<reference value="Patient/example"/>
-	</patient>
+	</subject>
 	<participant>
 		<period>
 			<start value="2015-01-17T16:00:00+10:00"/>

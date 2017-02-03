@@ -260,13 +260,13 @@
   w5 = grade
 
  -- Row 10 -----------------------------------
-  Element = Encounter.patient
+  Element = Encounter.subject
   Card. = 0..1
   Aliases = patient
   Summary = y
-  Type = Reference(Patient)
-  Short Name = The patient present at the encounter
-  Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use
+  Type = Reference(Patient|Group)
+  Short Name = The patient ro group present at the encounter
+  Comments = While the encounter is always about the patient, the patient may not actually be known in all contexts of use, and there may be a group of patients that could be anonymous (such as in a group therapy for Alcoholics Anonymous - where the recording of the encounter could be used for billing on the number of people/staff and not important to the context of the specific patients) or alternately in veterinary care a herd of sheep receiving treatment (where the animals are not individually tracked)
   v2 Mapping = PID-3
   RIM Mapping = .participation[typeCode=SBJ]/role[classCode=PAT]
   w5 = who.focus
@@ -614,106 +614,111 @@
   Path = Encounter.period
 
  -- Row 4 -----------------------------------
-  Name = patient
+  Name = subject
   Type = reference
-  Path = Encounter.patient
-  Target Types = Patient
+  Path = Encounter.subject
 
  -- Row 5 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = Encounter.subject
+  Target Types = Patient
+
+ -- Row 6 -----------------------------------
   Name = appointment
   Type = reference
   Path = Encounter.appointment
   Target Types = Appointment
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = length
   Type = number
   Description = Length of encounter in days
   Path = Encounter.length
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = reason
   Type = token
   Path = Encounter.reason
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = indication
   Type = reference
   Path = Encounter.indication
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = condition
   Type = reference
   Path = Encounter.indication
   Target Types = Condition
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = procedure
   Type = reference
   Path = Encounter.indication
   Target Types = Procedure
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = location
   Type = reference
   Path = Encounter.location.location
   Target Types = Location
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = location-period
   Type = date
   Path = Encounter.location.period
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = type
   Type = token
   Path = Encounter.type
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = special-arrangement
   Type = token
   Path = Encounter.hospitalization.specialArrangement
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = part-of
   Type = reference
   Path = Encounter.partOf
   Target Types = Encounter
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = participant
   Type = reference
   Path = Encounter.participant.individual
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = participant-type
   Type = token
   Path = Encounter.participant.type
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = episodeofcare
   Type = reference
   Path = Encounter.episodeOfCare
   Target Types = EpisodeOfCare
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Name = incomingreferral
   Type = reference
   Path = Encounter.incomingReferral
   Target Types = ReferralRequest
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Name = practitioner
   Type = reference
   Path = Encounter.participant.individual
   Target Types = Practitioner
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Name = class
   Type = token
   Path = Encounter.class
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Name = service-provider
   Type = reference
   Path = Encounter.serviceProvider

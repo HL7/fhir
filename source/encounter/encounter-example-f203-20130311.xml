@@ -35,10 +35,10 @@
             <display value="High priority"/>
         </coding>
     </priority>
-    <patient>
+    <subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
-    </patient>
+    </subject>
     <episodeOfCare>
         <reference value="EpisodeOfCare/example"/>
     </episodeOfCare>

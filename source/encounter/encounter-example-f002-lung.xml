@@ -27,10 +27,10 @@
             <display value="Urgent"/>
         </coding>
     </priority>
-    <patient>
+	<subject>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
-    </patient>
+    </subject>
     <participant>
         <individual>
             <reference value="Practitioner/f003"/>

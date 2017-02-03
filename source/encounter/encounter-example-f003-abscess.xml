@@ -26,10 +26,10 @@
             <display value="Non-urgent ear, nose and throat admission"/>
         </coding>
     </priority>
-    <patient>
+	<subject>
         <reference value="Patient/f001"/>
         <display value="P. van de Heuvel"/>
-    </patient>
+    </subject>
     <participant>
         <individual>
             <reference value="Practitioner/f001"/>

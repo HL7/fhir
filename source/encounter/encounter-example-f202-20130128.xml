@@ -25,10 +25,10 @@
        <display value="Urgent"/>
     </coding>
  </priority>
- <patient>
+ <subject>
      <reference value="Patient/f201"/>
      <display value="Roel"/>
- </patient>
+ </subject>
  <participant>
      <individual>
          <reference value="Practitioner/f201"/>

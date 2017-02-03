@@ -12,9 +12,9 @@
         <code value="AMB"/> <!-- outpatient -->
         <display value="ambulatory"/>
     </class>
-  <patient>
+  <subject>
     <reference value="Patient/xcda"/>
-  </patient>
+  </subject>
   <participant>
     <individual>
       <reference value="Practitioner/xcda1"/>
