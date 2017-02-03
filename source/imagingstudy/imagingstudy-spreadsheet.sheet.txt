@@ -42,7 +42,7 @@
  -- Row 6 -----------------------------------
   Binding Name = ImagingProcedureCode
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/procedure-category
+  Reference = http://hl7.org/fhir/ValueSet/procedure-code
   Definition = The performed procedure type
   Conformance = example
 
@@ -298,7 +298,7 @@
   Binding = ImagingProcedureCode
   Short Name = The performed procedure code
   Definition = The code for the performed procedure type
-  RIM Mapping = .reasonCode
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=PROC, moodCode=EVN]
 
  -- Row 21 -----------------------------------
   Element = ImagingStudy.reason
@@ -308,6 +308,7 @@
   Binding = ImagingReason
   Short Name = Why the study was requested
   Definition = Description of clinical codition indicating why the ImagingStudy was requested.
+  RIM Mapping = .reasonCode
   w5 = why
 
  -- Row 22 -----------------------------------
@@ -655,5 +656,11 @@
   Identity = example
   Description = Example of imagingstudy
   Filename = imagingstudy-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Comprenensive
+  Identity = example-xr
+  Description = Example XR imaging study with full elements
+  Filename = imagingstudy-example-xr.xml
 
 === Sheet Examples =====================================

@@ -174,6 +174,7 @@
   Short Name = Author (human or machine)
   Definition = Author of ImagingManifest. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
   Requirements = Track the selection decision maker.
+  RIM Mapping = .participation[typeCode=PRF].role
   DICOM Mapping = (0040,A730) - Content Sequence TID 1002 - Observer Context
   w5 = who.author
 
@@ -199,6 +200,7 @@
   Definition = Free text narrative description of the ImagingManifest.  \nThe value may be derived from the DICOM Standard Part 16, CID-7010 descriptions (e.g. Best in Set, Complete Study Content). Note that those values cover the wide range of uses of the DICOM Key Object Selection object, several of which are not supported by ImagingManifest. Specifically, there is no expected behavior associated with descriptions that suggest referenced images be removed or not used.
   Requirements = Need to provide a narrative description of the SOP instances in the selection.
   Comments = Free text narrative description of the ImagingManifest
+  RIM Mapping = .text
   DICOM Mapping = (0040,A160) - Text Value SR content item immediately under the root item, concept name code = (113012, DCM, \"Key Object Description\")
 
  -- Row 8 -----------------------------------
@@ -221,6 +223,7 @@
   Short Name = Study instance UID
   Definition = Study instance UID of the SOP instances in the selection
   Requirements = Study instance UID is required to fully identify the DICOM SOP instances in the selection
+  RIM Mapping = .id
   DICOM Mapping = (0020,000D) - Study Instance UID
 
  -- Row 10 -----------------------------------
@@ -231,6 +234,7 @@
   Short Name = Reference to ImagingStudy
   Definition = Reference to the Imaging Study in FHIR form.
   Requirements = Used to retrieve the ImagingStudy that contain the images referenced in the Imaging ObjectSelection.study
+  RIM Mapping = n/a
   DICOM Mapping = imagingStudy (0020,000D) - Study Instance UID
 
  -- Row 11 -----------------------------------
@@ -241,6 +245,7 @@
   Short Name = Study access service endpoint
   Definition = The network service providing access (e.g., query, view, or retrieval) for the study. See implementation notes for information about using DICOM endpoints. A study-level endpoint applies to each series in the study, unless overridden by a series-level endpoint with the same Endpoint.type.
   Requirements = Access methods for viewing (e.g. IHE’s IID profile) or retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the study or the study’s series or instances. The study-level baseLocation applies to each series in the study, unless overridden in series by a series-level baseLocation of the same type.
+  RIM Mapping = n/a
 
  -- Row 12 -----------------------------------
   Element = !ImagingManifest.study.baseLocation
@@ -289,6 +294,7 @@
   Short Name = Series instance UID
   Definition = Series instance UID of the SOP instances in the selection
   Requirements = Series instance UID is required to fully identify the DICOM SOP instances in the selection
+  RIM Mapping = .id
   DICOM Mapping = (0020,000E) - Series Instance UID
 
  -- Row 17 -----------------------------------
@@ -299,6 +305,7 @@
   Short Name = Series access endpoint
   Definition = The network service providing access (e.g., query, view, or retrieval) for this series. See implementation notes for information about using DICOM endpoints. A series-level endpoint, if present, has precedence over a study-level endpoint with the same Endpoint.type.
   Requirements = Access methods for retrieving (e.g., DICOM’s WADO-URI and WADO-RS) the series or the series’ instances. A baseLocation specified at the series level has precedence over a baseLocation of the same type specified at the study level.
+  RIM Mapping = n/a
 
  -- Row 18 -----------------------------------
   Element = !ImagingManifest.study.series.baseLocation
@@ -348,6 +355,7 @@
   Definition = SOP class UID of the selected instance
   Requirements = DICOM SOP instances can be an image or other data object. The SOP class UID provide the accurate information about what type the instance is.
   Comments = SOP class UID identifies the type of the selected instances, e.g. CT image, Gray scale softcopy presentation state, ECG waveform, etc.
+  RIM Mapping = .inboundRelationship[typeCode=COMP]. source[classCode=OBS, moodCode=EVN, code=\"sop class\"].value
   DICOM Mapping = (0008,0016) SOP Class UID
   Committee Notes = Define proficiency and mode as extensions
 
@@ -361,6 +369,7 @@
   Definition = SOP Instance UID of the selected instance
   Requirements = SOP instance UID is required to fully identify the DICOM SOP instance in the selection.
   Comments = SOP instance UID identifies the instance
+  RIM Mapping = .id
   DICOM Mapping = (0008,0018) - SOP Instance UID
   Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
 

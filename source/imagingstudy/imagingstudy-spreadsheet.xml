@@ -20,7 +20,8 @@
   <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
+  <FirstVisibleSheet>5</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4213,13 +4214,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4227,7 +4227,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -4236,7 +4235,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>20</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6337,13 +6336,13 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">Comprenensive</Data></Cell>
     <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s92"/>
-    <Cell ss:StyleID="s92"/>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Example XR imaging study with full elements </Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">example-xr</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">imagingstudy-example-xr.xml</Data></Cell>
     <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Y</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s152"/>
@@ -6697,7 +6696,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6863,8 +6863,8 @@
     <Cell ss:StyleID="s92"><Data ss:Type="String">The performed procedure type</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s129"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/procedure-category"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/procedure-category</Data></Cell>
+    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/procedure-code"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/procedure-code</Data></Cell>
     <Cell ss:Index="7" ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7157,6 +7157,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7177,7 +7178,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7814,7 +7815,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>34</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7827,10 +7828,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8462,7 +8465,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>30</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9094,7 +9098,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>0</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
