@@ -10,8 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
-  Binding = unbound
+  Binding = code list
+  Reference = #communication-category
   Definition = Codes for general categories of communications such as alerts, instruction, etc.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = CommunicationMedium
@@ -26,6 +28,77 @@
   Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
   Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = CommunicationNotDoneReason
+  Binding = code list
+  Reference = #communication-not-done-reason
+  Definition = Codes for the reason why a communication was not done.
+  Conformance = example
+
+=== Sheet communication-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = alert
+  Display = Alert
+  Definition = The communication conveys an alert.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = notification
+  Display = Notification
+  Definition = The communication conveys a notification.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reminder
+  Display = Reminder
+  Definition = The communication conveys a reminder.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = instruction
+  Display = Instruction
+  Definition = The communication conveys instruction.
+
+=== Sheet communication-not-done-reason =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = unknown
+  Display = Unknown
+  Definition = The communication was not done due to an unknown reason.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = system-error
+  Display = System Error
+  Definition = The communication was not done due to a system error.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = invalid-phone-number
+  Display = Invalid Phone Number
+  Definition = The communication was not done due to an invalid phone number.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = recipient-unavailable
+  Display = Recipient Unavailable
+  Definition = The communication was not done due to the recipient being unavailable.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = family-objection
+  Display = Family Objection
+  Definition = The communication was not done due to a family objection.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = patient-objection
+  Display = Patient Objection
+  Definition = The communication was not done due to a patient objection.
 
 === Sheet Invariants =====================================
 
@@ -113,17 +186,19 @@
   Summary = Y
   Inv. = 1
   Type = CodeableConcept
+  Binding = CommunicationNotDoneReason
   Short Name = Why communication did not occur
   Definition = Describes why the communication event did not occur in coded and/or textual form.
   Workflow Mapping = Event.notDoneReason
 
  -- Row 9 -----------------------------------
   Element = Communication.category
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationCategory
   Short Name = Message category
   Definition = The type of message conveyed such as alert, notification, reminder, instruction, etc.
+  Comments = There may be multiple axes of categorization and one communication may serve multiple purposes.
   Workflow Mapping = Event.code
   w5 = class
 

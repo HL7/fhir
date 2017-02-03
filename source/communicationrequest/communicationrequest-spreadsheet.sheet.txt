@@ -10,8 +10,10 @@
 
  -- Row 2 -----------------------------------
   Binding Name = CommunicationCategory
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/communication-category
   Definition = Codes for general categories of communications such as alerts, instruction, etc.
+  Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = CommunicationMedium
@@ -78,11 +80,12 @@
 
  -- Row 5 -----------------------------------
   Element = CommunicationRequest.category
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = CommunicationCategory
   Short Name = Message category
   Definition = The type of message to be sent such as alert, notification, reminder, instruction, etc.
+  Comments = There may be multiple axes of categorization and one communication request may serve multiple purposes.
   Workflow Mapping = Request.code
   w5 = class
 

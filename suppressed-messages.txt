@@ -14,3 +14,7 @@ WARNING @ Profile: RIM Mapping is required (src = ResourceValidator)
 WARNING @ Provenance: All resources should have an identifier (src = ResourceValidator)
 WARNING @ Substance: All resources should have an identifier (src = ResourceValidator)
 INFORMATION:EpisodeOfCare.careManager Name of child (careManager) overlaps with name of parent (EpisodeOfCare)
+WARNING @ CarePlan.addresses Element names should be singular
+WARNING @ CarePlan.replaces Element names should be singular
+WARNING @ Goal.addresses Element names should be singular
+WARNING @ Goal.target.detail[x] Need to provide a binding
