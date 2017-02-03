@@ -266,7 +266,6 @@
   Definition = The reason that this appointment is being scheduled. This is more clinical than administrative
   v2 Mapping = AIS-3, ARQ-7, SCH-7
   RIM Mapping = (encounter appointment).reason
-  w5 = why
 
  -- Row 9 -----------------------------------
   Element = Appointment.priority
