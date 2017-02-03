@@ -8,11 +8,11 @@
   <meta>
     <lastUpdated value="2013-05-28T22:12:21Z"/>
   </meta>
-  <type value="document"/>
   <identifier>
     <system value="urn:ietf:rfc:3986"/>
     <value value="urn:uuid:0c3151bd-1cbf-4d64-b04d-cd9187a4c6e0"/>
   </identifier>
+  <type value="document"/>
 <!--   The Composition resource   -->
   <entry>
     <fullUrl value="http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57"/>

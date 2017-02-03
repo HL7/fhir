@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageDefinition xmlns="http://hl7.org/fhir">
+	<id value="patient-link-notification"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">Link Patients Notification</div>
+	</text>
+	<url value="http://hl7.org/fhir/MessageDefinition/patient-link-notification"/>
+	<identifier>
+		<system value="urn:ietf:rfc:3986"/>
+		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.9878"/>
+	</identifier>
+	<version value="1"/>
+	<name value="PATIENT-LINK-NOTIFICATION"/>
+	<title value="Link Patients Notification"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<date value="2017-02-03"/>
+	<publisher value="Health Level Seven, Int'l"/>
+	<contact>
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org"/>
+		</telecom>
+	</contact>
+	<description value="Notification of two patient records that represent the same individual that require an established linkage."/>
+	<useContext>
+		<code>
+			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<code value="focus"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/variant-state"/>
+				<code value="positive"/>
+			</coding>
+		</valueCodeableConcept>
+	</useContext>
+	<jurisdiction>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</jurisdiction>
+	<purpose value="Notifies recipient systems that two patients have been 'linked' - meaning they represent the same individual"/>
+	<copyright value="� HL7.org 2011+"/>
+	<base>
+		<reference value="MessageDefinition/example" />
+	</base>
+	<parent>
+		<reference value="ActivityDefinition/example" />
+	</parent>
+	<replaces>
+		<reference value="MessageDefinition/example" />
+	</replaces>
+	<event>
+		<system value="http://hl7.org/fhir/message-events"/>
+		<code value="patient-link"/>
+	</event>
+	<category value="Notification"/>
+	<focus>
+		<code value="Patient"/>
+		<profile>
+			<reference value="StructureDefinition/example" />
+		</profile>
+		<min value="2"/>
+		<max value="2"/>
+	</focus>
+	<responseRequired value="false"/>
+	<allowedResponse>
+		<message>
+			<reference value="MessageDefinition/patient-link-response" />
+		</message>
+		<situation value="Optional response message that may provide additional information"/>
+	</allowedResponse>
+</MessageDefinition>

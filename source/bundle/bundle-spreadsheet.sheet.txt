@@ -199,6 +199,15 @@
   w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
+  Element = Bundle.identifier
+  Card. = 0..1
+  Type = Identifier
+  Short Name = Persistent identifier for the bundle
+  Definition = A persistent identifier for the batch that won\'t change as a batch is copied from server to server.
+  Comments = Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results, and servers ignore Bundle.identifier when processing batches and transactions. For Documents, the .identifier SHALL be populated such that the .identifier is globally unique
+  w5 = id
+
+ -- Row 3 -----------------------------------
   Element = Bundle.type
   Card. = 1..1
   Type = code
@@ -207,15 +216,6 @@
   Definition = Indicates the purpose of this bundle- how it was intended to be used
   Comments = It\'s possible to use a bundle for other purposes (e.g. a document can be accepted as a transaction). This is primarily defined so that there can be specific rules for some of the bundle types
   w5 = class
-
- -- Row 3 -----------------------------------
-  Element = Bundle.identifier
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Persistent identifier for the bundle
-  Definition = A persistent identifier for the batch that won\'t change as a batch is copied from server to server.
-  Comments = Persistent identity generally only matters for batches of type Document, Message, and Collection. It would not normally be populated for search and history results, and servers ignore Bundle.identifier when processing batches and transactions. For Documents, the .identifier SHALL be populated such that the .identifier is globally unique
-  w5 = id
 
  -- Row 4 -----------------------------------
   Element = Bundle.total
