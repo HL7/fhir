@@ -2,9 +2,9 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ReferralStatus
+  Binding Name = ReferralRequestStatus
   Binding = code list
-  Reference = #referralstatus
+  Reference = #referral-request-status
   Definition = The status of the referral.
   Conformance = required
 
@@ -45,12 +45,12 @@
 
  -- Row 7 -----------------------------------
   Binding Name = ReferralCategory
-  Binding = code list
-  Reference = #referralcategory
-  Definition = Identifies the degree of intention/authorization associated with the request
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
+  Definition = Codes identifying the stage lifecycle stage of a request
   Conformance = required
 
-=== Sheet referralstatus =====================================
+=== Sheet referral-request-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -81,26 +81,6 @@
   Code = entered-in-error
   Display = Entered in Error
   Definition = This referral record should never have existed, though it\'s possible some degree of real-world activity or decisions may have been taken due to its existence
-
-=== Sheet referralcategory =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = proposal
-  Display = Proposal
-  Definition = The referral request represents a suggestion or recommendation that a referral be made.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = plan
-  Display = Plan
-  Definition = The referral request represents an intention by the author to make a referral, but no actual referral has yet been made/authorized.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = request
-  Display = Request
-  Definition = This is an actual referral request which, when active, will have the authorizations needed to allow it to be actioned.
 
 === Sheet Invariants =====================================
 
@@ -151,7 +131,7 @@
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = ReferralStatus
+  Binding = ReferralRequestStatus
   Short Name = draft | active | cancelled | completed | entered-in-error
   Definition = The status of the authorization/intention reflected by the referral request record
   Requirements = Workflow status is handled by the Task resource
@@ -159,13 +139,13 @@
   w5 = status
 
  -- Row 6 -----------------------------------
-  Element = ReferralRequest.category
+  Element = ReferralRequest.intent
   Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
   Binding = ReferralCategory
-  Short Name = proposal | plan | request
+  Short Name = proposal | plan | order
   Definition = Distinguishes the \"level\" of authorization/demand implicit in this request.
   Requirements = The same resource structure is used when capturing proposals/recommendations, plans and actual requests.
   w5 = class
@@ -319,7 +299,6 @@
   Type = string
   Short Name = A textual description of the referral
   Definition = The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary
-  To Do = This would be a good candidate for a \'markdown\' data type
 
  -- Row 20 -----------------------------------
   Element = ReferralRequest.supportingInfo
@@ -386,10 +365,10 @@
   Path = ReferralRequest.requester
 
  -- Row 9 -----------------------------------
-  Name = category
+  Name = intent
   Type = token
-  Description = Proposal, plan or request
-  Path = ReferralRequest.category
+  Description = Proposal, plan or order
+  Path = ReferralRequest.intent
 
  -- Row 10 -----------------------------------
   Name = context

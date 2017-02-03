@@ -13837,6 +13837,12 @@
     <display value="Rectum, NOS"/>
     <display value="Rectum structure (body structure)"/>
   </concept>
+  <concept id="34431008" display="Physiotherapy of chest">
+    <display value="Physiotherapy of chest"/>
+    <display value="Respiratory physiotherapy"/>
+    <display value="Physiotherapy of chest (regime/therapy)"/>
+    <display value="Chest physiotherapy"/>
+  </concept>
   <concept id="34536000" display="Amniocentesis (procedure)">
     <display value="AC - Amniocentesis"/>
     <display value="Amniocentesis"/>
@@ -13942,6 +13948,10 @@
   <concept id="359839008" display="Domestic fowl">
     <display value="Domestic fowl"/>
     <display value="Domestic fowl (organism)"/>
+  </concept>
+  <concept id="359962006" display="Turning patient in bed">
+    <display value="Turning patient in bed"/>
+    <display value="Turning patient in bed (procedure)"/>
   </concept>
   <concept id="360020006" display="Extirpation - action (qualifier value)">
     <display value="Extirpation - action"/>
@@ -17051,6 +17061,11 @@
   <concept id="49240006" display="Palouse pig (organism)">
     <display value="Palouse pig (organism)"/>
     <display value="Palouse pig"/>
+  </concept>
+  <concept id="49345004" display="Radiography of hand">
+    <display value="Radiography of hand"/>
+    <display value="Hand X-ray"/>
+    <display value="Radiography of hand (procedure)"/>
   </concept>
   <concept id="49370004" display="Lateral (qualifier value)">
     <display value="Lateral (qualifier value)"/>

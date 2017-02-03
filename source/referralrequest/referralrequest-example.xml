@@ -16,7 +16,7 @@
     <value value="1234"/>
   </groupIdentifier>
   <status value="active"/>
-  <category value="request"/>
+  <intent value="order"/>
   <!-- replace with a code from a recognized coding system-->
   <type>
     <coding>

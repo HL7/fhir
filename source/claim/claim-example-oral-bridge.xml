@@ -18,7 +18,7 @@
 		<ReferralRequest>
 			<id value="referral"/>
 			<status value="active"/>
-			<category value="request"/>
+			<intent value="order"/>
 			<!-- rest of the resource ommitted for brevity -->
 		</ReferralRequest>
 	</contained>

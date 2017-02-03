@@ -39,7 +39,7 @@
  -- Row 6 -----------------------------------
   Binding Name = Manifestation
   Binding = value set
-  Reference = valueset-manifestation-codes
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.
   Conformance = example
 
@@ -252,6 +252,7 @@
   Binding = AllergyIntoleranceClinicalStatus
   Short Name = active | inactive | resolved
   Definition = The clinical status of the allergy or intolerance.
+  RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"clinicalStatus\", moodCode=EVN].value
   Committee Notes = GF# 10642, 11151, 11920
   w5 = status
 
@@ -266,6 +267,7 @@
   Short Name = unconfirmed | confirmed | refuted | entered-in-error
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product)
   Comments = Decision support would typically raise alerts for \'confirmed\' and \'unconfirmed\' and ignore a \'refuted\' reaction. In particular, \'refuted\' may be useful for reconciliation of the Adverse Reaction List.
+  RIM Mapping = Observation ACT\n.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value
   Committee Notes = GF# 10642, 11151, 11920
   w5 = status
 

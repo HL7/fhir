@@ -45,8 +45,10 @@
 
  -- Row 7 -----------------------------------
   Binding Name = GoalDescription
-  Binding = unbound
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = Codes providing the details of a particular goal.  This will generally be system or implementation guide-specific.  In many systems, only the text element will be used.
+  Conformance = example
 
  -- Row 8 -----------------------------------
   Binding Name = GoalTargetMeasure
@@ -224,7 +226,7 @@
   Type = CodeableConcept
   Binding = GoalDescription
   Short Name = Code or text describing goal
-  Definition = Code and/or human-readable description of a specific desired objective of care.
+  Definition = Human-readable and/or coded description of a specific desired objective of care, such as \"control blood pressure\" or \"negotiate an obstacle course\" or \"dance with child at wedding\"
   Requirements = Without a description of what\'s trying to be achieved, element has no purpose
   Comments = If no code is available, use CodeableConcept.text.
   v2 Mapping = GOL-3.2-goal ID.text

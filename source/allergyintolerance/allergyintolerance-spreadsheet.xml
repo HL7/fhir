@@ -16,66 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>allergyintolerance-extensions-spreadsheet.xml</Path>
-   <SheetName>Instructions</SheetName>
-   <SheetName>Metadata</SheetName>
-   <SheetName>SomeStructure</SheetName>
-   <SheetName>SomeStructure-Inv</SheetName>
-   <SheetName>Extensions</SheetName>
-   <SheetName>Extensions-Inv</SheetName>
-   <SheetName>Extensions-search</SheetName>
-   <SheetName>Operations</SheetName>
-   <SheetName>Bindings</SheetName>
-   <SheetName>allerg-intol-substance-exp-risk</SheetName>
-   <SheetName>reaction-event-certainty</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>0</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>1</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>2</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>3</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>5</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>6</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>7</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>8</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>9</SheetIndex>
-   </Xct>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>10</SheetIndex>
-   </Xct>
-  </SupBook>
-  <WindowHeight>7200</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>9210</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>884</TabRatio>
@@ -867,6 +809,10 @@
    <Interior/>
    <NumberFormat ss:Format="@"/>
   </Style>
+  <Style ss:ID="s154">
+   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
+   <Borders/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
@@ -1143,7 +1089,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Observation ACT&#10;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;clinicalStatus&quot;, moodCode=EVN].value</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1182,7 +1129,8 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Decision support would typically raise alerts for 'confirmed' and 'unconfirmed' and ignore a 'refuted' reaction. In particular, 'refuted' may be useful for reconciliation of the Adverse Reaction List.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">Observation ACT&#10;.inboundRelationship[typeCode=COMP].source[classCode=OBS, code=&quot;verificationStatus&quot;, moodCode=EVN].value</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3913,9 +3861,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>18</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>15</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3923,14 +3871,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6580,7 +6529,8 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event.</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s115"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s115"><Data ss:Type="String">valueset-manifestation-codes</Data></Cell>
+    <Cell ss:StyleID="s144" ss:HRef="http://hl7.org/fhir/ValueSet/clinical-findings"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/clinical-findings</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s115"/>
@@ -6939,7 +6889,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>2</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6952,11 +6902,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
