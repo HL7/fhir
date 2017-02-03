@@ -21,7 +21,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>6828</WindowHeight>
-  <WindowWidth>17496</WindowWidth>
+  <WindowWidth>21840</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <RefModeR1C1/>
@@ -372,7 +372,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error, marked deleted</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">planned</Data></Cell>
@@ -404,7 +404,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
-    <Cell><Data ss:Type="String" x:Ticked="1">unknown</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s66"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">proposed</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">planned</Data></Cell>
@@ -1074,7 +1074,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentReference.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s78"/>
@@ -1095,7 +1095,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EligibilityRequest.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
@@ -1116,7 +1116,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EligibilityResponse.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
@@ -1137,7 +1137,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.location.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
@@ -1158,9 +1158,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.status</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s78"/>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -1179,9 +1179,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Encounter.statusHistory.status</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">unknown</Data></Cell>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s73"/>
+    <Cell ss:StyleID="s73"><Data ss:Type="String">unknown</Data></Cell>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s78"/>
@@ -1199,7 +1199,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Endpoint.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"/>
@@ -1219,7 +1219,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentRequest.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
@@ -1239,7 +1239,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentResponse.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s80"/>
     <Cell ss:StyleID="s78"/>
@@ -1259,7 +1259,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s78"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
@@ -1301,7 +1301,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EpisodeOfCare.statusHistory.status</Data></Cell>
-    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s72"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s72"><Data ss:Type="String">planned</Data></Cell>
@@ -1321,7 +1321,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExpansionProfile.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s87"/>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s88"><Data ss:Type="String">draft</Data></Cell>
@@ -1340,7 +1341,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ExplanationOfBenefit.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s72"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s68"/>
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s66"><Data ss:Type="String">draft</Data></Cell>
@@ -2390,7 +2392,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>34</TopRowBottomPane>
+   <TopRowBottomPane>35</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>

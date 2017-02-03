@@ -149,6 +149,7 @@
   Code = unknown
   Display = Unknown
   Definition = The encounter status is unknown. Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
+  v3 = =NullFlavor.UNK
 
 === Sheet encounter-location-status =====================================
 
