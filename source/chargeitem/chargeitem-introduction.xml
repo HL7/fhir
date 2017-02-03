@@ -5,9 +5,12 @@
 		<h2>Scope and Usage</h2>
 		<p>
 Tracking Financial information is vital in Patient Administration and Finance systems in most Healthcare Organizations.
-This resource provides the individual items to track.
-ChargeItem is used to communicate statistical or billing relevant codes associated with services (planned or actual). 
-ChargeItems are linked to Account resources.  </p>
+The resource ChargeItem describes the provision of healthcare provider products for a certain patient, 
+therefore referring not only to the product, but containing in addition details of the provision, 
+like date, time, amounts and participating organizations and persons. 
+Main Usage of the ChargeItem is to enable the billing process and internal cost allocation. 
+They are created as soon as the products are planned or provisioned, references to Encounters and/or Accounts can be maintained in a later process step.
+ </p>
 		<p>
 The target of ChargeItem.definition may provide information on the Charge code such as pricing and inclusion/exclusion rules as well as 
 factors that apply under certain conditions.
@@ -33,6 +36,9 @@ Additional references to Encounter/EpisodeOfCare, Patient/Group and
 This resource is not an actual financial transaction (such as an item on an invoice or any concise monetary amout being transferred from one Account to another), 
 but is the base administrative data that may be used by 
 a billing engine to create the financial transactions based on rules, factors and base prices associated with the charge code.</p>
+<p>
+Unlike the Financial Transaction the ChargeItem primarily describes the provision, whereas the Financial Transaction documents cash flow. 
+Therefore, the Financial Transaction results from ChargeItems created via the subsequent billing- or cost allocation process. </p>
 		<p>
 The actual financial transaction resulting from the evaluation of these rules against the clinical and financial context may be 
 represented in formats appropriate to the financial realm.

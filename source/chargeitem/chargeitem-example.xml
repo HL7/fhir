@@ -10,6 +10,8 @@
 		<system value="http://myHospital.org/ChargeItems"/>
 		<value value="654321"/>
 	</identifier>
+	<status value = "billable"/>
+
 	<code>
 		<coding>
 			<code  value="01510"/>
@@ -17,10 +19,10 @@
 		</coding>
 	</code>
 	<subject>
-		<reference value="Patient/123"/>
+		<reference value="Patient/example"/>
 	</subject>
 	<context>
-		<reference value="Encounter/345"/>
+		<reference value="Encounter/example"/>
 	</context>
 	<occurrencePeriod>
 		<start value ="2017-01-25T08:00:00+01:00"/>
@@ -35,7 +37,7 @@
 			</coding>
 		</role>
 		<actor>
-			<reference value="Practitioner/123"/>
+			<reference value="Practitioner/example"/>
 		</actor>
 	</participant>
 	<participant>
@@ -47,7 +49,7 @@
 			</coding>
 		</role>
 		<actor>
-			<reference value="Practitioner/345"/>
+			<reference value="Practitioner/example"/>
 		</actor>
 	</participant>
 	<performingOrganization>
@@ -66,16 +68,23 @@
 		<value value= "1"/>
 	</quantity> 
 	<factorOverride value="0.8"/>
-	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount"/>
+	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
 	<enterer>
-		<reference value="Practitioner/123"/>
+		<reference value="Practitioner/example"/>
 	</enterer>
 	<enteredDate value= "2017-01-25T23:55:04+01:00"/>
 	<service>
-		<reference value="Procedure/4711"/>
+		<reference value="Procedure/example"/>
 	</service>
 	<account>
-		<reference value="Account/9912345"/>
+		<reference value="Account/example"/>
 	</account>
+	<note>
+		<authorReference>
+			<reference value="Practitioner/example"/>
+		</authorReference> 
+		<time value= "2017-01-25T23:55:04+01:00"/>
+		<text value= "The code is only applicable for periods longer than 4h"/>
+	</note>
 
 </ChargeItem> 
