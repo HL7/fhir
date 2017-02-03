@@ -266,6 +266,7 @@
   Definition = The reason that this appointment is being scheduled. This is more clinical than administrative
   v2 Mapping = AIS-3, ARQ-7, SCH-7
   RIM Mapping = (encounter appointment).reason
+  w5 = why
 
  -- Row 9 -----------------------------------
   Element = Appointment.priority
@@ -341,8 +342,8 @@
   Element = Appointment.slot
   Card. = 0..*
   Type = Reference(Slot)
-  Short Name = If provided, then no schedule and start/end values MUST match slot
-  Definition = The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot
+  Short Name = The slots that this appointment is filling
+  Definition = The slots from the participants\' schedules that will be filled by the appointment
   RIM Mapping = Schedule-Slot (classCode=ACT, moodCode = SLOT)
 
  -- Row 17 -----------------------------------

@@ -34,8 +34,8 @@
   Element = Schedule
   Aliases = Availability
   Type = DomainResource
-  Short Name = A container for slot(s) of time that may be available for booking appointments
-  Definition = A container for slot(s) of time that may be available for booking appointments.
+  Short Name = A container for slots of time that may be available for booking appointments
+  Definition = A container for slots of time that may be available for booking appointments.
   RIM Mapping = n/a
   iCal Mapping = BEGIN:VFREEBUSY  ???  END:VFREEBUSY (If your fhir server provides this information via calDAV, then you may want to include addressing information in a URL section, and with the search, a DTSTART and DTEND component can be included to indicate the range of time that has been covered in the collection of slots, where these overlap the resources period values. For all slots that reference this resource, include a FREEBUSY row for each slot)
   w5 = workflow.scheduling
@@ -110,7 +110,7 @@
   Element = Schedule.comment
   Card. = 0..1
   Type = string
-  Short Name = Comments on the availability to describe any extended information. Such as custom constraints on the slot(s) that may be associated
+  Short Name = Comments on the availability to describe any extended information. Such as custom constraints on the slots that may be associated
   iCal Mapping = COMMENT:(comment) If there is no comment, then the line can be excluded from the iCalendar entry
 
  -- Row 10 -----------------------------------
@@ -163,5 +163,17 @@
   Identity = example
   Description = Example of an Schedule resource
   Filename = schedule-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = Provider+Location1 Example
+  Identity = exampleloc1
+  Description = Example 1 of a Schedule resource with a composite schedulable resource
+  Filename = schedule-provider-location1-example.xml
+
+ -- Row 3 -----------------------------------
+  Name = Provider+Location2 Example
+  Identity = exampleloc2
+  Description = Example 2 of a Schedule resource with a composite schedulable resource
+  Filename = schedule-provider-location2-example.xml
 
 === Sheet Examples =====================================

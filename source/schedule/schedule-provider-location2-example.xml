@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Schedule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/schedule.xsd">
+	<id value="exampleloc2"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+      Dr. Beverly Crusher - Starfleet HQ Sickbay Schedule
+		</div>
+	</text>
+	<identifier>
+		<use value="usual"/>
+		<system value="http://example.org/scheduleid"/>
+		<value value="47"/>
+	</identifier>
+	<active value="true"/>
+	<serviceCategory>
+		<coding>
+			<code value="31"/>
+			<display value="Specialist Surgical" />
+		</coding>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<code value="221"/>
+			<display value="Surgery - General" />
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<code value="394610002"/>
+			<display value="Surgery-Neurosurgery" />
+		</coding>
+	</specialty>
+	<actor>
+		<reference value="Practitioner/1" />
+		<display value="Dr. Beverly Crusher" />
+	</actor>
+	<actor>
+		<reference value="Location/2" />
+		<display value="Starfleet HQ Sickbay" />
+	</actor>
+	<planningHorizon>
+		<start value="2017-12-25T09:15:00Z" />
+		<end value="2017-12-25T09:30:00Z" />
+	</planningHorizon>
+	<comment value="The slots attached to this schedule are for neurosurgery operations at Starfleet HQ only." />
+</Schedule>

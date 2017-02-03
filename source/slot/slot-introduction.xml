@@ -22,7 +22,7 @@
 		<p>
 			In some situations a service may have a specific set of slots reserved for specific uses, such 
 			as "walk-ins" or a specific organization has a "standing booking" for Thursday mornings.
-			These should be represented using the type field with a specified and agreed value.<br/>
+			These should be represented using the appointmentType field with a specified and agreed value.<br/>
 			Security Permissions or specific business rules on the system could enforce that only eligible
 			appointments are allocated to them.
 		</p>
@@ -35,8 +35,18 @@
       as the appointments are filled into the slots.<br/>
       The slots in a schedule do not need to be the same size, and can be different for different
       days of the week.<br/>
+	  <p>
       Slot instances do not have any recurrence information included. If recurring information is
       desired, this will be managed outside these resources, or included as extensions.
+	  </p>
+	  <p>
+      Note that booking an appointment does not necessarily require that slot resources be identified.
+	  When attempting to book an appointment, if the requestor knows ahead of time which schedulable  
+	  resources are required, then identifying individual slots from the resources' schedules prior to creating
+	  the appointment is appropriate.
+	  However, in some medical scheduling scenarios, determining which resources are required for an appointment
+	  is very complex, and options other than using schedule+slot may be a better solution.  	  
+	  </p>
     </p>
   </div>
 </div>

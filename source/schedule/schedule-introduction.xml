@@ -4,10 +4,10 @@
 <a name="scope"> </a>
 		<h2>Scope and Usage</h2>
 		<p>
-			Schedule resources provide a container for time-slots that can be booked using an appointment,
+			Schedule resources provide a container for time-slots that can be booked using an appointment.
 			It provides the window of time (period) that slots are defined for and what type of appointments can be booked.<br/>
 			The schedule does not provide any information about actual appointments. This separation also greatly assists where
-			access to the appointments would not be permitted for security or privacy reasons, and still being able
+			access to the appointments would not be permitted for security or privacy reasons, while still being able
 			to determine if an appointment might be available.
 		</p>
     <p>
@@ -21,8 +21,8 @@
       A schedule controls the dates and times available for the performance of a service
       and/or the use of a resource.  One schedule applies to one service or resource, since
       each service or resource can be reserved independently of the others.<br/>
-      (If two or more services, people, locations, or things cannot be reserved independently
-      of one another, they are considered to be one activity or resource.)
+      If two or more services, people, locations, or things cannot be reserved independently
+      of one another, they are considered to be one activity or resource.
     </p>
     <p>
       A schedule consists of slots of time during which the controlled service or resource is potentially available
@@ -48,12 +48,18 @@
 
 		<h3>Actor - What the schedule applies to</h3>
 		<p>
-			The schedule belongs to a single owner, the actor. This is normally a HealthcareService, Practitioner, Location
-			or Device. When booking an appointment, multiple schedules may need to be checked depending on the configuration
-			of the system.
+			The schedule belongs to a single instance of a service or resource. This is normally a HealthcareService, 
+			Practitioner, Location or Device.  In the case where a single resource can provide 
+			different services, potentially at different location, then the schedulable resource is considered the composite 
+			of the actors.  <br/>
+			For example, if a practitioner can provide services at multiple locations, they might have one schedule per location,
+			where each schedule included both the practitioner and location actors.  
+			
+			When booking an appointment with multiple schedulable resources, multiple schedules may need to be checked 
+			depending on the configuration of the system.
 		</p>
 		<p>
-			If an appointment has 2 practitioners, a specific medical device and a room then there could be a schedule for
+			If an appointment has two practitioners, a specific medical device and a room then there could be a schedule for
 			each of these resources that may need to be consulted to ensure that no collisions occur.<br/>
 			If the schedule needed to be consulted, then there would be one created covering the planning horizon for the
 			time of the appointment.
@@ -61,22 +67,21 @@
 
 		<h3>Checking availability - Searching</h3>
 		<p>
-			When checking availability for an appointment, the creator of the appointment should check
-			that the see what schedules are applicable, then check for available slots within these schedules.
+			When checking availability for an appointment, the creator of the appointment should determine
+			which schedules are applicable, then check for available slots within each schedule.
 		</p>
 		<p>
-			The searching could be done via the properties of the referenced actors, such as the ServiceCategory
-			on the HealthcareService, or the Address on a Location.
+			Determining which schedules should be consulted often will involve searching via the properties of the referenced actors, 
+			such as the ServiceCategory on the HealthcareService, or the Address on a Location.
 		</p>
 		<p>
-			The type property can be used to filter the types of appointments that can be booked within the appointment.
-			These can be filtered down further by specifying types on the slots too.<br/>
-			The terminology bound to this property will be the same as that used on appointment and slot too.
+			The type parameter can be used to filter the type of services that can be booked within the associated slots.
+			<br/>
 		</p>
 		<p>
-			If all slots are busy, the caller could find some slots that they believe are close enough, and request
-			for the appointment in these slot(s)<br/>
-			(the appointment may be given a higher precedence and allocated in an overbooked status if business rules permit)
+			If all slots are busy, the caller may attempt to book an appointment into a already booked slot, but the server business rules
+			will dicate whether overbooking is allowed, or whether the appointment may be given a higher precedence and allocated 
+			the overbooked slot.
 		</p>
 	</div>
 </div>
