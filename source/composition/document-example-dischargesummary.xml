@@ -317,9 +317,9 @@
         <type>
           <text value="Orthopedic Admission"/>
         </type>
-        <patient>
+        <subject>
           <reference value="Patient/d1"/>
-        </patient>
+        </subject>
         <period>
           <start value="2013-01-20T12:30:02Z"/>
           <end value="2013-02-01T12:30:02Z"/>
