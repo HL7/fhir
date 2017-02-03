@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+  <id value="ch-example"/>
+  <meta>
+    <versionId value="1"/>
+    <lastUpdated value="2016-05-16T00:55:52Z"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <table>
+        <tbody>
+          <tr>
+            <td>名字</td>
+            <td>张无忌</td> </tr>
+          <tr>
+            <td>地址</td>
+            <td>上海市黄埔区马当路190号, 1974年12月25日</td> 
+          </tr>
+          <tr>
+            <td>联系方式</td>
+            <td>住宅: 不详。工作: 18337177888</td> 
+          </tr>
+          <tr>
+            <td>Id</td>
+            <td>MRN: 3112219680806371X (市卫生局)</td> 
+          </tr> 
+        </tbody> 
+      </table> 
+    </div>
+  </text>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0203"/>
+        <code value="MR"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+    <value value="3112219680806371X"/>
+    <period>
+      <start value="2001-05-06"/>
+    </period>
+    <assigner>
+      <display value="市卫生局"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <text value="张无忌"/>
+  </name>
+  <telecom>
+    <use value="home"/>
+  </telecom>
+  <telecom>
+    <system value="phone"/>
+    <value value="18337177888"/>
+    <use value="work"/>
+  </telecom>
+  <gender value="male"/>
+  <birthDate value="1974-12-25"/>
+  <deceasedBoolean value="false"/>
+  <address>
+    <use value="home"/>
+    <type value="both"/>
+    <line value="马当路190号"/>
+    <city value="上海市"/>
+    <district value="黄埔区"/>
+    <postalCode value="200000"/>
+    <period>
+      <start value="1974-12-25"/>
+    </period>
+  </address>
+  <managingOrganization>
+    <reference value="Organization/1"/>
+    <display value="上海东方医院"/>
+  </managingOrganization>
+</Patient>

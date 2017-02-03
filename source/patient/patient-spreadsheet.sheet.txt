@@ -804,6 +804,12 @@
   Description = Additional Genetics Example
   Filename = patient-genetics-example1.xml
 
+ -- Row 19 -----------------------------------
+  Name = Chinese
+  Identity = ch-example
+  Description = Example Patient resource with Chinese content
+  Filename = patient-example-chinese.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
