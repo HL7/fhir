@@ -1,0 +1,15 @@
+// Request a CapabilityStatement implements comparison between a client and server systems
+POST [base]/CapabilityStatement/$implements
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="server"/>
+    <valueUri value="http://server.example.org/fhir/metadata"/>
+  </parameter>
+  <parameter>
+    <name value="client"/>
+    <valueUri value="http://client.example.org/fhir/metadata"/>
+  </parameter>
+</Parameters>
+

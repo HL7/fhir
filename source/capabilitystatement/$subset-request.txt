@@ -1,0 +1,11 @@
+// Request a subset of Patient capabilities from a known CapabilityStatement
+POST [base]/CapabilityStatement/example/$subset
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="resource"/>
+    <valueCode value="Patient"/>
+  </parameter>
+</Parameters>
+

@@ -2,6 +2,9 @@
 <Binary xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/binary.xsd">
   <id value="example"/>
   <contentType value="application/pdf"/>
+  <securityContext>
+    <reference value="DocumentReference/example"/>
+  </securityContext>
   <content value="JVBERi0xLjUNJeLjz9MNCjEwIDAgb2JqDTw8L0xpbmVhcml6ZWQgMS9MIDEzMDA2OC9PIDEyL0Ug
 MTI1NzM1L04gMS9UIDEyOTc2NC9IIFsgNTQ2IDIwNF0+Pg1lbmRvYmoNICAgICAgICAgICAgICAg
 DQo0MSAwIG9iag08PC9EZWNvZGVQYXJtczw8L0NvbHVtbnMgNS9QcmVkaWN0b3IgMTI+Pi9GaWx0

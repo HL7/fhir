@@ -1,0 +1,19 @@
+// Request a CapabilityStatement conforms comparison between two server systems
+POST [base]/CapabilityStatement/$conforms
+[other headers]
+
+<Parameters xmlns="http://hl7.org/fhir">
+  <parameter>
+    <name value="left"/>
+    <valueUri value="http://server1.example.org/fhir/metadata"/>
+  </parameter>
+  <parameter>
+    <name value="right"/>
+    <valueUri value="http://server2.example.org/fhir/metadata"/>
+  </parameter>
+  <parameter>
+    <name value="mode"/>
+    <valueCode value="server/server"/>
+  </parameter>
+</Parameters>
+

@@ -25,7 +25,8 @@
     -->
   <url value="68D043B5-9ECF-4559-A57A-396E0D452311"/>
   <version value="20130510"/>
-  <name value="ACME EHR capability statement"/>
+  <name value="ACME-EHR"/>
+  <title value="ACME EHR capability statement"/>
   <status value="draft"/>
   <experimental value="true"/>
   <date value="2012-01-04"/>
@@ -38,6 +39,25 @@
     </telecom>
   </contact>
   <description value="This is the FHIR capability statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
+  <useContext>
+    <code>
+      <system value="http://hl7.org/fhir/usage-context-type"/>
+      <code value="focus"/>
+    </code>
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/variant-state"/>
+        <code value="positive"/>
+      </coding>
+    </valueCodeableConcept>
+  </useContext>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+      <display value="United States of America (the)"/>
+    </coding>
+  </jurisdiction>
   <purpose value="Main EHR capability statement, published for contracting and operational support"/>
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>
   <kind value="instance"/>
@@ -59,6 +79,15 @@
   <!--  this system can do either xml or json. (Listing both implies full support for either, with interconversion)  -->
   <format value="xml"/>
   <format value="json"/>
+  <!--  this system can perform the patch operation with either xml or json. (Listing both implies full support for either)  -->
+  <patchFormat value="application/xml-patch+xml"/>
+  <patchFormat value="application/json-patch+json"/>
+  <!--  this system supports the US Lab implementation guide  -->
+  <implementationGuide value="http://hl7.org/fhir/uslab"/>
+  <!--  this system supports the US Core Patient profile use cases  -->
+  <profile>
+    <reference value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+  </profile>
   <!--  in a real capability statement, it's unlikely that a single capability statement 
     would declare capability for REST, messaging and documents, though it is legal. 
     This example does so in order to show all the parts of a capability statement  -->
@@ -96,6 +125,7 @@
       <profile>
         <reference value="http://fhir.hl7.org/base/StructureDefinition/7896271d-57f6-4231-89dc-dcc91eab2416"/>
       </profile>
+      <documentation value="This server does not let the clients create identities."/>
       <interaction>
         <code value="read"/>
       </interaction>
@@ -121,6 +151,7 @@
       <updateCreate value="false"/>
       <!-- it's good to support conditional create on patients; this solves a common middleware problem -->
       <conditionalCreate value="true"/> 
+      <conditionalRead value="full-support"/>
       <conditionalUpdate value="false"/><!-- 0..1 If allows/uses conditional update -->
       <conditionalDelete value="not-supported"/>
       <searchInclude value="Organization"/>

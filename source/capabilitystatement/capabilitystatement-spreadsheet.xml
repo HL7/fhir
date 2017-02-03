@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>21930</WindowHeight>
-  <WindowWidth>-19456</WindowWidth>
+  <WindowHeight>11610</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>715</TabRatio>
@@ -1019,7 +1019,8 @@
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s82"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s83"><Data ss:Type="String">n/a</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s84"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">230;160</Data><NamedCell
@@ -3354,7 +3355,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Address of end-point</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Network address or identifier of the end-point</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4539,9 +4540,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>27</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4549,16 +4550,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5284,7 +5282,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5298,7 +5296,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="53" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="53" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s117" ss:DefaultColumnWidth="54"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -5308,6 +5306,8 @@
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="107.25" ss:Span="1"/>
    <Column ss:Index="7" ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="222.75"/>
    <Column ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="254.25" ss:Span="1"/>
+   <Column ss:Index="10" ss:StyleID="s117" ss:AutoFitWidth="0" ss:Width="144"
+    ss:Span="1"/>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
     <Cell ss:StyleID="s126"><Data ss:Type="String">Name</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -5345,6 +5345,8 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Additional usage notes for an operation</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">Example.Request</Data></Cell>
+    <Cell><Data ss:Type="String">Example.Response</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s130"><Data ss:Type="String">subset</Data><NamedCell
@@ -5361,6 +5363,8 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to return a subset of the CapabilityStatement resource - just the REST parts that relate to a set of nominated resources - the resources that the client is interested in</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s134"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">$subset-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$subset-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">subset.server</Data></Cell>
@@ -5405,6 +5409,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides it's capability statement inline, or by referring the server to the canonical URL of it's capability statement</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation does not perform a full conformance check; in particular it does not check that the profiles align. It merely checks that the behaviors the client wishes to use are provided&#10;&#10;Technically, this operation is implemented as follows:&#10; * The server's capability statement must have an entry for each resource in the client's capability statement &#10; * The servers' resource support must have matching flags for updateCreate, conditionalCreate, conditionalRead, conditionalUpdate, conditionalDelete, searchInclude, searchRevInclude&#10; * The server capability statement must have a matching interaction for each interaction in the client capability statement (whether or not it is on a resource)&#10; * The server must have a search parameter with matching name and definition for any search parameters in the client capability statement&#10; * The server must have an operation definitions with a matching reference for any operations in the client capability statement&#10;&#10;If the capability statements match by these rules, then the return value is a 200 OK with an operation outcome that contains no issues with severity &gt;= error. If the capability statement doesn't match, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell><Data ss:Type="String">$implements-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$implements-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">implements.server</Data></Cell>
@@ -5414,7 +5420,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the server capability statement - use this if the implements is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5425,7 +5431,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the client capability statement - use this if the implements is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5460,6 +5466,8 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">Test if a server implements a client's required operations</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">This operation asks the server to check that it implements all the resources, interactions, search parameters, and operations that the client provides in it's capability statement. The client provides both capability statements by reference, and must ensure that all the referenced resources are available to the conformance server</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">The operation performs a full comparison of the functionality described by the two capability statements, including the profiles and value sets they reference, and also including concept maps and structure maps. &#10;&#10;The full execution of this operation is still a matter of research, but it is intended to support comparison of systems to see if they will interoperate&#10;&#10;If the capability statements can be successfully compared, then the return value is a 200 OK with an OperationOutcome along with intersection and union capability statements. The operation outcome can contain errors relating to differences between the capability statements. If the capability statements cannot be compared, because dependencies cannot be located, the return value is a 4xx error, with an OperationOutcome with at least one issue with severity &gt;= error</Data></Cell>
+    <Cell><Data ss:Type="String">$conforms-request.txt</Data></Cell>
+    <Cell><Data ss:Type="String">$conforms-response.txt</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">conforms.left</Data></Cell>
@@ -5469,7 +5477,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the server capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the left-hand system's capability statement</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5480,7 +5488,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the client capability statement - use this if the subset is not invoked on an instance (or on the /metadata end-point)</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">The canonical URL for the right-hand system's capability statement</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5491,11 +5499,11 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">What kind of comparison to preform - server cf server, or client to server (use the codes 'server/server' or 'client/server')</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">What kind of comparison to perform - server to server, or client to server (use the codes 'server/server' or 'client/server')</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">implements.issues</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">conforms.issues</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
@@ -5506,22 +5514,22 @@
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">implements.union</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">conforms.union</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The intersection of the functionality described by the CapabilityStatement resources</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">implements.intersection</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">conforms.intersection</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
     <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Bundle</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">CapabilityStatement</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s136"><Data ss:Type="String">The union of the functionality described by the CapabilityStatement resources</Data></Cell>
@@ -5940,8 +5948,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
