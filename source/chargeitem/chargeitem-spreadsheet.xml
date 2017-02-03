@@ -1197,7 +1197,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:Height="28.5">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ChargeItem.code</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ChargeItem.code </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2064,8 +2064,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
