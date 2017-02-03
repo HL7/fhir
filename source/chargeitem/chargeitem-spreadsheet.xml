@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Simone Heckmann</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-03T18:02:46Z</LastSaved>
+  <LastSaved>2017-02-03T20:01:58Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1144,7 +1144,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">preparation | billable | not-billable | aborted | billed | entered-in-error | unknown</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">planned | billable | not-billable | aborted | billed | entered-in-error | unknown</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">The current state of the ChargeItem</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2056,7 +2056,7 @@
    <FrozenNoSplit/>
    <FilterOn/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -2065,7 +2065,7 @@
     <Pane>
      <Number>1</Number>
      <ActiveRow>4</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2766,7 +2766,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>19</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4891,9 +4892,9 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.46875" ss:StyleID="s161">
-    <Cell><Data ss:Type="String">preparation</Data></Cell>
+    <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Preparation</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">the charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String" x:Ticked="1">=ActStatus.new</Data></Cell>
    </Row>
@@ -5435,8 +5436,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2C1:R8C1</RangeSelection>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

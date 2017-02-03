@@ -34,8 +34,8 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = preparation
-  Display = Preparation
+  Code = planned
+  Display = planned
   Definition = the charge item has been entered, but the charged service is not  yet complete, so it shall not be billed yet but might be used in the context of pre-authorization
   v3 = =ActStatus.new
 
@@ -124,7 +124,7 @@
   Summary = Y
   Type = code
   Binding = ChargeItemStatus
-  Short Name = preparation\nbillable\nnot-billable\naborted\nbilled\nentered-in-error\npreparation | billable | not-billable | aborted | billed | entered-in-error | unknown
+  Short Name = planned | billable | not-billable | aborted | billed | entered-in-error | unknown
   Definition = The current state of the ChargeItem
   Comments = Unknown does not represent \"other\" - one of the defined statuses must apply.  Unknown is used when the authoring system is not sure what the current status is.
   v2 Mapping = Varies by domain
