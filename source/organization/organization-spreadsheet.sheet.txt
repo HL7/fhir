@@ -88,14 +88,14 @@
 
  -- Row 4 -----------------------------------
   Element = Organization.type
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = OrganizationType
   Short Name = Kind of organization
-  Definition = The kind of organization that this is
+  Definition = The kind(s) of organization that this is
   Requirements = Need to be able to track the kind of organization that this is - different organization types have different uses
-  Comments = Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes
+  Comments = Organizations can be corporations, wards, sections, clinical teams, government departments, etc. Note that code is generally a classifier of the type of organization; in many applications, codes are used to identity a particular organization (say, ward) as opposed to another of the same type - these are identifiers, not codes\n\nWhen considering if multiple types are appropriate, you should evaluate if child organizations would be a more appropriate use of the concept, as different types likely are in different sub-areas of the organization. This is most likely to be used where type values have orthogonal values, such as a religious, academic and medical center.\n\nWe expect that some jurisdictions will profile this optionality to be a single cardinality.
   v2 Mapping = No equivalent in v2
   RIM Mapping = .code
   ServD Mapping = n/a
