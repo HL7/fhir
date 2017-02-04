@@ -5,8 +5,8 @@
    <ul>
        <li><a href="list-example-familyhistory-f201-roel.html">Real-world patient example</a></li>
        <li><a href="list-example-familyhistory-genetics-profile.html">Simple genetic family member history</a></li>
-       <li><a href="list-example-familyhistory-genetics-profile-annie.html">Example for risk assessment</a></li>
-       <li><a href="list-example-double-cousin-relationship-pedigree.html">Example for risk assessment</a></li>
+       <li><a href="list-example-familyhistory-genetics-profile-annie.html">Example for risk assessment (The source picture can be checked as a binary file in the source xml or json file)</a></li>
+       <li><a href="list-example-double-cousin-relationship-pedigree.html">Example for double cousin relationship</a></li>
 
    </ul> 
       
