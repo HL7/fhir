@@ -112,7 +112,7 @@ table th {
     </ul>
   </p>
   <p>
-    With these resource and profiles, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>).
+    With these resource and profiles, FHIR can support a large set of clinical use cases (see <a href="#dam">Section 9</a>, <a href="#other_examples">10</a> , and <a href="#apps">11</a>) and is thus positioned to address all emergent -omics use cases, including Next-Generation Sequencing (<abbr title="Next-Generation Sequencing">NGS</abbr>). 
     These tools are simple to implement, will optimize payload sizes, and help developers avoid redundant retrieval of data.  <a href="#history">Appendix 1</a> of this document shows how DSTU 2.0 can be mapped to the new additions to the resource.
   </p>
 
@@ -122,7 +122,7 @@ table th {
   <h3>Structure Diagram</h3>
 
 [%resource-table Sequence%]
-
+  
   <h3>Description</h3>
   <p>
     The <a href="sequence.html">Sequence resource</a> is designed for next-generation sequencing data. Patients’ observed sequences should be represented by recording reference sequence id/string and detected variants. To specify how it proceed, here is a picture below:
@@ -135,9 +135,9 @@ table th {
   Sequence.coordinateSystem: This element shall be constrained into only two possible values: 0 for 0-based system and 1 for 1-based system. Below is the picture that could explain what’s the difference between these two systems:
 </p>
 
-<img src="genomics-image11.png" alt="coordinateSystem" style="width:624px;height:468px;"/>
+<img src="genomics-image11.png" alt="coordinateSystem" style="width:624px;height:412px;"/>
 
-<p>  Here are two examples that clarify the usage in both cases (they represent same segment part):
+<p>  Here are two examples that clarify the usage in both cases (they represent same segment part): 
   <ul>
     <li>0-based example: <a href="coord-0base-example.html">here</a> Source:<a href="coord-0base-example.xml.html">XML</a>,<a href="coord-0base-example.json.html">JSON</a></li>
     <li>1-based example: <a href="coord-1base-example.html">here</a> Source:<a href="coord-1base-example.xml.html">XML</a>,<a href="coord-1base-example.json.html">JSON</a></li>
@@ -231,14 +231,15 @@ We provide a detailed example to show how sequence resource can be used to repre
 <img src="genomics-image15.jpeg" alt="Sequence Graph" style="width:624px;height:468px;"/>
 
 <p>The diagram above describes 4 optional ways provided in the Sequence resource to encode sequencing data.
-Here is the corresponding examplepu
+Here is the corresponding examples
 <ul>
-    <li> <a href="sequence-graphic-example-1.html">column 1</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-2.html">column 2</a> Source:<a href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-3.html">column 3</a> Source:<a href="sequence-graphic-example-3.xml.html">XML</a>,<a href="sequence-graphic-example-3.json.html">JSON</a>,<a href="sequence-graphic-example-3.ttl.html">TURTLE</a></li>
-    <li> <a href="sequence-graphic-example-4.html">column 4</a> Source:<a href="sequence-graphic-example-4.xml.html">XML</a>,<a href="sequence-graphic-example-4.json.html">JSON</a>,<a href="sequence-graphic-example-4.json.html">TURTLE</a></li>
+    <li> <a href="sequence-graphic-example-1.html">By referenceSeqId</a> Source:<a href="sequence-graphic-example-1.xml.html">XML</a>,<a href="sequence-graphic-example-1.json.html">JSON</a>,<a href="sequence-graphic-example-1.ttl.html">TURTLE</a></li>
+    <li> <a href="sequence-graphic-example-2.html">By referenceSeqString</a> Source:<a href="sequence-graphic-example-2.xml.html">XML</a>,<a href="sequence-graphic-example-2.json.html">JSON</a>,<a href="sequence-graphic-example-2.ttl.html">TURTLE</a></li>
+    <li> <a href="sequence-graphic-example-3.html">By referenceSeqPointer</a> Source:<a href="sequence-graphic-example-3.xml.html">XML</a>,<a href="sequence-graphic-example-3.json.html">JSON</a>,<a href="sequence-graphic-example-3.ttl.html">TURTLE</a></li>
+    <li> <a href="sequence-graphic-example-4.html">By Genomebuild+chromosome</a> Source:<a href="sequence-graphic-example-4.xml.html">XML</a>,<a href="sequence-graphic-example-4.json.html">JSON</a>,<a href="sequence-graphic-example-4.json.html">TURTLE</a></li>
 </ul>
 </p>
+
 
 <h4>Example from precision FDA </h4>
 <p>
@@ -318,7 +319,7 @@ The <a href="observation-genetic.html">Observation-genetics profile</a> Observat
     </table>
 
 <p>
-  In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant. (For example, sequence variant has its pointer back to the observation, see <a href="#PGx-example">PGx example</a>)
+  In the meantime, the related element in this Observation instance will point to Observaiton-genetics profile to show these clinical interpretations are further analysis for the variant. (For example, sequence variant has its pointer back to the observation, see <a href="#PGx-example">PGx example</a>) 
 </p>
 
 <h3>Usage Examples</h3>
@@ -459,7 +460,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
     <li>Full Genotype</li>
     <li>Consensus Sequence</li>
     <li>Novel Polymorphisms</li>
-    <li>Platform Documentation</li>
+    <li>Platform Documentation</li> 
     <li>Read Processing Documentation</li>
     <li>Primary Data</li>
   </ol>
@@ -593,7 +594,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   Structure of hla-genotyping-resultsAlleleDatabase
 </p>
 
-[%extension-diff hla-genotyping-resultsAlleleDatabase%]
+[%extension-diff hla-genotyping-resultsAlleleDatabase%] 
 
 <p>
   Example of using hla-genotyping-resultsAlleleDatabase to report using the IMGT/HLA database, version 3.23
@@ -618,7 +619,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   Structure of hla-genotyping-resultsMethod
 </p>
 
-[%extension-diff hla-genotyping-resultsMethod%]
+[%extension-diff hla-genotyping-resultsMethod%] 
 
 <p>
   Example of hla-genotyping-resultsMethod to report a lab test registered in the NCBI Genetic Test Registry
@@ -675,7 +676,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   Sequence.pointer: A bundle of Sequence instances can be connected by Sequence.pointer to build sequence graph described in Section 3. Sequence.pointer will point to the next sequence block.
 </p>
 <p>
-  Sequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. Sequence extension contains a pointer to Sequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each based/sequence block.
+  Sequence extension in Observation-genetics profile: Observation-genetics profile is used to report a genetic variant found in patients. Sequence extension contains a pointer to Sequence identifier which has related sequencing read info. It will provide reference/observed allele information and quality scores for each base/sequence block.
 </p>
 
 <h3>Pointer to Observation resource (based on genetics profile)</h3>
@@ -684,7 +685,7 @@ Source: <a href="diagnosticreport-genetics-comprehensive-bone-marrow-report.xml.
   Observation-genetics based Observation resource is used for interpretative genetic data.  Sequence resource and genetics profiles will use internal pointers to Observation-genetics-profile based Observation instance for variant report.
 </p>
 <p>
-  Sequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found is this sequence block.
+  Sequence.observation: A pointer to genetics Observation instance which is used for interpretations of this sequence block. Interpretations are generally about genetic variant found in this sequence block.
 </p>
 <p>
   DiagnosticReport.result: A pointer to Observation instance. This element is used for reporting genetic result.
@@ -1116,3 +1117,5 @@ Get /DiagnosticReport&amp;
 
 </body>
 </html>
+
+
