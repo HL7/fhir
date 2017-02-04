@@ -4,7 +4,7 @@ package org.hl7.fhir.rdf;
 //
 //import java.nio.file.Files;
 //import java.nio.file.Paths;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import org.apache.jena.rdf.model.Model;
 

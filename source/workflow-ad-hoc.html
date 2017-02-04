@@ -272,7 +272,7 @@ in order to support consistent definitions for schema and UML derived code.
 
         <h4>Cancellation of a Task using REST - placer owns</h4>
         <ol>
-            <li>Placer sends an update to the Task setting the status to "cancelled"</li>
+            <li>Placer sends an update to the Task setting the status to "cancelled" signaling they are no longer concerned about the outcome of the task</li>
             <li>Filler receives notification of the update (because the task is on their system or because they poll it or are subscribed to it) and ceases work if they are able</li>
         </ol>
 
