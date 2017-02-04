@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1144,7 +1144,7 @@ public class QuestionnaireResponse extends DomainResource {
     /**
      * Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.
      */
-    @Child(name = "basedOn", type = {DiagnosticRequest.class, ReferralRequest.class, CarePlan.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {ReferralRequest.class, CarePlan.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request fulfilled by this QuestionnaireResponse", formalDefinition="Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse." )
     protected List<Reference> basedOn;
     /**
@@ -1764,7 +1764,7 @@ public class QuestionnaireResponse extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A business identifier assigned to a particular completed (or partially completed) questionnaire.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("basedOn", "Reference(DiagnosticRequest|ReferralRequest|CarePlan)", "Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(ReferralRequest|CarePlan)", "Identifies the order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("parent", "Reference(Observation|Procedure)", "Identifies a procedure or observation that this questionnaire was performed as part of the execution of.", 0, java.lang.Integer.MAX_VALUE, parent));
         childrenList.add(new Property("questionnaire", "Reference(Questionnaire)", "Indicates the Questionnaire resource that defines the form for which answers are being provided.", 0, java.lang.Integer.MAX_VALUE, questionnaire));
         childrenList.add(new Property("status", "code", "The lifecycle status of the questionnaire response as a whole.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -2121,7 +2121,7 @@ public class QuestionnaireResponse extends DomainResource {
    * Path: <b>QuestionnaireResponse.basedOn</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="based-on", path="QuestionnaireResponse.basedOn", description="Plan/proposal/order fulfilled by this questionnaire response", type="reference", target={CarePlan.class, DiagnosticRequest.class, ReferralRequest.class } )
+  @SearchParamDefinition(name="based-on", path="QuestionnaireResponse.basedOn", description="Plan/proposal/order fulfilled by this questionnaire response", type="reference", target={CarePlan.class, ReferralRequest.class } )
   public static final String SP_BASED_ON = "based-on";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>based-on</b>

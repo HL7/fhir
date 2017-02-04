@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -6051,7 +6051,7 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
          * The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier.
          */
         @Child(name = "address", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Address of end-point", formalDefinition="The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier." )
+        @Description(shortDefinition="Network address or identifier of the end-point", formalDefinition="The network address of the end-point. For solutions that do not use network addresses for routing, it can be just an identifier." )
         protected UriType address;
 
         private static final long serialVersionUID = 1294656428L;
@@ -9292,17 +9292,17 @@ public class CapabilityStatement extends MetadataResource implements IBaseConfor
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the capability statement</b><br>
+   * Description: <b>The business version of the capability statement</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CapabilityStatement.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="CapabilityStatement.version", description="The version identifier of the capability statement", type="token" )
+  @SearchParamDefinition(name="version", path="CapabilityStatement.version", description="The business version of the capability statement", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the capability statement</b><br>
+   * Description: <b>The business version of the capability statement</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CapabilityStatement.version</b><br>
    * </p>

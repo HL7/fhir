@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1359,9 +1359,9 @@ public class Immunization extends DomainResource {
     /**
      * Indicates if the vaccination was or was not given.
      */
-    @Child(name = "wasNotGiven", type = {BooleanType.class}, order=5, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "notGiven", type = {BooleanType.class}, order=5, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="Flag for whether immunization was given", formalDefinition="Indicates if the vaccination was or was not given." )
-    protected BooleanType wasNotGiven;
+    protected BooleanType notGiven;
 
     /**
      * An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.
@@ -1503,7 +1503,7 @@ public class Immunization extends DomainResource {
     @Description(shortDefinition="What protocol was followed", formalDefinition="Contains information about the protocol(s) under which the vaccine was administered." )
     protected List<ImmunizationVaccinationProtocolComponent> vaccinationProtocol;
 
-    private static final long serialVersionUID = -526769563L;
+    private static final long serialVersionUID = 58659402L;
 
   /**
    * Constructor
@@ -1515,12 +1515,12 @@ public class Immunization extends DomainResource {
   /**
    * Constructor
    */
-    public Immunization(Enumeration<ImmunizationStatus> status, CodeableConcept vaccineCode, Reference patient, BooleanType wasNotGiven, BooleanType primarySource) {
+    public Immunization(Enumeration<ImmunizationStatus> status, CodeableConcept vaccineCode, Reference patient, BooleanType notGiven, BooleanType primarySource) {
       super();
       this.status = status;
       this.vaccineCode = vaccineCode;
       this.patient = patient;
-      this.wasNotGiven = wasNotGiven;
+      this.notGiven = notGiven;
       this.primarySource = primarySource;
     }
 
@@ -1740,47 +1740,47 @@ public class Immunization extends DomainResource {
     }
 
     /**
-     * @return {@link #wasNotGiven} (Indicates if the vaccination was or was not given.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
+     * @return {@link #notGiven} (Indicates if the vaccination was or was not given.). This is the underlying object with id, value and extensions. The accessor "getNotGiven" gives direct access to the value
      */
-    public BooleanType getWasNotGivenElement() { 
-      if (this.wasNotGiven == null)
+    public BooleanType getNotGivenElement() { 
+      if (this.notGiven == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Immunization.wasNotGiven");
+          throw new Error("Attempt to auto-create Immunization.notGiven");
         else if (Configuration.doAutoCreate())
-          this.wasNotGiven = new BooleanType(); // bb
-      return this.wasNotGiven;
+          this.notGiven = new BooleanType(); // bb
+      return this.notGiven;
     }
 
-    public boolean hasWasNotGivenElement() { 
-      return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
+    public boolean hasNotGivenElement() { 
+      return this.notGiven != null && !this.notGiven.isEmpty();
     }
 
-    public boolean hasWasNotGiven() { 
-      return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
+    public boolean hasNotGiven() { 
+      return this.notGiven != null && !this.notGiven.isEmpty();
     }
 
     /**
-     * @param value {@link #wasNotGiven} (Indicates if the vaccination was or was not given.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
+     * @param value {@link #notGiven} (Indicates if the vaccination was or was not given.). This is the underlying object with id, value and extensions. The accessor "getNotGiven" gives direct access to the value
      */
-    public Immunization setWasNotGivenElement(BooleanType value) { 
-      this.wasNotGiven = value;
+    public Immunization setNotGivenElement(BooleanType value) { 
+      this.notGiven = value;
       return this;
     }
 
     /**
      * @return Indicates if the vaccination was or was not given.
      */
-    public boolean getWasNotGiven() { 
-      return this.wasNotGiven == null || this.wasNotGiven.isEmpty() ? false : this.wasNotGiven.getValue();
+    public boolean getNotGiven() { 
+      return this.notGiven == null || this.notGiven.isEmpty() ? false : this.notGiven.getValue();
     }
 
     /**
      * @param value Indicates if the vaccination was or was not given.
      */
-    public Immunization setWasNotGiven(boolean value) { 
-        if (this.wasNotGiven == null)
-          this.wasNotGiven = new BooleanType();
-        this.wasNotGiven.setValue(value);
+    public Immunization setNotGiven(boolean value) { 
+        if (this.notGiven == null)
+          this.notGiven = new BooleanType();
+        this.notGiven.setValue(value);
       return this;
     }
 
@@ -2433,7 +2433,7 @@ public class Immunization extends DomainResource {
         childrenList.add(new Property("date", "dateTime", "Date vaccine administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("vaccineCode", "CodeableConcept", "Vaccine that was administered or was to be administered.", 0, java.lang.Integer.MAX_VALUE, vaccineCode));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient who either received or did not receive the immunization.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("wasNotGiven", "boolean", "Indicates if the vaccination was or was not given.", 0, java.lang.Integer.MAX_VALUE, wasNotGiven));
+        childrenList.add(new Property("notGiven", "boolean", "Indicates if the vaccination was or was not given.", 0, java.lang.Integer.MAX_VALUE, notGiven));
         childrenList.add(new Property("primarySource", "boolean", "An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.", 0, java.lang.Integer.MAX_VALUE, primarySource));
         childrenList.add(new Property("reportOrigin", "CodeableConcept", "The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.", 0, java.lang.Integer.MAX_VALUE, reportOrigin));
         childrenList.add(new Property("performer", "Reference(Practitioner)", "Clinician who administered the vaccine.", 0, java.lang.Integer.MAX_VALUE, performer));
@@ -2460,7 +2460,7 @@ public class Immunization extends DomainResource {
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case 664556354: /*vaccineCode*/ return this.vaccineCode == null ? new Base[0] : new Base[] {this.vaccineCode}; // CodeableConcept
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
-        case -1050911117: /*wasNotGiven*/ return this.wasNotGiven == null ? new Base[0] : new Base[] {this.wasNotGiven}; // BooleanType
+        case 1554065514: /*notGiven*/ return this.notGiven == null ? new Base[0] : new Base[] {this.notGiven}; // BooleanType
         case -528721731: /*primarySource*/ return this.primarySource == null ? new Base[0] : new Base[] {this.primarySource}; // BooleanType
         case 486750586: /*reportOrigin*/ return this.reportOrigin == null ? new Base[0] : new Base[] {this.reportOrigin}; // CodeableConcept
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : new Base[] {this.performer}; // Reference
@@ -2501,8 +2501,8 @@ public class Immunization extends DomainResource {
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
           return value;
-        case -1050911117: // wasNotGiven
-          this.wasNotGiven = castToBoolean(value); // BooleanType
+        case 1554065514: // notGiven
+          this.notGiven = castToBoolean(value); // BooleanType
           return value;
         case -528721731: // primarySource
           this.primarySource = castToBoolean(value); // BooleanType
@@ -2570,8 +2570,8 @@ public class Immunization extends DomainResource {
           this.vaccineCode = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
-        } else if (name.equals("wasNotGiven")) {
-          this.wasNotGiven = castToBoolean(value); // BooleanType
+        } else if (name.equals("notGiven")) {
+          this.notGiven = castToBoolean(value); // BooleanType
         } else if (name.equals("primarySource")) {
           this.primarySource = castToBoolean(value); // BooleanType
         } else if (name.equals("reportOrigin")) {
@@ -2617,7 +2617,7 @@ public class Immunization extends DomainResource {
         case 3076014:  return getDateElement();
         case 664556354:  return getVaccineCode(); 
         case -791418107:  return getPatient(); 
-        case -1050911117:  return getWasNotGivenElement();
+        case 1554065514:  return getNotGivenElement();
         case -528721731:  return getPrimarySourceElement();
         case 486750586:  return getReportOrigin(); 
         case 481140686:  return getPerformer(); 
@@ -2647,7 +2647,7 @@ public class Immunization extends DomainResource {
         case 3076014: /*date*/ return new String[] {"dateTime"};
         case 664556354: /*vaccineCode*/ return new String[] {"CodeableConcept"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
-        case -1050911117: /*wasNotGiven*/ return new String[] {"boolean"};
+        case 1554065514: /*notGiven*/ return new String[] {"boolean"};
         case -528721731: /*primarySource*/ return new String[] {"boolean"};
         case 486750586: /*reportOrigin*/ return new String[] {"CodeableConcept"};
         case 481140686: /*performer*/ return new String[] {"Reference"};
@@ -2688,8 +2688,8 @@ public class Immunization extends DomainResource {
           this.patient = new Reference();
           return this.patient;
         }
-        else if (name.equals("wasNotGiven")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Immunization.wasNotGiven");
+        else if (name.equals("notGiven")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Immunization.notGiven");
         }
         else if (name.equals("primarySource")) {
           throw new FHIRException("Cannot call addChild on a primitive type Immunization.primarySource");
@@ -2770,7 +2770,7 @@ public class Immunization extends DomainResource {
         dst.date = date == null ? null : date.copy();
         dst.vaccineCode = vaccineCode == null ? null : vaccineCode.copy();
         dst.patient = patient == null ? null : patient.copy();
-        dst.wasNotGiven = wasNotGiven == null ? null : wasNotGiven.copy();
+        dst.notGiven = notGiven == null ? null : notGiven.copy();
         dst.primarySource = primarySource == null ? null : primarySource.copy();
         dst.reportOrigin = reportOrigin == null ? null : reportOrigin.copy();
         dst.performer = performer == null ? null : performer.copy();
@@ -2814,7 +2814,7 @@ public class Immunization extends DomainResource {
           return false;
         Immunization o = (Immunization) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(date, o.date, true)
-           && compareDeep(vaccineCode, o.vaccineCode, true) && compareDeep(patient, o.patient, true) && compareDeep(wasNotGiven, o.wasNotGiven, true)
+           && compareDeep(vaccineCode, o.vaccineCode, true) && compareDeep(patient, o.patient, true) && compareDeep(notGiven, o.notGiven, true)
            && compareDeep(primarySource, o.primarySource, true) && compareDeep(reportOrigin, o.reportOrigin, true)
            && compareDeep(performer, o.performer, true) && compareDeep(requester, o.requester, true) && compareDeep(encounter, o.encounter, true)
            && compareDeep(manufacturer, o.manufacturer, true) && compareDeep(location, o.location, true) && compareDeep(lotNumber, o.lotNumber, true)
@@ -2831,14 +2831,14 @@ public class Immunization extends DomainResource {
         if (!(other instanceof Immunization))
           return false;
         Immunization o = (Immunization) other;
-        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(wasNotGiven, o.wasNotGiven, true)
+        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(notGiven, o.notGiven, true)
            && compareValues(primarySource, o.primarySource, true) && compareValues(lotNumber, o.lotNumber, true)
            && compareValues(expirationDate, o.expirationDate, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, date
-          , vaccineCode, patient, wasNotGiven, primarySource, reportOrigin, performer, requester
+          , vaccineCode, patient, notGiven, primarySource, reportOrigin, performer, requester
           , encounter, manufacturer, location, lotNumber, expirationDate, site, route, doseQuantity
           , note, explanation, reaction, vaccinationProtocol);
       }
@@ -3011,17 +3011,17 @@ public class Immunization extends DomainResource {
    * <p>
    * Description: <b>Administrations which were not given</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Immunization.wasNotGiven</b><br>
+   * Path: <b>Immunization.notGiven</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="notgiven", path="Immunization.wasNotGiven", description="Administrations which were not given", type="token" )
+  @SearchParamDefinition(name="notgiven", path="Immunization.notGiven", description="Administrations which were not given", type="token" )
   public static final String SP_NOTGIVEN = "notgiven";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>notgiven</b>
    * <p>
    * Description: <b>Administrations which were not given</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Immunization.wasNotGiven</b><br>
+   * Path: <b>Immunization.notGiven</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam NOTGIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NOTGIVEN);

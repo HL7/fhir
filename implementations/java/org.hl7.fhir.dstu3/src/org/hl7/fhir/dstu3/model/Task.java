@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -492,21 +492,21 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
     public enum TaskPriority {
         /**
-         * The order has a normal priority .
+         * The request has normal priority
          */
         ROUTINE, 
         /**
-         * The order should be urgently.
+         * The request should be actioned promptly - higher priority than routine
          */
         URGENT, 
         /**
-         * The order is time-critical.
-         */
-        STAT, 
-        /**
-         * The order should be acted on as soon as possible.
+         * The request should be actioned as soon as possible - higher priority than urgent
          */
         ASAP, 
+        /**
+         * The request should be actioned immediately - highest possible priority.  E.g. an emergency
+         */
+        STAT, 
         /**
          * added to help the parsers with the generic types
          */
@@ -518,10 +518,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return ROUTINE;
         if ("urgent".equals(codeString))
           return URGENT;
-        if ("stat".equals(codeString))
-          return STAT;
         if ("asap".equals(codeString))
           return ASAP;
+        if ("stat".equals(codeString))
+          return STAT;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -531,8 +531,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           switch (this) {
             case ROUTINE: return "routine";
             case URGENT: return "urgent";
-            case STAT: return "stat";
             case ASAP: return "asap";
+            case STAT: return "stat";
             default: return "?";
           }
         }
@@ -540,17 +540,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           switch (this) {
             case ROUTINE: return "http://hl7.org/fhir/request-priority";
             case URGENT: return "http://hl7.org/fhir/request-priority";
-            case STAT: return "http://hl7.org/fhir/request-priority";
             case ASAP: return "http://hl7.org/fhir/request-priority";
+            case STAT: return "http://hl7.org/fhir/request-priority";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ROUTINE: return "The order has a normal priority .";
-            case URGENT: return "The order should be urgently.";
-            case STAT: return "The order is time-critical.";
-            case ASAP: return "The order should be acted on as soon as possible.";
+            case ROUTINE: return "The request has normal priority";
+            case URGENT: return "The request should be actioned promptly - higher priority than routine";
+            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent";
+            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency";
             default: return "?";
           }
         }
@@ -558,8 +558,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           switch (this) {
             case ROUTINE: return "Routine";
             case URGENT: return "Urgent";
-            case STAT: return "Stat";
             case ASAP: return "ASAP";
+            case STAT: return "STAT";
             default: return "?";
           }
         }
@@ -574,10 +574,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return TaskPriority.ROUTINE;
         if ("urgent".equals(codeString))
           return TaskPriority.URGENT;
-        if ("stat".equals(codeString))
-          return TaskPriority.STAT;
         if ("asap".equals(codeString))
           return TaskPriority.ASAP;
+        if ("stat".equals(codeString))
+          return TaskPriority.STAT;
         throw new IllegalArgumentException("Unknown TaskPriority code '"+codeString+"'");
         }
         public Enumeration<TaskPriority> fromType(Base code) throws FHIRException {
@@ -592,10 +592,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return new Enumeration<TaskPriority>(this, TaskPriority.ROUTINE);
         if ("urgent".equals(codeString))
           return new Enumeration<TaskPriority>(this, TaskPriority.URGENT);
-        if ("stat".equals(codeString))
-          return new Enumeration<TaskPriority>(this, TaskPriority.STAT);
         if ("asap".equals(codeString))
           return new Enumeration<TaskPriority>(this, TaskPriority.ASAP);
+        if ("stat".equals(codeString))
+          return new Enumeration<TaskPriority>(this, TaskPriority.STAT);
         throw new FHIRException("Unknown TaskPriority code '"+codeString+"'");
         }
     public String toCode(TaskPriority code) {
@@ -603,10 +603,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         return "routine";
       if (code == TaskPriority.URGENT)
         return "urgent";
-      if (code == TaskPriority.STAT)
-        return "stat";
       if (code == TaskPriority.ASAP)
         return "asap";
+      if (code == TaskPriority.STAT)
+        return "stat";
       return "?";
       }
     public String toSystem(TaskPriority code) {
@@ -867,7 +867,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
          * Over what time-period is fulfillment sought.
          */
         @Child(name = "period", type = {Period.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Over what time-period is fulfillment sought", formalDefinition="Over what time-period is fulfillment sought." )
+        @Description(shortDefinition="When fulfillment sought", formalDefinition="Over what time-period is fulfillment sought." )
         protected Period period;
 
         /**
@@ -1810,13 +1810,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected Type definition;
 
     /**
-     * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
+     * BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.
      */
     @Child(name = "basedOn", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Request fulfilled by this task", formalDefinition="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient." )
+    @Description(shortDefinition="Request fulfilled by this task", formalDefinition="BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient." )
     protected List<Reference> basedOn;
     /**
-     * The actual objects that are the target of the reference (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
+     * The actual objects that are the target of the reference (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
      */
     protected List<Resource> basedOnTarget;
 
@@ -2140,7 +2140,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #basedOn} (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
+     * @return {@link #basedOn} (BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a "request" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the "request" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.)
      */
     public List<Reference> getBasedOn() { 
       if (this.basedOn == null)
@@ -3202,7 +3202,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The business identifier for this task.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition[x]", "uri|Reference(ActivityDefinition)", "A reference to a formal or informal definition of the task.  For example, a protocol, a step within a defined workflow definition, etc.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("basedOn", "Reference(Any)", "BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a DiagnosticRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a DiagnosticRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(Any)", "BasedOn refers to a higher-level authorization that triggered the creation of the task.  It references a \"request\" resource such as a ProcedureRequest, MedicationRequest, ProcedureRequest, CarePlan, etc. which is distinct from the \"request\" resource the task is seeking to fulfil.  This latter resource is referenced by FocusOn.  For example, based on a ProcedureRequest (= BasedOn), a task is created to fulfil a procedureRequest ( = FocusOn ) to collect a specimen from a patient.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("groupIdentifier", "Identifier", "An identifier that links together multiple tasks and other requests that were created in the same context.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
         childrenList.add(new Property("partOf", "Reference(Task)", "Task that this particular task is part of.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "The current status of the task.", 0, java.lang.Integer.MAX_VALUE, status));

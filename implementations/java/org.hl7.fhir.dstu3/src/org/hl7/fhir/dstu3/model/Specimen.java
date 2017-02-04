@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1456,13 +1456,13 @@ public class Specimen extends DomainResource {
     /**
      * Details concerning a test or procedure request that required a specimen to be collected.
      */
-    @Child(name = "request", type = {DiagnosticRequest.class, ProcedureRequest.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "request", type = {ProcedureRequest.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Why the specimen was collected", formalDefinition="Details concerning a test or procedure request that required a specimen to be collected." )
     protected List<Reference> request;
     /**
      * The actual objects that are the target of the reference (Details concerning a test or procedure request that required a specimen to be collected.)
      */
-    protected List<Resource> requestTarget;
+    protected List<ProcedureRequest> requestTarget;
 
 
     /**
@@ -1493,7 +1493,7 @@ public class Specimen extends DomainResource {
     @Description(shortDefinition="Comments", formalDefinition="To communicate any details or issues about the specimen or during the specimen collection. (for example: broken vial, sent with patient, frozen)." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1765113143L;
+    private static final long serialVersionUID = -743921079L;
 
   /**
    * Constructor
@@ -1880,10 +1880,22 @@ public class Specimen extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getRequestTarget() { 
+    public List<ProcedureRequest> getRequestTarget() { 
       if (this.requestTarget == null)
-        this.requestTarget = new ArrayList<Resource>();
+        this.requestTarget = new ArrayList<ProcedureRequest>();
       return this.requestTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public ProcedureRequest addRequestTarget() { 
+      ProcedureRequest r = new ProcedureRequest();
+      if (this.requestTarget == null)
+        this.requestTarget = new ArrayList<ProcedureRequest>();
+      this.requestTarget.add(r);
+      return r;
     }
 
     /**
@@ -2078,7 +2090,7 @@ public class Specimen extends DomainResource {
         childrenList.add(new Property("subject", "Reference(Patient|Group|Device|Substance)", "Where the specimen came from. This may be from the patient(s) or from the environment or a device.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("receivedTime", "dateTime", "Time when specimen was received for processing or testing.", 0, java.lang.Integer.MAX_VALUE, receivedTime));
         childrenList.add(new Property("parent", "Reference(Specimen)", "Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.", 0, java.lang.Integer.MAX_VALUE, parent));
-        childrenList.add(new Property("request", "Reference(DiagnosticRequest|ProcedureRequest)", "Details concerning a test or procedure request that required a specimen to be collected.", 0, java.lang.Integer.MAX_VALUE, request));
+        childrenList.add(new Property("request", "Reference(ProcedureRequest)", "Details concerning a test or procedure request that required a specimen to be collected.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("collection", "", "Details concerning the specimen collection.", 0, java.lang.Integer.MAX_VALUE, collection));
         childrenList.add(new Property("processing", "", "Details concerning processing and processing steps for the specimen.", 0, java.lang.Integer.MAX_VALUE, processing));
         childrenList.add(new Property("container", "", "The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.", 0, java.lang.Integer.MAX_VALUE, container));

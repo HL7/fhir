@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1064,10 +1064,10 @@ public class PlanDefinition extends MetadataResource {
         protected StringType textEquivalent;
 
         /**
-         * The concept represented by this action or its sub-actions.
+         * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The meaning of the action or its sub-actions", formalDefinition="The concept represented by this action or its sub-actions." )
+        @Description(shortDefinition="Code representing the meaning of the action or sub-actions", formalDefinition="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template." )
         protected List<CodeableConcept> code;
 
         /**
@@ -1443,7 +1443,7 @@ public class PlanDefinition extends MetadataResource {
         }
 
         /**
-         * @return {@link #code} (The concept represented by this action or its sub-actions.)
+         * @return {@link #code} (A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.)
          */
         public List<CodeableConcept> getCode() { 
           if (this.code == null)
@@ -2428,7 +2428,7 @@ public class PlanDefinition extends MetadataResource {
           childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
-          childrenList.add(new Property("code", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "CodeableConcept", "A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("triggerDefinition", "TriggerDefinition", "A description of when the action should be triggered.", 0, java.lang.Integer.MAX_VALUE, triggerDefinition));
           childrenList.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -5950,17 +5950,17 @@ public class PlanDefinition extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the plan definition</b><br>
+   * Description: <b>The business version of the plan definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>PlanDefinition.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="PlanDefinition.version", description="The version identifier of the plan definition", type="token" )
+  @SearchParamDefinition(name="version", path="PlanDefinition.version", description="The business version of the plan definition", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the plan definition</b><br>
+   * Description: <b>The business version of the plan definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>PlanDefinition.version</b><br>
    * </p>

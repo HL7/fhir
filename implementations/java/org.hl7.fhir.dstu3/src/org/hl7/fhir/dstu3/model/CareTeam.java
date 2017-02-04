@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -211,13 +211,25 @@ public class CareTeam extends DomainResource {
         protected Resource memberTarget;
 
         /**
+         * The organization of the practitioner.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Organization of the practitioner", formalDefinition="The organization of the practitioner." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization of the practitioner.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        /**
          * Indicates when the specific member or organization did (or is intended to) come into effect and end.
          */
-        @Child(name = "period", type = {Period.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "period", type = {Period.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Time period of participant", formalDefinition="Indicates when the specific member or organization did (or is intended to) come into effect and end." )
         protected Period period;
 
-        private static final long serialVersionUID = -1416929603L;
+        private static final long serialVersionUID = -1363308804L;
 
     /**
      * Constructor
@@ -290,6 +302,50 @@ public class CareTeam extends DomainResource {
         }
 
         /**
+         * @return {@link #onBehalfOf} (The organization of the practitioner.)
+         */
+        public Reference getOnBehalfOf() { 
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CareTeamParticipantComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() { 
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization of the practitioner.)
+         */
+        public CareTeamParticipantComponent setOnBehalfOf(Reference value) { 
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization of the practitioner.)
+         */
+        public Organization getOnBehalfOfTarget() { 
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create CareTeamParticipantComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization of the practitioner.)
+         */
+        public CareTeamParticipantComponent setOnBehalfOfTarget(Organization value) { 
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
+        /**
          * @return {@link #period} (Indicates when the specific member or organization did (or is intended to) come into effect and end.)
          */
         public Period getPeriod() { 
@@ -317,6 +373,7 @@ public class CareTeam extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "CodeableConcept", "Indicates specific responsibility of an individual within the care team, such as \"Primary care physician\", \"Trained social worker counselor\", \"Caregiver\", etc.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("member", "Reference(Practitioner|RelatedPerson|Patient|Organization|CareTeam)", "The specific person or organization who is participating/expected to participate in the care team.", 0, java.lang.Integer.MAX_VALUE, member));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization of the practitioner.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
           childrenList.add(new Property("period", "Period", "Indicates when the specific member or organization did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         }
 
@@ -325,6 +382,7 @@ public class CareTeam extends DomainResource {
         switch (hash) {
         case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
         case -1077769574: /*member*/ return this.member == null ? new Base[0] : new Base[] {this.member}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -340,6 +398,9 @@ public class CareTeam extends DomainResource {
         case -1077769574: // member
           this.member = castToReference(value); // Reference
           return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
         case -991726143: // period
           this.period = castToPeriod(value); // Period
           return value;
@@ -354,6 +415,8 @@ public class CareTeam extends DomainResource {
           this.role = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("member")) {
           this.member = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
         } else if (name.equals("period")) {
           this.period = castToPeriod(value); // Period
         } else
@@ -366,6 +429,7 @@ public class CareTeam extends DomainResource {
         switch (hash) {
         case 3506294:  return getRole(); 
         case -1077769574:  return getMember(); 
+        case -14402964:  return getOnBehalfOf(); 
         case -991726143:  return getPeriod(); 
         default: return super.makeProperty(hash, name);
         }
@@ -377,6 +441,7 @@ public class CareTeam extends DomainResource {
         switch (hash) {
         case 3506294: /*role*/ return new String[] {"CodeableConcept"};
         case -1077769574: /*member*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         case -991726143: /*period*/ return new String[] {"Period"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -393,6 +458,10 @@ public class CareTeam extends DomainResource {
           this.member = new Reference();
           return this.member;
         }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
         else if (name.equals("period")) {
           this.period = new Period();
           return this.period;
@@ -406,6 +475,7 @@ public class CareTeam extends DomainResource {
         copyValues(dst);
         dst.role = role == null ? null : role.copy();
         dst.member = member == null ? null : member.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         dst.period = period == null ? null : period.copy();
         return dst;
       }
@@ -417,8 +487,8 @@ public class CareTeam extends DomainResource {
         if (!(other instanceof CareTeamParticipantComponent))
           return false;
         CareTeamParticipantComponent o = (CareTeamParticipantComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(member, o.member, true) && compareDeep(period, o.period, true)
-          ;
+        return compareDeep(role, o.role, true) && compareDeep(member, o.member, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+           && compareDeep(period, o.period, true);
       }
 
       @Override
@@ -432,7 +502,8 @@ public class CareTeam extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, member, period);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, member, onBehalfOf
+          , period);
       }
 
   public String fhirType() {
@@ -510,7 +581,14 @@ public class CareTeam extends DomainResource {
     protected List<Organization> managingOrganizationTarget;
 
 
-    private static final long serialVersionUID = 162249074L;
+    /**
+     * Comments made about the CareTeam.
+     */
+    @Child(name = "note", type = {Annotation.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Comments made about the CareTeam", formalDefinition="Comments made about the CareTeam." )
+    protected List<Annotation> note;
+
+    private static final long serialVersionUID = 1949309371L;
 
   /**
    * Constructor
@@ -914,6 +992,59 @@ public class CareTeam extends DomainResource {
       return r;
     }
 
+    /**
+     * @return {@link #note} (Comments made about the CareTeam.)
+     */
+    public List<Annotation> getNote() { 
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      return this.note;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CareTeam setNote(List<Annotation> theNote) { 
+      this.note = theNote;
+      return this;
+    }
+
+    public boolean hasNote() { 
+      if (this.note == null)
+        return false;
+      for (Annotation item : this.note)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return t;
+    }
+
+    public CareTeam addNote(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
+     */
+    public Annotation getNoteFirstRep() { 
+      if (getNote().isEmpty()) {
+        addNote();
+      }
+      return getNote().get(0);
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -924,6 +1055,7 @@ public class CareTeam extends DomainResource {
         childrenList.add(new Property("period", "Period", "Indicates when the team did (or is intended to) come into effect and end.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("participant", "", "Identifies all people and organizations who are expected to be involved in the care team.", 0, java.lang.Integer.MAX_VALUE, participant));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization responsible for the care team.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));
+        childrenList.add(new Property("note", "Annotation", "Comments made about the CareTeam.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
       @Override
@@ -937,6 +1069,7 @@ public class CareTeam extends DomainResource {
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 767422259: /*participant*/ return this.participant == null ? new Base[0] : this.participant.toArray(new Base[this.participant.size()]); // CareTeamParticipantComponent
         case -2058947787: /*managingOrganization*/ return this.managingOrganization == null ? new Base[0] : this.managingOrganization.toArray(new Base[this.managingOrganization.size()]); // Reference
+        case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -970,6 +1103,9 @@ public class CareTeam extends DomainResource {
         case -2058947787: // managingOrganization
           this.getManagingOrganization().add(castToReference(value)); // Reference
           return value;
+        case 3387378: // note
+          this.getNote().add(castToAnnotation(value)); // Annotation
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -994,6 +1130,8 @@ public class CareTeam extends DomainResource {
           this.getParticipant().add((CareTeamParticipantComponent) value);
         } else if (name.equals("managingOrganization")) {
           this.getManagingOrganization().add(castToReference(value));
+        } else if (name.equals("note")) {
+          this.getNote().add(castToAnnotation(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1010,6 +1148,7 @@ public class CareTeam extends DomainResource {
         case -991726143:  return getPeriod(); 
         case 767422259:  return addParticipant(); 
         case -2058947787:  return addManagingOrganization(); 
+        case 3387378:  return addNote(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1026,6 +1165,7 @@ public class CareTeam extends DomainResource {
         case -991726143: /*period*/ return new String[] {"Period"};
         case 767422259: /*participant*/ return new String[] {};
         case -2058947787: /*managingOrganization*/ return new String[] {"Reference"};
+        case 3387378: /*note*/ return new String[] {"Annotation"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1058,6 +1198,9 @@ public class CareTeam extends DomainResource {
         }
         else if (name.equals("managingOrganization")) {
           return addManagingOrganization();
+        }
+        else if (name.equals("note")) {
+          return addNote();
         }
         else
           return super.addChild(name);
@@ -1095,6 +1238,11 @@ public class CareTeam extends DomainResource {
           for (Reference i : managingOrganization)
             dst.managingOrganization.add(i.copy());
         };
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         return dst;
       }
 
@@ -1112,7 +1260,7 @@ public class CareTeam extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
            && compareDeep(name, o.name, true) && compareDeep(subject, o.subject, true) && compareDeep(period, o.period, true)
            && compareDeep(participant, o.participant, true) && compareDeep(managingOrganization, o.managingOrganization, true)
-          ;
+           && compareDeep(note, o.note, true);
       }
 
       @Override
@@ -1127,7 +1275,7 @@ public class CareTeam extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
-          , name, subject, period, participant, managingOrganization);
+          , name, subject, period, participant, managingOrganization, note);
       }
 
   @Override

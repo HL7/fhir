@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -375,12 +375,12 @@ public class Organization extends DomainResource {
     protected BooleanType active;
 
     /**
-     * The kind of organization that this is.
+     * The kind(s) of organization that this is.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Kind of organization", formalDefinition="The kind of organization that this is." )
+    @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Kind of organization", formalDefinition="The kind(s) of organization that this is." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/organization-type")
-    protected CodeableConcept type;
+    protected List<CodeableConcept> type;
 
     /**
      * A name associated with the organization.
@@ -441,7 +441,7 @@ public class Organization extends DomainResource {
     protected List<Endpoint> endpointTarget;
 
 
-    private static final long serialVersionUID = 1607359371L;
+    private static final long serialVersionUID = -2113244111L;
 
   /**
    * Constructor
@@ -549,27 +549,56 @@ public class Organization extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (The kind of organization that this is.)
+     * @return {@link #type} (The kind(s) of organization that this is.)
      */
-    public CodeableConcept getType() { 
+    public List<CodeableConcept> getType() { 
       if (this.type == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Organization.type");
-        else if (Configuration.doAutoCreate())
-          this.type = new CodeableConcept(); // cc
+        this.type = new ArrayList<CodeableConcept>();
       return this.type;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Organization setType(List<CodeableConcept> theType) { 
+      this.type = theType;
+      return this;
+    }
+
     public boolean hasType() { 
-      return this.type != null && !this.type.isEmpty();
+      if (this.type == null)
+        return false;
+      for (CodeableConcept item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addType() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      this.type.add(t);
+      return t;
+    }
+
+    public Organization addType(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.type == null)
+        this.type = new ArrayList<CodeableConcept>();
+      this.type.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #type} (The kind of organization that this is.)
+     * @return The first repetition of repeating field {@link #type}, creating it if it does not already exist
      */
-    public Organization setType(CodeableConcept value) { 
-      this.type = value;
-      return this;
+    public CodeableConcept getTypeFirstRep() { 
+      if (getType().isEmpty()) {
+        addType();
+      }
+      return getType().get(0);
     }
 
     /**
@@ -964,7 +993,7 @@ public class Organization extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the organization that is used to identify the organization across multiple disparate systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("active", "boolean", "Whether the organization's record is still in active use.", 0, java.lang.Integer.MAX_VALUE, active));
-        childrenList.add(new Property("type", "CodeableConcept", "The kind of organization that this is.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "The kind(s) of organization that this is.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("name", "string", "A name associated with the organization.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("alias", "string", "A list of alternate names that the organization is known as, or was known as in the past.", 0, java.lang.Integer.MAX_VALUE, alias));
         childrenList.add(new Property("telecom", "ContactPoint", "A contact detail for the organization.", 0, java.lang.Integer.MAX_VALUE, telecom));
@@ -979,7 +1008,7 @@ public class Organization extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // CodeableConcept
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 92902992: /*alias*/ return this.alias == null ? new Base[0] : this.alias.toArray(new Base[this.alias.size()]); // StringType
         case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
@@ -1002,7 +1031,7 @@ public class Organization extends DomainResource {
           this.active = castToBoolean(value); // BooleanType
           return value;
         case 3575610: // type
-          this.type = castToCodeableConcept(value); // CodeableConcept
+          this.getType().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -1037,7 +1066,7 @@ public class Organization extends DomainResource {
         } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
         } else if (name.equals("type")) {
-          this.type = castToCodeableConcept(value); // CodeableConcept
+          this.getType().add(castToCodeableConcept(value));
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
         } else if (name.equals("alias")) {
@@ -1062,7 +1091,7 @@ public class Organization extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -1422950650:  return getActiveElement();
-        case 3575610:  return getType(); 
+        case 3575610:  return addType(); 
         case 3373707:  return getNameElement();
         case 92902992:  return addAliasElement();
         case -1429363305:  return addTelecom(); 
@@ -1102,8 +1131,7 @@ public class Organization extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type Organization.active");
         }
         else if (name.equals("type")) {
-          this.type = new CodeableConcept();
-          return this.type;
+          return addType();
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type Organization.name");
@@ -1145,7 +1173,11 @@ public class Organization extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.active = active == null ? null : active.copy();
-        dst.type = type == null ? null : type.copy();
+        if (type != null) {
+          dst.type = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : type)
+            dst.type.add(i.copy());
+        };
         dst.name = name == null ? null : name.copy();
         if (alias != null) {
           dst.alias = new ArrayList<StringType>();
@@ -1434,7 +1466,7 @@ public class Organization extends DomainResource {
    * Path: <b>Organization.name, Organization.alias</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="name", path="Organization.name or Organization.alias", description="A portion of the organization's name, or alias", type="string" )
+  @SearchParamDefinition(name="name", path="Organization.name | Organization.alias", description="A portion of the organization's name, or alias", type="string" )
   public static final String SP_NAME = "name";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>name</b>

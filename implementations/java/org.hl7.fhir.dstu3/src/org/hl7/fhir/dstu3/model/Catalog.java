@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -95,7 +95,7 @@ public class Catalog extends DomainResource {
          * To support versioning and deciding when to overwrite /update content.
          */
         @Child(name = "contentVersion", type = {Identifier.class}, order=6, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The version of the catalog content", formalDefinition="To support versioning and deciding when to overwrite /update content." )
+        @Description(shortDefinition="The version of the bundle that is being transmitted", formalDefinition="To support versioning and deciding when to overwrite /update content." )
         protected Identifier contentVersion;
 
         /**
@@ -665,7 +665,7 @@ public class Catalog extends DomainResource {
   }
 
     @Block()
-    public static class CatalogItemComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class CatalogEntryComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The type of item - medication, device, service, protocol or other.
          */
@@ -703,7 +703,7 @@ public class Catalog extends DomainResource {
          * Classes of devices, or ATC for medication.
          */
         @Child(name = "classification", type = {Identifier.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Classification of the item", formalDefinition="Classes of devices, or ATC for medication." )
+        @Description(shortDefinition="Classification (category or class) of the item entry", formalDefinition="Classes of devices, or ATC for medication." )
         protected List<Identifier> classification;
 
         /**
@@ -753,14 +753,14 @@ public class Catalog extends DomainResource {
          */
         @Child(name = "relatedItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="An item that this catalog entry is related to", formalDefinition="Used for example,  to point to a substance, or to a device used to administer a medication." )
-        protected List<CatalogItemRelatedItemComponent> relatedItem;
+        protected List<CatalogEntryRelatedItemComponent> relatedItem;
 
-        private static final long serialVersionUID = -1627249023L;
+        private static final long serialVersionUID = -1856672806L;
 
     /**
      * Constructor
      */
-      public CatalogItemComponent() {
+      public CatalogEntryComponent() {
         super();
       }
 
@@ -770,7 +770,7 @@ public class Catalog extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.type");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -783,7 +783,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #type} (The type of item - medication, device, service, protocol or other.)
          */
-        public CatalogItemComponent setType(CodeableConcept value) { 
+        public CatalogEntryComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -794,7 +794,7 @@ public class Catalog extends DomainResource {
         public Reference getReferencedItem() { 
           if (this.referencedItem == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.referencedItem");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.referencedItem");
             else if (Configuration.doAutoCreate())
               this.referencedItem = new Reference(); // cc
           return this.referencedItem;
@@ -807,7 +807,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #referencedItem} (Content of the catalog.)
          */
-        public CatalogItemComponent setReferencedItem(Reference value) { 
+        public CatalogEntryComponent setReferencedItem(Reference value) { 
           this.referencedItem = value;
           return this;
         }
@@ -822,7 +822,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #referencedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Content of the catalog.)
          */
-        public CatalogItemComponent setReferencedItemTarget(Resource value) { 
+        public CatalogEntryComponent setReferencedItemTarget(Resource value) { 
           this.referencedItemTarget = value;
           return this;
         }
@@ -833,7 +833,7 @@ public class Catalog extends DomainResource {
         public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.identifier");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.identifier");
             else if (Configuration.doAutoCreate())
               this.identifier = new Identifier(); // cc
           return this.identifier;
@@ -846,7 +846,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #identifier} (Used in supporting different identifiers for the same product, e.g. manufacturer code and retailer code.)
          */
-        public CatalogItemComponent setIdentifier(Identifier value) { 
+        public CatalogEntryComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -863,7 +863,7 @@ public class Catalog extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CatalogItemComponent setAdditionalIdentifier(List<Identifier> theAdditionalIdentifier) { 
+        public CatalogEntryComponent setAdditionalIdentifier(List<Identifier> theAdditionalIdentifier) { 
           this.additionalIdentifier = theAdditionalIdentifier;
           return this;
         }
@@ -885,7 +885,7 @@ public class Catalog extends DomainResource {
           return t;
         }
 
-        public CatalogItemComponent addAdditionalIdentifier(Identifier t) { //3
+        public CatalogEntryComponent addAdditionalIdentifier(Identifier t) { //3
           if (t == null)
             return this;
           if (this.additionalIdentifier == null)
@@ -916,7 +916,7 @@ public class Catalog extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CatalogItemComponent setClassification(List<Identifier> theClassification) { 
+        public CatalogEntryComponent setClassification(List<Identifier> theClassification) { 
           this.classification = theClassification;
           return this;
         }
@@ -938,7 +938,7 @@ public class Catalog extends DomainResource {
           return t;
         }
 
-        public CatalogItemComponent addClassification(Identifier t) { //3
+        public CatalogEntryComponent addClassification(Identifier t) { //3
           if (t == null)
             return this;
           if (this.classification == null)
@@ -963,7 +963,7 @@ public class Catalog extends DomainResource {
         public CodeableConcept getStatus() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.status");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.status");
             else if (Configuration.doAutoCreate())
               this.status = new CodeableConcept(); // cc
           return this.status;
@@ -976,7 +976,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #status} (Used to support catalog exchange even for unsupported products, e.g. getting list of medications even if not prescribable.)
          */
-        public CatalogItemComponent setStatus(CodeableConcept value) { 
+        public CatalogEntryComponent setStatus(CodeableConcept value) { 
           this.status = value;
           return this;
         }
@@ -987,7 +987,7 @@ public class Catalog extends DomainResource {
         public DateTimeType getValidFromElement() { 
           if (this.validFrom == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.validFrom");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.validFrom");
             else if (Configuration.doAutoCreate())
               this.validFrom = new DateTimeType(); // bb
           return this.validFrom;
@@ -1004,7 +1004,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #validFrom} (The date from which this catalog entry is expected to be active.). This is the underlying object with id, value and extensions. The accessor "getValidFrom" gives direct access to the value
          */
-        public CatalogItemComponent setValidFromElement(DateTimeType value) { 
+        public CatalogEntryComponent setValidFromElement(DateTimeType value) { 
           this.validFrom = value;
           return this;
         }
@@ -1019,7 +1019,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value The date from which this catalog entry is expected to be active.
          */
-        public CatalogItemComponent setValidFrom(Date value) { 
+        public CatalogEntryComponent setValidFrom(Date value) { 
           if (value == null)
             this.validFrom = null;
           else {
@@ -1036,7 +1036,7 @@ public class Catalog extends DomainResource {
         public DateTimeType getValidToElement() { 
           if (this.validTo == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.validTo");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.validTo");
             else if (Configuration.doAutoCreate())
               this.validTo = new DateTimeType(); // bb
           return this.validTo;
@@ -1053,7 +1053,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #validTo} (The date until which this catalog entry is expected to be active.). This is the underlying object with id, value and extensions. The accessor "getValidTo" gives direct access to the value
          */
-        public CatalogItemComponent setValidToElement(DateTimeType value) { 
+        public CatalogEntryComponent setValidToElement(DateTimeType value) { 
           this.validTo = value;
           return this;
         }
@@ -1068,7 +1068,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value The date until which this catalog entry is expected to be active.
          */
-        public CatalogItemComponent setValidTo(Date value) { 
+        public CatalogEntryComponent setValidTo(Date value) { 
           if (value == null)
             this.validTo = null;
           else {
@@ -1085,7 +1085,7 @@ public class Catalog extends DomainResource {
         public DateTimeType getLastUpdatedElement() { 
           if (this.lastUpdated == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemComponent.lastUpdated");
+              throw new Error("Attempt to auto-create CatalogEntryComponent.lastUpdated");
             else if (Configuration.doAutoCreate())
               this.lastUpdated = new DateTimeType(); // bb
           return this.lastUpdated;
@@ -1102,7 +1102,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #lastUpdated} (Perhaps not needed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
          */
-        public CatalogItemComponent setLastUpdatedElement(DateTimeType value) { 
+        public CatalogEntryComponent setLastUpdatedElement(DateTimeType value) { 
           this.lastUpdated = value;
           return this;
         }
@@ -1117,7 +1117,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value Perhaps not needed.
          */
-        public CatalogItemComponent setLastUpdated(Date value) { 
+        public CatalogEntryComponent setLastUpdated(Date value) { 
           if (value == null)
             this.lastUpdated = null;
           else {
@@ -1140,7 +1140,7 @@ public class Catalog extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CatalogItemComponent setAdditionalCharacteristic(List<CodeableConcept> theAdditionalCharacteristic) { 
+        public CatalogEntryComponent setAdditionalCharacteristic(List<CodeableConcept> theAdditionalCharacteristic) { 
           this.additionalCharacteristic = theAdditionalCharacteristic;
           return this;
         }
@@ -1162,7 +1162,7 @@ public class Catalog extends DomainResource {
           return t;
         }
 
-        public CatalogItemComponent addAdditionalCharacteristic(CodeableConcept t) { //3
+        public CatalogEntryComponent addAdditionalCharacteristic(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.additionalCharacteristic == null)
@@ -1193,7 +1193,7 @@ public class Catalog extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CatalogItemComponent setAdditionalClassification(List<CodeableConcept> theAdditionalClassification) { 
+        public CatalogEntryComponent setAdditionalClassification(List<CodeableConcept> theAdditionalClassification) { 
           this.additionalClassification = theAdditionalClassification;
           return this;
         }
@@ -1215,7 +1215,7 @@ public class Catalog extends DomainResource {
           return t;
         }
 
-        public CatalogItemComponent addAdditionalClassification(CodeableConcept t) { //3
+        public CatalogEntryComponent addAdditionalClassification(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.additionalClassification == null)
@@ -1237,16 +1237,16 @@ public class Catalog extends DomainResource {
         /**
          * @return {@link #relatedItem} (Used for example,  to point to a substance, or to a device used to administer a medication.)
          */
-        public List<CatalogItemRelatedItemComponent> getRelatedItem() { 
+        public List<CatalogEntryRelatedItemComponent> getRelatedItem() { 
           if (this.relatedItem == null)
-            this.relatedItem = new ArrayList<CatalogItemRelatedItemComponent>();
+            this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
           return this.relatedItem;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public CatalogItemComponent setRelatedItem(List<CatalogItemRelatedItemComponent> theRelatedItem) { 
+        public CatalogEntryComponent setRelatedItem(List<CatalogEntryRelatedItemComponent> theRelatedItem) { 
           this.relatedItem = theRelatedItem;
           return this;
         }
@@ -1254,25 +1254,25 @@ public class Catalog extends DomainResource {
         public boolean hasRelatedItem() { 
           if (this.relatedItem == null)
             return false;
-          for (CatalogItemRelatedItemComponent item : this.relatedItem)
+          for (CatalogEntryRelatedItemComponent item : this.relatedItem)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        public CatalogItemRelatedItemComponent addRelatedItem() { //3
-          CatalogItemRelatedItemComponent t = new CatalogItemRelatedItemComponent();
+        public CatalogEntryRelatedItemComponent addRelatedItem() { //3
+          CatalogEntryRelatedItemComponent t = new CatalogEntryRelatedItemComponent();
           if (this.relatedItem == null)
-            this.relatedItem = new ArrayList<CatalogItemRelatedItemComponent>();
+            this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
           this.relatedItem.add(t);
           return t;
         }
 
-        public CatalogItemComponent addRelatedItem(CatalogItemRelatedItemComponent t) { //3
+        public CatalogEntryComponent addRelatedItem(CatalogEntryRelatedItemComponent t) { //3
           if (t == null)
             return this;
           if (this.relatedItem == null)
-            this.relatedItem = new ArrayList<CatalogItemRelatedItemComponent>();
+            this.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
           this.relatedItem.add(t);
           return this;
         }
@@ -1280,7 +1280,7 @@ public class Catalog extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #relatedItem}, creating it if it does not already exist
          */
-        public CatalogItemRelatedItemComponent getRelatedItemFirstRep() { 
+        public CatalogEntryRelatedItemComponent getRelatedItemFirstRep() { 
           if (getRelatedItem().isEmpty()) {
             addRelatedItem();
           }
@@ -1317,7 +1317,7 @@ public class Catalog extends DomainResource {
         case 1649733957: /*lastUpdated*/ return this.lastUpdated == null ? new Base[0] : new Base[] {this.lastUpdated}; // DateTimeType
         case -1638369886: /*additionalCharacteristic*/ return this.additionalCharacteristic == null ? new Base[0] : this.additionalCharacteristic.toArray(new Base[this.additionalCharacteristic.size()]); // CodeableConcept
         case -1622333459: /*additionalClassification*/ return this.additionalClassification == null ? new Base[0] : this.additionalClassification.toArray(new Base[this.additionalClassification.size()]); // CodeableConcept
-        case 1112702430: /*relatedItem*/ return this.relatedItem == null ? new Base[0] : this.relatedItem.toArray(new Base[this.relatedItem.size()]); // CatalogItemRelatedItemComponent
+        case 1112702430: /*relatedItem*/ return this.relatedItem == null ? new Base[0] : this.relatedItem.toArray(new Base[this.relatedItem.size()]); // CatalogEntryRelatedItemComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1360,7 +1360,7 @@ public class Catalog extends DomainResource {
           this.getAdditionalClassification().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 1112702430: // relatedItem
-          this.getRelatedItem().add((CatalogItemRelatedItemComponent) value); // CatalogItemRelatedItemComponent
+          this.getRelatedItem().add((CatalogEntryRelatedItemComponent) value); // CatalogEntryRelatedItemComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1392,7 +1392,7 @@ public class Catalog extends DomainResource {
         } else if (name.equals("additionalClassification")) {
           this.getAdditionalClassification().add(castToCodeableConcept(value));
         } else if (name.equals("relatedItem")) {
-          this.getRelatedItem().add((CatalogItemRelatedItemComponent) value);
+          this.getRelatedItem().add((CatalogEntryRelatedItemComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -1484,8 +1484,8 @@ public class Catalog extends DomainResource {
           return super.addChild(name);
       }
 
-      public CatalogItemComponent copy() {
-        CatalogItemComponent dst = new CatalogItemComponent();
+      public CatalogEntryComponent copy() {
+        CatalogEntryComponent dst = new CatalogEntryComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
         dst.referencedItem = referencedItem == null ? null : referencedItem.copy();
@@ -1515,8 +1515,8 @@ public class Catalog extends DomainResource {
             dst.additionalClassification.add(i.copy());
         };
         if (relatedItem != null) {
-          dst.relatedItem = new ArrayList<CatalogItemRelatedItemComponent>();
-          for (CatalogItemRelatedItemComponent i : relatedItem)
+          dst.relatedItem = new ArrayList<CatalogEntryRelatedItemComponent>();
+          for (CatalogEntryRelatedItemComponent i : relatedItem)
             dst.relatedItem.add(i.copy());
         };
         return dst;
@@ -1526,9 +1526,9 @@ public class Catalog extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof CatalogItemComponent))
+        if (!(other instanceof CatalogEntryComponent))
           return false;
-        CatalogItemComponent o = (CatalogItemComponent) other;
+        CatalogEntryComponent o = (CatalogEntryComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(referencedItem, o.referencedItem, true) && compareDeep(identifier, o.identifier, true)
            && compareDeep(additionalIdentifier, o.additionalIdentifier, true) && compareDeep(classification, o.classification, true)
            && compareDeep(status, o.status, true) && compareDeep(validFrom, o.validFrom, true) && compareDeep(validTo, o.validTo, true)
@@ -1541,9 +1541,9 @@ public class Catalog extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof CatalogItemComponent))
+        if (!(other instanceof CatalogEntryComponent))
           return false;
-        CatalogItemComponent o = (CatalogItemComponent) other;
+        CatalogEntryComponent o = (CatalogEntryComponent) other;
         return compareValues(validFrom, o.validFrom, true) && compareValues(validTo, o.validTo, true) && compareValues(lastUpdated, o.lastUpdated, true)
           ;
       }
@@ -1555,14 +1555,14 @@ public class Catalog extends DomainResource {
       }
 
   public String fhirType() {
-    return "Catalog.item";
+    return "Catalog.entry";
 
   }
 
   }
 
     @Block()
-    public static class CatalogItemRelatedItemComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class CatalogEntryRelatedItemComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.
          */
@@ -1574,7 +1574,7 @@ public class Catalog extends DomainResource {
          * The type of related item.
          */
         @Child(name = "type", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The type of related item", formalDefinition="The type of related item." )
+        @Description(shortDefinition="The type of related item - medication, devices…", formalDefinition="The type of related item." )
         protected CodeableConcept type;
 
         /**
@@ -1594,14 +1594,14 @@ public class Catalog extends DomainResource {
     /**
      * Constructor
      */
-      public CatalogItemRelatedItemComponent() {
+      public CatalogEntryRelatedItemComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public CatalogItemRelatedItemComponent(CodeableConcept relationtype, Reference identifier) {
+      public CatalogEntryRelatedItemComponent(CodeableConcept relationtype, Reference identifier) {
         super();
         this.relationtype = relationtype;
         this.identifier = identifier;
@@ -1613,7 +1613,7 @@ public class Catalog extends DomainResource {
         public CodeableConcept getRelationtype() { 
           if (this.relationtype == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemRelatedItemComponent.relationtype");
+              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.relationtype");
             else if (Configuration.doAutoCreate())
               this.relationtype = new CodeableConcept(); // cc
           return this.relationtype;
@@ -1626,7 +1626,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #relationtype} (The type of relation to the related item: child, parent, packageContent, containerPackage, usedIn, uses, requires, etc.)
          */
-        public CatalogItemRelatedItemComponent setRelationtype(CodeableConcept value) { 
+        public CatalogEntryRelatedItemComponent setRelationtype(CodeableConcept value) { 
           this.relationtype = value;
           return this;
         }
@@ -1637,7 +1637,7 @@ public class Catalog extends DomainResource {
         public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemRelatedItemComponent.type");
+              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new CodeableConcept(); // cc
           return this.type;
@@ -1650,7 +1650,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #type} (The type of related item.)
          */
-        public CatalogItemRelatedItemComponent setType(CodeableConcept value) { 
+        public CatalogEntryRelatedItemComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1661,7 +1661,7 @@ public class Catalog extends DomainResource {
         public Reference getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create CatalogItemRelatedItemComponent.identifier");
+              throw new Error("Attempt to auto-create CatalogEntryRelatedItemComponent.identifier");
             else if (Configuration.doAutoCreate())
               this.identifier = new Reference(); // cc
           return this.identifier;
@@ -1674,7 +1674,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #identifier} (The reference to the related item.)
          */
-        public CatalogItemRelatedItemComponent setIdentifier(Reference value) { 
+        public CatalogEntryRelatedItemComponent setIdentifier(Reference value) { 
           this.identifier = value;
           return this;
         }
@@ -1689,7 +1689,7 @@ public class Catalog extends DomainResource {
         /**
          * @param value {@link #identifier} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The reference to the related item.)
          */
-        public CatalogItemRelatedItemComponent setIdentifierTarget(Resource value) { 
+        public CatalogEntryRelatedItemComponent setIdentifierTarget(Resource value) { 
           this.identifierTarget = value;
           return this;
         }
@@ -1782,8 +1782,8 @@ public class Catalog extends DomainResource {
           return super.addChild(name);
       }
 
-      public CatalogItemRelatedItemComponent copy() {
-        CatalogItemRelatedItemComponent dst = new CatalogItemRelatedItemComponent();
+      public CatalogEntryRelatedItemComponent copy() {
+        CatalogEntryRelatedItemComponent dst = new CatalogEntryRelatedItemComponent();
         copyValues(dst);
         dst.relationtype = relationtype == null ? null : relationtype.copy();
         dst.type = type == null ? null : type.copy();
@@ -1795,9 +1795,9 @@ public class Catalog extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof CatalogItemRelatedItemComponent))
+        if (!(other instanceof CatalogEntryRelatedItemComponent))
           return false;
-        CatalogItemRelatedItemComponent o = (CatalogItemRelatedItemComponent) other;
+        CatalogEntryRelatedItemComponent o = (CatalogEntryRelatedItemComponent) other;
         return compareDeep(relationtype, o.relationtype, true) && compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true)
           ;
       }
@@ -1806,9 +1806,9 @@ public class Catalog extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof CatalogItemRelatedItemComponent))
+        if (!(other instanceof CatalogEntryRelatedItemComponent))
           return false;
-        CatalogItemRelatedItemComponent o = (CatalogItemRelatedItemComponent) other;
+        CatalogEntryRelatedItemComponent o = (CatalogEntryRelatedItemComponent) other;
         return true;
       }
 
@@ -1818,7 +1818,7 @@ public class Catalog extends DomainResource {
       }
 
   public String fhirType() {
-    return "Catalog.item.relatedItem";
+    return "Catalog.entry.relatedItem";
 
   }
 
@@ -1841,11 +1841,11 @@ public class Catalog extends DomainResource {
     /**
      * Each item of the catalog.
      */
-    @Child(name = "item", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "entry", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Each item of the catalog", formalDefinition="Each item of the catalog." )
-    protected List<CatalogItemComponent> item;
+    protected List<CatalogEntryComponent> entry;
 
-    private static final long serialVersionUID = -779676888L;
+    private static final long serialVersionUID = 1267546114L;
 
   /**
    * Constructor
@@ -1912,63 +1912,63 @@ public class Catalog extends DomainResource {
     }
 
     /**
-     * @return {@link #item} (Each item of the catalog.)
+     * @return {@link #entry} (Each item of the catalog.)
      */
-    public List<CatalogItemComponent> getItem() { 
-      if (this.item == null)
-        this.item = new ArrayList<CatalogItemComponent>();
-      return this.item;
+    public List<CatalogEntryComponent> getEntry() { 
+      if (this.entry == null)
+        this.entry = new ArrayList<CatalogEntryComponent>();
+      return this.entry;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Catalog setItem(List<CatalogItemComponent> theItem) { 
-      this.item = theItem;
+    public Catalog setEntry(List<CatalogEntryComponent> theEntry) { 
+      this.entry = theEntry;
       return this;
     }
 
-    public boolean hasItem() { 
-      if (this.item == null)
+    public boolean hasEntry() { 
+      if (this.entry == null)
         return false;
-      for (CatalogItemComponent item : this.item)
+      for (CatalogEntryComponent item : this.entry)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CatalogItemComponent addItem() { //3
-      CatalogItemComponent t = new CatalogItemComponent();
-      if (this.item == null)
-        this.item = new ArrayList<CatalogItemComponent>();
-      this.item.add(t);
+    public CatalogEntryComponent addEntry() { //3
+      CatalogEntryComponent t = new CatalogEntryComponent();
+      if (this.entry == null)
+        this.entry = new ArrayList<CatalogEntryComponent>();
+      this.entry.add(t);
       return t;
     }
 
-    public Catalog addItem(CatalogItemComponent t) { //3
+    public Catalog addEntry(CatalogEntryComponent t) { //3
       if (t == null)
         return this;
-      if (this.item == null)
-        this.item = new ArrayList<CatalogItemComponent>();
-      this.item.add(t);
+      if (this.entry == null)
+        this.entry = new ArrayList<CatalogEntryComponent>();
+      this.entry.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #item}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #entry}, creating it if it does not already exist
      */
-    public CatalogItemComponent getItemFirstRep() { 
-      if (getItem().isEmpty()) {
-        addItem();
+    public CatalogEntryComponent getEntryFirstRep() { 
+      if (getEntry().isEmpty()) {
+        addEntry();
       }
-      return getItem().get(0);
+      return getEntry().get(0);
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique for each resource instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("document", "", "Properties of the document - authorship, versions, etc.", 0, java.lang.Integer.MAX_VALUE, document));
-        childrenList.add(new Property("item", "", "Each item of the catalog.", 0, java.lang.Integer.MAX_VALUE, item));
+        childrenList.add(new Property("entry", "", "Each item of the catalog.", 0, java.lang.Integer.MAX_VALUE, entry));
       }
 
       @Override
@@ -1976,7 +1976,7 @@ public class Catalog extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 861720859: /*document*/ return this.document == null ? new Base[0] : new Base[] {this.document}; // CatalogDocumentComponent
-        case 3242771: /*item*/ return this.item == null ? new Base[0] : this.item.toArray(new Base[this.item.size()]); // CatalogItemComponent
+        case 96667762: /*entry*/ return this.entry == null ? new Base[0] : this.entry.toArray(new Base[this.entry.size()]); // CatalogEntryComponent
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1991,8 +1991,8 @@ public class Catalog extends DomainResource {
         case 861720859: // document
           this.document = (CatalogDocumentComponent) value; // CatalogDocumentComponent
           return value;
-        case 3242771: // item
-          this.getItem().add((CatalogItemComponent) value); // CatalogItemComponent
+        case 96667762: // entry
+          this.getEntry().add((CatalogEntryComponent) value); // CatalogEntryComponent
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -2005,8 +2005,8 @@ public class Catalog extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("document")) {
           this.document = (CatalogDocumentComponent) value; // CatalogDocumentComponent
-        } else if (name.equals("item")) {
-          this.getItem().add((CatalogItemComponent) value);
+        } else if (name.equals("entry")) {
+          this.getEntry().add((CatalogEntryComponent) value);
         } else
           return super.setProperty(name, value);
         return value;
@@ -2017,7 +2017,7 @@ public class Catalog extends DomainResource {
         switch (hash) {
         case -1618432855:  return getIdentifier(); 
         case 861720859:  return getDocument(); 
-        case 3242771:  return addItem(); 
+        case 96667762:  return addEntry(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2028,7 +2028,7 @@ public class Catalog extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 861720859: /*document*/ return new String[] {};
-        case 3242771: /*item*/ return new String[] {};
+        case 96667762: /*entry*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2044,8 +2044,8 @@ public class Catalog extends DomainResource {
           this.document = new CatalogDocumentComponent();
           return this.document;
         }
-        else if (name.equals("item")) {
-          return addItem();
+        else if (name.equals("entry")) {
+          return addEntry();
         }
         else
           return super.addChild(name);
@@ -2061,10 +2061,10 @@ public class Catalog extends DomainResource {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.document = document == null ? null : document.copy();
-        if (item != null) {
-          dst.item = new ArrayList<CatalogItemComponent>();
-          for (CatalogItemComponent i : item)
-            dst.item.add(i.copy());
+        if (entry != null) {
+          dst.entry = new ArrayList<CatalogEntryComponent>();
+          for (CatalogEntryComponent i : entry)
+            dst.entry.add(i.copy());
         };
         return dst;
       }
@@ -2080,7 +2080,7 @@ public class Catalog extends DomainResource {
         if (!(other instanceof Catalog))
           return false;
         Catalog o = (Catalog) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(document, o.document, true) && compareDeep(item, o.item, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(document, o.document, true) && compareDeep(entry, o.entry, true)
           ;
       }
 
@@ -2095,7 +2095,7 @@ public class Catalog extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, document, item
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, document, entry
           );
       }
 

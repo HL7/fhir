@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -897,6 +897,7 @@ public class ActivityDefinition extends MetadataResource {
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Detail type of activity", formalDefinition="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
 
     /**
@@ -904,6 +905,7 @@ public class ActivityDefinition extends MetadataResource {
      */
     @Child(name = "timing", type = {CodeableConcept.class, Timing.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When activity is to occur", formalDefinition="The period, timing or frequency upon which the described activity is to occur." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/timing-abbreviation")
     protected Type timing;
 
     /**
@@ -931,6 +933,7 @@ public class ActivityDefinition extends MetadataResource {
      */
     @Child(name = "product", type = {Medication.class, Substance.class, CodeableConcept.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="What's administered/supplied", formalDefinition="Identifies the food, drug or other product being consumed or supplied in the activity." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type product;
 
     /**
@@ -3437,17 +3440,17 @@ public class ActivityDefinition extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the activity definition</b><br>
+   * Description: <b>The business version of the activity definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ActivityDefinition.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="ActivityDefinition.version", description="The version identifier of the activity definition", type="token" )
+  @SearchParamDefinition(name="version", path="ActivityDefinition.version", description="The business version of the activity definition", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the activity definition</b><br>
+   * Description: <b>The business version of the activity definition</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ActivityDefinition.version</b><br>
    * </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -562,9 +562,17 @@ public class FamilyMemberHistory extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * A code specifying the status of the record of the family history of a specific family member.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="partial | completed | entered-in-error | health-unknown", formalDefinition="A code specifying the status of the record of the family history of a specific family member." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-status")
+    protected Enumeration<FamilyHistoryStatus> status;
+
+    /**
      * The person who this history concerns.
      */
-    @Child(name = "patient", type = {Patient.class}, order=1, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient history is about", formalDefinition="The person who this history concerns." )
     protected Reference patient;
 
@@ -576,17 +584,9 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * The date (and possibly time) when the family member history was taken.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "date", type = {DateTimeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When history was captured/updated", formalDefinition="The date (and possibly time) when the family member history was taken." )
     protected DateTimeType date;
-
-    /**
-     * A code specifying the status of the record of the family history of a specific family member.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="partial | completed | entered-in-error | health-unknown", formalDefinition="A code specifying the status of the record of the family history of a specific family member." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/history-status")
-    protected Enumeration<FamilyHistoryStatus> status;
 
     /**
      * This will either be a name or a description; e.g. "Aunt Susan", "my cousin with the red hair".
@@ -653,7 +653,7 @@ public class FamilyMemberHistory extends DomainResource {
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = -716581812L;
+    private static final long serialVersionUID = -967999732L;
 
   /**
    * Constructor
@@ -665,10 +665,10 @@ public class FamilyMemberHistory extends DomainResource {
   /**
    * Constructor
    */
-    public FamilyMemberHistory(Reference patient, Enumeration<FamilyHistoryStatus> status, CodeableConcept relationship) {
+    public FamilyMemberHistory(Enumeration<FamilyHistoryStatus> status, Reference patient, CodeableConcept relationship) {
       super();
-      this.patient = patient;
       this.status = status;
+      this.patient = patient;
       this.relationship = relationship;
     }
 
@@ -723,6 +723,51 @@ public class FamilyMemberHistory extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<FamilyHistoryStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create FamilyMemberHistory.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<FamilyHistoryStatus>(new FamilyHistoryStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public FamilyMemberHistory setStatusElement(Enumeration<FamilyHistoryStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return A code specifying the status of the record of the family history of a specific family member.
+     */
+    public FamilyHistoryStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value A code specifying the status of the record of the family history of a specific family member.
+     */
+    public FamilyMemberHistory setStatus(FamilyHistoryStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<FamilyHistoryStatus>(new FamilyHistoryStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
     }
 
     /**
@@ -815,51 +860,6 @@ public class FamilyMemberHistory extends DomainResource {
           this.date = new DateTimeType();
         this.date.setValue(value);
       }
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<FamilyHistoryStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create FamilyMemberHistory.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<FamilyHistoryStatus>(new FamilyHistoryStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (A code specifying the status of the record of the family history of a specific family member.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public FamilyMemberHistory setStatusElement(Enumeration<FamilyHistoryStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return A code specifying the status of the record of the family history of a specific family member.
-     */
-    public FamilyHistoryStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value A code specifying the status of the record of the family history of a specific family member.
-     */
-    public FamilyMemberHistory setStatus(FamilyHistoryStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<FamilyHistoryStatus>(new FamilyHistoryStatusEnumFactory());
-        this.status.setValue(value);
       return this;
     }
 
@@ -1339,9 +1339,9 @@ public class FamilyMemberHistory extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("patient", "Reference(Patient)", "The person who this history concerns.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("date", "dateTime", "The date (and possibly time) when the family member history was taken.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("status", "code", "A code specifying the status of the record of the family history of a specific family member.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("name", "string", "This will either be a name or a description; e.g. \"Aunt Susan\", \"my cousin with the red hair\".", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("relationship", "CodeableConcept", "The type of relationship this person has to the patient (father, mother, brother etc.).", 0, java.lang.Integer.MAX_VALUE, relationship));
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
@@ -1357,9 +1357,9 @@ public class FamilyMemberHistory extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FamilyHistoryStatus>
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case -261851592: /*relationship*/ return this.relationship == null ? new Base[0] : new Base[] {this.relationship}; // CodeableConcept
         case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
@@ -1380,15 +1380,15 @@ public class FamilyMemberHistory extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
+        case -892481550: // status
+          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
+          return value;
         case -791418107: // patient
           this.patient = castToReference(value); // Reference
           return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
-          return value;
-        case -892481550: // status
-          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -1427,13 +1427,13 @@ public class FamilyMemberHistory extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
+        } else if (name.equals("status")) {
+          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
         } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
-        } else if (name.equals("status")) {
-          value = new FamilyHistoryStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<FamilyHistoryStatus>
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
         } else if (name.equals("relationship")) {
@@ -1462,9 +1462,9 @@ public class FamilyMemberHistory extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
+        case -892481550:  return getStatusElement();
         case -791418107:  return getPatient(); 
         case 3076014:  return getDateElement();
-        case -892481550:  return getStatusElement();
         case 3373707:  return getNameElement();
         case -261851592:  return getRelationship(); 
         case -1249512767:  return getGenderElement();
@@ -1486,9 +1486,9 @@ public class FamilyMemberHistory extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
-        case -892481550: /*status*/ return new String[] {"code"};
         case 3373707: /*name*/ return new String[] {"string"};
         case -261851592: /*relationship*/ return new String[] {"CodeableConcept"};
         case -1249512767: /*gender*/ return new String[] {"code"};
@@ -1508,15 +1508,15 @@ public class FamilyMemberHistory extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.status");
+        }
         else if (name.equals("patient")) {
           this.patient = new Reference();
           return this.patient;
         }
         else if (name.equals("date")) {
           throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.date");
-        }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.status");
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type FamilyMemberHistory.name");
@@ -1598,9 +1598,9 @@ public class FamilyMemberHistory extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.status = status == null ? null : status.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.date = date == null ? null : date.copy();
-        dst.status = status == null ? null : status.copy();
         dst.name = name == null ? null : name.copy();
         dst.relationship = relationship == null ? null : relationship.copy();
         dst.gender = gender == null ? null : gender.copy();
@@ -1632,8 +1632,8 @@ public class FamilyMemberHistory extends DomainResource {
         if (!(other instanceof FamilyMemberHistory))
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true)
-           && compareDeep(status, o.status, true) && compareDeep(name, o.name, true) && compareDeep(relationship, o.relationship, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(date, o.date, true) && compareDeep(name, o.name, true) && compareDeep(relationship, o.relationship, true)
            && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true) && compareDeep(age, o.age, true)
            && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true) && compareDeep(note, o.note, true)
            && compareDeep(condition, o.condition, true);
@@ -1646,13 +1646,13 @@ public class FamilyMemberHistory extends DomainResource {
         if (!(other instanceof FamilyMemberHistory))
           return false;
         FamilyMemberHistory o = (FamilyMemberHistory) other;
-        return compareValues(date, o.date, true) && compareValues(status, o.status, true) && compareValues(name, o.name, true)
+        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(name, o.name, true)
            && compareValues(gender, o.gender, true) && compareValues(estimatedAge, o.estimatedAge, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, patient, date
-          , status, name, relationship, gender, born, age, estimatedAge, deceased, note
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, patient
+          , date, name, relationship, gender, born, age, estimatedAge, deceased, note
           , condition);
       }
 

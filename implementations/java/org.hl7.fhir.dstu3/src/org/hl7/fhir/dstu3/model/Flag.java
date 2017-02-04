@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -164,27 +164,28 @@ public class Flag extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
-     * Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
-     */
-    @Child(name = "category", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Clinical, administrative, etc.", formalDefinition="Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/flag-category")
-    protected CodeableConcept category;
-
-    /**
      * Supports basic workflow.
      */
-    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="Supports basic workflow." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/flag-status")
     protected Enumeration<FlagStatus> status;
 
     /**
-     * The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
+     * Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.
      */
-    @Child(name = "period", type = {Period.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Time period when flag is active", formalDefinition="The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified." )
-    protected Period period;
+    @Child(name = "category", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Clinical, administrative, etc.", formalDefinition="Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/flag-category")
+    protected CodeableConcept category;
+
+    /**
+     * The coded value or textual component of the flag to display to the user.
+     */
+    @Child(name = "code", type = {CodeableConcept.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Coded or textual message to display to user", formalDefinition="The coded value or textual component of the flag to display to the user." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/flag-code")
+    protected CodeableConcept code;
 
     /**
      * The patient, location, group , organization , or practitioner, etc. this is about record this flag is associated with.
@@ -199,9 +200,16 @@ public class Flag extends DomainResource {
     protected Resource subjectTarget;
 
     /**
+     * The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.
+     */
+    @Child(name = "period", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Time period when flag is active", formalDefinition="The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified." )
+    protected Period period;
+
+    /**
      * This alert is only relevant during the encounter.
      */
-    @Child(name = "encounter", type = {Encounter.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "encounter", type = {Encounter.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Alert relevant during encounter", formalDefinition="This alert is only relevant during the encounter." )
     protected Reference encounter;
 
@@ -213,7 +221,7 @@ public class Flag extends DomainResource {
     /**
      * The person, organization or device that created the flag.
      */
-    @Child(name = "author", type = {Device.class, Organization.class, Patient.class, Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Device.class, Organization.class, Patient.class, Practitioner.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Flag creator", formalDefinition="The person, organization or device that created the flag." )
     protected Reference author;
 
@@ -222,15 +230,7 @@ public class Flag extends DomainResource {
      */
     protected Resource authorTarget;
 
-    /**
-     * The coded value or textual component of the flag to display to the user.
-     */
-    @Child(name = "code", type = {CodeableConcept.class}, order=7, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Coded or textual message to display to user", formalDefinition="The coded value or textual component of the flag to display to the user." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/flag-code")
-    protected CodeableConcept code;
-
-    private static final long serialVersionUID = 701147751L;
+    private static final long serialVersionUID = -619061399L;
 
   /**
    * Constructor
@@ -242,11 +242,11 @@ public class Flag extends DomainResource {
   /**
    * Constructor
    */
-    public Flag(Enumeration<FlagStatus> status, Reference subject, CodeableConcept code) {
+    public Flag(Enumeration<FlagStatus> status, CodeableConcept code, Reference subject) {
       super();
       this.status = status;
-      this.subject = subject;
       this.code = code;
+      this.subject = subject;
     }
 
     /**
@@ -303,30 +303,6 @@ public class Flag extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
-     */
-    public CodeableConcept getCategory() { 
-      if (this.category == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Flag.category");
-        else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept(); // cc
-      return this.category;
-    }
-
-    public boolean hasCategory() { 
-      return this.category != null && !this.category.isEmpty();
-    }
-
-    /**
-     * @param value {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
-     */
-    public Flag setCategory(CodeableConcept value) { 
-      this.category = value;
-      return this;
-    }
-
-    /**
      * @return {@link #status} (Supports basic workflow.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<FlagStatus> getStatusElement() { 
@@ -372,26 +348,50 @@ public class Flag extends DomainResource {
     }
 
     /**
-     * @return {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     * @return {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
      */
-    public Period getPeriod() { 
-      if (this.period == null)
+    public CodeableConcept getCategory() { 
+      if (this.category == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Flag.period");
+          throw new Error("Attempt to auto-create Flag.category");
         else if (Configuration.doAutoCreate())
-          this.period = new Period(); // cc
-      return this.period;
+          this.category = new CodeableConcept(); // cc
+      return this.category;
     }
 
-    public boolean hasPeriod() { 
-      return this.period != null && !this.period.isEmpty();
+    public boolean hasCategory() { 
+      return this.category != null && !this.category.isEmpty();
     }
 
     /**
-     * @param value {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     * @param value {@link #category} (Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.)
      */
-    public Flag setPeriod(Period value) { 
-      this.period = value;
+    public Flag setCategory(CodeableConcept value) { 
+      this.category = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #code} (The coded value or textual component of the flag to display to the user.)
+     */
+    public CodeableConcept getCode() { 
+      if (this.code == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Flag.code");
+        else if (Configuration.doAutoCreate())
+          this.code = new CodeableConcept(); // cc
+      return this.code;
+    }
+
+    public boolean hasCode() { 
+      return this.code != null && !this.code.isEmpty();
+    }
+
+    /**
+     * @param value {@link #code} (The coded value or textual component of the flag to display to the user.)
+     */
+    public Flag setCode(CodeableConcept value) { 
+      this.code = value;
       return this;
     }
 
@@ -431,6 +431,30 @@ public class Flag extends DomainResource {
      */
     public Flag setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     */
+    public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Flag.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period(); // cc
+      return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
+    }
+
+    /**
+     * @param value {@link #period} (The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.)
+     */
+    public Flag setPeriod(Period value) { 
+      this.period = value;
       return this;
     }
 
@@ -517,53 +541,29 @@ public class Flag extends DomainResource {
       return this;
     }
 
-    /**
-     * @return {@link #code} (The coded value or textual component of the flag to display to the user.)
-     */
-    public CodeableConcept getCode() { 
-      if (this.code == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Flag.code");
-        else if (Configuration.doAutoCreate())
-          this.code = new CodeableConcept(); // cc
-      return this.code;
-    }
-
-    public boolean hasCode() { 
-      return this.code != null && !this.code.isEmpty();
-    }
-
-    /**
-     * @param value {@link #code} (The coded value or textual component of the flag to display to the user.)
-     */
-    public Flag setCode(CodeableConcept value) { 
-      this.code = value;
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the flag for external use (outside the FHIR environment).", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("category", "CodeableConcept", "Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("status", "code", "Supports basic workflow.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("period", "Period", "The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.", 0, java.lang.Integer.MAX_VALUE, period));
+        childrenList.add(new Property("category", "CodeableConcept", "Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("code", "CodeableConcept", "The coded value or textual component of the flag to display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Location|Group|Organization|Practitioner|PlanDefinition|Medication|Procedure)", "The patient, location, group , organization , or practitioner, etc. this is about record this flag is associated with.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("period", "Period", "The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "This alert is only relevant during the encounter.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("author", "Reference(Device|Organization|Patient|Practitioner)", "The person, organization or device that created the flag.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("code", "CodeableConcept", "The coded value or textual component of the flag to display to the user.", 0, java.lang.Integer.MAX_VALUE, code));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<FlagStatus>
-        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -575,27 +575,27 @@ public class Flag extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
-        case 50511102: // category
-          this.category = castToCodeableConcept(value); // CodeableConcept
-          return value;
         case -892481550: // status
           value = new FlagStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<FlagStatus>
           return value;
-        case -991726143: // period
-          this.period = castToPeriod(value); // Period
+        case 50511102: // category
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 3059181: // code
+          this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
+          return value;
+        case -991726143: // period
+          this.period = castToPeriod(value); // Period
           return value;
         case 1524132147: // encounter
           this.encounter = castToReference(value); // Reference
           return value;
         case -1406328437: // author
           this.author = castToReference(value); // Reference
-          return value;
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -606,21 +606,21 @@ public class Flag extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("category")) {
-          this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("status")) {
           value = new FlagStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<FlagStatus>
-        } else if (name.equals("period")) {
-          this.period = castToPeriod(value); // Period
+        } else if (name.equals("category")) {
+          this.category = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("code")) {
+          this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
+        } else if (name.equals("period")) {
+          this.period = castToPeriod(value); // Period
         } else if (name.equals("encounter")) {
           this.encounter = castToReference(value); // Reference
         } else if (name.equals("author")) {
           this.author = castToReference(value); // Reference
-        } else if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
         } else
           return super.setProperty(name, value);
         return value;
@@ -630,13 +630,13 @@ public class Flag extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case 50511102:  return getCategory(); 
         case -892481550:  return getStatusElement();
-        case -991726143:  return getPeriod(); 
+        case 50511102:  return getCategory(); 
+        case 3059181:  return getCode(); 
         case -1867885268:  return getSubject(); 
+        case -991726143:  return getPeriod(); 
         case 1524132147:  return getEncounter(); 
         case -1406328437:  return getAuthor(); 
-        case 3059181:  return getCode(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -646,13 +646,13 @@ public class Flag extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case -892481550: /*status*/ return new String[] {"code"};
-        case -991726143: /*period*/ return new String[] {"Period"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case -991726143: /*period*/ return new String[] {"Period"};
         case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
-        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -663,20 +663,24 @@ public class Flag extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Flag.status");
+        }
         else if (name.equals("category")) {
           this.category = new CodeableConcept();
           return this.category;
         }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Flag.status");
-        }
-        else if (name.equals("period")) {
-          this.period = new Period();
-          return this.period;
+        else if (name.equals("code")) {
+          this.code = new CodeableConcept();
+          return this.code;
         }
         else if (name.equals("subject")) {
           this.subject = new Reference();
           return this.subject;
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
         }
         else if (name.equals("encounter")) {
           this.encounter = new Reference();
@@ -685,10 +689,6 @@ public class Flag extends DomainResource {
         else if (name.equals("author")) {
           this.author = new Reference();
           return this.author;
-        }
-        else if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
         }
         else
           return super.addChild(name);
@@ -707,13 +707,13 @@ public class Flag extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.category = category == null ? null : category.copy();
         dst.status = status == null ? null : status.copy();
-        dst.period = period == null ? null : period.copy();
+        dst.category = category == null ? null : category.copy();
+        dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
+        dst.period = period == null ? null : period.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.author = author == null ? null : author.copy();
-        dst.code = code == null ? null : code.copy();
         return dst;
       }
 
@@ -728,9 +728,9 @@ public class Flag extends DomainResource {
         if (!(other instanceof Flag))
           return false;
         Flag o = (Flag) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(status, o.status, true)
-           && compareDeep(period, o.period, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
-           && compareDeep(author, o.author, true) && compareDeep(code, o.code, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
+           && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(period, o.period, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(author, o.author, true);
       }
 
       @Override
@@ -744,8 +744,8 @@ public class Flag extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, status
-          , period, subject, encounter, author, code);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
+          , code, subject, period, encounter, author);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -151,7 +151,7 @@ public class ParameterDefinition extends Type implements ICompositeType {
      * Whether the parameter is input or output for the module.
      */
     @Child(name = "use", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="input | output", formalDefinition="Whether the parameter is input or output for the module." )
+    @Description(shortDefinition="in | out", formalDefinition="Whether the parameter is input or output for the module." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/operation-parameter-use")
     protected Enumeration<ParameterUse> use;
 

@@ -57,6 +57,7 @@
   Type = DomainResource
   Short Name = Delivery of bulk Supplies
   Definition = Record of delivery of what is supplied.
+  Workflow Mapping = Event
   RIM Mapping = Supply[moodCode=RQO]
   w5 = workflow.order
 
@@ -67,6 +68,7 @@
   Short Name = External identifier
   Definition = Identifier assigned by the dispensing facility when the item(s) is dispensed.
   Comments = This is assigned by the dispenser, and used to refer to this order in other external standards.
+  Workflow Mapping = Event.identifier
   RIM Mapping = .id
 
  -- Row 3 -----------------------------------
@@ -77,6 +79,7 @@
   Short Name = Fulfills plan, proposal or order
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this event
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
+  Workflow Mapping = Event.basedOn
   v2 Mapping = ORC in proximity to EVN segment
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target
 
@@ -89,6 +92,7 @@
   Definition = A larger event of which this particular event is a component or step
   Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
   Comments = Not to be used to link an event to an Encounter - use Event.context for that.\r\r[The allowed reference resources may be adjusted as appropriate for the event resource]
+  Workflow Mapping = Event.partOf
   v2 Mapping = Varies by domain
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
 
@@ -101,6 +105,7 @@
   Binding = SupplyDeliveryStatus
   Short Name = in-progress | completed | abandoned | entered-in-error
   Definition = A code specifying the state of the dispense event.
+  Workflow Mapping = Event.status
   RIM Mapping = .statusCode, also existence of fulfillment events
 
  -- Row 6 -----------------------------------
@@ -109,6 +114,7 @@
   Type = Reference(Patient)
   Short Name = Patient for whom the item is supplied
   Definition = A link to a resource representing the person whom the delivered item is for
+  Workflow Mapping = Event.subject.reference(Patient)
   RIM Mapping = .participation[typeCode=SBJ].role
 
  -- Row 7 -----------------------------------
@@ -118,6 +124,7 @@
   Binding = SupplyDeliveryType
   Short Name = Category of dispense event
   Definition = Indicates the type of dispensing event that is performed. Examples include: Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
+  Workflow Mapping = Event.code
   RIM Mapping = .code
 
  -- Row 8 -----------------------------------
@@ -151,6 +158,7 @@
   Short Name = When event occurred
   Definition = The date or time(s) the activity occurred.
   Comments = [The list of types may be constrained as appropriate for the type of event]
+  Workflow Mapping = Event.occurrence[x]
   v2 Mapping = Varies by domain
   RIM Mapping = .effectiveTime
   w5 = when.done
@@ -161,6 +169,7 @@
   Type = Reference(Practitioner|Organization)
   Short Name = Dispenser
   Definition = The individual responsible for dispensing the medication, supplier or device.
+  Workflow Mapping = Event.performer
   RIM Mapping = .participation[typeCode=PFM].role
 
  -- Row 13 -----------------------------------

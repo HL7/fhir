@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -106,6 +106,8 @@ public class ResourceFactory extends Factory {
             return new DeviceComponent();
         if ("FamilyMemberHistory".equals(name))
             return new FamilyMemberHistory();
+        if ("ChargeItem".equals(name))
+            return new ChargeItem();
         if ("Encounter".equals(name))
             return new Encounter();
         if ("Substance".equals(name))
@@ -164,8 +166,6 @@ public class ResourceFactory extends Factory {
             return new ValueSet();
         if ("OperationDefinition".equals(name))
             return new OperationDefinition();
-        if ("DiagnosticRequest".equals(name))
-            return new DiagnosticRequest();
         if ("Immunization".equals(name))
             return new Immunization();
         if ("MedicationRequest".equals(name))
@@ -194,6 +194,8 @@ public class ResourceFactory extends Factory {
             return new AppointmentResponse();
         if ("StructureMap".equals(name))
             return new StructureMap();
+        if ("AdverseEvent".equals(name))
+            return new AdverseEvent();
         if ("GuidanceResponse".equals(name))
             return new GuidanceResponse();
         if ("Observation".equals(name))
@@ -384,6 +386,7 @@ public class ResourceFactory extends Factory {
         case 487334413: return new Account();
         case 851278306: return new ActivityDefinition();
         case 516961236: return new Address();
+        case -329624856: return new AdverseEvent();
         case 65759: return new Age();
         case 1721380104: return new AllergyIntolerance();
         case 438421327: return new Annotation();
@@ -399,6 +402,7 @@ public class ResourceFactory extends Factory {
         case 57208314: return new CarePlan();
         case 57320750: return new CareTeam();
         case -2074609671: return new Catalog();
+        case -883723257: return new ChargeItem();
         case 65189916: return new Claim();
         case 1488475261: return new ClaimResponse();
         case -1268501092: return new ClinicalImpression();
@@ -427,7 +431,6 @@ public class ResourceFactory extends Factory {
         case 776138553: return new DeviceRequest();
         case 491858238: return new DeviceUseStatement();
         case -1122842661: return new DiagnosticReport();
-        case -447294264: return new DiagnosticRequest();
         case 353103893: return new Distance();
         case 1922784394: return new DocumentManifest();
         case -1202791344: return new DocumentReference();

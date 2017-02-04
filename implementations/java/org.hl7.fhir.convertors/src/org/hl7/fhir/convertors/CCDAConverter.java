@@ -5,27 +5,27 @@ package org.hl7.fhir.convertors;
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
 
-  Redistribution and use in source and binary forms, with or without modification, 
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
 
- * Redistributions of source code must retain the above copyright notice, this 
+ * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
- * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+ * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
- * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+ * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
  */
@@ -88,63 +88,63 @@ import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Element;
 
 /**
-Advance Directives Section 42348-3 : 
-Allergies, Adverse Reactions, Alerts Section 48765-2 :     List(AlleryIntolerance)        processAdverseReactionsSection     
-Anesthesia Section 59774-0 : 
-Assessment Section 51848-0 : 
-Assessment and Plan Section 51487-2 : 
-Chief Complaint Section 10154-3 : 
-Chief Complaint and Reason for Visit Section 46239-0 : 
-Complications 55109-3: 
-DICOM Object Catalog Section - DCM 121181 : 
-Discharge Diet Section 42344-2 : 
-Encounters Section 46240-8: 
-Family History Section 10157-6 : 
-Findings Section 18782-3 : 
-Functional Status Section 47420-5 : 
-General Status Section 10210-3 : 
-History of Past Illness Section 11348-0 : 
-History of Present Illness Section 10164-2 : 
-Hospital Admission Diagnosis Section 46241-6 : 
-Hospital Consultations Section 18841-7 : 
-Hospital Course Section 8648-8 : 
-Hospital Discharge Diagnosis Section 11535-2 : 
-Hospital Discharge Instructions Section : 
-Hospital Discharge Medications Section (entries optional) 10183-2 : 
-Hospital Discharge Physical Section 10184-0 : 
-Hospital Discharge Studies Summary Section 11493-4 : 
-Immunizations Section 11369-6 : 
-Interventions Section 62387-6 : 
-Medical Equipment Section 46264-8 : 
-Medical (General) History Section 11329-0 : 
-Medications Section 10160-0 : 
-Medications Administered Section 29549-3 : 
-Objective Section 61149-1 : 
-Operative Note Fluid Section 10216-0 : 
-Operative Note Surgical Procedure Section 10223-6 : 
-Payers Section 48768-6 : 
-Physical Exam Section 29545-1 : 
-Plan of Care Section 18776-5 : 
-Planned Procedure Section 59772-: 
-Postoperative Diagnosis Section 10218-6 : 
-Postprocedure Diagnosis Section 59769-0 : 
-Preoperative Diagnosis Section 10219-4 : 
-Problem Section 11450-4 : 
-Procedure Description Section 29554-3: 
-Procedure Disposition Section 59775-7 : 
-Procedure Estimated Blood Loss Section 59770-8 : 
-Procedure Findings Section 59776-5 : 
-Procedure Implants Section 59771-6 : 
-Procedure Indications Section 59768-2 : 
-Procedure Specimens Taken Section 59773-2 : 
+Advance Directives Section 42348-3 :
+Allergies, Adverse Reactions, Alerts Section 48765-2 :     List(AlleryIntolerance)        processAdverseReactionsSection
+Anesthesia Section 59774-0 :
+Assessment Section 51848-0 :
+Assessment and Plan Section 51487-2 :
+Chief Complaint Section 10154-3 :
+Chief Complaint and Reason for Visit Section 46239-0 :
+Complications 55109-3:
+DICOM Object Catalog Section - DCM 121181 :
+Discharge Diet Section 42344-2 :
+Encounters Section 46240-8:
+Family History Section 10157-6 :
+Findings Section 18782-3 :
+Functional Status Section 47420-5 :
+General Status Section 10210-3 :
+History of Past Illness Section 11348-0 :
+History of Present Illness Section 10164-2 :
+Hospital Admission Diagnosis Section 46241-6 :
+Hospital Consultations Section 18841-7 :
+Hospital Course Section 8648-8 :
+Hospital Discharge Diagnosis Section 11535-2 :
+Hospital Discharge Instructions Section :
+Hospital Discharge Medications Section (entries optional) 10183-2 :
+Hospital Discharge Physical Section 10184-0 :
+Hospital Discharge Studies Summary Section 11493-4 :
+Immunizations Section 11369-6 :
+Interventions Section 62387-6 :
+Medical Equipment Section 46264-8 :
+Medical (General) History Section 11329-0 :
+Medications Section 10160-0 :
+Medications Administered Section 29549-3 :
+Objective Section 61149-1 :
+Operative Note Fluid Section 10216-0 :
+Operative Note Surgical Procedure Section 10223-6 :
+Payers Section 48768-6 :
+Physical Exam Section 29545-1 :
+Plan of Care Section 18776-5 :
+Planned Procedure Section 59772-:
+Postoperative Diagnosis Section 10218-6 :
+Postprocedure Diagnosis Section 59769-0 :
+Preoperative Diagnosis Section 10219-4 :
+Problem Section 11450-4 :
+Procedure Description Section 29554-3:
+Procedure Disposition Section 59775-7 :
+Procedure Estimated Blood Loss Section 59770-8 :
+Procedure Findings Section 59776-5 :
+Procedure Implants Section 59771-6 :
+Procedure Indications Section 59768-2 :
+Procedure Specimens Taken Section 59773-2 :
 Procedures Section 47519-4 :                          List (Procedure)                       processProceduresSection
-Reason for Referral Section 42349-1 : 
-Reason for Visit Section 29299-5 : 
-Results Section 30954-2 : 
-Review of Systems Section 10187-3 : 
+Reason for Referral Section 42349-1 :
+Reason for Visit Section 29299-5 :
+Results Section 30954-2 :
+Review of Systems Section 10187-3 :
 Social History Section 29762-2 :                      List (Observation)                     processSocialHistorySection
-Subjective Section 61150-9: 
-Surgical Drains Section 11537-8 : 
+Subjective Section 61150-9:
+Surgical Drains Section 11537-8 :
 Vital Signs Section 8716-3 :                          List(Observation)                      processVitalSignsSection
 
 
@@ -182,7 +182,7 @@ public class CCDAConverter {
 
 
 	protected CDAUtilities cda;
-	protected Element doc; 
+	protected Element doc;
 	protected Convert convert;
 	protected Bundle feed;
 	protected Composition composition;
@@ -220,7 +220,7 @@ public class CCDAConverter {
 		// todo: data enterer & informant goes in provenance
 		composition.setCustodian(Factory.makeReference(makeOrganization(
 				cda.getDescendent(doc, "custodian/assignedCustodian/representedCustodianOrganization"), "Custodian")));
-		// todo: informationRecipient		
+		// todo: informationRecipient
 		for (Element e : cda.getChildren(doc, "legalAuthenticator"))
 			composition.getAttester().add(makeAttester(e, CompositionAttestationMode.LEGAL, "Legal Authenticator"));
 		for (Element e : cda.getChildren(doc, "authenticator"))
@@ -252,7 +252,7 @@ public class CCDAConverter {
 		addReference(composition, "Composition", makeUUIDReference());
 
 		Element title = cda.getChild(doc, "title");
-		composition.setTitle(title.getTextContent());			
+		composition.setTitle(title.getTextContent());
 
 		if (cda.getChild(doc, "setId") != null) {
 			feed.setId(convert.makeURIfromII(cda.getChild(doc, "id")));
@@ -277,7 +277,7 @@ public class CCDAConverter {
 			composition.getEvent().add(new Composition.CompositionEventComponent());
 			composition.getEvent().get(0).getCode().add(convert.makeCodeableConceptFromCD(cda.getChild(ee, "code")));
 			composition.getEvent().get(0).setPeriod(visit.getPeriod());
-			composition.getEvent().get(0).getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));			
+			composition.getEvent().get(0).getDetail().add(Factory.makeReference(addReference(visit, "Encounter", makeUUIDReference())));
 		}
 
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
@@ -331,7 +331,7 @@ public class CCDAConverter {
 		Coding c = new Coding();
 		c.setCode(cda.getChild(l, "languageCode").getAttribute("code"));
 		cc.getCoding().add(c);
-		pat.addCommunication().setLanguage(cc); 
+		pat.addCommunication().setLanguage(cc);
 
 		// todo: this got broken.... lang.setMode(convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")));
 		cc.getExtension().add(Factory.newExtension(CcdaExtensions.NAME_LANG_PROF, convert.makeCodeableConceptFromCD(cda.getChild(l, "modeCode")), false));
@@ -407,7 +407,7 @@ public class CCDAConverter {
 	protected void processComponentSections(List<SectionComponent> sections, Element container) throws Exception {
 		for (Element c : cda.getChildren(container, "component")) {
 			SectionComponent s = processSection(cda.getChild(c, "section"));
-			if (s != null) 
+			if (s != null)
 				sections.add(s);
 		}
 
@@ -421,19 +421,19 @@ public class CCDAConverter {
 			return processAdverseReactionsSection(section);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.7.1"))
 			return processProceduresSection(section);
-		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))  
+		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.17"))
 			return processSocialHistorySection(section);
 		else if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.4.1"))
 			return processVitalSignsSection(section);
 		else
-			// todo: error? 
+			// todo: error?
 			return null;
 	}
 
 
 	protected void checkNoSubject(Element act, String path) throws Exception {
-		if (cda.getChild(act, "subject") != null) 
-			throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);	  
+		if (cda.getChild(act, "subject") != null)
+			throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);
 	}
 
 
@@ -463,13 +463,13 @@ public class CCDAConverter {
 
 	protected void processProcedure(ListResource list, Element procedure, ProcedureType type) throws Exception {
 		switch (type) {
-		case Procedure : 
+		case Procedure :
 			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14");
-			break;		
-		case Observation: 
+			break;
+		case Observation:
 			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.13");
-			break;		
-		case Act: 
+			break;
+		case Act:
 			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.12");
 		}
 		checkNoNegationOrNullFlavor(procedure, "Procedure ("+type.toString()+")");
@@ -483,7 +483,7 @@ public class CCDAConverter {
 			p.getModifierExtension().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/procedure-planned", Factory.newBoolean(true), false));
 
 		// SHALL contain at least one [1..*] id (CONF:7655).
-		for (Element e : cda.getChildren(procedure, "id")) 
+		for (Element e : cda.getChildren(procedure, "id"))
 			p.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 		// SHALL contain exactly one [1..1] code (CONF:7656).
@@ -511,18 +511,18 @@ public class CCDAConverter {
 		}
 
 		//  SHOULD contain zero or more [0..*] targetSiteCode/@code, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.3221.8.9 Body site DYNAMIC (CONF:7683).
-		for (Element e : cda.getChildren(procedure, "targetSiteCode")) 
+		for (Element e : cda.getChildren(procedure, "targetSiteCode"))
 			p.addBodySite(convert.makeCodeableConceptFromCD(e));
 
-		//  MAY contain zero or more [0..*] specimen (CONF:7697). 
-		// todo: add these as extensions when specimens are done. 
+		//  MAY contain zero or more [0..*] specimen (CONF:7697).
+		// todo: add these as extensions when specimens are done.
 
 		//  SHOULD contain zero or more [0..*] performer (CONF:7718) such that it
 		for (Element e : cda.getChildren(procedure, "performer")) {
 			ProcedurePerformerComponent pp = new ProcedurePerformerComponent();
 			p.getPerformer().add(pp);
 			pp.setActor(makeReferenceToPractitionerForAssignedEntity(e, p));
-		}		
+		}
 
 		for (Element participant : cda.getChildren(procedure, "participant")) {
 			Element participantRole = cda.getlastChild(participant);
@@ -550,7 +550,7 @@ public class CCDAConverter {
 				p.getExtension().add(n);
 			} else if (cda.hasTemplateId(a, "2.16.840.1.113883.10.20.22.4.19")) {
 				// MAY contain zero or more [0..*] entryRelationship (CONF:7779) such that it SHALL contain exactly one [1..1] Indication (templateId:2.16.840.1.113883.10.20.22.4.19) (CONF:7781).
-				p.addReasonCode(processIndication(a));
+				p.addReasonCodeableConcept(processIndication(a));
 			} else if (cda.hasTemplateId(cda.getlastChild(e), "2.16.840.1.113883.10.20.22.4.16")) {
 				//  MAY contain zero or one [0..1] entryRelationship (CONF:7886) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7888).
 				// todo
@@ -563,11 +563,11 @@ public class CCDAConverter {
 		Location l = new Location();
 		l.setType(convert.makeCodeableConceptFromCD(cda.getChild(participantRole, "code")));
 		for (Element id : cda.getChildren(participantRole, "id")) {
-			if (l.getIdentifier() == null) 
+			if (l.getIdentifier() == null)
 				l.getIdentifier().add(convert.makeIdentifierFromII(id));
 		}
 		for (Element addr : cda.getChildren(participantRole, "addr")) {
-			if (l.getAddress() == null) 
+			if (l.getAddress() == null)
 				l.setAddress(convert.makeAddressFromAD(addr));
 		}
 
@@ -590,7 +590,7 @@ public class CCDAConverter {
 	protected String processDevice(Element participantRole, DomainResource r) throws Exception {
 		Device d = new Device();
 		for (Element id : cda.getChildren(participantRole, "id")) {
-			// todo: check for UDIs, how? 
+			// todo: check for UDIs, how?
 			d.getIdentifier().add(convert.makeIdentifierFromII(id));
 		}
 		Element device = cda.getChild(participantRole, "playingDevice");
@@ -613,7 +613,7 @@ public class CCDAConverter {
 		if (v == null) {
 			// have to find it by ID
 			Element o = cda.getById(cda.getChild(obs, "id"), "value");
-			if (o != null)      		
+			if (o != null)
 				v = cda.getChild(obs, "value");
 		}
 		if (v != null)
@@ -625,7 +625,7 @@ public class CCDAConverter {
 	protected Reference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, DomainResource r) throws Exception {
 
 		Reference ref = null;
-		// do we have this by id? 
+		// do we have this by id?
 		String uri = getIdForEntity(assignedEntity);
 		Practitioner p = null;
 		if (uri != null) {
@@ -647,17 +647,17 @@ public class CCDAConverter {
 		}
 		// ref and p are both sorted. now we fill out p as much as we can (remembering it might already be populated)
 		p.addRole().setCode(convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
-		for (Element e : cda.getChildren(assignedEntity, "id")) 
+		for (Element e : cda.getChildren(assignedEntity, "id"))
 			addToIdList(p.getIdentifier(), convert.makeIdentifierFromII(e));
-		for (Element e : cda.getChildren(assignedEntity, "addr")) 
-			if (p.getAddress() == null) 
+		for (Element e : cda.getChildren(assignedEntity, "addr"))
+			if (p.getAddress() == null)
 				p.getAddress().add(convert.makeAddressFromAD(e));
-		for (Element e : cda.getChildren(assignedEntity, "telecom")) 
+		for (Element e : cda.getChildren(assignedEntity, "telecom"))
 			addToContactList(p.getTelecom(), convert.makeContactFromTEL(e));
-		for (Element e : cda.getChildren(cda.getChild(assignedEntity, "assignedPerson"), "name")) 
-			if (p.getName() == null) 
+		for (Element e : cda.getChildren(cda.getChild(assignedEntity, "assignedPerson"), "name"))
+			if (p.getName() == null)
 				p.addName(convert.makeNameFromEN(e));
-		// todo: 
+		// todo:
 		//	representedOrganization
 		return ref;
 	}
@@ -665,7 +665,7 @@ public class CCDAConverter {
 
 	protected void addToContactList(List<ContactPoint> list, ContactPoint c) throws Exception {
 		for (ContactPoint item : list) {
-			if (Comparison.matches(item, c, null)) 
+			if (Comparison.matches(item, c, null))
 				Comparison.merge(item, c);
 		}
 		list.add(c);
@@ -674,7 +674,7 @@ public class CCDAConverter {
 
 	protected void addToIdList(List<Identifier> list, Identifier id) throws Exception {
 		for (Identifier item : list) {
-			if (Comparison.matches(item, id, null)) 
+			if (Comparison.matches(item, id, null))
 				Comparison.merge(item, id);
 		}
 		list.add(id);
@@ -683,7 +683,7 @@ public class CCDAConverter {
 
 	protected void addToCodeableList(List<CodeableConcept> list, CodeableConcept code) throws Exception {
 		for (CodeableConcept item : list) {
-			if (Comparison.matches(item, code, null)) 
+			if (Comparison.matches(item, code, null))
 				Comparison.merge(item, code);
 		}
 		list.add(code);
@@ -697,9 +697,9 @@ public class CCDAConverter {
 		if (id.getAttribute("extension") == null) {
 			if (convert.isGuid(id.getAttribute("root")))
 				return "urn:uuid:"+id.getAttribute("root");
-			else 
+			else
 				return "urn:oid:"+id.getAttribute("root");
-		} else 
+		} else
 			return "ii:"+id.getAttribute("root")+"::"+id.getAttribute("extension");
 	}
 
@@ -725,7 +725,7 @@ public class CCDAConverter {
 
 
 	protected void processAllergyProblemAct(ListResource list, Element concern) throws Exception {
-		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
+		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");
 		// Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
 		checkNoNegationOrNullFlavor(concern, "Allergy Problem Act");
 		checkNoSubject(concern, "Allergy Problem Act");
@@ -738,17 +738,17 @@ public class CCDAConverter {
 			checkNoNegationOrNullFlavor(obs, "Allergy - intolerance Observation");
 			checkNoSubject(obs, "Allergy Problem Act");
 
-			AllergyIntolerance ai = new AllergyIntolerance();			
+			AllergyIntolerance ai = new AllergyIntolerance();
 			ListEntryComponent item = addItemToList(list, ai);
 
 			// this first section comes from the concern, and is processed once for each observation in the concern group
 			// SHALL contain at least one [1..*] id (CONF:7472).
-			for (Element e : cda.getChildren(concern, "id")) 
+			for (Element e : cda.getChildren(concern, "id"))
 				ai.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 			// SHALL contain exactly one [1..1] statusCode, which SHALL be selected from ValueSet 2.16.840.1.113883.3.88.12.80.68 HITSPProblemStatus DYNAMIC (CONF:7485)
 			// the status code is about the concern (e.g. the entry in the list)
-			// possible values: active, suspended, aborted, completed, with an effective time 
+			// possible values: active, suspended, aborted, completed, with an effective time
 			String s = cda.getStatus(concern);
 			item.setFlag(Factory.newCodeableConcept(s, "http://hl7.org/fhir/v3/ActStatus", s));
 			if (s.equals("aborted")) // only on this condition?
@@ -782,8 +782,8 @@ public class CCDAConverter {
 			ai.getExtension().add(Factory.newExtension("http://www.healthintersections.com.au/fhir/extensions/allergy-category", type, false));
 
 			// SHOULD contain zero or one [0..1] participant (CONF:7402) such that it
-			// ......This playingEntity SHALL contain exactly one [1..1] code			
-			ai.setCode(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code"))); 
+			// ......This playingEntity SHALL contain exactly one [1..1] code
+			ai.setCode(convert.makeCodeableConceptFromCD(cda.getDescendent(obs, "participant/participantRole/playingEntity/code")));
 
 			//  MAY contain zero or one [0..1] entryRelationship (CONF:7440) such that it SHALL contain exactly one [1..1]  Alert Status Observation
 			//  SHOULD contain zero or more [0..*] entryRelationship (CONF:7447) such that it SHALL contain exactly one [1..1] Reaction Observation (templateId:2.16.840.1.113883.10.20.22.4.9) (CONF:7450).
@@ -824,13 +824,13 @@ public class CCDAConverter {
 			ToolingExtensions.addIdentifier(ar, convert.makeIdentifierFromII(e));
 
 		// SHALL contain exactly one [1..1] code (CONF:7327). The value set for this code element has not been specified.
-		// todo: what the heck is this? 
+		// todo: what the heck is this?
 
 		// SHOULD contain zero or one [0..1] text (CONF:7330).
-		// todo: so what is this? how can we know whether to ignore it? 
+		// todo: so what is this? how can we know whether to ignore it?
 
-		// 8.  SHOULD contain zero or one [0..1] effectiveTime (CONF:7332). 
-		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333). 
+		// 8.  SHOULD contain zero or one [0..1] effectiveTime (CONF:7332).
+		//  	a.  This effectiveTime SHOULD contain zero or one [0..1] low (CONF:7333).
 		//  	b.  This effectiveTime SHOULD contain zero or one [0..1] high (CONF:7334).
 		// !this is a problem because FHIR just has a date, not a period.
 		ar.setOnsetElement(convert.makeDateTimeFromIVL(cda.getChild(reaction, "effectiveTime")));
@@ -841,11 +841,11 @@ public class CCDAConverter {
 		// SHOULD contain zero or one [0..1] entryRelationship (CONF:7580) such that it SHALL contain exactly one [1..1] Severity Observation  (templateId:2.16.840.1.113883.10.20.22.4.8) (CONF:7582).
 		ar.setSeverity(readSeverity(cda.getSeverity(reaction)));
 
-		// MAY contain zero or more [0..*] entryRelationship (CONF:7337) such that it SHALL contain exactly one [1..1] Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14) (CONF:7339). 
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7337) such that it SHALL contain exactly one [1..1] Procedure Activity Procedure (templateId:2.16.840.1.113883.10.20.22.4.14) (CONF:7339).
 		// i.  This procedure activity is intended to contain information about procedures that were performed in response to an allergy reaction
 		// todo: process these into an procedure and add as an extension
 
-		// MAY contain zero or more [0..*] entryRelationship (CONF:7340) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7342). 
+		// MAY contain zero or more [0..*] entryRelationship (CONF:7340) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7342).
 		// i.  This medication activity is intended to contain information about medications that were administered in response to an allergy reaction. (CONF:7584).
 		// todo: process these into an medication statement and add as an extension
 
@@ -886,22 +886,22 @@ public class CCDAConverter {
 		addItemToList(list, obs);
 
 		switch (type) {
-		case SocialHistory : 
+		case SocialHistory :
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.38");
 			// SHALL contain exactly one [1..1] code (CONF:8558/).
 			obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(so, "code")));
-			break;		
-		case Pregnancy: 
+			break;
+		case Pregnancy:
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.15.3.8");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setCode(Factory.newCodeableConcept("11449-6", "http://loinc.org", "Pregnancy Status"));
-			break;		
-		case SmokingStatus: 
+			break;
+		case SmokingStatus:
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.78");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setCode(Factory.newCodeableConcept("72166-2", "http://loinc.org", "Tobacco Smoking Status"));
-			break;		
-		case TobaccoUse: 
+			break;
+		case TobaccoUse:
 			cda.checkTemplateId(so, "2.16.840.1.113883.10.20.22.4.12");
 			// SHALL contain exactly one [1..1] code (CONF:8558/), which SHALL be an assertion
 			obs.setCode(Factory.newCodeableConcept("11367-0", "http://loinc.org", "History of Tobacco Use"));
@@ -927,14 +927,14 @@ public class CCDAConverter {
 		}
 
 		//	SHOULD contain zero or one [0..1] value (CONF:8559).
-		// a.	Observation/value can be any data type. 
+		// a.	Observation/value can be any data type.
 		for (Element e : cda.getChildren(so, "value"))
 			if (obs.getValue() == null) { // only one in FHIR
 				// special case for pregnancy:
 				if (type == SocialHistoryType.Pregnancy && "true".equals(e.getAttribute("negationInd"))) {
 					obs.setValue(Factory.newCodeableConcept("60001007", "http://snomed.info/sct", "Not pregnant"));
 				} else {
-					// negationInd is not described. but it might well be used. For now, we blow up 
+					// negationInd is not described. but it might well be used. For now, we blow up
 					checkNoNegation(so, "Social Observation ("+type.toString()+")");
 
 					if (so.hasAttribute("nullFlavor"))
@@ -963,7 +963,7 @@ public class CCDAConverter {
 				or.setType(ObservationRelationshipType.HASMEMBER);
 				or.setTarget(Factory.makeReference("#"+id));
 				co.setCode(Factory.newCodeableConcept("11778-8", "http://loinc.org", "Delivery date Estimated"));
-				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0 
+				co.setValue(convert.makeDateTimeFromTS(cda.getChild(dd, "value"))); // not legal, see gForge http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&tracker_item_id=3125&start=0
 			}
 		}
 	}
@@ -1001,35 +1001,35 @@ public class CCDAConverter {
 	}
 
 	protected AllergyIntoleranceCriticality readCriticality(String severity) {
-		if ("255604002".equals(severity)) // Mild 
-			return AllergyIntoleranceCriticality.LOW; 
-		if ("371923003".equals(severity)) //  Mild to moderate 
-			return AllergyIntoleranceCriticality.LOW; 
+		if ("255604002".equals(severity)) // Mild
+			return AllergyIntoleranceCriticality.LOW;
+		if ("371923003".equals(severity)) //  Mild to moderate
+			return AllergyIntoleranceCriticality.LOW;
 		if ("6736007".equals(severity)) // Moderate
-			return AllergyIntoleranceCriticality.LOW; 
+			return AllergyIntoleranceCriticality.LOW;
 		if ("371924009".equals(severity)) // Moderate to severe
-			return AllergyIntoleranceCriticality.HIGH; 
+			return AllergyIntoleranceCriticality.HIGH;
 		if ("24484000".equals(severity)) // Severe
-			return AllergyIntoleranceCriticality.HIGH; 
+			return AllergyIntoleranceCriticality.HIGH;
 		if ("399166001".equals(severity)) // Fatal
-			return AllergyIntoleranceCriticality.HIGH; 
+			return AllergyIntoleranceCriticality.HIGH;
 		return null;
 	}
 
 
 	protected AllergyIntoleranceSeverity readSeverity(String severity) {
-		if ("255604002".equals(severity)) // Mild 
-			return AllergyIntoleranceSeverity.MILD; 
-		if ("371923003".equals(severity)) //  Mild to moderate 
-			return AllergyIntoleranceSeverity.MODERATE; 
+		if ("255604002".equals(severity)) // Mild
+			return AllergyIntoleranceSeverity.MILD;
+		if ("371923003".equals(severity)) //  Mild to moderate
+			return AllergyIntoleranceSeverity.MODERATE;
 		if ("6736007".equals(severity)) // Moderate
-			return AllergyIntoleranceSeverity.MODERATE; 
+			return AllergyIntoleranceSeverity.MODERATE;
 		if ("371924009".equals(severity)) // Moderate to severe
-			return AllergyIntoleranceSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE;
 		if ("24484000".equals(severity)) // Severe
-			return AllergyIntoleranceSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE;
 		if ("399166001".equals(severity)) // Fatal
-			return AllergyIntoleranceSeverity.SEVERE; 
+			return AllergyIntoleranceSeverity.SEVERE;
 		return null;
 	}
 
@@ -1059,20 +1059,20 @@ public class CCDAConverter {
 		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26");
 		checkNoNegationOrNullFlavor(organizer, "Vital Signs Organizer");
 		checkNoSubject(organizer, "Vital Signs Organizer");
-		// moodCode is EVN. 
+		// moodCode is EVN.
 
 		Observation obs = new Observation();
 		addItemToList(list, obs);
 
 		// SHALL contain at least one [1..*] id (CONF:7282).
-		for (Element e : cda.getChildren(organizer, "id")) 
+		for (Element e : cda.getChildren(organizer, "id"))
 			obs.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 		// SHALL contain exactly one [1..1] code (CONF:19176).
 		//  This code SHALL contain exactly one [1..1] @code="46680005" Vital signs (CodeSystem: SNOMED-CT 2.16.840.1.113883.6.96 STATIC) (CONF:19177).
-		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code"))); 
+		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(organizer, "code")));
 
-		
+
 		// SHALL contain exactly one [1..1] effectiveTime (CONF:7288).
 		obs.setEffective(convert.makeMatchingTypeFromIVL(cda.getChild(organizer, "effectiveTime")));
 
@@ -1095,11 +1095,11 @@ public class CCDAConverter {
 		Observation obs = new Observation();
 
 		//	SHALL contain at least one [1..*] id (CONF:7300).
-		for (Element e : cda.getChildren(observation, "id")) 
+		for (Element e : cda.getChildren(observation, "id"))
 			obs.getIdentifier().add(convert.makeIdentifierFromII(e));
 
 		// SHALL contain exactly one [1..1] code, which SHOULD be selected from ValueSet Vital Sign Result Value Set 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
-		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes 
+		obs.setCode(convert.makeCodeableConceptFromCD(cda.getChild(observation, "code"))); // all loinc codes
 
 		// SHOULD contain zero or one [0..1] text (CONF:7302).
 		// The text, if present, SHOULD contain zero or one [0..1] reference (CONF:15943).

@@ -257,7 +257,7 @@
  -- Row 8 -----------------------------------
   Element = MedicationDispense.context
   Card. = 0..1
-  Type = Reference (Encounter | EpisodeofCare)
+  Type = Reference (Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with event
   Definition = The encounter or episode of care that establishes the context for this event.
   Workflow Mapping = …context

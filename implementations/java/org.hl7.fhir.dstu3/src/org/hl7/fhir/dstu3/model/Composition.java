@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1794,11 +1794,12 @@ public class Composition extends DomainResource {
     protected Identifier identifier;
 
     /**
-     * The composition editing time, when the composition was last logically changed by the author.
+     * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    @Child(name = "date", type = {DateTimeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Composition editing time", formalDefinition="The composition editing time, when the composition was last logically changed by the author." )
-    protected DateTimeType date;
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="preliminary | final | amended | entered-in-error", formalDefinition="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/composition-status")
+    protected Enumeration<CompositionStatus> status;
 
     /**
      * Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.
@@ -1817,32 +1818,9 @@ public class Composition extends DomainResource {
     protected CodeableConcept class_;
 
     /**
-     * Official human-readable label for the composition.
-     */
-    @Child(name = "title", type = {StringType.class}, order=4, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Human Readable name/title", formalDefinition="Official human-readable label for the composition." )
-    protected StringType title;
-
-    /**
-     * The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="preliminary | final | amended | entered-in-error", formalDefinition="The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/composition-status")
-    protected Enumeration<CompositionStatus> status;
-
-    /**
-     * The code specifying the level of confidentiality of the Composition.
-     */
-    @Child(name = "confidentiality", type = {CodeType.class}, order=6, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="As defined by affinity domain", formalDefinition="The code specifying the level of confidentiality of the Composition." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification")
-    protected Enumeration<DocumentConfidentiality> confidentiality;
-
-    /**
      * Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).
      */
-    @Child(name = "subject", type = {Reference.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Reference.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what the composition is about", formalDefinition="Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure)." )
     protected Reference subject;
 
@@ -1852,9 +1830,28 @@ public class Composition extends DomainResource {
     protected Resource subjectTarget;
 
     /**
+     * Describes the clinical encounter or type of care this documentation is associated with.
+     */
+    @Child(name = "encounter", type = {Encounter.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Context of the Composition", formalDefinition="Describes the clinical encounter or type of care this documentation is associated with." )
+    protected Reference encounter;
+
+    /**
+     * The actual object that is the target of the reference (Describes the clinical encounter or type of care this documentation is associated with.)
+     */
+    protected Encounter encounterTarget;
+
+    /**
+     * The composition editing time, when the composition was last logically changed by the author.
+     */
+    @Child(name = "date", type = {DateTimeType.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Composition editing time", formalDefinition="The composition editing time, when the composition was last logically changed by the author." )
+    protected DateTimeType date;
+
+    /**
      * Identifies who is responsible for the information in the composition, not necessarily who typed it in.
      */
-    @Child(name = "author", type = {Practitioner.class, Device.class, Patient.class, RelatedPerson.class}, order=8, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, Device.class, Patient.class, RelatedPerson.class}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Who and/or what authored the composition", formalDefinition="Identifies who is responsible for the information in the composition, not necessarily who typed it in." )
     protected List<Reference> author;
     /**
@@ -1864,16 +1861,31 @@ public class Composition extends DomainResource {
 
 
     /**
+     * Official human-readable label for the composition.
+     */
+    @Child(name = "title", type = {StringType.class}, order=8, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Human Readable name/title", formalDefinition="Official human-readable label for the composition." )
+    protected StringType title;
+
+    /**
+     * The code specifying the level of confidentiality of the Composition.
+     */
+    @Child(name = "confidentiality", type = {CodeType.class}, order=9, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="As defined by affinity domain", formalDefinition="The code specifying the level of confidentiality of the Composition." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ConfidentialityClassification")
+    protected Enumeration<DocumentConfidentiality> confidentiality;
+
+    /**
      * A participant who has attested to the accuracy of the composition/document.
      */
-    @Child(name = "attester", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "attester", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Attests to accuracy of composition", formalDefinition="A participant who has attested to the accuracy of the composition/document." )
     protected List<CompositionAttesterComponent> attester;
 
     /**
      * Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.
      */
-    @Child(name = "custodian", type = {Organization.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "custodian", type = {Organization.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Organization which maintains the composition", formalDefinition="Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information." )
     protected Reference custodian;
 
@@ -1885,21 +1897,9 @@ public class Composition extends DomainResource {
     /**
      * The clinical service, such as a colonoscopy or an appendectomy, being documented.
      */
-    @Child(name = "event", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "event", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The clinical service(s) being documented", formalDefinition="The clinical service, such as a colonoscopy or an appendectomy, being documented." )
     protected List<CompositionEventComponent> event;
-
-    /**
-     * Describes the clinical encounter or type of care this documentation is associated with.
-     */
-    @Child(name = "encounter", type = {Encounter.class}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Context of the Composition", formalDefinition="Describes the clinical encounter or type of care this documentation is associated with." )
-    protected Reference encounter;
-
-    /**
-     * The actual object that is the target of the reference (Describes the clinical encounter or type of care this documentation is associated with.)
-     */
-    protected Encounter encounterTarget;
 
     /**
      * The root of the sections that make up the composition.
@@ -1908,7 +1908,7 @@ public class Composition extends DomainResource {
     @Description(shortDefinition="Composition is broken into sections", formalDefinition="The root of the sections that make up the composition." )
     protected List<SectionComponent> section;
 
-    private static final long serialVersionUID = 1076817605L;
+    private static final long serialVersionUID = -1718283711L;
 
   /**
    * Constructor
@@ -1920,13 +1920,13 @@ public class Composition extends DomainResource {
   /**
    * Constructor
    */
-    public Composition(DateTimeType date, CodeableConcept type, StringType title, Enumeration<CompositionStatus> status, Reference subject) {
+    public Composition(Enumeration<CompositionStatus> status, CodeableConcept type, Reference subject, DateTimeType date, StringType title) {
       super();
-      this.date = date;
-      this.type = type;
-      this.title = title;
       this.status = status;
+      this.type = type;
       this.subject = subject;
+      this.date = date;
+      this.title = title;
     }
 
     /**
@@ -1954,47 +1954,47 @@ public class Composition extends DomainResource {
     }
 
     /**
-     * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
+    public Enumeration<CompositionStatus> getStatusElement() { 
+      if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.date");
+          throw new Error("Attempt to auto-create Composition.status");
         else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
+          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory()); // bb
+      return this.status;
     }
 
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
-     * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Composition setDateElement(DateTimeType value) { 
-      this.date = value;
+    public Composition setStatusElement(Enumeration<CompositionStatus> value) { 
+      this.status = value;
       return this;
     }
 
     /**
-     * @return The composition editing time, when the composition was last logically changed by the author.
+     * @return The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
+    public CompositionStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value The composition editing time, when the composition was last logically changed by the author.
+     * @param value The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
      */
-    public Composition setDate(Date value) { 
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
+    public Composition setStatus(CompositionStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory());
+        this.status.setValue(value);
       return this;
     }
 
@@ -2047,145 +2047,6 @@ public class Composition extends DomainResource {
     }
 
     /**
-     * @return {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
-     */
-    public StringType getTitleElement() { 
-      if (this.title == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.title");
-        else if (Configuration.doAutoCreate())
-          this.title = new StringType(); // bb
-      return this.title;
-    }
-
-    public boolean hasTitleElement() { 
-      return this.title != null && !this.title.isEmpty();
-    }
-
-    public boolean hasTitle() { 
-      return this.title != null && !this.title.isEmpty();
-    }
-
-    /**
-     * @param value {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
-     */
-    public Composition setTitleElement(StringType value) { 
-      this.title = value;
-      return this;
-    }
-
-    /**
-     * @return Official human-readable label for the composition.
-     */
-    public String getTitle() { 
-      return this.title == null ? null : this.title.getValue();
-    }
-
-    /**
-     * @param value Official human-readable label for the composition.
-     */
-    public Composition setTitle(String value) { 
-        if (this.title == null)
-          this.title = new StringType();
-        this.title.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<CompositionStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Composition setStatusElement(Enumeration<CompositionStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     */
-    public CompositionStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.
-     */
-    public Composition setStatus(CompositionStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<CompositionStatus>(new CompositionStatusEnumFactory());
-        this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
-     */
-    public Enumeration<DocumentConfidentiality> getConfidentialityElement() { 
-      if (this.confidentiality == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.confidentiality");
-        else if (Configuration.doAutoCreate())
-          this.confidentiality = new Enumeration<DocumentConfidentiality>(new DocumentConfidentialityEnumFactory()); // bb
-      return this.confidentiality;
-    }
-
-    public boolean hasConfidentialityElement() { 
-      return this.confidentiality != null && !this.confidentiality.isEmpty();
-    }
-
-    public boolean hasConfidentiality() { 
-      return this.confidentiality != null && !this.confidentiality.isEmpty();
-    }
-
-    /**
-     * @param value {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
-     */
-    public Composition setConfidentialityElement(Enumeration<DocumentConfidentiality> value) { 
-      this.confidentiality = value;
-      return this;
-    }
-
-    /**
-     * @return The code specifying the level of confidentiality of the Composition.
-     */
-    public DocumentConfidentiality getConfidentiality() { 
-      return this.confidentiality == null ? null : this.confidentiality.getValue();
-    }
-
-    /**
-     * @param value The code specifying the level of confidentiality of the Composition.
-     */
-    public Composition setConfidentiality(DocumentConfidentiality value) { 
-      if (value == null)
-        this.confidentiality = null;
-      else {
-        if (this.confidentiality == null)
-          this.confidentiality = new Enumeration<DocumentConfidentiality>(new DocumentConfidentialityEnumFactory());
-        this.confidentiality.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #subject} (Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).)
      */
     public Reference getSubject() { 
@@ -2221,6 +2082,95 @@ public class Composition extends DomainResource {
      */
     public Composition setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
+     */
+    public Reference getEncounter() { 
+      if (this.encounter == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Composition.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounter = new Reference(); // cc
+      return this.encounter;
+    }
+
+    public boolean hasEncounter() { 
+      return this.encounter != null && !this.encounter.isEmpty();
+    }
+
+    /**
+     * @param value {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
+     */
+    public Composition setEncounter(Reference value) { 
+      this.encounter = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
+     */
+    public Encounter getEncounterTarget() { 
+      if (this.encounterTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Composition.encounter");
+        else if (Configuration.doAutoCreate())
+          this.encounterTarget = new Encounter(); // aa
+      return this.encounterTarget;
+    }
+
+    /**
+     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
+     */
+    public Composition setEncounterTarget(Encounter value) { 
+      this.encounterTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Composition.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The composition editing time, when the composition was last logically changed by the author.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public Composition setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The composition editing time, when the composition was last logically changed by the author.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The composition editing time, when the composition was last logically changed by the author.
+     */
+    public Composition setDate(Date value) { 
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
       return this;
     }
 
@@ -2285,6 +2235,100 @@ public class Composition extends DomainResource {
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
       return this.authorTarget;
+    }
+
+    /**
+     * @return {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public StringType getTitleElement() { 
+      if (this.title == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Composition.title");
+        else if (Configuration.doAutoCreate())
+          this.title = new StringType(); // bb
+      return this.title;
+    }
+
+    public boolean hasTitleElement() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    public boolean hasTitle() { 
+      return this.title != null && !this.title.isEmpty();
+    }
+
+    /**
+     * @param value {@link #title} (Official human-readable label for the composition.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     */
+    public Composition setTitleElement(StringType value) { 
+      this.title = value;
+      return this;
+    }
+
+    /**
+     * @return Official human-readable label for the composition.
+     */
+    public String getTitle() { 
+      return this.title == null ? null : this.title.getValue();
+    }
+
+    /**
+     * @param value Official human-readable label for the composition.
+     */
+    public Composition setTitle(String value) { 
+        if (this.title == null)
+          this.title = new StringType();
+        this.title.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
+     */
+    public Enumeration<DocumentConfidentiality> getConfidentialityElement() { 
+      if (this.confidentiality == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Composition.confidentiality");
+        else if (Configuration.doAutoCreate())
+          this.confidentiality = new Enumeration<DocumentConfidentiality>(new DocumentConfidentialityEnumFactory()); // bb
+      return this.confidentiality;
+    }
+
+    public boolean hasConfidentialityElement() { 
+      return this.confidentiality != null && !this.confidentiality.isEmpty();
+    }
+
+    public boolean hasConfidentiality() { 
+      return this.confidentiality != null && !this.confidentiality.isEmpty();
+    }
+
+    /**
+     * @param value {@link #confidentiality} (The code specifying the level of confidentiality of the Composition.). This is the underlying object with id, value and extensions. The accessor "getConfidentiality" gives direct access to the value
+     */
+    public Composition setConfidentialityElement(Enumeration<DocumentConfidentiality> value) { 
+      this.confidentiality = value;
+      return this;
+    }
+
+    /**
+     * @return The code specifying the level of confidentiality of the Composition.
+     */
+    public DocumentConfidentiality getConfidentiality() { 
+      return this.confidentiality == null ? null : this.confidentiality.getValue();
+    }
+
+    /**
+     * @param value The code specifying the level of confidentiality of the Composition.
+     */
+    public Composition setConfidentiality(DocumentConfidentiality value) { 
+      if (value == null)
+        this.confidentiality = null;
+      else {
+        if (this.confidentiality == null)
+          this.confidentiality = new Enumeration<DocumentConfidentiality>(new DocumentConfidentialityEnumFactory());
+        this.confidentiality.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -2438,50 +2482,6 @@ public class Composition extends DomainResource {
     }
 
     /**
-     * @return {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
-     */
-    public Reference getEncounter() { 
-      if (this.encounter == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.encounter");
-        else if (Configuration.doAutoCreate())
-          this.encounter = new Reference(); // cc
-      return this.encounter;
-    }
-
-    public boolean hasEncounter() { 
-      return this.encounter != null && !this.encounter.isEmpty();
-    }
-
-    /**
-     * @param value {@link #encounter} (Describes the clinical encounter or type of care this documentation is associated with.)
-     */
-    public Composition setEncounter(Reference value) { 
-      this.encounter = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
-     */
-    public Encounter getEncounterTarget() { 
-      if (this.encounterTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Composition.encounter");
-        else if (Configuration.doAutoCreate())
-          this.encounterTarget = new Encounter(); // aa
-      return this.encounterTarget;
-    }
-
-    /**
-     * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the clinical encounter or type of care this documentation is associated with.)
-     */
-    public Composition setEncounterTarget(Encounter value) { 
-      this.encounterTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #section} (The root of the sections that make up the composition.)
      */
     public List<SectionComponent> getSection() { 
@@ -2537,18 +2537,18 @@ public class Composition extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Logical identifier for the composition, assigned when created. This identifier stays constant as the composition is changed over time.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("date", "dateTime", "The composition editing time, when the composition was last logically changed by the author.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("status", "code", "The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("type", "CodeableConcept", "Specifies the particular kind of composition (e.g. History and Physical, Discharge Summary, Progress Note). This usually equates to the purpose of making the composition.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("class", "CodeableConcept", "A categorization for the type of the composition - helps for indexing and searching. This may be implied by or derived from the code specified in the Composition Type.", 0, java.lang.Integer.MAX_VALUE, class_));
-        childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("status", "code", "The workflow/clinical status of this composition. The status is a marker for the clinical standing of the document.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("confidentiality", "code", "The code specifying the level of confidentiality of the Composition.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
         childrenList.add(new Property("subject", "Reference(Any)", "Who or what the composition is about. The composition can be about a person, (patient or healthcare practitioner), a device (e.g. a machine) or even a group of subjects (such as a document about a herd of livestock, or a set of patients that share a common exposure).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
+        childrenList.add(new Property("date", "dateTime", "The composition editing time, when the composition was last logically changed by the author.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("author", "Reference(Practitioner|Device|Patient|RelatedPerson)", "Identifies who is responsible for the information in the composition, not necessarily who typed it in.", 0, java.lang.Integer.MAX_VALUE, author));
+        childrenList.add(new Property("title", "string", "Official human-readable label for the composition.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("confidentiality", "code", "The code specifying the level of confidentiality of the Composition.", 0, java.lang.Integer.MAX_VALUE, confidentiality));
         childrenList.add(new Property("attester", "", "A participant who has attested to the accuracy of the composition/document.", 0, java.lang.Integer.MAX_VALUE, attester));
         childrenList.add(new Property("custodian", "Reference(Organization)", "Identifies the organization or group who is responsible for ongoing maintenance of and access to the composition/document information.", 0, java.lang.Integer.MAX_VALUE, custodian));
         childrenList.add(new Property("event", "", "The clinical service, such as a colonoscopy or an appendectomy, being documented.", 0, java.lang.Integer.MAX_VALUE, event));
-        childrenList.add(new Property("encounter", "Reference(Encounter)", "Describes the clinical encounter or type of care this documentation is associated with.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("section", "", "The root of the sections that make up the composition.", 0, java.lang.Integer.MAX_VALUE, section));
       }
 
@@ -2556,18 +2556,18 @@ public class Composition extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
-        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CompositionStatus>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case 94742904: /*class*/ return this.class_ == null ? new Base[0] : new Base[] {this.class_}; // CodeableConcept
-        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
-        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CompositionStatus>
-        case -1923018202: /*confidentiality*/ return this.confidentiality == null ? new Base[0] : new Base[] {this.confidentiality}; // Enumeration<DocumentConfidentiality>
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : this.author.toArray(new Base[this.author.size()]); // Reference
+        case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
+        case -1923018202: /*confidentiality*/ return this.confidentiality == null ? new Base[0] : new Base[] {this.confidentiality}; // Enumeration<DocumentConfidentiality>
         case 542920370: /*attester*/ return this.attester == null ? new Base[0] : this.attester.toArray(new Base[this.attester.size()]); // CompositionAttesterComponent
         case 1611297262: /*custodian*/ return this.custodian == null ? new Base[0] : new Base[] {this.custodian}; // Reference
         case 96891546: /*event*/ return this.event == null ? new Base[0] : this.event.toArray(new Base[this.event.size()]); // CompositionEventComponent
-        case 1524132147: /*encounter*/ return this.encounter == null ? new Base[0] : new Base[] {this.encounter}; // Reference
         case 1970241253: /*section*/ return this.section == null ? new Base[0] : this.section.toArray(new Base[this.section.size()]); // SectionComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -2580,8 +2580,9 @@ public class Composition extends DomainResource {
         case -1618432855: // identifier
           this.identifier = castToIdentifier(value); // Identifier
           return value;
-        case 3076014: // date
-          this.date = castToDateTime(value); // DateTimeType
+        case -892481550: // status
+          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
           return value;
         case 3575610: // type
           this.type = castToCodeableConcept(value); // CodeableConcept
@@ -2589,22 +2590,24 @@ public class Composition extends DomainResource {
         case 94742904: // class
           this.class_ = castToCodeableConcept(value); // CodeableConcept
           return value;
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
+          return value;
+        case 1524132147: // encounter
+          this.encounter = castToReference(value); // Reference
+          return value;
+        case 3076014: // date
+          this.date = castToDateTime(value); // DateTimeType
+          return value;
+        case -1406328437: // author
+          this.getAuthor().add(castToReference(value)); // Reference
+          return value;
         case 110371416: // title
           this.title = castToString(value); // StringType
-          return value;
-        case -892481550: // status
-          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
           return value;
         case -1923018202: // confidentiality
           value = new DocumentConfidentialityEnumFactory().fromType(castToCode(value));
           this.confidentiality = (Enumeration) value; // Enumeration<DocumentConfidentiality>
-          return value;
-        case -1867885268: // subject
-          this.subject = castToReference(value); // Reference
-          return value;
-        case -1406328437: // author
-          this.getAuthor().add(castToReference(value)); // Reference
           return value;
         case 542920370: // attester
           this.getAttester().add((CompositionAttesterComponent) value); // CompositionAttesterComponent
@@ -2614,9 +2617,6 @@ public class Composition extends DomainResource {
           return value;
         case 96891546: // event
           this.getEvent().add((CompositionEventComponent) value); // CompositionEventComponent
-          return value;
-        case 1524132147: // encounter
-          this.encounter = castToReference(value); // Reference
           return value;
         case 1970241253: // section
           this.getSection().add((SectionComponent) value); // SectionComponent
@@ -2630,32 +2630,32 @@ public class Composition extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.identifier = castToIdentifier(value); // Identifier
-        } else if (name.equals("date")) {
-          this.date = castToDateTime(value); // DateTimeType
+        } else if (name.equals("status")) {
+          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("class")) {
           this.class_ = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("encounter")) {
+          this.encounter = castToReference(value); // Reference
+        } else if (name.equals("date")) {
+          this.date = castToDateTime(value); // DateTimeType
+        } else if (name.equals("author")) {
+          this.getAuthor().add(castToReference(value));
         } else if (name.equals("title")) {
           this.title = castToString(value); // StringType
-        } else if (name.equals("status")) {
-          value = new CompositionStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<CompositionStatus>
         } else if (name.equals("confidentiality")) {
           value = new DocumentConfidentialityEnumFactory().fromType(castToCode(value));
           this.confidentiality = (Enumeration) value; // Enumeration<DocumentConfidentiality>
-        } else if (name.equals("subject")) {
-          this.subject = castToReference(value); // Reference
-        } else if (name.equals("author")) {
-          this.getAuthor().add(castToReference(value));
         } else if (name.equals("attester")) {
           this.getAttester().add((CompositionAttesterComponent) value);
         } else if (name.equals("custodian")) {
           this.custodian = castToReference(value); // Reference
         } else if (name.equals("event")) {
           this.getEvent().add((CompositionEventComponent) value);
-        } else if (name.equals("encounter")) {
-          this.encounter = castToReference(value); // Reference
         } else if (name.equals("section")) {
           this.getSection().add((SectionComponent) value);
         } else
@@ -2667,18 +2667,18 @@ public class Composition extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return getIdentifier(); 
-        case 3076014:  return getDateElement();
+        case -892481550:  return getStatusElement();
         case 3575610:  return getType(); 
         case 94742904:  return getClass_(); 
-        case 110371416:  return getTitleElement();
-        case -892481550:  return getStatusElement();
-        case -1923018202:  return getConfidentialityElement();
         case -1867885268:  return getSubject(); 
+        case 1524132147:  return getEncounter(); 
+        case 3076014:  return getDateElement();
         case -1406328437:  return addAuthor(); 
+        case 110371416:  return getTitleElement();
+        case -1923018202:  return getConfidentialityElement();
         case 542920370:  return addAttester(); 
         case 1611297262:  return getCustodian(); 
         case 96891546:  return addEvent(); 
-        case 1524132147:  return getEncounter(); 
         case 1970241253:  return addSection(); 
         default: return super.makeProperty(hash, name);
         }
@@ -2689,18 +2689,18 @@ public class Composition extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case 94742904: /*class*/ return new String[] {"CodeableConcept"};
-        case 110371416: /*title*/ return new String[] {"string"};
-        case -892481550: /*status*/ return new String[] {"code"};
-        case -1923018202: /*confidentiality*/ return new String[] {"code"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1524132147: /*encounter*/ return new String[] {"Reference"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
+        case 110371416: /*title*/ return new String[] {"string"};
+        case -1923018202: /*confidentiality*/ return new String[] {"code"};
         case 542920370: /*attester*/ return new String[] {};
         case 1611297262: /*custodian*/ return new String[] {"Reference"};
         case 96891546: /*event*/ return new String[] {};
-        case 1524132147: /*encounter*/ return new String[] {"Reference"};
         case 1970241253: /*section*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -2713,8 +2713,8 @@ public class Composition extends DomainResource {
           this.identifier = new Identifier();
           return this.identifier;
         }
-        else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Composition.date");
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Composition.status");
         }
         else if (name.equals("type")) {
           this.type = new CodeableConcept();
@@ -2724,21 +2724,25 @@ public class Composition extends DomainResource {
           this.class_ = new CodeableConcept();
           return this.class_;
         }
-        else if (name.equals("title")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Composition.title");
-        }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Composition.status");
-        }
-        else if (name.equals("confidentiality")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Composition.confidentiality");
-        }
         else if (name.equals("subject")) {
           this.subject = new Reference();
           return this.subject;
         }
+        else if (name.equals("encounter")) {
+          this.encounter = new Reference();
+          return this.encounter;
+        }
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Composition.date");
+        }
         else if (name.equals("author")) {
           return addAuthor();
+        }
+        else if (name.equals("title")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Composition.title");
+        }
+        else if (name.equals("confidentiality")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Composition.confidentiality");
         }
         else if (name.equals("attester")) {
           return addAttester();
@@ -2749,10 +2753,6 @@ public class Composition extends DomainResource {
         }
         else if (name.equals("event")) {
           return addEvent();
-        }
-        else if (name.equals("encounter")) {
-          this.encounter = new Reference();
-          return this.encounter;
         }
         else if (name.equals("section")) {
           return addSection();
@@ -2770,18 +2770,19 @@ public class Composition extends DomainResource {
         Composition dst = new Composition();
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
-        dst.date = date == null ? null : date.copy();
+        dst.status = status == null ? null : status.copy();
         dst.type = type == null ? null : type.copy();
         dst.class_ = class_ == null ? null : class_.copy();
-        dst.title = title == null ? null : title.copy();
-        dst.status = status == null ? null : status.copy();
-        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
         dst.subject = subject == null ? null : subject.copy();
+        dst.encounter = encounter == null ? null : encounter.copy();
+        dst.date = date == null ? null : date.copy();
         if (author != null) {
           dst.author = new ArrayList<Reference>();
           for (Reference i : author)
             dst.author.add(i.copy());
         };
+        dst.title = title == null ? null : title.copy();
+        dst.confidentiality = confidentiality == null ? null : confidentiality.copy();
         if (attester != null) {
           dst.attester = new ArrayList<CompositionAttesterComponent>();
           for (CompositionAttesterComponent i : attester)
@@ -2793,7 +2794,6 @@ public class Composition extends DomainResource {
           for (CompositionEventComponent i : event)
             dst.event.add(i.copy());
         };
-        dst.encounter = encounter == null ? null : encounter.copy();
         if (section != null) {
           dst.section = new ArrayList<SectionComponent>();
           for (SectionComponent i : section)
@@ -2813,11 +2813,11 @@ public class Composition extends DomainResource {
         if (!(other instanceof Composition))
           return false;
         Composition o = (Composition) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(date, o.date, true) && compareDeep(type, o.type, true)
-           && compareDeep(class_, o.class_, true) && compareDeep(title, o.title, true) && compareDeep(status, o.status, true)
-           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(author, o.author, true) && compareDeep(attester, o.attester, true) && compareDeep(custodian, o.custodian, true)
-           && compareDeep(event, o.event, true) && compareDeep(encounter, o.encounter, true) && compareDeep(section, o.section, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
+           && compareDeep(class_, o.class_, true) && compareDeep(subject, o.subject, true) && compareDeep(encounter, o.encounter, true)
+           && compareDeep(date, o.date, true) && compareDeep(author, o.author, true) && compareDeep(title, o.title, true)
+           && compareDeep(confidentiality, o.confidentiality, true) && compareDeep(attester, o.attester, true)
+           && compareDeep(custodian, o.custodian, true) && compareDeep(event, o.event, true) && compareDeep(section, o.section, true)
           ;
       }
 
@@ -2828,14 +2828,14 @@ public class Composition extends DomainResource {
         if (!(other instanceof Composition))
           return false;
         Composition o = (Composition) other;
-        return compareValues(date, o.date, true) && compareValues(title, o.title, true) && compareValues(status, o.status, true)
+        return compareValues(status, o.status, true) && compareValues(date, o.date, true) && compareValues(title, o.title, true)
            && compareValues(confidentiality, o.confidentiality, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, date, type, class_
-          , title, status, confidentiality, subject, author, attester, custodian, event
-          , encounter, section);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, type
+          , class_, subject, encounter, date, author, title, confidentiality, attester
+          , custodian, event, section);
       }
 
   @Override

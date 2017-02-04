@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3347,17 +3347,17 @@ public class ExpansionProfile extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the expansion profile</b><br>
+   * Description: <b>The business version of the expansion profile</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ExpansionProfile.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="ExpansionProfile.version", description="The version identifier of the expansion profile", type="token" )
+  @SearchParamDefinition(name="version", path="ExpansionProfile.version", description="The business version of the expansion profile", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the expansion profile</b><br>
+   * Description: <b>The business version of the expansion profile</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ExpansionProfile.version</b><br>
    * </p>

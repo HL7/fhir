@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -954,10 +954,10 @@ public class RequestGroup extends DomainResource {
         protected StringType textEquivalent;
 
         /**
-         * The concept represented by this action or its sub-actions.
+         * A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.
          */
         @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The meaning of the action or its sub-actions", formalDefinition="The concept represented by this action or its sub-actions." )
+        @Description(shortDefinition="Code representing the meaning of the action or sub-actions", formalDefinition="A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template." )
         protected List<CodeableConcept> code;
 
         /**
@@ -1297,7 +1297,7 @@ public class RequestGroup extends DomainResource {
         }
 
         /**
-         * @return {@link #code} (The concept represented by this action or its sub-actions.)
+         * @return {@link #code} (A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.)
          */
         public List<CodeableConcept> getCode() { 
           if (this.code == null)
@@ -2023,7 +2023,7 @@ public class RequestGroup extends DomainResource {
           childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
           childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
-          childrenList.add(new Property("code", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, code));
+          childrenList.add(new Property("code", "CodeableConcept", "A code that provides meaning for the action or action group. For example, a section may have a LOINC code for a the section of a documentation template.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("documentation", "RelatedArtifact", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("condition", "", "An expression that describes applicability criteria, or start/stop conditions for the action.", 0, java.lang.Integer.MAX_VALUE, condition));
           childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,6 +47,114 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Medication", profile="http://hl7.org/fhir/Profile/Medication")
 public class Medication extends DomainResource {
+
+    public enum MedicationStatus {
+        /**
+         * The medication is available for use
+         */
+        ACTIVE, 
+        /**
+         * The medication is not available for use
+         */
+        INACTIVE, 
+        /**
+         * The medication was entered in error
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static MedicationStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown MedicationStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACTIVE: return "http://hl7.org/fhir/medication-status";
+            case INACTIVE: return "http://hl7.org/fhir/medication-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/medication-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The medication is available for use";
+            case INACTIVE: return "The medication is not available for use";
+            case ENTEREDINERROR: return "The medication was entered in error";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            case ENTEREDINERROR: return "Entered in Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MedicationStatusEnumFactory implements EnumFactory<MedicationStatus> {
+    public MedicationStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return MedicationStatus.ACTIVE;
+        if ("inactive".equals(codeString))
+          return MedicationStatus.INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return MedicationStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown MedicationStatus code '"+codeString+"'");
+        }
+        public Enumeration<MedicationStatus> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<MedicationStatus>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<MedicationStatus>(this, MedicationStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<MedicationStatus>(this, MedicationStatus.INACTIVE);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<MedicationStatus>(this, MedicationStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown MedicationStatus code '"+codeString+"'");
+        }
+    public String toCode(MedicationStatus code) {
+      if (code == MedicationStatus.ACTIVE)
+        return "active";
+      if (code == MedicationStatus.INACTIVE)
+        return "inactive";
+      if (code == MedicationStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(MedicationStatus code) {
+      return code.getSystem();
+      }
+    }
 
     @Block()
     public static class MedicationProductComponent extends BackboneElement implements IBaseBackboneElement {
@@ -357,13 +465,20 @@ public class Medication extends DomainResource {
         protected Type item;
 
         /**
+         * Indication of whether this ingredient affects the therapeutic action of the drug.
+         */
+        @Child(name = "isActive", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Active ingredient indicator", formalDefinition="Indication of whether this ingredient affects the therapeutic action of the drug." )
+        protected BooleanType isActive;
+
+        /**
          * Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.
          */
-        @Child(name = "amount", type = {Ratio.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "amount", type = {Ratio.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Quantity of ingredient present", formalDefinition="Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet." )
         protected Ratio amount;
 
-        private static final long serialVersionUID = -651644952L;
+        private static final long serialVersionUID = -1796655982L;
 
     /**
      * Constructor
@@ -426,6 +541,51 @@ public class Medication extends DomainResource {
         }
 
         /**
+         * @return {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
+         */
+        public BooleanType getIsActiveElement() { 
+          if (this.isActive == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationProductIngredientComponent.isActive");
+            else if (Configuration.doAutoCreate())
+              this.isActive = new BooleanType(); // bb
+          return this.isActive;
+        }
+
+        public boolean hasIsActiveElement() { 
+          return this.isActive != null && !this.isActive.isEmpty();
+        }
+
+        public boolean hasIsActive() { 
+          return this.isActive != null && !this.isActive.isEmpty();
+        }
+
+        /**
+         * @param value {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
+         */
+        public MedicationProductIngredientComponent setIsActiveElement(BooleanType value) { 
+          this.isActive = value;
+          return this;
+        }
+
+        /**
+         * @return Indication of whether this ingredient affects the therapeutic action of the drug.
+         */
+        public boolean getIsActive() { 
+          return this.isActive == null || this.isActive.isEmpty() ? false : this.isActive.getValue();
+        }
+
+        /**
+         * @param value Indication of whether this ingredient affects the therapeutic action of the drug.
+         */
+        public MedicationProductIngredientComponent setIsActive(boolean value) { 
+            if (this.isActive == null)
+              this.isActive = new BooleanType();
+            this.isActive.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.)
          */
         public Ratio getAmount() { 
@@ -452,6 +612,7 @@ public class Medication extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("item[x]", "CodeableConcept|Reference(Substance|Medication)", "The actual ingredient - either a substance (simple ingredient) or another medication.", 0, java.lang.Integer.MAX_VALUE, item));
+          childrenList.add(new Property("isActive", "boolean", "Indication of whether this ingredient affects the therapeutic action of the drug.", 0, java.lang.Integer.MAX_VALUE, isActive));
           childrenList.add(new Property("amount", "Ratio", "Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.", 0, java.lang.Integer.MAX_VALUE, amount));
         }
 
@@ -459,6 +620,7 @@ public class Medication extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3242771: /*item*/ return this.item == null ? new Base[0] : new Base[] {this.item}; // Type
+        case -748916528: /*isActive*/ return this.isActive == null ? new Base[0] : new Base[] {this.isActive}; // BooleanType
         case -1413853096: /*amount*/ return this.amount == null ? new Base[0] : new Base[] {this.amount}; // Ratio
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -470,6 +632,9 @@ public class Medication extends DomainResource {
         switch (hash) {
         case 3242771: // item
           this.item = castToType(value); // Type
+          return value;
+        case -748916528: // isActive
+          this.isActive = castToBoolean(value); // BooleanType
           return value;
         case -1413853096: // amount
           this.amount = castToRatio(value); // Ratio
@@ -483,6 +648,8 @@ public class Medication extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("item[x]")) {
           this.item = castToType(value); // Type
+        } else if (name.equals("isActive")) {
+          this.isActive = castToBoolean(value); // BooleanType
         } else if (name.equals("amount")) {
           this.amount = castToRatio(value); // Ratio
         } else
@@ -495,6 +662,7 @@ public class Medication extends DomainResource {
         switch (hash) {
         case 2116201613:  return getItem(); 
         case 3242771:  return getItem(); 
+        case -748916528:  return getIsActiveElement();
         case -1413853096:  return getAmount(); 
         default: return super.makeProperty(hash, name);
         }
@@ -505,6 +673,7 @@ public class Medication extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3242771: /*item*/ return new String[] {"CodeableConcept", "Reference"};
+        case -748916528: /*isActive*/ return new String[] {"boolean"};
         case -1413853096: /*amount*/ return new String[] {"Ratio"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -521,6 +690,9 @@ public class Medication extends DomainResource {
           this.item = new Reference();
           return this.item;
         }
+        else if (name.equals("isActive")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Medication.isActive");
+        }
         else if (name.equals("amount")) {
           this.amount = new Ratio();
           return this.amount;
@@ -533,6 +705,7 @@ public class Medication extends DomainResource {
         MedicationProductIngredientComponent dst = new MedicationProductIngredientComponent();
         copyValues(dst);
         dst.item = item == null ? null : item.copy();
+        dst.isActive = isActive == null ? null : isActive.copy();
         dst.amount = amount == null ? null : amount.copy();
         return dst;
       }
@@ -544,7 +717,8 @@ public class Medication extends DomainResource {
         if (!(other instanceof MedicationProductIngredientComponent))
           return false;
         MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
-        return compareDeep(item, o.item, true) && compareDeep(amount, o.amount, true);
+        return compareDeep(item, o.item, true) && compareDeep(isActive, o.isActive, true) && compareDeep(amount, o.amount, true)
+          ;
       }
 
       @Override
@@ -554,11 +728,11 @@ public class Medication extends DomainResource {
         if (!(other instanceof MedicationProductIngredientComponent))
           return false;
         MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
-        return true;
+        return compareValues(isActive, o.isActive, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, amount);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(item, isActive, amount);
       }
 
   public String fhirType() {
@@ -1256,16 +1430,31 @@ public class Medication extends DomainResource {
     protected CodeableConcept code;
 
     /**
+     * A code to iindicate if the medication is in active use.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to iindicate if the medication is in active use." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-status")
+    protected Enumeration<MedicationStatus> status;
+
+    /**
      * Set to true if the item is attributable to a specific manufacturer.
      */
-    @Child(name = "isBrand", type = {BooleanType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "isBrand", type = {BooleanType.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="True if a brand", formalDefinition="Set to true if the item is attributable to a specific manufacturer." )
     protected BooleanType isBrand;
 
     /**
+     * Set to true if the medication can be obtained without an order from a prescriber.
+     */
+    @Child(name = "isOverTheCounter", type = {BooleanType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="True if medication does not require a prescription", formalDefinition="Set to true if the medication can be obtained without an order from a prescriber." )
+    protected BooleanType isOverTheCounter;
+
+    /**
      * Describes the details of the manufacturer.
      */
-    @Child(name = "manufacturer", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "manufacturer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Manufacturer of the item", formalDefinition="Describes the details of the manufacturer." )
     protected Reference manufacturer;
 
@@ -1277,18 +1466,25 @@ public class Medication extends DomainResource {
     /**
      * Information that only applies to products (not packages).
      */
-    @Child(name = "product", type = {}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "product", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Administrable medication details", formalDefinition="Information that only applies to products (not packages)." )
     protected MedicationProductComponent product;
 
     /**
      * Information that only applies to packages (not products).
      */
-    @Child(name = "package", type = {}, order=4, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "package", type = {}, order=6, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationPackageComponent package_;
 
-    private static final long serialVersionUID = 859308699L;
+    /**
+     * Photo(s) or graphic representation(s) of the medication.
+     */
+    @Child(name = "image", type = {Attachment.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Image of medication", formalDefinition="Photo(s) or graphic representation(s) of the medication." )
+    protected List<Attachment> image;
+
+    private static final long serialVersionUID = -157282746L;
 
   /**
    * Constructor
@@ -1318,6 +1514,55 @@ public class Medication extends DomainResource {
      */
     public Medication setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (A code to iindicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<MedicationStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Medication.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<MedicationStatus>(new MedicationStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (A code to iindicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Medication setStatusElement(Enumeration<MedicationStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return A code to iindicate if the medication is in active use.
+     */
+    public MedicationStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value A code to iindicate if the medication is in active use.
+     */
+    public Medication setStatus(MedicationStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<MedicationStatus>(new MedicationStatusEnumFactory());
+        this.status.setValue(value);
+      }
       return this;
     }
 
@@ -1363,6 +1608,51 @@ public class Medication extends DomainResource {
         if (this.isBrand == null)
           this.isBrand = new BooleanType();
         this.isBrand.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #isOverTheCounter} (Set to true if the medication can be obtained without an order from a prescriber.). This is the underlying object with id, value and extensions. The accessor "getIsOverTheCounter" gives direct access to the value
+     */
+    public BooleanType getIsOverTheCounterElement() { 
+      if (this.isOverTheCounter == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Medication.isOverTheCounter");
+        else if (Configuration.doAutoCreate())
+          this.isOverTheCounter = new BooleanType(); // bb
+      return this.isOverTheCounter;
+    }
+
+    public boolean hasIsOverTheCounterElement() { 
+      return this.isOverTheCounter != null && !this.isOverTheCounter.isEmpty();
+    }
+
+    public boolean hasIsOverTheCounter() { 
+      return this.isOverTheCounter != null && !this.isOverTheCounter.isEmpty();
+    }
+
+    /**
+     * @param value {@link #isOverTheCounter} (Set to true if the medication can be obtained without an order from a prescriber.). This is the underlying object with id, value and extensions. The accessor "getIsOverTheCounter" gives direct access to the value
+     */
+    public Medication setIsOverTheCounterElement(BooleanType value) { 
+      this.isOverTheCounter = value;
+      return this;
+    }
+
+    /**
+     * @return Set to true if the medication can be obtained without an order from a prescriber.
+     */
+    public boolean getIsOverTheCounter() { 
+      return this.isOverTheCounter == null || this.isOverTheCounter.isEmpty() ? false : this.isOverTheCounter.getValue();
+    }
+
+    /**
+     * @param value Set to true if the medication can be obtained without an order from a prescriber.
+     */
+    public Medication setIsOverTheCounter(boolean value) { 
+        if (this.isOverTheCounter == null)
+          this.isOverTheCounter = new BooleanType();
+        this.isOverTheCounter.setValue(value);
       return this;
     }
 
@@ -1458,23 +1748,82 @@ public class Medication extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #image} (Photo(s) or graphic representation(s) of the medication.)
+     */
+    public List<Attachment> getImage() { 
+      if (this.image == null)
+        this.image = new ArrayList<Attachment>();
+      return this.image;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Medication setImage(List<Attachment> theImage) { 
+      this.image = theImage;
+      return this;
+    }
+
+    public boolean hasImage() { 
+      if (this.image == null)
+        return false;
+      for (Attachment item : this.image)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Attachment addImage() { //3
+      Attachment t = new Attachment();
+      if (this.image == null)
+        this.image = new ArrayList<Attachment>();
+      this.image.add(t);
+      return t;
+    }
+
+    public Medication addImage(Attachment t) { //3
+      if (t == null)
+        return this;
+      if (this.image == null)
+        this.image = new ArrayList<Attachment>();
+      this.image.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #image}, creating it if it does not already exist
+     */
+    public Attachment getImageFirstRep() { 
+      if (getImage().isEmpty()) {
+        addImage();
+      }
+      return getImage().get(0);
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("status", "code", "A code to iindicate if the medication is in active use.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer.", 0, java.lang.Integer.MAX_VALUE, isBrand));
+        childrenList.add(new Property("isOverTheCounter", "boolean", "Set to true if the medication can be obtained without an order from a prescriber.", 0, java.lang.Integer.MAX_VALUE, isOverTheCounter));
         childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
         childrenList.add(new Property("product", "", "Information that only applies to products (not packages).", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("package", "", "Information that only applies to packages (not products).", 0, java.lang.Integer.MAX_VALUE, package_));
+        childrenList.add(new Property("image", "Attachment", "Photo(s) or graphic representation(s) of the medication.", 0, java.lang.Integer.MAX_VALUE, image));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatus>
         case 2055403645: /*isBrand*/ return this.isBrand == null ? new Base[0] : new Base[] {this.isBrand}; // BooleanType
+        case -650796023: /*isOverTheCounter*/ return this.isOverTheCounter == null ? new Base[0] : new Base[] {this.isOverTheCounter}; // BooleanType
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // MedicationProductComponent
         case -807062458: /*package*/ return this.package_ == null ? new Base[0] : new Base[] {this.package_}; // MedicationPackageComponent
+        case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1486,8 +1835,15 @@ public class Medication extends DomainResource {
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
           return value;
+        case -892481550: // status
+          value = new MedicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MedicationStatus>
+          return value;
         case 2055403645: // isBrand
           this.isBrand = castToBoolean(value); // BooleanType
+          return value;
+        case -650796023: // isOverTheCounter
+          this.isOverTheCounter = castToBoolean(value); // BooleanType
           return value;
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
@@ -1498,6 +1854,9 @@ public class Medication extends DomainResource {
         case -807062458: // package
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
           return value;
+        case 100313435: // image
+          this.getImage().add(castToAttachment(value)); // Attachment
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1507,14 +1866,21 @@ public class Medication extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("status")) {
+          value = new MedicationStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<MedicationStatus>
         } else if (name.equals("isBrand")) {
           this.isBrand = castToBoolean(value); // BooleanType
+        } else if (name.equals("isOverTheCounter")) {
+          this.isOverTheCounter = castToBoolean(value); // BooleanType
         } else if (name.equals("manufacturer")) {
           this.manufacturer = castToReference(value); // Reference
         } else if (name.equals("product")) {
           this.product = (MedicationProductComponent) value; // MedicationProductComponent
         } else if (name.equals("package")) {
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
+        } else if (name.equals("image")) {
+          this.getImage().add(castToAttachment(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1524,10 +1890,13 @@ public class Medication extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181:  return getCode(); 
+        case -892481550:  return getStatusElement();
         case 2055403645:  return getIsBrandElement();
+        case -650796023:  return getIsOverTheCounterElement();
         case -1969347631:  return getManufacturer(); 
         case -309474065:  return getProduct(); 
         case -807062458:  return getPackage(); 
+        case 100313435:  return addImage(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1537,10 +1906,13 @@ public class Medication extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case 2055403645: /*isBrand*/ return new String[] {"boolean"};
+        case -650796023: /*isOverTheCounter*/ return new String[] {"boolean"};
         case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
         case -309474065: /*product*/ return new String[] {};
         case -807062458: /*package*/ return new String[] {};
+        case 100313435: /*image*/ return new String[] {"Attachment"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1552,8 +1924,14 @@ public class Medication extends DomainResource {
           this.code = new CodeableConcept();
           return this.code;
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Medication.status");
+        }
         else if (name.equals("isBrand")) {
           throw new FHIRException("Cannot call addChild on a primitive type Medication.isBrand");
+        }
+        else if (name.equals("isOverTheCounter")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Medication.isOverTheCounter");
         }
         else if (name.equals("manufacturer")) {
           this.manufacturer = new Reference();
@@ -1566,6 +1944,9 @@ public class Medication extends DomainResource {
         else if (name.equals("package")) {
           this.package_ = new MedicationPackageComponent();
           return this.package_;
+        }
+        else if (name.equals("image")) {
+          return addImage();
         }
         else
           return super.addChild(name);
@@ -1580,10 +1961,17 @@ public class Medication extends DomainResource {
         Medication dst = new Medication();
         copyValues(dst);
         dst.code = code == null ? null : code.copy();
+        dst.status = status == null ? null : status.copy();
         dst.isBrand = isBrand == null ? null : isBrand.copy();
+        dst.isOverTheCounter = isOverTheCounter == null ? null : isOverTheCounter.copy();
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
         dst.product = product == null ? null : product.copy();
         dst.package_ = package_ == null ? null : package_.copy();
+        if (image != null) {
+          dst.image = new ArrayList<Attachment>();
+          for (Attachment i : image)
+            dst.image.add(i.copy());
+        };
         return dst;
       }
 
@@ -1598,8 +1986,10 @@ public class Medication extends DomainResource {
         if (!(other instanceof Medication))
           return false;
         Medication o = (Medication) other;
-        return compareDeep(code, o.code, true) && compareDeep(isBrand, o.isBrand, true) && compareDeep(manufacturer, o.manufacturer, true)
-           && compareDeep(product, o.product, true) && compareDeep(package_, o.package_, true);
+        return compareDeep(code, o.code, true) && compareDeep(status, o.status, true) && compareDeep(isBrand, o.isBrand, true)
+           && compareDeep(isOverTheCounter, o.isOverTheCounter, true) && compareDeep(manufacturer, o.manufacturer, true)
+           && compareDeep(product, o.product, true) && compareDeep(package_, o.package_, true) && compareDeep(image, o.image, true)
+          ;
       }
 
       @Override
@@ -1609,12 +1999,13 @@ public class Medication extends DomainResource {
         if (!(other instanceof Medication))
           return false;
         Medication o = (Medication) other;
-        return compareValues(isBrand, o.isBrand, true);
+        return compareValues(status, o.status, true) && compareValues(isBrand, o.isBrand, true) && compareValues(isOverTheCounter, o.isOverTheCounter, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, isBrand, manufacturer
-          , product, package_);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, status, isBrand, isOverTheCounter
+          , manufacturer, product, package_, image);
       }
 
   @Override
@@ -1799,6 +2190,46 @@ public class Medication extends DomainResource {
    * the path value of "<b>Medication:manufacturer</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_MANUFACTURER = new ca.uhn.fhir.model.api.Include("Medication:manufacturer").toLocked();
+
+ /**
+   * Search parameter: <b>over-the-counter</b>
+   * <p>
+   * Description: <b>True if medication does not require a prescription</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.isOverTheCounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="over-the-counter", path="Medication.isOverTheCounter", description="True if medication does not require a prescription", type="token" )
+  public static final String SP_OVER_THE_COUNTER = "over-the-counter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>over-the-counter</b>
+   * <p>
+   * Description: <b>True if medication does not require a prescription</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.isOverTheCounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OVER_THE_COUNTER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OVER_THE_COUNTER);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>active | inactive | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Medication.status", description="active | inactive | entered-in-error", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>active | inactive | entered-in-error</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Medication.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

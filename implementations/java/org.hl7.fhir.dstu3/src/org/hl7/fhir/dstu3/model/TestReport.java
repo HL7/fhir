@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -51,17 +51,25 @@ public class TestReport extends DomainResource {
 
     public enum TestReportStatus {
         /**
-         * The TestReport is complete.
+         * All test operations have completed
          */
-        COMPLETE, 
+        COMPLETED, 
         /**
-         * The TestReport is pending.
+         * A test operations is currently executing
          */
-        PENDING, 
+        INPROGRESS, 
         /**
-         * The TestReport failed with an error.
+         * A test operation is waiting for an external client request
          */
-        ERROR, 
+        WAITING, 
+        /**
+         * The test script execution was manually stopped
+         */
+        STOPPED, 
+        /**
+         * This test report was entered or created in error
+         */
+        ENTEREDINERROR, 
         /**
          * added to help the parsers with the generic types
          */
@@ -69,12 +77,16 @@ public class TestReport extends DomainResource {
         public static TestReportStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("complete".equals(codeString))
-          return COMPLETE;
-        if ("pending".equals(codeString))
-          return PENDING;
-        if ("error".equals(codeString))
-          return ERROR;
+        if ("completed".equals(codeString))
+          return COMPLETED;
+        if ("in-progress".equals(codeString))
+          return INPROGRESS;
+        if ("waiting".equals(codeString))
+          return WAITING;
+        if ("stopped".equals(codeString))
+          return STOPPED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -82,33 +94,41 @@ public class TestReport extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case PENDING: return "pending";
-            case ERROR: return "error";
+            case COMPLETED: return "completed";
+            case INPROGRESS: return "in-progress";
+            case WAITING: return "waiting";
+            case STOPPED: return "stopped";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case COMPLETE: return "http://hl7.org/fhir/report-status-codes";
-            case PENDING: return "http://hl7.org/fhir/report-status-codes";
-            case ERROR: return "http://hl7.org/fhir/report-status-codes";
+            case COMPLETED: return "http://hl7.org/fhir/report-status-codes";
+            case INPROGRESS: return "http://hl7.org/fhir/report-status-codes";
+            case WAITING: return "http://hl7.org/fhir/report-status-codes";
+            case STOPPED: return "http://hl7.org/fhir/report-status-codes";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/report-status-codes";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case COMPLETE: return "The TestReport is complete.";
-            case PENDING: return "The TestReport is pending.";
-            case ERROR: return "The TestReport failed with an error.";
+            case COMPLETED: return "All test operations have completed";
+            case INPROGRESS: return "A test operations is currently executing";
+            case WAITING: return "A test operation is waiting for an external client request";
+            case STOPPED: return "The test script execution was manually stopped";
+            case ENTEREDINERROR: return "This test report was entered or created in error";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case COMPLETE: return "complete";
-            case PENDING: return "pending";
-            case ERROR: return "error";
+            case COMPLETED: return "Completed";
+            case INPROGRESS: return "In Progress";
+            case WAITING: return "Waiting";
+            case STOPPED: return "Stopped";
+            case ENTEREDINERROR: return "Entered In Error";
             default: return "?";
           }
         }
@@ -119,12 +139,16 @@ public class TestReport extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("complete".equals(codeString))
-          return TestReportStatus.COMPLETE;
-        if ("pending".equals(codeString))
-          return TestReportStatus.PENDING;
-        if ("error".equals(codeString))
-          return TestReportStatus.ERROR;
+        if ("completed".equals(codeString))
+          return TestReportStatus.COMPLETED;
+        if ("in-progress".equals(codeString))
+          return TestReportStatus.INPROGRESS;
+        if ("waiting".equals(codeString))
+          return TestReportStatus.WAITING;
+        if ("stopped".equals(codeString))
+          return TestReportStatus.STOPPED;
+        if ("entered-in-error".equals(codeString))
+          return TestReportStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown TestReportStatus code '"+codeString+"'");
         }
         public Enumeration<TestReportStatus> fromType(Base code) throws FHIRException {
@@ -135,24 +159,140 @@ public class TestReport extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("complete".equals(codeString))
-          return new Enumeration<TestReportStatus>(this, TestReportStatus.COMPLETE);
-        if ("pending".equals(codeString))
-          return new Enumeration<TestReportStatus>(this, TestReportStatus.PENDING);
-        if ("error".equals(codeString))
-          return new Enumeration<TestReportStatus>(this, TestReportStatus.ERROR);
+        if ("completed".equals(codeString))
+          return new Enumeration<TestReportStatus>(this, TestReportStatus.COMPLETED);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<TestReportStatus>(this, TestReportStatus.INPROGRESS);
+        if ("waiting".equals(codeString))
+          return new Enumeration<TestReportStatus>(this, TestReportStatus.WAITING);
+        if ("stopped".equals(codeString))
+          return new Enumeration<TestReportStatus>(this, TestReportStatus.STOPPED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<TestReportStatus>(this, TestReportStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown TestReportStatus code '"+codeString+"'");
         }
     public String toCode(TestReportStatus code) {
-      if (code == TestReportStatus.COMPLETE)
-        return "complete";
-      if (code == TestReportStatus.PENDING)
-        return "pending";
-      if (code == TestReportStatus.ERROR)
-        return "error";
+      if (code == TestReportStatus.COMPLETED)
+        return "completed";
+      if (code == TestReportStatus.INPROGRESS)
+        return "in-progress";
+      if (code == TestReportStatus.WAITING)
+        return "waiting";
+      if (code == TestReportStatus.STOPPED)
+        return "stopped";
+      if (code == TestReportStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(TestReportStatus code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum TestReportResult {
+        /**
+         * All test operations successfully passed all asserts
+         */
+        PASS, 
+        /**
+         * One or more test operations failed one or more asserts
+         */
+        FAIL, 
+        /**
+         * One or more test operations is pending execution completion
+         */
+        PENDING, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static TestReportResult fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("pass".equals(codeString))
+          return PASS;
+        if ("fail".equals(codeString))
+          return FAIL;
+        if ("pending".equals(codeString))
+          return PENDING;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown TestReportResult code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PASS: return "pass";
+            case FAIL: return "fail";
+            case PENDING: return "pending";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PASS: return "http://hl7.org/fhir/report-result-codes";
+            case FAIL: return "http://hl7.org/fhir/report-result-codes";
+            case PENDING: return "http://hl7.org/fhir/report-result-codes";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PASS: return "All test operations successfully passed all asserts";
+            case FAIL: return "One or more test operations failed one or more asserts";
+            case PENDING: return "One or more test operations is pending execution completion";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PASS: return "Pass";
+            case FAIL: return "Fail";
+            case PENDING: return "Pending";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class TestReportResultEnumFactory implements EnumFactory<TestReportResult> {
+    public TestReportResult fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("pass".equals(codeString))
+          return TestReportResult.PASS;
+        if ("fail".equals(codeString))
+          return TestReportResult.FAIL;
+        if ("pending".equals(codeString))
+          return TestReportResult.PENDING;
+        throw new IllegalArgumentException("Unknown TestReportResult code '"+codeString+"'");
+        }
+        public Enumeration<TestReportResult> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<TestReportResult>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("pass".equals(codeString))
+          return new Enumeration<TestReportResult>(this, TestReportResult.PASS);
+        if ("fail".equals(codeString))
+          return new Enumeration<TestReportResult>(this, TestReportResult.FAIL);
+        if ("pending".equals(codeString))
+          return new Enumeration<TestReportResult>(this, TestReportResult.PENDING);
+        throw new FHIRException("Unknown TestReportResult code '"+codeString+"'");
+        }
+    public String toCode(TestReportResult code) {
+      if (code == TestReportResult.PASS)
+        return "pass";
+      if (code == TestReportResult.FAIL)
+        return "fail";
+      if (code == TestReportResult.PENDING)
+        return "pending";
+      return "?";
+      }
+    public String toSystem(TestReportResult code) {
       return code.getSystem();
       }
     }
@@ -214,9 +354,9 @@ public class TestReport extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case TESTENGINE: return "test-engine";
-            case CLIENT: return "client";
-            case SERVER: return "server";
+            case TESTENGINE: return "Test Engine";
+            case CLIENT: return "Client";
+            case SERVER: return "Server";
             default: return "?";
           }
         }
@@ -265,7 +405,7 @@ public class TestReport extends DomainResource {
       }
     }
 
-    public enum TestReportResultCodes {
+    public enum TestReportActionResult {
         /**
          * The action was successful.
          */
@@ -290,7 +430,7 @@ public class TestReport extends DomainResource {
          * added to help the parsers with the generic types
          */
         NULL;
-        public static TestReportResultCodes fromCode(String codeString) throws FHIRException {
+        public static TestReportActionResult fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("pass".equals(codeString))
@@ -306,7 +446,7 @@ public class TestReport extends DomainResource {
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown TestReportResultCodes code '"+codeString+"'");
+          throw new FHIRException("Unknown TestReportActionResult code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
@@ -320,11 +460,11 @@ public class TestReport extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PASS: return "http://hl7.org/fhir/report-result-codes";
-            case SKIP: return "http://hl7.org/fhir/report-result-codes";
-            case FAIL: return "http://hl7.org/fhir/report-result-codes";
-            case WARNING: return "http://hl7.org/fhir/report-result-codes";
-            case ERROR: return "http://hl7.org/fhir/report-result-codes";
+            case PASS: return "http://hl7.org/fhir/report-action-result-codes";
+            case SKIP: return "http://hl7.org/fhir/report-action-result-codes";
+            case FAIL: return "http://hl7.org/fhir/report-action-result-codes";
+            case WARNING: return "http://hl7.org/fhir/report-action-result-codes";
+            case ERROR: return "http://hl7.org/fhir/report-action-result-codes";
             default: return "?";
           }
         }
@@ -340,67 +480,67 @@ public class TestReport extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
-            case PASS: return "pass";
-            case SKIP: return "skip";
-            case FAIL: return "fail";
-            case WARNING: return "warning";
-            case ERROR: return "error";
+            case PASS: return "Pass";
+            case SKIP: return "Skip";
+            case FAIL: return "Fail";
+            case WARNING: return "Warning";
+            case ERROR: return "Error";
             default: return "?";
           }
         }
     }
 
-  public static class TestReportResultCodesEnumFactory implements EnumFactory<TestReportResultCodes> {
-    public TestReportResultCodes fromCode(String codeString) throws IllegalArgumentException {
+  public static class TestReportActionResultEnumFactory implements EnumFactory<TestReportActionResult> {
+    public TestReportActionResult fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("pass".equals(codeString))
-          return TestReportResultCodes.PASS;
+          return TestReportActionResult.PASS;
         if ("skip".equals(codeString))
-          return TestReportResultCodes.SKIP;
+          return TestReportActionResult.SKIP;
         if ("fail".equals(codeString))
-          return TestReportResultCodes.FAIL;
+          return TestReportActionResult.FAIL;
         if ("warning".equals(codeString))
-          return TestReportResultCodes.WARNING;
+          return TestReportActionResult.WARNING;
         if ("error".equals(codeString))
-          return TestReportResultCodes.ERROR;
-        throw new IllegalArgumentException("Unknown TestReportResultCodes code '"+codeString+"'");
+          return TestReportActionResult.ERROR;
+        throw new IllegalArgumentException("Unknown TestReportActionResult code '"+codeString+"'");
         }
-        public Enumeration<TestReportResultCodes> fromType(Base code) throws FHIRException {
+        public Enumeration<TestReportActionResult> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<TestReportResultCodes>(this);
+            return new Enumeration<TestReportActionResult>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("pass".equals(codeString))
-          return new Enumeration<TestReportResultCodes>(this, TestReportResultCodes.PASS);
+          return new Enumeration<TestReportActionResult>(this, TestReportActionResult.PASS);
         if ("skip".equals(codeString))
-          return new Enumeration<TestReportResultCodes>(this, TestReportResultCodes.SKIP);
+          return new Enumeration<TestReportActionResult>(this, TestReportActionResult.SKIP);
         if ("fail".equals(codeString))
-          return new Enumeration<TestReportResultCodes>(this, TestReportResultCodes.FAIL);
+          return new Enumeration<TestReportActionResult>(this, TestReportActionResult.FAIL);
         if ("warning".equals(codeString))
-          return new Enumeration<TestReportResultCodes>(this, TestReportResultCodes.WARNING);
+          return new Enumeration<TestReportActionResult>(this, TestReportActionResult.WARNING);
         if ("error".equals(codeString))
-          return new Enumeration<TestReportResultCodes>(this, TestReportResultCodes.ERROR);
-        throw new FHIRException("Unknown TestReportResultCodes code '"+codeString+"'");
+          return new Enumeration<TestReportActionResult>(this, TestReportActionResult.ERROR);
+        throw new FHIRException("Unknown TestReportActionResult code '"+codeString+"'");
         }
-    public String toCode(TestReportResultCodes code) {
-      if (code == TestReportResultCodes.PASS)
+    public String toCode(TestReportActionResult code) {
+      if (code == TestReportActionResult.PASS)
         return "pass";
-      if (code == TestReportResultCodes.SKIP)
+      if (code == TestReportActionResult.SKIP)
         return "skip";
-      if (code == TestReportResultCodes.FAIL)
+      if (code == TestReportActionResult.FAIL)
         return "fail";
-      if (code == TestReportResultCodes.WARNING)
+      if (code == TestReportActionResult.WARNING)
         return "warning";
-      if (code == TestReportResultCodes.ERROR)
+      if (code == TestReportActionResult.ERROR)
         return "error";
       return "?";
       }
-    public String toSystem(TestReportResultCodes code) {
+    public String toSystem(TestReportActionResult code) {
       return code.getSystem();
       }
     }
@@ -1083,8 +1223,8 @@ public class TestReport extends DomainResource {
          */
         @Child(name = "result", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="pass | skip | fail | warning | error", formalDefinition="The result of this operation." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-result-codes")
-        protected Enumeration<TestReportResultCodes> result;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-action-result-codes")
+        protected Enumeration<TestReportActionResult> result;
 
         /**
          * An explanatory message associated with the result.
@@ -1100,7 +1240,7 @@ public class TestReport extends DomainResource {
         @Description(shortDefinition="A link to further details on the result", formalDefinition="A link to further details on the result." )
         protected UriType detail;
 
-        private static final long serialVersionUID = -1578546366L;
+        private static final long serialVersionUID = 269088798L;
 
     /**
      * Constructor
@@ -1112,7 +1252,7 @@ public class TestReport extends DomainResource {
     /**
      * Constructor
      */
-      public SetupActionOperationComponent(Enumeration<TestReportResultCodes> result) {
+      public SetupActionOperationComponent(Enumeration<TestReportActionResult> result) {
         super();
         this.result = result;
       }
@@ -1120,12 +1260,12 @@ public class TestReport extends DomainResource {
         /**
          * @return {@link #result} (The result of this operation.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
          */
-        public Enumeration<TestReportResultCodes> getResultElement() { 
+        public Enumeration<TestReportActionResult> getResultElement() { 
           if (this.result == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionOperationComponent.result");
             else if (Configuration.doAutoCreate())
-              this.result = new Enumeration<TestReportResultCodes>(new TestReportResultCodesEnumFactory()); // bb
+              this.result = new Enumeration<TestReportActionResult>(new TestReportActionResultEnumFactory()); // bb
           return this.result;
         }
 
@@ -1140,7 +1280,7 @@ public class TestReport extends DomainResource {
         /**
          * @param value {@link #result} (The result of this operation.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
          */
-        public SetupActionOperationComponent setResultElement(Enumeration<TestReportResultCodes> value) { 
+        public SetupActionOperationComponent setResultElement(Enumeration<TestReportActionResult> value) { 
           this.result = value;
           return this;
         }
@@ -1148,16 +1288,16 @@ public class TestReport extends DomainResource {
         /**
          * @return The result of this operation.
          */
-        public TestReportResultCodes getResult() { 
+        public TestReportActionResult getResult() { 
           return this.result == null ? null : this.result.getValue();
         }
 
         /**
          * @param value The result of this operation.
          */
-        public SetupActionOperationComponent setResult(TestReportResultCodes value) { 
+        public SetupActionOperationComponent setResult(TestReportActionResult value) { 
             if (this.result == null)
-              this.result = new Enumeration<TestReportResultCodes>(new TestReportResultCodesEnumFactory());
+              this.result = new Enumeration<TestReportActionResult>(new TestReportActionResultEnumFactory());
             this.result.setValue(value);
           return this;
         }
@@ -1270,7 +1410,7 @@ public class TestReport extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Enumeration<TestReportResultCodes>
+        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Enumeration<TestReportActionResult>
         case 954925063: /*message*/ return this.message == null ? new Base[0] : new Base[] {this.message}; // MarkdownType
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : new Base[] {this.detail}; // UriType
         default: return super.getProperty(hash, name, checkValid);
@@ -1282,8 +1422,8 @@ public class TestReport extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
-          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
-          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+          value = new TestReportActionResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportActionResult>
           return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
@@ -1299,8 +1439,8 @@ public class TestReport extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result")) {
-          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
-          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+          value = new TestReportActionResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportActionResult>
         } else if (name.equals("message")) {
           this.message = castToMarkdown(value); // MarkdownType
         } else if (name.equals("detail")) {
@@ -1397,8 +1537,8 @@ public class TestReport extends DomainResource {
          */
         @Child(name = "result", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="pass | skip | fail | warning | error", formalDefinition="The result of this assertion." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-result-codes")
-        protected Enumeration<TestReportResultCodes> result;
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-action-result-codes")
+        protected Enumeration<TestReportActionResult> result;
 
         /**
          * An explanatory message associated with the result.
@@ -1414,7 +1554,7 @@ public class TestReport extends DomainResource {
         @Description(shortDefinition="A link to further details on the result", formalDefinition="A link to further details on the result." )
         protected StringType detail;
 
-        private static final long serialVersionUID = 1869663005L;
+        private static final long serialVersionUID = 467968193L;
 
     /**
      * Constructor
@@ -1426,7 +1566,7 @@ public class TestReport extends DomainResource {
     /**
      * Constructor
      */
-      public SetupActionAssertComponent(Enumeration<TestReportResultCodes> result) {
+      public SetupActionAssertComponent(Enumeration<TestReportActionResult> result) {
         super();
         this.result = result;
       }
@@ -1434,12 +1574,12 @@ public class TestReport extends DomainResource {
         /**
          * @return {@link #result} (The result of this assertion.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
          */
-        public Enumeration<TestReportResultCodes> getResultElement() { 
+        public Enumeration<TestReportActionResult> getResultElement() { 
           if (this.result == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SetupActionAssertComponent.result");
             else if (Configuration.doAutoCreate())
-              this.result = new Enumeration<TestReportResultCodes>(new TestReportResultCodesEnumFactory()); // bb
+              this.result = new Enumeration<TestReportActionResult>(new TestReportActionResultEnumFactory()); // bb
           return this.result;
         }
 
@@ -1454,7 +1594,7 @@ public class TestReport extends DomainResource {
         /**
          * @param value {@link #result} (The result of this assertion.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
          */
-        public SetupActionAssertComponent setResultElement(Enumeration<TestReportResultCodes> value) { 
+        public SetupActionAssertComponent setResultElement(Enumeration<TestReportActionResult> value) { 
           this.result = value;
           return this;
         }
@@ -1462,16 +1602,16 @@ public class TestReport extends DomainResource {
         /**
          * @return The result of this assertion.
          */
-        public TestReportResultCodes getResult() { 
+        public TestReportActionResult getResult() { 
           return this.result == null ? null : this.result.getValue();
         }
 
         /**
          * @param value The result of this assertion.
          */
-        public SetupActionAssertComponent setResult(TestReportResultCodes value) { 
+        public SetupActionAssertComponent setResult(TestReportActionResult value) { 
             if (this.result == null)
-              this.result = new Enumeration<TestReportResultCodes>(new TestReportResultCodesEnumFactory());
+              this.result = new Enumeration<TestReportActionResult>(new TestReportActionResultEnumFactory());
             this.result.setValue(value);
           return this;
         }
@@ -1584,7 +1724,7 @@ public class TestReport extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Enumeration<TestReportResultCodes>
+        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Enumeration<TestReportActionResult>
         case 954925063: /*message*/ return this.message == null ? new Base[0] : new Base[] {this.message}; // MarkdownType
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : new Base[] {this.detail}; // StringType
         default: return super.getProperty(hash, name, checkValid);
@@ -1596,8 +1736,8 @@ public class TestReport extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -934426595: // result
-          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
-          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+          value = new TestReportActionResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportActionResult>
           return value;
         case 954925063: // message
           this.message = castToMarkdown(value); // MarkdownType
@@ -1613,8 +1753,8 @@ public class TestReport extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("result")) {
-          value = new TestReportResultCodesEnumFactory().fromType(castToCode(value));
-          this.result = (Enumeration) value; // Enumeration<TestReportResultCodes>
+          value = new TestReportActionResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportActionResult>
         } else if (name.equals("message")) {
           this.message = castToMarkdown(value); // MarkdownType
         } else if (name.equals("detail")) {
@@ -2544,9 +2684,17 @@ public class TestReport extends DomainResource {
     protected StringType name;
 
     /**
+     * The current state of this test report.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="completed | in-progress | waiting | stopped | entered-in-error", formalDefinition="The current state of this test report." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-status-codes")
+    protected Enumeration<TestReportStatus> status;
+
+    /**
      * Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.
      */
-    @Child(name = "testScript", type = {TestScript.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "testScript", type = {TestScript.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reference to the  version-specific TestScript that was executed to produce this TestReport", formalDefinition="Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`." )
     protected Reference testScript;
 
@@ -2556,63 +2704,63 @@ public class TestReport extends DomainResource {
     protected TestScript testScriptTarget;
 
     /**
-     * The status of the TestReport.
+     * The overall result from the execution of the TestScript.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="complete | pending | error", formalDefinition="The status of the TestReport." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-status-codes")
-    protected Enumeration<TestReportStatus> status;
+    @Child(name = "result", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="pass | fail | pending", formalDefinition="The overall result from the execution of the TestScript." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/report-result-codes")
+    protected Enumeration<TestReportResult> result;
 
     /**
      * The final score (percentage of tests passed) resulting from the execution of the TestScript.
      */
-    @Child(name = "score", type = {DecimalType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "score", type = {DecimalType.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript", formalDefinition="The final score (percentage of tests passed) resulting from the execution of the TestScript." )
     protected DecimalType score;
 
     /**
      * Name of the tester producing this report (Organization or individual).
      */
-    @Child(name = "tester", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "tester", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Name of the tester producing this report (Organization or individual)", formalDefinition="Name of the tester producing this report (Organization or individual)." )
     protected StringType tester;
 
     /**
      * When the TestScript was executed and this TestReport was generated.
      */
-    @Child(name = "issued", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "issued", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the TestScript was executed and this TestReport was generated", formalDefinition="When the TestScript was executed and this TestReport was generated." )
     protected DateTimeType issued;
 
     /**
      * A participant in the test execution, either the execution engine, a client, or a server.
      */
-    @Child(name = "participant", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "participant", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A participant in the test execution, either the execution engine, a client, or a server", formalDefinition="A participant in the test execution, either the execution engine, a client, or a server." )
     protected List<TestReportParticipantComponent> participant;
 
     /**
      * The results of the series of required setup operations before the tests were executed.
      */
-    @Child(name = "setup", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "setup", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The results of the series of required setup operations before the tests were executed", formalDefinition="The results of the series of required setup operations before the tests were executed." )
     protected TestReportSetupComponent setup;
 
     /**
      * A test executed from the test script.
      */
-    @Child(name = "test", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "test", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A test executed from the test script", formalDefinition="A test executed from the test script." )
     protected List<TestReportTestComponent> test;
 
     /**
      * The results of the series of operations required to clean up after the all the tests were executed (successfully or otherwise).
      */
-    @Child(name = "teardown", type = {}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "teardown", type = {}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The results of running the series of required clean up steps", formalDefinition="The results of the series of operations required to clean up after the all the tests were executed (successfully or otherwise)." )
     protected TestReportTeardownComponent teardown;
 
-    private static final long serialVersionUID = 1079657773L;
+    private static final long serialVersionUID = 79474516L;
 
   /**
    * Constructor
@@ -2624,10 +2772,11 @@ public class TestReport extends DomainResource {
   /**
    * Constructor
    */
-    public TestReport(Reference testScript, Enumeration<TestReportStatus> status) {
+    public TestReport(Enumeration<TestReportStatus> status, Reference testScript, Enumeration<TestReportResult> result) {
       super();
-      this.testScript = testScript;
       this.status = status;
+      this.testScript = testScript;
+      this.result = result;
     }
 
     /**
@@ -2704,6 +2853,51 @@ public class TestReport extends DomainResource {
     }
 
     /**
+     * @return {@link #status} (The current state of this test report.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<TestReportStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create TestReport.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<TestReportStatus>(new TestReportStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The current state of this test report.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public TestReport setStatusElement(Enumeration<TestReportStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The current state of this test report.
+     */
+    public TestReportStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The current state of this test report.
+     */
+    public TestReport setStatus(TestReportStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<TestReportStatus>(new TestReportStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #testScript} (Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.)
      */
     public Reference getTestScript() { 
@@ -2748,47 +2942,47 @@ public class TestReport extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The status of the TestReport.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #result} (The overall result from the execution of the TestScript.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
      */
-    public Enumeration<TestReportStatus> getStatusElement() { 
-      if (this.status == null)
+    public Enumeration<TestReportResult> getResultElement() { 
+      if (this.result == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create TestReport.status");
+          throw new Error("Attempt to auto-create TestReport.result");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<TestReportStatus>(new TestReportStatusEnumFactory()); // bb
-      return this.status;
+          this.result = new Enumeration<TestReportResult>(new TestReportResultEnumFactory()); // bb
+      return this.result;
     }
 
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
+    public boolean hasResultElement() { 
+      return this.result != null && !this.result.isEmpty();
     }
 
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
+    public boolean hasResult() { 
+      return this.result != null && !this.result.isEmpty();
     }
 
     /**
-     * @param value {@link #status} (The status of the TestReport.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #result} (The overall result from the execution of the TestScript.). This is the underlying object with id, value and extensions. The accessor "getResult" gives direct access to the value
      */
-    public TestReport setStatusElement(Enumeration<TestReportStatus> value) { 
-      this.status = value;
+    public TestReport setResultElement(Enumeration<TestReportResult> value) { 
+      this.result = value;
       return this;
     }
 
     /**
-     * @return The status of the TestReport.
+     * @return The overall result from the execution of the TestScript.
      */
-    public TestReportStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
+    public TestReportResult getResult() { 
+      return this.result == null ? null : this.result.getValue();
     }
 
     /**
-     * @param value The status of the TestReport.
+     * @param value The overall result from the execution of the TestScript.
      */
-    public TestReport setStatus(TestReportStatus value) { 
-        if (this.status == null)
-          this.status = new Enumeration<TestReportStatus>(new TestReportStatusEnumFactory());
-        this.status.setValue(value);
+    public TestReport setResult(TestReportResult value) { 
+        if (this.result == null)
+          this.result = new Enumeration<TestReportResult>(new TestReportResultEnumFactory());
+        this.result.setValue(value);
       return this;
     }
 
@@ -3115,8 +3309,9 @@ public class TestReport extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier for the TestScript assigned for external purposes outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("name", "string", "A free text natural language name identifying the executed TestScript.", 0, java.lang.Integer.MAX_VALUE, name));
+        childrenList.add(new Property("status", "code", "The current state of this test report.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("testScript", "Reference(TestScript)", "Ideally this is an absolute URL that is used to identify the version-specific TestScript that was executed, matching the `TestScript.url`.", 0, java.lang.Integer.MAX_VALUE, testScript));
-        childrenList.add(new Property("status", "code", "The status of the TestReport.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("result", "code", "The overall result from the execution of the TestScript.", 0, java.lang.Integer.MAX_VALUE, result));
         childrenList.add(new Property("score", "decimal", "The final score (percentage of tests passed) resulting from the execution of the TestScript.", 0, java.lang.Integer.MAX_VALUE, score));
         childrenList.add(new Property("tester", "string", "Name of the tester producing this report (Organization or individual).", 0, java.lang.Integer.MAX_VALUE, tester));
         childrenList.add(new Property("issued", "dateTime", "When the TestScript was executed and this TestReport was generated.", 0, java.lang.Integer.MAX_VALUE, issued));
@@ -3131,8 +3326,9 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
-        case 1712049149: /*testScript*/ return this.testScript == null ? new Base[0] : new Base[] {this.testScript}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<TestReportStatus>
+        case 1712049149: /*testScript*/ return this.testScript == null ? new Base[0] : new Base[] {this.testScript}; // Reference
+        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Enumeration<TestReportResult>
         case 109264530: /*score*/ return this.score == null ? new Base[0] : new Base[] {this.score}; // DecimalType
         case -877169473: /*tester*/ return this.tester == null ? new Base[0] : new Base[] {this.tester}; // StringType
         case -1179159893: /*issued*/ return this.issued == null ? new Base[0] : new Base[] {this.issued}; // DateTimeType
@@ -3154,12 +3350,16 @@ public class TestReport extends DomainResource {
         case 3373707: // name
           this.name = castToString(value); // StringType
           return value;
-        case 1712049149: // testScript
-          this.testScript = castToReference(value); // Reference
-          return value;
         case -892481550: // status
           value = new TestReportStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<TestReportStatus>
+          return value;
+        case 1712049149: // testScript
+          this.testScript = castToReference(value); // Reference
+          return value;
+        case -934426595: // result
+          value = new TestReportResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResult>
           return value;
         case 109264530: // score
           this.score = castToDecimal(value); // DecimalType
@@ -3193,11 +3393,14 @@ public class TestReport extends DomainResource {
           this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
-        } else if (name.equals("testScript")) {
-          this.testScript = castToReference(value); // Reference
         } else if (name.equals("status")) {
           value = new TestReportStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<TestReportStatus>
+        } else if (name.equals("testScript")) {
+          this.testScript = castToReference(value); // Reference
+        } else if (name.equals("result")) {
+          value = new TestReportResultEnumFactory().fromType(castToCode(value));
+          this.result = (Enumeration) value; // Enumeration<TestReportResult>
         } else if (name.equals("score")) {
           this.score = castToDecimal(value); // DecimalType
         } else if (name.equals("tester")) {
@@ -3222,8 +3425,9 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855:  return getIdentifier(); 
         case 3373707:  return getNameElement();
-        case 1712049149:  return getTestScript(); 
         case -892481550:  return getStatusElement();
+        case 1712049149:  return getTestScript(); 
+        case -934426595:  return getResultElement();
         case 109264530:  return getScoreElement();
         case -877169473:  return getTesterElement();
         case -1179159893:  return getIssuedElement();
@@ -3241,8 +3445,9 @@ public class TestReport extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 3373707: /*name*/ return new String[] {"string"};
-        case 1712049149: /*testScript*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 1712049149: /*testScript*/ return new String[] {"Reference"};
+        case -934426595: /*result*/ return new String[] {"code"};
         case 109264530: /*score*/ return new String[] {"decimal"};
         case -877169473: /*tester*/ return new String[] {"string"};
         case -1179159893: /*issued*/ return new String[] {"dateTime"};
@@ -3264,12 +3469,15 @@ public class TestReport extends DomainResource {
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.name");
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestReport.status");
+        }
         else if (name.equals("testScript")) {
           this.testScript = new Reference();
           return this.testScript;
         }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestReport.status");
+        else if (name.equals("result")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestReport.result");
         }
         else if (name.equals("score")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestReport.score");
@@ -3308,8 +3516,9 @@ public class TestReport extends DomainResource {
         copyValues(dst);
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
-        dst.testScript = testScript == null ? null : testScript.copy();
         dst.status = status == null ? null : status.copy();
+        dst.testScript = testScript == null ? null : testScript.copy();
+        dst.result = result == null ? null : result.copy();
         dst.score = score == null ? null : score.copy();
         dst.tester = tester == null ? null : tester.copy();
         dst.issued = issued == null ? null : issued.copy();
@@ -3339,10 +3548,11 @@ public class TestReport extends DomainResource {
         if (!(other instanceof TestReport))
           return false;
         TestReport o = (TestReport) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(testScript, o.testScript, true)
-           && compareDeep(status, o.status, true) && compareDeep(score, o.score, true) && compareDeep(tester, o.tester, true)
-           && compareDeep(issued, o.issued, true) && compareDeep(participant, o.participant, true) && compareDeep(setup, o.setup, true)
-           && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(status, o.status, true)
+           && compareDeep(testScript, o.testScript, true) && compareDeep(result, o.result, true) && compareDeep(score, o.score, true)
+           && compareDeep(tester, o.tester, true) && compareDeep(issued, o.issued, true) && compareDeep(participant, o.participant, true)
+           && compareDeep(setup, o.setup, true) && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true)
+          ;
       }
 
       @Override
@@ -3352,13 +3562,15 @@ public class TestReport extends DomainResource {
         if (!(other instanceof TestReport))
           return false;
         TestReport o = (TestReport) other;
-        return compareValues(name, o.name, true) && compareValues(status, o.status, true) && compareValues(score, o.score, true)
-           && compareValues(tester, o.tester, true) && compareValues(issued, o.issued, true);
+        return compareValues(name, o.name, true) && compareValues(status, o.status, true) && compareValues(result, o.result, true)
+           && compareValues(score, o.score, true) && compareValues(tester, o.tester, true) && compareValues(issued, o.issued, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, testScript
-          , status, score, tester, issued, participant, setup, test, teardown);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, name, status
+          , testScript, result, score, tester, issued, participant, setup, test, teardown
+          );
       }
 
   @Override
@@ -3367,19 +3579,39 @@ public class TestReport extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>result</b>
+   * <p>
+   * Description: <b>The result disposition of the test execution</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestReport.result</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="result", path="TestReport.result", description="The result disposition of the test execution", type="token" )
+  public static final String SP_RESULT = "result";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>result</b>
+   * <p>
+   * Description: <b>The result disposition of the test execution</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>TestReport.result</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RESULT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RESULT);
+
+ /**
    * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>External identifier</b><br>
+   * Description: <b>An external identifier for the test report</b><br>
    * Type: <b>token</b><br>
    * Path: <b>TestReport.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="TestReport.identifier", description="External identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="TestReport.identifier", description="An external identifier for the test report", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>External identifier</b><br>
+   * Description: <b>An external identifier for the test report</b><br>
    * Type: <b>token</b><br>
    * Path: <b>TestReport.identifier</b><br>
    * </p>
@@ -3387,39 +3619,19 @@ public class TestReport extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Informal name of the executed TestScript</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestReport.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="TestReport.name", description="Informal name of the executed TestScript", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Informal name of the executed TestScript</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>TestReport.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>tester</b>
    * <p>
-   * Description: <b>Name of the tester producing this report (Organization or individual)</b><br>
+   * Description: <b>The name of the testing organization</b><br>
    * Type: <b>string</b><br>
    * Path: <b>TestReport.tester</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="tester", path="TestReport.tester", description="Name of the tester producing this report (Organization or individual)", type="string" )
+  @SearchParamDefinition(name="tester", path="TestReport.tester", description="The name of the testing organization", type="string" )
   public static final String SP_TESTER = "tester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>tester</b>
    * <p>
-   * Description: <b>Name of the tester producing this report (Organization or individual)</b><br>
+   * Description: <b>The name of the testing organization</b><br>
    * Type: <b>string</b><br>
    * Path: <b>TestReport.tester</b><br>
    * </p>
@@ -3429,17 +3641,17 @@ public class TestReport extends DomainResource {
  /**
    * Search parameter: <b>testscript</b>
    * <p>
-   * Description: <b>Reference to the  version-specific TestScript that was executed to produce this TestReport</b><br>
+   * Description: <b>The test script executed to produce this report</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>TestReport.testScript</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="testscript", path="TestReport.testScript", description="Reference to the  version-specific TestScript that was executed to produce this TestReport", type="reference", target={TestScript.class } )
+  @SearchParamDefinition(name="testscript", path="TestReport.testScript", description="The test script executed to produce this report", type="reference", target={TestScript.class } )
   public static final String SP_TESTSCRIPT = "testscript";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>testscript</b>
    * <p>
-   * Description: <b>Reference to the  version-specific TestScript that was executed to produce this TestReport</b><br>
+   * Description: <b>The test script executed to produce this report</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>TestReport.testScript</b><br>
    * </p>
@@ -3455,17 +3667,17 @@ public class TestReport extends DomainResource {
  /**
    * Search parameter: <b>issued</b>
    * <p>
-   * Description: <b>When the TestScript was executed and this TestReport was generated</b><br>
+   * Description: <b>The test report generation date</b><br>
    * Type: <b>date</b><br>
    * Path: <b>TestReport.issued</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="issued", path="TestReport.issued", description="When the TestScript was executed and this TestReport was generated", type="date" )
+  @SearchParamDefinition(name="issued", path="TestReport.issued", description="The test report generation date", type="date" )
   public static final String SP_ISSUED = "issued";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>issued</b>
    * <p>
-   * Description: <b>When the TestScript was executed and this TestReport was generated</b><br>
+   * Description: <b>The test report generation date</b><br>
    * Type: <b>date</b><br>
    * Path: <b>TestReport.issued</b><br>
    * </p>
@@ -3475,17 +3687,17 @@ public class TestReport extends DomainResource {
  /**
    * Search parameter: <b>participant</b>
    * <p>
-   * Description: <b>The uri of the participant. An absolute URL is preferred</b><br>
+   * Description: <b>The reference to a participant in the test execution</b><br>
    * Type: <b>uri</b><br>
    * Path: <b>TestReport.participant.uri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant", path="TestReport.participant.uri", description="The uri of the participant. An absolute URL is preferred", type="uri" )
+  @SearchParamDefinition(name="participant", path="TestReport.participant.uri", description="The reference to a participant in the test execution", type="uri" )
   public static final String SP_PARTICIPANT = "participant";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>participant</b>
    * <p>
-   * Description: <b>The uri of the participant. An absolute URL is preferred</b><br>
+   * Description: <b>The reference to a participant in the test execution</b><br>
    * Type: <b>uri</b><br>
    * Path: <b>TestReport.participant.uri</b><br>
    * </p>

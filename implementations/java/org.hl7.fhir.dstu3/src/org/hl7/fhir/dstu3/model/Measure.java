@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -5157,17 +5157,17 @@ public class Measure extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the measure</b><br>
+   * Description: <b>The business version of the measure</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Measure.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="Measure.version", description="The version identifier of the measure", type="token" )
+  @SearchParamDefinition(name="version", path="Measure.version", description="The business version of the measure", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the measure</b><br>
+   * Description: <b>The business version of the measure</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Measure.version</b><br>
    * </p>

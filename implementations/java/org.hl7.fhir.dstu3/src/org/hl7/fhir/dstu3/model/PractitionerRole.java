@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -841,9 +841,16 @@ public class PractitionerRole extends DomainResource {
     protected BooleanType active;
 
     /**
+     * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
+     */
+    @Child(name = "period", type = {Period.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
+    protected Period period;
+
+    /**
      * Practitioner that is able to provide the defined services for the organation.
      */
-    @Child(name = "practitioner", type = {Practitioner.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "practitioner", type = {Practitioner.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Practitioner that is able to provide the defined services for the organation", formalDefinition="Practitioner that is able to provide the defined services for the organation." )
     protected Reference practitioner;
 
@@ -855,7 +862,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The organization where the Practitioner performs the roles associated.
      */
-    @Child(name = "organization", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Organization where the roles are available", formalDefinition="The organization where the Practitioner performs the roles associated." )
     protected Reference organization;
 
@@ -867,7 +874,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * Roles which this practitioner is authorized to perform for the organization.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-role")
     protected List<CodeableConcept> code;
@@ -875,7 +882,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * Specific specialty of the practitioner.
      */
-    @Child(name = "specialty", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "specialty", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Specific specialty of the practitioner", formalDefinition="Specific specialty of the practitioner." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-practice-codes")
     protected List<CodeableConcept> specialty;
@@ -883,7 +890,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The location(s) at which this practitioner provides care.
      */
-    @Child(name = "location", type = {Location.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "location", type = {Location.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
     protected List<Reference> location;
     /**
@@ -895,7 +902,7 @@ public class PractitionerRole extends DomainResource {
     /**
      * The list of healthcare services that this worker provides for this role's Organization/Location(s).
      */
-    @Child(name = "healthcareService", type = {HealthcareService.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "healthcareService", type = {HealthcareService.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
     protected List<Reference> healthcareService;
     /**
@@ -907,16 +914,9 @@ public class PractitionerRole extends DomainResource {
     /**
      * Contact details that are specific to the role/location/service.
      */
-    @Child(name = "telecom", type = {ContactPoint.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "telecom", type = {ContactPoint.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contact details that are specific to the role/location/service", formalDefinition="Contact details that are specific to the role/location/service." )
     protected List<ContactPoint> telecom;
-
-    /**
-     * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
-     */
-    @Child(name = "period", type = {Period.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
-    protected Period period;
 
     /**
      * A collection of times that the Service Site is available.
@@ -951,7 +951,7 @@ public class PractitionerRole extends DomainResource {
     protected List<Endpoint> endpointTarget;
 
 
-    private static final long serialVersionUID = -1170829137L;
+    private static final long serialVersionUID = 423338051L;
 
   /**
    * Constructor
@@ -1055,6 +1055,30 @@ public class PractitionerRole extends DomainResource {
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
+     */
+    public Period getPeriod() { 
+      if (this.period == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PractitionerRole.period");
+        else if (Configuration.doAutoCreate())
+          this.period = new Period(); // cc
+      return this.period;
+    }
+
+    public boolean hasPeriod() { 
+      return this.period != null && !this.period.isEmpty();
+    }
+
+    /**
+     * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
+     */
+    public PractitionerRole setPeriod(Period value) { 
+      this.period = value;
       return this;
     }
 
@@ -1456,30 +1480,6 @@ public class PractitionerRole extends DomainResource {
     }
 
     /**
-     * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
-     */
-    public Period getPeriod() { 
-      if (this.period == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create PractitionerRole.period");
-        else if (Configuration.doAutoCreate())
-          this.period = new Period(); // cc
-      return this.period;
-    }
-
-    public boolean hasPeriod() { 
-      return this.period != null && !this.period.isEmpty();
-    }
-
-    /**
-     * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
-     */
-    public PractitionerRole setPeriod(Period value) { 
-      this.period = value;
-      return this;
-    }
-
-    /**
      * @return {@link #availableTime} (A collection of times that the Service Site is available.)
      */
     public List<PractitionerRoleAvailableTimeComponent> getAvailableTime() { 
@@ -1713,6 +1713,7 @@ public class PractitionerRole extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("active", "boolean", "Whether this practitioner's record is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
+        childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("practitioner", "Reference(Practitioner)", "Practitioner that is able to provide the defined services for the organation.", 0, java.lang.Integer.MAX_VALUE, practitioner));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1720,7 +1721,6 @@ public class PractitionerRole extends DomainResource {
         childrenList.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
         childrenList.add(new Property("telecom", "ContactPoint", "Contact details that are specific to the role/location/service.", 0, java.lang.Integer.MAX_VALUE, telecom));
-        childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("availableTime", "", "A collection of times that the Service Site is available.", 0, java.lang.Integer.MAX_VALUE, availableTime));
         childrenList.add(new Property("notAvailable", "", "The HealthcareService is not available during this period of time due to the provided reason.", 0, java.lang.Integer.MAX_VALUE, notAvailable));
         childrenList.add(new Property("availabilityExceptions", "string", "A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times.", 0, java.lang.Integer.MAX_VALUE, availabilityExceptions));
@@ -1732,6 +1732,7 @@ public class PractitionerRole extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 574573338: /*practitioner*/ return this.practitioner == null ? new Base[0] : new Base[] {this.practitioner}; // Reference
         case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
         case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
@@ -1739,7 +1740,6 @@ public class PractitionerRole extends DomainResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // Reference
         case 1289661064: /*healthcareService*/ return this.healthcareService == null ? new Base[0] : this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
         case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case 1873069366: /*availableTime*/ return this.availableTime == null ? new Base[0] : this.availableTime.toArray(new Base[this.availableTime.size()]); // PractitionerRoleAvailableTimeComponent
         case -629572298: /*notAvailable*/ return this.notAvailable == null ? new Base[0] : this.notAvailable.toArray(new Base[this.notAvailable.size()]); // PractitionerRoleNotAvailableComponent
         case -1149143617: /*availabilityExceptions*/ return this.availabilityExceptions == null ? new Base[0] : new Base[] {this.availabilityExceptions}; // StringType
@@ -1757,6 +1757,9 @@ public class PractitionerRole extends DomainResource {
           return value;
         case -1422950650: // active
           this.active = castToBoolean(value); // BooleanType
+          return value;
+        case -991726143: // period
+          this.period = castToPeriod(value); // Period
           return value;
         case 574573338: // practitioner
           this.practitioner = castToReference(value); // Reference
@@ -1778,9 +1781,6 @@ public class PractitionerRole extends DomainResource {
           return value;
         case -1429363305: // telecom
           this.getTelecom().add(castToContactPoint(value)); // ContactPoint
-          return value;
-        case -991726143: // period
-          this.period = castToPeriod(value); // Period
           return value;
         case 1873069366: // availableTime
           this.getAvailableTime().add((PractitionerRoleAvailableTimeComponent) value); // PractitionerRoleAvailableTimeComponent
@@ -1805,6 +1805,8 @@ public class PractitionerRole extends DomainResource {
           this.getIdentifier().add(castToIdentifier(value));
         } else if (name.equals("active")) {
           this.active = castToBoolean(value); // BooleanType
+        } else if (name.equals("period")) {
+          this.period = castToPeriod(value); // Period
         } else if (name.equals("practitioner")) {
           this.practitioner = castToReference(value); // Reference
         } else if (name.equals("organization")) {
@@ -1819,8 +1821,6 @@ public class PractitionerRole extends DomainResource {
           this.getHealthcareService().add(castToReference(value));
         } else if (name.equals("telecom")) {
           this.getTelecom().add(castToContactPoint(value));
-        } else if (name.equals("period")) {
-          this.period = castToPeriod(value); // Period
         } else if (name.equals("availableTime")) {
           this.getAvailableTime().add((PractitionerRoleAvailableTimeComponent) value);
         } else if (name.equals("notAvailable")) {
@@ -1839,6 +1839,7 @@ public class PractitionerRole extends DomainResource {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
         case -1422950650:  return getActiveElement();
+        case -991726143:  return getPeriod(); 
         case 574573338:  return getPractitioner(); 
         case 1178922291:  return getOrganization(); 
         case 3059181:  return addCode(); 
@@ -1846,7 +1847,6 @@ public class PractitionerRole extends DomainResource {
         case 1901043637:  return addLocation(); 
         case 1289661064:  return addHealthcareService(); 
         case -1429363305:  return addTelecom(); 
-        case -991726143:  return getPeriod(); 
         case 1873069366:  return addAvailableTime(); 
         case -629572298:  return addNotAvailable(); 
         case -1149143617:  return getAvailabilityExceptionsElement();
@@ -1861,6 +1861,7 @@ public class PractitionerRole extends DomainResource {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1422950650: /*active*/ return new String[] {"boolean"};
+        case -991726143: /*period*/ return new String[] {"Period"};
         case 574573338: /*practitioner*/ return new String[] {"Reference"};
         case 1178922291: /*organization*/ return new String[] {"Reference"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
@@ -1868,7 +1869,6 @@ public class PractitionerRole extends DomainResource {
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 1289661064: /*healthcareService*/ return new String[] {"Reference"};
         case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
-        case -991726143: /*period*/ return new String[] {"Period"};
         case 1873069366: /*availableTime*/ return new String[] {};
         case -629572298: /*notAvailable*/ return new String[] {};
         case -1149143617: /*availabilityExceptions*/ return new String[] {"string"};
@@ -1885,6 +1885,10 @@ public class PractitionerRole extends DomainResource {
         }
         else if (name.equals("active")) {
           throw new FHIRException("Cannot call addChild on a primitive type PractitionerRole.active");
+        }
+        else if (name.equals("period")) {
+          this.period = new Period();
+          return this.period;
         }
         else if (name.equals("practitioner")) {
           this.practitioner = new Reference();
@@ -1908,10 +1912,6 @@ public class PractitionerRole extends DomainResource {
         }
         else if (name.equals("telecom")) {
           return addTelecom();
-        }
-        else if (name.equals("period")) {
-          this.period = new Period();
-          return this.period;
         }
         else if (name.equals("availableTime")) {
           return addAvailableTime();
@@ -1943,6 +1943,7 @@ public class PractitionerRole extends DomainResource {
             dst.identifier.add(i.copy());
         };
         dst.active = active == null ? null : active.copy();
+        dst.period = period == null ? null : period.copy();
         dst.practitioner = practitioner == null ? null : practitioner.copy();
         dst.organization = organization == null ? null : organization.copy();
         if (code != null) {
@@ -1970,7 +1971,6 @@ public class PractitionerRole extends DomainResource {
           for (ContactPoint i : telecom)
             dst.telecom.add(i.copy());
         };
-        dst.period = period == null ? null : period.copy();
         if (availableTime != null) {
           dst.availableTime = new ArrayList<PractitionerRoleAvailableTimeComponent>();
           for (PractitionerRoleAvailableTimeComponent i : availableTime)
@@ -2001,12 +2001,13 @@ public class PractitionerRole extends DomainResource {
         if (!(other instanceof PractitionerRole))
           return false;
         PractitionerRole o = (PractitionerRole) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(practitioner, o.practitioner, true)
-           && compareDeep(organization, o.organization, true) && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true)
-           && compareDeep(location, o.location, true) && compareDeep(healthcareService, o.healthcareService, true)
-           && compareDeep(telecom, o.telecom, true) && compareDeep(period, o.period, true) && compareDeep(availableTime, o.availableTime, true)
-           && compareDeep(notAvailable, o.notAvailable, true) && compareDeep(availabilityExceptions, o.availabilityExceptions, true)
-           && compareDeep(endpoint, o.endpoint, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(period, o.period, true)
+           && compareDeep(practitioner, o.practitioner, true) && compareDeep(organization, o.organization, true)
+           && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true) && compareDeep(location, o.location, true)
+           && compareDeep(healthcareService, o.healthcareService, true) && compareDeep(telecom, o.telecom, true)
+           && compareDeep(availableTime, o.availableTime, true) && compareDeep(notAvailable, o.notAvailable, true)
+           && compareDeep(availabilityExceptions, o.availabilityExceptions, true) && compareDeep(endpoint, o.endpoint, true)
+          ;
       }
 
       @Override
@@ -2021,8 +2022,8 @@ public class PractitionerRole extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, practitioner
-          , organization, code, specialty, location, healthcareService, telecom, period
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, period
+          , practitioner, organization, code, specialty, location, healthcareService, telecom
           , availableTime, notAvailable, availabilityExceptions, endpoint);
       }
 

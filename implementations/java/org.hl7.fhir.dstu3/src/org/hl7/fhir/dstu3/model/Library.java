@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -44,7 +44,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
+ * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
  */
 @ResourceDef(name="Library", profile="http://hl7.org/fhir/Profile/Library")
 @ChildOrder(names={"url", "identifier", "version", "name", "title", "type", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "parameter", "dataRequirement", "content"})
@@ -2090,17 +2090,17 @@ public class Library extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the library</b><br>
+   * Description: <b>The business version of the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="Library.version", description="The version identifier of the library", type="token" )
+  @SearchParamDefinition(name="version", path="Library.version", description="The business version of the library", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the library</b><br>
+   * Description: <b>The business version of the library</b><br>
    * Type: <b>token</b><br>
    * Path: <b>Library.version</b><br>
    * </p>

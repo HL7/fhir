@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -206,10 +206,10 @@ public class Provenance extends DomainResource {
         protected Type who;
 
         /**
-         * A reference to an application-usable description of the identity that is represented by the signature.
+         * The individual, device, or organization for whom the change was made.
          */
         @Child(name = "onBehalfOf", type = {UriType.class, Practitioner.class, RelatedPerson.class, Patient.class, Device.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="On behalf of", formalDefinition="A reference to an application-usable description of the identity that is represented by the signature." )
+        @Description(shortDefinition="Who the agent is representing", formalDefinition="The individual, device, or organization for whom the change was made." )
         protected Type onBehalfOf;
 
         /**
@@ -308,14 +308,14 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
+         * @return {@link #onBehalfOf} (The individual, device, or organization for whom the change was made.)
          */
         public Type getOnBehalfOf() { 
           return this.onBehalfOf;
         }
 
         /**
-         * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
+         * @return {@link #onBehalfOf} (The individual, device, or organization for whom the change was made.)
          */
         public UriType getOnBehalfOfUriType() throws FHIRException { 
           if (!(this.onBehalfOf instanceof UriType))
@@ -328,7 +328,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @return {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
+         * @return {@link #onBehalfOf} (The individual, device, or organization for whom the change was made.)
          */
         public Reference getOnBehalfOfReference() throws FHIRException { 
           if (!(this.onBehalfOf instanceof Reference))
@@ -345,7 +345,7 @@ public class Provenance extends DomainResource {
         }
 
         /**
-         * @param value {@link #onBehalfOf} (A reference to an application-usable description of the identity that is represented by the signature.)
+         * @param value {@link #onBehalfOf} (The individual, device, or organization for whom the change was made.)
          */
         public ProvenanceAgentComponent setOnBehalfOf(Type value) { 
           this.onBehalfOf = value;
@@ -380,7 +380,7 @@ public class Provenance extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("role", "Coding", "The function of the agent with respect to the activity.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("who[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device or organization that participated in the event.", 0, java.lang.Integer.MAX_VALUE, who));
-          childrenList.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "A reference to an application-usable description of the identity that is represented by the signature.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
+          childrenList.add(new Property("onBehalfOf[x]", "uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)", "The individual, device, or organization for whom the change was made.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
           childrenList.add(new Property("relatedAgentType", "CodeableConcept", "The type of relationship between agents.", 0, java.lang.Integer.MAX_VALUE, relatedAgentType));
         }
 
@@ -874,25 +874,16 @@ public class Provenance extends DomainResource {
     protected InstantType recorded;
 
     /**
-     * The reason that the activity was taking place.
+     * Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
      */
-    @Child(name = "reason", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
-    protected List<Coding> reason;
-
-    /**
-     * An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
-     */
-    @Child(name = "activity", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Activity that occurred", formalDefinition="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState")
-    protected Coding activity;
+    @Child(name = "policy", type = {UriType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Policy or plan the activity was defined by", formalDefinition="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc." )
+    protected List<UriType> policy;
 
     /**
      * Where the activity occurred, if relevant.
      */
-    @Child(name = "location", type = {Location.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "location", type = {Location.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Where the activity occurred, if relevant", formalDefinition="Where the activity occurred, if relevant." )
     protected Reference location;
 
@@ -902,11 +893,20 @@ public class Provenance extends DomainResource {
     protected Location locationTarget;
 
     /**
-     * Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
+     * The reason that the activity was taking place.
      */
-    @Child(name = "policy", type = {UriType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Policy or plan the activity was defined by", formalDefinition="Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc." )
-    protected List<UriType> policy;
+    @Child(name = "reason", type = {Coding.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse")
+    protected List<Coding> reason;
+
+    /**
+     * An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
+     */
+    @Child(name = "activity", type = {Coding.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Activity that occurred", formalDefinition="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState")
+    protected Coding activity;
 
     /**
      * An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
@@ -929,7 +929,7 @@ public class Provenance extends DomainResource {
     @Description(shortDefinition="Signature on target", formalDefinition="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated." )
     protected List<Signature> signature;
 
-    private static final long serialVersionUID = -436783145L;
+    private static final long serialVersionUID = -1668640371L;
 
   /**
    * Constructor
@@ -1079,6 +1079,111 @@ public class Provenance extends DomainResource {
     }
 
     /**
+     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
+    public List<UriType> getPolicy() { 
+      if (this.policy == null)
+        this.policy = new ArrayList<UriType>();
+      return this.policy;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Provenance setPolicy(List<UriType> thePolicy) { 
+      this.policy = thePolicy;
+      return this;
+    }
+
+    public boolean hasPolicy() { 
+      if (this.policy == null)
+        return false;
+      for (UriType item : this.policy)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
+    public UriType addPolicyElement() {//2 
+      UriType t = new UriType();
+      if (this.policy == null)
+        this.policy = new ArrayList<UriType>();
+      this.policy.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
+    public Provenance addPolicy(String value) { //1
+      UriType t = new UriType();
+      t.setValue(value);
+      if (this.policy == null)
+        this.policy = new ArrayList<UriType>();
+      this.policy.add(t);
+      return this;
+    }
+
+    /**
+     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
+     */
+    public boolean hasPolicy(String value) { 
+      if (this.policy == null)
+        return false;
+      for (UriType v : this.policy)
+        if (v.equals(value)) // uri
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #location} (Where the activity occurred, if relevant.)
+     */
+    public Reference getLocation() { 
+      if (this.location == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Provenance.location");
+        else if (Configuration.doAutoCreate())
+          this.location = new Reference(); // cc
+      return this.location;
+    }
+
+    public boolean hasLocation() { 
+      return this.location != null && !this.location.isEmpty();
+    }
+
+    /**
+     * @param value {@link #location} (Where the activity occurred, if relevant.)
+     */
+    public Provenance setLocation(Reference value) { 
+      this.location = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
+     */
+    public Location getLocationTarget() { 
+      if (this.locationTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Provenance.location");
+        else if (Configuration.doAutoCreate())
+          this.locationTarget = new Location(); // aa
+      return this.locationTarget;
+    }
+
+    /**
+     * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
+     */
+    public Provenance setLocationTarget(Location value) { 
+      this.locationTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #reason} (The reason that the activity was taking place.)
      */
     public List<Coding> getReason() { 
@@ -1153,111 +1258,6 @@ public class Provenance extends DomainResource {
     public Provenance setActivity(Coding value) { 
       this.activity = value;
       return this;
-    }
-
-    /**
-     * @return {@link #location} (Where the activity occurred, if relevant.)
-     */
-    public Reference getLocation() { 
-      if (this.location == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Provenance.location");
-        else if (Configuration.doAutoCreate())
-          this.location = new Reference(); // cc
-      return this.location;
-    }
-
-    public boolean hasLocation() { 
-      return this.location != null && !this.location.isEmpty();
-    }
-
-    /**
-     * @param value {@link #location} (Where the activity occurred, if relevant.)
-     */
-    public Provenance setLocation(Reference value) { 
-      this.location = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
-     */
-    public Location getLocationTarget() { 
-      if (this.locationTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Provenance.location");
-        else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location(); // aa
-      return this.locationTarget;
-    }
-
-    /**
-     * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Where the activity occurred, if relevant.)
-     */
-    public Provenance setLocationTarget(Location value) { 
-      this.locationTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
-     */
-    public List<UriType> getPolicy() { 
-      if (this.policy == null)
-        this.policy = new ArrayList<UriType>();
-      return this.policy;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Provenance setPolicy(List<UriType> thePolicy) { 
-      this.policy = thePolicy;
-      return this;
-    }
-
-    public boolean hasPolicy() { 
-      if (this.policy == null)
-        return false;
-      for (UriType item : this.policy)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
-     */
-    public UriType addPolicyElement() {//2 
-      UriType t = new UriType();
-      if (this.policy == null)
-        this.policy = new ArrayList<UriType>();
-      this.policy.add(t);
-      return t;
-    }
-
-    /**
-     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
-     */
-    public Provenance addPolicy(String value) { //1
-      UriType t = new UriType();
-      t.setValue(value);
-      if (this.policy == null)
-        this.policy = new ArrayList<UriType>();
-      this.policy.add(t);
-      return this;
-    }
-
-    /**
-     * @param value {@link #policy} (Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.)
-     */
-    public boolean hasPolicy(String value) { 
-      if (this.policy == null)
-        return false;
-      for (UriType v : this.policy)
-        if (v.equals(value)) // uri
-          return true;
-      return false;
     }
 
     /**
@@ -1424,10 +1424,10 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("target", "Reference(Any)", "The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("period", "Period", "The period during which the activity occurred.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, java.lang.Integer.MAX_VALUE, recorded));
+        childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
+        childrenList.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("reason", "Coding", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("activity", "Coding", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, java.lang.Integer.MAX_VALUE, activity));
-        childrenList.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         childrenList.add(new Property("agent", "", "An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
         childrenList.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
@@ -1439,10 +1439,10 @@ public class Provenance extends DomainResource {
         case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // Reference
         case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
         case -799233872: /*recorded*/ return this.recorded == null ? new Base[0] : new Base[] {this.recorded}; // InstantType
+        case -982670030: /*policy*/ return this.policy == null ? new Base[0] : this.policy.toArray(new Base[this.policy.size()]); // UriType
+        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // Coding
         case -1655966961: /*activity*/ return this.activity == null ? new Base[0] : new Base[] {this.activity}; // Coding
-        case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -982670030: /*policy*/ return this.policy == null ? new Base[0] : this.policy.toArray(new Base[this.policy.size()]); // UriType
         case 92750597: /*agent*/ return this.agent == null ? new Base[0] : this.agent.toArray(new Base[this.agent.size()]); // ProvenanceAgentComponent
         case -1298275357: /*entity*/ return this.entity == null ? new Base[0] : this.entity.toArray(new Base[this.entity.size()]); // ProvenanceEntityComponent
         case 1073584312: /*signature*/ return this.signature == null ? new Base[0] : this.signature.toArray(new Base[this.signature.size()]); // Signature
@@ -1463,17 +1463,17 @@ public class Provenance extends DomainResource {
         case -799233872: // recorded
           this.recorded = castToInstant(value); // InstantType
           return value;
+        case -982670030: // policy
+          this.getPolicy().add(castToUri(value)); // UriType
+          return value;
+        case 1901043637: // location
+          this.location = castToReference(value); // Reference
+          return value;
         case -934964668: // reason
           this.getReason().add(castToCoding(value)); // Coding
           return value;
         case -1655966961: // activity
           this.activity = castToCoding(value); // Coding
-          return value;
-        case 1901043637: // location
-          this.location = castToReference(value); // Reference
-          return value;
-        case -982670030: // policy
-          this.getPolicy().add(castToUri(value)); // UriType
           return value;
         case 92750597: // agent
           this.getAgent().add((ProvenanceAgentComponent) value); // ProvenanceAgentComponent
@@ -1497,14 +1497,14 @@ public class Provenance extends DomainResource {
           this.period = castToPeriod(value); // Period
         } else if (name.equals("recorded")) {
           this.recorded = castToInstant(value); // InstantType
+        } else if (name.equals("policy")) {
+          this.getPolicy().add(castToUri(value));
+        } else if (name.equals("location")) {
+          this.location = castToReference(value); // Reference
         } else if (name.equals("reason")) {
           this.getReason().add(castToCoding(value));
         } else if (name.equals("activity")) {
           this.activity = castToCoding(value); // Coding
-        } else if (name.equals("location")) {
-          this.location = castToReference(value); // Reference
-        } else if (name.equals("policy")) {
-          this.getPolicy().add(castToUri(value));
         } else if (name.equals("agent")) {
           this.getAgent().add((ProvenanceAgentComponent) value);
         } else if (name.equals("entity")) {
@@ -1522,10 +1522,10 @@ public class Provenance extends DomainResource {
         case -880905839:  return addTarget(); 
         case -991726143:  return getPeriod(); 
         case -799233872:  return getRecordedElement();
+        case -982670030:  return addPolicyElement();
+        case 1901043637:  return getLocation(); 
         case -934964668:  return addReason(); 
         case -1655966961:  return getActivity(); 
-        case 1901043637:  return getLocation(); 
-        case -982670030:  return addPolicyElement();
         case 92750597:  return addAgent(); 
         case -1298275357:  return addEntity(); 
         case 1073584312:  return addSignature(); 
@@ -1540,10 +1540,10 @@ public class Provenance extends DomainResource {
         case -880905839: /*target*/ return new String[] {"Reference"};
         case -991726143: /*period*/ return new String[] {"Period"};
         case -799233872: /*recorded*/ return new String[] {"instant"};
+        case -982670030: /*policy*/ return new String[] {"uri"};
+        case 1901043637: /*location*/ return new String[] {"Reference"};
         case -934964668: /*reason*/ return new String[] {"Coding"};
         case -1655966961: /*activity*/ return new String[] {"Coding"};
-        case 1901043637: /*location*/ return new String[] {"Reference"};
-        case -982670030: /*policy*/ return new String[] {"uri"};
         case 92750597: /*agent*/ return new String[] {};
         case -1298275357: /*entity*/ return new String[] {};
         case 1073584312: /*signature*/ return new String[] {"Signature"};
@@ -1564,19 +1564,19 @@ public class Provenance extends DomainResource {
         else if (name.equals("recorded")) {
           throw new FHIRException("Cannot call addChild on a primitive type Provenance.recorded");
         }
+        else if (name.equals("policy")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Provenance.policy");
+        }
+        else if (name.equals("location")) {
+          this.location = new Reference();
+          return this.location;
+        }
         else if (name.equals("reason")) {
           return addReason();
         }
         else if (name.equals("activity")) {
           this.activity = new Coding();
           return this.activity;
-        }
-        else if (name.equals("location")) {
-          this.location = new Reference();
-          return this.location;
-        }
-        else if (name.equals("policy")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Provenance.policy");
         }
         else if (name.equals("agent")) {
           return addAgent();
@@ -1606,18 +1606,18 @@ public class Provenance extends DomainResource {
         };
         dst.period = period == null ? null : period.copy();
         dst.recorded = recorded == null ? null : recorded.copy();
+        if (policy != null) {
+          dst.policy = new ArrayList<UriType>();
+          for (UriType i : policy)
+            dst.policy.add(i.copy());
+        };
+        dst.location = location == null ? null : location.copy();
         if (reason != null) {
           dst.reason = new ArrayList<Coding>();
           for (Coding i : reason)
             dst.reason.add(i.copy());
         };
         dst.activity = activity == null ? null : activity.copy();
-        dst.location = location == null ? null : location.copy();
-        if (policy != null) {
-          dst.policy = new ArrayList<UriType>();
-          for (UriType i : policy)
-            dst.policy.add(i.copy());
-        };
         if (agent != null) {
           dst.agent = new ArrayList<ProvenanceAgentComponent>();
           for (ProvenanceAgentComponent i : agent)
@@ -1648,8 +1648,8 @@ public class Provenance extends DomainResource {
           return false;
         Provenance o = (Provenance) other;
         return compareDeep(target, o.target, true) && compareDeep(period, o.period, true) && compareDeep(recorded, o.recorded, true)
-           && compareDeep(reason, o.reason, true) && compareDeep(activity, o.activity, true) && compareDeep(location, o.location, true)
-           && compareDeep(policy, o.policy, true) && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true)
+           && compareDeep(policy, o.policy, true) && compareDeep(location, o.location, true) && compareDeep(reason, o.reason, true)
+           && compareDeep(activity, o.activity, true) && compareDeep(agent, o.agent, true) && compareDeep(entity, o.entity, true)
            && compareDeep(signature, o.signature, true);
       }
 
@@ -1665,33 +1665,13 @@ public class Provenance extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(target, period, recorded
-          , reason, activity, location, policy, agent, entity, signature);
+          , policy, location, reason, activity, agent, entity, signature);
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Provenance;
    }
-
- /**
-   * Search parameter: <b>sig</b>
-   * <p>
-   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Provenance.signature.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="sig", path="Provenance.signature.type", description="Indication of the reason the entity signed the object(s)", type="token" )
-  public static final String SP_SIG = "sig";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>sig</b>
-   * <p>
-   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Provenance.signature.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SIG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SIG);
 
  /**
    * Search parameter: <b>agent</b>
@@ -1718,6 +1698,26 @@ public class Provenance extends DomainResource {
    * the path value of "<b>Provenance:agent</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Provenance:agent").toLocked();
+
+ /**
+   * Search parameter: <b>signature-type</b>
+   * <p>
+   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.signature.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="signature-type", path="Provenance.signature.type", description="Indication of the reason the entity signed the object(s)", type="token" )
+  public static final String SP_SIGNATURE_TYPE = "signature-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>signature-type</b>
+   * <p>
+   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.signature.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SIGNATURE_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SIGNATURE_TYPE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1810,6 +1810,26 @@ public class Provenance extends DomainResource {
    * the path value of "<b>Provenance:location</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Provenance:location").toLocked();
+
+ /**
+   * Search parameter: <b>recorded</b>
+   * <p>
+   * Description: <b>When the activity was recorded / updated</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.recorded</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="recorded", path="Provenance.recorded", description="When the activity was recorded / updated", type="date" )
+  public static final String SP_RECORDED = "recorded";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>recorded</b>
+   * <p>
+   * Description: <b>When the activity was recorded / updated</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.recorded</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam RECORDED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_RECORDED);
 
  /**
    * Search parameter: <b>entity</b>

@@ -92,6 +92,7 @@
   Type = DomainResource
   Short Name = Request for a medication, substance or device
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
+  Workflow Mapping = Request
   RIM Mapping = Supply[moodCode=RQO]
   w5 = workflow.order
 
@@ -101,6 +102,7 @@
   Type = Reference(Patient)
   Short Name = Patient for whom the item is supplied
   Definition = A link to a resource representing the person whom the ordered item is for
+  Workflow Mapping = Request.subject.reference(Patient)
   RIM Mapping = .participation[typeCode=SBJ].role
 
  -- Row 3 -----------------------------------
@@ -116,6 +118,7 @@
   Type = dateTime
   Short Name = When the request was made
   Definition = When the request was made
+  Workflow Mapping = Request.authoredOn
 
  -- Row 5 -----------------------------------
   Element = SupplyRequest.identifier
@@ -124,6 +127,7 @@
   Short Name = Unique identifier
   Definition = Unique identifier for this supply request
   Comments = This is assigned by the orderer, and used to refer to this order in other external standards
+  Workflow Mapping = Request.identifier
   RIM Mapping = .id
 
  -- Row 6 -----------------------------------
@@ -134,6 +138,7 @@
   Binding = SupplyRequestStatus
   Short Name = requested | completed | failed | cancelled | entered-in-error
   Definition = Status of the supply request
+  Workflow Mapping = Request.status
   RIM Mapping = .statusCode, also existence of fulfillment events
 
  -- Row 7 -----------------------------------
@@ -154,6 +159,7 @@
   Short Name = Medication, Substance, or Device requested to be supplied
   Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
+  Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 9 -----------------------------------
@@ -162,6 +168,7 @@
   Type = Reference(Organization)
   Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
+  Workflow Mapping = Request.performer
 
  -- Row 10 -----------------------------------
   Element = SupplyRequest.reason[x]
@@ -170,6 +177,7 @@
   Binding = SupplyRequestReason
   Short Name = Why the supply item was requested
   Definition = Why the supply item was requested
+  Workflow Mapping = Request.reasonCode
 
  -- Row 11 -----------------------------------
   Element = SupplyRequest.when
@@ -193,6 +201,7 @@
   Type = Timing
   Short Name = Formal fulfillment schedule
   Definition = Formal fulfillment schedule
+  Workflow Mapping = Request.occurrence.occurrenceTiming
 
  -- Row 14 -----------------------------------
   Element = SupplyRequest.from

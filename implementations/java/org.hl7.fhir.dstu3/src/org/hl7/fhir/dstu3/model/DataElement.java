@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * The formal description of a single piece of information that can be gathered and reported.
  */
 @ResourceDef(name="DataElement", profile="http://hl7.org/fhir/Profile/DataElement")
-@ChildOrder(names={"url", "identifier", "version", "status", "experimental", "publisher", "date", "name", "title", "contact", "useContext", "jurisdiction", "copyright", "stringency", "mapping", "element"})
+@ChildOrder(names={"url", "identifier", "version", "status", "experimental", "date", "publisher", "name", "title", "contact", "useContext", "jurisdiction", "copyright", "stringency", "mapping", "element"})
 public class DataElement extends MetadataResource {
 
     public enum DataElementStringency {
@@ -881,55 +881,6 @@ public class DataElement extends MetadataResource {
     }
 
     /**
-     * @return {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public StringType getPublisherElement() { 
-      if (this.publisher == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DataElement.publisher");
-        else if (Configuration.doAutoCreate())
-          this.publisher = new StringType(); // bb
-      return this.publisher;
-    }
-
-    public boolean hasPublisherElement() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    public boolean hasPublisher() { 
-      return this.publisher != null && !this.publisher.isEmpty();
-    }
-
-    /**
-     * @param value {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
-     */
-    public DataElement setPublisherElement(StringType value) { 
-      this.publisher = value;
-      return this;
-    }
-
-    /**
-     * @return The name of the individual or organization that published the data element.
-     */
-    public String getPublisher() { 
-      return this.publisher == null ? null : this.publisher.getValue();
-    }
-
-    /**
-     * @param value The name of the individual or organization that published the data element.
-     */
-    public DataElement setPublisher(String value) { 
-      if (Utilities.noString(value))
-        this.publisher = null;
-      else {
-        if (this.publisher == null)
-          this.publisher = new StringType();
-        this.publisher.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #date} (The date  (and optionally time) when the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
     public DateTimeType getDateElement() { 
@@ -974,6 +925,55 @@ public class DataElement extends MetadataResource {
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public StringType getPublisherElement() { 
+      if (this.publisher == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DataElement.publisher");
+        else if (Configuration.doAutoCreate())
+          this.publisher = new StringType(); // bb
+      return this.publisher;
+    }
+
+    public boolean hasPublisherElement() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    public boolean hasPublisher() { 
+      return this.publisher != null && !this.publisher.isEmpty();
+    }
+
+    /**
+     * @param value {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
+     */
+    public DataElement setPublisherElement(StringType value) { 
+      this.publisher = value;
+      return this;
+    }
+
+    /**
+     * @return The name of the individual or organization that published the data element.
+     */
+    public String getPublisher() { 
+      return this.publisher == null ? null : this.publisher.getValue();
+    }
+
+    /**
+     * @param value The name of the individual or organization that published the data element.
+     */
+    public DataElement setPublisher(String value) { 
+      if (Utilities.noString(value))
+        this.publisher = null;
+      else {
+        if (this.publisher == null)
+          this.publisher = new StringType();
+        this.publisher.setValue(value);
       }
       return this;
     }
@@ -1446,8 +1446,8 @@ public class DataElement extends MetadataResource {
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the data element when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the data element author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("status", "code", "The status of this data element. Enables tracking the life-cycle of the content.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("experimental", "boolean", "A flag to indicate that this data element is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
-        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("date", "dateTime", "The date  (and optionally time) when the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element changes.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the data element.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("name", "string", "A natural language name identifying the data element. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the data element.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
@@ -1467,8 +1467,8 @@ public class DataElement extends MetadataResource {
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<PublicationStatus>
         case -404562712: /*experimental*/ return this.experimental == null ? new Base[0] : new Base[] {this.experimental}; // BooleanType
-        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case 1447404028: /*publisher*/ return this.publisher == null ? new Base[0] : new Base[] {this.publisher}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
         case 951526432: /*contact*/ return this.contact == null ? new Base[0] : this.contact.toArray(new Base[this.contact.size()]); // ContactDetail
@@ -1502,11 +1502,11 @@ public class DataElement extends MetadataResource {
         case -404562712: // experimental
           this.experimental = castToBoolean(value); // BooleanType
           return value;
-        case 1447404028: // publisher
-          this.publisher = castToString(value); // StringType
-          return value;
         case 3076014: // date
           this.date = castToDateTime(value); // DateTimeType
+          return value;
+        case 1447404028: // publisher
+          this.publisher = castToString(value); // StringType
           return value;
         case 3373707: // name
           this.name = castToString(value); // StringType
@@ -1554,10 +1554,10 @@ public class DataElement extends MetadataResource {
           this.status = (Enumeration) value; // Enumeration<PublicationStatus>
         } else if (name.equals("experimental")) {
           this.experimental = castToBoolean(value); // BooleanType
-        } else if (name.equals("publisher")) {
-          this.publisher = castToString(value); // StringType
         } else if (name.equals("date")) {
           this.date = castToDateTime(value); // DateTimeType
+        } else if (name.equals("publisher")) {
+          this.publisher = castToString(value); // StringType
         } else if (name.equals("name")) {
           this.name = castToString(value); // StringType
         } else if (name.equals("title")) {
@@ -1590,8 +1590,8 @@ public class DataElement extends MetadataResource {
         case 351608024:  return getVersionElement();
         case -892481550:  return getStatusElement();
         case -404562712:  return getExperimentalElement();
-        case 1447404028:  return getPublisherElement();
         case 3076014:  return getDateElement();
+        case 1447404028:  return getPublisherElement();
         case 3373707:  return getNameElement();
         case 110371416:  return getTitleElement();
         case 951526432:  return addContact(); 
@@ -1614,8 +1614,8 @@ public class DataElement extends MetadataResource {
         case 351608024: /*version*/ return new String[] {"string"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -404562712: /*experimental*/ return new String[] {"boolean"};
-        case 1447404028: /*publisher*/ return new String[] {"string"};
         case 3076014: /*date*/ return new String[] {"dateTime"};
+        case 1447404028: /*publisher*/ return new String[] {"string"};
         case 3373707: /*name*/ return new String[] {"string"};
         case 110371416: /*title*/ return new String[] {"string"};
         case 951526432: /*contact*/ return new String[] {"ContactDetail"};
@@ -1647,11 +1647,11 @@ public class DataElement extends MetadataResource {
         else if (name.equals("experimental")) {
           throw new FHIRException("Cannot call addChild on a primitive type DataElement.experimental");
         }
-        else if (name.equals("publisher")) {
-          throw new FHIRException("Cannot call addChild on a primitive type DataElement.publisher");
-        }
         else if (name.equals("date")) {
           throw new FHIRException("Cannot call addChild on a primitive type DataElement.date");
+        }
+        else if (name.equals("publisher")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DataElement.publisher");
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type DataElement.name");
@@ -1701,8 +1701,8 @@ public class DataElement extends MetadataResource {
         dst.version = version == null ? null : version.copy();
         dst.status = status == null ? null : status.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
-        dst.publisher = publisher == null ? null : publisher.copy();
         dst.date = date == null ? null : date.copy();
+        dst.publisher = publisher == null ? null : publisher.copy();
         dst.name = name == null ? null : name.copy();
         dst.title = title == null ? null : title.copy();
         if (contact != null) {
@@ -1955,17 +1955,17 @@ public class DataElement extends MetadataResource {
  /**
    * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the data element</b><br>
+   * Description: <b>The business version of the data element</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DataElement.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="DataElement.version", description="The version identifier of the data element", type="token" )
+  @SearchParamDefinition(name="version", path="DataElement.version", description="The business version of the data element", type="token" )
   public static final String SP_VERSION = "version";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The version identifier of the data element</b><br>
+   * Description: <b>The business version of the data element</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DataElement.version</b><br>
    * </p>

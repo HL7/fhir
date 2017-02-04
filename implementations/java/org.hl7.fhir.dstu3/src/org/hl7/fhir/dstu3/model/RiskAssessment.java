@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -146,7 +146,7 @@ public class RiskAssessment extends DomainResource {
             case PRELIMINARY: return "Preliminary";
             case FINAL: return "Final";
             case AMENDED: return "Amended";
-            case CANCELLED: return "cancelled";
+            case CANCELLED: return "Cancelled";
             case ENTEREDINERROR: return "Entered in Error";
             case UNKNOWN: return "Unknown Status";
             default: return "?";

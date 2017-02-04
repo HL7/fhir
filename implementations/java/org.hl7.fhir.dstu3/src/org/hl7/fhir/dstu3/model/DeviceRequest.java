@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -222,21 +222,21 @@ public class DeviceRequest extends DomainResource {
 
     public enum RequestPriority {
         /**
-         * The order has a normal priority .
+         * The request has normal priority
          */
         ROUTINE, 
         /**
-         * The order should be urgently.
+         * The request should be actioned promptly - higher priority than routine
          */
         URGENT, 
         /**
-         * The order is time-critical.
-         */
-        STAT, 
-        /**
-         * The order should be acted on as soon as possible.
+         * The request should be actioned as soon as possible - higher priority than urgent
          */
         ASAP, 
+        /**
+         * The request should be actioned immediately - highest possible priority.  E.g. an emergency
+         */
+        STAT, 
         /**
          * added to help the parsers with the generic types
          */
@@ -248,10 +248,10 @@ public class DeviceRequest extends DomainResource {
           return ROUTINE;
         if ("urgent".equals(codeString))
           return URGENT;
-        if ("stat".equals(codeString))
-          return STAT;
         if ("asap".equals(codeString))
           return ASAP;
+        if ("stat".equals(codeString))
+          return STAT;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -261,8 +261,8 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case ROUTINE: return "routine";
             case URGENT: return "urgent";
-            case STAT: return "stat";
             case ASAP: return "asap";
+            case STAT: return "stat";
             default: return "?";
           }
         }
@@ -270,17 +270,17 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case ROUTINE: return "http://hl7.org/fhir/request-priority";
             case URGENT: return "http://hl7.org/fhir/request-priority";
-            case STAT: return "http://hl7.org/fhir/request-priority";
             case ASAP: return "http://hl7.org/fhir/request-priority";
+            case STAT: return "http://hl7.org/fhir/request-priority";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case ROUTINE: return "The order has a normal priority .";
-            case URGENT: return "The order should be urgently.";
-            case STAT: return "The order is time-critical.";
-            case ASAP: return "The order should be acted on as soon as possible.";
+            case ROUTINE: return "The request has normal priority";
+            case URGENT: return "The request should be actioned promptly - higher priority than routine";
+            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent";
+            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency";
             default: return "?";
           }
         }
@@ -288,8 +288,8 @@ public class DeviceRequest extends DomainResource {
           switch (this) {
             case ROUTINE: return "Routine";
             case URGENT: return "Urgent";
-            case STAT: return "Stat";
             case ASAP: return "ASAP";
+            case STAT: return "STAT";
             default: return "?";
           }
         }
@@ -304,10 +304,10 @@ public class DeviceRequest extends DomainResource {
           return RequestPriority.ROUTINE;
         if ("urgent".equals(codeString))
           return RequestPriority.URGENT;
-        if ("stat".equals(codeString))
-          return RequestPriority.STAT;
         if ("asap".equals(codeString))
           return RequestPriority.ASAP;
+        if ("stat".equals(codeString))
+          return RequestPriority.STAT;
         throw new IllegalArgumentException("Unknown RequestPriority code '"+codeString+"'");
         }
         public Enumeration<RequestPriority> fromType(Base code) throws FHIRException {
@@ -322,10 +322,10 @@ public class DeviceRequest extends DomainResource {
           return new Enumeration<RequestPriority>(this, RequestPriority.ROUTINE);
         if ("urgent".equals(codeString))
           return new Enumeration<RequestPriority>(this, RequestPriority.URGENT);
-        if ("stat".equals(codeString))
-          return new Enumeration<RequestPriority>(this, RequestPriority.STAT);
         if ("asap".equals(codeString))
           return new Enumeration<RequestPriority>(this, RequestPriority.ASAP);
+        if ("stat".equals(codeString))
+          return new Enumeration<RequestPriority>(this, RequestPriority.STAT);
         throw new FHIRException("Unknown RequestPriority code '"+codeString+"'");
         }
     public String toCode(RequestPriority code) {
@@ -333,10 +333,10 @@ public class DeviceRequest extends DomainResource {
         return "routine";
       if (code == RequestPriority.URGENT)
         return "urgent";
-      if (code == RequestPriority.STAT)
-        return "stat";
       if (code == RequestPriority.ASAP)
         return "asap";
+      if (code == RequestPriority.STAT)
+        return "stat";
       return "?";
       }
     public String toSystem(RequestPriority code) {
@@ -588,7 +588,7 @@ public class DeviceRequest extends DomainResource {
      * Identifiers assigned to this order by the orderer or by the receiver.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Request identifier", formalDefinition="Identifiers assigned to this order by the orderer or by the receiver." )
+    @Description(shortDefinition="External Request identifier", formalDefinition="Identifiers assigned to this order by the orderer or by the receiver." )
     protected List<Identifier> identifier;
 
     /**
@@ -618,13 +618,13 @@ public class DeviceRequest extends DomainResource {
     /**
      * The request takes the place of the referenced completed or terminated request(s).
      */
-    @Child(name = "replaces", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "priorRequest", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="What request replaces", formalDefinition="The request takes the place of the referenced completed or terminated request(s)." )
-    protected List<Reference> replaces;
+    protected List<Reference> priorRequest;
     /**
      * The actual objects that are the target of the reference (The request takes the place of the referenced completed or terminated request(s).)
      */
-    protected List<Resource> replacesTarget;
+    protected List<Resource> priorRequestTarget;
 
 
     /**
@@ -781,7 +781,7 @@ public class DeviceRequest extends DomainResource {
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -429909689L;
+    private static final long serialVersionUID = -2002514925L;
 
   /**
    * Constructor
@@ -980,66 +980,66 @@ public class DeviceRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #replaces} (The request takes the place of the referenced completed or terminated request(s).)
+     * @return {@link #priorRequest} (The request takes the place of the referenced completed or terminated request(s).)
      */
-    public List<Reference> getReplaces() { 
-      if (this.replaces == null)
-        this.replaces = new ArrayList<Reference>();
-      return this.replaces;
+    public List<Reference> getPriorRequest() { 
+      if (this.priorRequest == null)
+        this.priorRequest = new ArrayList<Reference>();
+      return this.priorRequest;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DeviceRequest setReplaces(List<Reference> theReplaces) { 
-      this.replaces = theReplaces;
+    public DeviceRequest setPriorRequest(List<Reference> thePriorRequest) { 
+      this.priorRequest = thePriorRequest;
       return this;
     }
 
-    public boolean hasReplaces() { 
-      if (this.replaces == null)
+    public boolean hasPriorRequest() { 
+      if (this.priorRequest == null)
         return false;
-      for (Reference item : this.replaces)
+      for (Reference item : this.priorRequest)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public Reference addReplaces() { //3
+    public Reference addPriorRequest() { //3
       Reference t = new Reference();
-      if (this.replaces == null)
-        this.replaces = new ArrayList<Reference>();
-      this.replaces.add(t);
+      if (this.priorRequest == null)
+        this.priorRequest = new ArrayList<Reference>();
+      this.priorRequest.add(t);
       return t;
     }
 
-    public DeviceRequest addReplaces(Reference t) { //3
+    public DeviceRequest addPriorRequest(Reference t) { //3
       if (t == null)
         return this;
-      if (this.replaces == null)
-        this.replaces = new ArrayList<Reference>();
-      this.replaces.add(t);
+      if (this.priorRequest == null)
+        this.priorRequest = new ArrayList<Reference>();
+      this.priorRequest.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #replaces}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #priorRequest}, creating it if it does not already exist
      */
-    public Reference getReplacesFirstRep() { 
-      if (getReplaces().isEmpty()) {
-        addReplaces();
+    public Reference getPriorRequestFirstRep() { 
+      if (getPriorRequest().isEmpty()) {
+        addPriorRequest();
       }
-      return getReplaces().get(0);
+      return getPriorRequest().get(0);
     }
 
     /**
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReplacesTarget() { 
-      if (this.replacesTarget == null)
-        this.replacesTarget = new ArrayList<Resource>();
-      return this.replacesTarget;
+    public List<Resource> getPriorRequestTarget() { 
+      if (this.priorRequestTarget == null)
+        this.priorRequestTarget = new ArrayList<Resource>();
+      return this.priorRequestTarget;
     }
 
     /**
@@ -1817,7 +1817,7 @@ public class DeviceRequest extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the orderer or by the receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition", "Reference(Any)", "Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(Any)", "Plan/proposal/order fulfilled by this request.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("replaces", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, replaces));
+        childrenList.add(new Property("priorRequest", "Reference(Any)", "The request takes the place of the referenced completed or terminated request(s).", 0, java.lang.Integer.MAX_VALUE, priorRequest));
         childrenList.add(new Property("groupIdentifier", "Identifier", "Composite request this is part of.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
         childrenList.add(new Property("status", "code", "The status of the request.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("intent", "CodeableConcept", "Whether the request is a proposal, plan, an original order or a reflex order.", 0, java.lang.Integer.MAX_VALUE, intent));
@@ -1843,7 +1843,7 @@ public class DeviceRequest extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
-        case -430332865: /*replaces*/ return this.replaces == null ? new Base[0] : this.replaces.toArray(new Base[this.replaces.size()]); // Reference
+        case 237568101: /*priorRequest*/ return this.priorRequest == null ? new Base[0] : this.priorRequest.toArray(new Base[this.priorRequest.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DeviceRequestStatus>
         case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // CodeableConcept
@@ -1878,8 +1878,8 @@ public class DeviceRequest extends DomainResource {
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
           return value;
-        case -430332865: // replaces
-          this.getReplaces().add(castToReference(value)); // Reference
+        case 237568101: // priorRequest
+          this.getPriorRequest().add(castToReference(value)); // Reference
           return value;
         case -445338488: // groupIdentifier
           this.groupIdentifier = castToIdentifier(value); // Identifier
@@ -1947,8 +1947,8 @@ public class DeviceRequest extends DomainResource {
           this.getDefinition().add(castToReference(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
-        } else if (name.equals("replaces")) {
-          this.getReplaces().add(castToReference(value));
+        } else if (name.equals("priorRequest")) {
+          this.getPriorRequest().add(castToReference(value));
         } else if (name.equals("groupIdentifier")) {
           this.groupIdentifier = castToIdentifier(value); // Identifier
         } else if (name.equals("status")) {
@@ -1996,7 +1996,7 @@ public class DeviceRequest extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case -1014418093:  return addDefinition(); 
         case -332612366:  return addBasedOn(); 
-        case -430332865:  return addReplaces(); 
+        case 237568101:  return addPriorRequest(); 
         case -445338488:  return getGroupIdentifier(); 
         case -892481550:  return getStatusElement();
         case -1183762788:  return getIntent(); 
@@ -2027,7 +2027,7 @@ public class DeviceRequest extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -1014418093: /*definition*/ return new String[] {"Reference"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
-        case -430332865: /*replaces*/ return new String[] {"Reference"};
+        case 237568101: /*priorRequest*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -1183762788: /*intent*/ return new String[] {"CodeableConcept"};
@@ -2061,8 +2061,8 @@ public class DeviceRequest extends DomainResource {
         else if (name.equals("basedOn")) {
           return addBasedOn();
         }
-        else if (name.equals("replaces")) {
-          return addReplaces();
+        else if (name.equals("priorRequest")) {
+          return addPriorRequest();
         }
         else if (name.equals("groupIdentifier")) {
           this.groupIdentifier = new Identifier();
@@ -2163,10 +2163,10 @@ public class DeviceRequest extends DomainResource {
           for (Reference i : basedOn)
             dst.basedOn.add(i.copy());
         };
-        if (replaces != null) {
-          dst.replaces = new ArrayList<Reference>();
-          for (Reference i : replaces)
-            dst.replaces.add(i.copy());
+        if (priorRequest != null) {
+          dst.priorRequest = new ArrayList<Reference>();
+          for (Reference i : priorRequest)
+            dst.priorRequest.add(i.copy());
         };
         dst.groupIdentifier = groupIdentifier == null ? null : groupIdentifier.copy();
         dst.status = status == null ? null : status.copy();
@@ -2220,7 +2220,7 @@ public class DeviceRequest extends DomainResource {
           return false;
         DeviceRequest o = (DeviceRequest) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
+           && compareDeep(basedOn, o.basedOn, true) && compareDeep(priorRequest, o.priorRequest, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(priority, o.priority, true)
            && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(occurrence, o.occurrence, true) && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true)
@@ -2243,7 +2243,7 @@ public class DeviceRequest extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , replaces, groupIdentifier, status, intent, priority, code, subject, context
+          , priorRequest, groupIdentifier, status, intent, priority, code, subject, context
           , occurrence, authoredOn, requester, performerType, performer, reasonCode, reasonReference
           , supportingInfo, note, relevantHistory);
       }
@@ -2364,32 +2364,6 @@ public class DeviceRequest extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam EVENT_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EVENT_DATE);
-
- /**
-   * Search parameter: <b>replaces</b>
-   * <p>
-   * Description: <b>Request takes the place of referenced completed or terminated requests</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceRequest.replaces</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="replaces", path="DeviceRequest.replaces", description="Request takes the place of referenced completed or terminated requests", type="reference" )
-  public static final String SP_REPLACES = "replaces";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>replaces</b>
-   * <p>
-   * Description: <b>Request takes the place of referenced completed or terminated requests</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceRequest.replaces</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REPLACES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REPLACES);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceRequest:replaces</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPLACES = new ca.uhn.fhir.model.api.Include("DeviceRequest:replaces").toLocked();
 
  /**
    * Search parameter: <b>subject</b>
@@ -2528,6 +2502,32 @@ public class DeviceRequest extends DomainResource {
    * the path value of "<b>DeviceRequest:based-on</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("DeviceRequest:based-on").toLocked();
+
+ /**
+   * Search parameter: <b>priorrequest</b>
+   * <p>
+   * Description: <b>Request takes the place of referenced completed or terminated requests</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceRequest.priorRequest</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="priorrequest", path="DeviceRequest.priorRequest", description="Request takes the place of referenced completed or terminated requests", type="reference" )
+  public static final String SP_PRIORREQUEST = "priorrequest";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>priorrequest</b>
+   * <p>
+   * Description: <b>Request takes the place of referenced completed or terminated requests</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceRequest.priorRequest</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRIORREQUEST = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRIORREQUEST);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceRequest:priorrequest</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRIORREQUEST = new ca.uhn.fhir.model.api.Include("DeviceRequest:priorrequest").toLocked();
 
  /**
    * Search parameter: <b>patient</b>

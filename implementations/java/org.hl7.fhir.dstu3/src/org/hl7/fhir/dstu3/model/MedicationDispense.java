@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu3.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-  
-  Redistribution and use in source and binary forms, with or without modification, 
+
+  Redistribution and use in source and binary forms, with or without modification,
   are permitted provided that the following conditions are met:
-  
-   * Redistributions of source code must retain the above copyright notice, this 
+
+   * Redistributions of source code must retain the above copyright notice, this
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice, 
-     this list of conditions and the following disclaimer in the documentation 
+   * Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to 
-     endorse or promote products derived from this software without specific 
+   * Neither the name of HL7 nor the names of its contributors may be used to
+     endorse or promote products derived from this software without specific
      prior written permission.
-  
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
-  
+
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -50,25 +50,29 @@ public class MedicationDispense extends DomainResource {
 
     public enum MedicationDispenseStatus {
         /**
+         * The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.
+         */
+        PREPARATION,
+        /**
          * The dispense has started but has not yet completed.
          */
-        INPROGRESS, 
+        INPROGRESS,
         /**
          * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended"
          */
-        ONHOLD, 
+        ONHOLD,
         /**
          * All actions that are implied by the dispense have occurred.
          */
-        COMPLETED, 
+        COMPLETED,
         /**
          * The dispense was entered in error and therefore nullified.
          */
-        ENTEREDINERROR, 
+        ENTEREDINERROR,
         /**
          * Actions implied by the dispense have been permanently halted, before all of them occurred.
          */
-        STOPPED, 
+        STOPPED,
         /**
          * added to help the parsers with the generic types
          */
@@ -76,6 +80,8 @@ public class MedicationDispense extends DomainResource {
         public static MedicationDispenseStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("preparation".equals(codeString))
+          return PREPARATION;
         if ("in-progress".equals(codeString))
           return INPROGRESS;
         if ("on-hold".equals(codeString))
@@ -93,6 +99,7 @@ public class MedicationDispense extends DomainResource {
         }
         public String toCode() {
           switch (this) {
+            case PREPARATION: return "preparation";
             case INPROGRESS: return "in-progress";
             case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
@@ -103,6 +110,7 @@ public class MedicationDispense extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
+            case PREPARATION: return "http://hl7.org/fhir/medication-dispense-status";
             case INPROGRESS: return "http://hl7.org/fhir/medication-dispense-status";
             case ONHOLD: return "http://hl7.org/fhir/medication-dispense-status";
             case COMPLETED: return "http://hl7.org/fhir/medication-dispense-status";
@@ -113,6 +121,7 @@ public class MedicationDispense extends DomainResource {
         }
         public String getDefinition() {
           switch (this) {
+            case PREPARATION: return "The core event has not started yet, but some staging activities have begun (e.g. initial compounding or packaging of medication). Preparation stages may be tracked for billing purposes.";
             case INPROGRESS: return "The dispense has started but has not yet completed.";
             case ONHOLD: return "Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called \"suspended\"";
             case COMPLETED: return "All actions that are implied by the dispense have occurred.";
@@ -123,6 +132,7 @@ public class MedicationDispense extends DomainResource {
         }
         public String getDisplay() {
           switch (this) {
+            case PREPARATION: return "Preparation";
             case INPROGRESS: return "In Progress";
             case ONHOLD: return "On Hold";
             case COMPLETED: return "Completed";
@@ -138,6 +148,8 @@ public class MedicationDispense extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("preparation".equals(codeString))
+          return MedicationDispenseStatus.PREPARATION;
         if ("in-progress".equals(codeString))
           return MedicationDispenseStatus.INPROGRESS;
         if ("on-hold".equals(codeString))
@@ -158,6 +170,8 @@ public class MedicationDispense extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("preparation".equals(codeString))
+          return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.PREPARATION);
         if ("in-progress".equals(codeString))
           return new Enumeration<MedicationDispenseStatus>(this, MedicationDispenseStatus.INPROGRESS);
         if ("on-hold".equals(codeString))
@@ -171,6 +185,8 @@ public class MedicationDispense extends DomainResource {
         throw new FHIRException("Unknown MedicationDispenseStatus code '"+codeString+"'");
         }
     public String toCode(MedicationDispenseStatus code) {
+      if (code == MedicationDispenseStatus.PREPARATION)
+        return "preparation";
       if (code == MedicationDispenseStatus.INPROGRESS)
         return "in-progress";
       if (code == MedicationDispenseStatus.ONHOLD)
@@ -187,6 +203,294 @@ public class MedicationDispense extends DomainResource {
       return code.getSystem();
       }
     }
+
+    @Block()
+    public static class MedicationDispensePerformerComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="What type of role the performer fulfilled", formalDefinition="Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
+        protected CodeableConcept role;
+
+        /**
+         * The device, practitioner, etc. who performed the action.
+         */
+        @Child(name = "actor", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Individual who was performing", formalDefinition="The device, practitioner, etc. who performed the action." )
+        protected Reference actor;
+
+        /**
+         * The actual object that is the target of the reference (The device, practitioner, etc. who performed the action.)
+         */
+        protected Resource actorTarget;
+
+        /**
+         * The organization the device or practitioner was acting on behalf of.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        private static final long serialVersionUID = 213950062L;
+
+    /**
+     * Constructor
+     */
+      public MedicationDispensePerformerComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MedicationDispensePerformerComponent(Reference actor) {
+        super();
+        this.actor = actor;
+      }
+
+        /**
+         * @return {@link #role} (Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).)
+         */
+        public CodeableConcept getRole() {
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationDispensePerformerComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() {
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).)
+         */
+        public MedicationDispensePerformerComponent setRole(CodeableConcept value) {
+          this.role = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} (The device, practitioner, etc. who performed the action.)
+         */
+        public Reference getActor() {
+          if (this.actor == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationDispensePerformerComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actor = new Reference(); // cc
+          return this.actor;
+        }
+
+        public boolean hasActor() {
+          return this.actor != null && !this.actor.isEmpty();
+        }
+
+        /**
+         * @param value {@link #actor} (The device, practitioner, etc. who performed the action.)
+         */
+        public MedicationDispensePerformerComponent setActor(Reference value) {
+          this.actor = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who performed the action.)
+         */
+        public Resource getActorTarget() {
+          return this.actorTarget;
+        }
+
+        /**
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who performed the action.)
+         */
+        public MedicationDispensePerformerComponent setActorTarget(Resource value) {
+          this.actorTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Reference getOnBehalfOf() {
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationDispensePerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() {
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public MedicationDispensePerformerComponent setOnBehalfOf(Reference value) {
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Organization getOnBehalfOfTarget() {
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MedicationDispensePerformerComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public MedicationDispensePerformerComponent setOnBehalfOfTarget(Organization value) {
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("role", "CodeableConcept", "Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who performed the action.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3506294: // role
+          this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 92645877: // actor
+          this.actor = castToReference(value); // Reference
+          return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("actor")) {
+          this.actor = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294:  return getRole();
+        case 92645877:  return getActor();
+        case -14402964:  return getOnBehalfOf();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 92645877: /*actor*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("role")) {
+          this.role = new CodeableConcept();
+          return this.role;
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
+        }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MedicationDispensePerformerComponent copy() {
+        MedicationDispensePerformerComponent dst = new MedicationDispensePerformerComponent();
+        copyValues(dst);
+        dst.role = role == null ? null : role.copy();
+        dst.actor = actor == null ? null : actor.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MedicationDispensePerformerComponent))
+          return false;
+        MedicationDispensePerformerComponent o = (MedicationDispensePerformerComponent) other;
+        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MedicationDispensePerformerComponent))
+          return false;
+        MedicationDispensePerformerComponent o = (MedicationDispensePerformerComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
+          );
+      }
+
+  public String fhirType() {
+    return "MedicationDispense.performer";
+
+  }
+
+  }
 
     @Block()
     public static class MedicationDispenseSubstitutionComponent extends BackboneElement implements IBaseBackboneElement {
@@ -245,7 +549,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return {@link #wasSubstituted} (True if the dispenser dispensed a different drug or product from what was prescribed.). This is the underlying object with id, value and extensions. The accessor "getWasSubstituted" gives direct access to the value
          */
-        public BooleanType getWasSubstitutedElement() { 
+        public BooleanType getWasSubstitutedElement() {
           if (this.wasSubstituted == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseSubstitutionComponent.wasSubstituted");
@@ -254,18 +558,18 @@ public class MedicationDispense extends DomainResource {
           return this.wasSubstituted;
         }
 
-        public boolean hasWasSubstitutedElement() { 
+        public boolean hasWasSubstitutedElement() {
           return this.wasSubstituted != null && !this.wasSubstituted.isEmpty();
         }
 
-        public boolean hasWasSubstituted() { 
+        public boolean hasWasSubstituted() {
           return this.wasSubstituted != null && !this.wasSubstituted.isEmpty();
         }
 
         /**
          * @param value {@link #wasSubstituted} (True if the dispenser dispensed a different drug or product from what was prescribed.). This is the underlying object with id, value and extensions. The accessor "getWasSubstituted" gives direct access to the value
          */
-        public MedicationDispenseSubstitutionComponent setWasSubstitutedElement(BooleanType value) { 
+        public MedicationDispenseSubstitutionComponent setWasSubstitutedElement(BooleanType value) {
           this.wasSubstituted = value;
           return this;
         }
@@ -273,14 +577,14 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return True if the dispenser dispensed a different drug or product from what was prescribed.
          */
-        public boolean getWasSubstituted() { 
+        public boolean getWasSubstituted() {
           return this.wasSubstituted == null || this.wasSubstituted.isEmpty() ? false : this.wasSubstituted.getValue();
         }
 
         /**
          * @param value True if the dispenser dispensed a different drug or product from what was prescribed.
          */
-        public MedicationDispenseSubstitutionComponent setWasSubstituted(boolean value) { 
+        public MedicationDispenseSubstitutionComponent setWasSubstituted(boolean value) {
             if (this.wasSubstituted == null)
               this.wasSubstituted = new BooleanType();
             this.wasSubstituted.setValue(value);
@@ -290,7 +594,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return {@link #type} (A code signifying whether a different drug was dispensed from what was prescribed.)
          */
-        public CodeableConcept getType() { 
+        public CodeableConcept getType() {
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationDispenseSubstitutionComponent.type");
@@ -299,14 +603,14 @@ public class MedicationDispense extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() { 
+        public boolean hasType() {
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (A code signifying whether a different drug was dispensed from what was prescribed.)
          */
-        public MedicationDispenseSubstitutionComponent setType(CodeableConcept value) { 
+        public MedicationDispenseSubstitutionComponent setType(CodeableConcept value) {
           this.type = value;
           return this;
         }
@@ -314,7 +618,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return {@link #reason} (Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.)
          */
-        public List<CodeableConcept> getReason() { 
+        public List<CodeableConcept> getReason() {
           if (this.reason == null)
             this.reason = new ArrayList<CodeableConcept>();
           return this.reason;
@@ -323,12 +627,12 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public MedicationDispenseSubstitutionComponent setReason(List<CodeableConcept> theReason) { 
+        public MedicationDispenseSubstitutionComponent setReason(List<CodeableConcept> theReason) {
           this.reason = theReason;
           return this;
         }
 
-        public boolean hasReason() { 
+        public boolean hasReason() {
           if (this.reason == null)
             return false;
           for (CodeableConcept item : this.reason)
@@ -357,7 +661,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #reason}, creating it if it does not already exist
          */
-        public CodeableConcept getReasonFirstRep() { 
+        public CodeableConcept getReasonFirstRep() {
           if (getReason().isEmpty()) {
             addReason();
           }
@@ -367,7 +671,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return {@link #responsibleParty} (The person or organization that has primary responsibility for the substitution.)
          */
-        public List<Reference> getResponsibleParty() { 
+        public List<Reference> getResponsibleParty() {
           if (this.responsibleParty == null)
             this.responsibleParty = new ArrayList<Reference>();
           return this.responsibleParty;
@@ -376,12 +680,12 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public MedicationDispenseSubstitutionComponent setResponsibleParty(List<Reference> theResponsibleParty) { 
+        public MedicationDispenseSubstitutionComponent setResponsibleParty(List<Reference> theResponsibleParty) {
           this.responsibleParty = theResponsibleParty;
           return this;
         }
 
-        public boolean hasResponsibleParty() { 
+        public boolean hasResponsibleParty() {
           if (this.responsibleParty == null)
             return false;
           for (Reference item : this.responsibleParty)
@@ -410,7 +714,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * @return The first repetition of repeating field {@link #responsibleParty}, creating it if it does not already exist
          */
-        public Reference getResponsiblePartyFirstRep() { 
+        public Reference getResponsiblePartyFirstRep() {
           if (getResponsibleParty().isEmpty()) {
             addResponsibleParty();
           }
@@ -421,7 +725,7 @@ public class MedicationDispense extends DomainResource {
          * @deprecated Use Reference#setResource(IBaseResource) instead
          */
         @Deprecated
-        public List<Practitioner> getResponsiblePartyTarget() { 
+        public List<Practitioner> getResponsiblePartyTarget() {
           if (this.responsiblePartyTarget == null)
             this.responsiblePartyTarget = new ArrayList<Practitioner>();
           return this.responsiblePartyTarget;
@@ -431,7 +735,7 @@ public class MedicationDispense extends DomainResource {
          * @deprecated Use Reference#setResource(IBaseResource) instead
          */
         @Deprecated
-        public Practitioner addResponsiblePartyTarget() { 
+        public Practitioner addResponsiblePartyTarget() {
           Practitioner r = new Practitioner();
           if (this.responsiblePartyTarget == null)
             this.responsiblePartyTarget = new ArrayList<Practitioner>();
@@ -498,9 +802,9 @@ public class MedicationDispense extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -592113567:  return getWasSubstitutedElement();
-        case 3575610:  return getType(); 
-        case -934964668:  return addReason(); 
-        case 1511509392:  return addResponsibleParty(); 
+        case 3575610:  return getType();
+        case -934964668:  return addReason();
+        case 1511509392:  return addResponsibleParty();
         default: return super.makeProperty(hash, name);
         }
 
@@ -591,42 +895,74 @@ public class MedicationDispense extends DomainResource {
     /**
      * Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="External identifier", formalDefinition="Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR." )
-    protected Identifier identifier;
+    protected List<Identifier> identifier;
+
+    /**
+     * The procedure that the dispense is done because of.
+     */
+    @Child(name = "partOf", type = {Procedure.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Event that dispense is part of", formalDefinition="The procedure that the dispense is done because of." )
+    protected List<Reference> partOf;
+    /**
+     * The actual objects that are the target of the reference (The procedure that the dispense is done because of.)
+     */
+    protected List<Procedure> partOfTarget;
+
 
     /**
      * A code specifying the state of the set of dispense events.
      */
-    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="A code specifying the state of the set of dispense events." )
+    @Child(name = "status", type = {CodeType.class}, order=2, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="preparation | in-progress | on-hold | completed | entered-in-error | stopped", formalDefinition="A code specifying the state of the set of dispense events." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-dispense-status")
     protected Enumeration<MedicationDispenseStatus> status;
 
     /**
+     * Indicates type of medication dispense and where the medication is expected to be consumed or administered.
+     */
+    @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Type of medication dispense", formalDefinition="Indicates type of medication dispense and where the medication is expected to be consumed or administered." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-dispense-category")
+    protected CodeableConcept category;
+
+    /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What medication was supplied", formalDefinition="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type medication;
 
     /**
-     * A link to a resource representing the person to whom the medication will be given.
+     * A link to a resource representing the person or the group to whom the medication will be given.
      */
-    @Child(name = "patient", type = {Patient.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who the dispense is for", formalDefinition="A link to a resource representing the person to whom the medication will be given." )
-    protected Reference patient;
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who the dispense is for", formalDefinition="A link to a resource representing the person or the group to whom the medication will be given." )
+    protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (A link to a resource representing the person to whom the medication will be given.)
+     * The actual object that is the target of the reference (A link to a resource representing the person or the group to whom the medication will be given.)
      */
-    protected Patient patientTarget;
+    protected Resource subjectTarget;
+
+    /**
+     * The encounter or episode of care that establishes the context for this event.
+     */
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Encounter / Episode associated with event", formalDefinition="The encounter or episode of care that establishes the context for this event." )
+    protected Reference context;
+
+    /**
+     * The actual object that is the target of the reference (The encounter or episode of care that establishes the context for this event.)
+     */
+    protected Resource contextTarget;
 
     /**
      * Additional information that supports the medication being dispensed.
      */
-    @Child(name = "supportingInformation", type = {Reference.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInformation", type = {Reference.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information that supports the dispensing of the medication", formalDefinition="Additional information that supports the medication being dispensed." )
     protected List<Reference> supportingInformation;
     /**
@@ -636,33 +972,16 @@ public class MedicationDispense extends DomainResource {
 
 
     /**
-     * The individual responsible for dispensing the medication.
+     * Indicates who or what performed the event.
      */
-    @Child(name = "dispenser", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Practitioner responsible for dispensing medication", formalDefinition="The individual responsible for dispensing the medication." )
-    protected Reference dispenser;
-
-    /**
-     * The actual object that is the target of the reference (The individual responsible for dispensing the medication.)
-     */
-    protected Practitioner dispenserTarget;
-
-    /**
-     * The organizaation responsible for the dispense of the medication.
-     */
-    @Child(name = "dispensingOrganization", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Organization responsible for the dispense of the medication", formalDefinition="The organizaation responsible for the dispense of the medication." )
-    protected Reference dispensingOrganization;
-
-    /**
-     * The actual object that is the target of the reference (The organizaation responsible for the dispense of the medication.)
-     */
-    protected Organization dispensingOrganizationTarget;
+    @Child(name = "performer", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Who performed event", formalDefinition="Indicates who or what performed the event." )
+    protected List<MedicationDispensePerformerComponent> performer;
 
     /**
      * Indicates the medication order that is being dispensed against.
      */
-    @Child(name = "authorizingPrescription", type = {MedicationRequest.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "authorizingPrescription", type = {MedicationRequest.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Medication order that authorizes the dispense", formalDefinition="Indicates the medication order that is being dispensed against." )
     protected List<Reference> authorizingPrescription;
     /**
@@ -674,7 +993,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "type", type = {CodeableConcept.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Trial fill, partial fill, emergency fill, etc.", formalDefinition="Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType")
     protected CodeableConcept type;
@@ -682,35 +1001,35 @@ public class MedicationDispense extends DomainResource {
     /**
      * The amount of medication that has been dispensed. Includes unit of measure.
      */
-    @Child(name = "quantity", type = {SimpleQuantity.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "quantity", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount dispensed", formalDefinition="The amount of medication that has been dispensed. Includes unit of measure." )
     protected SimpleQuantity quantity;
 
     /**
      * The amount of medication expressed as a timing amount.
      */
-    @Child(name = "daysSupply", type = {SimpleQuantity.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "daysSupply", type = {SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Amount of medication expressed as a timing amount", formalDefinition="The amount of medication expressed as a timing amount." )
     protected SimpleQuantity daysSupply;
 
     /**
      * The time when the dispensed product was packaged and reviewed.
      */
-    @Child(name = "whenPrepared", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "whenPrepared", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When product was packaged and reviewed", formalDefinition="The time when the dispensed product was packaged and reviewed." )
     protected DateTimeType whenPrepared;
 
     /**
      * The time the dispensed product was provided to the patient or their representative.
      */
-    @Child(name = "whenHandedOver", type = {DateTimeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "whenHandedOver", type = {DateTimeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When product was given out", formalDefinition="The time the dispensed product was provided to the patient or their representative." )
     protected DateTimeType whenHandedOver;
 
     /**
      * Identification of the facility/location where the medication was shipped to, as part of the dispense event.
      */
-    @Child(name = "destination", type = {Location.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "destination", type = {Location.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Where the medication was sent", formalDefinition="Identification of the facility/location where the medication was shipped to, as part of the dispense event." )
     protected Reference destination;
 
@@ -722,7 +1041,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.
      */
-    @Child(name = "receiver", type = {Patient.class, Practitioner.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "receiver", type = {Patient.class, Practitioner.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Who collected the medication", formalDefinition="Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional." )
     protected List<Reference> receiver;
     /**
@@ -734,28 +1053,54 @@ public class MedicationDispense extends DomainResource {
     /**
      * Extra information about the dispense that could not be conveyed in the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Information about the dispense", formalDefinition="Extra information about the dispense that could not be conveyed in the other attributes." )
     protected List<Annotation> note;
 
     /**
      * Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
      */
-    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Medicine administration instructions to the patient/caregiver", formalDefinition="Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed." )
     protected List<DosageInstruction> dosageInstruction;
 
     /**
      * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
      */
-    @Child(name = "substitution", type = {}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "substitution", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Whether a substitution was performed on the dispense", formalDefinition="Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done." )
     protected MedicationDispenseSubstitutionComponent substitution;
 
     /**
+     * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
+     */
+    @Child(name = "detectedIssue", type = {DetectedIssue.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Clinical Issue with action", formalDefinition="Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc." )
+    protected List<Reference> detectedIssue;
+    /**
+     * The actual objects that are the target of the reference (Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.)
+     */
+    protected List<DetectedIssue> detectedIssueTarget;
+
+
+    /**
+     * True if the dispense was not peformed for some reason.
+     */
+    @Child(name = "notDone", type = {BooleanType.class}, order=21, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Whether the dispense was or was not performed", formalDefinition="True if the dispense was not peformed for some reason." )
+    protected BooleanType notDone;
+
+    /**
+     * Indicates the reason why a dispense was not performed.
+     */
+    @Child(name = "notDoneReason", type = {CodeableConcept.class, DetectedIssue.class}, order=22, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Why a dispense was not performed", formalDefinition="Indicates the reason why a dispense was not performed." )
+    protected Type notDoneReason;
+
+    /**
      * A summary of the events of interest that have occurred, such as when the dispense was verified.
      */
-    @Child(name = "eventHistory", type = {Provenance.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "eventHistory", type = {Provenance.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A list of events of interest in the lifecycle", formalDefinition="A summary of the events of interest that have occurred, such as when the dispense was verified." )
     protected List<Reference> eventHistory;
     /**
@@ -764,7 +1109,7 @@ public class MedicationDispense extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -1649506055L;
+    private static final long serialVersionUID = -254310555L;
 
   /**
    * Constructor
@@ -784,31 +1129,135 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.)
      */
-    public Identifier getIdentifier() { 
+    public List<Identifier> getIdentifier() {
       if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
+        this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setIdentifier(List<Identifier> theIdentifier) {
+      this.identifier = theIdentifier;
+      return this;
+    }
+
+    public boolean hasIdentifier() {
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    public MedicationDispense addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
     }
 
     /**
-     * @param value {@link #identifier} (Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.)
+     * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
      */
-    public MedicationDispense setIdentifier(Identifier value) { 
-      this.identifier = value;
+    public Identifier getIdentifierFirstRep() {
+      if (getIdentifier().isEmpty()) {
+        addIdentifier();
+      }
+      return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #partOf} (The procedure that the dispense is done because of.)
+     */
+    public List<Reference> getPartOf() {
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      return this.partOf;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setPartOf(List<Reference> thePartOf) {
+      this.partOf = thePartOf;
       return this;
+    }
+
+    public boolean hasPartOf() {
+      if (this.partOf == null)
+        return false;
+      for (Reference item : this.partOf)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addPartOf() { //3
+      Reference t = new Reference();
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return t;
+    }
+
+    public MedicationDispense addPartOf(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.partOf == null)
+        this.partOf = new ArrayList<Reference>();
+      this.partOf.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #partOf}, creating it if it does not already exist
+     */
+    public Reference getPartOfFirstRep() {
+      if (getPartOf().isEmpty()) {
+        addPartOf();
+      }
+      return getPartOf().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Procedure> getPartOfTarget() {
+      if (this.partOfTarget == null)
+        this.partOfTarget = new ArrayList<Procedure>();
+      return this.partOfTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Procedure addPartOfTarget() {
+      Procedure r = new Procedure();
+      if (this.partOfTarget == null)
+        this.partOfTarget = new ArrayList<Procedure>();
+      this.partOfTarget.add(r);
+      return r;
     }
 
     /**
      * @return {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationDispenseStatus> getStatusElement() { 
+    public Enumeration<MedicationDispenseStatus> getStatusElement() {
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.status");
@@ -817,18 +1266,18 @@ public class MedicationDispense extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() { 
+    public boolean hasStatusElement() {
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() { 
+    public boolean hasStatus() {
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (A code specifying the state of the set of dispense events.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationDispense setStatusElement(Enumeration<MedicationDispenseStatus> value) { 
+    public MedicationDispense setStatusElement(Enumeration<MedicationDispenseStatus> value) {
       this.status = value;
       return this;
     }
@@ -836,14 +1285,14 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return A code specifying the state of the set of dispense events.
      */
-    public MedicationDispenseStatus getStatus() { 
+    public MedicationDispenseStatus getStatus() {
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the set of dispense events.
      */
-    public MedicationDispense setStatus(MedicationDispenseStatus value) { 
+    public MedicationDispense setStatus(MedicationDispenseStatus value) {
       if (value == null)
         this.status = null;
       else {
@@ -855,98 +1304,156 @@ public class MedicationDispense extends DomainResource {
     }
 
     /**
+     * @return {@link #category} (Indicates type of medication dispense and where the medication is expected to be consumed or administered.)
+     */
+    public CodeableConcept getCategory() {
+      if (this.category == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationDispense.category");
+        else if (Configuration.doAutoCreate())
+          this.category = new CodeableConcept(); // cc
+      return this.category;
+    }
+
+    public boolean hasCategory() {
+      return this.category != null && !this.category.isEmpty();
+    }
+
+    /**
+     * @param value {@link #category} (Indicates type of medication dispense and where the medication is expected to be consumed or administered.)
+     */
+    public MedicationDispense setCategory(CodeableConcept value) {
+      this.category = value;
+      return this;
+    }
+
+    /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Type getMedication() { 
+    public Type getMedication() {
       return this.medication;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
+    public CodeableConcept getMedicationCodeableConcept() throws FHIRException {
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
     }
 
-    public boolean hasMedicationCodeableConcept() { 
+    public boolean hasMedicationCodeableConcept() {
       return this.medication instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Reference getMedicationReference() throws FHIRException { 
+    public Reference getMedicationReference() throws FHIRException {
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
     }
 
-    public boolean hasMedicationReference() { 
+    public boolean hasMedicationReference() {
       return this.medication instanceof Reference;
     }
 
-    public boolean hasMedication() { 
+    public boolean hasMedication() {
       return this.medication != null && !this.medication.isEmpty();
     }
 
     /**
      * @param value {@link #medication} (Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationDispense setMedication(Type value) { 
+    public MedicationDispense setMedication(Type value) {
       this.medication = value;
       return this;
     }
 
     /**
-     * @return {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     * @return {@link #subject} (A link to a resource representing the person or the group to whom the medication will be given.)
      */
-    public Reference getPatient() { 
-      if (this.patient == null)
+    public Reference getSubject() {
+      if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.patient");
+          throw new Error("Attempt to auto-create MedicationDispense.subject");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference(); // cc
-      return this.patient;
+          this.subject = new Reference(); // cc
+      return this.subject;
     }
 
-    public boolean hasPatient() { 
-      return this.patient != null && !this.patient.isEmpty();
+    public boolean hasSubject() {
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
-     * @param value {@link #patient} (A link to a resource representing the person to whom the medication will be given.)
+     * @param value {@link #subject} (A link to a resource representing the person or the group to whom the medication will be given.)
      */
-    public MedicationDispense setPatient(Reference value) { 
-      this.patient = value;
+    public MedicationDispense setSubject(Reference value) {
+      this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person or the group to whom the medication will be given.)
      */
-    public Patient getPatientTarget() { 
-      if (this.patientTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.patient");
-        else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient(); // aa
-      return this.patientTarget;
+    public Resource getSubjectTarget() {
+      return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person to whom the medication will be given.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person or the group to whom the medication will be given.)
      */
-    public MedicationDispense setPatientTarget(Patient value) { 
-      this.patientTarget = value;
+    public MedicationDispense setSubjectTarget(Resource value) {
+      this.subjectTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #context} (The encounter or episode of care that establishes the context for this event.)
+     */
+    public Reference getContext() {
+      if (this.context == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationDispense.context");
+        else if (Configuration.doAutoCreate())
+          this.context = new Reference(); // cc
+      return this.context;
+    }
+
+    public boolean hasContext() {
+      return this.context != null && !this.context.isEmpty();
+    }
+
+    /**
+     * @param value {@link #context} (The encounter or episode of care that establishes the context for this event.)
+     */
+    public MedicationDispense setContext(Reference value) {
+      this.context = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter or episode of care that establishes the context for this event.)
+     */
+    public Resource getContextTarget() {
+      return this.contextTarget;
+    }
+
+    /**
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter or episode of care that establishes the context for this event.)
+     */
+    public MedicationDispense setContextTarget(Resource value) {
+      this.contextTarget = value;
       return this;
     }
 
     /**
      * @return {@link #supportingInformation} (Additional information that supports the medication being dispensed.)
      */
-    public List<Reference> getSupportingInformation() { 
+    public List<Reference> getSupportingInformation() {
       if (this.supportingInformation == null)
         this.supportingInformation = new ArrayList<Reference>();
       return this.supportingInformation;
@@ -955,12 +1462,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setSupportingInformation(List<Reference> theSupportingInformation) { 
+    public MedicationDispense setSupportingInformation(List<Reference> theSupportingInformation) {
       this.supportingInformation = theSupportingInformation;
       return this;
     }
 
-    public boolean hasSupportingInformation() { 
+    public boolean hasSupportingInformation() {
       if (this.supportingInformation == null)
         return false;
       for (Reference item : this.supportingInformation)
@@ -989,7 +1496,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #supportingInformation}, creating it if it does not already exist
      */
-    public Reference getSupportingInformationFirstRep() { 
+    public Reference getSupportingInformationFirstRep() {
       if (getSupportingInformation().isEmpty()) {
         addSupportingInformation();
       }
@@ -1000,104 +1507,69 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getSupportingInformationTarget() { 
+    public List<Resource> getSupportingInformationTarget() {
       if (this.supportingInformationTarget == null)
         this.supportingInformationTarget = new ArrayList<Resource>();
       return this.supportingInformationTarget;
     }
 
     /**
-     * @return {@link #dispenser} (The individual responsible for dispensing the medication.)
+     * @return {@link #performer} (Indicates who or what performed the event.)
      */
-    public Reference getDispenser() { 
-      if (this.dispenser == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.dispenser");
-        else if (Configuration.doAutoCreate())
-          this.dispenser = new Reference(); // cc
-      return this.dispenser;
-    }
-
-    public boolean hasDispenser() { 
-      return this.dispenser != null && !this.dispenser.isEmpty();
+    public List<MedicationDispensePerformerComponent> getPerformer() {
+      if (this.performer == null)
+        this.performer = new ArrayList<MedicationDispensePerformerComponent>();
+      return this.performer;
     }
 
     /**
-     * @param value {@link #dispenser} (The individual responsible for dispensing the medication.)
+     * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setDispenser(Reference value) { 
-      this.dispenser = value;
+    public MedicationDispense setPerformer(List<MedicationDispensePerformerComponent> thePerformer) {
+      this.performer = thePerformer;
+      return this;
+    }
+
+    public boolean hasPerformer() {
+      if (this.performer == null)
+        return false;
+      for (MedicationDispensePerformerComponent item : this.performer)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MedicationDispensePerformerComponent addPerformer() { //3
+      MedicationDispensePerformerComponent t = new MedicationDispensePerformerComponent();
+      if (this.performer == null)
+        this.performer = new ArrayList<MedicationDispensePerformerComponent>();
+      this.performer.add(t);
+      return t;
+    }
+
+    public MedicationDispense addPerformer(MedicationDispensePerformerComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.performer == null)
+        this.performer = new ArrayList<MedicationDispensePerformerComponent>();
+      this.performer.add(t);
       return this;
     }
 
     /**
-     * @return {@link #dispenser} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
+     * @return The first repetition of repeating field {@link #performer}, creating it if it does not already exist
      */
-    public Practitioner getDispenserTarget() { 
-      if (this.dispenserTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.dispenser");
-        else if (Configuration.doAutoCreate())
-          this.dispenserTarget = new Practitioner(); // aa
-      return this.dispenserTarget;
-    }
-
-    /**
-     * @param value {@link #dispenser} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual responsible for dispensing the medication.)
-     */
-    public MedicationDispense setDispenserTarget(Practitioner value) { 
-      this.dispenserTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #dispensingOrganization} (The organizaation responsible for the dispense of the medication.)
-     */
-    public Reference getDispensingOrganization() { 
-      if (this.dispensingOrganization == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.dispensingOrganization");
-        else if (Configuration.doAutoCreate())
-          this.dispensingOrganization = new Reference(); // cc
-      return this.dispensingOrganization;
-    }
-
-    public boolean hasDispensingOrganization() { 
-      return this.dispensingOrganization != null && !this.dispensingOrganization.isEmpty();
-    }
-
-    /**
-     * @param value {@link #dispensingOrganization} (The organizaation responsible for the dispense of the medication.)
-     */
-    public MedicationDispense setDispensingOrganization(Reference value) { 
-      this.dispensingOrganization = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #dispensingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organizaation responsible for the dispense of the medication.)
-     */
-    public Organization getDispensingOrganizationTarget() { 
-      if (this.dispensingOrganizationTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationDispense.dispensingOrganization");
-        else if (Configuration.doAutoCreate())
-          this.dispensingOrganizationTarget = new Organization(); // aa
-      return this.dispensingOrganizationTarget;
-    }
-
-    /**
-     * @param value {@link #dispensingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organizaation responsible for the dispense of the medication.)
-     */
-    public MedicationDispense setDispensingOrganizationTarget(Organization value) { 
-      this.dispensingOrganizationTarget = value;
-      return this;
+    public MedicationDispensePerformerComponent getPerformerFirstRep() {
+      if (getPerformer().isEmpty()) {
+        addPerformer();
+      }
+      return getPerformer().get(0);
     }
 
     /**
      * @return {@link #authorizingPrescription} (Indicates the medication order that is being dispensed against.)
      */
-    public List<Reference> getAuthorizingPrescription() { 
+    public List<Reference> getAuthorizingPrescription() {
       if (this.authorizingPrescription == null)
         this.authorizingPrescription = new ArrayList<Reference>();
       return this.authorizingPrescription;
@@ -1106,12 +1578,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setAuthorizingPrescription(List<Reference> theAuthorizingPrescription) { 
+    public MedicationDispense setAuthorizingPrescription(List<Reference> theAuthorizingPrescription) {
       this.authorizingPrescription = theAuthorizingPrescription;
       return this;
     }
 
-    public boolean hasAuthorizingPrescription() { 
+    public boolean hasAuthorizingPrescription() {
       if (this.authorizingPrescription == null)
         return false;
       for (Reference item : this.authorizingPrescription)
@@ -1140,7 +1612,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #authorizingPrescription}, creating it if it does not already exist
      */
-    public Reference getAuthorizingPrescriptionFirstRep() { 
+    public Reference getAuthorizingPrescriptionFirstRep() {
       if (getAuthorizingPrescription().isEmpty()) {
         addAuthorizingPrescription();
       }
@@ -1151,7 +1623,7 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<MedicationRequest> getAuthorizingPrescriptionTarget() { 
+    public List<MedicationRequest> getAuthorizingPrescriptionTarget() {
       if (this.authorizingPrescriptionTarget == null)
         this.authorizingPrescriptionTarget = new ArrayList<MedicationRequest>();
       return this.authorizingPrescriptionTarget;
@@ -1161,7 +1633,7 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public MedicationRequest addAuthorizingPrescriptionTarget() { 
+    public MedicationRequest addAuthorizingPrescriptionTarget() {
       MedicationRequest r = new MedicationRequest();
       if (this.authorizingPrescriptionTarget == null)
         this.authorizingPrescriptionTarget = new ArrayList<MedicationRequest>();
@@ -1172,7 +1644,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #type} (Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
      */
-    public CodeableConcept getType() { 
+    public CodeableConcept getType() {
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.type");
@@ -1181,14 +1653,14 @@ public class MedicationDispense extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() { 
+    public boolean hasType() {
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.)
      */
-    public MedicationDispense setType(CodeableConcept value) { 
+    public MedicationDispense setType(CodeableConcept value) {
       this.type = value;
       return this;
     }
@@ -1196,7 +1668,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public SimpleQuantity getQuantity() { 
+    public SimpleQuantity getQuantity() {
       if (this.quantity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.quantity");
@@ -1205,14 +1677,14 @@ public class MedicationDispense extends DomainResource {
       return this.quantity;
     }
 
-    public boolean hasQuantity() { 
+    public boolean hasQuantity() {
       return this.quantity != null && !this.quantity.isEmpty();
     }
 
     /**
      * @param value {@link #quantity} (The amount of medication that has been dispensed. Includes unit of measure.)
      */
-    public MedicationDispense setQuantity(SimpleQuantity value) { 
+    public MedicationDispense setQuantity(SimpleQuantity value) {
       this.quantity = value;
       return this;
     }
@@ -1220,7 +1692,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public SimpleQuantity getDaysSupply() { 
+    public SimpleQuantity getDaysSupply() {
       if (this.daysSupply == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.daysSupply");
@@ -1229,14 +1701,14 @@ public class MedicationDispense extends DomainResource {
       return this.daysSupply;
     }
 
-    public boolean hasDaysSupply() { 
+    public boolean hasDaysSupply() {
       return this.daysSupply != null && !this.daysSupply.isEmpty();
     }
 
     /**
      * @param value {@link #daysSupply} (The amount of medication expressed as a timing amount.)
      */
-    public MedicationDispense setDaysSupply(SimpleQuantity value) { 
+    public MedicationDispense setDaysSupply(SimpleQuantity value) {
       this.daysSupply = value;
       return this;
     }
@@ -1244,7 +1716,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
      */
-    public DateTimeType getWhenPreparedElement() { 
+    public DateTimeType getWhenPreparedElement() {
       if (this.whenPrepared == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.whenPrepared");
@@ -1253,18 +1725,18 @@ public class MedicationDispense extends DomainResource {
       return this.whenPrepared;
     }
 
-    public boolean hasWhenPreparedElement() { 
+    public boolean hasWhenPreparedElement() {
       return this.whenPrepared != null && !this.whenPrepared.isEmpty();
     }
 
-    public boolean hasWhenPrepared() { 
+    public boolean hasWhenPrepared() {
       return this.whenPrepared != null && !this.whenPrepared.isEmpty();
     }
 
     /**
      * @param value {@link #whenPrepared} (The time when the dispensed product was packaged and reviewed.). This is the underlying object with id, value and extensions. The accessor "getWhenPrepared" gives direct access to the value
      */
-    public MedicationDispense setWhenPreparedElement(DateTimeType value) { 
+    public MedicationDispense setWhenPreparedElement(DateTimeType value) {
       this.whenPrepared = value;
       return this;
     }
@@ -1272,14 +1744,14 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The time when the dispensed product was packaged and reviewed.
      */
-    public Date getWhenPrepared() { 
+    public Date getWhenPrepared() {
       return this.whenPrepared == null ? null : this.whenPrepared.getValue();
     }
 
     /**
      * @param value The time when the dispensed product was packaged and reviewed.
      */
-    public MedicationDispense setWhenPrepared(Date value) { 
+    public MedicationDispense setWhenPrepared(Date value) {
       if (value == null)
         this.whenPrepared = null;
       else {
@@ -1293,7 +1765,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
      */
-    public DateTimeType getWhenHandedOverElement() { 
+    public DateTimeType getWhenHandedOverElement() {
       if (this.whenHandedOver == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.whenHandedOver");
@@ -1302,18 +1774,18 @@ public class MedicationDispense extends DomainResource {
       return this.whenHandedOver;
     }
 
-    public boolean hasWhenHandedOverElement() { 
+    public boolean hasWhenHandedOverElement() {
       return this.whenHandedOver != null && !this.whenHandedOver.isEmpty();
     }
 
-    public boolean hasWhenHandedOver() { 
+    public boolean hasWhenHandedOver() {
       return this.whenHandedOver != null && !this.whenHandedOver.isEmpty();
     }
 
     /**
      * @param value {@link #whenHandedOver} (The time the dispensed product was provided to the patient or their representative.). This is the underlying object with id, value and extensions. The accessor "getWhenHandedOver" gives direct access to the value
      */
-    public MedicationDispense setWhenHandedOverElement(DateTimeType value) { 
+    public MedicationDispense setWhenHandedOverElement(DateTimeType value) {
       this.whenHandedOver = value;
       return this;
     }
@@ -1321,14 +1793,14 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The time the dispensed product was provided to the patient or their representative.
      */
-    public Date getWhenHandedOver() { 
+    public Date getWhenHandedOver() {
       return this.whenHandedOver == null ? null : this.whenHandedOver.getValue();
     }
 
     /**
      * @param value The time the dispensed product was provided to the patient or their representative.
      */
-    public MedicationDispense setWhenHandedOver(Date value) { 
+    public MedicationDispense setWhenHandedOver(Date value) {
       if (value == null)
         this.whenHandedOver = null;
       else {
@@ -1342,7 +1814,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
      */
-    public Reference getDestination() { 
+    public Reference getDestination() {
       if (this.destination == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.destination");
@@ -1351,14 +1823,14 @@ public class MedicationDispense extends DomainResource {
       return this.destination;
     }
 
-    public boolean hasDestination() { 
+    public boolean hasDestination() {
       return this.destination != null && !this.destination.isEmpty();
     }
 
     /**
      * @param value {@link #destination} (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
      */
-    public MedicationDispense setDestination(Reference value) { 
+    public MedicationDispense setDestination(Reference value) {
       this.destination = value;
       return this;
     }
@@ -1366,7 +1838,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
      */
-    public Location getDestinationTarget() { 
+    public Location getDestinationTarget() {
       if (this.destinationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.destination");
@@ -1378,7 +1850,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identification of the facility/location where the medication was shipped to, as part of the dispense event.)
      */
-    public MedicationDispense setDestinationTarget(Location value) { 
+    public MedicationDispense setDestinationTarget(Location value) {
       this.destinationTarget = value;
       return this;
     }
@@ -1386,7 +1858,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #receiver} (Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.)
      */
-    public List<Reference> getReceiver() { 
+    public List<Reference> getReceiver() {
       if (this.receiver == null)
         this.receiver = new ArrayList<Reference>();
       return this.receiver;
@@ -1395,12 +1867,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setReceiver(List<Reference> theReceiver) { 
+    public MedicationDispense setReceiver(List<Reference> theReceiver) {
       this.receiver = theReceiver;
       return this;
     }
 
-    public boolean hasReceiver() { 
+    public boolean hasReceiver() {
       if (this.receiver == null)
         return false;
       for (Reference item : this.receiver)
@@ -1429,7 +1901,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #receiver}, creating it if it does not already exist
      */
-    public Reference getReceiverFirstRep() { 
+    public Reference getReceiverFirstRep() {
       if (getReceiver().isEmpty()) {
         addReceiver();
       }
@@ -1440,7 +1912,7 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReceiverTarget() { 
+    public List<Resource> getReceiverTarget() {
       if (this.receiverTarget == null)
         this.receiverTarget = new ArrayList<Resource>();
       return this.receiverTarget;
@@ -1449,7 +1921,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #note} (Extra information about the dispense that could not be conveyed in the other attributes.)
      */
-    public List<Annotation> getNote() { 
+    public List<Annotation> getNote() {
       if (this.note == null)
         this.note = new ArrayList<Annotation>();
       return this.note;
@@ -1458,12 +1930,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setNote(List<Annotation> theNote) { 
+    public MedicationDispense setNote(List<Annotation> theNote) {
       this.note = theNote;
       return this;
     }
 
-    public boolean hasNote() { 
+    public boolean hasNote() {
       if (this.note == null)
         return false;
       for (Annotation item : this.note)
@@ -1492,7 +1964,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #note}, creating it if it does not already exist
      */
-    public Annotation getNoteFirstRep() { 
+    public Annotation getNoteFirstRep() {
       if (getNote().isEmpty()) {
         addNote();
       }
@@ -1502,7 +1974,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.)
      */
-    public List<DosageInstruction> getDosageInstruction() { 
+    public List<DosageInstruction> getDosageInstruction() {
       if (this.dosageInstruction == null)
         this.dosageInstruction = new ArrayList<DosageInstruction>();
       return this.dosageInstruction;
@@ -1511,12 +1983,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+    public MedicationDispense setDosageInstruction(List<DosageInstruction> theDosageInstruction) {
       this.dosageInstruction = theDosageInstruction;
       return this;
     }
 
-    public boolean hasDosageInstruction() { 
+    public boolean hasDosageInstruction() {
       if (this.dosageInstruction == null)
         return false;
       for (DosageInstruction item : this.dosageInstruction)
@@ -1545,7 +2017,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
      */
-    public DosageInstruction getDosageInstructionFirstRep() { 
+    public DosageInstruction getDosageInstructionFirstRep() {
       if (getDosageInstruction().isEmpty()) {
         addDosageInstruction();
       }
@@ -1555,7 +2027,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.)
      */
-    public MedicationDispenseSubstitutionComponent getSubstitution() { 
+    public MedicationDispenseSubstitutionComponent getSubstitution() {
       if (this.substitution == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationDispense.substitution");
@@ -1564,22 +2036,187 @@ public class MedicationDispense extends DomainResource {
       return this.substitution;
     }
 
-    public boolean hasSubstitution() { 
+    public boolean hasSubstitution() {
       return this.substitution != null && !this.substitution.isEmpty();
     }
 
     /**
      * @param value {@link #substitution} (Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.)
      */
-    public MedicationDispense setSubstitution(MedicationDispenseSubstitutionComponent value) { 
+    public MedicationDispense setSubstitution(MedicationDispenseSubstitutionComponent value) {
       this.substitution = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #detectedIssue} (Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.)
+     */
+    public List<Reference> getDetectedIssue() {
+      if (this.detectedIssue == null)
+        this.detectedIssue = new ArrayList<Reference>();
+      return this.detectedIssue;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public MedicationDispense setDetectedIssue(List<Reference> theDetectedIssue) {
+      this.detectedIssue = theDetectedIssue;
+      return this;
+    }
+
+    public boolean hasDetectedIssue() {
+      if (this.detectedIssue == null)
+        return false;
+      for (Reference item : this.detectedIssue)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addDetectedIssue() { //3
+      Reference t = new Reference();
+      if (this.detectedIssue == null)
+        this.detectedIssue = new ArrayList<Reference>();
+      this.detectedIssue.add(t);
+      return t;
+    }
+
+    public MedicationDispense addDetectedIssue(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.detectedIssue == null)
+        this.detectedIssue = new ArrayList<Reference>();
+      this.detectedIssue.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #detectedIssue}, creating it if it does not already exist
+     */
+    public Reference getDetectedIssueFirstRep() {
+      if (getDetectedIssue().isEmpty()) {
+        addDetectedIssue();
+      }
+      return getDetectedIssue().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<DetectedIssue> getDetectedIssueTarget() {
+      if (this.detectedIssueTarget == null)
+        this.detectedIssueTarget = new ArrayList<DetectedIssue>();
+      return this.detectedIssueTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public DetectedIssue addDetectedIssueTarget() {
+      DetectedIssue r = new DetectedIssue();
+      if (this.detectedIssueTarget == null)
+        this.detectedIssueTarget = new ArrayList<DetectedIssue>();
+      this.detectedIssueTarget.add(r);
+      return r;
+    }
+
+    /**
+     * @return {@link #notDone} (True if the dispense was not peformed for some reason.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     */
+    public BooleanType getNotDoneElement() {
+      if (this.notDone == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationDispense.notDone");
+        else if (Configuration.doAutoCreate())
+          this.notDone = new BooleanType(); // bb
+      return this.notDone;
+    }
+
+    public boolean hasNotDoneElement() {
+      return this.notDone != null && !this.notDone.isEmpty();
+    }
+
+    public boolean hasNotDone() {
+      return this.notDone != null && !this.notDone.isEmpty();
+    }
+
+    /**
+     * @param value {@link #notDone} (True if the dispense was not peformed for some reason.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     */
+    public MedicationDispense setNotDoneElement(BooleanType value) {
+      this.notDone = value;
+      return this;
+    }
+
+    /**
+     * @return True if the dispense was not peformed for some reason.
+     */
+    public boolean getNotDone() {
+      return this.notDone == null || this.notDone.isEmpty() ? false : this.notDone.getValue();
+    }
+
+    /**
+     * @param value True if the dispense was not peformed for some reason.
+     */
+    public MedicationDispense setNotDone(boolean value) {
+        if (this.notDone == null)
+          this.notDone = new BooleanType();
+        this.notDone.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #notDoneReason} (Indicates the reason why a dispense was not performed.)
+     */
+    public Type getNotDoneReason() {
+      return this.notDoneReason;
+    }
+
+    /**
+     * @return {@link #notDoneReason} (Indicates the reason why a dispense was not performed.)
+     */
+    public CodeableConcept getNotDoneReasonCodeableConcept() throws FHIRException {
+      if (!(this.notDoneReason instanceof CodeableConcept))
+        throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.notDoneReason.getClass().getName()+" was encountered");
+      return (CodeableConcept) this.notDoneReason;
+    }
+
+    public boolean hasNotDoneReasonCodeableConcept() {
+      return this.notDoneReason instanceof CodeableConcept;
+    }
+
+    /**
+     * @return {@link #notDoneReason} (Indicates the reason why a dispense was not performed.)
+     */
+    public Reference getNotDoneReasonReference() throws FHIRException {
+      if (!(this.notDoneReason instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.notDoneReason.getClass().getName()+" was encountered");
+      return (Reference) this.notDoneReason;
+    }
+
+    public boolean hasNotDoneReasonReference() {
+      return this.notDoneReason instanceof Reference;
+    }
+
+    public boolean hasNotDoneReason() {
+      return this.notDoneReason != null && !this.notDoneReason.isEmpty();
+    }
+
+    /**
+     * @param value {@link #notDoneReason} (Indicates the reason why a dispense was not performed.)
+     */
+    public MedicationDispense setNotDoneReason(Type value) {
+      this.notDoneReason = value;
       return this;
     }
 
     /**
      * @return {@link #eventHistory} (A summary of the events of interest that have occurred, such as when the dispense was verified.)
      */
-    public List<Reference> getEventHistory() { 
+    public List<Reference> getEventHistory() {
       if (this.eventHistory == null)
         this.eventHistory = new ArrayList<Reference>();
       return this.eventHistory;
@@ -1588,12 +2225,12 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setEventHistory(List<Reference> theEventHistory) { 
+    public MedicationDispense setEventHistory(List<Reference> theEventHistory) {
       this.eventHistory = theEventHistory;
       return this;
     }
 
-    public boolean hasEventHistory() { 
+    public boolean hasEventHistory() {
       if (this.eventHistory == null)
         return false;
       for (Reference item : this.eventHistory)
@@ -1622,7 +2259,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #eventHistory}, creating it if it does not already exist
      */
-    public Reference getEventHistoryFirstRep() { 
+    public Reference getEventHistoryFirstRep() {
       if (getEventHistory().isEmpty()) {
         addEventHistory();
       }
@@ -1633,7 +2270,7 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Provenance> getEventHistoryTarget() { 
+    public List<Provenance> getEventHistoryTarget() {
       if (this.eventHistoryTarget == null)
         this.eventHistoryTarget = new ArrayList<Provenance>();
       return this.eventHistoryTarget;
@@ -1643,7 +2280,7 @@ public class MedicationDispense extends DomainResource {
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public Provenance addEventHistoryTarget() { 
+    public Provenance addEventHistoryTarget() {
       Provenance r = new Provenance();
       if (this.eventHistoryTarget == null)
         this.eventHistoryTarget = new ArrayList<Provenance>();
@@ -1654,12 +2291,14 @@ public class MedicationDispense extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned by the dispensing facility - this is an identifier assigned outside FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("partOf", "Reference(Procedure)", "The procedure that the dispense is done because of.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "A code specifying the state of the set of dispense events.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("category", "CodeableConcept", "Indicates type of medication dispense and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-        childrenList.add(new Property("patient", "Reference(Patient)", "A link to a resource representing the person to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "A link to a resource representing the person or the group to whom the medication will be given.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("context", "Reference(Encounter|EpisodeofCare)", "The encounter or episode of care that establishes the context for this event.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("supportingInformation", "Reference(Any)", "Additional information that supports the medication being dispensed.", 0, java.lang.Integer.MAX_VALUE, supportingInformation));
-        childrenList.add(new Property("dispenser", "Reference(Practitioner)", "The individual responsible for dispensing the medication.", 0, java.lang.Integer.MAX_VALUE, dispenser));
-        childrenList.add(new Property("dispensingOrganization", "Reference(Organization)", "The organizaation responsible for the dispense of the medication.", 0, java.lang.Integer.MAX_VALUE, dispensingOrganization));
+        childrenList.add(new Property("performer", "", "Indicates who or what performed the event.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("authorizingPrescription", "Reference(MedicationRequest)", "Indicates the medication order that is being dispensed against.", 0, java.lang.Integer.MAX_VALUE, authorizingPrescription));
         childrenList.add(new Property("type", "CodeableConcept", "Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("quantity", "SimpleQuantity", "The amount of medication that has been dispensed. Includes unit of measure.", 0, java.lang.Integer.MAX_VALUE, quantity));
@@ -1671,19 +2310,24 @@ public class MedicationDispense extends DomainResource {
         childrenList.add(new Property("note", "Annotation", "Extra information about the dispense that could not be conveyed in the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.", 0, java.lang.Integer.MAX_VALUE, substitution));
+        childrenList.add(new Property("detectedIssue", "Reference(DetectedIssue)", "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.", 0, java.lang.Integer.MAX_VALUE, detectedIssue));
+        childrenList.add(new Property("notDone", "boolean", "True if the dispense was not peformed for some reason.", 0, java.lang.Integer.MAX_VALUE, notDone));
+        childrenList.add(new Property("notDoneReason[x]", "CodeableConcept|Reference(DetectedIssue)", "Indicates the reason why a dispense was not performed.", 0, java.lang.Integer.MAX_VALUE, notDoneReason));
         childrenList.add(new Property("eventHistory", "Reference(Provenance)", "A summary of the events of interest that have occurred, such as when the dispense was verified.", 0, java.lang.Integer.MAX_VALUE, eventHistory));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationDispenseStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
-        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
-        case 241511093: /*dispenser*/ return this.dispenser == null ? new Base[0] : new Base[] {this.dispenser}; // Reference
-        case 2036139309: /*dispensingOrganization*/ return this.dispensingOrganization == null ? new Base[0] : new Base[] {this.dispensingOrganization}; // Reference
+        case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // MedicationDispensePerformerComponent
         case -1237557856: /*authorizingPrescription*/ return this.authorizingPrescription == null ? new Base[0] : this.authorizingPrescription.toArray(new Base[this.authorizingPrescription.size()]); // Reference
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
@@ -1695,6 +2339,9 @@ public class MedicationDispense extends DomainResource {
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationDispenseSubstitutionComponent
+        case 51602295: /*detectedIssue*/ return this.detectedIssue == null ? new Base[0] : this.detectedIssue.toArray(new Base[this.detectedIssue.size()]); // Reference
+        case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
+        case -1973169255: /*notDoneReason*/ return this.notDoneReason == null ? new Base[0] : new Base[] {this.notDoneReason}; // Type
         case 1835190426: /*eventHistory*/ return this.eventHistory == null ? new Base[0] : this.eventHistory.toArray(new Base[this.eventHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1705,26 +2352,32 @@ public class MedicationDispense extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1618432855: // identifier
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value)); // Identifier
+          return value;
+        case -995410646: // partOf
+          this.getPartOf().add(castToReference(value)); // Reference
           return value;
         case -892481550: // status
           value = new MedicationDispenseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationDispenseStatus>
           return value;
+        case 50511102: // category
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
           return value;
-        case -791418107: // patient
-          this.patient = castToReference(value); // Reference
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
+          return value;
+        case 951530927: // context
+          this.context = castToReference(value); // Reference
           return value;
         case -1248768647: // supportingInformation
           this.getSupportingInformation().add(castToReference(value)); // Reference
           return value;
-        case 241511093: // dispenser
-          this.dispenser = castToReference(value); // Reference
-          return value;
-        case 2036139309: // dispensingOrganization
-          this.dispensingOrganization = castToReference(value); // Reference
+        case 481140686: // performer
+          this.getPerformer().add((MedicationDispensePerformerComponent) value); // MedicationDispensePerformerComponent
           return value;
         case -1237557856: // authorizingPrescription
           this.getAuthorizingPrescription().add(castToReference(value)); // Reference
@@ -1759,6 +2412,15 @@ public class MedicationDispense extends DomainResource {
         case 826147581: // substitution
           this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
           return value;
+        case 51602295: // detectedIssue
+          this.getDetectedIssue().add(castToReference(value)); // Reference
+          return value;
+        case 2128257269: // notDone
+          this.notDone = castToBoolean(value); // BooleanType
+          return value;
+        case -1973169255: // notDoneReason
+          this.notDoneReason = castToType(value); // Type
+          return value;
         case 1835190426: // eventHistory
           this.getEventHistory().add(castToReference(value)); // Reference
           return value;
@@ -1770,20 +2432,24 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = castToIdentifier(value); // Identifier
+          this.getIdentifier().add(castToIdentifier(value));
+        } else if (name.equals("partOf")) {
+          this.getPartOf().add(castToReference(value));
         } else if (name.equals("status")) {
           value = new MedicationDispenseStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationDispenseStatus>
+        } else if (name.equals("category")) {
+          this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("medication[x]")) {
           this.medication = castToType(value); // Type
-        } else if (name.equals("patient")) {
-          this.patient = castToReference(value); // Reference
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("context")) {
+          this.context = castToReference(value); // Reference
         } else if (name.equals("supportingInformation")) {
           this.getSupportingInformation().add(castToReference(value));
-        } else if (name.equals("dispenser")) {
-          this.dispenser = castToReference(value); // Reference
-        } else if (name.equals("dispensingOrganization")) {
-          this.dispensingOrganization = castToReference(value); // Reference
+        } else if (name.equals("performer")) {
+          this.getPerformer().add((MedicationDispensePerformerComponent) value);
         } else if (name.equals("authorizingPrescription")) {
           this.getAuthorizingPrescription().add(castToReference(value));
         } else if (name.equals("type")) {
@@ -1806,6 +2472,12 @@ public class MedicationDispense extends DomainResource {
           this.getDosageInstruction().add(castToDosageInstruction(value));
         } else if (name.equals("substitution")) {
           this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
+        } else if (name.equals("detectedIssue")) {
+          this.getDetectedIssue().add(castToReference(value));
+        } else if (name.equals("notDone")) {
+          this.notDone = castToBoolean(value); // BooleanType
+        } else if (name.equals("notDoneReason[x]")) {
+          this.notDoneReason = castToType(value); // Type
         } else if (name.equals("eventHistory")) {
           this.getEventHistory().add(castToReference(value));
         } else
@@ -1816,26 +2488,32 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1618432855:  return getIdentifier(); 
+        case -1618432855:  return addIdentifier();
+        case -995410646:  return addPartOf();
         case -892481550:  return getStatusElement();
-        case 1458402129:  return getMedication(); 
-        case 1998965455:  return getMedication(); 
-        case -791418107:  return getPatient(); 
-        case -1248768647:  return addSupportingInformation(); 
-        case 241511093:  return getDispenser(); 
-        case 2036139309:  return getDispensingOrganization(); 
-        case -1237557856:  return addAuthorizingPrescription(); 
-        case 3575610:  return getType(); 
-        case -1285004149:  return getQuantity(); 
-        case 197175334:  return getDaysSupply(); 
+        case 50511102:  return getCategory();
+        case 1458402129:  return getMedication();
+        case 1998965455:  return getMedication();
+        case -1867885268:  return getSubject();
+        case 951530927:  return getContext();
+        case -1248768647:  return addSupportingInformation();
+        case 481140686:  return addPerformer();
+        case -1237557856:  return addAuthorizingPrescription();
+        case 3575610:  return getType();
+        case -1285004149:  return getQuantity();
+        case 197175334:  return getDaysSupply();
         case -562837097:  return getWhenPreparedElement();
         case -940241380:  return getWhenHandedOverElement();
-        case -1429847026:  return getDestination(); 
-        case -808719889:  return addReceiver(); 
-        case 3387378:  return addNote(); 
-        case -1201373865:  return addDosageInstruction(); 
-        case 826147581:  return getSubstitution(); 
-        case 1835190426:  return addEventHistory(); 
+        case -1429847026:  return getDestination();
+        case -808719889:  return addReceiver();
+        case 3387378:  return addNote();
+        case -1201373865:  return addDosageInstruction();
+        case 826147581:  return getSubstitution();
+        case 51602295:  return addDetectedIssue();
+        case 2128257269:  return getNotDoneElement();
+        case -1762771385:  return getNotDoneReason();
+        case -1973169255:  return getNotDoneReason();
+        case 1835190426:  return addEventHistory();
         default: return super.makeProperty(hash, name);
         }
 
@@ -1845,12 +2523,14 @@ public class MedicationDispense extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -995410646: /*partOf*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
-        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 951530927: /*context*/ return new String[] {"Reference"};
         case -1248768647: /*supportingInformation*/ return new String[] {"Reference"};
-        case 241511093: /*dispenser*/ return new String[] {"Reference"};
-        case 2036139309: /*dispensingOrganization*/ return new String[] {"Reference"};
+        case 481140686: /*performer*/ return new String[] {};
         case -1237557856: /*authorizingPrescription*/ return new String[] {"Reference"};
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -1285004149: /*quantity*/ return new String[] {"SimpleQuantity"};
@@ -1862,6 +2542,9 @@ public class MedicationDispense extends DomainResource {
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case -1201373865: /*dosageInstruction*/ return new String[] {"DosageInstruction"};
         case 826147581: /*substitution*/ return new String[] {};
+        case 51602295: /*detectedIssue*/ return new String[] {"Reference"};
+        case 2128257269: /*notDone*/ return new String[] {"boolean"};
+        case -1973169255: /*notDoneReason*/ return new String[] {"CodeableConcept", "Reference"};
         case 1835190426: /*eventHistory*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1871,11 +2554,17 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("identifier")) {
-          this.identifier = new Identifier();
-          return this.identifier;
+          return addIdentifier();
+        }
+        else if (name.equals("partOf")) {
+          return addPartOf();
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationDispense.status");
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
         }
         else if (name.equals("medicationCodeableConcept")) {
           this.medication = new CodeableConcept();
@@ -1885,20 +2574,19 @@ public class MedicationDispense extends DomainResource {
           this.medication = new Reference();
           return this.medication;
         }
-        else if (name.equals("patient")) {
-          this.patient = new Reference();
-          return this.patient;
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
+        else if (name.equals("context")) {
+          this.context = new Reference();
+          return this.context;
         }
         else if (name.equals("supportingInformation")) {
           return addSupportingInformation();
         }
-        else if (name.equals("dispenser")) {
-          this.dispenser = new Reference();
-          return this.dispenser;
-        }
-        else if (name.equals("dispensingOrganization")) {
-          this.dispensingOrganization = new Reference();
-          return this.dispensingOrganization;
+        else if (name.equals("performer")) {
+          return addPerformer();
         }
         else if (name.equals("authorizingPrescription")) {
           return addAuthorizingPrescription();
@@ -1938,6 +2626,20 @@ public class MedicationDispense extends DomainResource {
           this.substitution = new MedicationDispenseSubstitutionComponent();
           return this.substitution;
         }
+        else if (name.equals("detectedIssue")) {
+          return addDetectedIssue();
+        }
+        else if (name.equals("notDone")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationDispense.notDone");
+        }
+        else if (name.equals("notDoneReasonCodeableConcept")) {
+          this.notDoneReason = new CodeableConcept();
+          return this.notDoneReason;
+        }
+        else if (name.equals("notDoneReasonReference")) {
+          this.notDoneReason = new Reference();
+          return this.notDoneReason;
+        }
         else if (name.equals("eventHistory")) {
           return addEventHistory();
         }
@@ -1953,17 +2655,31 @@ public class MedicationDispense extends DomainResource {
       public MedicationDispense copy() {
         MedicationDispense dst = new MedicationDispense();
         copyValues(dst);
-        dst.identifier = identifier == null ? null : identifier.copy();
+        if (identifier != null) {
+          dst.identifier = new ArrayList<Identifier>();
+          for (Identifier i : identifier)
+            dst.identifier.add(i.copy());
+        };
+        if (partOf != null) {
+          dst.partOf = new ArrayList<Reference>();
+          for (Reference i : partOf)
+            dst.partOf.add(i.copy());
+        };
         dst.status = status == null ? null : status.copy();
+        dst.category = category == null ? null : category.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.patient = patient == null ? null : patient.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        dst.context = context == null ? null : context.copy();
         if (supportingInformation != null) {
           dst.supportingInformation = new ArrayList<Reference>();
           for (Reference i : supportingInformation)
             dst.supportingInformation.add(i.copy());
         };
-        dst.dispenser = dispenser == null ? null : dispenser.copy();
-        dst.dispensingOrganization = dispensingOrganization == null ? null : dispensingOrganization.copy();
+        if (performer != null) {
+          dst.performer = new ArrayList<MedicationDispensePerformerComponent>();
+          for (MedicationDispensePerformerComponent i : performer)
+            dst.performer.add(i.copy());
+        };
         if (authorizingPrescription != null) {
           dst.authorizingPrescription = new ArrayList<Reference>();
           for (Reference i : authorizingPrescription)
@@ -1991,6 +2707,13 @@ public class MedicationDispense extends DomainResource {
             dst.dosageInstruction.add(i.copy());
         };
         dst.substitution = substitution == null ? null : substitution.copy();
+        if (detectedIssue != null) {
+          dst.detectedIssue = new ArrayList<Reference>();
+          for (Reference i : detectedIssue)
+            dst.detectedIssue.add(i.copy());
+        };
+        dst.notDone = notDone == null ? null : notDone.copy();
+        dst.notDoneReason = notDoneReason == null ? null : notDoneReason.copy();
         if (eventHistory != null) {
           dst.eventHistory = new ArrayList<Reference>();
           for (Reference i : eventHistory)
@@ -2010,15 +2733,16 @@ public class MedicationDispense extends DomainResource {
         if (!(other instanceof MedicationDispense))
           return false;
         MedicationDispense o = (MedicationDispense) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(supportingInformation, o.supportingInformation, true)
-           && compareDeep(dispenser, o.dispenser, true) && compareDeep(dispensingOrganization, o.dispensingOrganization, true)
-           && compareDeep(authorizingPrescription, o.authorizingPrescription, true) && compareDeep(type, o.type, true)
-           && compareDeep(quantity, o.quantity, true) && compareDeep(daysSupply, o.daysSupply, true) && compareDeep(whenPrepared, o.whenPrepared, true)
-           && compareDeep(whenHandedOver, o.whenHandedOver, true) && compareDeep(destination, o.destination, true)
-           && compareDeep(receiver, o.receiver, true) && compareDeep(note, o.note, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
-           && compareDeep(substitution, o.substitution, true) && compareDeep(eventHistory, o.eventHistory, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true)
+           && compareDeep(category, o.category, true) && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(context, o.context, true) && compareDeep(supportingInformation, o.supportingInformation, true)
+           && compareDeep(performer, o.performer, true) && compareDeep(authorizingPrescription, o.authorizingPrescription, true)
+           && compareDeep(type, o.type, true) && compareDeep(quantity, o.quantity, true) && compareDeep(daysSupply, o.daysSupply, true)
+           && compareDeep(whenPrepared, o.whenPrepared, true) && compareDeep(whenHandedOver, o.whenHandedOver, true)
+           && compareDeep(destination, o.destination, true) && compareDeep(receiver, o.receiver, true) && compareDeep(note, o.note, true)
+           && compareDeep(dosageInstruction, o.dosageInstruction, true) && compareDeep(substitution, o.substitution, true)
+           && compareDeep(detectedIssue, o.detectedIssue, true) && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true)
+           && compareDeep(eventHistory, o.eventHistory, true);
       }
 
       @Override
@@ -2029,14 +2753,15 @@ public class MedicationDispense extends DomainResource {
           return false;
         MedicationDispense o = (MedicationDispense) other;
         return compareValues(status, o.status, true) && compareValues(whenPrepared, o.whenPrepared, true) && compareValues(whenHandedOver, o.whenHandedOver, true)
-          ;
+           && compareValues(notDone, o.notDone, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, medication
-          , patient, supportingInformation, dispenser, dispensingOrganization, authorizingPrescription
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, partOf, status
+          , category, medication, subject, context, supportingInformation, performer, authorizingPrescription
           , type, quantity, daysSupply, whenPrepared, whenHandedOver, destination, receiver
-          , note, dosageInstruction, substitution, eventHistory);
+          , note, dosageInstruction, substitution, detectedIssue, notDone, notDoneReason, eventHistory
+          );
       }
 
   @Override
@@ -2063,6 +2788,32 @@ public class MedicationDispense extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Return dispenses performed by a specific individual</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.performer.actor</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="MedicationDispense.performer.actor", description="Return dispenses performed by a specific individual", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Return dispenses performed by a specific individual</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.performer.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationDispense:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("MedicationDispense:performer").toLocked();
 
  /**
    * Search parameter: <b>code</b>
@@ -2092,7 +2843,7 @@ public class MedicationDispense extends DomainResource {
    * Path: <b>MedicationDispense.receiver</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="receiver", path="MedicationDispense.receiver", description="The identity of a receiver to list dispenses for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Patient.class, Practitioner.class } )
+  @SearchParamDefinition(name="receiver", path="MedicationDispense.receiver", description="The identity of a receiver to list dispenses for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Patient.class, Practitioner.class } )
   public static final String SP_RECEIVER = "receiver";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>receiver</b>
@@ -2109,6 +2860,32 @@ public class MedicationDispense extends DomainResource {
    * the path value of "<b>MedicationDispense:receiver</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RECEIVER = new ca.uhn.fhir.model.api.Include("MedicationDispense:receiver").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="MedicationDispense.subject", description="The identity of a patient to list dispenses  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The identity of a patient to list dispenses  for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationDispense:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("MedicationDispense:subject").toLocked();
 
  /**
    * Search parameter: <b>destination</b>
@@ -2170,7 +2947,7 @@ public class MedicationDispense extends DomainResource {
    * Path: <b>MedicationDispense.substitution.responsibleParty</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="responsibleparty", path="MedicationDispense.substitution.responsibleParty", description="Return dispenses with the specified responsible party", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
+  @SearchParamDefinition(name="responsibleparty", path="MedicationDispense.substitution.responsibleParty", description="Return dispenses with the specified responsible party", type="reference", target={Practitioner.class } )
   public static final String SP_RESPONSIBLEPARTY = "responsibleparty";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>responsibleparty</b>
@@ -2249,32 +3026,6 @@ public class MedicationDispense extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam WHENPREPARED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_WHENPREPARED);
 
  /**
-   * Search parameter: <b>dispenser</b>
-   * <p>
-   * Description: <b>Return dispenses performed by a specific individual</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.dispenser</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="dispenser", path="MedicationDispense.dispenser", description="Return dispenses performed by a specific individual", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Practitioner.class } )
-  public static final String SP_DISPENSER = "dispenser";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>dispenser</b>
-   * <p>
-   * Description: <b>Return dispenses performed by a specific individual</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.dispenser</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DISPENSER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DISPENSER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationDispense:dispenser</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_DISPENSER = new ca.uhn.fhir.model.api.Include("MedicationDispense:dispenser").toLocked();
-
- /**
    * Search parameter: <b>prescription</b>
    * <p>
    * Description: <b>The identity of a prescription to list dispenses from</b><br>
@@ -2305,17 +3056,17 @@ public class MedicationDispense extends DomainResource {
    * <p>
    * Description: <b>The identity of a patient to list dispenses  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.patient</b><br>
+   * Path: <b>MedicationDispense.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MedicationDispense.patient", description="The identity of a patient to list dispenses  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="MedicationDispense.subject", description="The identity of a patient to list dispenses  for", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>The identity of a patient to list dispenses  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationDispense.patient</b><br>
+   * Path: <b>MedicationDispense.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);

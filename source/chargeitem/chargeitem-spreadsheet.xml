@@ -1098,7 +1098,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Reference(Definition)</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">uri</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">N</Data><NamedCell
@@ -1114,7 +1114,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Target Resource is yet to be defined as a container that holds information about list prices and rules  applicable to the charge item code</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Target Resource is yet to be defined as a container that holds information about list prices and rules applicable to the charge item code. Once defined, change type back to Reference(Definition Type).</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><Data ss:Type="String">.outboundRelationship[typeCode=DEFN].target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2445,8 +2445,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2762,7 +2761,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>19</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -3398,7 +3396,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4664,7 +4662,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="6" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="123.75"/>
+   <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="137.25"/>
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="275.25"/>
    <Column ss:StyleID="s118" ss:Width="51"/>
    <Column ss:StyleID="s118" ss:Width="45"/>
@@ -4796,7 +4794,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4804,15 +4802,13 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5430,84 +5426,42 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C1:R49C9,R2C1:R7C9</Range>
+   <Range>R2C1:R49C9</Range>
    <Condition>
     <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C1:R49C1,R2C1:R7C1</Range>
+   <Range>R2C1:R49C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C2:R49C3,R2C2:R7C3</Range>
+   <Range>R2C2:R49C3</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC2=&quot;&quot;)=(RC3=&quot;&quot;))</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C5:R49C6,R2C5:R7C6</Range>
+   <Range>R2C5:R49C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC3=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C6:R49C6,R2C6:R7C6</Range>
+   <Range>R2C6:R49C6</Range>
    <Condition>
     <Value1>AND(RC1&lt;&gt;&quot;&quot;,,RC3=&quot;&quot;,RC5=&quot;&quot;,RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R9C1:R49C9,R2C1:R7C9</Range>
-   <Condition>
-    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R8C9</Range>
-   <Condition>
-    <Value1>AND(RC1=&quot;&quot;,RC&lt;&gt;&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C2:R8C3</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,(RC2=&quot;&quot;)=(RC3=&quot;&quot;))</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C5:R8C6</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,RC3=&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C6</Range>
-   <Condition>
-    <Value1>AND(RC1&lt;&gt;&quot;&quot;,,RC3=&quot;&quot;,RC5=&quot;&quot;,RC=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R8C1:R8C9</Range>
+   <Range>R2C1:R49C9</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

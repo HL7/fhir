@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -584,7 +584,7 @@ public class Condition extends DomainResource {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Manifestation/symptom", formalDefinition="A manifestation or symptom that led to the recording of this condition." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/manifestation-or-symptom")
         protected CodeableConcept code;
@@ -592,7 +592,7 @@ public class Condition extends DomainResource {
         /**
          * Links to other relevant information, including pathology reports.
          */
-        @Child(name = "detail", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "detail", type = {Reference.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Supporting information found elsewhere", formalDefinition="Links to other relevant information, including pathology reports." )
         protected List<Reference> detail;
         /**
@@ -856,7 +856,7 @@ public class Condition extends DomainResource {
     /**
      * Identification of the condition, problem or diagnosis.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Identification of the condition, problem or diagnosis", formalDefinition="Identification of the condition, problem or diagnosis." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-code")
     protected CodeableConcept code;
@@ -884,7 +884,7 @@ public class Condition extends DomainResource {
     /**
      * Encounter during which the condition was first asserted.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter when condition first asserted", formalDefinition="Encounter during which the condition was first asserted." )
     protected Reference context;
 
@@ -910,9 +910,9 @@ public class Condition extends DomainResource {
     /**
      * The date on which the existance of the Condition was first asserted or acknowledged.
      */
-    @Child(name = "assertedDate", type = {DateType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "assertedDate", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date record was believed accurate", formalDefinition="The date on which the existance of the Condition was first asserted or acknowledged." )
-    protected DateType assertedDate;
+    protected DateTimeType assertedDate;
 
     /**
      * Individual who is making the condition statement.
@@ -947,7 +947,7 @@ public class Condition extends DomainResource {
     @Description(shortDefinition="Additional information about the Condition", formalDefinition="Additional information about the Condition. This is a general notes/comments entry  for description of the Condition, its diagnosis and prognosis." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1960151813L;
+    private static final long serialVersionUID = -585250376L;
 
   /**
    * Constructor
@@ -959,9 +959,8 @@ public class Condition extends DomainResource {
   /**
    * Constructor
    */
-    public Condition(CodeableConcept code, Reference subject) {
+    public Condition(Reference subject) {
       super();
-      this.code = code;
       this.subject = subject;
     }
 
@@ -1532,12 +1531,12 @@ public class Condition extends DomainResource {
     /**
      * @return {@link #assertedDate} (The date on which the existance of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
-    public DateType getAssertedDateElement() { 
+    public DateTimeType getAssertedDateElement() { 
       if (this.assertedDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Condition.assertedDate");
         else if (Configuration.doAutoCreate())
-          this.assertedDate = new DateType(); // bb
+          this.assertedDate = new DateTimeType(); // bb
       return this.assertedDate;
     }
 
@@ -1552,7 +1551,7 @@ public class Condition extends DomainResource {
     /**
      * @param value {@link #assertedDate} (The date on which the existance of the Condition was first asserted or acknowledged.). This is the underlying object with id, value and extensions. The accessor "getAssertedDate" gives direct access to the value
      */
-    public Condition setAssertedDateElement(DateType value) { 
+    public Condition setAssertedDateElement(DateTimeType value) { 
       this.assertedDate = value;
       return this;
     }
@@ -1572,7 +1571,7 @@ public class Condition extends DomainResource {
         this.assertedDate = null;
       else {
         if (this.assertedDate == null)
-          this.assertedDate = new DateType();
+          this.assertedDate = new DateTimeType();
         this.assertedDate.setValue(value);
       }
       return this;
@@ -1760,7 +1759,7 @@ public class Condition extends DomainResource {
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "Encounter during which the condition was first asserted.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("onset[x]", "dateTime|Age|Period|Range|string", "Estimated or actual date or date-time  the condition began, in the opinion of the clinician.", 0, java.lang.Integer.MAX_VALUE, onset));
         childrenList.add(new Property("abatement[x]", "dateTime|Age|boolean|Period|Range|string", "The date or estimated date that the condition resolved or went into remission. This is called \"abatement\" because of the many overloaded connotations associated with \"remission\" or \"resolution\" - Conditions are never really resolved, but they can abate.", 0, java.lang.Integer.MAX_VALUE, abatement));
-        childrenList.add(new Property("assertedDate", "date", "The date on which the existance of the Condition was first asserted or acknowledged.", 0, java.lang.Integer.MAX_VALUE, assertedDate));
+        childrenList.add(new Property("assertedDate", "dateTime", "The date on which the existance of the Condition was first asserted or acknowledged.", 0, java.lang.Integer.MAX_VALUE, assertedDate));
         childrenList.add(new Property("asserter", "Reference(Practitioner|Patient|RelatedPerson)", "Individual who is making the condition statement.", 0, java.lang.Integer.MAX_VALUE, asserter));
         childrenList.add(new Property("stage", "", "Clinical stage or grade of a condition. May include formal severity assessments.", 0, java.lang.Integer.MAX_VALUE, stage));
         childrenList.add(new Property("evidence", "", "Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.", 0, java.lang.Integer.MAX_VALUE, evidence));
@@ -1781,7 +1780,7 @@ public class Condition extends DomainResource {
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // Type
         case -921554001: /*abatement*/ return this.abatement == null ? new Base[0] : new Base[] {this.abatement}; // Type
-        case -174231629: /*assertedDate*/ return this.assertedDate == null ? new Base[0] : new Base[] {this.assertedDate}; // DateType
+        case -174231629: /*assertedDate*/ return this.assertedDate == null ? new Base[0] : new Base[] {this.assertedDate}; // DateTimeType
         case -373242253: /*asserter*/ return this.asserter == null ? new Base[0] : new Base[] {this.asserter}; // Reference
         case 109757182: /*stage*/ return this.stage == null ? new Base[0] : new Base[] {this.stage}; // ConditionStageComponent
         case 382967383: /*evidence*/ return this.evidence == null ? new Base[0] : this.evidence.toArray(new Base[this.evidence.size()]); // ConditionEvidenceComponent
@@ -1830,7 +1829,7 @@ public class Condition extends DomainResource {
           this.abatement = castToType(value); // Type
           return value;
         case -174231629: // assertedDate
-          this.assertedDate = castToDate(value); // DateType
+          this.assertedDate = castToDateTime(value); // DateTimeType
           return value;
         case -373242253: // asserter
           this.asserter = castToReference(value); // Reference
@@ -1876,7 +1875,7 @@ public class Condition extends DomainResource {
         } else if (name.equals("abatement[x]")) {
           this.abatement = castToType(value); // Type
         } else if (name.equals("assertedDate")) {
-          this.assertedDate = castToDate(value); // DateType
+          this.assertedDate = castToDateTime(value); // DateTimeType
         } else if (name.equals("asserter")) {
           this.asserter = castToReference(value); // Reference
         } else if (name.equals("stage")) {
@@ -1930,7 +1929,7 @@ public class Condition extends DomainResource {
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 105901603: /*onset*/ return new String[] {"dateTime", "Age", "Period", "Range", "string"};
         case -921554001: /*abatement*/ return new String[] {"dateTime", "Age", "boolean", "Period", "Range", "string"};
-        case -174231629: /*assertedDate*/ return new String[] {"date"};
+        case -174231629: /*assertedDate*/ return new String[] {"dateTime"};
         case -373242253: /*asserter*/ return new String[] {"Reference"};
         case 109757182: /*stage*/ return new String[] {};
         case 382967383: /*evidence*/ return new String[] {};
@@ -2148,6 +2147,32 @@ public class Condition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SEVERITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SEVERITY);
 
  /**
+   * Search parameter: <b>evidence-detail</b>
+   * <p>
+   * Description: <b>Supporting information found elsewhere</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.evidence.detail</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="evidence-detail", path="Condition.evidence.detail", description="Supporting information found elsewhere", type="reference" )
+  public static final String SP_EVIDENCE_DETAIL = "evidence-detail";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>evidence-detail</b>
+   * <p>
+   * Description: <b>Supporting information found elsewhere</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Condition.evidence.detail</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam EVIDENCE_DETAIL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_EVIDENCE_DETAIL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Condition:evidence-detail</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_EVIDENCE_DETAIL = new ca.uhn.fhir.model.api.Include("Condition:evidence-detail").toLocked();
+
+ /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>A unique identifier of the condition record</b><br>
@@ -2166,26 +2191,6 @@ public class Condition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>clinicalstatus</b>
-   * <p>
-   * Description: <b>The clinical status of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="clinicalstatus", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
-  public static final String SP_CLINICALSTATUS = "clinicalstatus";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>clinicalstatus</b>
-   * <p>
-   * Description: <b>The clinical status of the condition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Condition.clinicalStatus</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICALSTATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICALSTATUS);
 
  /**
    * Search parameter: <b>onset-info</b>
@@ -2272,6 +2277,46 @@ public class Condition extends DomainResource {
    * the path value of "<b>Condition:subject</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Condition:subject").toLocked();
+
+ /**
+   * Search parameter: <b>verification-status</b>
+   * <p>
+   * Description: <b>provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.verificationStatus</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="verification-status", path="Condition.verificationStatus", description="provisional | differential | confirmed | refuted | entered-in-error | unknown", type="token" )
+  public static final String SP_VERIFICATION_STATUS = "verification-status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>verification-status</b>
+   * <p>
+   * Description: <b>provisional | differential | confirmed | refuted | entered-in-error | unknown</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.verificationStatus</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERIFICATION_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERIFICATION_STATUS);
+
+ /**
+   * Search parameter: <b>clinical-status</b>
+   * <p>
+   * Description: <b>The clinical status of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="clinical-status", path="Condition.clinicalStatus", description="The clinical status of the condition", type="token" )
+  public static final String SP_CLINICAL_STATUS = "clinical-status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>clinical-status</b>
+   * <p>
+   * Description: <b>The clinical status of the condition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Condition.clinicalStatus</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CLINICAL_STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CLINICAL_STATUS);
 
  /**
    * Search parameter: <b>abatement-boolean</b>
@@ -2479,7 +2524,7 @@ public class Condition extends DomainResource {
    * Path: <b>Condition.abatement[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Quantity) | Condition.abatement.as(Range)", description="Abatement as age or age range", type="quantity" )
+  @SearchParamDefinition(name="abatement-age", path="Condition.abatement.as(Quantity) | Condition.abatement.as(Range) | Condition.abatement.as(Age)", description="Abatement as age or age range", type="quantity" )
   public static final String SP_ABATEMENT_AGE = "abatement-age";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>abatement-age</b>

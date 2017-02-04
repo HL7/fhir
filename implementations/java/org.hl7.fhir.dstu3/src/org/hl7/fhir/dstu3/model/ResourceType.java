@@ -2,11 +2,12 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 public enum ResourceType {
     Account,
     ActivityDefinition,
+    AdverseEvent,
     AllergyIntolerance,
     Appointment,
     AppointmentResponse,
@@ -19,6 +20,7 @@ public enum ResourceType {
     CarePlan,
     CareTeam,
     Catalog,
+    ChargeItem,
     Claim,
     ClaimResponse,
     ClinicalImpression,
@@ -40,7 +42,6 @@ public enum ResourceType {
     DeviceRequest,
     DeviceUseStatement,
     DiagnosticReport,
-    DiagnosticRequest,
     DocumentManifest,
     DocumentReference,
     EligibilityRequest,
@@ -129,6 +130,8 @@ public enum ResourceType {
       return "account";
     case ActivityDefinition:
       return "activitydefinition";
+    case AdverseEvent:
+      return "adverseevent";
     case AllergyIntolerance:
       return "allergyintolerance";
     case Appointment:
@@ -153,6 +156,8 @@ public enum ResourceType {
       return "careteam";
     case Catalog:
       return "catalog";
+    case ChargeItem:
+      return "chargeitem";
     case Claim:
       return "claim";
     case ClaimResponse:
@@ -195,8 +200,6 @@ public enum ResourceType {
       return "deviceusestatement";
     case DiagnosticReport:
       return "diagnosticreport";
-    case DiagnosticRequest:
-      return "diagnosticrequest";
     case DocumentManifest:
       return "documentmanifest";
     case DocumentReference:
@@ -367,6 +370,8 @@ public enum ResourceType {
       return Account;
     if ("ActivityDefinition".equals(code))
       return ActivityDefinition;
+    if ("AdverseEvent".equals(code))
+      return AdverseEvent;
     if ("AllergyIntolerance".equals(code))
       return AllergyIntolerance;
     if ("Appointment".equals(code))
@@ -391,6 +396,8 @@ public enum ResourceType {
       return CareTeam;
     if ("Catalog".equals(code))
       return Catalog;
+    if ("ChargeItem".equals(code))
+      return ChargeItem;
     if ("Claim".equals(code))
       return Claim;
     if ("ClaimResponse".equals(code))
@@ -433,8 +440,6 @@ public enum ResourceType {
       return DeviceUseStatement;
     if ("DiagnosticReport".equals(code))
       return DiagnosticReport;
-    if ("DiagnosticRequest".equals(code))
-      return DiagnosticRequest;
     if ("DocumentManifest".equals(code))
       return DocumentManifest;
     if ("DocumentReference".equals(code))

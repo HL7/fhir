@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -220,10 +220,10 @@ public class Slot extends DomainResource {
     protected List<CodeableConcept> specialty;
 
     /**
-     * The style of appointment or patient that has been booked in the slot (not service type).
+     * The style of appointment or patient that may be booked in the slot (not service type).
      */
     @Child(name = "appointmentType", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The style of appointment or patient that has been booked in the slot (not service type)", formalDefinition="The style of appointment or patient that has been booked in the slot (not service type)." )
+    @Description(shortDefinition="The style of appointment or patient that may be booked in the slot (not service type)", formalDefinition="The style of appointment or patient that may be booked in the slot (not service type)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v2-0276")
     protected CodeableConcept appointmentType;
 
@@ -479,7 +479,7 @@ public class Slot extends DomainResource {
     }
 
     /**
-     * @return {@link #appointmentType} (The style of appointment or patient that has been booked in the slot (not service type).)
+     * @return {@link #appointmentType} (The style of appointment or patient that may be booked in the slot (not service type).)
      */
     public CodeableConcept getAppointmentType() { 
       if (this.appointmentType == null)
@@ -495,7 +495,7 @@ public class Slot extends DomainResource {
     }
 
     /**
-     * @param value {@link #appointmentType} (The style of appointment or patient that has been booked in the slot (not service type).)
+     * @param value {@link #appointmentType} (The style of appointment or patient that may be booked in the slot (not service type).)
      */
     public Slot setAppointmentType(CodeableConcept value) { 
       this.appointmentType = value;
@@ -781,7 +781,7 @@ public class Slot extends DomainResource {
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "A broad categorisation of the service that is to be performed during this appointment.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("serviceType", "CodeableConcept", "The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.", 0, java.lang.Integer.MAX_VALUE, serviceType));
         childrenList.add(new Property("specialty", "CodeableConcept", "The specialty of a practitioner that would be required to perform the service requested in this appointment.", 0, java.lang.Integer.MAX_VALUE, specialty));
-        childrenList.add(new Property("appointmentType", "CodeableConcept", "The style of appointment or patient that has been booked in the slot (not service type).", 0, java.lang.Integer.MAX_VALUE, appointmentType));
+        childrenList.add(new Property("appointmentType", "CodeableConcept", "The style of appointment or patient that may be booked in the slot (not service type).", 0, java.lang.Integer.MAX_VALUE, appointmentType));
         childrenList.add(new Property("schedule", "Reference(Schedule)", "The schedule resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, schedule));
         childrenList.add(new Property("status", "code", "busy | free | busy-unavailable | busy-tentative | entered-in-error.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("start", "instant", "Date/Time that the slot is to begin.", 0, java.lang.Integer.MAX_VALUE, start));

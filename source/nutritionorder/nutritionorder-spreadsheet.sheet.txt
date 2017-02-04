@@ -160,6 +160,7 @@
   Short Name = Diet, formula or nutritional supplement request
   Definition = A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
   Comments = Referenced by an Order Request (workflow)
+  Workflow Mapping = Request
   RIM Mapping = SupplyRequest
   w5 = clinical.careprovision
 
@@ -170,6 +171,7 @@
   Short Name = Identifiers assigned to this order
   Definition = Identifiers assigned to this order by the order sender or by the order receiver
   Comments = The Identifier.type element can be to indicate filler vs placer if needed.  This is explained in further detail [here](procedurerequest.html#notes)
+  Workflow Mapping = Request.identifier
   RIM Mapping = .id
   w5 = id
 
@@ -183,6 +185,7 @@
   Short Name = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
   Definition = The workflow status of the nutrition order/request.
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
+  Workflow Mapping = Request.status
   RIM Mapping = .statusCode
   Committee Notes = [#3720]
   w5 = status
@@ -194,6 +197,7 @@
   Type = Reference(Patient)
   Short Name = The person who requires the diet, formula or nutritional supplement
   Definition = The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
+  Workflow Mapping = Request.subject.reference(Patient)
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
   w5 = who.focus
@@ -204,6 +208,7 @@
   Type = Reference(Encounter)
   Short Name = The encounter associated with this nutrition order
   Definition = An encounter that provides additional information about the healthcare context in which this request is made
+  Workflow Mapping = Request.context.reference(Encounter)
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
@@ -214,6 +219,7 @@
   Type = dateTime
   Short Name = Date and time the nutrition order was requested
   Definition = The date and time that this nutrition order was requested.
+  Workflow Mapping = Request.authoredOn
   RIM Mapping = author.time
   w5 = when.recorded
 
@@ -224,6 +230,7 @@
   Type = Reference(Practitioner)
   Short Name = Who ordered the diet, formula or nutritional supplement
   Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
+  Workflow Mapping = Request.requester
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 

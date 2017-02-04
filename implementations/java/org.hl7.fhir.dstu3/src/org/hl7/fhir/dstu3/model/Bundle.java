@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2394,19 +2394,19 @@ public class Bundle extends Resource implements IBaseBundle {
   }
 
     /**
+     * A persistent identifier for the batch that won't change as a batch is copied from server to server.
+     */
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Persistent identifier for the bundle", formalDefinition="A persistent identifier for the batch that won't change as a batch is copied from server to server." )
+    protected Identifier identifier;
+
+    /**
      * Indicates the purpose of this bundle- how it was intended to be used.
      */
-    @Child(name = "type", type = {CodeType.class}, order=0, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection", formalDefinition="Indicates the purpose of this bundle- how it was intended to be used." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/bundle-type")
     protected Enumeration<BundleType> type;
-
-    /**
-     * A persistent identifier for the batch that won't change as a batch is copied from server to server.
-     */
-    @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Persistent identifier for the bundle", formalDefinition="A persistent identifier for the batch that won't change as a batch is copied from server to server." )
-    protected Identifier identifier;
 
     /**
      * If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).
@@ -2436,7 +2436,7 @@ public class Bundle extends Resource implements IBaseBundle {
     @Description(shortDefinition="Digital Signature", formalDefinition="Digital Signature - base64 encoded. XML DigSIg or a JWT." )
     protected Signature signature;
 
-    private static final long serialVersionUID = -1833647607L;
+    private static final long serialVersionUID = 982760501L;
 
   /**
    * Constructor
@@ -2451,6 +2451,30 @@ public class Bundle extends Resource implements IBaseBundle {
     public Bundle(Enumeration<BundleType> type) {
       super();
       this.type = type;
+    }
+
+    /**
+     * @return {@link #identifier} (A persistent identifier for the batch that won't change as a batch is copied from server to server.)
+     */
+    public Identifier getIdentifier() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Bundle.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new Identifier(); // cc
+      return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
+    }
+
+    /**
+     * @param value {@link #identifier} (A persistent identifier for the batch that won't change as a batch is copied from server to server.)
+     */
+    public Bundle setIdentifier(Identifier value) { 
+      this.identifier = value;
+      return this;
     }
 
     /**
@@ -2495,30 +2519,6 @@ public class Bundle extends Resource implements IBaseBundle {
         if (this.type == null)
           this.type = new Enumeration<BundleType>(new BundleTypeEnumFactory());
         this.type.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #identifier} (A persistent identifier for the batch that won't change as a batch is copied from server to server.)
-     */
-    public Identifier getIdentifier() { 
-      if (this.identifier == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Bundle.identifier");
-        else if (Configuration.doAutoCreate())
-          this.identifier = new Identifier(); // cc
-      return this.identifier;
-    }
-
-    public boolean hasIdentifier() { 
-      return this.identifier != null && !this.identifier.isEmpty();
-    }
-
-    /**
-     * @param value {@link #identifier} (A persistent identifier for the batch that won't change as a batch is copied from server to server.)
-     */
-    public Bundle setIdentifier(Identifier value) { 
-      this.identifier = value;
       return this;
     }
 
@@ -2746,8 +2746,8 @@ public class Bundle extends Resource implements IBaseBundle {
   }
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle- how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("identifier", "Identifier", "A persistent identifier for the batch that won't change as a batch is copied from server to server.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("type", "code", "Indicates the purpose of this bundle- how it was intended to be used.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("total", "unsignedInt", "If a set of search matches, this is the total number of matches for the search (as opposed to the number of results in this bundle).", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("link", "", "A series of links that provide context to this bundle.", 0, java.lang.Integer.MAX_VALUE, link));
         childrenList.add(new Property("entry", "", "An entry in a bundle resource - will either contain a resource, or information about a resource (transactions and history only).", 0, java.lang.Integer.MAX_VALUE, entry));
@@ -2757,8 +2757,8 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<BundleType>
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<BundleType>
         case 110549828: /*total*/ return this.total == null ? new Base[0] : new Base[] {this.total}; // UnsignedIntType
         case 3321850: /*link*/ return this.link == null ? new Base[0] : this.link.toArray(new Base[this.link.size()]); // BundleLinkComponent
         case 96667762: /*entry*/ return this.entry == null ? new Base[0] : this.entry.toArray(new Base[this.entry.size()]); // BundleEntryComponent
@@ -2771,12 +2771,12 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
+        case -1618432855: // identifier
+          this.identifier = castToIdentifier(value); // Identifier
+          return value;
         case 3575610: // type
           value = new BundleTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<BundleType>
-          return value;
-        case -1618432855: // identifier
-          this.identifier = castToIdentifier(value); // Identifier
           return value;
         case 110549828: // total
           this.total = castToUnsignedInt(value); // UnsignedIntType
@@ -2797,11 +2797,11 @@ public class Bundle extends Resource implements IBaseBundle {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type")) {
+        if (name.equals("identifier")) {
+          this.identifier = castToIdentifier(value); // Identifier
+        } else if (name.equals("type")) {
           value = new BundleTypeEnumFactory().fromType(castToCode(value));
           this.type = (Enumeration) value; // Enumeration<BundleType>
-        } else if (name.equals("identifier")) {
-          this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("total")) {
           this.total = castToUnsignedInt(value); // UnsignedIntType
         } else if (name.equals("link")) {
@@ -2818,8 +2818,8 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610:  return getTypeElement();
         case -1618432855:  return getIdentifier(); 
+        case 3575610:  return getTypeElement();
         case 110549828:  return getTotalElement();
         case 3321850:  return addLink(); 
         case 96667762:  return addEntry(); 
@@ -2832,8 +2832,8 @@ public class Bundle extends Resource implements IBaseBundle {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3575610: /*type*/ return new String[] {"code"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case 3575610: /*type*/ return new String[] {"code"};
         case 110549828: /*total*/ return new String[] {"unsignedInt"};
         case 3321850: /*link*/ return new String[] {};
         case 96667762: /*entry*/ return new String[] {};
@@ -2845,12 +2845,12 @@ public class Bundle extends Resource implements IBaseBundle {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("type")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Bundle.type");
-        }
-        else if (name.equals("identifier")) {
+        if (name.equals("identifier")) {
           this.identifier = new Identifier();
           return this.identifier;
+        }
+        else if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Bundle.type");
         }
         else if (name.equals("total")) {
           throw new FHIRException("Cannot call addChild on a primitive type Bundle.total");
@@ -2877,8 +2877,8 @@ public class Bundle extends Resource implements IBaseBundle {
       public Bundle copy() {
         Bundle dst = new Bundle();
         copyValues(dst);
-        dst.type = type == null ? null : type.copy();
         dst.identifier = identifier == null ? null : identifier.copy();
+        dst.type = type == null ? null : type.copy();
         dst.total = total == null ? null : total.copy();
         if (link != null) {
           dst.link = new ArrayList<BundleLinkComponent>();
@@ -2905,7 +2905,7 @@ public class Bundle extends Resource implements IBaseBundle {
         if (!(other instanceof Bundle))
           return false;
         Bundle o = (Bundle) other;
-        return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(total, o.total, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(total, o.total, true)
            && compareDeep(link, o.link, true) && compareDeep(entry, o.entry, true) && compareDeep(signature, o.signature, true)
           ;
       }
@@ -2921,7 +2921,7 @@ public class Bundle extends Resource implements IBaseBundle {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, identifier, total
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, type, total
           , link, entry, signature);
       }
 

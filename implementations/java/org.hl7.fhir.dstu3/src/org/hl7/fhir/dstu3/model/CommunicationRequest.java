@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -50,45 +50,33 @@ public class CommunicationRequest extends DomainResource {
 
     public enum CommunicationRequestStatus {
         /**
-         * The request has been proposed.
+         * The request has been created but is not yet complete or ready for action
          */
-        PROPOSED, 
+        DRAFT, 
         /**
-         * The request has been planned.
+         * The request is ready to be acted upon
          */
-        PLANNED, 
+        ACTIVE, 
         /**
-         * The request has been placed.
-         */
-        REQUESTED, 
-        /**
-         * The receiving system has received the request but not yet decided whether it will be performed.
-         */
-        RECEIVED, 
-        /**
-         * The receiving system has accepted the order, but work has not yet commenced.
-         */
-        ACCEPTED, 
-        /**
-         * The work to fulfill the order is happening.
-         */
-        INPROGRESS, 
-        /**
-         * The work has been complete, the report(s) released, and no further work is planned.
-         */
-        COMPLETED, 
-        /**
-         * The request has been held by originating system/user request.
+         * The authorization/request to act has been temporarily withdrawn but is expected to resume in the future
          */
         SUSPENDED, 
         /**
-         * The receiving system has declined to fulfill the request
+         * The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.
          */
-        REJECTED, 
+        CANCELLED, 
         /**
-         * The communication was attempted, but due to some procedural error, it could not be completed.
+         * Activity against the request has been sufficiently completed to the satisfaction of the requester
          */
-        FAILED, 
+        COMPLETED, 
+        /**
+         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
+         */
+        ENTEREDINERROR, 
+        /**
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         */
+        UNKNOWN, 
         /**
          * added to help the parsers with the generic types
          */
@@ -96,26 +84,20 @@ public class CommunicationRequest extends DomainResource {
         public static CommunicationRequestStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("proposed".equals(codeString))
-          return PROPOSED;
-        if ("planned".equals(codeString))
-          return PLANNED;
-        if ("requested".equals(codeString))
-          return REQUESTED;
-        if ("received".equals(codeString))
-          return RECEIVED;
-        if ("accepted".equals(codeString))
-          return ACCEPTED;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
-        if ("completed".equals(codeString))
-          return COMPLETED;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("active".equals(codeString))
+          return ACTIVE;
         if ("suspended".equals(codeString))
           return SUSPENDED;
-        if ("rejected".equals(codeString))
-          return REJECTED;
-        if ("failed".equals(codeString))
-          return FAILED;
+        if ("cancelled".equals(codeString))
+          return CANCELLED;
+        if ("completed".equals(codeString))
+          return COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -123,61 +105,49 @@ public class CommunicationRequest extends DomainResource {
         }
         public String toCode() {
           switch (this) {
-            case PROPOSED: return "proposed";
-            case PLANNED: return "planned";
-            case REQUESTED: return "requested";
-            case RECEIVED: return "received";
-            case ACCEPTED: return "accepted";
-            case INPROGRESS: return "in-progress";
-            case COMPLETED: return "completed";
+            case DRAFT: return "draft";
+            case ACTIVE: return "active";
             case SUSPENDED: return "suspended";
-            case REJECTED: return "rejected";
-            case FAILED: return "failed";
+            case CANCELLED: return "cancelled";
+            case COMPLETED: return "completed";
+            case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case PROPOSED: return "http://hl7.org/fhir/communication-request-status";
-            case PLANNED: return "http://hl7.org/fhir/communication-request-status";
-            case REQUESTED: return "http://hl7.org/fhir/communication-request-status";
-            case RECEIVED: return "http://hl7.org/fhir/communication-request-status";
-            case ACCEPTED: return "http://hl7.org/fhir/communication-request-status";
-            case INPROGRESS: return "http://hl7.org/fhir/communication-request-status";
-            case COMPLETED: return "http://hl7.org/fhir/communication-request-status";
-            case SUSPENDED: return "http://hl7.org/fhir/communication-request-status";
-            case REJECTED: return "http://hl7.org/fhir/communication-request-status";
-            case FAILED: return "http://hl7.org/fhir/communication-request-status";
+            case DRAFT: return "http://hl7.org/fhir/request-status";
+            case ACTIVE: return "http://hl7.org/fhir/request-status";
+            case SUSPENDED: return "http://hl7.org/fhir/request-status";
+            case CANCELLED: return "http://hl7.org/fhir/request-status";
+            case COMPLETED: return "http://hl7.org/fhir/request-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/request-status";
+            case UNKNOWN: return "http://hl7.org/fhir/request-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case PROPOSED: return "The request has been proposed.";
-            case PLANNED: return "The request has been planned.";
-            case REQUESTED: return "The request has been placed.";
-            case RECEIVED: return "The receiving system has received the request but not yet decided whether it will be performed.";
-            case ACCEPTED: return "The receiving system has accepted the order, but work has not yet commenced.";
-            case INPROGRESS: return "The work to fulfill the order is happening.";
-            case COMPLETED: return "The work has been complete, the report(s) released, and no further work is planned.";
-            case SUSPENDED: return "The request has been held by originating system/user request.";
-            case REJECTED: return "The receiving system has declined to fulfill the request";
-            case FAILED: return "The communication was attempted, but due to some procedural error, it could not be completed.";
+            case DRAFT: return "The request has been created but is not yet complete or ready for action";
+            case ACTIVE: return "The request is ready to be acted upon";
+            case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
+            case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
+            case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
+            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case PROPOSED: return "Proposed";
-            case PLANNED: return "Planned";
-            case REQUESTED: return "Requested";
-            case RECEIVED: return "Received";
-            case ACCEPTED: return "Accepted";
-            case INPROGRESS: return "In Progress";
-            case COMPLETED: return "Completed";
+            case DRAFT: return "Draft";
+            case ACTIVE: return "Active";
             case SUSPENDED: return "Suspended";
-            case REJECTED: return "Rejected";
-            case FAILED: return "Failed";
+            case CANCELLED: return "Cancelled";
+            case COMPLETED: return "Completed";
+            case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -188,26 +158,20 @@ public class CommunicationRequest extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("proposed".equals(codeString))
-          return CommunicationRequestStatus.PROPOSED;
-        if ("planned".equals(codeString))
-          return CommunicationRequestStatus.PLANNED;
-        if ("requested".equals(codeString))
-          return CommunicationRequestStatus.REQUESTED;
-        if ("received".equals(codeString))
-          return CommunicationRequestStatus.RECEIVED;
-        if ("accepted".equals(codeString))
-          return CommunicationRequestStatus.ACCEPTED;
-        if ("in-progress".equals(codeString))
-          return CommunicationRequestStatus.INPROGRESS;
-        if ("completed".equals(codeString))
-          return CommunicationRequestStatus.COMPLETED;
+        if ("draft".equals(codeString))
+          return CommunicationRequestStatus.DRAFT;
+        if ("active".equals(codeString))
+          return CommunicationRequestStatus.ACTIVE;
         if ("suspended".equals(codeString))
           return CommunicationRequestStatus.SUSPENDED;
-        if ("rejected".equals(codeString))
-          return CommunicationRequestStatus.REJECTED;
-        if ("failed".equals(codeString))
-          return CommunicationRequestStatus.FAILED;
+        if ("cancelled".equals(codeString))
+          return CommunicationRequestStatus.CANCELLED;
+        if ("completed".equals(codeString))
+          return CommunicationRequestStatus.COMPLETED;
+        if ("entered-in-error".equals(codeString))
+          return CommunicationRequestStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return CommunicationRequestStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
         public Enumeration<CommunicationRequestStatus> fromType(Base code) throws FHIRException {
@@ -218,49 +182,37 @@ public class CommunicationRequest extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("proposed".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.PROPOSED);
-        if ("planned".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.PLANNED);
-        if ("requested".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.REQUESTED);
-        if ("received".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.RECEIVED);
-        if ("accepted".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.ACCEPTED);
-        if ("in-progress".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.INPROGRESS);
-        if ("completed".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.COMPLETED);
+        if ("draft".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.DRAFT);
+        if ("active".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.ACTIVE);
         if ("suspended".equals(codeString))
           return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.SUSPENDED);
-        if ("rejected".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.REJECTED);
-        if ("failed".equals(codeString))
-          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.FAILED);
+        if ("cancelled".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.CANCELLED);
+        if ("completed".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.COMPLETED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<CommunicationRequestStatus>(this, CommunicationRequestStatus.UNKNOWN);
         throw new FHIRException("Unknown CommunicationRequestStatus code '"+codeString+"'");
         }
     public String toCode(CommunicationRequestStatus code) {
-      if (code == CommunicationRequestStatus.PROPOSED)
-        return "proposed";
-      if (code == CommunicationRequestStatus.PLANNED)
-        return "planned";
-      if (code == CommunicationRequestStatus.REQUESTED)
-        return "requested";
-      if (code == CommunicationRequestStatus.RECEIVED)
-        return "received";
-      if (code == CommunicationRequestStatus.ACCEPTED)
-        return "accepted";
-      if (code == CommunicationRequestStatus.INPROGRESS)
-        return "in-progress";
-      if (code == CommunicationRequestStatus.COMPLETED)
-        return "completed";
+      if (code == CommunicationRequestStatus.DRAFT)
+        return "draft";
+      if (code == CommunicationRequestStatus.ACTIVE)
+        return "active";
       if (code == CommunicationRequestStatus.SUSPENDED)
         return "suspended";
-      if (code == CommunicationRequestStatus.REJECTED)
-        return "rejected";
-      if (code == CommunicationRequestStatus.FAILED)
-        return "failed";
+      if (code == CommunicationRequestStatus.CANCELLED)
+        return "cancelled";
+      if (code == CommunicationRequestStatus.COMPLETED)
+        return "completed";
+      if (code == CommunicationRequestStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      if (code == CommunicationRequestStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(CommunicationRequestStatus code) {
@@ -469,28 +421,53 @@ public class CommunicationRequest extends DomainResource {
     protected List<Identifier> identifier;
 
     /**
+     * The status of the proposal or order.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="draft | active | suspended | cancelled | completed | entered-in-error | unknown", formalDefinition="The status of the proposal or order." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-status")
+    protected Enumeration<CommunicationRequestStatus> status;
+
+    /**
+     * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+     */
+    @Child(name = "priority", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Message urgency", formalDefinition="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
+    protected CodeableConcept priority;
+
+    /**
      * The type of message to be sent such as alert, notification, reminder, instruction, etc.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "category", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Message category", formalDefinition="The type of message to be sent such as alert, notification, reminder, instruction, etc." )
-    protected CodeableConcept category;
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/communication-category")
+    protected List<CodeableConcept> category;
 
     /**
-     * The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.
+     * A channel that was used for this communication (e.g. email, fax).
      */
-    @Child(name = "sender", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Message sender", formalDefinition="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication." )
-    protected Reference sender;
+    @Child(name = "medium", type = {CodeableConcept.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="A channel of communication", formalDefinition="A channel that was used for this communication (e.g. email, fax)." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ParticipationMode")
+    protected List<CodeableConcept> medium;
 
     /**
-     * The actual object that is the target of the reference (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     * The patient or group that is the focus of this communication request.
      */
-    protected Resource senderTarget;
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Focus of message", formalDefinition="The patient or group that is the focus of this communication request." )
+    protected Reference subject;
+
+    /**
+     * The actual object that is the target of the reference (The patient or group that is the focus of this communication request.)
+     */
+    protected Resource subjectTarget;
 
     /**
      * The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.
      */
-    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Group.class, CareTeam.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "recipient", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Group.class, CareTeam.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Message recipient", formalDefinition="The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication." )
     protected List<Reference> recipient;
     /**
@@ -500,44 +477,9 @@ public class CommunicationRequest extends DomainResource {
 
 
     /**
-     * Text, attachment(s), or resource(s) to be communicated to the recipient.
-     */
-    @Child(name = "payload", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Message payload", formalDefinition="Text, attachment(s), or resource(s) to be communicated to the recipient." )
-    protected List<CommunicationRequestPayloadComponent> payload;
-
-    /**
-     * A channel that was used for this communication (e.g. email, fax).
-     */
-    @Child(name = "medium", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="A channel of communication", formalDefinition="A channel that was used for this communication (e.g. email, fax)." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ParticipationMode")
-    protected List<CodeableConcept> medium;
-
-    /**
-     * The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
-     */
-    @Child(name = "requester", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="An individual who requested a communication", formalDefinition="The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application." )
-    protected Reference requester;
-
-    /**
-     * The actual object that is the target of the reference (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
-     */
-    protected Resource requesterTarget;
-
-    /**
-     * The status of the proposal or order.
-     */
-    @Child(name = "status", type = {CodeType.class}, order=7, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed", formalDefinition="The status of the proposal or order." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/communication-request-status")
-    protected Enumeration<CommunicationRequestStatus> status;
-
-    /**
      * The resources which were related to producing this communication request.
      */
-    @Child(name = "topic", type = {Reference.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "topic", type = {Reference.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Focal resources", formalDefinition="The resources which were related to producing this communication request." )
     protected List<Reference> topic;
     /**
@@ -549,7 +491,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * The encounter or episode of care within which the communication request was created.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or episode leading to message", formalDefinition="The encounter or episode of care within which the communication request was created." )
     protected Reference context;
 
@@ -559,54 +501,73 @@ public class CommunicationRequest extends DomainResource {
     protected Resource contextTarget;
 
     /**
-     * The time when this communication is to occur.
+     * Text, attachment(s), or resource(s) to be communicated to the recipient.
      */
-    @Child(name = "scheduled", type = {DateTimeType.class, Period.class}, order=10, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When scheduled", formalDefinition="The time when this communication is to occur." )
-    protected Type scheduled;
-
-    /**
-     * The reason or justification for the communication request.
-     */
-    @Child(name = "reason", type = {CodeableConcept.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Indication for message", formalDefinition="The reason or justification for the communication request." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActReason")
-    protected List<CodeableConcept> reason;
+    @Child(name = "payload", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Message payload", formalDefinition="Text, attachment(s), or resource(s) to be communicated to the recipient." )
+    protected List<CommunicationRequestPayloadComponent> payload;
 
     /**
      * The time when the request was made.
      */
-    @Child(name = "requestedOn", type = {DateTimeType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "requestedOn", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When ordered or proposed", formalDefinition="The time when the request was made." )
     protected DateTimeType requestedOn;
 
     /**
-     * The patient who is the focus of this communication request.
+     * The time when this communication is to occur.
      */
-    @Child(name = "subject", type = {Patient.class}, order=13, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Focus of message", formalDefinition="The patient who is the focus of this communication request." )
-    protected Reference subject;
+    @Child(name = "scheduled", type = {DateTimeType.class, Period.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When scheduled", formalDefinition="The time when this communication is to occur." )
+    protected Type scheduled;
 
     /**
-     * The actual object that is the target of the reference (The patient who is the focus of this communication request.)
+     * The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.
      */
-    protected Patient subjectTarget;
+    @Child(name = "sender", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Message sender", formalDefinition="The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication." )
+    protected Reference sender;
 
     /**
-     * Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
+     * The actual object that is the target of the reference (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
-    @Child(name = "priority", type = {CodeableConcept.class}, order=14, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Message urgency", formalDefinition="Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
-    protected CodeableConcept priority;
+    protected Resource senderTarget;
 
-    private static final long serialVersionUID = -1414505565L;
+    /**
+     * The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.
+     */
+    @Child(name = "requester", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="An individual who requested a communication", formalDefinition="The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application." )
+    protected Reference requester;
+
+    /**
+     * The actual object that is the target of the reference (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
+     */
+    protected Resource requesterTarget;
+
+    /**
+     * The reason or justification for the communication request.
+     */
+    @Child(name = "reason", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Indication for message", formalDefinition="The reason or justification for the communication request." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/v3-ActReason")
+    protected List<CodeableConcept> reason;
+
+    private static final long serialVersionUID = -48384198L;
 
   /**
    * Constructor
    */
     public CommunicationRequest() {
       super();
+    }
+
+  /**
+   * Constructor
+   */
+    public CommunicationRequest(Enumeration<CommunicationRequestStatus> status) {
+      super();
+      this.status = status;
     }
 
     /**
@@ -663,65 +624,216 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
+     * @return {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<CommunicationRequestStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CommunicationRequest.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public CommunicationRequest setStatusElement(Enumeration<CommunicationRequestStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The status of the proposal or order.
+     */
+    public CommunicationRequestStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The status of the proposal or order.
+     */
+    public CommunicationRequest setStatus(CommunicationRequestStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory());
+        this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
+     */
+    public CodeableConcept getPriority() { 
+      if (this.priority == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CommunicationRequest.priority");
+        else if (Configuration.doAutoCreate())
+          this.priority = new CodeableConcept(); // cc
+      return this.priority;
+    }
+
+    public boolean hasPriority() { 
+      return this.priority != null && !this.priority.isEmpty();
+    }
+
+    /**
+     * @param value {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
+     */
+    public CommunicationRequest setPriority(CodeableConcept value) { 
+      this.priority = value;
+      return this;
+    }
+
+    /**
      * @return {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
      */
-    public CodeableConcept getCategory() { 
+    public List<CodeableConcept> getCategory() { 
       if (this.category == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.category");
-        else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept(); // cc
+        this.category = new ArrayList<CodeableConcept>();
       return this.category;
     }
 
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CommunicationRequest setCategory(List<CodeableConcept> theCategory) { 
+      this.category = theCategory;
+      return this;
+    }
+
     public boolean hasCategory() { 
-      return this.category != null && !this.category.isEmpty();
+      if (this.category == null)
+        return false;
+      for (CodeableConcept item : this.category)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
-    /**
-     * @param value {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
-     */
-    public CommunicationRequest setCategory(CodeableConcept value) { 
-      this.category = value;
+    public CodeableConcept addCategory() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.category == null)
+        this.category = new ArrayList<CodeableConcept>();
+      this.category.add(t);
+      return t;
+    }
+
+    public CommunicationRequest addCategory(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.category == null)
+        this.category = new ArrayList<CodeableConcept>();
+      this.category.add(t);
       return this;
     }
 
     /**
-     * @return {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     * @return The first repetition of repeating field {@link #category}, creating it if it does not already exist
      */
-    public Reference getSender() { 
-      if (this.sender == null)
+    public CodeableConcept getCategoryFirstRep() { 
+      if (getCategory().isEmpty()) {
+        addCategory();
+      }
+      return getCategory().get(0);
+    }
+
+    /**
+     * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
+     */
+    public List<CodeableConcept> getMedium() { 
+      if (this.medium == null)
+        this.medium = new ArrayList<CodeableConcept>();
+      return this.medium;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CommunicationRequest setMedium(List<CodeableConcept> theMedium) { 
+      this.medium = theMedium;
+      return this;
+    }
+
+    public boolean hasMedium() { 
+      if (this.medium == null)
+        return false;
+      for (CodeableConcept item : this.medium)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addMedium() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.medium == null)
+        this.medium = new ArrayList<CodeableConcept>();
+      this.medium.add(t);
+      return t;
+    }
+
+    public CommunicationRequest addMedium(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.medium == null)
+        this.medium = new ArrayList<CodeableConcept>();
+      this.medium.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #medium}, creating it if it does not already exist
+     */
+    public CodeableConcept getMediumFirstRep() { 
+      if (getMedium().isEmpty()) {
+        addMedium();
+      }
+      return getMedium().get(0);
+    }
+
+    /**
+     * @return {@link #subject} (The patient or group that is the focus of this communication request.)
+     */
+    public Reference getSubject() { 
+      if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.sender");
+          throw new Error("Attempt to auto-create CommunicationRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.sender = new Reference(); // cc
-      return this.sender;
+          this.subject = new Reference(); // cc
+      return this.subject;
     }
 
-    public boolean hasSender() { 
-      return this.sender != null && !this.sender.isEmpty();
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
-     * @param value {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     * @param value {@link #subject} (The patient or group that is the focus of this communication request.)
      */
-    public CommunicationRequest setSender(Reference value) { 
-      this.sender = value;
+    public CommunicationRequest setSubject(Reference value) { 
+      this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient or group that is the focus of this communication request.)
      */
-    public Resource getSenderTarget() { 
-      return this.senderTarget;
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient or group that is the focus of this communication request.)
      */
-    public CommunicationRequest setSenderTarget(Resource value) { 
-      this.senderTarget = value;
+    public CommunicationRequest setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
       return this;
     }
 
@@ -786,200 +898,6 @@ public class CommunicationRequest extends DomainResource {
       if (this.recipientTarget == null)
         this.recipientTarget = new ArrayList<Resource>();
       return this.recipientTarget;
-    }
-
-    /**
-     * @return {@link #payload} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
-     */
-    public List<CommunicationRequestPayloadComponent> getPayload() { 
-      if (this.payload == null)
-        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
-      return this.payload;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public CommunicationRequest setPayload(List<CommunicationRequestPayloadComponent> thePayload) { 
-      this.payload = thePayload;
-      return this;
-    }
-
-    public boolean hasPayload() { 
-      if (this.payload == null)
-        return false;
-      for (CommunicationRequestPayloadComponent item : this.payload)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public CommunicationRequestPayloadComponent addPayload() { //3
-      CommunicationRequestPayloadComponent t = new CommunicationRequestPayloadComponent();
-      if (this.payload == null)
-        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
-      this.payload.add(t);
-      return t;
-    }
-
-    public CommunicationRequest addPayload(CommunicationRequestPayloadComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.payload == null)
-        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
-      this.payload.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #payload}, creating it if it does not already exist
-     */
-    public CommunicationRequestPayloadComponent getPayloadFirstRep() { 
-      if (getPayload().isEmpty()) {
-        addPayload();
-      }
-      return getPayload().get(0);
-    }
-
-    /**
-     * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
-     */
-    public List<CodeableConcept> getMedium() { 
-      if (this.medium == null)
-        this.medium = new ArrayList<CodeableConcept>();
-      return this.medium;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public CommunicationRequest setMedium(List<CodeableConcept> theMedium) { 
-      this.medium = theMedium;
-      return this;
-    }
-
-    public boolean hasMedium() { 
-      if (this.medium == null)
-        return false;
-      for (CodeableConcept item : this.medium)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public CodeableConcept addMedium() { //3
-      CodeableConcept t = new CodeableConcept();
-      if (this.medium == null)
-        this.medium = new ArrayList<CodeableConcept>();
-      this.medium.add(t);
-      return t;
-    }
-
-    public CommunicationRequest addMedium(CodeableConcept t) { //3
-      if (t == null)
-        return this;
-      if (this.medium == null)
-        this.medium = new ArrayList<CodeableConcept>();
-      this.medium.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #medium}, creating it if it does not already exist
-     */
-    public CodeableConcept getMediumFirstRep() { 
-      if (getMedium().isEmpty()) {
-        addMedium();
-      }
-      return getMedium().get(0);
-    }
-
-    /**
-     * @return {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
-     */
-    public Reference getRequester() { 
-      if (this.requester == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.requester");
-        else if (Configuration.doAutoCreate())
-          this.requester = new Reference(); // cc
-      return this.requester;
-    }
-
-    public boolean hasRequester() { 
-      return this.requester != null && !this.requester.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
-     */
-    public CommunicationRequest setRequester(Reference value) { 
-      this.requester = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
-     */
-    public Resource getRequesterTarget() { 
-      return this.requesterTarget;
-    }
-
-    /**
-     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
-     */
-    public CommunicationRequest setRequesterTarget(Resource value) { 
-      this.requesterTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public Enumeration<CommunicationRequestStatus> getStatusElement() { 
-      if (this.status == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.status");
-        else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory()); // bb
-      return this.status;
-    }
-
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    /**
-     * @param value {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
-     */
-    public CommunicationRequest setStatusElement(Enumeration<CommunicationRequestStatus> value) { 
-      this.status = value;
-      return this;
-    }
-
-    /**
-     * @return The status of the proposal or order.
-     */
-    public CommunicationRequestStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
-    }
-
-    /**
-     * @param value The status of the proposal or order.
-     */
-    public CommunicationRequest setStatus(CommunicationRequestStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<CommunicationRequestStatus>(new CommunicationRequestStatusEnumFactory());
-        this.status.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -1085,6 +1003,108 @@ public class CommunicationRequest extends DomainResource {
     }
 
     /**
+     * @return {@link #payload} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
+     */
+    public List<CommunicationRequestPayloadComponent> getPayload() { 
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+      return this.payload;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public CommunicationRequest setPayload(List<CommunicationRequestPayloadComponent> thePayload) { 
+      this.payload = thePayload;
+      return this;
+    }
+
+    public boolean hasPayload() { 
+      if (this.payload == null)
+        return false;
+      for (CommunicationRequestPayloadComponent item : this.payload)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CommunicationRequestPayloadComponent addPayload() { //3
+      CommunicationRequestPayloadComponent t = new CommunicationRequestPayloadComponent();
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+      this.payload.add(t);
+      return t;
+    }
+
+    public CommunicationRequest addPayload(CommunicationRequestPayloadComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.payload == null)
+        this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+      this.payload.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #payload}, creating it if it does not already exist
+     */
+    public CommunicationRequestPayloadComponent getPayloadFirstRep() { 
+      if (getPayload().isEmpty()) {
+        addPayload();
+      }
+      return getPayload().get(0);
+    }
+
+    /**
+     * @return {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
+     */
+    public DateTimeType getRequestedOnElement() { 
+      if (this.requestedOn == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CommunicationRequest.requestedOn");
+        else if (Configuration.doAutoCreate())
+          this.requestedOn = new DateTimeType(); // bb
+      return this.requestedOn;
+    }
+
+    public boolean hasRequestedOnElement() { 
+      return this.requestedOn != null && !this.requestedOn.isEmpty();
+    }
+
+    public boolean hasRequestedOn() { 
+      return this.requestedOn != null && !this.requestedOn.isEmpty();
+    }
+
+    /**
+     * @param value {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
+     */
+    public CommunicationRequest setRequestedOnElement(DateTimeType value) { 
+      this.requestedOn = value;
+      return this;
+    }
+
+    /**
+     * @return The time when the request was made.
+     */
+    public Date getRequestedOn() { 
+      return this.requestedOn == null ? null : this.requestedOn.getValue();
+    }
+
+    /**
+     * @param value The time when the request was made.
+     */
+    public CommunicationRequest setRequestedOn(Date value) { 
+      if (value == null)
+        this.requestedOn = null;
+      else {
+        if (this.requestedOn == null)
+          this.requestedOn = new DateTimeType();
+        this.requestedOn.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #scheduled} (The time when this communication is to occur.)
      */
     public Type getScheduled() { 
@@ -1126,6 +1146,84 @@ public class CommunicationRequest extends DomainResource {
      */
     public CommunicationRequest setScheduled(Type value) { 
       this.scheduled = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     */
+    public Reference getSender() { 
+      if (this.sender == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CommunicationRequest.sender");
+        else if (Configuration.doAutoCreate())
+          this.sender = new Reference(); // cc
+      return this.sender;
+    }
+
+    public boolean hasSender() { 
+      return this.sender != null && !this.sender.isEmpty();
+    }
+
+    /**
+     * @param value {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     */
+    public CommunicationRequest setSender(Reference value) { 
+      this.sender = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     */
+    public Resource getSenderTarget() { 
+      return this.senderTarget;
+    }
+
+    /**
+     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
+     */
+    public CommunicationRequest setSenderTarget(Resource value) { 
+      this.senderTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
+     */
+    public Reference getRequester() { 
+      if (this.requester == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create CommunicationRequest.requester");
+        else if (Configuration.doAutoCreate())
+          this.requester = new Reference(); // cc
+      return this.requester;
+    }
+
+    public boolean hasRequester() { 
+      return this.requester != null && !this.requester.isEmpty();
+    }
+
+    /**
+     * @param value {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
+     */
+    public CommunicationRequest setRequester(Reference value) { 
+      this.requester = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
+     */
+    public Resource getRequesterTarget() { 
+      return this.requesterTarget;
+    }
+
+    /**
+     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
+     */
+    public CommunicationRequest setRequesterTarget(Resource value) { 
+      this.requesterTarget = value;
       return this;
     }
 
@@ -1182,160 +1280,43 @@ public class CommunicationRequest extends DomainResource {
       return getReason().get(0);
     }
 
-    /**
-     * @return {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
-     */
-    public DateTimeType getRequestedOnElement() { 
-      if (this.requestedOn == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.requestedOn");
-        else if (Configuration.doAutoCreate())
-          this.requestedOn = new DateTimeType(); // bb
-      return this.requestedOn;
-    }
-
-    public boolean hasRequestedOnElement() { 
-      return this.requestedOn != null && !this.requestedOn.isEmpty();
-    }
-
-    public boolean hasRequestedOn() { 
-      return this.requestedOn != null && !this.requestedOn.isEmpty();
-    }
-
-    /**
-     * @param value {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
-     */
-    public CommunicationRequest setRequestedOnElement(DateTimeType value) { 
-      this.requestedOn = value;
-      return this;
-    }
-
-    /**
-     * @return The time when the request was made.
-     */
-    public Date getRequestedOn() { 
-      return this.requestedOn == null ? null : this.requestedOn.getValue();
-    }
-
-    /**
-     * @param value The time when the request was made.
-     */
-    public CommunicationRequest setRequestedOn(Date value) { 
-      if (value == null)
-        this.requestedOn = null;
-      else {
-        if (this.requestedOn == null)
-          this.requestedOn = new DateTimeType();
-        this.requestedOn.setValue(value);
-      }
-      return this;
-    }
-
-    /**
-     * @return {@link #subject} (The patient who is the focus of this communication request.)
-     */
-    public Reference getSubject() { 
-      if (this.subject == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.subject");
-        else if (Configuration.doAutoCreate())
-          this.subject = new Reference(); // cc
-      return this.subject;
-    }
-
-    public boolean hasSubject() { 
-      return this.subject != null && !this.subject.isEmpty();
-    }
-
-    /**
-     * @param value {@link #subject} (The patient who is the focus of this communication request.)
-     */
-    public CommunicationRequest setSubject(Reference value) { 
-      this.subject = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the focus of this communication request.)
-     */
-    public Patient getSubjectTarget() { 
-      if (this.subjectTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.subject");
-        else if (Configuration.doAutoCreate())
-          this.subjectTarget = new Patient(); // aa
-      return this.subjectTarget;
-    }
-
-    /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the focus of this communication request.)
-     */
-    public CommunicationRequest setSubjectTarget(Patient value) { 
-      this.subjectTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
-     */
-    public CodeableConcept getPriority() { 
-      if (this.priority == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create CommunicationRequest.priority");
-        else if (Configuration.doAutoCreate())
-          this.priority = new CodeableConcept(); // cc
-      return this.priority;
-    }
-
-    public boolean hasPriority() { 
-      return this.priority != null && !this.priority.isEmpty();
-    }
-
-    /**
-     * @param value {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
-     */
-    public CommunicationRequest setPriority(CodeableConcept value) { 
-      this.priority = value;
-      return this;
-    }
-
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "A unique ID of this request for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be autogenerated, if needed, by CDS system. Does not need to be the actual ID of the source system.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("category", "CodeableConcept", "The type of message to be sent such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
-        childrenList.add(new Property("sender", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
-        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)", "The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
-        childrenList.add(new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium));
-        childrenList.add(new Property("requester", "Reference(Practitioner|Patient|RelatedPerson)", "The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("status", "code", "The status of the proposal or order.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("priority", "CodeableConcept", "Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("category", "CodeableConcept", "The type of message to be sent such as alert, notification, reminder, instruction, etc.", 0, java.lang.Integer.MAX_VALUE, category));
+        childrenList.add(new Property("medium", "CodeableConcept", "A channel that was used for this communication (e.g. email, fax).", 0, java.lang.Integer.MAX_VALUE, medium));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group that is the focus of this communication request.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("recipient", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson|Group|CareTeam)", "The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.", 0, java.lang.Integer.MAX_VALUE, recipient));
         childrenList.add(new Property("topic", "Reference(Any)", "The resources which were related to producing this communication request.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care within which the communication request was created.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("scheduled[x]", "dateTime|Period", "The time when this communication is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduled));
-        childrenList.add(new Property("reason", "CodeableConcept", "The reason or justification for the communication request.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) to be communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
         childrenList.add(new Property("requestedOn", "dateTime", "The time when the request was made.", 0, java.lang.Integer.MAX_VALUE, requestedOn));
-        childrenList.add(new Property("subject", "Reference(Patient)", "The patient who is the focus of this communication request.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("priority", "CodeableConcept", "Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("scheduled[x]", "dateTime|Period", "The time when this communication is to occur.", 0, java.lang.Integer.MAX_VALUE, scheduled));
+        childrenList.add(new Property("sender", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
+        childrenList.add(new Property("requester", "Reference(Practitioner|Patient|RelatedPerson)", "The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.", 0, java.lang.Integer.MAX_VALUE, requester));
+        childrenList.add(new Property("reason", "CodeableConcept", "The reason or justification for the communication request.", 0, java.lang.Integer.MAX_VALUE, reason));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
-        case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
-        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case -786701938: /*payload*/ return this.payload == null ? new Base[0] : this.payload.toArray(new Base[this.payload.size()]); // CommunicationRequestPayloadComponent
-        case -1078030475: /*medium*/ return this.medium == null ? new Base[0] : this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
-        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<CommunicationRequestStatus>
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
+        case -1078030475: /*medium*/ return this.medium == null ? new Base[0] : this.medium.toArray(new Base[this.medium.size()]); // CodeableConcept
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
         case 110546223: /*topic*/ return this.topic == null ? new Base[0] : this.topic.toArray(new Base[this.topic.size()]); // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
-        case -160710483: /*scheduled*/ return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
+        case -786701938: /*payload*/ return this.payload == null ? new Base[0] : this.payload.toArray(new Base[this.payload.size()]); // CommunicationRequestPayloadComponent
         case 1150582253: /*requestedOn*/ return this.requestedOn == null ? new Base[0] : new Base[] {this.requestedOn}; // DateTimeType
-        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -160710483: /*scheduled*/ return this.scheduled == null ? new Base[0] : new Base[] {this.scheduled}; // Type
+        case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1347,27 +1328,24 @@ public class CommunicationRequest extends DomainResource {
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
+        case -892481550: // status
+          value = new CommunicationRequestStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<CommunicationRequestStatus>
+          return value;
+        case -1165461084: // priority
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 50511102: // category
-          this.category = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -905962955: // sender
-          this.sender = castToReference(value); // Reference
-          return value;
-        case 820081177: // recipient
-          this.getRecipient().add(castToReference(value)); // Reference
-          return value;
-        case -786701938: // payload
-          this.getPayload().add((CommunicationRequestPayloadComponent) value); // CommunicationRequestPayloadComponent
+          this.getCategory().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1078030475: // medium
           this.getMedium().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case 693933948: // requester
-          this.requester = castToReference(value); // Reference
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
           return value;
-        case -892481550: // status
-          value = new CommunicationRequestStatusEnumFactory().fromType(castToCode(value));
-          this.status = (Enumeration) value; // Enumeration<CommunicationRequestStatus>
+        case 820081177: // recipient
+          this.getRecipient().add(castToReference(value)); // Reference
           return value;
         case 110546223: // topic
           this.getTopic().add(castToReference(value)); // Reference
@@ -1375,20 +1353,23 @@ public class CommunicationRequest extends DomainResource {
         case 951530927: // context
           this.context = castToReference(value); // Reference
           return value;
-        case -160710483: // scheduled
-          this.scheduled = castToType(value); // Type
-          return value;
-        case -934964668: // reason
-          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
+        case -786701938: // payload
+          this.getPayload().add((CommunicationRequestPayloadComponent) value); // CommunicationRequestPayloadComponent
           return value;
         case 1150582253: // requestedOn
           this.requestedOn = castToDateTime(value); // DateTimeType
           return value;
-        case -1867885268: // subject
-          this.subject = castToReference(value); // Reference
+        case -160710483: // scheduled
+          this.scheduled = castToType(value); // Type
           return value;
-        case -1165461084: // priority
-          this.priority = castToCodeableConcept(value); // CodeableConcept
+        case -905962955: // sender
+          this.sender = castToReference(value); // Reference
+          return value;
+        case 693933948: // requester
+          this.requester = castToReference(value); // Reference
+          return value;
+        case -934964668: // reason
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1399,35 +1380,35 @@ public class CommunicationRequest extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("category")) {
-          this.category = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("sender")) {
-          this.sender = castToReference(value); // Reference
-        } else if (name.equals("recipient")) {
-          this.getRecipient().add(castToReference(value));
-        } else if (name.equals("payload")) {
-          this.getPayload().add((CommunicationRequestPayloadComponent) value);
-        } else if (name.equals("medium")) {
-          this.getMedium().add(castToCodeableConcept(value));
-        } else if (name.equals("requester")) {
-          this.requester = castToReference(value); // Reference
         } else if (name.equals("status")) {
           value = new CommunicationRequestStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<CommunicationRequestStatus>
+        } else if (name.equals("priority")) {
+          this.priority = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("category")) {
+          this.getCategory().add(castToCodeableConcept(value));
+        } else if (name.equals("medium")) {
+          this.getMedium().add(castToCodeableConcept(value));
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("recipient")) {
+          this.getRecipient().add(castToReference(value));
         } else if (name.equals("topic")) {
           this.getTopic().add(castToReference(value));
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        } else if (name.equals("scheduled[x]")) {
-          this.scheduled = castToType(value); // Type
-        } else if (name.equals("reason")) {
-          this.getReason().add(castToCodeableConcept(value));
+        } else if (name.equals("payload")) {
+          this.getPayload().add((CommunicationRequestPayloadComponent) value);
         } else if (name.equals("requestedOn")) {
           this.requestedOn = castToDateTime(value); // DateTimeType
-        } else if (name.equals("subject")) {
-          this.subject = castToReference(value); // Reference
-        } else if (name.equals("priority")) {
-          this.priority = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("scheduled[x]")) {
+          this.scheduled = castToType(value); // Type
+        } else if (name.equals("sender")) {
+          this.sender = castToReference(value); // Reference
+        } else if (name.equals("requester")) {
+          this.requester = castToReference(value); // Reference
+        } else if (name.equals("reason")) {
+          this.getReason().add(castToCodeableConcept(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1437,21 +1418,21 @@ public class CommunicationRequest extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
-        case 50511102:  return getCategory(); 
-        case -905962955:  return getSender(); 
-        case 820081177:  return addRecipient(); 
-        case -786701938:  return addPayload(); 
-        case -1078030475:  return addMedium(); 
-        case 693933948:  return getRequester(); 
         case -892481550:  return getStatusElement();
+        case -1165461084:  return getPriority(); 
+        case 50511102:  return addCategory(); 
+        case -1078030475:  return addMedium(); 
+        case -1867885268:  return getSubject(); 
+        case 820081177:  return addRecipient(); 
         case 110546223:  return addTopic(); 
         case 951530927:  return getContext(); 
+        case -786701938:  return addPayload(); 
+        case 1150582253:  return getRequestedOnElement();
         case 1162627251:  return getScheduled(); 
         case -160710483:  return getScheduled(); 
+        case -905962955:  return getSender(); 
+        case 693933948:  return getRequester(); 
         case -934964668:  return addReason(); 
-        case 1150582253:  return getRequestedOnElement();
-        case -1867885268:  return getSubject(); 
-        case -1165461084:  return getPriority(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1461,20 +1442,20 @@ public class CommunicationRequest extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
-        case -905962955: /*sender*/ return new String[] {"Reference"};
-        case 820081177: /*recipient*/ return new String[] {"Reference"};
-        case -786701938: /*payload*/ return new String[] {};
-        case -1078030475: /*medium*/ return new String[] {"CodeableConcept"};
-        case 693933948: /*requester*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
+        case -1078030475: /*medium*/ return new String[] {"CodeableConcept"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 820081177: /*recipient*/ return new String[] {"Reference"};
         case 110546223: /*topic*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
-        case -160710483: /*scheduled*/ return new String[] {"dateTime", "Period"};
-        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case -786701938: /*payload*/ return new String[] {};
         case 1150582253: /*requestedOn*/ return new String[] {"dateTime"};
-        case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case -160710483: /*scheduled*/ return new String[] {"dateTime", "Period"};
+        case -905962955: /*sender*/ return new String[] {"Reference"};
+        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1485,29 +1466,25 @@ public class CommunicationRequest extends DomainResource {
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CommunicationRequest.status");
+        }
+        else if (name.equals("priority")) {
+          this.priority = new CodeableConcept();
+          return this.priority;
+        }
         else if (name.equals("category")) {
-          this.category = new CodeableConcept();
-          return this.category;
-        }
-        else if (name.equals("sender")) {
-          this.sender = new Reference();
-          return this.sender;
-        }
-        else if (name.equals("recipient")) {
-          return addRecipient();
-        }
-        else if (name.equals("payload")) {
-          return addPayload();
+          return addCategory();
         }
         else if (name.equals("medium")) {
           return addMedium();
         }
-        else if (name.equals("requester")) {
-          this.requester = new Reference();
-          return this.requester;
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
         }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CommunicationRequest.status");
+        else if (name.equals("recipient")) {
+          return addRecipient();
         }
         else if (name.equals("topic")) {
           return addTopic();
@@ -1515,6 +1492,12 @@ public class CommunicationRequest extends DomainResource {
         else if (name.equals("context")) {
           this.context = new Reference();
           return this.context;
+        }
+        else if (name.equals("payload")) {
+          return addPayload();
+        }
+        else if (name.equals("requestedOn")) {
+          throw new FHIRException("Cannot call addChild on a primitive type CommunicationRequest.requestedOn");
         }
         else if (name.equals("scheduledDateTime")) {
           this.scheduled = new DateTimeType();
@@ -1524,19 +1507,16 @@ public class CommunicationRequest extends DomainResource {
           this.scheduled = new Period();
           return this.scheduled;
         }
+        else if (name.equals("sender")) {
+          this.sender = new Reference();
+          return this.sender;
+        }
+        else if (name.equals("requester")) {
+          this.requester = new Reference();
+          return this.requester;
+        }
         else if (name.equals("reason")) {
           return addReason();
-        }
-        else if (name.equals("requestedOn")) {
-          throw new FHIRException("Cannot call addChild on a primitive type CommunicationRequest.requestedOn");
-        }
-        else if (name.equals("subject")) {
-          this.subject = new Reference();
-          return this.subject;
-        }
-        else if (name.equals("priority")) {
-          this.priority = new CodeableConcept();
-          return this.priority;
         }
         else
           return super.addChild(name);
@@ -1555,40 +1535,44 @@ public class CommunicationRequest extends DomainResource {
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
-        dst.category = category == null ? null : category.copy();
-        dst.sender = sender == null ? null : sender.copy();
-        if (recipient != null) {
-          dst.recipient = new ArrayList<Reference>();
-          for (Reference i : recipient)
-            dst.recipient.add(i.copy());
-        };
-        if (payload != null) {
-          dst.payload = new ArrayList<CommunicationRequestPayloadComponent>();
-          for (CommunicationRequestPayloadComponent i : payload)
-            dst.payload.add(i.copy());
+        dst.status = status == null ? null : status.copy();
+        dst.priority = priority == null ? null : priority.copy();
+        if (category != null) {
+          dst.category = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : category)
+            dst.category.add(i.copy());
         };
         if (medium != null) {
           dst.medium = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : medium)
             dst.medium.add(i.copy());
         };
-        dst.requester = requester == null ? null : requester.copy();
-        dst.status = status == null ? null : status.copy();
+        dst.subject = subject == null ? null : subject.copy();
+        if (recipient != null) {
+          dst.recipient = new ArrayList<Reference>();
+          for (Reference i : recipient)
+            dst.recipient.add(i.copy());
+        };
         if (topic != null) {
           dst.topic = new ArrayList<Reference>();
           for (Reference i : topic)
             dst.topic.add(i.copy());
         };
         dst.context = context == null ? null : context.copy();
+        if (payload != null) {
+          dst.payload = new ArrayList<CommunicationRequestPayloadComponent>();
+          for (CommunicationRequestPayloadComponent i : payload)
+            dst.payload.add(i.copy());
+        };
+        dst.requestedOn = requestedOn == null ? null : requestedOn.copy();
         dst.scheduled = scheduled == null ? null : scheduled.copy();
+        dst.sender = sender == null ? null : sender.copy();
+        dst.requester = requester == null ? null : requester.copy();
         if (reason != null) {
           dst.reason = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : reason)
             dst.reason.add(i.copy());
         };
-        dst.requestedOn = requestedOn == null ? null : requestedOn.copy();
-        dst.subject = subject == null ? null : subject.copy();
-        dst.priority = priority == null ? null : priority.copy();
         return dst;
       }
 
@@ -1603,11 +1587,11 @@ public class CommunicationRequest extends DomainResource {
         if (!(other instanceof CommunicationRequest))
           return false;
         CommunicationRequest o = (CommunicationRequest) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(sender, o.sender, true)
-           && compareDeep(recipient, o.recipient, true) && compareDeep(payload, o.payload, true) && compareDeep(medium, o.medium, true)
-           && compareDeep(requester, o.requester, true) && compareDeep(status, o.status, true) && compareDeep(topic, o.topic, true)
-           && compareDeep(context, o.context, true) && compareDeep(scheduled, o.scheduled, true) && compareDeep(reason, o.reason, true)
-           && compareDeep(requestedOn, o.requestedOn, true) && compareDeep(subject, o.subject, true) && compareDeep(priority, o.priority, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(category, o.category, true) && compareDeep(medium, o.medium, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(recipient, o.recipient, true) && compareDeep(topic, o.topic, true) && compareDeep(context, o.context, true)
+           && compareDeep(payload, o.payload, true) && compareDeep(requestedOn, o.requestedOn, true) && compareDeep(scheduled, o.scheduled, true)
+           && compareDeep(sender, o.sender, true) && compareDeep(requester, o.requester, true) && compareDeep(reason, o.reason, true)
           ;
       }
 
@@ -1622,9 +1606,9 @@ public class CommunicationRequest extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, sender
-          , recipient, payload, medium, requester, status, topic, context, scheduled, reason
-          , requestedOn, subject, priority);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, priority
+          , category, medium, subject, recipient, topic, context, payload, requestedOn
+          , scheduled, sender, requester, reason);
       }
 
   @Override
@@ -1686,7 +1670,7 @@ public class CommunicationRequest extends DomainResource {
    * Path: <b>CommunicationRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="CommunicationRequest.subject", description="Focus of message", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="subject", path="CommunicationRequest.subject", description="Focus of message", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
   public static final String SP_SUBJECT = "subject";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>subject</b>
@@ -1798,7 +1782,7 @@ public class CommunicationRequest extends DomainResource {
    * Path: <b>CommunicationRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="CommunicationRequest.subject", description="Focus of message", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="CommunicationRequest.subject", description="Focus of message", type="reference", target={Group.class, Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
@@ -1911,17 +1895,17 @@ public class CommunicationRequest extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed</b><br>
+   * Description: <b>draft | active | suspended | cancelled | completed | entered-in-error | unknown</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CommunicationRequest.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="CommunicationRequest.status", description="draft | active | suspended | cancelled | completed | entered-in-error | unknown", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>proposed | planned | requested | received | accepted | in-progress | completed | suspended | rejected | failed</b><br>
+   * Description: <b>draft | active | suspended | cancelled | completed | entered-in-error | unknown</b><br>
    * Type: <b>token</b><br>
    * Path: <b>CommunicationRequest.status</b><br>
    * </p>

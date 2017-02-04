@@ -2865,8 +2865,8 @@ public class VersionConvertor_10_20 {
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.Reference t : src.getAddresses())
       tgt.addAddresses(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getSupport())
-      tgt.addSupport(convertReference(t));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getSupport())
+//      tgt.addSupport(convertReference(t));
 //    for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelatedPlanComponent t : src.getRelatedPlan())
 //      tgt.addRelatedPlan(convertCarePlanRelatedPlanComponent(t));
 //    for (org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
@@ -2898,8 +2898,8 @@ public class VersionConvertor_10_20 {
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.Reference t : src.getAddresses())
       tgt.addAddresses(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupport())
-      tgt.addSupport(convertReference(t));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupport())
+//      tgt.addSupport(convertReference(t));
 //    for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelatedPlanComponent t : src.getRelatedPlan())
 //      tgt.addRelatedPlan(convertCarePlanRelatedPlanComponent(t));
 //    for (org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent t : src.getParticipant())
@@ -2916,7 +2916,7 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanStatus.PROPOSED;
+    case PROPOSED: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanStatus.DRAFT;
     case DRAFT: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanStatus.DRAFT;
     case ACTIVE: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanStatus.COMPLETED;
@@ -2929,7 +2929,7 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.PROPOSED;
+//    case PROPOSED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.PROPOSED;
     case DRAFT: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.DRAFT;
     case ACTIVE: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanStatus.COMPLETED;
@@ -2958,27 +2958,27 @@ public class VersionConvertor_10_20 {
 //    return tgt;
 //  }
 
-  public org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship convertCarePlanRelationship(org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case INCLUDES: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.INCLUDES;
-    case REPLACES: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.REPLACES;
-    case FULFILLS: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.FULFILLS;
-    default: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.NULL;
-    }
-  }
+//  public org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship convertCarePlanRelationship(org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case INCLUDES: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.INCLUDES;
+//    case REPLACES: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.REPLACES;
+//    case FULFILLS: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.FULFILLS;
+//    default: return org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship.NULL;
+//    }
+//  }
 
-  public org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship convertCarePlanRelationship(org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship src) throws FHIRException {
-    if (src == null)
-      return null;
-    switch (src) {
-    case INCLUDES: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.INCLUDES;
-    case REPLACES: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.REPLACES;
-    case FULFILLS: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.FULFILLS;
-    default: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.NULL;
-    }
-  }
+//  public org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship convertCarePlanRelationship(org.hl7.fhir.dstu3.model.CarePlan.CarePlanRelationship src) throws FHIRException {
+//    if (src == null)
+//      return null;
+//    switch (src) {
+//    case INCLUDES: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.INCLUDES;
+//    case REPLACES: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.REPLACES;
+//    case FULFILLS: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.FULFILLS;
+//    default: return org.hl7.fhir.dstu2.model.CarePlan.CarePlanRelationship.NULL;
+//    }
+//  }
 
 //  public org.hl7.fhir.dstu3.model.CarePlan.CarePlanParticipantComponent convertCarePlanParticipantComponent(org.hl7.fhir.dstu2.model.CarePlan.CarePlanParticipantComponent src) throws FHIRException {
 //    if (src == null || src.isEmpty())
@@ -3243,7 +3243,7 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setSender(convertReference(src.getSender()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
@@ -3268,7 +3268,7 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCategory(convertCodeableConcept(src.getCategoryFirstRep()));
     tgt.setSender(convertReference(src.getSender()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
@@ -3293,8 +3293,8 @@ public class VersionConvertor_10_20 {
     case INPROGRESS: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.REJECTED;
-    case FAILED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.FAILED;
+    case REJECTED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.ENTEREDINERROR;
+    case FAILED: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.ABORTED;
     default: return org.hl7.fhir.dstu3.model.Communication.CommunicationStatus.NULL;
     }
   }
@@ -3306,8 +3306,8 @@ public class VersionConvertor_10_20 {
     case INPROGRESS: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.REJECTED;
-    case FAILED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.FAILED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.REJECTED;
+    case ABORTED: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.FAILED;
     default: return org.hl7.fhir.dstu2.model.Communication.CommunicationStatus.NULL;
     }
   }
@@ -3337,7 +3337,7 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setSender(convertReference(src.getSender()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
@@ -3364,7 +3364,7 @@ public class VersionConvertor_10_20 {
     copyDomainResource(src, tgt);
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
-    tgt.setCategory(convertCodeableConcept(src.getCategory()));
+    tgt.setCategory(convertCodeableConcept(src.getCategoryFirstRep()));
     tgt.setSender(convertReference(src.getSender()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
@@ -3388,16 +3388,16 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.PROPOSED;
-    case PLANNED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.PLANNED;
-    case REQUESTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.REQUESTED;
-    case RECEIVED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.RECEIVED;
-    case ACCEPTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACCEPTED;
-    case INPROGRESS: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.INPROGRESS;
+    case PROPOSED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.DRAFT;
+    case PLANNED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
+    case REQUESTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
+    case RECEIVED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
+    case ACCEPTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
+    case INPROGRESS: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.REJECTED;
-    case FAILED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
+    case REJECTED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.ENTEREDINERROR;
+//    case FAILED: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
     default: return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus.NULL;
     }
   }
@@ -3406,16 +3406,16 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.PROPOSED;
-    case PLANNED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.PLANNED;
-    case REQUESTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.REQUESTED;
-    case RECEIVED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.RECEIVED;
-    case ACCEPTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.ACCEPTED;
-    case INPROGRESS: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.INPROGRESS;
+    case DRAFT: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.PROPOSED;
+//    case PLANNED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.PLANNED;
+//    case REQUESTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.REQUESTED;
+//    case RECEIVED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.RECEIVED;
+//    case ACCEPTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.ACCEPTED;
+    case ACTIVE: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.REJECTED;
-    case FAILED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.REJECTED;
+//    case FAILED: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.FAILED;
     default: return org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus.NULL;
     }
   }
@@ -6128,13 +6128,13 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertEncounterState(src.getStatus()));
-    for (org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent t : src.getStatusHistory())
-      tgt.addStatusHistory(convertEncounterStatusHistoryComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent t : src.getStatusHistory())
+//      tgt.addStatusHistory(convertEncounterStatusHistoryComponent(t));
     tgt.setClass_(convertEncounterClass(src.getClass_()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getType())
       tgt.addType(convertCodeableConcept(t));
     tgt.setPriority(convertCodeableConcept(src.getPriority()));
-    tgt.setPatient(convertReference(src.getPatient()));
+    tgt.setSubject(convertReference(src.getPatient()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getEpisodeOfCare())
       tgt.addEpisodeOfCare(convertReference(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getIncomingReferral())
@@ -6164,13 +6164,13 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertEncounterState(src.getStatus()));
-    for (org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent t : src.getStatusHistory())
-      tgt.addStatusHistory(convertEncounterStatusHistoryComponent(t));
+//    for (org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent t : src.getStatusHistory())
+//      tgt.addStatusHistory(convertEncounterStatusHistoryComponent(t));
     tgt.setClass_(convertEncounterClass(src.getClass_()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getType())
       tgt.addType(convertCodeableConcept(t));
     tgt.setPriority(convertCodeableConcept(src.getPriority()));
-    tgt.setPatient(convertReference(src.getPatient()));
+    tgt.setPatient(convertReference(src.getSubject()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getEpisodeOfCare())
       tgt.addEpisodeOfCare(convertReference(t));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getIncomingReferral())
@@ -6251,25 +6251,25 @@ public class VersionConvertor_10_20 {
     return org.hl7.fhir.dstu2.model.Encounter.EncounterClass.NULL;
   }
 
-  public org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent convertEncounterStatusHistoryComponent(org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent tgt = new org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent();
-    copyElement(src, tgt);
-    tgt.setStatus(convertEncounterState(src.getStatus()));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent convertEncounterStatusHistoryComponent(org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent tgt = new org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent();
+//    copyElement(src, tgt);
+//    tgt.setStatus(convertEncounterState(src.getStatus()));
+//    tgt.setPeriod(convertPeriod(src.getPeriod()));
+//    return tgt;
+//  }
 
-  public org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent convertEncounterStatusHistoryComponent(org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent tgt = new org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent();
-    copyElement(src, tgt);
-    tgt.setStatus(convertEncounterState(src.getStatus()));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent convertEncounterStatusHistoryComponent(org.hl7.fhir.dstu3.model.Encounter.EncounterStatusHistoryComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent tgt = new org.hl7.fhir.dstu2.model.Encounter.EncounterStatusHistoryComponent();
+//    copyElement(src, tgt);
+//    tgt.setStatus(convertEncounterState(src.getStatus()));
+//    tgt.setPeriod(convertPeriod(src.getPeriod()));
+//    return tgt;
+//  }
 
   public org.hl7.fhir.dstu3.model.Encounter.EncounterParticipantComponent convertEncounterParticipantComponent(org.hl7.fhir.dstu2.model.Encounter.EncounterParticipantComponent src) throws FHIRException {
     if (src == null || src.isEmpty())
@@ -7129,7 +7129,7 @@ public class VersionConvertor_10_20 {
     tgt.setNumberOfSeries(src.getNumberOfSeries());
     tgt.setNumberOfInstances(src.getNumberOfInstances());
     for (org.hl7.fhir.dstu2.model.Reference t : src.getProcedure())
-      tgt.addProcedure(convertReference(t));
+      tgt.addProcedureReference(convertReference(t));
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.ImagingStudy.ImagingStudySeriesComponent t : src.getSeries())
       tgt.addSeries(convertImagingStudySeriesComponent(t));
@@ -7155,7 +7155,7 @@ public class VersionConvertor_10_20 {
       tgt.setInterpreter(convertReference(t));
     tgt.setNumberOfSeries(src.getNumberOfSeries());
     tgt.setNumberOfInstances(src.getNumberOfInstances());
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getProcedure())
+    for (org.hl7.fhir.dstu3.model.Reference t : src.getProcedureReference())
       tgt.addProcedure(convertReference(t));
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.ImagingStudy.ImagingStudySeriesComponent t : src.getSeries())
@@ -7265,7 +7265,7 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setWasNotGiven(src.getWasNotGiven());
+    tgt.setNotGiven(src.getWasNotGiven());
     tgt.setPrimarySource(!src.getReported());
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setRequester(convertReference(src.getRequester()));
@@ -7299,7 +7299,7 @@ public class VersionConvertor_10_20 {
       tgt.setDate(src.getDate());
     tgt.setVaccineCode(convertCodeableConcept(src.getVaccineCode()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setWasNotGiven(src.getWasNotGiven());
+    tgt.setWasNotGiven(src.getNotGiven());
     tgt.setReported(!src.getPrimarySource());
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setRequester(convertReference(src.getRequester()));
@@ -8102,11 +8102,11 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.MedicationDispense tgt = new org.hl7.fhir.dstu3.model.MedicationDispense();
     copyDomainResource(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    tgt.addIdentifier(convertIdentifier(src.getIdentifier()));
     tgt.setStatus(convertMedicationDispenseStatus(src.getStatus()));
     tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setDispenser(convertReference(src.getDispenser()));
+    tgt.setSubject(convertReference(src.getPatient()));
+//    tgt.setDispenser(convertReference(src.getDispenser()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getAuthorizingPrescription())
       tgt.addAuthorizingPrescription(convertReference(t));
     tgt.setType(convertCodeableConcept(src.getType()));
@@ -8130,11 +8130,11 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.MedicationDispense tgt = new org.hl7.fhir.dstu2.model.MedicationDispense();
     copyDomainResource(src, tgt);
-    tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
+    tgt.setIdentifier(convertIdentifier(src.getIdentifierFirstRep()));
     tgt.setStatus(convertMedicationDispenseStatus(src.getStatus()));
     tgt.setMedication(convertType(src.getMedication()));
-    tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setDispenser(convertReference(src.getDispenser()));
+    tgt.setPatient(convertReference(src.getSubject()));
+//    tgt.setDispenser(convertReference(src.getDispenser()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getAuthorizingPrescription())
       tgt.addAuthorizingPrescription(convertReference(t));
     tgt.setType(convertCodeableConcept(src.getType()));
@@ -8429,7 +8429,7 @@ public class VersionConvertor_10_20 {
       tgt.addDerivedFrom(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
-    tgt.getNotTakenElement().setValueAsString(src.getWasNotTaken() ? "Y" : "N");
+//    tgt.getNotTakenElement().setValueAsString(src.getWasNotTaken() ? "Y" : "N");
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotTaken())
       tgt.addReasonNotTaken(convertCodeableConcept(t));
 //    tgt.setReasonForUse(convertType(src.getReasonForUse()));
@@ -8456,7 +8456,7 @@ public class VersionConvertor_10_20 {
       tgt.addSupportingInformation(convertReference(t));
     if (src.hasDateAsserted())
       tgt.setDateAsserted(src.getDateAsserted());
-    tgt.setWasNotTaken("Y".equals(src.getNotTakenElement().getValueAsString()));
+//    tgt.setWasNotTaken("Y".equals(src.getNotTakenElement().getValueAsString()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotTaken())
       tgt.addReasonNotTaken(convertCodeableConcept(t));
 //    tgt.setReasonForUse(convertType(src.getReasonForUse()));
@@ -8819,7 +8819,7 @@ public class VersionConvertor_10_20 {
     tgt.addCategory(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setContext(convertReference(src.getEncounter()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
     for (org.hl7.fhir.dstu2.model.Reference t : src.getPerformer())
@@ -8853,7 +8853,7 @@ public class VersionConvertor_10_20 {
       tgt.setCategory(convertCodeableConcept(c));
     tgt.setCode(convertCodeableConcept(src.getCode()));
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getContext()));
     tgt.setEffective(convertType(src.getEffective()));
     tgt.setIssued(src.getIssued());
     for (org.hl7.fhir.dstu3.model.Reference t : src.getPerformer())
@@ -8912,7 +8912,7 @@ public class VersionConvertor_10_20 {
     copyElement(src, tgt);
     tgt.setLow(convertSimpleQuantity(src.getLow()));
     tgt.setHigh(convertSimpleQuantity(src.getHigh()));
-    tgt.addMeaning(convertCodeableConcept(src.getMeaning()));
+    tgt.setType(convertCodeableConcept(src.getMeaning()));
     tgt.setAge(convertRange(src.getAge()));
     tgt.setText(src.getText());
     return tgt;
@@ -8925,8 +8925,8 @@ public class VersionConvertor_10_20 {
     copyElement(src, tgt);
     tgt.setLow(convertSimpleQuantity(src.getLow()));
     tgt.setHigh(convertSimpleQuantity(src.getHigh()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept c : src.getMeaning())
-      tgt.setMeaning(convertCodeableConcept(c));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept c : src.getMeaning())
+      tgt.setMeaning(convertCodeableConcept(src.getType()));
     tgt.setAge(convertRange(src.getAge()));
     tgt.setText(src.getText());
     return tgt;
@@ -9353,7 +9353,7 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setActive(src.getActive());
-    tgt.setType(convertCodeableConcept(src.getType()));
+    tgt.addType(convertCodeableConcept(src.getType()));
     tgt.setName(src.getName());
     for (org.hl7.fhir.dstu2.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
@@ -9373,7 +9373,7 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu3.model.Identifier t : src.getIdentifier())
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setActive(src.getActive());
-    tgt.setType(convertCodeableConcept(src.getType()));
+    tgt.setType(convertCodeableConcept(src.getTypeFirstRep()));
     tgt.setName(src.getName());
     for (org.hl7.fhir.dstu3.model.ContactPoint t : src.getTelecom())
       tgt.addTelecom(convertContactPoint(t));
@@ -9814,17 +9814,18 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertProcedureStatus(src.getStatus()));
     tgt.setCategory(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setNotPerformed(src.getNotPerformed());
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotPerformed())
-      tgt.addReasonNotPerformed(convertCodeableConcept(t));
+    tgt.setNotDone(src.getNotPerformed());
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReasonNotPerformed())
+    if (src.hasReasonNotPerformed())
+      tgt.setNotDoneReason(convertCodeableConcept(src.getReasonNotPerformed().get(0)));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
     if (src.hasReasonCodeableConcept())
-      tgt.addReasonCode(convertCodeableConcept(src.getReasonCodeableConcept()));
+      tgt.addReasonCodeableConcept(convertCodeableConcept(src.getReasonCodeableConcept()));
     for (org.hl7.fhir.dstu2.model.Procedure.ProcedurePerformerComponent t : src.getPerformer())
       tgt.addPerformer(convertProcedurePerformerComponent(t));
     tgt.setPerformed(convertType(src.getPerformed()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setContext(convertReference(src.getEncounter()));
     tgt.setLocation(convertReference(src.getLocation()));
     tgt.setOutcome(convertCodeableConcept(src.getOutcome()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getReport())
@@ -9833,7 +9834,7 @@ public class VersionConvertor_10_20 {
       tgt.addComplication(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getFollowUp())
       tgt.addFollowUp(convertCodeableConcept(t));
-    tgt.setRequest(convertReference(src.getRequest()));
+    tgt.addBasedOn(convertReference(src.getRequest()));
 //    for (org.hl7.fhir.dstu2.model.Annotation t : src.getNotes())
 //      tgt.addNotes(convertAnnotation(t));
     for (org.hl7.fhir.dstu2.model.Procedure.ProcedureFocalDeviceComponent t : src.getFocalDevice())
@@ -9852,16 +9853,16 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertProcedureStatus(src.getStatus()));
     tgt.setCategory(convertCodeableConcept(src.getCategory()));
     tgt.setCode(convertCodeableConcept(src.getCode()));
-    tgt.setNotPerformed(src.getNotPerformed());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotPerformed())
-      tgt.addReasonNotPerformed(convertCodeableConcept(t));
+    tgt.setNotPerformed(src.getNotDone());
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonNotPerformed())
+      tgt.addReasonNotPerformed(convertCodeableConcept(src.getNotDoneReason()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
-    tgt.setReason(convertType(src.getReasonCodeFirstRep()));
+    tgt.setReason(convertType(src.getReasonCodeableConceptFirstRep()));
     for (org.hl7.fhir.dstu3.model.Procedure.ProcedurePerformerComponent t : src.getPerformer())
       tgt.addPerformer(convertProcedurePerformerComponent(t));
     tgt.setPerformed(convertType(src.getPerformed()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setEncounter(convertReference(src.getContext()));
     tgt.setLocation(convertReference(src.getLocation()));
     tgt.setOutcome(convertCodeableConcept(src.getOutcome()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getReport())
@@ -9870,7 +9871,7 @@ public class VersionConvertor_10_20 {
       tgt.addComplication(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getFollowUp())
       tgt.addFollowUp(convertCodeableConcept(t));
-    tgt.setRequest(convertReference(src.getRequest()));
+    tgt.setRequest(convertReference(src.getBasedOnFirstRep()));
 //    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNotes())
 //      tgt.addNotes(convertAnnotation(t));
     for (org.hl7.fhir.dstu3.model.Procedure.ProcedureFocalDeviceComponent t : src.getFocalDevice())
@@ -9953,16 +9954,17 @@ public class VersionConvertor_10_20 {
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
-    tgt.setReason(convertType(src.getReason()));
-    tgt.setScheduled(convertType(src.getScheduled()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    if (src.hasReasonCodeableConcept())
+      tgt.addReasonCode(convertCodeableConcept(src.getReasonCodeableConcept()));
+    tgt.setOccurrence(convertType(src.getScheduled()));
+    tgt.setContext(convertReference(src.getEncounter()));
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setStatus(convertProcedureRequestStatus(src.getStatus()));
 //    for (org.hl7.fhir.dstu2.model.Annotation t : src.getNotes())
 //      tgt.addNotes(convertAnnotation(t));
     tgt.setAsNeeded(convertType(src.getAsNeeded()));
-    tgt.setOrderedOn(src.getOrderedOn());
-    tgt.setOrderer(convertReference(src.getOrderer()));
+    tgt.setAuthoredOn(src.getOrderedOn());
+//    tgt.setOrderer(convertReference(src.getOrderer()));
     tgt.setPriority(convertProcedureRequestPriority(src.getPriority()));
     return tgt;
   }
@@ -9978,16 +9980,16 @@ public class VersionConvertor_10_20 {
     tgt.setCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getBodySite())
       tgt.addBodySite(convertCodeableConcept(t));
-    tgt.setReason(convertType(src.getReason()));
-    tgt.setScheduled(convertType(src.getScheduled()));
-    tgt.setEncounter(convertReference(src.getEncounter()));
+    tgt.setReason(convertType(src.getReasonCodeFirstRep()));
+    tgt.setScheduled(convertType(src.getOccurrence()));
+    tgt.setEncounter(convertReference(src.getContext()));
     tgt.setPerformer(convertReference(src.getPerformer()));
     tgt.setStatus(convertProcedureRequestStatus(src.getStatus()));
 //    for (org.hl7.fhir.dstu3.model.Annotation t : src.getNotes())
 //      tgt.addNotes(convertAnnotation(t));
     tgt.setAsNeeded(convertType(src.getAsNeeded()));
-    tgt.setOrderedOn(src.getOrderedOn());
-    tgt.setOrderer(convertReference(src.getOrderer()));
+    tgt.setOrderedOn(src.getAuthoredOn());
+//    tgt.setOrderer(convertReference(src.getOrderer()));
     tgt.setPriority(convertProcedureRequestPriority(src.getPriority()));
     return tgt;
   }
@@ -9996,16 +9998,16 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.PROPOSED;
+    case PROPOSED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.DRAFT;
     case DRAFT: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.DRAFT;
-    case REQUESTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.REQUESTED;
-    case RECEIVED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.RECEIVED;
-    case ACCEPTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ACCEPTED;
-    case INPROGRESS: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.INPROGRESS;
+    case REQUESTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
+    case RECEIVED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
+    case ACCEPTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
+    case INPROGRESS: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ACTIVE;
     case COMPLETED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.REJECTED;
-    case ABORTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ABORTED;
+//    case REJECTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.REJECTED;
+    case ABORTED: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.ENTEREDINERROR;
     default: return org.hl7.fhir.dstu3.model.ProcedureRequest.ProcedureRequestStatus.NULL;
     }
   }
@@ -10014,16 +10016,16 @@ public class VersionConvertor_10_20 {
     if (src == null)
       return null;
     switch (src) {
-    case PROPOSED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.PROPOSED;
+//    case PROPOSED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.PROPOSED;
     case DRAFT: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.DRAFT;
-    case REQUESTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.REQUESTED;
-    case RECEIVED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.RECEIVED;
-    case ACCEPTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.ACCEPTED;
-    case INPROGRESS: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.INPROGRESS;
+//    case REQUESTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.REQUESTED;
+//    case RECEIVED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.RECEIVED;
+//    case ACCEPTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.ACCEPTED;
+    case ACTIVE: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.INPROGRESS;
     case COMPLETED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.COMPLETED;
     case SUSPENDED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.SUSPENDED;
-    case REJECTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.REJECTED;
-    case ABORTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.ABORTED;
+//    case REJECTED: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.REJECTED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.ABORTED;
     default: return org.hl7.fhir.dstu2.model.ProcedureRequest.ProcedureRequestStatus.NULL;
     }
   }
@@ -10578,7 +10580,7 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getServiceRequested())
       tgt.addServiceRequested(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
-      tgt.addSupportingInformation(convertReference(t));
+      tgt.addSupportingInfo(convertReference(t));
     return tgt;
   }
 
@@ -10602,24 +10604,27 @@ public class VersionConvertor_10_20 {
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceRequested())
       tgt.addServiceRequested(convertCodeableConcept(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInformation())
+    for (org.hl7.fhir.dstu3.model.Reference t : src.getSupportingInfo())
       tgt.addSupportingInformation(convertReference(t));
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus convertReferralStatus(org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus convertReferralStatus(org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
-    case DRAFT: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus.DRAFT;
-    case ACTIVE: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus.ACTIVE;
-    case CANCELLED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus.CANCELLED;
-    case COMPLETED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus.COMPLETED;
-    default: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus.NULL;
+    case DRAFT: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.DRAFT;
+    case REQUESTED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.DRAFT;
+    case ACTIVE: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.ACTIVE;
+    case CANCELLED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.CANCELLED;
+    case ACCEPTED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.ACTIVE;
+    case REJECTED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.ENTEREDINERROR;
+    case COMPLETED: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.COMPLETED;
+    default: return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus.NULL;
     }
   }
 
-  public org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus convertReferralStatus(org.hl7.fhir.dstu3.model.ReferralRequest.ReferralStatus src) throws FHIRException {
+  public org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus convertReferralStatus(org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus src) throws FHIRException {
     if (src == null)
       return null;
     switch (src) {
@@ -10627,6 +10632,7 @@ public class VersionConvertor_10_20 {
     case ACTIVE: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.ACTIVE;
     case CANCELLED: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.CANCELLED;
     case COMPLETED: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.COMPLETED;
+    case ENTEREDINERROR: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.REJECTED;
     default: return org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus.NULL;
     }
   }
@@ -10751,7 +10757,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getType())
       tgt.addServiceType(convertCodeableConcept(t));
-    tgt.setActor(convertReference(src.getActor()));
+    tgt.addActor(convertReference(src.getActor()));
     tgt.setPlanningHorizon(convertPeriod(src.getPlanningHorizon()));
     tgt.setComment(src.getComment());
     return tgt;
@@ -10766,7 +10772,7 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceType())
       tgt.addType(convertCodeableConcept(t));
-    tgt.setActor(convertReference(src.getActor()));
+    tgt.setActor(convertReference(src.getActorFirstRep()));
     tgt.setPlanningHorizon(convertPeriod(src.getPlanningHorizon()));
     tgt.setComment(src.getComment());
     return tgt;
@@ -11388,11 +11394,11 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertSupplyDeliveryStatus(src.getStatus()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
-    tgt.setSuppliedItem(convertReference(src.getSuppliedItem()));
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setSuppliedItem(convertReference(src.getSuppliedItem()));
     tgt.setSupplier(convertReference(src.getSupplier()));
-    tgt.setWhenPrepared(convertPeriod(src.getWhenPrepared()));
-    tgt.setTime(src.getTime());
+//    tgt.setWhenPrepared(convertPeriod(src.getWhenPrepared()));
+//    tgt.setTime(src.getTime());
     tgt.setDestination(convertReference(src.getDestination()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getReceiver())
       tgt.addReceiver(convertReference(t));
@@ -11408,11 +11414,11 @@ public class VersionConvertor_10_20 {
     tgt.setStatus(convertSupplyDeliveryStatus(src.getStatus()));
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
+//    tgt.setQuantity(convertSimpleQuantity(src.getQuantity()));
 //    tgt.setSuppliedItem(convertReference(src.getSuppliedItem()));
     tgt.setSupplier(convertReference(src.getSupplier()));
-    tgt.setWhenPrepared(convertPeriod(src.getWhenPrepared()));
-    tgt.setTime(src.getTime());
+//    tgt.setWhenPrepared(convertPeriod(src.getWhenPrepared()));
+//    tgt.setTime(src.getTime());
     tgt.setDestination(convertReference(src.getDestination()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getReceiver())
       tgt.addReceiver(convertReference(t));

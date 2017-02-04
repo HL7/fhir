@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2386,7 +2386,7 @@ public class Practitioner extends DomainResource {
    * Path: <b>Practitioner.telecom(system=phone), Practitioner.role.telecom(system=phone)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phone", path="Practitioner.telecom.where(system='phone') or Practitioner.role.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="Practitioner.telecom.where(system='phone') | Practitioner.role.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>phone</b>
@@ -2578,7 +2578,7 @@ public class Practitioner extends DomainResource {
    * Path: <b>Practitioner.telecom(system=email), Practitioner.role.telecom(system=email)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="email", path="Practitioner.telecom.where(system='email') or Practitioner.role.telecom.where(system='email')", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="Practitioner.telecom.where(system='email') | Practitioner.role.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>email</b>

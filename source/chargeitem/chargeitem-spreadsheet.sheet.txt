@@ -110,12 +110,12 @@
   Element = ChargeItem.definition
   Card. = 0..*
   Summary = N
-  Type = Reference(Definition)
+  Type = uri
   Short Name = Definition of the Charge Item
   Definition = Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
-  To Do = Target Resource is yet to be defined as a container that holds information about list prices and rules  applicable to the charge item code
+  To Do = Target Resource is yet to be defined as a container that holds information about list prices and rules applicable to the charge item code. Once defined, change type back to Reference(Definition Type).
 
  -- Row 4 -----------------------------------
   Element = ChargeItem.status

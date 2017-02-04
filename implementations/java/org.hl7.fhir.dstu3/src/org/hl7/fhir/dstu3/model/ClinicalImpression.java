@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -687,35 +687,9 @@ public class ClinicalImpression extends DomainResource {
     protected Resource subjectTarget;
 
     /**
-     * The clinician performing the assessment.
-     */
-    @Child(name = "assessor", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The clinician performing the assessment", formalDefinition="The clinician performing the assessment." )
-    protected Reference assessor;
-
-    /**
-     * The actual object that is the target of the reference (The clinician performing the assessment.)
-     */
-    protected Practitioner assessorTarget;
-
-    /**
-     * Indicates when the documentation of the assessment was complete.
-     */
-    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When the assessment was documented", formalDefinition="Indicates when the documentation of the assessment was complete." )
-    protected DateTimeType date;
-
-    /**
-     * The point in time or period over which the subject was assessed.
-     */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Time of assessment", formalDefinition="The point in time or period over which the subject was assessed." )
-    protected Type effective;
-
-    /**
      * The encounter or episode of care this impression was created as part of.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Encounter or Episode created from", formalDefinition="The encounter or episode of care this impression was created as part of." )
     protected Reference context;
 
@@ -723,6 +697,32 @@ public class ClinicalImpression extends DomainResource {
      * The actual object that is the target of the reference (The encounter or episode of care this impression was created as part of.)
      */
     protected Resource contextTarget;
+
+    /**
+     * The point in time or period over which the subject was assessed.
+     */
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Time of assessment", formalDefinition="The point in time or period over which the subject was assessed." )
+    protected Type effective;
+
+    /**
+     * Indicates when the documentation of the assessment was complete.
+     */
+    @Child(name = "date", type = {DateTimeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When the assessment was documented", formalDefinition="Indicates when the documentation of the assessment was complete." )
+    protected DateTimeType date;
+
+    /**
+     * The clinician performing the assessment.
+     */
+    @Child(name = "assessor", type = {Practitioner.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="The clinician performing the assessment", formalDefinition="The clinician performing the assessment." )
+    protected Reference assessor;
+
+    /**
+     * The actual object that is the target of the reference (The clinician performing the assessment.)
+     */
+    protected Practitioner assessorTarget;
 
     /**
      * A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.
@@ -799,7 +799,7 @@ public class ClinicalImpression extends DomainResource {
     /**
      * Action taken as part of assessment procedure.
      */
-    @Child(name = "action", type = {ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationRequest.class, DiagnosticRequest.class, Appointment.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "action", type = {ReferralRequest.class, ProcedureRequest.class, Procedure.class, MedicationRequest.class, Appointment.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Action taken as part of assessment procedure", formalDefinition="Action taken as part of assessment procedure." )
     protected List<Reference> action;
     /**
@@ -815,7 +815,7 @@ public class ClinicalImpression extends DomainResource {
     @Description(shortDefinition="Comments made about the ClinicalImpression", formalDefinition="Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1406248163L;
+    private static final long serialVersionUID = -1626670747L;
 
   /**
    * Constructor
@@ -1044,46 +1044,86 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #assessor} (The clinician performing the assessment.)
+     * @return {@link #context} (The encounter or episode of care this impression was created as part of.)
      */
-    public Reference getAssessor() { 
-      if (this.assessor == null)
+    public Reference getContext() { 
+      if (this.context == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
+          throw new Error("Attempt to auto-create ClinicalImpression.context");
         else if (Configuration.doAutoCreate())
-          this.assessor = new Reference(); // cc
-      return this.assessor;
+          this.context = new Reference(); // cc
+      return this.context;
     }
 
-    public boolean hasAssessor() { 
-      return this.assessor != null && !this.assessor.isEmpty();
+    public boolean hasContext() { 
+      return this.context != null && !this.context.isEmpty();
     }
 
     /**
-     * @param value {@link #assessor} (The clinician performing the assessment.)
+     * @param value {@link #context} (The encounter or episode of care this impression was created as part of.)
      */
-    public ClinicalImpression setAssessor(Reference value) { 
-      this.assessor = value;
+    public ClinicalImpression setContext(Reference value) { 
+      this.context = value;
       return this;
     }
 
     /**
-     * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
+     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter or episode of care this impression was created as part of.)
      */
-    public Practitioner getAssessorTarget() { 
-      if (this.assessorTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
-        else if (Configuration.doAutoCreate())
-          this.assessorTarget = new Practitioner(); // aa
-      return this.assessorTarget;
+    public Resource getContextTarget() { 
+      return this.contextTarget;
     }
 
     /**
-     * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
+     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter or episode of care this impression was created as part of.)
      */
-    public ClinicalImpression setAssessorTarget(Practitioner value) { 
-      this.assessorTarget = value;
+    public ClinicalImpression setContextTarget(Resource value) { 
+      this.contextTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
+     */
+    public Type getEffective() { 
+      return this.effective;
+    }
+
+    /**
+     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
+     */
+    public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
+      if (!(this.effective instanceof DateTimeType))
+        throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
+      return (DateTimeType) this.effective;
+    }
+
+    public boolean hasEffectiveDateTimeType() { 
+      return this.effective instanceof DateTimeType;
+    }
+
+    /**
+     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
+     */
+    public Period getEffectivePeriod() throws FHIRException { 
+      if (!(this.effective instanceof Period))
+        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
+      return (Period) this.effective;
+    }
+
+    public boolean hasEffectivePeriod() { 
+      return this.effective instanceof Period;
+    }
+
+    public boolean hasEffective() { 
+      return this.effective != null && !this.effective.isEmpty();
+    }
+
+    /**
+     * @param value {@link #effective} (The point in time or period over which the subject was assessed.)
+     */
+    public ClinicalImpression setEffective(Type value) { 
+      this.effective = value;
       return this;
     }
 
@@ -1137,86 +1177,46 @@ public class ClinicalImpression extends DomainResource {
     }
 
     /**
-     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
+     * @return {@link #assessor} (The clinician performing the assessment.)
      */
-    public Type getEffective() { 
-      return this.effective;
-    }
-
-    /**
-     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
-     */
-    public DateTimeType getEffectiveDateTimeType() throws FHIRException { 
-      if (!(this.effective instanceof DateTimeType))
-        throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effective.getClass().getName()+" was encountered");
-      return (DateTimeType) this.effective;
-    }
-
-    public boolean hasEffectiveDateTimeType() { 
-      return this.effective instanceof DateTimeType;
-    }
-
-    /**
-     * @return {@link #effective} (The point in time or period over which the subject was assessed.)
-     */
-    public Period getEffectivePeriod() throws FHIRException { 
-      if (!(this.effective instanceof Period))
-        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effective.getClass().getName()+" was encountered");
-      return (Period) this.effective;
-    }
-
-    public boolean hasEffectivePeriod() { 
-      return this.effective instanceof Period;
-    }
-
-    public boolean hasEffective() { 
-      return this.effective != null && !this.effective.isEmpty();
-    }
-
-    /**
-     * @param value {@link #effective} (The point in time or period over which the subject was assessed.)
-     */
-    public ClinicalImpression setEffective(Type value) { 
-      this.effective = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #context} (The encounter or episode of care this impression was created as part of.)
-     */
-    public Reference getContext() { 
-      if (this.context == null)
+    public Reference getAssessor() { 
+      if (this.assessor == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ClinicalImpression.context");
+          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
         else if (Configuration.doAutoCreate())
-          this.context = new Reference(); // cc
-      return this.context;
+          this.assessor = new Reference(); // cc
+      return this.assessor;
     }
 
-    public boolean hasContext() { 
-      return this.context != null && !this.context.isEmpty();
+    public boolean hasAssessor() { 
+      return this.assessor != null && !this.assessor.isEmpty();
     }
 
     /**
-     * @param value {@link #context} (The encounter or episode of care this impression was created as part of.)
+     * @param value {@link #assessor} (The clinician performing the assessment.)
      */
-    public ClinicalImpression setContext(Reference value) { 
-      this.context = value;
+    public ClinicalImpression setAssessor(Reference value) { 
+      this.assessor = value;
       return this;
     }
 
     /**
-     * @return {@link #context} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter or episode of care this impression was created as part of.)
+     * @return {@link #assessor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public Resource getContextTarget() { 
-      return this.contextTarget;
+    public Practitioner getAssessorTarget() { 
+      if (this.assessorTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ClinicalImpression.assessor");
+        else if (Configuration.doAutoCreate())
+          this.assessorTarget = new Practitioner(); // aa
+      return this.assessorTarget;
     }
 
     /**
-     * @param value {@link #context} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter or episode of care this impression was created as part of.)
+     * @param value {@link #assessor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The clinician performing the assessment.)
      */
-    public ClinicalImpression setContextTarget(Resource value) { 
-      this.contextTarget = value;
+    public ClinicalImpression setAssessorTarget(Practitioner value) { 
+      this.assessorTarget = value;
       return this;
     }
 
@@ -1794,10 +1794,10 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("code", "CodeableConcept", "Categorizes the type of clinical assessment performed.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("description", "string", "A summary of the context and/or cause of the assessment - why / where was it peformed, and what patient events/status prompted it.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient or group of individuals assessed as part of this record.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, java.lang.Integer.MAX_VALUE, assessor));
-        childrenList.add(new Property("date", "dateTime", "Indicates when the documentation of the assessment was complete.", 0, java.lang.Integer.MAX_VALUE, date));
-        childrenList.add(new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care this impression was created as part of.", 0, java.lang.Integer.MAX_VALUE, context));
+        childrenList.add(new Property("effective[x]", "dateTime|Period", "The point in time or period over which the subject was assessed.", 0, java.lang.Integer.MAX_VALUE, effective));
+        childrenList.add(new Property("date", "dateTime", "Indicates when the documentation of the assessment was complete.", 0, java.lang.Integer.MAX_VALUE, date));
+        childrenList.add(new Property("assessor", "Reference(Practitioner)", "The clinician performing the assessment.", 0, java.lang.Integer.MAX_VALUE, assessor));
         childrenList.add(new Property("previous", "Reference(ClinicalImpression)", "A reference to the last assesment that was conducted bon this patient. Assessments are often/usually ongoing in nature; a care provider (practitioner or team) will make new assessments on an ongoing basis as new data arises or the patient's conditions changes.", 0, java.lang.Integer.MAX_VALUE, previous));
         childrenList.add(new Property("problem", "Reference(Condition|AllergyIntolerance)", "This a list of the relevant problems/conditions for a patient.", 0, java.lang.Integer.MAX_VALUE, problem));
         childrenList.add(new Property("investigation", "", "One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.", 0, java.lang.Integer.MAX_VALUE, investigation));
@@ -1806,7 +1806,7 @@ public class ClinicalImpression extends DomainResource {
         childrenList.add(new Property("finding", "", "Specific findings or diagnoses that was considered likely or relevant to ongoing treatment.", 0, java.lang.Integer.MAX_VALUE, finding));
         childrenList.add(new Property("prognosisCodeableConcept", "CodeableConcept", "Estimate of likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisCodeableConcept));
         childrenList.add(new Property("prognosisReference", "Reference(RiskAssessment)", "RiskAssessment expressing likely outcome.", 0, java.lang.Integer.MAX_VALUE, prognosisReference));
-        childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|DiagnosticRequest|Appointment)", "Action taken as part of assessment procedure.", 0, java.lang.Integer.MAX_VALUE, action));
+        childrenList.add(new Property("action", "Reference(ReferralRequest|ProcedureRequest|Procedure|MedicationRequest|Appointment)", "Action taken as part of assessment procedure.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("note", "Annotation", "Commentary about the impression, typically recorded after the impression itself was made, though supplemental notes by the original author could also appear.", 0, java.lang.Integer.MAX_VALUE, note));
       }
 
@@ -1818,10 +1818,10 @@ public class ClinicalImpression extends DomainResource {
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
-        case -373213113: /*assessor*/ return this.assessor == null ? new Base[0] : new Base[] {this.assessor}; // Reference
-        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
-        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
+        case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
+        case 3076014: /*date*/ return this.date == null ? new Base[0] : new Base[] {this.date}; // DateTimeType
+        case -373213113: /*assessor*/ return this.assessor == null ? new Base[0] : new Base[] {this.assessor}; // Reference
         case -1273775369: /*previous*/ return this.previous == null ? new Base[0] : new Base[] {this.previous}; // Reference
         case -309542241: /*problem*/ return this.problem == null ? new Base[0] : this.problem.toArray(new Base[this.problem.size()]); // Reference
         case 956015362: /*investigation*/ return this.investigation == null ? new Base[0] : this.investigation.toArray(new Base[this.investigation.size()]); // ClinicalImpressionInvestigationComponent
@@ -1856,17 +1856,17 @@ public class ClinicalImpression extends DomainResource {
         case -1867885268: // subject
           this.subject = castToReference(value); // Reference
           return value;
-        case -373213113: // assessor
-          this.assessor = castToReference(value); // Reference
-          return value;
-        case 3076014: // date
-          this.date = castToDateTime(value); // DateTimeType
+        case 951530927: // context
+          this.context = castToReference(value); // Reference
           return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
           return value;
-        case 951530927: // context
-          this.context = castToReference(value); // Reference
+        case 3076014: // date
+          this.date = castToDateTime(value); // DateTimeType
+          return value;
+        case -373213113: // assessor
+          this.assessor = castToReference(value); // Reference
           return value;
         case -1273775369: // previous
           this.previous = castToReference(value); // Reference
@@ -1916,14 +1916,14 @@ public class ClinicalImpression extends DomainResource {
           this.description = castToString(value); // StringType
         } else if (name.equals("subject")) {
           this.subject = castToReference(value); // Reference
-        } else if (name.equals("assessor")) {
-          this.assessor = castToReference(value); // Reference
-        } else if (name.equals("date")) {
-          this.date = castToDateTime(value); // DateTimeType
-        } else if (name.equals("effective[x]")) {
-          this.effective = castToType(value); // Type
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
+        } else if (name.equals("effective[x]")) {
+          this.effective = castToType(value); // Type
+        } else if (name.equals("date")) {
+          this.date = castToDateTime(value); // DateTimeType
+        } else if (name.equals("assessor")) {
+          this.assessor = castToReference(value); // Reference
         } else if (name.equals("previous")) {
           this.previous = castToReference(value); // Reference
         } else if (name.equals("problem")) {
@@ -1957,11 +1957,11 @@ public class ClinicalImpression extends DomainResource {
         case 3059181:  return getCode(); 
         case -1724546052:  return getDescriptionElement();
         case -1867885268:  return getSubject(); 
-        case -373213113:  return getAssessor(); 
-        case 3076014:  return getDateElement();
+        case 951530927:  return getContext(); 
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
-        case 951530927:  return getContext(); 
+        case 3076014:  return getDateElement();
+        case -373213113:  return getAssessor(); 
         case -1273775369:  return getPrevious(); 
         case -309542241:  return addProblem(); 
         case 956015362:  return addInvestigation(); 
@@ -1985,10 +1985,10 @@ public class ClinicalImpression extends DomainResource {
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
-        case -373213113: /*assessor*/ return new String[] {"Reference"};
-        case 3076014: /*date*/ return new String[] {"dateTime"};
-        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case 951530927: /*context*/ return new String[] {"Reference"};
+        case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
+        case 3076014: /*date*/ return new String[] {"dateTime"};
+        case -373213113: /*assessor*/ return new String[] {"Reference"};
         case -1273775369: /*previous*/ return new String[] {"Reference"};
         case -309542241: /*problem*/ return new String[] {"Reference"};
         case 956015362: /*investigation*/ return new String[] {};
@@ -2023,12 +2023,9 @@ public class ClinicalImpression extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
-        else if (name.equals("assessor")) {
-          this.assessor = new Reference();
-          return this.assessor;
-        }
-        else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ClinicalImpression.date");
+        else if (name.equals("context")) {
+          this.context = new Reference();
+          return this.context;
         }
         else if (name.equals("effectiveDateTime")) {
           this.effective = new DateTimeType();
@@ -2038,9 +2035,12 @@ public class ClinicalImpression extends DomainResource {
           this.effective = new Period();
           return this.effective;
         }
-        else if (name.equals("context")) {
-          this.context = new Reference();
-          return this.context;
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ClinicalImpression.date");
+        }
+        else if (name.equals("assessor")) {
+          this.assessor = new Reference();
+          return this.assessor;
         }
         else if (name.equals("previous")) {
           this.previous = new Reference();
@@ -2094,10 +2094,10 @@ public class ClinicalImpression extends DomainResource {
         dst.code = code == null ? null : code.copy();
         dst.description = description == null ? null : description.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.assessor = assessor == null ? null : assessor.copy();
-        dst.date = date == null ? null : date.copy();
-        dst.effective = effective == null ? null : effective.copy();
         dst.context = context == null ? null : context.copy();
+        dst.effective = effective == null ? null : effective.copy();
+        dst.date = date == null ? null : date.copy();
+        dst.assessor = assessor == null ? null : assessor.copy();
         dst.previous = previous == null ? null : previous.copy();
         if (problem != null) {
           dst.problem = new ArrayList<Reference>();
@@ -2155,8 +2155,8 @@ public class ClinicalImpression extends DomainResource {
           return false;
         ClinicalImpression o = (ClinicalImpression) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(code, o.code, true)
-           && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true) && compareDeep(assessor, o.assessor, true)
-           && compareDeep(date, o.date, true) && compareDeep(effective, o.effective, true) && compareDeep(context, o.context, true)
+           && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(effective, o.effective, true) && compareDeep(date, o.date, true) && compareDeep(assessor, o.assessor, true)
            && compareDeep(previous, o.previous, true) && compareDeep(problem, o.problem, true) && compareDeep(investigation, o.investigation, true)
            && compareDeep(protocol, o.protocol, true) && compareDeep(summary, o.summary, true) && compareDeep(finding, o.finding, true)
            && compareDeep(prognosisCodeableConcept, o.prognosisCodeableConcept, true) && compareDeep(prognosisReference, o.prognosisReference, true)
@@ -2176,7 +2176,7 @@ public class ClinicalImpression extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, code
-          , description, subject, assessor, date, effective, context, previous, problem
+          , description, subject, context, effective, date, assessor, previous, problem
           , investigation, protocol, summary, finding, prognosisCodeableConcept, prognosisReference
           , action, note);
       }
@@ -2462,7 +2462,7 @@ public class ClinicalImpression extends DomainResource {
    * Path: <b>ClinicalImpression.action</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Action taken as part of assessment procedure", type="reference", target={Appointment.class, DiagnosticRequest.class, MedicationRequest.class, Procedure.class, ProcedureRequest.class, ReferralRequest.class } )
+  @SearchParamDefinition(name="action", path="ClinicalImpression.action", description="Action taken as part of assessment procedure", type="reference", target={Appointment.class, MedicationRequest.class, Procedure.class, ProcedureRequest.class, ReferralRequest.class } )
   public static final String SP_ACTION = "action";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>action</b>

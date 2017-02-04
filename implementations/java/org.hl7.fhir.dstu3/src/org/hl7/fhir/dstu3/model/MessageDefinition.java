@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.
  */
 @ResourceDef(name="MessageDefinition", profile="http://hl7.org/fhir/Profile/MessageDefinition")
-@ChildOrder(names={"url", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "base", "parent", "replaces", "event", "category", "focus", "responseRequired", "allowedResponse"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "publisher", "contact", "description", "useContext", "jurisdiction", "purpose", "copyright", "base", "parent", "replaces", "event", "category", "focus", "responseRequired", "allowedResponse"})
 public class MessageDefinition extends MetadataResource {
 
     public enum MessageSignificanceCategory {
@@ -542,7 +542,7 @@ public class MessageDefinition extends MetadataResource {
          * A reference to the message definition that must be adhered to by this supported response.
          */
         @Child(name = "message", type = {MessageDefinition.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="MessageDefinition for response", formalDefinition="A reference to the message definition that must be adhered to by this supported response." )
+        @Description(shortDefinition="Reference to allowed message definition response", formalDefinition="A reference to the message definition that must be adhered to by this supported response." )
         protected Reference message;
 
         /**
@@ -781,23 +781,30 @@ public class MessageDefinition extends MetadataResource {
   }
 
     /**
+     * A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance.
+     */
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Additional identifier for the message definition", formalDefinition="A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance." )
+    protected Identifier identifier;
+
+    /**
      * Explains why this message definition is needed and why it has been designed as it has.
      */
-    @Child(name = "purpose", type = {MarkdownType.class}, order=0, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "purpose", type = {MarkdownType.class}, order=1, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Why this message definition is defined", formalDefinition="Explains why this message definition is needed and why it has been designed as it has." )
     protected MarkdownType purpose;
 
     /**
      * A copyright statement relating to the message definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the message definition.
      */
-    @Child(name = "copyright", type = {MarkdownType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "copyright", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the message definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the message definition." )
     protected MarkdownType copyright;
 
     /**
      * The MessageDefinition this new definition is a profile of.
      */
-    @Child(name = "base", type = {MessageDefinition.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "base", type = {MessageDefinition.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Definition this one is based on", formalDefinition="The MessageDefinition this new definition is a profile of." )
     protected Reference base;
 
@@ -809,7 +816,7 @@ public class MessageDefinition extends MetadataResource {
     /**
      * Identifies a protocol or workflow that this MessageDefinition represents a step in.
      */
-    @Child(name = "parent", type = {ActivityDefinition.class, PlanDefinition.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "parent", type = {ActivityDefinition.class, PlanDefinition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Protocol/workflow this is part of", formalDefinition="Identifies a protocol or workflow that this MessageDefinition represents a step in." )
     protected List<Reference> parent;
     /**
@@ -821,7 +828,7 @@ public class MessageDefinition extends MetadataResource {
     /**
      * A MessageDefinition that is superseded by this definition.
      */
-    @Child(name = "replaces", type = {MessageDefinition.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "replaces", type = {MessageDefinition.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Takes the place of", formalDefinition="A MessageDefinition that is superseded by this definition." )
     protected List<Reference> replaces;
     /**
@@ -833,7 +840,7 @@ public class MessageDefinition extends MetadataResource {
     /**
      * A coded identifier of a supported messaging event.
      */
-    @Child(name = "event", type = {Coding.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "event", type = {Coding.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Event type", formalDefinition="A coded identifier of a supported messaging event." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-events")
     protected Coding event;
@@ -841,7 +848,7 @@ public class MessageDefinition extends MetadataResource {
     /**
      * The impact of the content of the message.
      */
-    @Child(name = "category", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "category", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Consequence | Currency | Notification", formalDefinition="The impact of the content of the message." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/message-significance-category")
     protected Enumeration<MessageSignificanceCategory> category;
@@ -849,25 +856,25 @@ public class MessageDefinition extends MetadataResource {
     /**
      * Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge.
      */
-    @Child(name = "focus", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "focus", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Resource(s) that are the subject of the event", formalDefinition="Identifies the resource (or resources) that are being addressed by the event.  For example, the Encounter for an admit message or two Account records for a merge." )
     protected List<MessageDefinitionFocusComponent> focus;
 
     /**
      * Indicates whether a response is required for this message.
      */
-    @Child(name = "responseRequired", type = {BooleanType.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "responseRequired", type = {BooleanType.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Is a response required?", formalDefinition="Indicates whether a response is required for this message." )
     protected BooleanType responseRequired;
 
     /**
      * Indicates what types of messages may be sent as an application-level response to this message.
      */
-    @Child(name = "allowedResponse", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "allowedResponse", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Responses to this message", formalDefinition="Indicates what types of messages may be sent as an application-level response to this message." )
     protected List<MessageDefinitionAllowedResponseComponent> allowedResponse;
 
-    private static final long serialVersionUID = -372176378L;
+    private static final long serialVersionUID = -219916580L;
 
   /**
    * Constructor
@@ -932,6 +939,30 @@ public class MessageDefinition extends MetadataResource {
           this.url = new UriType();
         this.url.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #identifier} (A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     */
+    public Identifier getIdentifier() { 
+      if (this.identifier == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MessageDefinition.identifier");
+        else if (Configuration.doAutoCreate())
+          this.identifier = new Identifier(); // cc
+      return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      return this.identifier != null && !this.identifier.isEmpty();
+    }
+
+    /**
+     * @param value {@link #identifier} (A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance.)
+     */
+    public MessageDefinition setIdentifier(Identifier value) { 
+      this.identifier = value;
       return this;
     }
 
@@ -1981,6 +2012,7 @@ public class MessageDefinition extends MetadataResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("url", "uri", "An absolute URL that is used to identify this message definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this message definition is (or will be) published. The URL SHOULD include the major version of the message definition. For more information see [Technical and Business Versions](resource.html#versions).", 0, java.lang.Integer.MAX_VALUE, url));
+        childrenList.add(new Property("identifier", "Identifier", "A formal identifier that is used to identify this message definition when it is represented in other formats, or referenced in a specification, model, design or an instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("version", "string", "The identifier that is used to identify this version of the message definition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the message definition author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions are orderable.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("name", "string", "A natural language name identifying the message definition. This name should be usable as an identifier for the module by machine processing applications such as code generation.", 0, java.lang.Integer.MAX_VALUE, name));
         childrenList.add(new Property("title", "string", "A short, descriptive, user-friendly title for the message definition.", 0, java.lang.Integer.MAX_VALUE, title));
@@ -2008,6 +2040,7 @@ public class MessageDefinition extends MetadataResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
+        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case 351608024: /*version*/ return this.version == null ? new Base[0] : new Base[] {this.version}; // StringType
         case 3373707: /*name*/ return this.name == null ? new Base[0] : new Base[] {this.name}; // StringType
         case 110371416: /*title*/ return this.title == null ? new Base[0] : new Base[] {this.title}; // StringType
@@ -2039,6 +2072,9 @@ public class MessageDefinition extends MetadataResource {
         switch (hash) {
         case 116079: // url
           this.url = castToUri(value); // UriType
+          return value;
+        case -1618432855: // identifier
+          this.identifier = castToIdentifier(value); // Identifier
           return value;
         case 351608024: // version
           this.version = castToString(value); // StringType
@@ -2114,6 +2150,8 @@ public class MessageDefinition extends MetadataResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("url")) {
           this.url = castToUri(value); // UriType
+        } else if (name.equals("identifier")) {
+          this.identifier = castToIdentifier(value); // Identifier
         } else if (name.equals("version")) {
           this.version = castToString(value); // StringType
         } else if (name.equals("name")) {
@@ -2167,6 +2205,7 @@ public class MessageDefinition extends MetadataResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079:  return getUrlElement();
+        case -1618432855:  return getIdentifier(); 
         case 351608024:  return getVersionElement();
         case 3373707:  return getNameElement();
         case 110371416:  return getTitleElement();
@@ -2197,6 +2236,7 @@ public class MessageDefinition extends MetadataResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 116079: /*url*/ return new String[] {"uri"};
+        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 351608024: /*version*/ return new String[] {"string"};
         case 3373707: /*name*/ return new String[] {"string"};
         case 110371416: /*title*/ return new String[] {"string"};
@@ -2227,6 +2267,10 @@ public class MessageDefinition extends MetadataResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("url")) {
           throw new FHIRException("Cannot call addChild on a primitive type MessageDefinition.url");
+        }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
         }
         else if (name.equals("version")) {
           throw new FHIRException("Cannot call addChild on a primitive type MessageDefinition.version");
@@ -2306,6 +2350,7 @@ public class MessageDefinition extends MetadataResource {
         MessageDefinition dst = new MessageDefinition();
         copyValues(dst);
         dst.url = url == null ? null : url.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.version = version == null ? null : version.copy();
         dst.name = name == null ? null : name.copy();
         dst.title = title == null ? null : title.copy();
@@ -2369,10 +2414,11 @@ public class MessageDefinition extends MetadataResource {
         if (!(other instanceof MessageDefinition))
           return false;
         MessageDefinition o = (MessageDefinition) other;
-        return compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true) && compareDeep(base, o.base, true)
-           && compareDeep(parent, o.parent, true) && compareDeep(replaces, o.replaces, true) && compareDeep(event, o.event, true)
-           && compareDeep(category, o.category, true) && compareDeep(focus, o.focus, true) && compareDeep(responseRequired, o.responseRequired, true)
-           && compareDeep(allowedResponse, o.allowedResponse, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(purpose, o.purpose, true) && compareDeep(copyright, o.copyright, true)
+           && compareDeep(base, o.base, true) && compareDeep(parent, o.parent, true) && compareDeep(replaces, o.replaces, true)
+           && compareDeep(event, o.event, true) && compareDeep(category, o.category, true) && compareDeep(focus, o.focus, true)
+           && compareDeep(responseRequired, o.responseRequired, true) && compareDeep(allowedResponse, o.allowedResponse, true)
+          ;
       }
 
       @Override
@@ -2387,8 +2433,8 @@ public class MessageDefinition extends MetadataResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(purpose, copyright, base
-          , parent, replaces, event, category, focus, responseRequired, allowedResponse
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, copyright
+          , base, parent, replaces, event, category, focus, responseRequired, allowedResponse
           );
       }
 
@@ -2418,6 +2464,26 @@ public class MessageDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for the message definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageDefinition.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="MessageDefinition.identifier", description="External identifiers for the message definition", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>External identifiers for the message definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageDefinition.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
    * Search parameter: <b>jurisdiction</b>
    * <p>
    * Description: <b>Intended jurisdiction for message definition</b><br>
@@ -2438,26 +2504,6 @@ public class MessageDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam JURISDICTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_JURISDICTION);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Name of the message definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageDefinition.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="MessageDefinition.name", description="Name of the message definition", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Name of the message definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageDefinition.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>description</b>
    * <p>
    * Description: <b>Text search against the description of the message definition</b><br>
@@ -2476,26 +2522,6 @@ public class MessageDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the message definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageDefinition.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="MessageDefinition.publisher", description="Name of the publisher of the message definition", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the message definition</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>MessageDefinition.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>focus</b>
@@ -2538,6 +2564,86 @@ public class MessageDefinition extends MetadataResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
 
  /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>The business version of the message definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageDefinition.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="MessageDefinition.version", description="The business version of the message definition", type="token" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>The business version of the message definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MessageDefinition.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>The uri that identifies the message definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageDefinition.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="MessageDefinition.url", description="The uri that identifies the message definition", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>The uri that identifies the message definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>MessageDefinition.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Name of the message definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageDefinition.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="MessageDefinition.name", description="Name of the message definition", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Name of the message definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageDefinition.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the message definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageDefinition.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="MessageDefinition.publisher", description="Name of the publisher of the message definition", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the message definition</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>MessageDefinition.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
    * Search parameter: <b>event</b>
    * <p>
    * Description: <b>The event that triggers the message</b><br>
@@ -2576,46 +2682,6 @@ public class MessageDefinition extends MetadataResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CATEGORY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CATEGORY);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>The version identifier of the message definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageDefinition.version</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="version", path="MessageDefinition.version", description="The version identifier of the message definition", type="token" )
-  public static final String SP_VERSION = "version";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
-   * <p>
-   * Description: <b>The version identifier of the message definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MessageDefinition.version</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
-
- /**
-   * Search parameter: <b>url</b>
-   * <p>
-   * Description: <b>The uri that identifies the message definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageDefinition.url</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="url", path="MessageDefinition.url", description="The uri that identifies the message definition", type="uri" )
-  public static final String SP_URL = "url";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
-   * <p>
-   * Description: <b>The uri that identifies the message definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>MessageDefinition.url</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
    * Search parameter: <b>status</b>

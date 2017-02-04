@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -52,7 +52,7 @@ public class BodySite extends DomainResource {
      * The person to which the body site belongs.
      */
     @Child(name = "patient", type = {Patient.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Patient", formalDefinition="The person to which the body site belongs." )
+    @Description(shortDefinition="Who this is about", formalDefinition="The person to which the body site belongs." )
     protected Reference patient;
 
     /**

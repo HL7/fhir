@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -323,6 +323,7 @@ public class Goal extends DomainResource {
          */
         @Child(name = "measure", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The parameter whose value is being tracked", formalDefinition="The parameter whose value is being tracked, e.g. body weight, blood pressure, or hemoglobin A1c level." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/observation-codes")
         protected CodeableConcept measure;
 
         /**
@@ -618,174 +619,6 @@ public class Goal extends DomainResource {
 
   }
 
-    @Block()
-    public static class GoalOutcomeComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Details of what's changed (or not changed).
-         */
-        @Child(name = "result", type = {CodeableConcept.class, Observation.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Code or observation that resulted from goal", formalDefinition="Details of what's changed (or not changed)." )
-        protected Type result;
-
-        private static final long serialVersionUID = 1994317639L;
-
-    /**
-     * Constructor
-     */
-      public GoalOutcomeComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #result} (Details of what's changed (or not changed).)
-         */
-        public Type getResult() { 
-          return this.result;
-        }
-
-        /**
-         * @return {@link #result} (Details of what's changed (or not changed).)
-         */
-        public CodeableConcept getResultCodeableConcept() throws FHIRException { 
-          if (!(this.result instanceof CodeableConcept))
-            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.result.getClass().getName()+" was encountered");
-          return (CodeableConcept) this.result;
-        }
-
-        public boolean hasResultCodeableConcept() { 
-          return this.result instanceof CodeableConcept;
-        }
-
-        /**
-         * @return {@link #result} (Details of what's changed (or not changed).)
-         */
-        public Reference getResultReference() throws FHIRException { 
-          if (!(this.result instanceof Reference))
-            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.result.getClass().getName()+" was encountered");
-          return (Reference) this.result;
-        }
-
-        public boolean hasResultReference() { 
-          return this.result instanceof Reference;
-        }
-
-        public boolean hasResult() { 
-          return this.result != null && !this.result.isEmpty();
-        }
-
-        /**
-         * @param value {@link #result} (Details of what's changed (or not changed).)
-         */
-        public GoalOutcomeComponent setResult(Type value) { 
-          this.result = value;
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("result[x]", "CodeableConcept|Reference(Observation)", "Details of what's changed (or not changed).", 0, java.lang.Integer.MAX_VALUE, result));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case -934426595: /*result*/ return this.result == null ? new Base[0] : new Base[] {this.result}; // Type
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case -934426595: // result
-          this.result = castToType(value); // Type
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("result[x]")) {
-          this.result = castToType(value); // Type
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case -1819555005:  return getResult(); 
-        case -934426595:  return getResult(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case -934426595: /*result*/ return new String[] {"CodeableConcept", "Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("resultCodeableConcept")) {
-          this.result = new CodeableConcept();
-          return this.result;
-        }
-        else if (name.equals("resultReference")) {
-          this.result = new Reference();
-          return this.result;
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public GoalOutcomeComponent copy() {
-        GoalOutcomeComponent dst = new GoalOutcomeComponent();
-        copyValues(dst);
-        dst.result = result == null ? null : result.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof GoalOutcomeComponent))
-          return false;
-        GoalOutcomeComponent o = (GoalOutcomeComponent) other;
-        return compareDeep(result, o.result, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof GoalOutcomeComponent))
-          return false;
-        GoalOutcomeComponent o = (GoalOutcomeComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(result);
-      }
-
-  public String fhirType() {
-    return "Goal.outcome";
-
-  }
-
-  }
-
     /**
      * This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).
      */
@@ -818,10 +651,11 @@ public class Goal extends DomainResource {
     protected CodeableConcept priority;
 
     /**
-     * Code and/or human-readable description of a specific desired objective of care.
+     * Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".
      */
     @Child(name = "description", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Code or text describing goal", formalDefinition="Code and/or human-readable description of a specific desired objective of care." )
+    @Description(shortDefinition="Code or text describing goal", formalDefinition="Human-readable and/or coded description of a specific desired objective of care, such as \"control blood pressure\" or \"negotiate an obstacle course\" or \"dance with child at wedding\"." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
     protected CodeableConcept description;
 
     /**
@@ -897,13 +731,26 @@ public class Goal extends DomainResource {
     protected List<Annotation> note;
 
     /**
-     * Identifies the change (or lack of change) at the point when the status of the goal is assessed.  The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome would be calories consumed whereas goal outcome is an observation for the actual body weight measured.
+     * Identifies the change (or lack of change) at the point when the status of the goal is assessed.
      */
-    @Child(name = "outcome", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="What result was achieved regarding the goal?", formalDefinition="Identifies the change (or lack of change) at the point when the status of the goal is assessed.  The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome would be calories consumed whereas goal outcome is an observation for the actual body weight measured." )
-    protected List<GoalOutcomeComponent> outcome;
+    @Child(name = "outcomeCode", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="What result was achieved regarding the goal?", formalDefinition="Identifies the change (or lack of change) at the point when the status of the goal is assessed." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
+    protected List<CodeableConcept> outcomeCode;
 
-    private static final long serialVersionUID = -1863064969L;
+    /**
+     * Details of what's changed (or not changed).
+     */
+    @Child(name = "outcomeReference", type = {Observation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Observation that resulted from goal", formalDefinition="Details of what's changed (or not changed)." )
+    protected List<Reference> outcomeReference;
+    /**
+     * The actual objects that are the target of the reference (Details of what's changed (or not changed).)
+     */
+    protected List<Observation> outcomeReferenceTarget;
+
+
+    private static final long serialVersionUID = -1045412647L;
 
   /**
    * Constructor
@@ -1097,7 +944,7 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #description} (Code and/or human-readable description of a specific desired objective of care.)
+     * @return {@link #description} (Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".)
      */
     public CodeableConcept getDescription() { 
       if (this.description == null)
@@ -1113,7 +960,7 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @param value {@link #description} (Code and/or human-readable description of a specific desired objective of care.)
+     * @param value {@link #description} (Human-readable and/or coded description of a specific desired objective of care, such as "control blood pressure" or "negotiate an obstacle course" or "dance with child at wedding".)
      */
     public Goal setDescription(CodeableConcept value) { 
       this.description = value;
@@ -1482,56 +1329,131 @@ public class Goal extends DomainResource {
     }
 
     /**
-     * @return {@link #outcome} (Identifies the change (or lack of change) at the point when the status of the goal is assessed.  The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome would be calories consumed whereas goal outcome is an observation for the actual body weight measured.)
+     * @return {@link #outcomeCode} (Identifies the change (or lack of change) at the point when the status of the goal is assessed.)
      */
-    public List<GoalOutcomeComponent> getOutcome() { 
-      if (this.outcome == null)
-        this.outcome = new ArrayList<GoalOutcomeComponent>();
-      return this.outcome;
+    public List<CodeableConcept> getOutcomeCode() { 
+      if (this.outcomeCode == null)
+        this.outcomeCode = new ArrayList<CodeableConcept>();
+      return this.outcomeCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Goal setOutcome(List<GoalOutcomeComponent> theOutcome) { 
-      this.outcome = theOutcome;
+    public Goal setOutcomeCode(List<CodeableConcept> theOutcomeCode) { 
+      this.outcomeCode = theOutcomeCode;
       return this;
     }
 
-    public boolean hasOutcome() { 
-      if (this.outcome == null)
+    public boolean hasOutcomeCode() { 
+      if (this.outcomeCode == null)
         return false;
-      for (GoalOutcomeComponent item : this.outcome)
+      for (CodeableConcept item : this.outcomeCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public GoalOutcomeComponent addOutcome() { //3
-      GoalOutcomeComponent t = new GoalOutcomeComponent();
-      if (this.outcome == null)
-        this.outcome = new ArrayList<GoalOutcomeComponent>();
-      this.outcome.add(t);
+    public CodeableConcept addOutcomeCode() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.outcomeCode == null)
+        this.outcomeCode = new ArrayList<CodeableConcept>();
+      this.outcomeCode.add(t);
       return t;
     }
 
-    public Goal addOutcome(GoalOutcomeComponent t) { //3
+    public Goal addOutcomeCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.outcome == null)
-        this.outcome = new ArrayList<GoalOutcomeComponent>();
-      this.outcome.add(t);
+      if (this.outcomeCode == null)
+        this.outcomeCode = new ArrayList<CodeableConcept>();
+      this.outcomeCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #outcome}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #outcomeCode}, creating it if it does not already exist
      */
-    public GoalOutcomeComponent getOutcomeFirstRep() { 
-      if (getOutcome().isEmpty()) {
-        addOutcome();
+    public CodeableConcept getOutcomeCodeFirstRep() { 
+      if (getOutcomeCode().isEmpty()) {
+        addOutcomeCode();
       }
-      return getOutcome().get(0);
+      return getOutcomeCode().get(0);
+    }
+
+    /**
+     * @return {@link #outcomeReference} (Details of what's changed (or not changed).)
+     */
+    public List<Reference> getOutcomeReference() { 
+      if (this.outcomeReference == null)
+        this.outcomeReference = new ArrayList<Reference>();
+      return this.outcomeReference;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Goal setOutcomeReference(List<Reference> theOutcomeReference) { 
+      this.outcomeReference = theOutcomeReference;
+      return this;
+    }
+
+    public boolean hasOutcomeReference() { 
+      if (this.outcomeReference == null)
+        return false;
+      for (Reference item : this.outcomeReference)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addOutcomeReference() { //3
+      Reference t = new Reference();
+      if (this.outcomeReference == null)
+        this.outcomeReference = new ArrayList<Reference>();
+      this.outcomeReference.add(t);
+      return t;
+    }
+
+    public Goal addOutcomeReference(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.outcomeReference == null)
+        this.outcomeReference = new ArrayList<Reference>();
+      this.outcomeReference.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #outcomeReference}, creating it if it does not already exist
+     */
+    public Reference getOutcomeReferenceFirstRep() { 
+      if (getOutcomeReference().isEmpty()) {
+        addOutcomeReference();
+      }
+      return getOutcomeReference().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Observation> getOutcomeReferenceTarget() { 
+      if (this.outcomeReferenceTarget == null)
+        this.outcomeReferenceTarget = new ArrayList<Observation>();
+      return this.outcomeReferenceTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Observation addOutcomeReferenceTarget() { 
+      Observation r = new Observation();
+      if (this.outcomeReferenceTarget == null)
+        this.outcomeReferenceTarget = new ArrayList<Observation>();
+      this.outcomeReferenceTarget.add(r);
+      return r;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1540,7 +1462,7 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("status", "code", "Indicates whether the goal has been reached and is still considered relevant.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("category", "CodeableConcept", "Indicates a category the goal falls within.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("priority", "CodeableConcept", "Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.", 0, java.lang.Integer.MAX_VALUE, priority));
-        childrenList.add(new Property("description", "CodeableConcept", "Code and/or human-readable description of a specific desired objective of care.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("description", "CodeableConcept", "Human-readable and/or coded description of a specific desired objective of care, such as \"control blood pressure\" or \"negotiate an obstacle course\" or \"dance with child at wedding\".", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("subject", "Reference(Patient|Group|Organization)", "Identifies the patient, group or organization for whom the goal is being established.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("start[x]", "date|CodeableConcept", "The date or event after which the goal should begin being pursued.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("target", "", "Indicates what should be done by when.", 0, java.lang.Integer.MAX_VALUE, target));
@@ -1549,7 +1471,8 @@ public class Goal extends DomainResource {
         childrenList.add(new Property("expressedBy", "Reference(Patient|Practitioner|RelatedPerson)", "Indicates whose goal this is - patient goal, practitioner goal, etc.", 0, java.lang.Integer.MAX_VALUE, expressedBy));
         childrenList.add(new Property("addresses", "Reference(Condition|Observation|MedicationStatement|NutritionOrder|ProcedureRequest|RiskAssessment)", "The identified conditions and other health record elements that are intended to be addressed by the goal.", 0, java.lang.Integer.MAX_VALUE, addresses));
         childrenList.add(new Property("note", "Annotation", "Any comments related to the goal.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("outcome", "", "Identifies the change (or lack of change) at the point when the status of the goal is assessed.  The goal outcome is independent of the outcome of the related activities.  For example, if the Goal is to achieve a target body weight of 150 lb and a care plan activity is defined to diet, then the care plan’s activity outcome would be calories consumed whereas goal outcome is an observation for the actual body weight measured.", 0, java.lang.Integer.MAX_VALUE, outcome));
+        childrenList.add(new Property("outcomeCode", "CodeableConcept", "Identifies the change (or lack of change) at the point when the status of the goal is assessed.", 0, java.lang.Integer.MAX_VALUE, outcomeCode));
+        childrenList.add(new Property("outcomeReference", "Reference(Observation)", "Details of what's changed (or not changed).", 0, java.lang.Integer.MAX_VALUE, outcomeReference));
       }
 
       @Override
@@ -1568,7 +1491,8 @@ public class Goal extends DomainResource {
         case 175423686: /*expressedBy*/ return this.expressedBy == null ? new Base[0] : new Base[] {this.expressedBy}; // Reference
         case 874544034: /*addresses*/ return this.addresses == null ? new Base[0] : this.addresses.toArray(new Base[this.addresses.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : this.outcome.toArray(new Base[this.outcome.size()]); // GoalOutcomeComponent
+        case 1062482015: /*outcomeCode*/ return this.outcomeCode == null ? new Base[0] : this.outcomeCode.toArray(new Base[this.outcomeCode.size()]); // CodeableConcept
+        case -782273511: /*outcomeReference*/ return this.outcomeReference == null ? new Base[0] : this.outcomeReference.toArray(new Base[this.outcomeReference.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1617,8 +1541,11 @@ public class Goal extends DomainResource {
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
-        case -1106507950: // outcome
-          this.getOutcome().add((GoalOutcomeComponent) value); // GoalOutcomeComponent
+        case 1062482015: // outcomeCode
+          this.getOutcomeCode().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -782273511: // outcomeReference
+          this.getOutcomeReference().add(castToReference(value)); // Reference
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1654,8 +1581,10 @@ public class Goal extends DomainResource {
           this.getAddresses().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        } else if (name.equals("outcome")) {
-          this.getOutcome().add((GoalOutcomeComponent) value);
+        } else if (name.equals("outcomeCode")) {
+          this.getOutcomeCode().add(castToCodeableConcept(value));
+        } else if (name.equals("outcomeReference")) {
+          this.getOutcomeReference().add(castToReference(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1678,7 +1607,8 @@ public class Goal extends DomainResource {
         case 175423686:  return getExpressedBy(); 
         case 874544034:  return addAddresses(); 
         case 3387378:  return addNote(); 
-        case -1106507950:  return addOutcome(); 
+        case 1062482015:  return addOutcomeCode(); 
+        case -782273511:  return addOutcomeReference(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1700,7 +1630,8 @@ public class Goal extends DomainResource {
         case 175423686: /*expressedBy*/ return new String[] {"Reference"};
         case 874544034: /*addresses*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case -1106507950: /*outcome*/ return new String[] {};
+        case 1062482015: /*outcomeCode*/ return new String[] {"CodeableConcept"};
+        case -782273511: /*outcomeReference*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1757,8 +1688,11 @@ public class Goal extends DomainResource {
         else if (name.equals("note")) {
           return addNote();
         }
-        else if (name.equals("outcome")) {
-          return addOutcome();
+        else if (name.equals("outcomeCode")) {
+          return addOutcomeCode();
+        }
+        else if (name.equals("outcomeReference")) {
+          return addOutcomeReference();
         }
         else
           return super.addChild(name);
@@ -1801,10 +1735,15 @@ public class Goal extends DomainResource {
           for (Annotation i : note)
             dst.note.add(i.copy());
         };
-        if (outcome != null) {
-          dst.outcome = new ArrayList<GoalOutcomeComponent>();
-          for (GoalOutcomeComponent i : outcome)
-            dst.outcome.add(i.copy());
+        if (outcomeCode != null) {
+          dst.outcomeCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : outcomeCode)
+            dst.outcomeCode.add(i.copy());
+        };
+        if (outcomeReference != null) {
+          dst.outcomeReference = new ArrayList<Reference>();
+          for (Reference i : outcomeReference)
+            dst.outcomeReference.add(i.copy());
         };
         return dst;
       }
@@ -1824,8 +1763,8 @@ public class Goal extends DomainResource {
            && compareDeep(priority, o.priority, true) && compareDeep(description, o.description, true) && compareDeep(subject, o.subject, true)
            && compareDeep(start, o.start, true) && compareDeep(target, o.target, true) && compareDeep(statusDate, o.statusDate, true)
            && compareDeep(statusReason, o.statusReason, true) && compareDeep(expressedBy, o.expressedBy, true)
-           && compareDeep(addresses, o.addresses, true) && compareDeep(note, o.note, true) && compareDeep(outcome, o.outcome, true)
-          ;
+           && compareDeep(addresses, o.addresses, true) && compareDeep(note, o.note, true) && compareDeep(outcomeCode, o.outcomeCode, true)
+           && compareDeep(outcomeReference, o.outcomeReference, true);
       }
 
       @Override
@@ -1842,7 +1781,7 @@ public class Goal extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, status, category
           , priority, description, subject, start, target, statusDate, statusReason, expressedBy
-          , addresses, note, outcome);
+          , addresses, note, outcomeCode, outcomeReference);
       }
 
   @Override

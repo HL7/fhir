@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -949,13 +949,13 @@ public class Appointment extends DomainResource {
     protected PositiveIntType minutesDuration;
 
     /**
-     * The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.
+     * The slots from the participants' schedules that will be filled by the appointment.
      */
     @Child(name = "slot", type = {Slot.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="If provided, then no schedule and start/end values MUST match slot", formalDefinition="The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot." )
+    @Description(shortDefinition="The slots that this appointment is filling", formalDefinition="The slots from the participants' schedules that will be filled by the appointment." )
     protected List<Reference> slot;
     /**
-     * The actual objects that are the target of the reference (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
+     * The actual objects that are the target of the reference (The slots from the participants' schedules that will be filled by the appointment.)
      */
     protected List<Slot> slotTarget;
 
@@ -1519,7 +1519,7 @@ public class Appointment extends DomainResource {
     }
 
     /**
-     * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
+     * @return {@link #slot} (The slots from the participants' schedules that will be filled by the appointment.)
      */
     public List<Reference> getSlot() { 
       if (this.slot == null)
@@ -1811,7 +1811,7 @@ public class Appointment extends DomainResource {
         childrenList.add(new Property("start", "instant", "Date/Time that the appointment is to take place.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("minutesDuration", "positiveInt", "Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).", 0, java.lang.Integer.MAX_VALUE, minutesDuration));
-        childrenList.add(new Property("slot", "Reference(Slot)", "The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.", 0, java.lang.Integer.MAX_VALUE, slot));
+        childrenList.add(new Property("slot", "Reference(Slot)", "The slots from the participants' schedules that will be filled by the appointment.", 0, java.lang.Integer.MAX_VALUE, slot));
         childrenList.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));

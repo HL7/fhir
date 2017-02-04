@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2227,6 +2227,10 @@ public class Enumerations {
          */
         ACTIVITYDEFINITION, 
         /**
+         * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
+         */
+        ADVERSEEVENT, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -2276,6 +2280,10 @@ The catalog resource provides the data necessary for a synchronization of the it
 The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
          */
         CATALOG, 
+        /**
+         * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
+         */
+        CHARGEITEM, 
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
@@ -2361,10 +2369,6 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DIAGNOSTICREPORT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICREQUEST, 
-        /**
          * A manifest that defines a set of documents.
          */
         DOCUMENTMANIFEST, 
@@ -2437,7 +2441,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
          */
         IMAGINGMANIFEST, 
         /**
@@ -2457,7 +2461,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -2573,7 +2577,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         PROCEDURE, 
         /**
-         * A request for a procedure to be performed. May be a proposal or an order.
+         * A record of a request for a diagnostic investigation service to be performed.
          */
         PROCEDUREREQUEST, 
         /**
@@ -2625,7 +2629,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         RISKASSESSMENT, 
         /**
-         * A container for slot(s) of time that may be available for booking appointments.
+         * A container for slots of time that may be available for booking appointments.
          */
         SCHEDULE, 
         /**
@@ -2819,6 +2823,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -2843,6 +2849,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return CARETEAM;
         if ("Catalog".equals(codeString))
           return CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return CHARGEITEM;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -2885,8 +2893,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -3115,6 +3121,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3127,6 +3134,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -3148,7 +3156,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -3294,6 +3301,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ADVERSEEVENT: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3306,6 +3314,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CATALOG: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -3327,7 +3336,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -3473,6 +3481,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ADVERSEEVENT: return "Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -3485,6 +3494,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
+            case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -3506,7 +3516,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
-            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -3525,12 +3534,12 @@ The catalog does not replicate the content of the item, since that is expected t
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -3559,7 +3568,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
-            case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
+            case PROCEDUREREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
@@ -3572,7 +3581,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case RESEARCHSUBJECT: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.";
             case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
-            case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
+            case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
@@ -3652,6 +3661,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -3664,6 +3674,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -3685,7 +3696,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -3892,6 +3902,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return FHIRAllTypes.ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return FHIRAllTypes.ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRAllTypes.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -3916,6 +3928,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.CARETEAM;
         if ("Catalog".equals(codeString))
           return FHIRAllTypes.CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return FHIRAllTypes.CHARGEITEM;
         if ("Claim".equals(codeString))
           return FHIRAllTypes.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -3958,8 +3972,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return FHIRAllTypes.DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return FHIRAllTypes.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return FHIRAllTypes.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -4250,6 +4262,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ACTIVITYDEFINITION);
+        if ("AdverseEvent".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ADVERSEEVENT);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -4274,6 +4288,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CARETEAM);
         if ("Catalog".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CATALOG);
+        if ("ChargeItem".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CHARGEITEM);
         if ("Claim".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -4316,8 +4332,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DEVICEUSESTATEMENT);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DIAGNOSTICREPORT);
-        if ("DiagnosticRequest".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -4601,6 +4615,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Account";
       if (code == FHIRAllTypes.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == FHIRAllTypes.ADVERSEEVENT)
+        return "AdverseEvent";
       if (code == FHIRAllTypes.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRAllTypes.APPOINTMENT)
@@ -4625,6 +4641,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CareTeam";
       if (code == FHIRAllTypes.CATALOG)
         return "Catalog";
+      if (code == FHIRAllTypes.CHARGEITEM)
+        return "ChargeItem";
       if (code == FHIRAllTypes.CLAIM)
         return "Claim";
       if (code == FHIRAllTypes.CLAIMRESPONSE)
@@ -4667,8 +4685,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "DeviceUseStatement";
       if (code == FHIRAllTypes.DIAGNOSTICREPORT)
         return "DiagnosticReport";
-      if (code == FHIRAllTypes.DIAGNOSTICREQUEST)
-        return "DiagnosticRequest";
       if (code == FHIRAllTypes.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == FHIRAllTypes.DOCUMENTREFERENCE)
@@ -5070,6 +5086,10 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         ACTIVITYDEFINITION, 
         /**
+         * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
+         */
+        ADVERSEEVENT, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -5119,6 +5139,10 @@ The catalog resource provides the data necessary for a synchronization of the it
 The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
          */
         CATALOG, 
+        /**
+         * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
+         */
+        CHARGEITEM, 
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
@@ -5204,10 +5228,6 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DIAGNOSTICREPORT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICREQUEST, 
-        /**
          * A manifest that defines a set of documents.
          */
         DOCUMENTMANIFEST, 
@@ -5280,7 +5300,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
          */
         IMAGINGMANIFEST, 
         /**
@@ -5300,7 +5320,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -5416,7 +5436,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         PROCEDURE, 
         /**
-         * A request for a procedure to be performed. May be a proposal or an order.
+         * A record of a request for a diagnostic investigation service to be performed.
          */
         PROCEDUREREQUEST, 
         /**
@@ -5468,7 +5488,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         RISKASSESSMENT, 
         /**
-         * A container for slot(s) of time that may be available for booking appointments.
+         * A container for slots of time that may be available for booking appointments.
          */
         SCHEDULE, 
         /**
@@ -5654,6 +5674,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -5678,6 +5700,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return CARETEAM;
         if ("Catalog".equals(codeString))
           return CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return CHARGEITEM;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -5720,8 +5744,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -5946,6 +5968,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "xhtml";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -5958,6 +5981,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -5979,7 +6003,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -6123,6 +6146,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "http://hl7.org/fhir/data-types";
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ADVERSEEVENT: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -6135,6 +6159,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CATALOG: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -6156,7 +6181,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -6300,6 +6324,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "XHTML format, as defined by W3C, but restricted usage (mainly, no active content)";
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ADVERSEEVENT: return "Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -6312,6 +6337,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
+            case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -6333,7 +6359,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
-            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -6352,12 +6377,12 @@ The catalog does not replicate the content of the item, since that is expected t
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -6386,7 +6411,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
-            case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
+            case PROCEDUREREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
@@ -6399,7 +6424,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case RESEARCHSUBJECT: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.";
             case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
-            case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
+            case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
@@ -6477,6 +6502,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case XHTML: return "XHTML";
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -6489,6 +6515,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -6510,7 +6537,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -6715,6 +6741,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return FHIRDefinedType.ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return FHIRDefinedType.ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return FHIRDefinedType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -6739,6 +6767,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.CARETEAM;
         if ("Catalog".equals(codeString))
           return FHIRDefinedType.CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return FHIRDefinedType.CHARGEITEM;
         if ("Claim".equals(codeString))
           return FHIRDefinedType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -6781,8 +6811,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return FHIRDefinedType.DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return FHIRDefinedType.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return FHIRDefinedType.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -7069,6 +7097,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIVITYDEFINITION);
+        if ("AdverseEvent".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ADVERSEEVENT);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -7093,6 +7123,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CARETEAM);
         if ("Catalog".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CATALOG);
+        if ("ChargeItem".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CHARGEITEM);
         if ("Claim".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -7135,8 +7167,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DEVICEUSESTATEMENT);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DIAGNOSTICREPORT);
-        if ("DiagnosticRequest".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -7416,6 +7446,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Account";
       if (code == FHIRDefinedType.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == FHIRDefinedType.ADVERSEEVENT)
+        return "AdverseEvent";
       if (code == FHIRDefinedType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == FHIRDefinedType.APPOINTMENT)
@@ -7440,6 +7472,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CareTeam";
       if (code == FHIRDefinedType.CATALOG)
         return "Catalog";
+      if (code == FHIRDefinedType.CHARGEITEM)
+        return "ChargeItem";
       if (code == FHIRDefinedType.CLAIM)
         return "Claim";
       if (code == FHIRDefinedType.CLAIMRESPONSE)
@@ -7482,8 +7516,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "DeviceUseStatement";
       if (code == FHIRDefinedType.DIAGNOSTICREPORT)
         return "DiagnosticReport";
-      if (code == FHIRDefinedType.DIAGNOSTICREQUEST)
-        return "DiagnosticRequest";
       if (code == FHIRDefinedType.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == FHIRDefinedType.DOCUMENTREFERENCE)
@@ -8229,6 +8261,10 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         ACTIVITYDEFINITION, 
         /**
+         * Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.
+         */
+        ADVERSEEVENT, 
+        /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
         ALLERGYINTOLERANCE, 
@@ -8278,6 +8314,10 @@ The catalog resource provides the data necessary for a synchronization of the it
 The catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.
          */
         CATALOG, 
+        /**
+         * The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.
+         */
+        CHARGEITEM, 
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
@@ -8363,10 +8403,6 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DIAGNOSTICREPORT, 
         /**
-         * A record of a request for a diagnostic investigation service to be performed.
-         */
-        DIAGNOSTICREQUEST, 
-        /**
          * A manifest that defines a set of documents.
          */
         DOCUMENTMANIFEST, 
@@ -8439,7 +8475,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         HEALTHCARESERVICE, 
         /**
-         * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
+         * A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
          */
         IMAGINGMANIFEST, 
         /**
@@ -8459,7 +8495,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         IMPLEMENTATIONGUIDE, 
         /**
-         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
+         * The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.
          */
         LIBRARY, 
         /**
@@ -8575,7 +8611,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         PROCEDURE, 
         /**
-         * A request for a procedure to be performed. May be a proposal or an order.
+         * A record of a request for a diagnostic investigation service to be performed.
          */
         PROCEDUREREQUEST, 
         /**
@@ -8627,7 +8663,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         RISKASSESSMENT, 
         /**
-         * A container for slot(s) of time that may be available for booking appointments.
+         * A container for slots of time that may be available for booking appointments.
          */
         SCHEDULE, 
         /**
@@ -8705,6 +8741,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -8729,6 +8767,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return CARETEAM;
         if ("Catalog".equals(codeString))
           return CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return CHARGEITEM;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -8771,8 +8811,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -8943,6 +8981,7 @@ The catalog does not replicate the content of the item, since that is expected t
           switch (this) {
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -8955,6 +8994,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -8976,7 +9016,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -9066,6 +9105,7 @@ The catalog does not replicate the content of the item, since that is expected t
           switch (this) {
             case ACCOUNT: return "http://hl7.org/fhir/resource-types";
             case ACTIVITYDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case ADVERSEEVENT: return "http://hl7.org/fhir/resource-types";
             case ALLERGYINTOLERANCE: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENT: return "http://hl7.org/fhir/resource-types";
             case APPOINTMENTRESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -9078,6 +9118,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
             case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CATALOG: return "http://hl7.org/fhir/resource-types";
+            case CHARGEITEM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -9099,7 +9140,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "http://hl7.org/fhir/resource-types";
             case DEVICEUSESTATEMENT: return "http://hl7.org/fhir/resource-types";
             case DIAGNOSTICREPORT: return "http://hl7.org/fhir/resource-types";
-            case DIAGNOSTICREQUEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTMANIFEST: return "http://hl7.org/fhir/resource-types";
             case DOCUMENTREFERENCE: return "http://hl7.org/fhir/resource-types";
             case DOMAINRESOURCE: return "http://hl7.org/fhir/resource-types";
@@ -9189,6 +9229,7 @@ The catalog does not replicate the content of the item, since that is expected t
           switch (this) {
             case ACCOUNT: return "A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.";
             case ACTIVITYDEFINITION: return "This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.";
+            case ADVERSEEVENT: return "Actual or  potential/avoided event causing unintended physical injury resulting from or contributed to by medical care, a research study or other healthcare setting factors that requires additional monitoring, treatment, or hospitalization, or that results in death.";
             case ALLERGYINTOLERANCE: return "Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.";
             case APPOINTMENT: return "A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).";
             case APPOINTMENTRESPONSE: return "A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.";
@@ -9201,6 +9242,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
             case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CATALOG: return "A document that bundles a set of catalog entries. A catalog entry contains metadata about an item and a pointer to the item’s representative resource. The item is an entity that can be ordered or consulted from a catalog: Medications, devices, lab services, organizations...\nThe catalog resource provides the data necessary for a synchronization of the item data – e.g. the version or last update date which allows systems to obtain differential updates. \nThe catalog does not replicate the content of the item, since that is expected to be in the resource that is referenced. There is however some metadata that is important for the catalog synchronization and not in the “clinical” resource. Examples are different classifications and related identifiers, or packaging information, or device components, or different characteristics.";
+            case CHARGEITEM: return "The resource ChargeItem describes the provision of healthcare provider products for a certain patient, therefore referring not only to the product, but containing in addition details of the provision, like date, time, amounts and participating organizations and persons. Main Usage of the ChargeItem is to enable the billing process and internal cost allocation.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -9222,7 +9264,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
-            case DIAGNOSTICREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
             case DOCUMENTREFERENCE: return "A reference to a document .";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
@@ -9241,12 +9282,12 @@ The catalog does not replicate the content of the item, since that is expected t
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
-            case IMAGINGMANIFEST: return "A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances may have been selected for a purpose, such as  conference, or consult.  Reflecting a range of sharing purposes, typical ImagingManifest resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); both a multi-frame ultrasound instance (\"cine\" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.";
+            case IMAGINGMANIFEST: return "A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.";
             case IMAGINGSTUDY: return "Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.";
             case IMMUNIZATION: return "Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.";
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
-            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose exist knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
+            case LIBRARY: return "The Library resource is a general-purpose container for knowledge asset definitions. It can be used to describe and expose existing knowledge assets such as logic libraries and information model descriptions, as well as to describe a collection of knowledge assets.";
             case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
@@ -9275,7 +9316,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case PRACTITIONER: return "A person who is directly or indirectly involved in the provisioning of healthcare.";
             case PRACTITIONERROLE: return "A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time.";
             case PROCEDURE: return "An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.";
-            case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
+            case PROCEDUREREQUEST: return "A record of a request for a diagnostic investigation service to be performed.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
@@ -9288,7 +9329,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case RESEARCHSUBJECT: return "A process where a researcher or organization plans and then executes a series of steps intended to increase the field of healthcare-related knowledge.  This includes studies of safety, efficacy, comparative effectiveness and other information about medications, devices, therapies and other interventional and investigative techniques.  ResearchStudies involve the gathering of information about human or animal subjects.";
             case RESOURCE: return "This is the base resource type for everything.";
             case RISKASSESSMENT: return "An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.";
-            case SCHEDULE: return "A container for slot(s) of time that may be available for booking appointments.";
+            case SCHEDULE: return "A container for slots of time that may be available for booking appointments.";
             case SEARCHPARAMETER: return "A search parameter that defines a named search item that can be used to search/filter on a resource.";
             case SEQUENCE: return "Raw data describing a biological sequence.";
             case SERVICEDEFINITION: return "The ServiceDefinition describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.";
@@ -9312,6 +9353,7 @@ The catalog does not replicate the content of the item, since that is expected t
           switch (this) {
             case ACCOUNT: return "Account";
             case ACTIVITYDEFINITION: return "ActivityDefinition";
+            case ADVERSEEVENT: return "AdverseEvent";
             case ALLERGYINTOLERANCE: return "AllergyIntolerance";
             case APPOINTMENT: return "Appointment";
             case APPOINTMENTRESPONSE: return "AppointmentResponse";
@@ -9324,6 +9366,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case CAREPLAN: return "CarePlan";
             case CARETEAM: return "CareTeam";
             case CATALOG: return "Catalog";
+            case CHARGEITEM: return "ChargeItem";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -9345,7 +9388,6 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEREQUEST: return "DeviceRequest";
             case DEVICEUSESTATEMENT: return "DeviceUseStatement";
             case DIAGNOSTICREPORT: return "DiagnosticReport";
-            case DIAGNOSTICREQUEST: return "DiagnosticRequest";
             case DOCUMENTMANIFEST: return "DocumentManifest";
             case DOCUMENTREFERENCE: return "DocumentReference";
             case DOMAINRESOURCE: return "DomainResource";
@@ -9442,6 +9484,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ResourceType.ACCOUNT;
         if ("ActivityDefinition".equals(codeString))
           return ResourceType.ACTIVITYDEFINITION;
+        if ("AdverseEvent".equals(codeString))
+          return ResourceType.ADVERSEEVENT;
         if ("AllergyIntolerance".equals(codeString))
           return ResourceType.ALLERGYINTOLERANCE;
         if ("Appointment".equals(codeString))
@@ -9466,6 +9510,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ResourceType.CARETEAM;
         if ("Catalog".equals(codeString))
           return ResourceType.CATALOG;
+        if ("ChargeItem".equals(codeString))
+          return ResourceType.CHARGEITEM;
         if ("Claim".equals(codeString))
           return ResourceType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -9508,8 +9554,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return ResourceType.DEVICEUSESTATEMENT;
         if ("DiagnosticReport".equals(codeString))
           return ResourceType.DIAGNOSTICREPORT;
-        if ("DiagnosticRequest".equals(codeString))
-          return ResourceType.DIAGNOSTICREQUEST;
         if ("DocumentManifest".equals(codeString))
           return ResourceType.DOCUMENTMANIFEST;
         if ("DocumentReference".equals(codeString))
@@ -9688,6 +9732,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<ResourceType>(this, ResourceType.ACCOUNT);
         if ("ActivityDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ACTIVITYDEFINITION);
+        if ("AdverseEvent".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.ADVERSEEVENT);
         if ("AllergyIntolerance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.ALLERGYINTOLERANCE);
         if ("Appointment".equals(codeString))
@@ -9712,6 +9758,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<ResourceType>(this, ResourceType.CARETEAM);
         if ("Catalog".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CATALOG);
+        if ("ChargeItem".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CHARGEITEM);
         if ("Claim".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -9754,8 +9802,6 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<ResourceType>(this, ResourceType.DEVICEUSESTATEMENT);
         if ("DiagnosticReport".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DIAGNOSTICREPORT);
-        if ("DiagnosticRequest".equals(codeString))
-          return new Enumeration<ResourceType>(this, ResourceType.DIAGNOSTICREQUEST);
         if ("DocumentManifest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.DOCUMENTMANIFEST);
         if ("DocumentReference".equals(codeString))
@@ -9927,6 +9973,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Account";
       if (code == ResourceType.ACTIVITYDEFINITION)
         return "ActivityDefinition";
+      if (code == ResourceType.ADVERSEEVENT)
+        return "AdverseEvent";
       if (code == ResourceType.ALLERGYINTOLERANCE)
         return "AllergyIntolerance";
       if (code == ResourceType.APPOINTMENT)
@@ -9951,6 +9999,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "CareTeam";
       if (code == ResourceType.CATALOG)
         return "Catalog";
+      if (code == ResourceType.CHARGEITEM)
+        return "ChargeItem";
       if (code == ResourceType.CLAIM)
         return "Claim";
       if (code == ResourceType.CLAIMRESPONSE)
@@ -9993,8 +10043,6 @@ The catalog does not replicate the content of the item, since that is expected t
         return "DeviceUseStatement";
       if (code == ResourceType.DIAGNOSTICREPORT)
         return "DiagnosticReport";
-      if (code == ResourceType.DIAGNOSTICREQUEST)
-        return "DiagnosticRequest";
       if (code == ResourceType.DOCUMENTMANIFEST)
         return "DocumentManifest";
       if (code == ResourceType.DOCUMENTREFERENCE)

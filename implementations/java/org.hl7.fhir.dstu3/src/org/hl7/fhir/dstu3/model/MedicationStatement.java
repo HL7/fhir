@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -58,7 +58,7 @@ public class MedicationStatement extends DomainResource {
          */
         COMPLETED, 
         /**
-         * The statement was entered in error.
+         * The statement was recorded incorrectly.
          */
         ENTEREDINERROR, 
         /**
@@ -123,7 +123,7 @@ public class MedicationStatement extends DomainResource {
           switch (this) {
             case ACTIVE: return "The medication is still being taken.";
             case COMPLETED: return "The medication is no longer being taken.";
-            case ENTEREDINERROR: return "The statement was entered in error.";
+            case ENTEREDINERROR: return "The statement was recorded incorrectly.";
             case INTENDED: return "The medication may be taken at some time in the future.";
             case STOPPED: return "Actions implied by the statement have been permanently halted, before all of them occurred.";
             case ONHOLD: return "Actions implied by the statement have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
@@ -204,7 +204,7 @@ public class MedicationStatement extends DomainResource {
       }
     }
 
-    public enum MedicationStatementNotTaken {
+    public enum MedicationStatementTaken {
         /**
          * Positive assertion that patient has taken medication
          */
@@ -218,10 +218,14 @@ public class MedicationStatement extends DomainResource {
          */
         UNK, 
         /**
+         * Patient reporting does not apply
+         */
+        NA, 
+        /**
          * added to help the parsers with the generic types
          */
         NULL;
-        public static MedicationStatementNotTaken fromCode(String codeString) throws FHIRException {
+        public static MedicationStatementTaken fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("y".equals(codeString))
@@ -230,24 +234,28 @@ public class MedicationStatement extends DomainResource {
           return N;
         if ("unk".equals(codeString))
           return UNK;
+        if ("na".equals(codeString))
+          return NA;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
-          throw new FHIRException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+          throw new FHIRException("Unknown MedicationStatementTaken code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
             case Y: return "y";
             case N: return "n";
             case UNK: return "unk";
+            case NA: return "na";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case Y: return "http://hl7.org/fhir/medication-statement-nottaken";
-            case N: return "http://hl7.org/fhir/medication-statement-nottaken";
-            case UNK: return "http://hl7.org/fhir/medication-statement-nottaken";
+            case Y: return "http://hl7.org/fhir/medication-statement-taken";
+            case N: return "http://hl7.org/fhir/medication-statement-taken";
+            case UNK: return "http://hl7.org/fhir/medication-statement-taken";
+            case NA: return "http://hl7.org/fhir/medication-statement-taken";
             default: return "?";
           }
         }
@@ -256,6 +264,7 @@ public class MedicationStatement extends DomainResource {
             case Y: return "Positive assertion that patient has taken medication";
             case N: return "Negative assertion that patient has not taken medication";
             case UNK: return "Unknown assertion if patient has taken medication";
+            case NA: return "Patient reporting does not apply";
             default: return "?";
           }
         }
@@ -264,174 +273,57 @@ public class MedicationStatement extends DomainResource {
             case Y: return "Yes";
             case N: return "No";
             case UNK: return "Unknown";
+            case NA: return "Not Applicable";
             default: return "?";
           }
         }
     }
 
-  public static class MedicationStatementNotTakenEnumFactory implements EnumFactory<MedicationStatementNotTaken> {
-    public MedicationStatementNotTaken fromCode(String codeString) throws IllegalArgumentException {
+  public static class MedicationStatementTakenEnumFactory implements EnumFactory<MedicationStatementTaken> {
+    public MedicationStatementTaken fromCode(String codeString) throws IllegalArgumentException {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
         if ("y".equals(codeString))
-          return MedicationStatementNotTaken.Y;
+          return MedicationStatementTaken.Y;
         if ("n".equals(codeString))
-          return MedicationStatementNotTaken.N;
+          return MedicationStatementTaken.N;
         if ("unk".equals(codeString))
-          return MedicationStatementNotTaken.UNK;
-        throw new IllegalArgumentException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+          return MedicationStatementTaken.UNK;
+        if ("na".equals(codeString))
+          return MedicationStatementTaken.NA;
+        throw new IllegalArgumentException("Unknown MedicationStatementTaken code '"+codeString+"'");
         }
-        public Enumeration<MedicationStatementNotTaken> fromType(Base code) throws FHIRException {
+        public Enumeration<MedicationStatementTaken> fromType(Base code) throws FHIRException {
           if (code == null)
             return null;
           if (code.isEmpty())
-            return new Enumeration<MedicationStatementNotTaken>(this);
+            return new Enumeration<MedicationStatementTaken>(this);
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
         if ("y".equals(codeString))
-          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.Y);
+          return new Enumeration<MedicationStatementTaken>(this, MedicationStatementTaken.Y);
         if ("n".equals(codeString))
-          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.N);
+          return new Enumeration<MedicationStatementTaken>(this, MedicationStatementTaken.N);
         if ("unk".equals(codeString))
-          return new Enumeration<MedicationStatementNotTaken>(this, MedicationStatementNotTaken.UNK);
-        throw new FHIRException("Unknown MedicationStatementNotTaken code '"+codeString+"'");
+          return new Enumeration<MedicationStatementTaken>(this, MedicationStatementTaken.UNK);
+        if ("na".equals(codeString))
+          return new Enumeration<MedicationStatementTaken>(this, MedicationStatementTaken.NA);
+        throw new FHIRException("Unknown MedicationStatementTaken code '"+codeString+"'");
         }
-    public String toCode(MedicationStatementNotTaken code) {
-      if (code == MedicationStatementNotTaken.Y)
+    public String toCode(MedicationStatementTaken code) {
+      if (code == MedicationStatementTaken.Y)
         return "y";
-      if (code == MedicationStatementNotTaken.N)
+      if (code == MedicationStatementTaken.N)
         return "n";
-      if (code == MedicationStatementNotTaken.UNK)
+      if (code == MedicationStatementTaken.UNK)
         return "unk";
+      if (code == MedicationStatementTaken.NA)
+        return "na";
       return "?";
       }
-    public String toSystem(MedicationStatementNotTaken code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum MedicationStatementCategory {
-        /**
-         * Includes orders for medications to be administered or consumed in an inpatient or acute care setting
-         */
-        INPATIENT, 
-        /**
-         * Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)
-         */
-        OUTPATIENT, 
-        /**
-         * Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)
-         */
-        COMMUNITY, 
-        /**
-         * Includes statements about medication use, including over the counter medication, provided by the patient, agent or another provider
-         */
-        PATIENTSPECIFIED, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static MedicationStatementCategory fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return INPATIENT;
-        if ("outpatient".equals(codeString))
-          return OUTPATIENT;
-        if ("community".equals(codeString))
-          return COMMUNITY;
-        if ("patientspecified".equals(codeString))
-          return PATIENTSPECIFIED;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown MedicationStatementCategory code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case INPATIENT: return "inpatient";
-            case OUTPATIENT: return "outpatient";
-            case COMMUNITY: return "community";
-            case PATIENTSPECIFIED: return "patientspecified";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case INPATIENT: return "http://hl7.org/fhir/medication-statement-category";
-            case OUTPATIENT: return "http://hl7.org/fhir/medication-statement-category";
-            case COMMUNITY: return "http://hl7.org/fhir/medication-statement-category";
-            case PATIENTSPECIFIED: return "http://hl7.org/fhir/medication-statement-category";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case INPATIENT: return "Includes orders for medications to be administered or consumed in an inpatient or acute care setting";
-            case OUTPATIENT: return "Includes orders for medications to be administered or consumed in an outpatient setting (for example, Emergency Department, Outpatient Clinic, Outpatient Surgery, Doctor's office)";
-            case COMMUNITY: return "Includes orders for medications to be administered or consumed by the patient in their home (this would include long term care or nursing homes, hospices, etc)";
-            case PATIENTSPECIFIED: return "Includes statements about medication use, including over the counter medication, provided by the patient, agent or another provider";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case INPATIENT: return "Inpatient";
-            case OUTPATIENT: return "Outpatient";
-            case COMMUNITY: return "Community";
-            case PATIENTSPECIFIED: return "Patient Specified";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class MedicationStatementCategoryEnumFactory implements EnumFactory<MedicationStatementCategory> {
-    public MedicationStatementCategory fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("inpatient".equals(codeString))
-          return MedicationStatementCategory.INPATIENT;
-        if ("outpatient".equals(codeString))
-          return MedicationStatementCategory.OUTPATIENT;
-        if ("community".equals(codeString))
-          return MedicationStatementCategory.COMMUNITY;
-        if ("patientspecified".equals(codeString))
-          return MedicationStatementCategory.PATIENTSPECIFIED;
-        throw new IllegalArgumentException("Unknown MedicationStatementCategory code '"+codeString+"'");
-        }
-        public Enumeration<MedicationStatementCategory> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<MedicationStatementCategory>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("inpatient".equals(codeString))
-          return new Enumeration<MedicationStatementCategory>(this, MedicationStatementCategory.INPATIENT);
-        if ("outpatient".equals(codeString))
-          return new Enumeration<MedicationStatementCategory>(this, MedicationStatementCategory.OUTPATIENT);
-        if ("community".equals(codeString))
-          return new Enumeration<MedicationStatementCategory>(this, MedicationStatementCategory.COMMUNITY);
-        if ("patientspecified".equals(codeString))
-          return new Enumeration<MedicationStatementCategory>(this, MedicationStatementCategory.PATIENTSPECIFIED);
-        throw new FHIRException("Unknown MedicationStatementCategory code '"+codeString+"'");
-        }
-    public String toCode(MedicationStatementCategory code) {
-      if (code == MedicationStatementCategory.INPATIENT)
-        return "inpatient";
-      if (code == MedicationStatementCategory.OUTPATIENT)
-        return "outpatient";
-      if (code == MedicationStatementCategory.COMMUNITY)
-        return "community";
-      if (code == MedicationStatementCategory.PATIENTSPECIFIED)
-        return "patientspecified";
-      return "?";
-      }
-    public String toSystem(MedicationStatementCategory code) {
+    public String toSystem(MedicationStatementTaken code) {
       return code.getSystem();
       }
     }
@@ -446,7 +338,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * A plan, proposal or order that is fulfilled in whole or in part by this event.
      */
-    @Child(name = "basedOn", type = {MedicationRequest.class, CarePlan.class, DiagnosticRequest.class, ProcedureRequest.class, ReferralRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {MedicationRequest.class, CarePlan.class, ProcedureRequest.class, ReferralRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Fulfils plan, proposal or order", formalDefinition="A plan, proposal or order that is fulfilled in whole or in part by this event." )
     protected List<Reference> basedOn;
     /**
@@ -488,9 +380,17 @@ public class MedicationStatement extends DomainResource {
     protected Enumeration<MedicationStatementStatus> status;
 
     /**
+     * Indicates where type of medication statement and where the medication is expected to be consumed or administered.
+     */
+    @Child(name = "category", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Type of medication usage", formalDefinition="Indicates where type of medication statement and where the medication is expected to be consumed or administered." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-category")
+    protected CodeableConcept category;
+
+    /**
      * Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
      */
-    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=5, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "medication", type = {CodeableConcept.class, Medication.class}, order=6, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="What medication was taken", formalDefinition="Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type medication;
@@ -498,7 +398,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * The person, animal or group who is/was taking the medication.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who is/was taking  the medication", formalDefinition="The person, animal or group who is/was taking the medication." )
     protected Reference subject;
 
@@ -510,14 +410,14 @@ public class MedicationStatement extends DomainResource {
     /**
      * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Over what period was medication consumed?", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true)." )
     protected Type effective;
 
     /**
      * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
      */
-    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "informationSource", type = {Patient.class, Practitioner.class, RelatedPerson.class, Organization.class}, order=9, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Person or organization that provided the information about the taking of this medication", formalDefinition="The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest." )
     protected Reference informationSource;
 
@@ -529,7 +429,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
      */
-    @Child(name = "derivedFrom", type = {Reference.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "derivedFrom", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional supporting information", formalDefinition="Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement." )
     protected List<Reference> derivedFrom;
     /**
@@ -541,22 +441,22 @@ public class MedicationStatement extends DomainResource {
     /**
      * The date when the medication statement was asserted by the information source.
      */
-    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When the statement was asserted?", formalDefinition="The date when the medication statement was asserted by the information source." )
     protected DateTimeType dateAsserted;
 
     /**
      * Indicator of the certainty of whether the medication was taken by the patient.
      */
-    @Child(name = "notTaken", type = {CodeType.class}, order=11, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="y | n | unk", formalDefinition="Indicator of the certainty of whether the medication was taken by the patient." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-nottaken")
-    protected Enumeration<MedicationStatementNotTaken> notTaken;
+    @Child(name = "taken", type = {CodeType.class}, order=12, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="y | n | unk | na", formalDefinition="Indicator of the certainty of whether the medication was taken by the patient." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-taken")
+    protected Enumeration<MedicationStatementTaken> taken;
 
     /**
      * A code indicating why the medication was not taken.
      */
-    @Child(name = "reasonNotTaken", type = {CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonNotTaken", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="True if asserting medication was not given", formalDefinition="A code indicating why the medication was not taken." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reason-medication-not-taken-codes")
     protected List<CodeableConcept> reasonNotTaken;
@@ -564,7 +464,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * A reason for why the medication is being/was taken.
      */
-    @Child(name = "reasonForUseCodeableConcept", type = {CodeableConcept.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonForUseCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reason for why the medication is being/was taken", formalDefinition="A reason for why the medication is being/was taken." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/condition-code")
     protected List<CodeableConcept> reasonForUseCodeableConcept;
@@ -572,7 +472,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * Condition or observation that supports why the medication is being/was taken.
      */
-    @Child(name = "reasonForUseReference", type = {Condition.class, Observation.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "reasonForUseReference", type = {Condition.class, Observation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Condition or observation that supports why the medication is being/was taken", formalDefinition="Condition or observation that supports why the medication is being/was taken." )
     protected List<Reference> reasonForUseReference;
     /**
@@ -584,17 +484,9 @@ public class MedicationStatement extends DomainResource {
     /**
      * Provides extra information about the medication statement that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {Annotation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Further information about the statement", formalDefinition="Provides extra information about the medication statement that is not conveyed by the other attributes." )
     protected List<Annotation> note;
-
-    /**
-     * Indicates where type of medication statement and where the medication is expected to be consumed or administered.
-     */
-    @Child(name = "category", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Type of medication usage", formalDefinition="Indicates where type of medication statement and where the medication is expected to be consumed or administered." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-category")
-    protected Enumeration<MedicationStatementCategory> category;
 
     /**
      * Indicates how the medication is/was used by the patient.
@@ -603,7 +495,7 @@ public class MedicationStatement extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<DosageInstruction> dosage;
 
-    private static final long serialVersionUID = -873289153L;
+    private static final long serialVersionUID = 2120590549L;
 
   /**
    * Constructor
@@ -615,11 +507,12 @@ public class MedicationStatement extends DomainResource {
   /**
    * Constructor
    */
-    public MedicationStatement(Enumeration<MedicationStatementStatus> status, Type medication, Reference subject) {
+    public MedicationStatement(Enumeration<MedicationStatementStatus> status, Type medication, Reference subject, Enumeration<MedicationStatementTaken> taken) {
       super();
       this.status = status;
       this.medication = medication;
       this.subject = subject;
+      this.taken = taken;
     }
 
     /**
@@ -882,6 +775,30 @@ public class MedicationStatement extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<MedicationStatementStatus>(new MedicationStatementStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #category} (Indicates where type of medication statement and where the medication is expected to be consumed or administered.)
+     */
+    public CodeableConcept getCategory() { 
+      if (this.category == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationStatement.category");
+        else if (Configuration.doAutoCreate())
+          this.category = new CodeableConcept(); // cc
+      return this.category;
+    }
+
+    public boolean hasCategory() { 
+      return this.category != null && !this.category.isEmpty();
+    }
+
+    /**
+     * @param value {@link #category} (Indicates where type of medication statement and where the medication is expected to be consumed or administered.)
+     */
+    public MedicationStatement setCategory(CodeableConcept value) { 
+      this.category = value;
       return this;
     }
 
@@ -1166,51 +1083,47 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #notTaken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
+     * @return {@link #taken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getTaken" gives direct access to the value
      */
-    public Enumeration<MedicationStatementNotTaken> getNotTakenElement() { 
-      if (this.notTaken == null)
+    public Enumeration<MedicationStatementTaken> getTakenElement() { 
+      if (this.taken == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationStatement.notTaken");
+          throw new Error("Attempt to auto-create MedicationStatement.taken");
         else if (Configuration.doAutoCreate())
-          this.notTaken = new Enumeration<MedicationStatementNotTaken>(new MedicationStatementNotTakenEnumFactory()); // bb
-      return this.notTaken;
+          this.taken = new Enumeration<MedicationStatementTaken>(new MedicationStatementTakenEnumFactory()); // bb
+      return this.taken;
     }
 
-    public boolean hasNotTakenElement() { 
-      return this.notTaken != null && !this.notTaken.isEmpty();
+    public boolean hasTakenElement() { 
+      return this.taken != null && !this.taken.isEmpty();
     }
 
-    public boolean hasNotTaken() { 
-      return this.notTaken != null && !this.notTaken.isEmpty();
+    public boolean hasTaken() { 
+      return this.taken != null && !this.taken.isEmpty();
     }
 
     /**
-     * @param value {@link #notTaken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getNotTaken" gives direct access to the value
+     * @param value {@link #taken} (Indicator of the certainty of whether the medication was taken by the patient.). This is the underlying object with id, value and extensions. The accessor "getTaken" gives direct access to the value
      */
-    public MedicationStatement setNotTakenElement(Enumeration<MedicationStatementNotTaken> value) { 
-      this.notTaken = value;
+    public MedicationStatement setTakenElement(Enumeration<MedicationStatementTaken> value) { 
+      this.taken = value;
       return this;
     }
 
     /**
      * @return Indicator of the certainty of whether the medication was taken by the patient.
      */
-    public MedicationStatementNotTaken getNotTaken() { 
-      return this.notTaken == null ? null : this.notTaken.getValue();
+    public MedicationStatementTaken getTaken() { 
+      return this.taken == null ? null : this.taken.getValue();
     }
 
     /**
      * @param value Indicator of the certainty of whether the medication was taken by the patient.
      */
-    public MedicationStatement setNotTaken(MedicationStatementNotTaken value) { 
-      if (value == null)
-        this.notTaken = null;
-      else {
-        if (this.notTaken == null)
-          this.notTaken = new Enumeration<MedicationStatementNotTaken>(new MedicationStatementNotTakenEnumFactory());
-        this.notTaken.setValue(value);
-      }
+    public MedicationStatement setTaken(MedicationStatementTaken value) { 
+        if (this.taken == null)
+          this.taken = new Enumeration<MedicationStatementTaken>(new MedicationStatementTakenEnumFactory());
+        this.taken.setValue(value);
       return this;
     }
 
@@ -1437,55 +1350,6 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #category} (Indicates where type of medication statement and where the medication is expected to be consumed or administered.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
-     */
-    public Enumeration<MedicationStatementCategory> getCategoryElement() { 
-      if (this.category == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationStatement.category");
-        else if (Configuration.doAutoCreate())
-          this.category = new Enumeration<MedicationStatementCategory>(new MedicationStatementCategoryEnumFactory()); // bb
-      return this.category;
-    }
-
-    public boolean hasCategoryElement() { 
-      return this.category != null && !this.category.isEmpty();
-    }
-
-    public boolean hasCategory() { 
-      return this.category != null && !this.category.isEmpty();
-    }
-
-    /**
-     * @param value {@link #category} (Indicates where type of medication statement and where the medication is expected to be consumed or administered.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
-     */
-    public MedicationStatement setCategoryElement(Enumeration<MedicationStatementCategory> value) { 
-      this.category = value;
-      return this;
-    }
-
-    /**
-     * @return Indicates where type of medication statement and where the medication is expected to be consumed or administered.
-     */
-    public MedicationStatementCategory getCategory() { 
-      return this.category == null ? null : this.category.getValue();
-    }
-
-    /**
-     * @param value Indicates where type of medication statement and where the medication is expected to be consumed or administered.
-     */
-    public MedicationStatement setCategory(MedicationStatementCategory value) { 
-      if (value == null)
-        this.category = null;
-      else {
-        if (this.category == null)
-          this.category = new Enumeration<MedicationStatementCategory>(new MedicationStatementCategoryEnumFactory());
-        this.category.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
     public List<DosageInstruction> getDosage() { 
@@ -1541,22 +1405,22 @@ public class MedicationStatement extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|DiagnosticRequest|ProcedureRequest|ReferralRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("basedOn", "Reference(MedicationRequest|CarePlan|ProcedureRequest|ReferralRequest)", "A plan, proposal or order that is fulfilled in whole or in part by this event.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("partOf", "Reference(MedicationAdministration|MedicationDispense|MedicationStatement|Procedure|Observation)", "A larger event of which this particular event is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter or episode of care that establishes the context for this MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("category", "CodeableConcept", "Indicates where type of medication statement and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).", 0, java.lang.Integer.MAX_VALUE, effective));
         childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, informationSource));
         childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
-        childrenList.add(new Property("notTaken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, notTaken));
+        childrenList.add(new Property("taken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, taken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
         childrenList.add(new Property("reasonForUseCodeableConcept", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseCodeableConcept));
         childrenList.add(new Property("reasonForUseReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseReference));
         childrenList.add(new Property("note", "Annotation", "Provides extra information about the medication statement that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("category", "code", "Indicates where type of medication statement and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("dosage", "DosageInstruction", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
@@ -1568,18 +1432,18 @@ public class MedicationStatement extends DomainResource {
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatementStatus>
+        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
         case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
         case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case -1980855245: /*dateAsserted*/ return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
-        case 1565822388: /*notTaken*/ return this.notTaken == null ? new Base[0] : new Base[] {this.notTaken}; // Enumeration<MedicationStatementNotTaken>
+        case 110124231: /*taken*/ return this.taken == null ? new Base[0] : new Base[] {this.taken}; // Enumeration<MedicationStatementTaken>
         case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
         case 909630431: /*reasonForUseCodeableConcept*/ return this.reasonForUseCodeableConcept == null ? new Base[0] : this.reasonForUseCodeableConcept.toArray(new Base[this.reasonForUseCodeableConcept.size()]); // CodeableConcept
         case -370888183: /*reasonForUseReference*/ return this.reasonForUseReference == null ? new Base[0] : this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // Enumeration<MedicationStatementCategory>
         case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // DosageInstruction
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1605,6 +1469,9 @@ public class MedicationStatement extends DomainResource {
           value = new MedicationStatementStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationStatementStatus>
           return value;
+        case 50511102: // category
+          this.category = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 1998965455: // medication
           this.medication = castToType(value); // Type
           return value;
@@ -1623,9 +1490,9 @@ public class MedicationStatement extends DomainResource {
         case -1980855245: // dateAsserted
           this.dateAsserted = castToDateTime(value); // DateTimeType
           return value;
-        case 1565822388: // notTaken
-          value = new MedicationStatementNotTakenEnumFactory().fromType(castToCode(value));
-          this.notTaken = (Enumeration) value; // Enumeration<MedicationStatementNotTaken>
+        case 110124231: // taken
+          value = new MedicationStatementTakenEnumFactory().fromType(castToCode(value));
+          this.taken = (Enumeration) value; // Enumeration<MedicationStatementTaken>
           return value;
         case 2112880664: // reasonNotTaken
           this.getReasonNotTaken().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1638,10 +1505,6 @@ public class MedicationStatement extends DomainResource {
           return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
-          return value;
-        case 50511102: // category
-          value = new MedicationStatementCategoryEnumFactory().fromType(castToCode(value));
-          this.category = (Enumeration) value; // Enumeration<MedicationStatementCategory>
           return value;
         case -1326018889: // dosage
           this.getDosage().add(castToDosageInstruction(value)); // DosageInstruction
@@ -1664,6 +1527,8 @@ public class MedicationStatement extends DomainResource {
         } else if (name.equals("status")) {
           value = new MedicationStatementStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<MedicationStatementStatus>
+        } else if (name.equals("category")) {
+          this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("medication[x]")) {
           this.medication = castToType(value); // Type
         } else if (name.equals("subject")) {
@@ -1676,9 +1541,9 @@ public class MedicationStatement extends DomainResource {
           this.getDerivedFrom().add(castToReference(value));
         } else if (name.equals("dateAsserted")) {
           this.dateAsserted = castToDateTime(value); // DateTimeType
-        } else if (name.equals("notTaken")) {
-          value = new MedicationStatementNotTakenEnumFactory().fromType(castToCode(value));
-          this.notTaken = (Enumeration) value; // Enumeration<MedicationStatementNotTaken>
+        } else if (name.equals("taken")) {
+          value = new MedicationStatementTakenEnumFactory().fromType(castToCode(value));
+          this.taken = (Enumeration) value; // Enumeration<MedicationStatementTaken>
         } else if (name.equals("reasonNotTaken")) {
           this.getReasonNotTaken().add(castToCodeableConcept(value));
         } else if (name.equals("reasonForUseCodeableConcept")) {
@@ -1687,9 +1552,6 @@ public class MedicationStatement extends DomainResource {
           this.getReasonForUseReference().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
-        } else if (name.equals("category")) {
-          value = new MedicationStatementCategoryEnumFactory().fromType(castToCode(value));
-          this.category = (Enumeration) value; // Enumeration<MedicationStatementCategory>
         } else if (name.equals("dosage")) {
           this.getDosage().add(castToDosageInstruction(value));
         } else
@@ -1705,6 +1567,7 @@ public class MedicationStatement extends DomainResource {
         case -995410646:  return addPartOf(); 
         case 951530927:  return getContext(); 
         case -892481550:  return getStatusElement();
+        case 50511102:  return getCategory(); 
         case 1458402129:  return getMedication(); 
         case 1998965455:  return getMedication(); 
         case -1867885268:  return getSubject(); 
@@ -1713,12 +1576,11 @@ public class MedicationStatement extends DomainResource {
         case -2123220889:  return getInformationSource(); 
         case 1077922663:  return addDerivedFrom(); 
         case -1980855245:  return getDateAssertedElement();
-        case 1565822388:  return getNotTakenElement();
+        case 110124231:  return getTakenElement();
         case 2112880664:  return addReasonNotTaken(); 
         case 909630431:  return addReasonForUseCodeableConcept(); 
         case -370888183:  return addReasonForUseReference(); 
         case 3387378:  return addNote(); 
-        case 50511102:  return getCategoryElement();
         case -1326018889:  return addDosage(); 
         default: return super.makeProperty(hash, name);
         }
@@ -1733,18 +1595,18 @@ public class MedicationStatement extends DomainResource {
         case -995410646: /*partOf*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
         case -2123220889: /*informationSource*/ return new String[] {"Reference"};
         case 1077922663: /*derivedFrom*/ return new String[] {"Reference"};
         case -1980855245: /*dateAsserted*/ return new String[] {"dateTime"};
-        case 1565822388: /*notTaken*/ return new String[] {"code"};
+        case 110124231: /*taken*/ return new String[] {"code"};
         case 2112880664: /*reasonNotTaken*/ return new String[] {"CodeableConcept"};
         case 909630431: /*reasonForUseCodeableConcept*/ return new String[] {"CodeableConcept"};
         case -370888183: /*reasonForUseReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case 50511102: /*category*/ return new String[] {"code"};
         case -1326018889: /*dosage*/ return new String[] {"DosageInstruction"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -1768,6 +1630,10 @@ public class MedicationStatement extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.status");
+        }
+        else if (name.equals("category")) {
+          this.category = new CodeableConcept();
+          return this.category;
         }
         else if (name.equals("medicationCodeableConcept")) {
           this.medication = new CodeableConcept();
@@ -1799,8 +1665,8 @@ public class MedicationStatement extends DomainResource {
         else if (name.equals("dateAsserted")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.dateAsserted");
         }
-        else if (name.equals("notTaken")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.notTaken");
+        else if (name.equals("taken")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.taken");
         }
         else if (name.equals("reasonNotTaken")) {
           return addReasonNotTaken();
@@ -1813,9 +1679,6 @@ public class MedicationStatement extends DomainResource {
         }
         else if (name.equals("note")) {
           return addNote();
-        }
-        else if (name.equals("category")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.category");
         }
         else if (name.equals("dosage")) {
           return addDosage();
@@ -1849,6 +1712,7 @@ public class MedicationStatement extends DomainResource {
         };
         dst.context = context == null ? null : context.copy();
         dst.status = status == null ? null : status.copy();
+        dst.category = category == null ? null : category.copy();
         dst.medication = medication == null ? null : medication.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.effective = effective == null ? null : effective.copy();
@@ -1859,7 +1723,7 @@ public class MedicationStatement extends DomainResource {
             dst.derivedFrom.add(i.copy());
         };
         dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
-        dst.notTaken = notTaken == null ? null : notTaken.copy();
+        dst.taken = taken == null ? null : taken.copy();
         if (reasonNotTaken != null) {
           dst.reasonNotTaken = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : reasonNotTaken)
@@ -1880,7 +1744,6 @@ public class MedicationStatement extends DomainResource {
           for (Annotation i : note)
             dst.note.add(i.copy());
         };
-        dst.category = category == null ? null : category.copy();
         if (dosage != null) {
           dst.dosage = new ArrayList<DosageInstruction>();
           for (DosageInstruction i : dosage)
@@ -1901,13 +1764,12 @@ public class MedicationStatement extends DomainResource {
           return false;
         MedicationStatement o = (MedicationStatement) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
-           && compareDeep(context, o.context, true) && compareDeep(status, o.status, true) && compareDeep(medication, o.medication, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(effective, o.effective, true) && compareDeep(informationSource, o.informationSource, true)
-           && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(dateAsserted, o.dateAsserted, true)
-           && compareDeep(notTaken, o.notTaken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
+           && compareDeep(context, o.context, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
+           && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true) && compareDeep(effective, o.effective, true)
+           && compareDeep(informationSource, o.informationSource, true) && compareDeep(derivedFrom, o.derivedFrom, true)
+           && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(taken, o.taken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
            && compareDeep(reasonForUseCodeableConcept, o.reasonForUseCodeableConcept, true) && compareDeep(reasonForUseReference, o.reasonForUseReference, true)
-           && compareDeep(note, o.note, true) && compareDeep(category, o.category, true) && compareDeep(dosage, o.dosage, true)
-          ;
+           && compareDeep(note, o.note, true) && compareDeep(dosage, o.dosage, true);
       }
 
       @Override
@@ -1917,15 +1779,15 @@ public class MedicationStatement extends DomainResource {
         if (!(other instanceof MedicationStatement))
           return false;
         MedicationStatement o = (MedicationStatement) other;
-        return compareValues(status, o.status, true) && compareValues(dateAsserted, o.dateAsserted, true) && compareValues(notTaken, o.notTaken, true)
-           && compareValues(category, o.category, true);
+        return compareValues(status, o.status, true) && compareValues(dateAsserted, o.dateAsserted, true) && compareValues(taken, o.taken, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
-          , context, status, medication, subject, effective, informationSource, derivedFrom
-          , dateAsserted, notTaken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
-          , note, category, dosage);
+          , context, status, category, medication, subject, effective, informationSource
+          , derivedFrom, dateAsserted, taken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
+          , note, dosage);
       }
 
   @Override
@@ -2018,6 +1880,32 @@ public class MedicationStatement extends DomainResource {
    * the path value of "<b>MedicationStatement:subject</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("MedicationStatement:subject").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who is/was taking  the medication</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="MedicationStatement.subject", description="Who is/was taking  the medication", type="reference", target={Patient.class } )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who is/was taking  the medication</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationStatement:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationStatement:patient").toLocked();
 
  /**
    * Search parameter: <b>medication</b>

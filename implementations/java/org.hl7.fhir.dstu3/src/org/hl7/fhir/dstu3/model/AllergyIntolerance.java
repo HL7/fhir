@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Jan 18, 2017 13:54-0600 for FHIR v1.9.0
+// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -480,130 +480,6 @@ public class AllergyIntolerance extends DomainResource {
       }
     }
 
-    public enum AllergyIntoleranceCertainty {
-        /**
-         * There is a low level of clinical certainty that the reaction was caused by the identified substance.
-         */
-        UNLIKELY, 
-        /**
-         * There is a high level of clinical certainty that the reaction was caused by the identified substance.
-         */
-        LIKELY, 
-        /**
-         * There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.
-         */
-        CONFIRMED, 
-        /**
-         * The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.
-         */
-        UNKNOWN, 
-        /**
-         * added to help the parsers with the generic types
-         */
-        NULL;
-        public static AllergyIntoleranceCertainty fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unlikely".equals(codeString))
-          return UNLIKELY;
-        if ("likely".equals(codeString))
-          return LIKELY;
-        if ("confirmed".equals(codeString))
-          return CONFIRMED;
-        if ("unknown".equals(codeString))
-          return UNKNOWN;
-        if (Configuration.isAcceptInvalidEnums())
-          return null;
-        else
-          throw new FHIRException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case UNLIKELY: return "unlikely";
-            case LIKELY: return "likely";
-            case CONFIRMED: return "confirmed";
-            case UNKNOWN: return "unknown";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case UNLIKELY: return "http://hl7.org/fhir/reaction-event-certainty";
-            case LIKELY: return "http://hl7.org/fhir/reaction-event-certainty";
-            case CONFIRMED: return "http://hl7.org/fhir/reaction-event-certainty";
-            case UNKNOWN: return "http://hl7.org/fhir/reaction-event-certainty";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case UNLIKELY: return "There is a low level of clinical certainty that the reaction was caused by the identified substance.";
-            case LIKELY: return "There is a high level of clinical certainty that the reaction was caused by the identified substance.";
-            case CONFIRMED: return "There is a very high level of clinical certainty that the reaction was due to the identified substance, which may include clinical evidence by testing or rechallenge.";
-            case UNKNOWN: return "The clinical certainty that the reaction was caused by the identified substance is unknown.  It is an explicit assertion that certainty is not known.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case UNLIKELY: return "Unlikely";
-            case LIKELY: return "Likely";
-            case CONFIRMED: return "Confirmed";
-            case UNKNOWN: return "Unknown";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class AllergyIntoleranceCertaintyEnumFactory implements EnumFactory<AllergyIntoleranceCertainty> {
-    public AllergyIntoleranceCertainty fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("unlikely".equals(codeString))
-          return AllergyIntoleranceCertainty.UNLIKELY;
-        if ("likely".equals(codeString))
-          return AllergyIntoleranceCertainty.LIKELY;
-        if ("confirmed".equals(codeString))
-          return AllergyIntoleranceCertainty.CONFIRMED;
-        if ("unknown".equals(codeString))
-          return AllergyIntoleranceCertainty.UNKNOWN;
-        throw new IllegalArgumentException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
-        }
-        public Enumeration<AllergyIntoleranceCertainty> fromType(Base code) throws FHIRException {
-          if (code == null)
-            return null;
-          if (code.isEmpty())
-            return new Enumeration<AllergyIntoleranceCertainty>(this);
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("unlikely".equals(codeString))
-          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.UNLIKELY);
-        if ("likely".equals(codeString))
-          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.LIKELY);
-        if ("confirmed".equals(codeString))
-          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.CONFIRMED);
-        if ("unknown".equals(codeString))
-          return new Enumeration<AllergyIntoleranceCertainty>(this, AllergyIntoleranceCertainty.UNKNOWN);
-        throw new FHIRException("Unknown AllergyIntoleranceCertainty code '"+codeString+"'");
-        }
-    public String toCode(AllergyIntoleranceCertainty code) {
-      if (code == AllergyIntoleranceCertainty.UNLIKELY)
-        return "unlikely";
-      if (code == AllergyIntoleranceCertainty.LIKELY)
-        return "likely";
-      if (code == AllergyIntoleranceCertainty.CONFIRMED)
-        return "confirmed";
-      if (code == AllergyIntoleranceCertainty.UNKNOWN)
-        return "unknown";
-      return "?";
-      }
-    public String toSystem(AllergyIntoleranceCertainty code) {
-      return code.getSystem();
-      }
-    }
-
     public enum AllergyIntoleranceSeverity {
         /**
          * Causes mild physiological effects.
@@ -723,39 +599,31 @@ public class AllergyIntolerance extends DomainResource {
         protected CodeableConcept substance;
 
         /**
-         * Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-         */
-        @Child(name = "certainty", type = {CodeType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="unlikely | likely | confirmed | unknown", formalDefinition="Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reaction-event-certainty")
-        protected Enumeration<AllergyIntoleranceCertainty> certainty;
-
-        /**
          * Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
          */
-        @Child(name = "manifestation", type = {CodeableConcept.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "manifestation", type = {CodeableConcept.class}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Clinical symptoms/signs associated with the Event", formalDefinition="Clinical symptoms and/or signs that are observed or associated with the adverse reaction event." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/manifestation-codes")
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
         protected List<CodeableConcept> manifestation;
 
         /**
          * Text description about the reaction as a whole, including details of the manifestation if required.
          */
-        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Description of the event as a whole", formalDefinition="Text description about the reaction as a whole, including details of the manifestation if required." )
         protected StringType description;
 
         /**
          * Record of the date and/or time of the onset of the Reaction.
          */
-        @Child(name = "onset", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "onset", type = {DateTimeType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Date(/time) when manifestations showed", formalDefinition="Record of the date and/or time of the onset of the Reaction." )
         protected DateTimeType onset;
 
         /**
          * Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
-        @Child(name = "severity", type = {CodeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "severity", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="mild | moderate | severe (of event as a whole)", formalDefinition="Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/reaction-event-severity")
         protected Enumeration<AllergyIntoleranceSeverity> severity;
@@ -763,7 +631,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Identification of the route by which the subject was exposed to the substance.
          */
-        @Child(name = "exposureRoute", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "exposureRoute", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="How the subject was exposed to the substance", formalDefinition="Identification of the route by which the subject was exposed to the substance." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/route-codes")
         protected CodeableConcept exposureRoute;
@@ -771,11 +639,11 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Additional text about the adverse reaction event not captured in other fields.
          */
-        @Child(name = "note", type = {Annotation.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "note", type = {Annotation.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Text about event not captured in other fields", formalDefinition="Additional text about the adverse reaction event not captured in other fields." )
         protected List<Annotation> note;
 
-        private static final long serialVersionUID = -31700461L;
+        private static final long serialVersionUID = -752118516L;
 
     /**
      * Constructor
@@ -805,55 +673,6 @@ public class AllergyIntolerance extends DomainResource {
          */
         public AllergyIntoleranceReactionComponent setSubstance(CodeableConcept value) { 
           this.substance = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #certainty} (Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
-         */
-        public Enumeration<AllergyIntoleranceCertainty> getCertaintyElement() { 
-          if (this.certainty == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.certainty");
-            else if (Configuration.doAutoCreate())
-              this.certainty = new Enumeration<AllergyIntoleranceCertainty>(new AllergyIntoleranceCertaintyEnumFactory()); // bb
-          return this.certainty;
-        }
-
-        public boolean hasCertaintyElement() { 
-          return this.certainty != null && !this.certainty.isEmpty();
-        }
-
-        public boolean hasCertainty() { 
-          return this.certainty != null && !this.certainty.isEmpty();
-        }
-
-        /**
-         * @param value {@link #certainty} (Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
-         */
-        public AllergyIntoleranceReactionComponent setCertaintyElement(Enumeration<AllergyIntoleranceCertainty> value) { 
-          this.certainty = value;
-          return this;
-        }
-
-        /**
-         * @return Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-         */
-        public AllergyIntoleranceCertainty getCertainty() { 
-          return this.certainty == null ? null : this.certainty.getValue();
-        }
-
-        /**
-         * @param value Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-         */
-        public AllergyIntoleranceReactionComponent setCertainty(AllergyIntoleranceCertainty value) { 
-          if (value == null)
-            this.certainty = null;
-          else {
-            if (this.certainty == null)
-              this.certainty = new Enumeration<AllergyIntoleranceCertainty>(new AllergyIntoleranceCertaintyEnumFactory());
-            this.certainty.setValue(value);
-          }
           return this;
         }
 
@@ -1137,7 +956,6 @@ public class AllergyIntolerance extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("substance", "CodeableConcept", "Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.", 0, java.lang.Integer.MAX_VALUE, substance));
-          childrenList.add(new Property("certainty", "code", "Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.", 0, java.lang.Integer.MAX_VALUE, certainty));
           childrenList.add(new Property("manifestation", "CodeableConcept", "Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.", 0, java.lang.Integer.MAX_VALUE, manifestation));
           childrenList.add(new Property("description", "string", "Text description about the reaction as a whole, including details of the manifestation if required.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("onset", "dateTime", "Record of the date and/or time of the onset of the Reaction.", 0, java.lang.Integer.MAX_VALUE, onset));
@@ -1150,7 +968,6 @@ public class AllergyIntolerance extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case 530040176: /*substance*/ return this.substance == null ? new Base[0] : new Base[] {this.substance}; // CodeableConcept
-        case -1404142937: /*certainty*/ return this.certainty == null ? new Base[0] : new Base[] {this.certainty}; // Enumeration<AllergyIntoleranceCertainty>
         case 1115984422: /*manifestation*/ return this.manifestation == null ? new Base[0] : this.manifestation.toArray(new Base[this.manifestation.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 105901603: /*onset*/ return this.onset == null ? new Base[0] : new Base[] {this.onset}; // DateTimeType
@@ -1167,10 +984,6 @@ public class AllergyIntolerance extends DomainResource {
         switch (hash) {
         case 530040176: // substance
           this.substance = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -1404142937: // certainty
-          value = new AllergyIntoleranceCertaintyEnumFactory().fromType(castToCode(value));
-          this.certainty = (Enumeration) value; // Enumeration<AllergyIntoleranceCertainty>
           return value;
         case 1115984422: // manifestation
           this.getManifestation().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1200,9 +1013,6 @@ public class AllergyIntolerance extends DomainResource {
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("substance")) {
           this.substance = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("certainty")) {
-          value = new AllergyIntoleranceCertaintyEnumFactory().fromType(castToCode(value));
-          this.certainty = (Enumeration) value; // Enumeration<AllergyIntoleranceCertainty>
         } else if (name.equals("manifestation")) {
           this.getManifestation().add(castToCodeableConcept(value));
         } else if (name.equals("description")) {
@@ -1225,7 +1035,6 @@ public class AllergyIntolerance extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 530040176:  return getSubstance(); 
-        case -1404142937:  return getCertaintyElement();
         case 1115984422:  return addManifestation(); 
         case -1724546052:  return getDescriptionElement();
         case 105901603:  return getOnsetElement();
@@ -1241,7 +1050,6 @@ public class AllergyIntolerance extends DomainResource {
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case 530040176: /*substance*/ return new String[] {"CodeableConcept"};
-        case -1404142937: /*certainty*/ return new String[] {"code"};
         case 1115984422: /*manifestation*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 105901603: /*onset*/ return new String[] {"dateTime"};
@@ -1258,9 +1066,6 @@ public class AllergyIntolerance extends DomainResource {
         if (name.equals("substance")) {
           this.substance = new CodeableConcept();
           return this.substance;
-        }
-        else if (name.equals("certainty")) {
-          throw new FHIRException("Cannot call addChild on a primitive type AllergyIntolerance.certainty");
         }
         else if (name.equals("manifestation")) {
           return addManifestation();
@@ -1289,7 +1094,6 @@ public class AllergyIntolerance extends DomainResource {
         AllergyIntoleranceReactionComponent dst = new AllergyIntoleranceReactionComponent();
         copyValues(dst);
         dst.substance = substance == null ? null : substance.copy();
-        dst.certainty = certainty == null ? null : certainty.copy();
         if (manifestation != null) {
           dst.manifestation = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : manifestation)
@@ -1314,7 +1118,7 @@ public class AllergyIntolerance extends DomainResource {
         if (!(other instanceof AllergyIntoleranceReactionComponent))
           return false;
         AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other;
-        return compareDeep(substance, o.substance, true) && compareDeep(certainty, o.certainty, true) && compareDeep(manifestation, o.manifestation, true)
+        return compareDeep(substance, o.substance, true) && compareDeep(manifestation, o.manifestation, true)
            && compareDeep(description, o.description, true) && compareDeep(onset, o.onset, true) && compareDeep(severity, o.severity, true)
            && compareDeep(exposureRoute, o.exposureRoute, true) && compareDeep(note, o.note, true);
       }
@@ -1326,13 +1130,13 @@ public class AllergyIntolerance extends DomainResource {
         if (!(other instanceof AllergyIntoleranceReactionComponent))
           return false;
         AllergyIntoleranceReactionComponent o = (AllergyIntoleranceReactionComponent) other;
-        return compareValues(certainty, o.certainty, true) && compareValues(description, o.description, true)
-           && compareValues(onset, o.onset, true) && compareValues(severity, o.severity, true);
+        return compareValues(description, o.description, true) && compareValues(onset, o.onset, true) && compareValues(severity, o.severity, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(substance, certainty, manifestation
-          , description, onset, severity, exposureRoute, note);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(substance, manifestation, description
+          , onset, severity, exposureRoute, note);
       }
 
   public String fhirType() {
@@ -1393,7 +1197,7 @@ public class AllergyIntolerance extends DomainResource {
      * Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., "Latex"), an allergy or intolerance condition (e.g., "Latex allergy"), or a negated/excluded code for a specific substance or class (e.g., "No latex allergy") or a general or categorical negated statement (e.g.,  "No known allergy", "No known drug allergies").
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Allergy or intolerance code", formalDefinition="Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\")." )
+    @Description(shortDefinition="Code that identifies the allergy or intolerance", formalDefinition="Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\")." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/allergyintolerance-code")
     protected CodeableConcept code;
 
@@ -2670,17 +2474,17 @@ public class AllergyIntolerance extends DomainResource {
  /**
    * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>Allergy or intolerance code</b><br>
+   * Description: <b>Code that identifies the allergy or intolerance</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.code, AllergyIntolerance.reaction.substance</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="AllergyIntolerance.code | AllergyIntolerance.reaction.substance", description="Allergy or intolerance code", type="token" )
+  @SearchParamDefinition(name="code", path="AllergyIntolerance.code | AllergyIntolerance.reaction.substance", description="Code that identifies the allergy or intolerance", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>Allergy or intolerance code</b><br>
+   * Description: <b>Code that identifies the allergy or intolerance</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AllergyIntolerance.code, AllergyIntolerance.reaction.substance</b><br>
    * </p>
