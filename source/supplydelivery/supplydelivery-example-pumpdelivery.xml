@@ -26,4 +26,13 @@
 		<display value="ACME distribution"/>
 	</supplier>
 
+  <destination>
+		<display value="Home care dept"/>
+	</destination>
+
+  <receiver>
+		<display value="Nurse Smith"/>
+	</receiver>
+
+
 </SupplyDelivery>

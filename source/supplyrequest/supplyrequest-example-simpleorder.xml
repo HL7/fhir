@@ -6,6 +6,10 @@
         <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
     </text>
 
+    <patient>
+        <display value="J. Wellington Wimpy"/>
+    </patient>
+
     <source>
         <display value="Purchasing Dept"/>
     </source>
