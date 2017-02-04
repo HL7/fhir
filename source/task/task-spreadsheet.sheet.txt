@@ -112,17 +112,17 @@
  -- Row 2 -----------------------------------
   Code = requested
   Display = Requested
-  Definition = The task is ready to be acted upon and action is sought
+  Definition = The task is ready to be acted upon and action is sought.
 
  -- Row 3 -----------------------------------
   Code = received
   Display = Received
-  Definition = A potential performer has claimed ownership of the task and is evaluating whether to perform it
+  Definition = A potential performer has claimed ownership of the task and is evaluating whether to perform it.
 
  -- Row 4 -----------------------------------
   Code = accepted
   Display = Accepted
-  Definition = The potential performer has agreed to execute the task but has not yet started work
+  Definition = The potential performer has agreed to execute the task but has not yet started work.
 
  -- Row 5 -----------------------------------
   Code = rejected
@@ -137,7 +137,7 @@
  -- Row 7 -----------------------------------
   Code = cancelled
   Display = Cancelled
-  Definition = the task was not completed (more or less) as requested
+  Definition = The task was not completed.
 
  -- Row 8 -----------------------------------
   Code = in-progress
@@ -147,7 +147,7 @@
  -- Row 9 -----------------------------------
   Code = on-hold
   Display = On Hold
-  Definition = Task has been started but work has been paused
+  Definition = Task has been started but work has been paused.
 
  -- Row 10 -----------------------------------
   Code = failed
@@ -157,12 +157,12 @@
  -- Row 11 -----------------------------------
   Code = completed
   Display = Completed
-  Definition = The task has been completed (more or less) as requested.
+  Definition = The task has been completed.
 
  -- Row 12 -----------------------------------
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The task should never have existed and is retained only because of the possibility it may have used
+  Definition = The task should never have existed and is retained only because of the possibility it may have used.
 
 === Sheet Invariants =====================================
 

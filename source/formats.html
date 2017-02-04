@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 
 
-      
+
 [%settitle Formats%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -19,9 +19,9 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
 <p>
 
-This page documents how the content of the resources are described. 
+This page documents how the content of the resources are described.
 In actual exchange, resources can be represented in the following
-formats: <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a>. 
+formats: <a href="xml.html">XML</a>, <a href="json.html">JSON</a> and <a href="rdf.html">Turtle</a>.
 Other representations are allowed, but are not described by this specification.
 </p>
 
@@ -36,7 +36,7 @@ The resources are described in several different ways:
  <li>a pseudo-XML syntax that provides a visual sense of what the end resource instances will look like in XML</li>
  <li>a pseudo-JSON syntax that provides a visual sense of what the end resource instances will look like in JSON</li>
  <li>a pseudo-Turtle syntax that provides a visual sense of what the end resource instances will look like in Turtle</li>
-</ul> 
+</ul>
 <p>
 In addition to this descriptive syntax, other definitional forms are available, including W3C schema and Schematron, and the <a href="structuredefinition.html">StructureDefinition</a> syntax defined internally.
 </p>
@@ -51,8 +51,8 @@ The Logical View shows the resources as a tree structure with the following colu
  <tr> <td>Name</td> <td>The name of the element in the resource (manifests as XML element name, or JSON property name. Some names finish with <code>[x]</code> - the meaning of this is discussed below. In addition, this column contains an icon that denotes the underlying type of the content. The icons are described below</td> </tr>
  <tr> <td>Flags</td> <td>A set of information about the element that impacts how implementers handle them. The flags are described below</td> </tr>
  <tr> <td>Card.</td> <td>The lower and upper bounds on how many times this element is allowed to appear in the resource</td> </tr>
- <tr> <td>Type</td> <td>The type of the element (hyperlinked to the definition of the type). Note that the type of the element has one of two meanings, 
-   depending on whether the element has defined children. If the element has children, then the element has an anonymous type that specializes the given type. If the element has no children, then 
+ <tr> <td>Type</td> <td>The type of the element (hyperlinked to the definition of the type). Note that the type of the element has one of two meanings,
+   depending on whether the element has defined children. If the element has children, then the element has an anonymous type that specializes the given type. If the element has no children, then
    the element has properties and children as specified by the nominated type</td> </tr>
  <tr> <td>Description &amp; Constraints</td> <td>A description of the element, and details about constraints that are applied to it. Particularly, for coded elements, information about which codes can be used</td> </tr>
 </table>
@@ -133,6 +133,8 @@ Here's an example:
  <li><img title="Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension.png"/>: An extension (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Complex Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension_complex.png"/>: A complex extension - one with nested extensions (see <a href="extensibility.html#complex">Extensibility</a>)</li>
  <li><img title="Simple Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_extension_simple.png"/>: An extension that has a value and no nested extensions (see <a href="extensibility.html">Extensibility</a>)</li>
+ <li><img title="Complex Modifier Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_modifier_extension_complex.png"/>: A complex modifier extension - one with nested extensions (see <a href="extensibility.html#complex">Extensibility</a>)</li>
+ <li><img title="Simple Modifier Extension" style="background-color: white;" alt="." class="hierarchy" src="icon_modifier_extension_simple.png"/>: A modifier extension that has a value and no nested extensions (see <a href="extensibility.html">Extensibility</a>)</li>
  <li><img title="Profile" style="background-color: white;" alt="." class="hierarchy" src="icon_profile.png"/>: The root of a logical profile</li>
 <!-- dont think this is used <li><img title="Text" style="background-color: white;" alt="." class="hierarchy" src="icon_text.png"/>: Plain text content</li> -->
  <li><code>?!</code>: This element is a modifying element - see <a href="conformance-rules.html#isModifier">Modifier Elements</a></li>
@@ -161,31 +163,31 @@ Notes:
 <a name="choice"> </a>
 <h3>Choice of Data Types</h3>
 <p>
-A few elements have a choice of more than one data type for their content. All such elements have a name that 
-takes the form <code>nnn[x]</code>. The "nnn" part of the name is constant, and the "[x]" is replaced with the title-cased 
+A few elements have a choice of more than one data type for their content. All such elements have a name that
+takes the form <code>nnn[x]</code>. The "nnn" part of the name is constant, and the "[x]" is replaced with the title-cased
 name of the type that is actually used. The table view shows each of these names explicitly.
 </p>
 <p>
-Elements that have a choice of data type cannot repeat.  I.e. They must have a maximum cardinality of 1. 
+Elements that have a choice of data type cannot repeat.  I.e. They must have a maximum cardinality of 1.
 When constructing an instance of an element with a choice of types, the authoring system must create a single
-element with a data type chosen from among the list of permitted data types. 
+element with a data type chosen from among the list of permitted data types.
 </p>
 <p>
-Note: In object-orientated based implementations, this is naturally represented as a polymorphic property. 
-However this is not necessary and the correct implementation varies according to the particular features 
+Note: In object-orientated based implementations, this is naturally represented as a polymorphic property.
+However this is not necessary and the correct implementation varies according to the particular features
 of the language. In XML schema, these become an xs:choice of element.
 </p>
 
 
-    
+
 <a name="uml"> </a>
 <h3>UML</h3>
 <p>
 The UML diagrams represent the same content as a series of classes that represent
-the elements of a resource. 
+the elements of a resource.
 </p>
 
-<svg height="200.0" width="741.9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">  
+<svg height="200.0" width="741.9" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
     <filter id="shadow13" height="200%" width="200%" y="0" x="0">
       <feOffset result="offOut" dx="3" dy="3" in="SourceGraphic"/>
@@ -229,22 +231,22 @@ the elements of a resource.
 </svg>
 
 <p>
-The elements and the data types are hyperlinks to the formal definitions of the parts. The UML diagrams also show the 
+The elements and the data types are hyperlinks to the formal definitions of the parts. The UML diagrams also show the
 vocabulary bindings.  These are hyperlinks to the value set details.
 </p>
 <a name="umlchoice"> </a>
 <p>
-Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are 
-represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or 
+Where an element can have a choice of data types, or is a <a href="references.html">Reference</a> these are
+represented by showing the common type (<code>Reference</code> or <code>Type</code>), and then showing the applicable data type names or
 resource types in a stereotype, separated by the <code>|</code> character. <code>Type</code> is not formally otherwise defined by
-this specification, but is a super type of all the data types. 
+this specification, but is a super type of all the data types.
 </p>
 <p>
-The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation. 
+The actual order of the elements in XML cannot be determined from the diagram, nor whether a UML property becomes an element or an attribute in the XML representation.
 </p>
 <a name="binding"> </a>
 <p>
-Bindings to value sets are indicated by a stereotype on the element. The stereotype has 2 parts: the value 
+Bindings to value sets are indicated by a stereotype on the element. The stereotype has 2 parts: the value
 set name, and a symbol that denotes the strength of the binding:
 </p>
 <ul>
@@ -267,10 +269,10 @@ This specification defines the following ways to represent resources when they a
 </ul>
 
 <p>
-Clients and servers can choose what syntax(s) to implement. In 
+Clients and servers can choose what syntax(s) to implement. In
 the interests of interoperability, servers SHOULD support all formats (though support for RDF
 should best wait until it is more fully developed).
-Systems SHALL declare which format(s) they support in their <a href="capabilitystatement.html">Capability Statement</a>. 
+Systems SHALL declare which format(s) they support in their <a href="capabilitystatement.html">Capability Statement</a>.
 If a server receives a request for its Capability Statement in
 a format it does not otherwise support, it SHALL return a <code>415</code> Unsupported Media Type.
 </p>
