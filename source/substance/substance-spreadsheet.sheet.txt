@@ -9,11 +9,11 @@
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = !SubstanceStatus
-  Binding = value set
-  Reference = valueset-substance-status
+  Binding Name = SubstanceStatus
+  Binding = code list
+  Reference = #substance-status
   Definition = Substance status
-  Conformance = example
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = SubstanceCategory
@@ -28,6 +28,26 @@
   Reference = valueset-substance-code
   Definition = Substance Ingredient codes
   Conformance = example
+
+=== Sheet substance-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = active
+  Display = Active
+  Definition = The substance is considered for use or reference
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = inactive
+  Display = Inactive
+  Definition = The substance is considered for reference, but not for use
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The substance was entered in error
 
 === Sheet Invariants =====================================
 
@@ -83,6 +103,16 @@
   w5 = what
 
  -- Row 5 -----------------------------------
+  Element = Substance.status
+  Card. = 0..1
+  Summary = y
+  Type = code
+  Binding = SubstanceStatus
+  Short Name = active | inactive | entered-in-error
+  Definition = A code to indicate if the substance is actively used
+  RIM Mapping = .statusCode
+
+ -- Row 6 -----------------------------------
   Element = Substance.description
   Card. = 0..1
   Summary = Y
@@ -91,7 +121,7 @@
   Definition = A description of the substance - its appearance, handling requirements, and other usage notes
   RIM Mapping = .player.desc
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Substance.instance
   Card. = 0..*
   Summary = Y
@@ -102,7 +132,7 @@
   Committee Notes = #5666
   Missing Meaning = If this element is not present, then the substance resource describes a kind of substance
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Substance.instance.identifier
   Card. = 0..1
   Summary = Y
@@ -111,7 +141,7 @@
   Definition = Identifier associated with the package/container (usually a label affixed directly)
   RIM Mapping = .id
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Substance.instance.expiry
   Card. = 0..1
   Summary = Y
@@ -120,7 +150,7 @@
   Definition = When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
   RIM Mapping = .expiryTime
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Substance.instance.quantity
   Card. = 0..1
   Summary = Y
@@ -129,7 +159,7 @@
   Definition = The amount of the substance
   RIM Mapping = .player.quantity
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Substance.ingredient
   Card. = 0..*
   Summary = Y
@@ -138,7 +168,7 @@
   Definition = A substance can be composed of other substances
   RIM Mapping = .player.scopesRole[classCode=INGR]
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Substance.ingredient.quantity
   Card. = 0..1
   Summary = Y
@@ -147,7 +177,7 @@
   Definition = The amount of the ingredient in the substance - a concentration ratio
   RIM Mapping = .quantity
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Substance.ingredient.substance[x]
   Card. = 1..1
   Summary = Y
@@ -158,7 +188,7 @@
   RIM Mapping = .player
   Committee Notes = [#9233]
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !Substance.quantityMode
   Card. = 0..1
   Type = CodeableConcept
