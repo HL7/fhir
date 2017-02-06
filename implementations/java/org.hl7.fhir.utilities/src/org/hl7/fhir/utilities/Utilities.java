@@ -1013,6 +1013,31 @@ public class Utilities {
   }
 
 
+  public static String splitLineForLength(String line, int prefixLength, int indent, int allowedLength) {
+    List<String> list = new ArrayList<String>();
+    while (prefixLength + line.length() > allowedLength) {
+      int i = allowedLength - (list.size() == 0 ? prefixLength : indent);
+      while (i > 0 && line.charAt(i) != ' ')
+        i--;
+      if (i == 0)
+        break;
+      list.add(line.substring(0, i));
+      line = line.substring(i+1);
+    }
+    list.add(line);
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String s : list) {
+      if (first)
+        first = false;
+      else
+        b.append("\r\n"+padLeft("", ' ', indent));
+      b.append(s);
+    }
+    return b.toString();
+  }
+
+
 
 
 }
