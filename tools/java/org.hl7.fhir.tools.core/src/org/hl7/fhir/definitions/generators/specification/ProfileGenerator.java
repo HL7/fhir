@@ -552,7 +552,17 @@ public class ProfileGenerator {
     ecA.makeBase(type.getCode(), 0, "*");
     addElementConstraints("Element", ecA);
 
-//    generateElementDefinition(ecA, null);
+    ElementDefinition ecid = new ElementDefinition();
+    p.getSnapshot().getElement().add(ecid);
+    ecid.setId(type.getCode()+".id");
+    ecid.setPath(type.getCode()+".id");
+    ecid.addRepresentation(PropertyRepresentation.XMLATTR);
+    ecid.setDefinition("unique id for the element within a resource (for internal references)");
+    ecid.setMin(0);
+    ecid.setMax("1");
+    ecid.setShort("xml:id (or equivalent in JSON)");
+    ecid.getType().add(new TypeRefComponent().setCode("id"));
+    ecid.makeBase("Element.id", 0, "1");
 
     makeExtensionSlice("extension", p, p.getSnapshot(), null, type.getCode());
 
