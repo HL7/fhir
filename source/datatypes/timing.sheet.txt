@@ -128,42 +128,49 @@
  -- Row 1 -----------------------------------
   System = http://unitsofmeasure.org
   Code = s
+  Display = second
   Definition = second
   Display:zh = 秒
 
  -- Row 2 -----------------------------------
   System = http://unitsofmeasure.org
   Code = min
+  Display = minute
   Definition = minute
   Display:zh = 分钟
 
  -- Row 3 -----------------------------------
   System = http://unitsofmeasure.org
   Code = h
+  Display = hour
   Definition = hour
   Display:zh = 小时
 
  -- Row 4 -----------------------------------
   System = http://unitsofmeasure.org
   Code = d
+  Display = day
   Definition = day
   Display:zh = 天
 
  -- Row 5 -----------------------------------
   System = http://unitsofmeasure.org
   Code = wk
+  Display = week
   Definition = week
   Display:zh = 星期
 
  -- Row 6 -----------------------------------
   System = http://unitsofmeasure.org
   Code = mo
+  Display = month
   Definition = month
   Display:zh = 月
 
  -- Row 7 -----------------------------------
   System = http://unitsofmeasure.org
   Code = a
+  Display = year
   Definition = year
   Display:zh = 年
 
