@@ -5,6 +5,6 @@
 <p>
 This profile defines extensions that can be used to provide alignment with the <a href="event.html">Event</a> workflow pattern data elements for concepts that may be generally applicable but may be sufficiently uncommon that they are more appropriate to include as extensions than as core properties of the resource.  See the <a href="workflow-module.html">workflow module</a> for more discussion about this specification defines the Event logical models for resources that are typically involved in workflow.
 </p>
-
+</div>
 
 </div>

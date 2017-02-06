@@ -1,4 +1,16 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = EventPerformerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/performer-role
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = EventReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-cause
+  Conformance = example
+
 === Sheet Search =====================================
