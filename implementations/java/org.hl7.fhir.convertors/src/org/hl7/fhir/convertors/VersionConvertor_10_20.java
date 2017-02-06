@@ -11265,7 +11265,7 @@ public class VersionConvertor_10_20 {
     tgt.setType(convertSubscriptionChannelType(src.getType()));
     tgt.setEndpoint(src.getEndpoint());
     tgt.setPayload(src.getPayload());
-    tgt.setHeader(src.getHeader());
+    tgt.addHeader(src.getHeader());
     return tgt;
   }
 
@@ -11277,7 +11277,8 @@ public class VersionConvertor_10_20 {
     tgt.setType(convertSubscriptionChannelType(src.getType()));
     tgt.setEndpoint(src.getEndpoint());
     tgt.setPayload(src.getPayload());
-    tgt.setHeader(src.getHeader());
+    if (src.hasHeader())
+      tgt.setHeaderElement(convertString(src.getHeader().get(0)));
     return tgt;
   }
 

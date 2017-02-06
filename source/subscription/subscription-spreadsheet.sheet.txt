@@ -191,11 +191,11 @@
 
  -- Row 12 -----------------------------------
   Element = Subscription.channel.header
-  Card. = 0..1
+  Card. = 0..*
   Type = string
   Short Name = Usage depends on the channel type
   Definition = Additional headers / information to send as part of the notification
-  Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
+  Comments = Exactly what these mean depend on the channel type. They can convey additional information to the recipient and/or meet security requirements; for example, support of multiple headers in the outgoing notifications for rest-hook type subscriptions.
 
  -- Row 13 -----------------------------------
   Element = Subscription.tag

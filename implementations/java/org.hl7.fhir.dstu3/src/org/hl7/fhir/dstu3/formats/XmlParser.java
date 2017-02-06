@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2571,6 +2571,8 @@ public class XmlParser extends XmlParserBase {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("image")) {
         res.getImage().add(parseAttachment(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("active")) {
+        res.setActiveElement(parseBoolean(xpp));
       } else if (!parseDomainResourceContent(eventType, xpp, res))
         return false;
     return true;
@@ -15181,7 +15183,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("payload")) {
         res.setPayloadElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("header")) {
-        res.setHeaderElement(parseString(xpp));
+        res.getHeader().add(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         return false;
     return true;
@@ -15209,6 +15211,8 @@ public class XmlParser extends XmlParserBase {
         res.getCategory().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
         res.setCode(parseCodeableConcept(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("status")) {
+        res.setStatusElement(parseEnumeration(xpp, Substance.SubstanceStatus.NULL, new Substance.SubstanceStatusEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("instance")) {
@@ -20643,6 +20647,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasImage()) { 
         for (Attachment e : element.getImage()) 
           composeAttachment("image", e);
+      }
+      if (element.hasActiveElement()) {
+        composeBoolean("active", element.getActiveElement());
       }
   }
 
@@ -33991,8 +33998,9 @@ public class XmlParser extends XmlParserBase {
       if (element.hasPayloadElement()) {
         composeString("payload", element.getPayloadElement());
       }
-      if (element.hasHeaderElement()) {
-        composeString("header", element.getHeaderElement());
+      if (element.hasHeader()) { 
+        for (StringType e : element.getHeader()) 
+          composeString("header", e);
       }
   }
 
@@ -34019,6 +34027,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
       }
+      if (element.hasStatusElement())
+        composeEnumeration("status", element.getStatusElement(), new Substance.SubstanceStatusEnumFactory());
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }

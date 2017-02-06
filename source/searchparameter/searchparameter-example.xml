@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SearchParameter xmlns="http://hl7.org/fhir">
-  <id value="example"/>
-  <url value="http://hl7.org/fhir/SearchParameter/example"/>
-  <name value="Example Search Parameter"/>
-  <status value="draft"/>
-  <experimental value="true"/>
-  <date value="2013-10-23"/>
-  <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
-  <contact>
-  <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  
-<!--  this is the canonical definition for the _id search parameter  -->
-  <purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
-  <code value="_id"/>
-  <base value="Resource"/>
-  <type value="token"/>
-  <description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
-  <expression value="id"/>
-  <xpath value="f:*/f:id"/>
-  <xpathUsage value="normal"/>
+	<id value="example"/>
+	<url value="http://hl7.org/fhir/SearchParameter/example"/>
+	<version value="1"/>
+	<name value="ID-SEARCH-PARAMETER"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<date value="2013-10-23"/>
+	<publisher value="Health Level Seven International (FHIR Infrastructure)"/>
+	<contact>
+		<name value="[string]"/><!-- 0..1 Name of an individual to contact -->
+		<telecom>
+			<system value="url"/>
+			<value value="http://hl7.org/fhir"/>
+		</telecom>
+	</contact>
+	<useContext>
+		<code>
+			<system value="http://hl7.org/fhir/usage-context-type"/>
+			<code value="focus"/>
+		</code>
+		<valueCodeableConcept>
+			<coding>
+				<system value="http://hl7.org/fhir/variant-state"/>
+				<code value="positive"/>
+			</coding>
+		</valueCodeableConcept>
+	</useContext>
+	<jurisdiction>
+		<coding>
+			<system value="urn:iso:std:iso:3166"/>
+			<code value="US"/>
+			<display value="United States of America (the)"/>
+		</coding>
+	</jurisdiction>
+	
+	<!--	this is the canonical definition for the _id search parameter	-->
+	<purpose value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
+	<code value="_id"/>
+	<base value="Resource"/>
+	<type value="token"/>
+	<derivedFrom value="http://hl7.org/fhir/SearchParameter/base"/>
+	<description value="Search by resource identifier - e.g. same as the read interaction, but can return included resources"/>
+	<expression value="id"/>
+	<xpath value="f:*/f:id"/>
+	<xpathUsage value="normal"/>
+	<comparator value="eq"/>
  
 </SearchParameter>
 

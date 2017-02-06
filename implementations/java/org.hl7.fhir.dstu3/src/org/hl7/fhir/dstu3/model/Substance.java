@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,6 +47,114 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Substance", profile="http://hl7.org/fhir/Profile/Substance")
 public class Substance extends DomainResource {
+
+    public enum SubstanceStatus {
+        /**
+         * The substance is considered for use or reference
+         */
+        ACTIVE, 
+        /**
+         * The substance is considered for reference, but not for use
+         */
+        INACTIVE, 
+        /**
+         * The substance was entered in error
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static SubstanceStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return ACTIVE;
+        if ("inactive".equals(codeString))
+          return INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown SubstanceStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ACTIVE: return "active";
+            case INACTIVE: return "inactive";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ACTIVE: return "http://hl7.org/fhir/substance-status";
+            case INACTIVE: return "http://hl7.org/fhir/substance-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/substance-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ACTIVE: return "The substance is considered for use or reference";
+            case INACTIVE: return "The substance is considered for reference, but not for use";
+            case ENTEREDINERROR: return "The substance was entered in error";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ACTIVE: return "Active";
+            case INACTIVE: return "Inactive";
+            case ENTEREDINERROR: return "Entered in Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class SubstanceStatusEnumFactory implements EnumFactory<SubstanceStatus> {
+    public SubstanceStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("active".equals(codeString))
+          return SubstanceStatus.ACTIVE;
+        if ("inactive".equals(codeString))
+          return SubstanceStatus.INACTIVE;
+        if ("entered-in-error".equals(codeString))
+          return SubstanceStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown SubstanceStatus code '"+codeString+"'");
+        }
+        public Enumeration<SubstanceStatus> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<SubstanceStatus>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("active".equals(codeString))
+          return new Enumeration<SubstanceStatus>(this, SubstanceStatus.ACTIVE);
+        if ("inactive".equals(codeString))
+          return new Enumeration<SubstanceStatus>(this, SubstanceStatus.INACTIVE);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<SubstanceStatus>(this, SubstanceStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown SubstanceStatus code '"+codeString+"'");
+        }
+    public String toCode(SubstanceStatus code) {
+      if (code == SubstanceStatus.ACTIVE)
+        return "active";
+      if (code == SubstanceStatus.INACTIVE)
+        return "inactive";
+      if (code == SubstanceStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(SubstanceStatus code) {
+      return code.getSystem();
+      }
+    }
 
     @Block()
     public static class SubstanceInstanceComponent extends BackboneElement implements IBaseBackboneElement {
@@ -552,27 +660,35 @@ public class Substance extends DomainResource {
     protected CodeableConcept code;
 
     /**
+     * A code to indicate if the substance is actively used.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the substance is actively used." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/substance-status")
+    protected Enumeration<SubstanceStatus> status;
+
+    /**
      * A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Textual description of the substance, comments", formalDefinition="A description of the substance - its appearance, handling requirements, and other usage notes." )
     protected StringType description;
 
     /**
      * Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.
      */
-    @Child(name = "instance", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "instance", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If this describes a specific package/container of the substance", formalDefinition="Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance." )
     protected List<SubstanceInstanceComponent> instance;
 
     /**
      * A substance can be composed of other substances.
      */
-    @Child(name = "ingredient", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "ingredient", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Composition information about the substance", formalDefinition="A substance can be composed of other substances." )
     protected List<SubstanceIngredientComponent> ingredient;
 
-    private static final long serialVersionUID = -1653977206L;
+    private static final long serialVersionUID = -123965791L;
 
   /**
    * Constructor
@@ -716,6 +832,55 @@ public class Substance extends DomainResource {
      */
     public Substance setCode(CodeableConcept value) { 
       this.code = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (A code to indicate if the substance is actively used.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<SubstanceStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Substance.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<SubstanceStatus>(new SubstanceStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (A code to indicate if the substance is actively used.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Substance setStatusElement(Enumeration<SubstanceStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return A code to indicate if the substance is actively used.
+     */
+    public SubstanceStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value A code to indicate if the substance is actively used.
+     */
+    public Substance setStatus(SubstanceStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<SubstanceStatus>(new SubstanceStatusEnumFactory());
+        this.status.setValue(value);
+      }
       return this;
     }
 
@@ -879,6 +1044,7 @@ public class Substance extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Unique identifier for the substance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("category", "CodeableConcept", "A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that identify this substance.", 0, java.lang.Integer.MAX_VALUE, code));
+        childrenList.add(new Property("status", "code", "A code to indicate if the substance is actively used.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("description", "string", "A description of the substance - its appearance, handling requirements, and other usage notes.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("instance", "", "Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.", 0, java.lang.Integer.MAX_VALUE, instance));
         childrenList.add(new Property("ingredient", "", "A substance can be composed of other substances.", 0, java.lang.Integer.MAX_VALUE, ingredient));
@@ -890,6 +1056,7 @@ public class Substance extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
         case 50511102: /*category*/ return this.category == null ? new Base[0] : this.category.toArray(new Base[this.category.size()]); // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<SubstanceStatus>
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 555127957: /*instance*/ return this.instance == null ? new Base[0] : this.instance.toArray(new Base[this.instance.size()]); // SubstanceInstanceComponent
         case -206409263: /*ingredient*/ return this.ingredient == null ? new Base[0] : this.ingredient.toArray(new Base[this.ingredient.size()]); // SubstanceIngredientComponent
@@ -909,6 +1076,10 @@ public class Substance extends DomainResource {
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -892481550: // status
+          value = new SubstanceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SubstanceStatus>
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -932,6 +1103,9 @@ public class Substance extends DomainResource {
           this.getCategory().add(castToCodeableConcept(value));
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("status")) {
+          value = new SubstanceStatusEnumFactory().fromType(castToCode(value));
+          this.status = (Enumeration) value; // Enumeration<SubstanceStatus>
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("instance")) {
@@ -949,6 +1123,7 @@ public class Substance extends DomainResource {
         case -1618432855:  return addIdentifier(); 
         case 50511102:  return addCategory(); 
         case 3059181:  return getCode(); 
+        case -892481550:  return getStatusElement();
         case -1724546052:  return getDescriptionElement();
         case 555127957:  return addInstance(); 
         case -206409263:  return addIngredient(); 
@@ -963,6 +1138,7 @@ public class Substance extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
+        case -892481550: /*status*/ return new String[] {"code"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 555127957: /*instance*/ return new String[] {};
         case -206409263: /*ingredient*/ return new String[] {};
@@ -982,6 +1158,9 @@ public class Substance extends DomainResource {
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
           return this.code;
+        }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Substance.status");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type Substance.description");
@@ -1015,6 +1194,7 @@ public class Substance extends DomainResource {
             dst.category.add(i.copy());
         };
         dst.code = code == null ? null : code.copy();
+        dst.status = status == null ? null : status.copy();
         dst.description = description == null ? null : description.copy();
         if (instance != null) {
           dst.instance = new ArrayList<SubstanceInstanceComponent>();
@@ -1041,8 +1221,8 @@ public class Substance extends DomainResource {
           return false;
         Substance o = (Substance) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(category, o.category, true) && compareDeep(code, o.code, true)
-           && compareDeep(description, o.description, true) && compareDeep(instance, o.instance, true) && compareDeep(ingredient, o.ingredient, true)
-          ;
+           && compareDeep(status, o.status, true) && compareDeep(description, o.description, true) && compareDeep(instance, o.instance, true)
+           && compareDeep(ingredient, o.ingredient, true);
       }
 
       @Override
@@ -1052,12 +1232,12 @@ public class Substance extends DomainResource {
         if (!(other instanceof Substance))
           return false;
         Substance o = (Substance) other;
-        return compareValues(description, o.description, true);
+        return compareValues(status, o.status, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, category, code
-          , description, instance, ingredient);
+          , status, description, instance, ingredient);
       }
 
   @Override

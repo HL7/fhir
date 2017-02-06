@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1819,6 +1819,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "BodySite", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getImage().size(); i++)
       composeAttachment(t, "BodySite", "image", element.getImage().get(i), i);
+    if (element.hasActiveElement())
+      composeBoolean(t, "BodySite", "active", element.getActiveElement(), -1);
   }
 
   protected void composeBundle(Complex parent, String parentType, String name, Bundle element, int index) {
@@ -11305,8 +11307,8 @@ public class RdfParser extends RdfParserBase {
       composeUri(t, "Subscription", "endpoint", element.getEndpointElement(), -1);
     if (element.hasPayloadElement())
       composeString(t, "Subscription", "payload", element.getPayloadElement(), -1);
-    if (element.hasHeaderElement())
-      composeString(t, "Subscription", "header", element.getHeaderElement(), -1);
+    for (int i = 0; i < element.getHeader().size(); i++)
+      composeString(t, "Subscription", "header", element.getHeader().get(i), i);
   }
 
   protected void composeSubstance(Complex parent, String parentType, String name, Substance element, int index) {
@@ -11325,6 +11327,8 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Substance", "category", element.getCategory().get(i), i);
     if (element.hasCode())
       composeCodeableConcept(t, "Substance", "code", element.getCode(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "Substance", "status", element.getStatusElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "Substance", "description", element.getDescriptionElement(), -1);
     for (int i = 0; i < element.getInstance().size(); i++)

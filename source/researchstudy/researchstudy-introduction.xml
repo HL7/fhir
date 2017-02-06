@@ -1,5 +1,13 @@
 ﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+<div>
+<a name="scope"> </a>
+<h2>Scope and Usage</h2>
+<p>
+This resource supports the HL7 mission to create and promote HL7 standards by developing RCRIM standards
+to improve or enhance information management during clinical research and regulatory evaluation of the safety,
+efficacy and quality of therapeutic products and procedures worldwide.
+</p>
+</div>
 
 </div>

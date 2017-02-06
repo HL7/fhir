@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -97,7 +97,14 @@ public class BodySite extends DomainResource {
     @Description(shortDefinition="Attached images", formalDefinition="Image or images used to identify a location." )
     protected List<Attachment> image;
 
-    private static final long serialVersionUID = 1083731853L;
+    /**
+     * Whether this body site is in active use.
+     */
+    @Child(name = "active", type = {BooleanType.class}, order=6, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="Whether this body site record is in active use", formalDefinition="Whether this body site is in active use." )
+    protected BooleanType active;
+
+    private static final long serialVersionUID = 286141813L;
 
   /**
    * Constructor
@@ -390,6 +397,51 @@ public class BodySite extends DomainResource {
       return getImage().get(0);
     }
 
+    /**
+     * @return {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     */
+    public BooleanType getActiveElement() { 
+      if (this.active == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create BodySite.active");
+        else if (Configuration.doAutoCreate())
+          this.active = new BooleanType(); // bb
+      return this.active;
+    }
+
+    public boolean hasActiveElement() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    public boolean hasActive() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    /**
+     * @param value {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     */
+    public BodySite setActiveElement(BooleanType value) { 
+      this.active = value;
+      return this;
+    }
+
+    /**
+     * @return Whether this body site is in active use.
+     */
+    public boolean getActive() { 
+      return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
+    }
+
+    /**
+     * @param value Whether this body site is in active use.
+     */
+    public BodySite setActive(boolean value) { 
+        if (this.active == null)
+          this.active = new BooleanType();
+        this.active.setValue(value);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, java.lang.Integer.MAX_VALUE, patient));
@@ -398,6 +450,7 @@ public class BodySite extends DomainResource {
         childrenList.add(new Property("qualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, qualifier));
         childrenList.add(new Property("description", "string", "Description of anatomical location.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image));
+        childrenList.add(new Property("active", "boolean", "Whether this body site is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
       }
 
       @Override
@@ -409,6 +462,7 @@ public class BodySite extends DomainResource {
         case -1247940438: /*qualifier*/ return this.qualifier == null ? new Base[0] : this.qualifier.toArray(new Base[this.qualifier.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
+        case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -435,6 +489,9 @@ public class BodySite extends DomainResource {
         case 100313435: // image
           this.getImage().add(castToAttachment(value)); // Attachment
           return value;
+        case -1422950650: // active
+          this.active = castToBoolean(value); // BooleanType
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -454,6 +511,8 @@ public class BodySite extends DomainResource {
           this.description = castToString(value); // StringType
         } else if (name.equals("image")) {
           this.getImage().add(castToAttachment(value));
+        } else if (name.equals("active")) {
+          this.active = castToBoolean(value); // BooleanType
         } else
           return super.setProperty(name, value);
         return value;
@@ -468,6 +527,7 @@ public class BodySite extends DomainResource {
         case -1247940438:  return addQualifier(); 
         case -1724546052:  return getDescriptionElement();
         case 100313435:  return addImage(); 
+        case -1422950650:  return getActiveElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -482,6 +542,7 @@ public class BodySite extends DomainResource {
         case -1247940438: /*qualifier*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 100313435: /*image*/ return new String[] {"Attachment"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -508,6 +569,9 @@ public class BodySite extends DomainResource {
         }
         else if (name.equals("image")) {
           return addImage();
+        }
+        else if (name.equals("active")) {
+          throw new FHIRException("Cannot call addChild on a primitive type BodySite.active");
         }
         else
           return super.addChild(name);
@@ -539,6 +603,7 @@ public class BodySite extends DomainResource {
           for (Attachment i : image)
             dst.image.add(i.copy());
         };
+        dst.active = active == null ? null : active.copy();
         return dst;
       }
 
@@ -555,7 +620,7 @@ public class BodySite extends DomainResource {
         BodySite o = (BodySite) other;
         return compareDeep(patient, o.patient, true) && compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true)
            && compareDeep(qualifier, o.qualifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
-          ;
+           && compareDeep(active, o.active, true);
       }
 
       @Override
@@ -565,12 +630,12 @@ public class BodySite extends DomainResource {
         if (!(other instanceof BodySite))
           return false;
         BodySite o = (BodySite) other;
-        return compareValues(description, o.description, true);
+        return compareValues(description, o.description, true) && compareValues(active, o.active, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, identifier, code
-          , qualifier, description, image);
+          , qualifier, description, image, active);
       }
 
   @Override

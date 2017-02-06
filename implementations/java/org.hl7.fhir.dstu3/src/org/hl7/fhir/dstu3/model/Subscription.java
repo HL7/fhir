@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -339,11 +339,11 @@ public class Subscription extends DomainResource {
         /**
          * Additional headers / information to send as part of the notification.
          */
-        @Child(name = "header", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "header", type = {StringType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Usage depends on the channel type", formalDefinition="Additional headers / information to send as part of the notification." )
-        protected StringType header;
+        protected List<StringType> header;
 
-        private static final long serialVersionUID = -279715391L;
+        private static final long serialVersionUID = -854610293L;
 
     /**
      * Constructor
@@ -504,52 +504,64 @@ public class Subscription extends DomainResource {
         }
 
         /**
-         * @return {@link #header} (Additional headers / information to send as part of the notification.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
+         * @return {@link #header} (Additional headers / information to send as part of the notification.)
          */
-        public StringType getHeaderElement() { 
+        public List<StringType> getHeader() { 
           if (this.header == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubscriptionChannelComponent.header");
-            else if (Configuration.doAutoCreate())
-              this.header = new StringType(); // bb
+            this.header = new ArrayList<StringType>();
           return this.header;
         }
 
-        public boolean hasHeaderElement() { 
-          return this.header != null && !this.header.isEmpty();
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public SubscriptionChannelComponent setHeader(List<StringType> theHeader) { 
+          this.header = theHeader;
+          return this;
         }
 
         public boolean hasHeader() { 
-          return this.header != null && !this.header.isEmpty();
+          if (this.header == null)
+            return false;
+          for (StringType item : this.header)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #header} (Additional headers / information to send as part of the notification.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
+         * @return {@link #header} (Additional headers / information to send as part of the notification.)
          */
-        public SubscriptionChannelComponent setHeaderElement(StringType value) { 
-          this.header = value;
+        public StringType addHeaderElement() {//2 
+          StringType t = new StringType();
+          if (this.header == null)
+            this.header = new ArrayList<StringType>();
+          this.header.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #header} (Additional headers / information to send as part of the notification.)
+         */
+        public SubscriptionChannelComponent addHeader(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.header == null)
+            this.header = new ArrayList<StringType>();
+          this.header.add(t);
           return this;
         }
 
         /**
-         * @return Additional headers / information to send as part of the notification.
+         * @param value {@link #header} (Additional headers / information to send as part of the notification.)
          */
-        public String getHeader() { 
-          return this.header == null ? null : this.header.getValue();
-        }
-
-        /**
-         * @param value Additional headers / information to send as part of the notification.
-         */
-        public SubscriptionChannelComponent setHeader(String value) { 
-          if (Utilities.noString(value))
-            this.header = null;
-          else {
-            if (this.header == null)
-              this.header = new StringType();
-            this.header.setValue(value);
-          }
-          return this;
+        public boolean hasHeader(String value) { 
+          if (this.header == null)
+            return false;
+          for (StringType v : this.header)
+            if (v.equals(value)) // string
+              return true;
+          return false;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -566,7 +578,7 @@ public class Subscription extends DomainResource {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<SubscriptionChannelType>
         case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : new Base[] {this.endpoint}; // UriType
         case -786701938: /*payload*/ return this.payload == null ? new Base[0] : new Base[] {this.payload}; // StringType
-        case -1221270899: /*header*/ return this.header == null ? new Base[0] : new Base[] {this.header}; // StringType
+        case -1221270899: /*header*/ return this.header == null ? new Base[0] : this.header.toArray(new Base[this.header.size()]); // StringType
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -586,7 +598,7 @@ public class Subscription extends DomainResource {
           this.payload = castToString(value); // StringType
           return value;
         case -1221270899: // header
-          this.header = castToString(value); // StringType
+          this.getHeader().add(castToString(value)); // StringType
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -603,7 +615,7 @@ public class Subscription extends DomainResource {
         } else if (name.equals("payload")) {
           this.payload = castToString(value); // StringType
         } else if (name.equals("header")) {
-          this.header = castToString(value); // StringType
+          this.getHeader().add(castToString(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -615,7 +627,7 @@ public class Subscription extends DomainResource {
         case 3575610:  return getTypeElement();
         case 1741102485:  return getEndpointElement();
         case -786701938:  return getPayloadElement();
-        case -1221270899:  return getHeaderElement();
+        case -1221270899:  return addHeaderElement();
         default: return super.makeProperty(hash, name);
         }
 
@@ -657,7 +669,11 @@ public class Subscription extends DomainResource {
         dst.type = type == null ? null : type.copy();
         dst.endpoint = endpoint == null ? null : endpoint.copy();
         dst.payload = payload == null ? null : payload.copy();
-        dst.header = header == null ? null : header.copy();
+        if (header != null) {
+          dst.header = new ArrayList<StringType>();
+          for (StringType i : header)
+            dst.header.add(i.copy());
+        };
         return dst;
       }
 

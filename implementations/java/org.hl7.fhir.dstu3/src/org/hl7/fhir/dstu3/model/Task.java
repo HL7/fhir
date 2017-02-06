@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -54,15 +54,15 @@ public class Task extends DomainResource {
          */
         DRAFT, 
         /**
-         * The task is ready to be acted upon and action is sought
+         * The task is ready to be acted upon and action is sought.
          */
         REQUESTED, 
         /**
-         * A potential performer has claimed ownership of the task and is evaluating whether to perform it
+         * A potential performer has claimed ownership of the task and is evaluating whether to perform it.
          */
         RECEIVED, 
         /**
-         * The potential performer has agreed to execute the task but has not yet started work
+         * The potential performer has agreed to execute the task but has not yet started work.
          */
         ACCEPTED, 
         /**
@@ -74,7 +74,7 @@ public class Task extends DomainResource {
          */
         READY, 
         /**
-         * the task was not completed (more or less) as requested
+         * The task was not completed.
          */
         CANCELLED, 
         /**
@@ -82,7 +82,7 @@ public class Task extends DomainResource {
          */
         INPROGRESS, 
         /**
-         * Task has been started but work has been paused
+         * Task has been started but work has been paused.
          */
         ONHOLD, 
         /**
@@ -90,11 +90,11 @@ public class Task extends DomainResource {
          */
         FAILED, 
         /**
-         * The task has been completed (more or less) as requested.
+         * The task has been completed.
          */
         COMPLETED, 
         /**
-         * The task should never have existed and is retained only because of the possibility it may have used
+         * The task should never have existed and is retained only because of the possibility it may have used.
          */
         ENTEREDINERROR, 
         /**
@@ -170,17 +170,17 @@ public class Task extends DomainResource {
         public String getDefinition() {
           switch (this) {
             case DRAFT: return "The task is not yet ready to be acted upon.";
-            case REQUESTED: return "The task is ready to be acted upon and action is sought";
-            case RECEIVED: return "A potential performer has claimed ownership of the task and is evaluating whether to perform it";
-            case ACCEPTED: return "The potential performer has agreed to execute the task but has not yet started work";
+            case REQUESTED: return "The task is ready to be acted upon and action is sought.";
+            case RECEIVED: return "A potential performer has claimed ownership of the task and is evaluating whether to perform it.";
+            case ACCEPTED: return "The potential performer has agreed to execute the task but has not yet started work.";
             case REJECTED: return "The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.";
             case READY: return "Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.";
-            case CANCELLED: return "the task was not completed (more or less) as requested";
+            case CANCELLED: return "The task was not completed.";
             case INPROGRESS: return "Task has been started but is not yet complete.";
-            case ONHOLD: return "Task has been started but work has been paused";
+            case ONHOLD: return "Task has been started but work has been paused.";
             case FAILED: return "The task was attempted but could not be completed due to some error.";
-            case COMPLETED: return "The task has been completed (more or less) as requested.";
-            case ENTEREDINERROR: return "The task should never have existed and is retained only because of the possibility it may have used";
+            case COMPLETED: return "The task has been completed.";
+            case ENTEREDINERROR: return "The task should never have existed and is retained only because of the possibility it may have used.";
             default: return "?";
           }
         }

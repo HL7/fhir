@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Feb 4, 2017 11:02-0500 for FHIR v1.9.0
+// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -2590,6 +2590,10 @@ public class JsonParser extends JsonParserBase {
         res.getImage().add(parseAttachment(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("active"))
+      res.setActiveElement(parseBoolean(json.get("active").getAsBoolean()));
+    if (json.has("_active"))
+      parseElementProperties(json.getAsJsonObject("_active"), res.getActiveElement());
   }
 
   protected Bundle parseBundle(JsonObject json) throws IOException, FHIRFormatError {
@@ -17124,10 +17128,21 @@ public class JsonParser extends JsonParserBase {
       res.setPayloadElement(parseString(json.get("payload").getAsString()));
     if (json.has("_payload"))
       parseElementProperties(json.getAsJsonObject("_payload"), res.getPayloadElement());
-    if (json.has("header"))
-      res.setHeaderElement(parseString(json.get("header").getAsString()));
-    if (json.has("_header"))
-      parseElementProperties(json.getAsJsonObject("_header"), res.getHeaderElement());
+    if (json.has("header")) {
+      JsonArray array = json.getAsJsonArray("header");
+      for (int i = 0; i < array.size(); i++) {
+        res.getHeader().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_header")) {
+      JsonArray array = json.getAsJsonArray("_header");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getHeader().size())
+          res.getHeader().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getHeader().get(i));
+      }
+    };
   }
 
   protected Substance parseSubstance(JsonObject json) throws IOException, FHIRFormatError {
@@ -17152,6 +17167,10 @@ public class JsonParser extends JsonParserBase {
     };
     if (json.has("code"))
       res.setCode(parseCodeableConcept(json.getAsJsonObject("code")));
+    if (json.has("status"))
+      res.setStatusElement(parseEnumeration(json.get("status").getAsString(), Substance.SubstanceStatus.NULL, new Substance.SubstanceStatusEnumFactory()));
+    if (json.has("_status"))
+      parseElementProperties(json.getAsJsonObject("_status"), res.getStatusElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
@@ -22696,6 +22715,10 @@ public class JsonParser extends JsonParserBase {
           composeAttachment(null, e);
         closeArray();
       };
+      if (element.hasActiveElement()) {
+        composeBooleanCore("active", element.getActiveElement(), false);
+        composeBooleanExtras("active", element.getActiveElement(), false);
+      }
   }
 
   protected void composeBundle(String name, Bundle element) throws IOException {
@@ -38470,10 +38493,18 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("payload", element.getPayloadElement(), false);
         composeStringExtras("payload", element.getPayloadElement(), false);
       }
-      if (element.hasHeaderElement()) {
-        composeStringCore("header", element.getHeaderElement(), false);
-        composeStringExtras("header", element.getHeaderElement(), false);
-      }
+      if (element.hasHeader()) {
+        openArray("header");
+        for (StringType e : element.getHeader()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getHeader())) {
+          openArray("_header");
+          for (StringType e : element.getHeader()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
   }
 
   protected void composeSubstance(String name, Substance element) throws IOException {
@@ -38499,6 +38530,10 @@ public class JsonParser extends JsonParserBase {
       };
       if (element.hasCode()) {
         composeCodeableConcept("code", element.getCode());
+      }
+      if (element.hasStatusElement()) {
+        composeEnumerationCore("status", element.getStatusElement(), new Substance.SubstanceStatusEnumFactory(), false);
+        composeEnumerationExtras("status", element.getStatusElement(), new Substance.SubstanceStatusEnumFactory(), false);
       }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);

@@ -132,8 +132,8 @@ make rules about what signatures are required, and how they are to be shared and
 </div>
 
 <div>
-<a name="int"> </a>
-<h2>Interpretation</h2>
+<a name="bnc"> </a>
+<h2>Background and Context</h2>
 <p>
 The Consent resource is structured with a base policy which is either opt-in or opt-out, 
 followed by a listing of exceptions to that policy.  The exceptions can be additional positive 

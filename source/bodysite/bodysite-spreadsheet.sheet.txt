@@ -175,6 +175,19 @@
   Definition = Image or images used to identify a location.
   OpenEHR mapping = Image
 
+ -- Row 16 -----------------------------------
+  Element = BodySite.active
+  Card. = 0..1
+  Is Modifier = y
+  Summary = y
+  Type = boolean
+  Short Name = Whether this body site record is in active use
+  Definition = Whether this body site is in active use
+  Requirements = Need to be able to mark a body site entry as not to be used because it was created in error
+  RIM Mapping = statusCode
+  Default Value = True
+  w5 = status
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
