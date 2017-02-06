@@ -2494,12 +2494,22 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.getDiffEngine().saveR2AsR3(zip);
       zip.close();
       
-
       zip = new ZipGenerator(page.getFolders().dstDir + "validator.zip");
       zip.addFileName("readme.txt", Utilities.path(page.getFolders().srcDir, "tools", "readme.txt"), false);
       zip.addFileName("org.hl7.fhir.validator.jar", Utilities.path(page.getFolders().dstDir, "org.hl7.fhir.validator.jar"), false);
       zip.close();
 
+      zip = new ZipGenerator(page.getFolders().dstDir + "test-cases.zip");
+      IniFile ini = new IniFile(Utilities.path(page.getFolders().rootDir, "tests", "testcases.ini"));
+      for (String fn : ini.getPropertyNames("test-files")) {
+        if (fn.endsWith("\\*")) {
+          fn = fn.substring(0, fn.length()-2);
+          zip.addFiles(Utilities.path(page.getFolders().rootDir, "tests", fn)+File.separator, fn+File.separator, null, null);
+        } else
+          zip.addFileName(fn, Utilities.path(page.getFolders().rootDir, "tests", fn), false);
+      }
+      zip.close();
+      
       zip = new ZipGenerator(page.getFolders().dstDir + "all-valuesets.zip");
       zip.addFileName("valuesets.xml", page.getFolders().dstDir + "valuesets.xml", false);
       zip.addFileName("valuesets.json", page.getFolders().dstDir + "valuesets.json", false);
