@@ -6,8 +6,6 @@
 		<ul>
 			<li><a href="https://www.gmdnagency.org/Info.aspx?pageid=1091">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
 			<li><a href="https://rtmms.nist.gov/rtmms/index.htm">Rosetta Terminology Mapping (RTM)</a></li>
-			<li>A uniform device identifier (UDI) repository (in the US this is the GUDID database)</li>
-			<li>The DI (GTIN) portion of the device’s UDI</li>
 		</ul>
 		<p>Note that there may be translations of type code using one or more of these and other vocabularies</p>
 
@@ -21,7 +19,7 @@ differentiated by their use, label, and system values.
 
 <h4>Unique Device Identifier (UDI)</h4>
 	<p>
-The International Medical Device Regulators Forum IMDRF UDI Working Group published <a href="http://www.imdrf.org/consultations/cons-udi.asp">UDI System for Medical Devices (Version 2.0)</a>, the base specification for Unique Device Identifiers (UDI). The United States Food and Drug Administration has produced an <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">implementation guide</a> for Unique Device Identifiers (UDI) which implements the IMDRF specification and other jurisdictions may produce similar IMDRF implementation guides as well.  The full UDI string that represents the barcode as printed on the packaging of the device or Automatic Identification and Data Capture (AIDC) representation is called the "UDI carrier".  The UDI has 2 components*: 
+The International Medical Device Regulators Forum IMDRF UDI Working Group published <a href="http://www.imdrf.org/consultations/cons-udi.asp">UDI System for Medical Devices (Version 2.0)</a>, the base specification for Unique Device Identifiers (UDI). The United States Food and Drug Administration has produced an <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">implementation guide</a> for Unique Device Identifiers (UDI) which implements the IMDRF specification and other jurisdictions may produce similar IMDRF implementation guides as well.  The full UDI string that represents the barcode as printed on the packaging of the device or Automatic Identification and Data Capture (AIDC) representation is called the "UDI carrier".  The UDI has 2 components*:
 </p><ul>
 	<li>Device identifier (DI)**, which is the actual identification component</li>
 	<li>Production identifier(s)(PI) which provide the means to track a device through its manufacture, distribution and use.</li>
@@ -29,7 +27,7 @@ The International Medical Device Regulators Forum IMDRF UDI Working Group publis
 <p>
 *non-UDI elements may also appear within the UDI carrier.
 
-**a "GTIN" (sometimes also called an EAN number) is a code developed by <a href="http://www.gs1.org/">GS1</a> for the kind of device not an identifier for the device. A GTIN may appear on its own or it may appear in a UDI string as the DI component. 
+**a "GTIN" (sometimes also called an EAN number) is a code developed by <a href="http://www.gs1.org/">GS1</a> for the kind of device not an identifier for the device. A GTIN may appear on its own or it may appear in a UDI string as the DI component.
 </p>
 
 <p>
