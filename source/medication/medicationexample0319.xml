@@ -2,7 +2,6 @@
  xsi:schemaLocation="http://hl7.org/fhir ../../schema/medication.xsd" xmlns="http://hl7.org/fhir">
    <id value="med0319"/>
    <isBrand value="false"/>
-   <product>
       <form>
          <coding>
             <system value="http://snomed.info/sct"/>
@@ -74,5 +73,5 @@
             </denominator>
          </amount>
       </ingredient>
-   </product>
+   
 </Medication>

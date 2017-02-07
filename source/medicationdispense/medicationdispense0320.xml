@@ -7,7 +7,6 @@
         <Medication>
             <id value="med0318"/>
             <isBrand value="false"/>
-            <product>
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>
@@ -46,7 +45,7 @@
                     <lotNumber value="123455"/>
                     <expirationDate value="2016-07-09"/>
                 </batch>
-            </product>
+            
             <package>
                 <container>
                     <coding>

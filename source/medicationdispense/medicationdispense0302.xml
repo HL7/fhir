@@ -14,7 +14,6 @@
             </coding>
         </code>
         <isBrand value="true"/>
-        <product>
             <form>
                 <coding>
                     <system value="http://snomed.info/sct"/>
@@ -47,7 +46,7 @@
                 <lotNumber value="12345"/>
                 <expirationDate value="2019-10-31"/>
             </batch>
-        </product>
+        
         <package>
             <container>
                 <coding>

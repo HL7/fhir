@@ -43,7 +43,6 @@
       <code>
         <text value="TPF"/>
       </code>
-      <product>
         <ingredient>
           <itemReference>
             <reference value="#doce"/>
@@ -59,7 +58,7 @@
             <reference value="#fluo"/>
           </itemReference>
         </ingredient>
-      </product>
+      
     </Medication>
   </contained>
   <contained>

@@ -115,23 +115,14 @@
   Summary = y
   Type = Reference(Organization)
   Short Name = Manufacturer of the item
-  Definition = Describes the details of the manufacturer
+  Definition = Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = RXD-20-Substance Manufacturer Name / RXG-21-Substance Manufacturer Name / RXA-17-Substance Manufacturer Name
   RIM Mapping = .player.scopingRole[typeCode=MANU].scoper
   w5 = who.actor
 
  -- Row 7 -----------------------------------
-  Element = Medication.product
-  Card. = 0..1
-  UML = 450;120
-  Short Name = Administrable medication details
-  Definition = Information that only applies to products (not packages)
-  SCRIPT 10.6 Mapping = //element(*,DrugCodedType)/
-  RIM Mapping = .player [classCode != CONT]
-
- -- Row 8 -----------------------------------
-  Element = Medication.product.form
+  Element = Medication.form
   Card. = 0..1
   Type = CodeableConcept
   Binding = MedicationForm
@@ -142,8 +133,8 @@
   v2 Mapping = RXO-5-Requested Dosage Form / RXE-6-Give Dosage Form / RXD-6-Actual Dosage Form / RXG-8-Give Dosage Form / RXA-8-Administered Dosage Form
   RIM Mapping = .formCode
 
- -- Row 9 -----------------------------------
-  Element = Medication.product.ingredient
+ -- Row 8 -----------------------------------
+  Element = Medication.ingredient
   Card. = 0..*
   UML = 480;240
   Short Name = Active or inactive ingredient
@@ -151,8 +142,8 @@
   Comments = The ingredients need not be a complete list.  If an ingredient is not specified, this does not indicate whether an ingredient is present or absent.  If an ingredient is specified it does not mean that all ingredients are specified.  It is possible to specify both inactive and active ingredients.
   RIM Mapping = .scopesRole[typeCode=INGR]
 
- -- Row 10 -----------------------------------
-  Element = Medication.product.ingredient.item[x]
+ -- Row 9 -----------------------------------
+  Element = Medication.ingredient.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Substance|Medication)
   Short Name = The product contained
@@ -161,8 +152,8 @@
   v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
   RIM Mapping = .player
 
- -- Row 11 -----------------------------------
-  Element = Medication.product.ingredient.isActive
+ -- Row 10 -----------------------------------
+  Element = Medication.ingredient.isActive
   Card. = 0..1
   Type = boolean
   Short Name = Active ingredient indicator
@@ -170,8 +161,8 @@
   Requirements = True indicates that the ingredient affects the therapeutic action of the drug (i.e. active). \rFalse indicates that the ingredient does not affect the therapeutic action of the drug (i.e. inactive)
   RIM Mapping = NA
 
- -- Row 12 -----------------------------------
-  Element = Medication.product.ingredient.amount
+ -- Row 11 -----------------------------------
+  Element = Medication.ingredient.amount
   Card. = 0..1
   Type = Ratio
   Short Name = Quantity of ingredient present
@@ -180,8 +171,8 @@
   v2 Mapping = RXC-3-Component Amount & RXC-4-Component Units  if medication: RXO-2-Requested Give Amount - Minimum & RXO-4-Requested Give Units / RXO-3-Requested Give Amount - Maximum & RXO-4-Requested Give Units / RXO-11-Requested Dispense Amount & RXO-12-Requested Dispense Units / RXE-3-Give Amount - Minimum & RXE-5-Give Units / RXE-4-Give Amount - Maximum & RXE-5-Give Units / RXE-10-Dispense Amount & RXE-10-Dispense Units
   RIM Mapping = .quantity
 
- -- Row 13 -----------------------------------
-  Element = Medication.product.batch
+ -- Row 12 -----------------------------------
+  Element = Medication.batch
   Card. = 0..*
   UML = 300;240
   Short Name = Identifies a single production run
@@ -189,8 +180,8 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
 
- -- Row 14 -----------------------------------
-  Element = Medication.product.batch.lotNumber
+ -- Row 13 -----------------------------------
+  Element = Medication.batch.lotNumber
   Card. = 0..1
   Type = string
   Short Name = Identifier assigned to batch
@@ -199,8 +190,8 @@
   v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
   RIM Mapping = .id
 
- -- Row 15 -----------------------------------
-  Element = Medication.product.batch.expirationDate
+ -- Row 14 -----------------------------------
+  Element = Medication.batch.expirationDate
   Card. = 0..1
   Type = dateTime
   Short Name = When batch will expire
@@ -209,7 +200,7 @@
   v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
   RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Medication.package
   Card. = 0..1
   UML = 0;120
@@ -219,7 +210,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player[classCode=CONT]
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Medication.package.container
   Card. = 0..1
   Type = CodeableConcept
@@ -229,7 +220,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .code
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
   UML = 0;240
@@ -238,7 +229,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .scopesRole[typeCode=CONT]
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Medication.package.content.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
@@ -247,7 +238,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Medication.package.content.amount
   Card. = 0..1
   Type = SimpleQuantity
@@ -256,11 +247,11 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .quantity
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Medication.image
   Card. = 0..*
   Type = Attachment
-  Short Name = Image of medication
+  Short Name = Picture of the medication
   Definition = Photo(s) or graphic representation(s) of the medication.
   Requirements = Note that \"image\" is only applicable when the medication.code represents a physical item (e.g. Amoxil 250 mg capsule) and not an abstract item (e.g. amoxicillin 250 mg).
   RIM Mapping = .participation[typeCode=SUBJ].role[classCode=MANU],source[classCode=OBS,moodCode=EVN,code=\"type of image\"].value(ED.image)
@@ -280,17 +271,17 @@
  -- Row 3 -----------------------------------
   Name = form
   Type = token
-  Path = Medication.product.form
+  Path = Medication.form
 
  -- Row 4 -----------------------------------
   Name = ingredient
   Type = reference
-  Path = Medication.product.ingredient.itemReference
+  Path = Medication.ingredient.itemReference
 
  -- Row 5 -----------------------------------
   Name = ingredient-code
   Type = token
-  Path = Medication.product.ingredient.itemCodeableConcept
+  Path = Medication.ingredient.itemCodeableConcept
 
  -- Row 6 -----------------------------------
   Name = container

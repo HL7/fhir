@@ -5,7 +5,6 @@
     <Medication>
       <id value="med500"></id>
       <isBrand value="false"></isBrand>
-      <product>
       <ingredient>
         <itemCodeableConcept>
           <coding>
@@ -15,7 +14,7 @@
           </coding>
         </itemCodeableConcept>
       </ingredient>
-      </product>
+      
     </Medication>
   </contained>
   <contained>
@@ -35,7 +34,6 @@
   <manufacturer>
     <reference value="#org1"/>
   </manufacturer>
-  <product>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -89,7 +87,7 @@
       <lotNumber value="658484"/>
       <expirationDate value="2020-07-31"/>
     </batch>
-  </product>
+  
   <package>
     <container>
       <coding>

@@ -14,7 +14,6 @@
                 </coding>
             </code>
             <isBrand value="true"/>
-            <product>
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>
@@ -22,7 +21,7 @@
                         <display value="Oral Tablet"/>
                     </coding>
                 </form>
-            </product>
+            
         </Medication>
     </contained>
     <identifier>

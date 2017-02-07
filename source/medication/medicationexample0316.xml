@@ -21,7 +21,6 @@
     </coding>
   </code>
   <isBrand value="false"/>
-  <product>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -46,5 +45,5 @@
         </denominator>
       </amount>
     </ingredient>
-  </product>
+  
 </Medication>

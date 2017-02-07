@@ -6,7 +6,6 @@
     <contained>
         <Medication>
             <id value="med0317"/>
-            <product>
                 <form>
                     <coding>
                         <system value="http://snomed.info/sct"/>
@@ -57,7 +56,7 @@
                         </denominator>
                     </amount>
                 </ingredient>
-            </product>
+            
         </Medication>
     </contained>
     <status value="stopped"/>

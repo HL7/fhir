@@ -18,7 +18,6 @@
   <manufacturer>
     <reference value="#org7"/>
   </manufacturer>
-  <product>
     <form>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -68,5 +67,5 @@
         </denominator>
       </amount>
     </ingredient>
-  </product>
+  
 </Medication>

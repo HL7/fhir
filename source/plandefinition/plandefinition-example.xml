@@ -80,7 +80,6 @@
         </coding>
         <text value="citalopram"/>
       </code>
-      <product>
         <form>
           <coding>
             <system value="http://snomed.info/sct"/>
@@ -104,7 +103,7 @@
             </denominator>
           </amount>
         </ingredient>
-      </product>
+      
     </Medication>
   </contained>
   <contained>
