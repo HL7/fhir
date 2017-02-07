@@ -62,40 +62,55 @@
   Definition = This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.
 
  -- Row 3 -----------------------------------
+  Id = 10
+  Code = preliminary
+  Display = Preliminary
+  Definition = Verified early results are available, but not all  results are final.
+  Parent = #2
+
+ -- Row 4 -----------------------------------
   Id = 3
   Code = final
   Display = Final
   Definition = The report is complete and verified by an authorized person.
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
+  Id = 11
+  Code = amended
+  Display = Amended
+  Definition = Subsequent to being Final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued.
+
+ -- Row 6 -----------------------------------
   Id = 4
   Code = corrected
   Display = Corrected
-  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person
+  Definition = Subsequent to being Final, the report has been modified  to correct an error in the report or referenced results.
+  Parent = #11
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 6
   Code = appended
   Display = Appended
-  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed.
+  Definition = Subsequent to being Final, the report has been modified by adding new content. The existing content is unchanged.
+  Parent = #11
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Id = 7
   Code = cancelled
   Display = Cancelled
   Definition = The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Id = 8
   Code = entered-in-error
   Display = Entered in Error
-  Definition = The report has been withdrawn following a previous final release.
+  Definition = The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Id = 9
   Code = unknown
-  Display = Unknown Status
-  Definition = The report status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".
+  Display = Unknown
+  Definition = The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
 
 === Sheet Invariants =====================================
 
@@ -136,7 +151,7 @@
   Summary = y
   Type = code
   Binding = DiagnosticReportStatus
-  Short Name = registered | partial | final | corrected +
+  Short Name = registered | partial | preliminary | final +
   Definition = The status of the diagnostic report as a whole
   Requirements = Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.
   Comments = This is labeled as \"Is Modifier\" because applications need to take appropriate action if a report is withdrawn

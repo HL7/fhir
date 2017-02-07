@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- A very simple example to demonstrate using a string value and Observation to represent a physical characteristic -->
 <Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="eye-color"/>
 	<status value="final"/>

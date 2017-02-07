@@ -9,20 +9,21 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-01T20:45:04Z</LastSaved>
+  <LastSaved>2017-02-06T09:30:40Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5955</WindowHeight>
+  <WindowHeight>4440</WindowHeight>
   <WindowWidth>19260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowTopY>4380</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>12</ActiveSheet>
-  <FirstVisibleSheet>4</FirstVisibleSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -5879,7 +5880,7 @@
     <Cell ss:StyleID="s123"><Data ss:Type="String">[#9734],[11087]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">component-value-date</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">!component-value-date</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s144"><Data ss:Type="String">Observation.component.valueDateTime | Observation.component.valuePeriod</Data></Cell>
@@ -5887,7 +5888,7 @@
     <Cell ss:StyleID="s129"><Data ss:Type="String">[#9734],[11087]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">combo-value-date</Data></Cell>
+    <Cell ss:StyleID="s138"><Data ss:Type="String">!combo-value-date</Data></Cell>
     <Cell ss:StyleID="s139"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s140"><Data ss:Type="String">Observation.valueDateTime | Observation.valuePeriod | Observation.component.valueDateTime | Observation.component.valuePeriod</Data></Cell>
@@ -6169,7 +6170,7 @@
     <Cell><Data ss:Type="String">[#9133]</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="Default"/>
+    <Cell ss:StyleID="s154"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
     <Cell ss:StyleID="Default"/>
@@ -6235,9 +6236,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>32</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6245,15 +6246,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>38</ActiveRow>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -9148,7 +9148,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='observation-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s183" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s183" ss:Width="80.25"/>
@@ -9235,7 +9235,18 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
     <Cell ss:StyleID="s199"><Data ss:Type="String">Amended</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">The observation has been modified subsequent to being Final.</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.</Data></Cell>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s170"/>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">[#9675]</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s191"><Data ss:Type="String">corrected</Data></Cell>
+    <Cell ss:StyleID="s170"><Data ss:Type="Number">8</Data></Cell>
+    <Cell ss:StyleID="s156"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">#4</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Corrected</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Subsequent to being Final, the observation has been modified to correct an error in the test result.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"><Data ss:Type="String">[#9675]</Data></Cell>
@@ -9257,7 +9268,7 @@
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
     <Cell ss:StyleID="s199"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">The observation has been withdrawn following previous final release.</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"><Data ss:Type="String">Usually this is because some error has been detected in the measurement</Data></Cell>
@@ -9267,8 +9278,8 @@
     <Cell ss:StyleID="s170"><Data ss:Type="Number">7</Data></Cell>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s199"/>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">Unknown Status</Data></Cell>
-    <Cell ss:StyleID="s199"><Data ss:Type="String">The observation status is unknown.  Note that &quot;unknown&quot; is a value of last resort and every attempt should be made to provide a meaningful value other than &quot;unknown&quot;.</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s170"/>
     <Cell ss:StyleID="s192"><Data ss:Type="String">2/26/2015 EH: #5669</Data></Cell>
@@ -9745,12 +9756,13 @@
    </PageSetup>
    <Unsynced/>
    <Zoom>150</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>2</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -9765,7 +9777,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -11021,7 +11034,6 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

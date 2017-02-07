@@ -9,18 +9,20 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-12-23T02:40:36Z</LastSaved>
+  <LastSaved>2017-02-06T10:21:38Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4845</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
+  <WindowHeight>4395</WindowHeight>
+  <WindowWidth>19260</WindowWidth>
   <WindowTopX>-15</WindowTopX>
-  <WindowTopY>4785</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <WindowTopY>-15</WindowTopY>
+  <ActiveSheet>9</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1092,7 +1094,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">registered | partial | final | corrected +</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">registered | partial | preliminary | final +</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The status of the diagnostic report as a whole</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4170,13 +4172,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>130</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4191,7 +4192,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7208,7 +7210,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='diagnostic-report-status'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s138" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s138" ss:Width="80.25"/>
@@ -7278,6 +7280,17 @@
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s142"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">#2</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Preliminary</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Verified early results are available, but not all  results are final.</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s143"/>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s142"><Data ss:Type="String">final</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
@@ -7290,12 +7303,23 @@
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s142"><Data ss:Type="String">amended</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">11</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Amended</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Subsequent to being Final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued.</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s143"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s142"><Data ss:Type="String">corrected</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">4</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">#11</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Corrected</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorized person</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Subsequent to being Final, the report has been modified  to correct an error in the report or referenced results.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -7304,9 +7328,9 @@
     <Cell ss:StyleID="s142"><Data ss:Type="String">appended</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s153"/>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">#11</Data></Cell>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Appended</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Subsequent to being Final, the report has been modified by adding new content. The existing content is unchanged.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"/>
@@ -7328,7 +7352,7 @@
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">Entered in Error</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The report has been withdrawn following a previous final release.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be &quot;cancelled&quot; rather than &quot;entered-in-error&quot;.)</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">Usually this is because the report was entered against the wrong patient</Data></Cell>
@@ -7338,8 +7362,8 @@
     <Cell ss:StyleID="s131"><Data ss:Type="Number">9</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s153"><Data ss:Type="String">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">Unknown Status</Data></Cell>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">The report status is unknown.  Note that &quot;unknown&quot; is a value of last resort and every attempt should be made to provide a meaningful value other than &quot;unknown&quot;.</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">Unknown</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for &quot;other&quot; - one of the listed statuses is presumed to apply, it's just not known which one.</Data></Cell>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">12/22/2016 EH: #10344</Data></Cell>
@@ -7798,10 +7822,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Zoom>120</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -7814,11 +7840,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

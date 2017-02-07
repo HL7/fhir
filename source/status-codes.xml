@@ -1296,34 +1296,23 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticReport.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s158"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">partial</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">registered</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"><Data ss:Type="String">corrected, amended, appended</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:Index="3" ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">partial,preliminary</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">registered</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">corrected, amended, appended</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DocumentManifest.status</Data></Cell>
@@ -2520,34 +2509,23 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Observation.status</Data></Cell>
-    <Cell ss:Index="3" ss:StyleID="s158"><Data ss:Type="String">entered-in-error</Data></Cell>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s166"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">preliminary</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">registered</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">amended</Data></Cell>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">final</Data></Cell>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">cancelled</Data></Cell>
-    <Cell ss:StyleID="s160"><Data ss:Type="String">unknown</Data></Cell>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
-    <Cell ss:StyleID="s160"/>
+    <Cell ss:Index="3" ss:StyleID="s66"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">preliminary</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">registered</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">corrected, amended</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">final</Data></Cell>
+    <Cell ss:StyleID="s71"/>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">cancelled</Data></Cell>
+    <Cell><Data ss:Type="String">unknown</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">OperationDefinition.status</Data></Cell>
@@ -3413,8 +3391,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>1</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
