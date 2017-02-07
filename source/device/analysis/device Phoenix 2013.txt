@@ -11,7 +11,7 @@ invalid(0),
 
 questionable(1),
 
-not-available(2),
+inactive(2),
 
 calibration-ongoing(3),
 

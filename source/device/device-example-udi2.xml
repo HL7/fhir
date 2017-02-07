@@ -24,7 +24,7 @@
 		<value value="=+05037=/A9999XYZ100T0474=,000025=A99971312345600=>014032=}013032"/>
 		<!--With appropriate settings, the scanning device provides this data string:-->
 	</udiCarrier>
-	<status value="not-available"/>
+	<status value="inactive"/>
 	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/NamingSystem/iccbba-other-di"/>

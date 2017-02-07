@@ -26,7 +26,7 @@
 		<value value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ4567890123 45678/16D20130202C"/>
 		<!--With appropriate settings, the scanning device provides this data string:-->
 	</udiCarrier>
-	<status value="not-available"/>
+	<status value="inactive"/>
 	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/NamingSystem/hibcc-di"/>

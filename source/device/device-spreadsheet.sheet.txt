@@ -11,7 +11,7 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 2 -----------------------------------
-  Binding Name = DeviceKind
+  Binding Name = Device Kind
   Binding = value set
   Reference = valueset-device-kind
   Definition = Codes to identify medical devices
@@ -19,31 +19,82 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 3 -----------------------------------
-  Binding Name = DeviceStatus
+  Binding Name = Device Status
   Binding = code list
-  Reference = #devicestatus
+  Reference = #device-status
   Definition = The availability status of the device.
   Conformance = required
 
-=== Sheet devicestatus =====================================
+ -- Row 4 -----------------------------------
+  Binding Name = UDI Entry Type
+  Binding = code list
+  Reference = #udi-entry-type
+  Definition = Codes to identify how udi data was entered
+  Conformance = required
+
+=== Sheet device-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = available
-  Display = Available
-  Definition = The Device is available for use.
+  Code = active
+  Display = Active
+  Definition = The Device is available for use.  Note: This means for *implanted devices*  the device is implanted in the patient.
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = not-available
-  Display = Not Available
-  Definition = The Device is no longer available for use (e.g. lost, expired, damaged).
+  Code = inactive
+  Display = Inactive
+  Definition = The Device is no longer available for use (e.g. lost, expired, damaged).  Note: This means for *implanted devices*  the device has been removed from the patient.
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = entered-in-error
   Display = Entered in Error
   Definition = The Device was entered in error and voided.
+
+ -- Row 4 -----------------------------------
+  Id = 6
+  Code = unknown
+  Display = Unknown
+  Definition = The status of the device has not been determined.
+
+=== Sheet udi-entry-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = barcode
+  Display = BarCode
+  Definition = A Barcode scanner captured the the data from the device label
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = rfid
+  Display = RFID
+  Definition = An RFID chip reader captured the the data from the device label
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = manual
+  Display = Manual
+  Definition = The data was read from the label by a person and manually entered. (e.g.  via a keyboard)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = card
+  Display = Card
+  Definition = The data orginated from a patient\'s implant card and read by an operator.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = self-reported
+  Display = Self Reported
+  Definition = The data orginated from a patient source and not directly scanned or read from a label or card.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = unknown
+  Display = Unknown
+  Definition = The method of data capture has not been determined
 
 === Sheet Invariants =====================================
 
@@ -74,57 +125,130 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Device.udiCarrier
+  Element = !Device.udiCarrier
   Card. = 0..1
   Aliases = UDI,  Barcode String
   Type = Identifier
   Short Name = Unique Device Identifier (UDI) Barcode string
   Definition = [Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package
   Comments = The udiCarrier string may identify an unique instance of a device, or it may only identify the type of the device. The Human Readable format (HRF) is required in FHIR. AIDC identifiers cannot be conveyed in FHIR, Because of limitations on character sets in XML and the need to round-trip JSON data through XML.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
-  UDI Mapping = The full UDI carrier - The Human Readable Form (HRF) representation of the barcode string as printed on the packaging of the device.  The  \'type\' component should be set to “UDI” and the \'system\' component to the the appropriate repository url.  the additional URL is needed to identify the authoritative source for UDI generation within the jurisdiction.  All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system.  This allows a recipient of a UDI to know which database will contain the UDI-associated metadata.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi.  Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC identifiers cannot be conveyed in FHIR.
+  UDI Mapping = The full UDI carrier - The Human Readable Form (HRF) representation of the barcode string as printed on the packaging of the device.  The  \'type\' component should be set to “UDI”   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC identifiers cannot be conveyed in FHIR.
   RIM Mapping = .id[where root is root for UDI]
   Committee Notes = #7662
   w5 = id
 
  -- Row 4 -----------------------------------
+  Element = Device.udi
+  Card. = 0..1
+  Summary = Y
+  Type = BackboneElement
+  Short Name = Unique Device Identifier (UDI) Barcode string
+  Definition = [Unique device identifier (UDI)](device.html#5.11.3.2.2) assigned to device label or package
+  Comments = UDI may identify an unique instance of a device, or it may only identify the type of the device.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  w5 = id
+
+ -- Row 5 -----------------------------------
+  Element = Device.udi.deviceIdentifier
+  Card. = 0..1
+  Aliases = DI
+  Summary = Y
+  Type = string
+  Short Name = UDI Device Identifier
+  Definition = The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.
+  w5 = what
+
+ -- Row 6 -----------------------------------
+  Element = Device.udi.name
+  Card. = 0..1
+  Aliases = Brand Name
+  Summary = Y
+  Type = string
+  Short Name = UDI Device Name
+  Definition = Name of device as used in labeling or catalog
+  Comments = Use the `Device.type`  for a generic type or kind of device name.  Note the [GUDID](http://www.fda.gov/medicaldevices/deviceregulationandguidance/uniquedeviceidentification/globaludidatabasegudid/default.htm) lists the name as the \'Brand Name\'.
+  w5 = what
+
+ -- Row 7 -----------------------------------
+  Element = Device.udi.jurisdiction
+  Card. = 0..1
+  Type = uri
+  Short Name = Regional UDI authority
+  Definition = The identity of the authoritative source for UDI generation within a  jurisdiction.  All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi.
+  Requirements = Allows a recipient of a UDI to know which database will contain the UDI-associated metadata.
+
+ -- Row 8 -----------------------------------
+  Element = Device.udi.carrierHRF
+  Card. = 0..1
+  Aliases = Human Readable Form
+  Summary = Y
+  Type = string
+  Short Name = UDI Human Readable Barcode String
+  Definition = The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.
+
+ -- Row 9 -----------------------------------
+  Element = Device.udi.carrierAIDC
+  Card. = 0..1
+  Aliases = Automatic Identification and Data Capture
+  Summary = Y
+  Type = base64Binary
+  Short Name = UDI Machine Readable Barcode String
+  Definition = The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - E.g a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded.
+  Comments = The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions.
+
+ -- Row 10 -----------------------------------
+  Element = Device.udi.issuer
+  Card. = 0..1
+  Aliases = Barcode System
+  Type = uri
+  Short Name = UDI Issuing Organization
+  Definition = Organization that is charged with issuing UDIs for devices.  For example, the US FDA issuers include :\n1) GS1: \nhttp://hl7.org/fhir/NamingSystem/gs1-di, \n2) HIBCC:\nhttp://hl7.org/fhir/NamingSystem/hibcc-dI, \n3) ICCBBA for blood containers:\nhttp://hl7.org/fhir/NamingSystem/iccbba-blood-di, \n4) ICCBA for other devices:\nhttp://hl7.org/fhir/NamingSystem/iccbba-other-di
+
+ -- Row 11 -----------------------------------
+  Element = Device.udi.entryType
+  Card. = 0..1
+  Type = code
+  Binding = UDI Entry Type
+  Short Name = barcode | rfid | manual +
+  Definition = A coded entry to indicate how the data was entered.
+  Requirements = Supports a way to distinguish hand entered from machine read data.
+
+ -- Row 12 -----------------------------------
   Element = Device.status
   Card. = 0..1
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = DeviceStatus
-  Short Name = available | not-available | entered-in-error
+  Binding = Device Status
+  Short Name = active | inactive | entered-in-error | unknown
   Definition = Status of the Device availability.
   UDI Mapping = N/A
   RIM Mapping = .statusCode
   w5 = status
 
- -- Row 5 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Device.type
   Card. = 0..1
   Type = CodeableConcept
-  Binding = DeviceKind
+  Binding = Device Kind
   Short Name = What kind of device this is
   Definition = Code or identifier to identify a kind of device.
-  Comments = There can be different code values thath may correspond to different granularities of the same concept.  These can be represented as translations using  the [codeableConcept](datatypes.html#codeableconcept) datatype.  For [UDI](device.html#5.11.3.2.2), this element corresponds to the UDI device identifier (DI) part. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
   UDI Mapping = The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a devicet.  The system uri should be included. Possible URIs include\nGS1 DIs: \n http://hl7.org/fhir/NamingSystem/gs1-di\nHIBCC DIs:\n http://hl7.org/fhir/NamingSystem/hibcc-di\nICCBBA DIs for blood containers:\n http://hl7.org/fhir/NamingSystem/iccbba-blood-di\nICCBA DIs for other devices:\n http://hl7.org/fhir/NamingSystem/iccbba-other-di
   RIM Mapping = .code
   Committee Notes = #7590,#7662
   w5 = what
 
- -- Row 6 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Device.lotNumber
   Card. = 0..1
   Type = string
   Short Name = Lot number of manufacture
   Definition = Lot number assigned by the manufacturer
-  Comments = Alphanumeric. For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the lot or batch number within which a physical instance of a device was manufactured. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
   UDI Mapping = The lot or batch number within which a device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.
   RIM Mapping = .lotNumberText
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 7 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Device.manufacturer
   Card. = 0..1
   Type = string
@@ -134,31 +258,29 @@
   RIM Mapping = .playedRole[typeCode=MANU].scoper.name
   w5 = what
 
- -- Row 8 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Device.manufactureDate
   Card. = 0..1
   Type = dateTime
   Short Name = Date when the device was made
   Definition = The date and time when the device was manufactured.
-  Comments = For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the date a physical instance of a device was manufactured. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
   UDI Mapping = The date a specific device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .existenceTime.low
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 9 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Device.expirationDate
   Card. = 0..1
   Type = dateTime
   Short Name = Date and time of expiry of this device (if applicable)
   Definition = The date and time beyond which this device is no longer valid or should not be used (if applicable)
-  Comments = For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the expiration date of a physical instance of a device. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
   UDI Mapping = the expiration date of a specific device -  which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .expirationTime
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 10 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Device.model
   Card. = 0..1
   Type = string
@@ -169,7 +291,7 @@
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 11 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Device.version
   Card. = 0..1
   Type = string
@@ -180,7 +302,7 @@
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 12 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = !Device.serialNumber
   Card. = 0..1
   Type = string
@@ -192,7 +314,7 @@
   Committee Notes = W5 note what = what.productidentification
   w5 = what
 
- -- Row 13 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Device.patient
   Card. = 0..1
   Type = Reference(Patient)
@@ -203,7 +325,7 @@
   RIM Mapping = .playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]
   w5 = who.focus
 
- -- Row 14 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Device.owner
   Card. = 0..1
   Type = Reference(Organization)
@@ -213,7 +335,7 @@
   RIM Mapping = .playedRole[typeCode=OWN].scoper
   w5 = who.source
 
- -- Row 15 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Device.contact
   Card. = 0..*
   Type = ContactPoint
@@ -224,7 +346,7 @@
   RIM Mapping = .scopedRole[typeCode=CON].player
   w5 = who.source
 
- -- Row 16 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Device.location
   Card. = 0..1
   Type = Reference(Location)
@@ -236,7 +358,7 @@
   Committee Notes = #7418
   w5 = where
 
- -- Row 17 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Device.url
   Card. = 0..1
   Type = uri
@@ -247,7 +369,7 @@
   RIM Mapping = .telecom
   w5 = where
 
- -- Row 18 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Device.note
   Card. = 0..*
   Type = Annotation
@@ -301,16 +423,28 @@
   Path = Device.patient
 
  -- Row 8 -----------------------------------
-  Name = udicarrier
-  Type = token
-  Description = Barcode string (udi)
-  Path = Device.udiCarrier
+  Name = udi-carrier
+  Type = string
+  Description = UDI Barcode (RFID or other technology) string either in HRF format or AIDC format converted to base64 string.
+  Path = Device.udi.carrierHRF | Device.udi.carrierAIDC
 
  -- Row 9 -----------------------------------
   Name = url
   Type = uri
   Description = Network address to contact device
   Path = Device.url
+
+ -- Row 10 -----------------------------------
+  Name = udi-di
+  Type = string
+  Description = The udi Device Identifier (DI)
+  Path = Device.udi.deviceIdentifier
+
+ -- Row 11 -----------------------------------
+  Name = !device-name
+  Type = string
+  Description = A server defined search that may match any of the string fields in the Device.udi.name  or Device.type.coding.display or  Device.type.text
+  Path = Device.udi.name | Device.type
 
 === Sheet Profiles =====================================
 
@@ -365,19 +499,19 @@
   Filename = device-example-udi1.xml
 
  -- Row 7 -----------------------------------
-  Name = UDI Implantable 2
+  Name = !UDI Implantable 2
   Identity = example-udi2
   Description = Implantable device/UDI example ICCBBA Format
   Filename = device-example-udi2.xml
 
  -- Row 8 -----------------------------------
-  Name = UDI Implantable 3
+  Name = !UDI Implantable 3
   Identity = example-udi3
   Description = Implantable device/UDI example HIBBC Format
   Filename = device-example-udi3.xml
 
  -- Row 9 -----------------------------------
-  Name = UDI Blood Bag
+  Name = !UDI Blood Bag
   Identity = example-udi4
   Description = Blood Bag UDI example ICCBBA Format
   Filename = device-example-udi4.xml

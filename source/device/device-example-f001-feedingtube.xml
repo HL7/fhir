@@ -5,13 +5,15 @@
 		<system value="http:/goodhealthhospital/identifier/devices"/>
 		<value value="12345"/>
 	</identifier>
+<!--
 	<udiCarrier>
 		<system value="urn:oid:2.16.840.1.113883.3.3719"/>
-		<!-- FDA UDI root - urn:oid:2.16.840.1.113883.3.3719  Add following udi system URN to fhir identifier registry :-->
+		--><!-- FDA UDI root - urn:oid:2.16.840.1.113883.3.3719  Add following udi system URN to fhir identifier registry :--><!--
 		<value value="(01)00000123000017(10)ABC123(17)120415"/>
-		<!-- this udi is fictitious and will be updated when more information and better examples of UDI's become available  -->
+		--><!-- this udi is fictitious and will be updated when more information and better examples of UDI's become active  --><!--
 	</udiCarrier>
-	<status value="available"/>
+
+-->	<status value="active"/>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>

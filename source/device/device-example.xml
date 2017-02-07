@@ -19,7 +19,7 @@
     </type>
     <value value="AMID-342135-8464"/>
   </identifier>
-	<status value="available"/>
+	<status value="active"/>
 	<type>
     <coding>
       <system value="http://snomed.info/sct"/>

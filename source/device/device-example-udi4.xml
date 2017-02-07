@@ -15,7 +15,7 @@
 		<value value="=)1TE123456A&amp;)RZ12345678"/>
 		<!--With appropriate settings, the scanning device provides this data string which includes an "&"-->
 	</udiCarrier>
-	<status value="not-available"/>
+	<status value="inactive"/>
 	<type>
 		<coding>
 			<system value="http://hl7.org/fhir/NamingSystem/iccbba-blood-di"/>

@@ -1,6 +1,39 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = Implant Status
+  Binding = code list
+  Reference = #implant-status
+  Definition = A set codes that define the functional status of an implanted device.
+  Conformance = required
+
+=== Sheet implant-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 2
+  Code = functional
+  Display = Functional
+  Definition = The implanted device is working normally
+
+ -- Row 2 -----------------------------------
+  Id = 3
+  Code = non-functional
+  Display = Non-Functional
+  Definition = The implanted device is not working
+
+ -- Row 3 -----------------------------------
+  Id = 4
+  Code = disabled
+  Display = Disabled
+  Definition = The implanted device has been turned off
+
+ -- Row 4 -----------------------------------
+  Id = 6
+  Code = unknown
+  Display = Unknown
+  Definition = the functional status of the implant has not been determined
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
