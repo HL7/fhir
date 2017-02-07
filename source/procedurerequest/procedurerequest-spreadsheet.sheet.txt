@@ -206,6 +206,7 @@
   Definition = Set this to true if the record is saying that the procedure should NOT be performed
   Requirements = Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm etc.
   Comments = In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ProcedureRequest.code and ProcedureRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.
+  RIM Mapping = .actionNegationInd
   Default Value = False
 
  -- Row 11 -----------------------------------
@@ -218,6 +219,7 @@
   Definition = A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").
   Requirements = Used for filtering what procedure request are retreived and displayed.
   Comments = There may be multiple axis of categorization depending on the context or use case for retrieving or displaying the resource.  The level of granularity is defined by the category concepts in the value set.
+  RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"INT\"].code
   Committee Notes = [#11119]
   w5 = class
 
@@ -289,6 +291,7 @@
   Binding = ProcedureAsNeededReason
   Short Name = Preconditions for procedure or diagnostic
   Definition = If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.  For example \"pain\", \"on flare-up\", etc.
+  RIM Mapping = boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value
   QUICK mapping = Proposal.prnReason.reason
 
  -- Row 17 -----------------------------------
