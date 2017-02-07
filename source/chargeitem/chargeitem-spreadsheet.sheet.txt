@@ -38,6 +38,14 @@
   Description = Example codes for billing purposes
   Conformance = example
 
+ -- Row 7 -----------------------------------
+  Binding Name = ChargeItemReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/icd-10
+  Definition = Example binding for reason
+  Description = ICD 10 diagnosis codes
+  Conformance = example
+
 === Sheet chargeitem-status =====================================
 
  -- Row 1 -----------------------------------
@@ -95,19 +103,19 @@
   Id = 1
   Code = 1100
   Display = Unvorhergesehene Inanspruchnahme
-  Definition = Unvorhergesehene Inanspruchnahme des Vertragsarztes durch einen Patienten;zwischen 19:00 und 22:00 Uhr;an Samstagen, Sonntagen und gesetzlichen Feiertagen, am 24.12. und 31.12. zwischen 07:00 und 19:00 Uhr
+  Definition = From German EBM billing system:\nUnvorhergesehene Inanspruchnahme des Vertragsarztes durch einen Patienten;zwischen 19:00 und 22:00 Uhr;an Samstagen, Sonntagen und gesetzlichen Feiertagen, am 24.12. und 31.12. zwischen 07:00 und 19:00 Uhr
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = 1210
   Display = Notfallpauschale
-  Definition = Notfallpauschale im organisierten Not(-fall)dienst und für nicht an der vertragsärztlichen Versorgung teilnehmende Ärzte, Institute und Krankenhäuser bei Inanspruchnahme;zwischen 07:00 und 19:00 Uhr
+  Definition = From German EBM billing system:\nNotfallpauschale im organisierten Not(-fall)dienst und für nicht an der vertragsärztlichen Versorgung teilnehmende Ärzte, Institute und Krankenhäuser bei Inanspruchnahme;zwischen 07:00 und 19:00 Uhr
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = 1320
   Display = Grundpauschale
-  Definition = Grundpauschale für Ärzte, Institute und Krankenhäuser, die zur Erbringung von Leistungen innerhalb mindestens eines der Fachgebiete Anästhesiologie, Frauenheilkunde und Geburtshilfe, Haut- und Geschlechtskrankheiten, Mund-, Kiefer- und Gesichtschirurgie und Humangenetik ermächtigt sind
+  Definition = From German EBM billing system:\nGrundpauschale für Ärzte, Institute und Krankenhäuser, die zur Erbringung von Leistungen innerhalb mindestens eines der Fachgebiete Anästhesiologie, Frauenheilkunde und Geburtshilfe, Haut- und Geschlechtskrankheiten, Mund-, Kiefer- und Gesichtschirurgie und Humangenetik ermächtigt sind
 
 === Sheet Invariants =====================================
 
@@ -139,8 +147,8 @@
   Card. = 0..*
   Summary = N
   Type = uri
-  Short Name = Definition of the Charge Item
-  Definition = Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource
+  Short Name = Defining information about the code of this charge item
+  Definition = References the source of pricing information, rules of application for the code this ChargeItem uses.
   Comments = Target Resource is yet to be defined as a container that holds information about list prices and rules applicable to the charge item code. Once defined, change type back to Reference(Definition Type).
   v2 Mapping = Varies by domain
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
@@ -178,7 +186,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ChargeItemCode
-  Short Name = Code of the ChargeItem
+  Short Name = A code that identifies the charge, like a billing code
   Definition = A code that identifies the charge, like a billing code
   Workflow Mapping = Event.code
   v2 Mapping = FT1.7
@@ -350,10 +358,11 @@
   Comments = The actual date when the service associated with the charge has been rendered is captured in occurrence[x]
 
  -- Row 22 -----------------------------------
-  Element = ChargeItem.reasonCodeableConcept
+  Element = ChargeItem.reason
   Card. = 0..*
   Summary = N
   Type = CodeableConcept
+  Binding = ChargeItemReason
   Short Name = Why was the charged service rendered?
   Definition = Describes why the event occurred in coded or textual form.
   Comments = If the application of the charge item requires a reason to be given, it can be captured here. Textual reasons can be captured using reasonCode.text

@@ -25,8 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1109,9 +1108,9 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Definition of the Charge Item </Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Defining information about the code of this charge item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource</Data><NamedCell
+    <Cell ss:StyleID="s95"><Data ss:Type="String">References the source of pricing information, rules of application for the code this ChargeItem uses. </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><Data ss:Type="String">Target Resource is yet to be defined as a container that holds information about list prices and rules applicable to the charge item code. Once defined, change type back to Reference(Definition Type).</Data><NamedCell
@@ -1217,7 +1216,7 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Code of the ChargeItem</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">A code that identifies the charge, like a billing code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">A code that identifies the charge, like a billing code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1740,7 +1739,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s92"><Data ss:Type="String">ChargeItem.reasonCodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">ChargeItem.reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1751,7 +1750,8 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">N</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">ChargeItemReason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><Data ss:Type="String">why</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2053,10 +2053,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
+   <TopRowVisible>21</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>3</LeftColumnRightPane>
    <ActivePane>1</ActivePane>
    <Panes>
     <Pane>
@@ -2064,8 +2066,8 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>15</ActiveCol>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4660,7 +4662,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="7" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="8" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="137.25"/>
@@ -4785,6 +4787,14 @@
     <Cell><Data ss:Type="String">#chargeitem-billingcodes</Data></Cell>
     <Cell><Data ss:Type="String">Example codes for billing purposes</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ChargeItemReason</Data></Cell>
+    <Cell><Data ss:Type="String">Example binding for reason</Data></Cell>
+    <Cell><Data ss:Type="String">value set</Data></Cell>
+    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell><Data ss:Type="String"> http://hl7.org/fhir/ValueSet/icd-10</Data></Cell>
+    <Cell><Data ss:Type="String">ICD 10 diagnosis codes</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4798,7 +4808,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4818,7 +4827,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
@@ -5536,19 +5545,19 @@
     <Cell><Data ss:Type="Number">1100</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Unvorhergesehene Inanspruchnahme</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Unvorhergesehene Inanspruchnahme des Vertragsarztes durch einen Patienten;zwischen 19:00 und 22:00 Uhr;an Samstagen, Sonntagen und gesetzlichen Feiertagen, am 24.12. und 31.12. zwischen 07:00 und 19:00 Uhr</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">From German EBM billing system:&#10;Unvorhergesehene Inanspruchnahme des Vertragsarztes durch einen Patienten;zwischen 19:00 und 22:00 Uhr;an Samstagen, Sonntagen und gesetzlichen Feiertagen, am 24.12. und 31.12. zwischen 07:00 und 19:00 Uhr</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s161">
     <Cell><Data ss:Type="Number">1210</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Notfallpauschale</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Notfallpauschale im organisierten Not(-fall)dienst und für nicht an der vertragsärztlichen Versorgung teilnehmende Ärzte, Institute und Krankenhäuser bei Inanspruchnahme;zwischen 07:00 und 19:00 Uhr&#10;</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">From German EBM billing system:&#10;Notfallpauschale im organisierten Not(-fall)dienst und für nicht an der vertragsärztlichen Versorgung teilnehmende Ärzte, Institute und Krankenhäuser bei Inanspruchnahme;zwischen 07:00 und 19:00 Uhr&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="43.21875" ss:StyleID="s161">
     <Cell><Data ss:Type="Number">1320</Data></Cell>
     <Cell ss:StyleID="s162"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Grundpauschale</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Grundpauschale für Ärzte, Institute und Krankenhäuser, die zur Erbringung von Leistungen innerhalb mindestens eines der Fachgebiete Anästhesiologie, Frauenheilkunde und Geburtshilfe, Haut- und Geschlechtskrankheiten, Mund-, Kiefer- und Gesichtschirurgie und Humangenetik ermächtigt sind&#10;</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">From German EBM billing system:&#10;Grundpauschale für Ärzte, Institute und Krankenhäuser, die zur Erbringung von Leistungen innerhalb mindestens eines der Fachgebiete Anästhesiologie, Frauenheilkunde und Geburtshilfe, Haut- und Geschlechtskrankheiten, Mund-, Kiefer- und Gesichtschirurgie und Humangenetik ermächtigt sind&#10;</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57.46875" ss:StyleID="s161">
     <Cell ss:Index="2" ss:StyleID="s162"/>
@@ -6051,8 +6060,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -69,11 +69,24 @@
 		<value value= "1"/>
 	</quantity> 
 	<factorOverride value="0.8"/>
+	<priceOverride>
+	    <value value="40"/>
+        <unit value="EUR"/>
+        <system value="urn:iso:std:iso:4217"/>
+        <code value="EUR"/>
+	</priceOverride>
 	<overrideReason value= "Patient is Cardiologist's golf buddy, so he gets a 20% discount!"/>
 	<enterer>
 		<reference value="Practitioner/example"/>
 	</enterer>
 	<enteredDate value= "2017-01-25T23:55:04+01:00"/>
+	<reason>
+			<coding>
+				<system value= "http://hl7.org/fhir/sid/icd-10"/>
+				<code value= "123456"/>
+				<display value="DIAG-1"/>	
+			</coding>
+	</reason>
 	<service>
 		<reference value="Procedure/example"/>
 	</service>
