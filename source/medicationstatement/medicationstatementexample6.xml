@@ -12,16 +12,16 @@
         <display value="Amoxicillin (product)"/>
       </coding>
   </medicationCodeableConcept>  
+  <effectiveDateTime value="2014-02-01"></effectiveDateTime>
+  <dateAsserted value="2014-02-22"/>
+  <informationSource>
+    <reference value="RelatedPerson/peter"/>
+    <display value="Peter Chalmers"/> 
+    </informationSource>
   <subject>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </subject>
-  <effectiveDateTime value="2014-02-01"></effectiveDateTime>
-  <informationSource>
-    <reference value="RelatedPerson/peter"/>
-    <display value="Peter Chalmers"/> 
-  </informationSource>
-  <dateAsserted value="2014-02-22"/>
   <taken value="n"/>
   <note>
     <text value="Father indicates they miss the occasional dose"/>

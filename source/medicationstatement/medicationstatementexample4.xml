@@ -5,7 +5,7 @@
  xmlns="http://hl7.org/fhir">
   <id value="example004"/>
   <partOf>
-    <reference value="Observation/biopsy"></reference>
+    <reference value="Observation/blood-pressure"></reference>
   </partOf>
   <status value="completed" /> 
   <medicationCodeableConcept>
@@ -15,16 +15,16 @@
       <display value="Amoxicillin (product)"/>
     </coding>
   </medicationCodeableConcept>
-  <subject>
-    <reference value="Patient/pat1"/>
-    <display value="Donald Duck"/> 
-  </subject>
   <effectiveDateTime value="2014-01-23"></effectiveDateTime>
+  <dateAsserted value="2015-02-22"/>
   <informationSource>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
-  <dateAsserted value="2015-02-22"/>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject>
   <taken value="y"/>
   <reasonForUseCodeableConcept>
     <coding>

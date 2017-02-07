@@ -191,15 +191,18 @@
   Short Name = Record of medication being taken by a patient
   Definition = A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient\'s memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient\'s memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
   Comments = When interpreting a medicationStatement, the value of the status and NotTaken needed to be considered:\rMedicationStatement.status + MedicationStatement.wasNotTaken\rStatus=Active + NotTaken=T = Not currently taking\rStatus=Completed + NotTaken=T = Not taken in the past\rStatus=Intended + NotTaken=T = No intention of taking\rStatus=Active + NotTaken=F = Taking, but not as prescribed\rStatus=Active + NotTaken=F = Taking\rStatus=Intended +NotTaken= F = Will be taking (not started)\rStatus=Completed + NotTaken=F = Taken in past\rStatus=In Error + NotTaken=N/A = In Error
+  Workflow Mapping = ..Event
   RIM Mapping = SubstanceAdministration
   w5 = clinical.medication
 
  -- Row 2 -----------------------------------
   Element = MedicationStatement.identifier
   Card. = 0..*
+  Summary = y
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
+  Workflow Mapping = …identifer
   RIM Mapping = .id
   w5 = id
 
@@ -211,14 +214,17 @@
   Short Name = Fulfils plan, proposal or order
   Definition = A plan, proposal or order that is fulfilled in whole or in part by this event.
   Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon.
+  Workflow Mapping = …basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 4 -----------------------------------
   Element = MedicationStatement.partOf
   Card. = 0..*
+  Summary = y
   Type = Reference (MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
+  Workflow Mapping = …part of
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
  -- Row 5 -----------------------------------
@@ -228,6 +234,7 @@
   Type = Reference (Encounter | EpisodeOfCare)
   Short Name = Encounter / Episode associated with MedicationStatement
   Definition = The encounter or episode of care that establishes the context for this MedicationStatement.
+  Workflow Mapping = …context
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
 
  -- Row 6 -----------------------------------
@@ -240,17 +247,20 @@
   Short Name = active | completed | entered-in-error | intended | stopped | on-hold
   Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
   Comments = MedicationStatement is a statement at a point in time.  The status is only representative at the point when it was asserted.  The value set for MedicationStatement.status contains codes that assert the status of the use of the medication by the patient (for example, stopped or on hold) as well as codes that assert the status of the medication statement itself (for example, entered in error).
+  Workflow Mapping = …status
   RIM Mapping = .statusCode
   w5 = status
 
  -- Row 7 -----------------------------------
   Element = MedicationStatement.category
   Card. = 0..1
+  Summary = y
   Type = CodeableConcept
   Binding = MedicationStatementCategory
   Short Name = Type of medication usage
   Definition = Indicates where type of medication statement and where the medication is expected to be consumed or administered
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value
+  w5 = class
 
  -- Row 8 -----------------------------------
   Element = MedicationStatement.medication[x]
@@ -261,21 +271,11 @@
   Short Name = What medication was taken
   Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
+  Workflow Mapping = …code
   RIM Mapping = .participation[typeCode=CSM].role[classCode=ADMM or MANU]
   w5 = what
 
  -- Row 9 -----------------------------------
-  Element = MedicationStatement.subject
-  Card. = 1..1
-  Summary = y
-  Type = Reference(Patient | Group)
-  Short Name = Who is/was taking  the medication
-  Definition = The person, animal or group who is/was taking the medication.
-  v2 Mapping = PID-3-Patient ID List
-  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
-  w5 = who.focus
-
- -- Row 10 -----------------------------------
   Element = MedicationStatement.effective[x]
   Card. = 0..1
   Summary = y
@@ -283,8 +283,19 @@
   Short Name = Over what period was medication consumed?
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
   Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
+  Workflow Mapping = …occurrence[x]
   RIM Mapping = .effectiveTime
   w5 = when.done
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.dateAsserted
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Name = When the statement was asserted?
+  Definition = The date when the medication statement was asserted by the information source.
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = MedicationStatement.informationSource
@@ -296,6 +307,18 @@
   w5 = who.source
 
  -- Row 12 -----------------------------------
+  Element = MedicationStatement.subject
+  Card. = 1..1
+  Summary = y
+  Type = Reference(Patient | Group)
+  Short Name = Who is/was taking  the medication
+  Definition = The person, animal or group who is/was taking the medication.
+  Workflow Mapping = …subject
+  v2 Mapping = PID-3-Patient ID List
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  w5 = who
+
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.derivedFrom
   Card. = 0..*
   Type = Reference(Any)
@@ -303,15 +326,6 @@
   Definition = Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
   Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
-
- -- Row 13 -----------------------------------
-  Element = MedicationStatement.dateAsserted
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Name = When the statement was asserted?
-  Definition = The date when the medication statement was asserted by the information source.
-  RIM Mapping = .participation[typeCode=AUT].time
 
  -- Row 14 -----------------------------------
   Element = MedicationStatement.taken
@@ -322,6 +336,7 @@
   Binding = MedicationStatementTaken
   Short Name = y | n | unk | na
   Definition = Indicator of the certainty of whether the medication was taken by the patient
+  Workflow Mapping = …notDone
   RIM Mapping = .actionNegationInd
 
  -- Row 15 -----------------------------------
@@ -342,7 +357,9 @@
   Short Name = Reason for why the medication is being/was taken
   Definition = A reason for why the medication is being/was taken.
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonForUseReference.
+  Workflow Mapping = …reasoneCodeableConcept
   RIM Mapping = .reasonCode
+  w5 = why
 
  -- Row 17 -----------------------------------
   Element = MedicationStatement.reasonForUseReference
@@ -351,7 +368,9 @@
   Short Name = Condition or observation that supports why the medication is being/was taken
   Definition = Condition or observation that supports why the medication is being/was taken.
   Comments = This is a reference to a condition that is the reason why the medication is being/was taken.  If only a code exists, use reasonForUseCode.
+  Workflow Mapping = …reasonReference
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use\"].value
+  w5 = why
 
  -- Row 18 -----------------------------------
   Element = MedicationStatement.note
@@ -359,6 +378,7 @@
   Type = Annotation
   Short Name = Further information about the statement
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
+  Workflow Mapping = …note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 19 -----------------------------------

@@ -88,19 +88,20 @@
   <medicationReference> <!-- Linked to a RESOURCE Medication -->
     <reference value="#med0309"/>
   </medicationReference> 
-  <subject>
-    <reference value="Patient/pat1"/>
-    <display value="Donald Duck"/> 
-  </subject>
   <effectiveDateTime value="2015-01-23"></effectiveDateTime>
+  <dateAsserted value="2015-02-22"/>
   <informationSource>
     <reference value="Patient/pat1"/>
     <display value="Donald Duck"/> 
   </informationSource>
+  <subject>
+    <reference value="Patient/pat1"/>
+    <display value="Donald Duck"/> 
+  </subject> 
   <derivedFrom>
     <reference value="MedicationRequest/medrx002"></reference>
   </derivedFrom>
-  <dateAsserted value="2015-02-22"/>
+
   <taken value="n"/>
   <reasonForUseCodeableConcept>
     <coding>
