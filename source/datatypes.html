@@ -82,6 +82,10 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
    <td>JSON number (with no decimal point)</td>
  </tr>
  <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: [0]|[-+]?[1-9][0-9]*</td>
+ </tr>
+ <tr>
    <td>string<a name="string"> </a></td>
    <td>A sequence of Unicode characters</td>
    <td>xs:string</td>
@@ -215,7 +219,7 @@ all types, they have <a href="extensibility.html">extensions</a>). See also the 
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Regex: [1-9][0-9]*</td>
+   <td colspan="3" style="border-top: 0px silver solid">Regex: +?[1-9][0-9]*</td>
  </tr>
 </table>
 
@@ -226,6 +230,7 @@ Notes:
  <li>For all the types, the XML, JSON and Turtle representations of the primitive values are the same except for different escaping in XML and JSON</li>
  <li>Boolean values can also be represented using coded values (such as <a href="v2/0136/index.html">HL7 v2 Table 0136</a>). See <a href="observation.html#valuex">Observation</a> for one such use</li>
  <li>The regexes may allow a broader set of values than are actually valid (e.g. leap years) so additional validation is needed</li>
+ <li>The regexes should be qualified with start of string and end of string anchors based on the regex implementation used (e.g. caret '^' and dollar-sign '$' for JavaScript, POSIX, XML and XPath; '\A' and '\Z' for .NET, Java, Python and others; please verify these definitions with the regex implementation used).</li>
  <li>The precision of the decimal value has signficance:<a name="precision"> </a>
     <ul>
       <li>e.g. 0.010 is regarded as different to 0.01, and the original precision should be preserved</li>

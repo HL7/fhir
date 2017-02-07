@@ -242,6 +242,7 @@
   Type = DomainResource
   Short Name = Prescription of medication to for patient
   Definition = An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+  Workflow Mapping = ..Request
   SCRIPT 10.6 Mapping = Message/Body/NewRx
   RIM Mapping = CombinedMedicationRequest
   w5 = clinical.medication
@@ -252,6 +253,7 @@
   Type = Identifier
   Short Name = External identifier
   Definition = External identifier - one that would be used by another non-FHIR system - for example a re-imbursement system might issue its own id for each prescription that is created.  This is particularly important where FHIR only provides part of an entire workflow process where records have to be tracked through an entire system.
+  Workflow Mapping = …identifer
   SCRIPT 10.6 Mapping = Message/Header/PrescriberOrderNumber
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = .id
@@ -264,6 +266,7 @@
   Type = Reference(ActivityDefinition | PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
+  Workflow Mapping = …definition
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target[classCode=unspecified]
 
  -- Row 4 -----------------------------------
@@ -273,6 +276,7 @@
   Type = Reference(CarePlan |MedicationRequest |ProcedureRequest |ReferralRequest)
   Short Name = What request fulfills
   Definition = Plan/proposal/order fulfilled by this request
+  Workflow Mapping = …basedOn
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[classCode=SBADM or PROC or PCPR or OBS, moodCode=RQO orPLAN or PRP]
 
  -- Row 5 -----------------------------------
@@ -282,6 +286,7 @@
   Type = Identifier
   Short Name = Composite request this is part of
   Definition = Composite request this is part of
+  Workflow Mapping = …groupIdentifier
   RIM Mapping = .outboundRelationship(typeCode=COMP].target[classCode=SBADM, moodCode=INT].id
 
  -- Row 6 -----------------------------------
@@ -293,6 +298,7 @@
   Binding = MedicationRequestStatus
   Short Name = active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown
   Definition = A code specifying the state of the order.  Generally this will be active or completed state
+  Workflow Mapping = …status
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .statusCode
   w5 = status
@@ -307,6 +313,7 @@
   Short Name = proposal | plan | order | instance-order
   Definition = Whether the request is a proposal, plan, or an original order
   Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+  Workflow Mapping = …intent
   RIM Mapping = .moodCode (nuances beyond PRP/PLAN/RQO would need to be elsewhere)
   w5 = class
 
@@ -319,6 +326,7 @@
   Binding = MedicationRequestPriority
   Short Name = routine | urgent | stat | asap
   Definition = Indicates how quickly the Medicaiton Request should be addressed with respect to other requests.
+  Workflow Mapping = …priority
   RIM Mapping = .priorityCode
 
  -- Row 9 -----------------------------------
@@ -340,6 +348,7 @@
   Short Name = Medication to be taken
   Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
   Comments = If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the medication resource is recommended.  For example if you require form or lot number, then you must reference the Medication resource. 
+  Workflow Mapping = …code
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed\r\rMedication.code.coding.code = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCode\r\rMedication.code.coding.system = Message/Body/NewRx/MedicationPrescribed/DrugCoded/ProductCodeQualifier\r\rMedication.code.coding.display = Message/Body/NewRx/MedicationPrescribed/DrugDescription
   v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
   RIM Mapping = consumable.administrableMedication
@@ -353,6 +362,7 @@
   Short Name = Who or group prescription is for
   Definition = A link to a resource representing the person or group to whom the medication will be given
   Comments = The subject on a medicationRequest is mandatory.  For the secondary use case where the actual subject is not provided, there still must be an anonymyzed subject specified.
+  Workflow Mapping = …subject
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Patient\r\r(need detail to link to specific patient … Patient.Identification in SCRIPT)
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = .participation[typeCode=AUT].role
@@ -365,6 +375,7 @@
   Short Name = Created during encounter/admission/stay
   Definition = A link to a resource that identifies the particular occurrence or set oc occurrences of contact between patient and health care provider
   Comments = SubstanceAdministration->component->EncounterEvent
+  Workflow Mapping = …context
   SCRIPT 10.6 Mapping = no mapping
   v2 Mapping = PV1-19-Visit Number
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN, code=\"type of encounter or episode\"]
@@ -386,6 +397,7 @@
   Type = dateTime
   Short Name = When request was initially authored
   Definition = The date (and perhaps time) when the prescription was initially written or authored on
+  Workflow Mapping = …authoredOn
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/WrittenDate
   v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
   RIM Mapping = author.time
@@ -398,6 +410,7 @@
   Type = CodeableConcept
   Short Name = Who/What requested the Request
   Definition = The individual, organization or device that initiated the request and has responsibility for its activation.
+  Workflow Mapping = …requester
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.actor
 
@@ -409,6 +422,7 @@
   Short Name = Who ordered the initial medication(s)
   Definition = The healthcare professional responsible for authorizing the initial prescription.
   Comments = It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.
+  Workflow Mapping = ….agent
   SCRIPT 10.6 Mapping = Message/Body/NewRx/Prescriber\r\r(need detail to link to specific prescriber … Prescriber.Identification in SCRIPT)
   v2 Mapping = RXE-13-Ordering Provider\'s DEA Number / RXO-14-Ordering Provider\'s DEA Number / RXE-14-Pharmacist/Treatment Supplier\'s Verifier ID / RXO-15-Pharmacist/Treatment Supplier\'s Verifier ID / ORC-12-Ordering Provider / PRT-5-Participation Person: PRT-4-Participation=\'OP\' (all but last deprecated)
   RIM Mapping = .player
@@ -422,6 +436,7 @@
   Short Name = Organization agent is acting for
   Definition = The organization the device or practitioner was acting on behalf of.
   Requirements = Practitioners and Devices can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when authoring the request.
+  Workflow Mapping = ….onBehalfOf
   RIM Mapping = .scoper
 
  -- Row 18 -----------------------------------
@@ -440,6 +455,7 @@
   Short Name = Reason or indication for writing the prescription
   Definition = Can be the reason or the indication for writing the prescription.
   Comments = This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.
+  Workflow Mapping = …reasonCode
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Diagnosis/Primary/Value
   v2 Mapping = ORC-16-Order Control Code Reason /RXE-27-Give Indication/RXO-20-Indication / RXD-21-Indication / RXG-22-Indication / RXA-19-Indication
   RIM Mapping = reason.observation.reasonCode
@@ -452,6 +468,7 @@
   Short Name = Condition or Observation that supports why the prescription is being written
   Definition = Condition or observation that supports why the prescription is being written
   Comments = This is a reference to a condition that is the reason for the medication order.  If only a code exists, use reasonCode.
+  Workflow Mapping = …reasonReference
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = reason.observation[code=ASSERTION].value
   w5 = why
@@ -462,6 +479,7 @@
   Type = Annotation
   Short Name = Information about the prescription
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
+  Workflow Mapping = …note
   SCRIPT 10.6 Mapping = Message/Body/NewRx/MedicationPrescribed/Note
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
@@ -471,6 +489,7 @@
   Type = DosageInstruction
   Short Name = How the medication should be taken
   Definition = Indicates how the medication is to be used by the patient.
+  Workflow Mapping = …occurrence[x]
   RIM Mapping = see dosageInstruction mapping
 
  -- Row 23 -----------------------------------
@@ -570,6 +589,7 @@
   Type = Reference(MedicationRequest)
   Short Name = An order/prescription that replaces
   Definition = A link to a resource representing an earlier order related order or prescription.
+  Workflow Mapping = …replaces
   SCRIPT 10.6 Mapping = not mapped
   RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
@@ -589,6 +609,7 @@
   Short Name = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred as the request is processed; e.g. when the order was verified or when it was completed.
   Comments = See usage notes in Request pattern in request history
+  Workflow Mapping = …relevantHistory
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================

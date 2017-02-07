@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-      
+
 [%settitle Element%]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -17,8 +17,8 @@
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
 
 <p>
-The base definition for all elements contained inside a resource. All elements, whether defined as 
-a <a href="datatypes.html">Data Type</a> (including primitives) or as part of a resource structure, 
+The base definition for all elements contained inside a resource. All elements, whether defined as
+a <a href="datatypes.html">Data Type</a> (including primitives) or as part of a resource structure,
 have this base content:
 </p>
 <ul>
@@ -32,7 +32,7 @@ There are 3 kinds of descendent types that specialize <code>Element</code>:
 <ul>
  <li><a href="datatypes.html#primitive">Primitive data types</a>, that add a primitive value property of the specified type</li>
  <li><a href="datatypes.html#complex">Complex data types</a>, that add their own children (all of which are also elements)</li>
- <li><a href="backboneelement.html">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a></li>
+ <li><a href="backboneelement.html">BackboneElement</a>, A specialization that adds modifierExtension, which is the super-type of all the element types defined in resource definitions (e.g. <a href="patient.html#resource">Patient.contact</a>)</li>
 </ul>
 <p>
 Note that resources themselves all specialise the base type <a href="resource.html">Resource</a>.
@@ -109,17 +109,17 @@ Content
    <div id="json-inner">
     <pre class="spec">
 // complex types:
-    
+
 {<span style="float: right"><a title="Documentation for this format" href="json.html"><img src="help.png" alt="doco"/></a></span>
   "<a href="element-definitions.html#Element.id" title="Internal ID" class="dict">id</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#id">id</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Internal Id</span>
   "<a href="element-definitions.html#Element.extension" title="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension" class="dict">extension</a>" : [{<span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"> <span style="color: darkgreen"><a href="extensibility.html#Extension">Additional Content defined by implementations</a></span></span>
     // from Element: <a href="extensibility.html">extension</a> (recursive)
     "<a title="Source of the definition for the extension code - a logical name or a URL." class="dict" href="extensibility-definitions.html#Extension.url">url</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#uri">uri</a></span>&gt;", <span style="color: Gray">//</span> <span title="This element is required" style="color: brown"><b>R!</b></span>  <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
     "<a title="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." class="dict" href="extensibility-definitions.html#Extension.value_x_">value[x]</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#open">*</a></span>&gt; <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
-  }]  
+  }]
 }
 // primitive types:
-    
+
 {<span style="float: right"><a title="Documentation for this format" href="json.html"><img src="help.png" alt="doco"/></a></span>
   "{name}" : "value",  <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">The primitive value</span>
   "{name}_" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Special syntax for the id and extensions</span>
@@ -128,7 +128,7 @@ Content
       // from Element: <a href="extensibility.html">extension</a> (recursive)
       "<a title="Source of the definition for the extension code - a logical name or a URL." class="dict" href="extensibility-definitions.html#Extension.url">url</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#uri">uri</a></span>&gt;", <span style="color: Gray">//</span> <span title="This element is required" style="color: brown"><b>R!</b></span>  <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
       "<a title="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." class="dict" href="extensibility-definitions.html#Extension.value_x_">value[x]</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#open">*</a></span>&gt; <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
-    }]  
+    }]
   }
 }
 </pre>
@@ -195,17 +195,17 @@ Content
    <div id="json-inner">
     <pre class="spec">
 // complex types:
-    
+
 {<span style="float: right"><a title="Documentation for this format" href="json.html"><img src="help.png" alt="doco"/></a></span>
   "<a href="element-definitions.html#Element.id" title="Internal ID" class="dict">id</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#id">id</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Internal Id</span>
   "<a href="element-definitions.html#Element.extension" title="May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension" class="dict">extension</a>" : [{<span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8"> <span style="color: darkgreen"><a href="extensibility.html#Extension">Additional Content defined by implementations</a></span></span>
     // from Element: <a href="extensibility.html">extension</a> (recursive)
     "<a title="Source of the definition for the extension code - a logical name or a URL." class="dict" href="extensibility-definitions.html#Extension.url">url</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#uri">uri</a></span>&gt;", <span style="color: Gray">//</span> <span title="This element is required" style="color: brown"><b>R!</b></span>  <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
     "<a title="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." class="dict" href="extensibility-definitions.html#Extension.value_x_">value[x]</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#open">*</a></span>&gt; <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
-  }]  
+  }]
 }
 // primitive types:
-    
+
 {<span style="float: right"><a title="Documentation for this format" href="json.html"><img src="help.png" alt="doco"/></a></span>
   "{name}" : "value",  <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">The primitive value</span>
   "{name}_" : { <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Special syntax for the id and extensions</span>
@@ -214,12 +214,12 @@ Content
       // from Element: <a href="extensibility.html">extension</a> (recursive)
       "<a title="Source of the definition for the extension code - a logical name or a URL." class="dict" href="extensibility-definitions.html#Extension.url">url</a>" : "&lt;<span style="color: darkgreen"><a href="datatypes.html#uri">uri</a></span>&gt;", <span style="color: Gray">//</span> <span title="This element is required" style="color: brown"><b>R!</b></span>  <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
       "<a title="Value of extension - may be a resource or one of a constrained set of the data types (see Extensibility in the spec for list)." class="dict" href="extensibility-definitions.html#Extension.value_x_">value[x]</a>" : &lt;<span style="color: darkgreen"><a href="datatypes.html#open">*</a></span>&gt; <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">identifies the meaning of the extension</span>
-    }]  
+    }]
   }
 }
 </pre>
 
- 
+
   </div>
   </div>
  </div>
@@ -234,8 +234,8 @@ Content
 [%dt.constraints Element%]
 
 <p>
-This constraint exists to reduce syntactical variation in resource contents. 
-If an element has no children, then it is always omitted from the resource, 
+This constraint exists to reduce syntactical variation in resource contents.
+If an element has no children, then it is always omitted from the resource,
 as opposed to optionally present without any content.
 </p>
 
@@ -252,7 +252,7 @@ the base features and representation rules that apply to the Element type.
 <p>
 Elements are represented by an XML element. The name of the element comes from
 the context in which it is used, not from the type. The internal <code>id</code>
-is represented as an attribute (similar to xml:id, but see below about scope). 
+is represented as an attribute (similar to xml:id, but see below about scope).
 Extensions are represented as XML elements. Here is the representation for an
 element 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 </p>
@@ -266,7 +266,7 @@ element 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 </pre>
 <p>
 Primitive types have the same representation; the actual primitive value appears
-as an XML attributed named <code>value</code> on the XML element. For example, 
+as an XML attributed named <code>value</code> on the XML element. For example,
 a string property named "name" will be represented like this:
 </p>
 <pre name="xml">
@@ -280,10 +280,10 @@ a string property named "name" will be represented like this:
 <a name="json"> </a>
 <h2>JSON Representation</h2>
 <p>
-Elements (except for primitive types, see below) are represented by a json 
+Elements (except for primitive types, see below) are represented by a json
 object property. The name of the property comes from
 the context in which it is used, not from the type. The internal <code>id</code>
-is represented as a JSON string property named "_id". Extensions are represented 
+is represented as a JSON string property named "_id". Extensions are represented
 in a JSON array of object named "extension". Here is the representation for a
 property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 </p>
@@ -293,7 +293,7 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
       "_id" : "[internal id]",
       "extension" : [
         ..extensions, if present...
-      ],  
+      ],
       .. properties of Coding type...
     }
   }
@@ -302,7 +302,7 @@ property 'code' of type <a href="datatypes.html#Coding">Coding</a>:
 Primitive types are represented differently; the actual primitive value appears
 as a JSON string or number property. If an internal id or extensions are present,
 they appear in a json object with the name of the primitive value property with
-"_" appended. For example, a string property named "name" will be represented 
+"_" appended. For example, a string property named "name" will be represented
 like this:
 </p>
 <pre class="json">
@@ -324,13 +324,13 @@ The exact use of this pattern is <a href="json.html#primitive">described here</a
 <h2>Internal Id Scope</h2>
 
 <p>
-The <code>id</code> property of the element is defined to allow implementers 
+The <code>id</code> property of the element is defined to allow implementers
 to build implementation functionality that makes use of internal references
-inside the resource. This specification does not use the internal id on the 
+inside the resource. This specification does not use the internal id on the
 element in any way.
 </p>
 <p>
-The internal id is unique within the scope of the resource that contains it. 
+The internal id is unique within the scope of the resource that contains it.
 Specifically, this means:
 </p>
 <ul>
@@ -351,23 +351,23 @@ These rules ensure that there is no need to change internal identifiers while ex
 <script>
  try {
    var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
- } catch(exception){ 
+ } catch(exception){
  }
  if (!currentTabIndex)
    currentTabIndex = '0';
 
 $( '#tabs-Element' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
-     
-     
+
+
 function store(currentTab) {
   document.activeElement.blur();
   try {
     sessionStorage.setItem('fhir-resource-tab-index', currentTab);
-  } catch(exception){ 
+  } catch(exception){
   }
   $( '#tabs-Element' ).tabs('option', 'active', currentTab);
-}     
+}
 </script>
-  
+
 </body>
 </html>

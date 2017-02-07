@@ -452,7 +452,7 @@
   Type = time
   Short Name = Time of day for action
   Definition = Specified time of day for action to take place
-  Comments = When time of day is speciifed, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. The elements when, frequency and period cannot be used as well as timeOfDay
+  Comments = When time of day is specified, it is inferred that the action happens every day (as filtered by dayofWeek) on the specified times. The elements when, frequency and period cannot be used as well as timeOfDay
   RIM Mapping = n/a
 
  -- Row 17 -----------------------------------
