@@ -10,6 +10,7 @@
 		<system value="http://myHospital.org/ChargeItems"/>
 		<value value="654321"/>
 	</identifier>
+	<definition value = "http://www.kbv.de/tools/ebm/html/01520_2904360860826220813632.html"/>
 	<status value = "billable"/>
 
 	<code>
