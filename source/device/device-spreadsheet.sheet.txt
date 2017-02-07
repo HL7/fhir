@@ -142,7 +142,7 @@
   Short Name = Unique Device Identifier (UDI) Barcode string
   Definition = [Unique device identifier (UDI)](device.html#5.11.3.2.2) assigned to device label or package
   Comments = UDI may identify an unique instance of a device, or it may only identify the type of the device.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
-  RIM Mapping = .id[where root is root for UDI]
+  RIM Mapping = .id and .code
   w5 = id
 
  -- Row 5 -----------------------------------
@@ -154,6 +154,7 @@
   Short Name = Mandatory fixed portion of UDI
   Definition = The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.
   UDI Mapping = The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.
+  RIM Mapping = Role.id.extension
   w5 = what
 
  -- Row 6 -----------------------------------
@@ -166,6 +167,7 @@
   Definition = Name of device as used in labeling or catalog.
   Comments = Use the `Device.type`  for a generic type or kind of device name.  Note the [GUDID](http://www.fda.gov/medicaldevices/deviceregulationandguidance/uniquedeviceidentification/globaludidatabasegudid/default.htm) lists the name as the \'Brand Name\'.
   UDI Mapping = Propietary/Trade Name of the medical Device as used in the labeling or catalog
+  RIM Mapping = .displayName
   w5 = what
 
  -- Row 7 -----------------------------------
@@ -175,6 +177,7 @@
   Short Name = Regional UDI authority
   Definition = The identity of the authoritative source for UDI generation within a  jurisdiction.  All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi.
   Requirements = Allows a recipient of a UDI to know which database will contain the UDI-associated metadata.
+  RIM Mapping = Role.scoper
 
  -- Row 8 -----------------------------------
   Element = Device.udi.carrierHRF
@@ -186,6 +189,7 @@
   Definition = The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.
   Comments = If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label
   UDI Mapping = A unique device identifier (UDI) on a device label in plain text
+  RIM Mapping = Role.id.extension
 
  -- Row 9 -----------------------------------
   Element = Device.udi.carrierAIDC
@@ -197,6 +201,7 @@
   Definition = The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - E.g a barcode or RFID.   Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded.
   Comments = The AIDC form of UDIs should be scanned or otherwise used for the identification of the device whenever possible to minimize errors in records resulting from manual transcriptions. If separate barcodes for DI and PI are present, concatenate the string with DI first and in order of human readable expression on label
   UDI Mapping = A unique device identifier (UDI) on a device label a form that uses automatic identification and data capture (AIDC) technology.
+  RIM Mapping = Role.id.extension
 
  -- Row 10 -----------------------------------
   Element = Device.udi.issuer
@@ -206,6 +211,7 @@
   Short Name = UDI Issuing Organization
   Definition = Organization that is charged with issuing UDIs for devices.  For example, the US FDA issuers include :\n1) GS1: \nhttp://hl7.org/fhir/NamingSystem/gs1-di, \n2) HIBCC:\nhttp://hl7.org/fhir/NamingSystem/hibcc-dI, \n3) ICCBBA for blood containers:\nhttp://hl7.org/fhir/NamingSystem/iccbba-blood-di, \n4) ICCBA for other devices:\nhttp://hl7.org/fhir/NamingSystem/iccbba-other-di
   UDI Mapping = All UDIs are to be issued under a system operated by an Jurisdiction-accredited issuing agency.\nGS1 DIs: \n http://hl7.org/fhir/NamingSystem/gs1\nHIBCC DIs:\n http://hl7.org/fhir/NamingSystem/hibcc\nICCBBA DIs for blood containers:\n http://hl7.org/fhir/NamingSystem/iccbba-blood\nICCBA DIs for other devices:\n http://hl7.org/fhir/NamingSystem/iccbba-other
+  RIM Mapping = Role.id.root
 
  -- Row 11 -----------------------------------
   Element = Device.udi.entryType
@@ -215,6 +221,7 @@
   Short Name = barcode | rfid | manual +
   Definition = A coded entry to indicate how the data was entered.
   Requirements = Supports a way to distinguish hand entered from machine read data.
+  RIM Mapping = NA
 
  -- Row 12 -----------------------------------
   Element = Device.status
@@ -493,19 +500,19 @@
   Filename = device-example-udi1.xml
 
  -- Row 7 -----------------------------------
-  Name = !UDI Implantable 2
+  Name = UDI Implantable 2
   Identity = example-udi2
   Description = Implantable device/UDI example ICCBBA Format
   Filename = device-example-udi2.xml
 
  -- Row 8 -----------------------------------
-  Name = !UDI Implantable 3
+  Name = UDI Implantable 3
   Identity = example-udi3
   Description = Implantable device/UDI example HIBBC Format
   Filename = device-example-udi3.xml
 
  -- Row 9 -----------------------------------
-  Name = !UDI Blood Bag
+  Name = UDI Blood Bag
   Identity = example-udi4
   Description = Blood Bag UDI example ICCBBA Format
   Filename = device-example-udi4.xml

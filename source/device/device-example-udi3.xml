@@ -10,31 +10,21 @@
 				<code value="SNO"/>
 			</coding>
 		</type>
-		<value value="XYZ4567890123 45678"/>
+		<value value="XYZ456789012345678"/>
 		<!--  this is the serial number -->
 	</identifier>
-	<udiCarrier>
-		<!--The 'type' component should be set to “UDI” and the 'system' component to the the appropriate repository url. -->
-		<type>
-			<coding>
-				<system value="http://hl7.org/fhir/identifier-type"/>
-				<code value="UDI"/>
-			</coding>
-		</type>
-		<system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
-		<!--UDIs of devices managed in the U.S. by the FDA,-->
-		<value value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ4567890123 45678/16D20130202C"/>
-		<!--With appropriate settings, the scanning device provides this data string:-->
-	</udiCarrier>
+	<udi>
+		<!--brand name on label-->
+		<name value="FHIR® Ulltra Implantable"/>
+		<!-- This is  US FDA example -->
+		<jurisdiction value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<!--  The Human readable form here  which is FDA GS-1 format of the udi  -->
+		<carrierHRF value="+H123PARTNO1234567890120/$$420020216LOT123456789012345/SXYZ456789012345678/16D20130202C"/>
+		<issuer value="http://hl7.org/fhir/NamingSystem/hibcc"/>
+		<!-- YOu may want to know how the data was entered for data integrity reasons.  This has overlap with Provenance which could identify the enterer-->
+		<entryType value="manual"/>
+	</udi>
 	<status value="inactive"/>
-	<type>
-		<coding>
-			<system value="http://hl7.org/fhir/NamingSystem/hibcc-di"/>
-			<code value="H123PARTNO1234567890120"/>
-			<!--this is the Device Identifier or DI-->
-		</coding>
-		<text value="DI =H123PARTNO1234567890120"/><!-- note: optional text value added here for a prettier generated narrative -->
-	</type>
 	<lotNumber value="LOT123456789012345"/>
 	<manufacturer value="GlobalMed, Inc"/>
 	<manufactureDate value="2013-02-02"/>
