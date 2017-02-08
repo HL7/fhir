@@ -34,6 +34,7 @@
   
   <!-- define the section -> list link -->
   <link>
+    <description value="Link to List"/>
     <!-- any section entry. Todo: this recurses; are we profiling this at all levels? --> 
     <path value="Composition.section.entry"/>
     <!-- 
@@ -50,6 +51,7 @@
       
       <!-- and inside this list, any references -->
       <link>
+        <description value="Include any list entries"/>
         <!-- any list entry. --> 
         <path value="List.entry.item"/>
         <target>
