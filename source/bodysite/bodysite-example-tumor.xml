@@ -1,10 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time-->
-<BodySite xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="UTF-8"?><!--This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time--><BodySite xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="tumor"/>
-	<patient>
-		<reference value="Patient/example"/>
-	</patient>
 	<identifier>
 		<system value="http://goodhealth.org/bodysite/identifiers"/>
 		<value value="12345"/>
@@ -31,4 +26,7 @@
 		<contentType value="application/dicom"/>
 		<url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;amp;wado_details"/>
 	</image>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
 </BodySite>

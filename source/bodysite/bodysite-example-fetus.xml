@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--This example demonstrates using the bodysite resource to identify of fetus within systems that choose not to treat a fetus as a Patient-->
-<BodySite xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<BodySite xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 	<id value="fetus"/>
-	<patient>
-		<reference value="Patient/example"/>
-	</patient>
 	<identifier>
 		<system value="http://goodhealth.org/bodysite/identifiers"/>
 		<value value="12345"/>
@@ -18,4 +15,7 @@
 		<text value="Fetus"/>
 	</code>
 	<description value="EDD 1/1/2017 confirmation by LMP"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
 </BodySite>
