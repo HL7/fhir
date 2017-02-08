@@ -71,9 +71,8 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
 
 
     @Override
-    public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)
-            throws Exception {
-        final String basedDir = Utilities.path(implDir, "base");
+    public void generate(Definitions definitions, String destDir, String actualImpl, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
+        final String basedDir = Utilities.path(actualImpl, "base");
 
         Map<String, String> dirs = new HashMap<String, String>() {{
             put("modelDir", Utilities.path(basedDir, "app", "models"));
@@ -107,7 +106,7 @@ public class EmberGenerator extends BaseGenerator implements PlatformGenerator {
 
 
         ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
-        zip.addFolder(implDir, "model", false);
+        zip.addFolder(actualImpl, "model", false);
         zip.close();
     }
 
