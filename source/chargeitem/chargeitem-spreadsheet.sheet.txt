@@ -418,87 +418,82 @@
   Path = ChargeItem.identifier
 
  -- Row 2 -----------------------------------
-  Name = partof
-  Type = reference
-  Path = ChargeItem.partOf
-
- -- Row 3 -----------------------------------
   Name = code
   Type = token
   Path = ChargeItem.code
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = subject
   Type = reference
   Path = ChargeItem.subject
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = patient
   Type = reference
   Path = ChargeItem.subject
   Target Types = Patient
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = context
   Type = reference
   Path = ChargeItem.context
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = occurrence
   Type = date
   Path = ChargeItem.occurrence[x]
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = enterer
   Type = reference
   Path = ChargeItem.enterer
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = entered-date
   Type = date
   Path = ChargeItem.enteredDate
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = participant-actor
   Type = reference
   Path = ChargeItem.participant.actor
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = participant-role
   Type = token
   Path = ChargeItem.participant.role
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = performing-organization
   Type = reference
   Path = ChargeItem.performingOrganization
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = requesting-organization
   Type = reference
   Path = ChargeItem.requestingOrganization
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = quantity
   Type = quantity
   Path = ChargeItem.quantity
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = factor-override
   Type = number
   Path = ChargeItem.factorOverride
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = price-override
   Type = quantity
   Path = ChargeItem.priceOverride
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = service
   Type = reference
   Path = ChargeItem.service
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = account
   Type = reference
   Path = ChargeItem.account

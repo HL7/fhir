@@ -25,7 +25,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2053,7 +2053,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <TopRowVisible>21</TopRowVisible>
    <FreezePanes/>
    <FrozenNoSplit/>
@@ -2513,7 +2512,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="37" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -2548,13 +2547,6 @@
     <Cell ss:StyleID="s82"/>
     <Cell ss:StyleID="s122"><Data ss:Type="String">ChargeItem.identifier</Data></Cell>
     <Cell ss:StyleID="s123"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">partof</Data></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s93"/>
-    <Cell ss:StyleID="s125"><Data ss:Type="String">ChargeItem.partOf</Data></Cell>
-    <Cell ss:StyleID="s126"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s124"><Data ss:Type="String">code</Data></Cell>
@@ -2708,7 +2700,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"/>
    </Row>
-   <Row ss:Index="30" ss:AutoFitHeight="0">
+   <Row ss:Index="29" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2723,7 +2715,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"/>
    </Row>
-   <Row ss:Index="36" ss:AutoFitHeight="0">
+   <Row ss:Index="35" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s92"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -2743,10 +2735,11 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -2759,19 +2752,18 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R23C2</Range>
+   <Range>R2C2:R22C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>
