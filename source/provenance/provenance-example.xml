@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Provenance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/provenance.xsd">
-  <id value="example"/>
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>
-  </text>
-  <!-- 
+	<id value="example"/>
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">procedure record authored on 27-June 2015 by Harold Hippocrates, MD Content extracted from XDS managed CDA Referral received 26-June</div>
+	</text>
+	<!-- 
     where possible, provenance targets should be version specific,
     so that there is no ambiguity about which version of the 
     record this relates to
   -->
-  <target>
-    <reference value="Procedure/example/_history/1"/>
-  </target>
-  <period>
-    <start value="2015-06-27"/>
-	<end value="2015-06-28"/>
-  </period>
-  <recorded value="2015-06-27T08:39:24+10:00"/>
-  <!-- reference to a patient consent to share inforamtion -->
-  <policy value="http://acme.com/fhir/Consent/25"/>
-  <location>
-    <reference value="Location/1"/>
-  </location>
-  <reason>
-      <system value="http://snomed.info/sct"/>
-      <code value="3457005"/>
-      <display value="Referral"/>
-  </reason>
-  
-  <!-- author = Harold Hippocrates -->
-  <agent>
-    <role>
-      <system value="http://hl7.org/fhir/provenance-participant-role"/>
-      <code value="author"/>
-    </role>
-    <whoReference>
-		<reference value="Practitioner/xcda-author"/>
-	</whoReference>
-	  <!-- reference to other agent defined within -->
-    <onBehalfOfUri value="#a1"/>
-	<relatedAgentType>
-        <text value="used"/>
-    </relatedAgentType>
+	<target>
+		<reference value="Procedure/example/_history/1"/>
+	</target>
+	<period>
+		<start value="2015-06-27"/>
+		<end value="2015-06-28"/>
+	</period>
+	<recorded value="2015-06-27T08:39:24+10:00"/>
+	<!-- reference to a patient consent to share inforamtion -->
+	<policy value="http://acme.com/fhir/Consent/25"/>
+	<location>
+		<reference value="Location/1"/>
+	</location>
+	<reason>
+		<system value="http://snomed.info/sct"/>
+		<code value="3457005"/>
+		<display value="Referral"/>
+	</reason>
+
+	<!-- author = Harold Hippocrates -->
+	<agent>
+		<role>
+			<system value="http://hl7.org/fhir/provenance-participant-role"/>
+			<code value="author"/>
+		</role>
+		<whoReference>
+			<reference value="Practitioner/xcda-author"/>
+		</whoReference>
+		<!-- reference to other agent defined within -->
+		<onBehalfOfUri value="#a1"/>
+		<relatedAgentType>
+			<text value="used"/>
+		</relatedAgentType>
 	</agent>
-  <!-- device = software Harold used -->
-  <agent id="a1">
-    <role>
-      <system value="http://hl7.org/fhir/v3/ParticipationType"/>
-      <code value="DEV"/>
-    </role>
-    <whoReference>
-		<reference value="Device/software"/>
-	</whoReference>
-  </agent>
-  <!-- information extract from a CCDA referral document -->
-  <entity>
-    <role value="source"/>
-    <!-- 
+	<!-- device = software Harold used -->
+	<agent id="a1">
+		<role>
+			<system value="http://hl7.org/fhir/v3/ParticipationType"/>
+			<code value="DEV"/>
+		</role>
+		<whoReference>
+			<reference value="Device/software"/>
+		</whoReference>
+	</agent>
+	<!-- information extract from a CCDA referral document -->
+	<entity>
+		<role value="source"/>
+		<!-- 
       the document is in an XDS repository. 
       as a source, we're going to give an MHD 
       reference. (easier than XDS.b call with parameters!)
 	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
     -->
-    <whatReference>
-		<reference value="DocumentReference/example"/>    
-		<display value="CDA Document in XDS repository"/>
-	</whatReference>
-  </entity>
+		<whatReference>
+			<reference value="DocumentReference/example"/>    
+			<display value="CDA Document in XDS repository"/>
+		</whatReference>
+	</entity>
 </Provenance>
