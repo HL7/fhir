@@ -30,7 +30,7 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 	</text>
 	<contained>
 		<Observation>
-			<!--  
+			<!--
   all the data items (= Observations) are contained
   in this diagnostic report. It would be equally
     valid - and normal - for them to be separate trackable
@@ -716,9 +716,9 @@ Basophils             x10*9/L     0.92+++     &lt;0.21
 	<subject>
 		<reference value="Patient/pat2"/>
 	</subject>
-	<encounter>
+	<context>
 		<reference value="Encounter/example"/>
-	</encounter>
+	</context>
 	<effectiveDateTime value="2011-03-04T08:30:00+11:00"/>
 	<!--    all this report is final    -->
 	<issued value="2011-03-04T11:45:33+11:00"/>

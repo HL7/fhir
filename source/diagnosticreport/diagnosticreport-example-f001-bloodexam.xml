@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport xmlns="http://hl7.org/fhir">
+	<!--  ISO 8601  -->
+	<!--  OID: 2.16.840.1.113883.4.642.1.7  -->
 	<id value="f001"/>
 	<contained>
 		<ProcedureRequest>
@@ -49,6 +51,9 @@
 		<system value="http://www.bmc.nl/zorgportal/identifiers/reports"/>
 		<value value="nr1239044"/>
 	</identifier>
+	<basedOn>
+		<reference value="#req"/>
+	</basedOn>
 	<status value="final"/>
 	<category>
 		<coding>
@@ -67,20 +72,18 @@
 			<code value="58410-2"/>
 			<display value="Complete blood count (hemogram) panel - Blood by Automated count"/>
 		</coding>
-	</code><!--  ISO 8601  --><subject>
+	</code>
+	<subject>
 		<reference value="Patient/f001"/>
 		<display value="P. van den Heuvel"/>
 	</subject>
-	<effectiveDateTime value="2013-04-02"/><!--  OID: 2.16.840.1.113883.4.642.1.7  --><issued value="2013-05-15T19:32:52+01:00"/>
+	<issued value="2013-05-15T19:32:52+01:00"/>
 	<performer>
 		<actor>
 			<reference value="Organization/f001"/>
 			<display value="Burgers University Medical Centre"/>
 		</actor>
 	</performer>
-	<request>
-		<reference value="#req"/>
-	</request>
 	<result>
 		<reference value="Observation/f001"/>
 	</result>

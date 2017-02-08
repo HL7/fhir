@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir">
-	<id value="f202"/>
+<DiagnosticReport xmlns="http://hl7.org/fhir"><!-- No identifier was available --><id value="f202"/>
 	<contained>
 		<ProcedureRequest>
 			<id value="req"/>
@@ -29,8 +28,13 @@
 			</requester>
 		</ProcedureRequest>
 	</contained>
+	<basedOn>
+		<reference value="#req"/>
+	</basedOn>
 	<status value="final"/>
-	<category><!-- Lab test --><coding>
+	<category>
+		<!-- Lab test -->
+		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="15220000"/>
 			<display value="Laboratory test"/>
@@ -51,16 +55,13 @@
 		<reference value="Patient/f201"/>
 		<display value="Roel"/>
 	</subject>
-	<effectiveDateTime value="2013-03-11T03:45:00+01:00"/>
 	<issued value="2013-03-11T10:28:00+01:00"/>
 	<performer>
 		<actor>
 			<reference value="Organization/f201"/>
 			<display value="AUMC"/>
 		</actor>
-	</performer><!-- No identifier was available --><request>
-		<reference value="#req"/>
-	</request>
+	</performer>
 	<result>
 		<reference value="Observation/f206"/>
 		<display value="Results for staphylococcus analysis on Roel's blood culture"/>

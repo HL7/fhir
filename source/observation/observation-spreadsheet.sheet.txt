@@ -1086,6 +1086,12 @@
   Description = The method used for the observation
   Path = Observation.method
 
+ -- Row 47 -----------------------------------
+  Name = based-on
+  Type = reference
+  Description = Reference to the test or procedure request.
+  Path = Observation.basedOn
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns="http://hl7.org/fhir">
-	<id value="micro"/>
+<DiagnosticReport xmlns="http://hl7.org/fhir"><!--   start of the main resource   --><id value="micro"/>
 	<contained>
 		<!--
 
@@ -968,6 +967,9 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 		<!--   seems like a likely choice   -->
 		<value value="290741144"/>
 	</identifier>
+	<basedOn>
+		<reference value="#req"/>
+	</basedOn>
 	<status value="final"/>
 	<category>
 		<coding>
@@ -975,7 +977,6 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 			<code value="MB"/>
 		</coding>
 	</category>
-	<!--   start of the main resource   -->
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -986,17 +987,12 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
 	<subject>
 		<reference value="Patient/example"/>
 		<!--   patient chosen at random   -->
-	</subject>
-	<effectiveDateTime value="2009-08-07T19:00:00+10:00"/>
-	<issued value="2009-08-10T08:25:44+10:00"/>
+	</subject><issued value="2009-08-10T08:25:44+10:00"/>
 	<performer>
 		<actor>
 			<display value="Todd Ashby"/>
 		</actor>
 	</performer>
-	<request>
-		<reference value="#req"/>
-	</request>
 	<result>
 		<reference value="#org1"/>
 	</result>

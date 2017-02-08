@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<DiagnosticReport xmlns="http://hl7.org/fhir">
-    <id value="hla-1"/>
-    <text>
+<DiagnosticReport xmlns="http://hl7.org/fhir"><!--
+    <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
+      <valueDate value="2014-05-16"/>
+    </extension>
+    --><id value="hla-1"/>
+	<text>
       <status value="extensions"/>
       <div xmlns="http://www.w3.org/1999/xhtml">
         <h3>HLA-A,-B,-C Genotyping Report for Marry Chalmers (MRN: 12345) </h3>
@@ -19,12 +21,7 @@
         <p>Please refer the <a href="genomics.html#hla">implementation guide </a> for this usage example.</p>
       </div>
     </text>
-    <!--
-    <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
-      <valueDate value="2014-05-16"/>
-    </extension>
-    -->
-    <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+	<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
       <valueCodeableConcept>
         <coding>
         <system value="http://www.ebi.ac.uk/ipd/imgt/hla/"/>
@@ -33,15 +30,15 @@
         <text value="IMGT/HLA 3.23"/>
       </valueCodeableConcept>
     </extension>
-    <extension xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+	<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
       <extension url="text">
         <valueString value="HLA-A*01:01:01:01+HLA-A*01:02^HLA-B*15:01:01:01+HLA-B*57:01:01^HLA-C*01:02:01+HLA-C*03:04:01:01"/>
       </extension>
       <extension url="uri">
-        <valueUri value="https://gl.nmdp.org/imgt-hla/3.23.0/multilocus-unphased-genotype/i" />
+        <valueUri value="https://gl.nmdp.org/imgt-hla/3.23.0/multilocus-unphased-genotype/i"/>
       </extension>
     </extension>
-    <extension  xmlns="http://hl7.org/fhir" url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod">
+	<extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsMethod">
       <valueCodeableConcept>
         <coding>
         <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
@@ -50,44 +47,43 @@
         <text value="Next Generation Sequencing of exons 2 and 3 of HLA Class I genes"/>
       </valueCodeableConcept>
     </extension>
-    <status value="final"/>
-    <category>
+	<basedOn>
+      <reference value="ProcedureRequest/789"/>
+      <display value="Order for HLA-A,-B,-C genotyping"/>
+    </basedOn>
+	<status value="final"/>
+	<category>
       <coding>
         <system value="http://hl7.org/fhir/ValueSet/diagnostic-service-sections"/>
         <code value="GE"/>
         <display value="Genetics"/>
       </coding>
     </category>
-    <code>
+	<code>
       <coding>
         <system value="http://loinc.org"/>
         <code value="53767-0"/>
         <display value="HLA-A+B+C SBT [Interpretation] by High resolution"/>
       </coding>
     </code>
-    <subject>
+	<subject>
       <reference value="Patient/123"/>
       <display value="Mary Chalmers"/>
     </subject>
-    <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
-    <issued value="2014-05-16T10:28:00+01:00"/>
-    <request>
-      <reference value="ProcedureRequest/789"/>
-      <display value="Order for HLA-A,-B,-C genotyping"/>
-    </request>
-    <specimen>
+	<issued value="2014-05-16T10:28:00+01:00"/>
+	<specimen>
       <reference value="Specimen/456"/>
       <display value="buccal swab"/>
     </specimen>
-    <result>
+	<result>
       <reference value="Observation/111"/>
       <display value="Genotype Observation for for HLA-A"/>
     </result>
-    <result>
+	<result>
       <reference value="Observation/222"/>
       <display value="Genotype Observation for for HLA-B"/>
     </result>
-    <result>
+	<result>
       <reference value="Observation/333"/>
       <display value="Genotype Observation for for HLA-C"/>
     </result>

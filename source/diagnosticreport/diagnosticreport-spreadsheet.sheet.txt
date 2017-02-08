@@ -133,18 +133,32 @@
  -- Row 2 -----------------------------------
   Element = DiagnosticReport.identifier
   Card. = 0..*
-  Aliases = ReportID
+  Aliases = ReportID, Filler ID, Placer ID
   Summary = y
   Type = Identifier
-  Short Name = Id for external references to this report
-  Definition = The local ID assigned to the report by the order filler, usually by the Information System of the diagnostic service provider
+  Short Name = Business Identifer for report
+  Definition = Identifiers assigned to this reprot by the performer or other systems
   Requirements = Need to know what identifier to use when making queries about this report from the source laboratory, and for linking to the report outside FHIR context
+  Comments = Usually assigned by the Information System of the diagnostic service provider (filler id)
   Workflow Mapping = Event.identifier
   v2 Mapping = OBR-51
   RIM Mapping = id
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = DiagnosticReport.basedOn
+  Card. = 0..*
+  Aliases = request
+  Type = Reference(CarePlan | ImmunizationRecommendation| MedicationRequest |NutritionOrder| ProcedureRequest | ReferralRequest)
+  Short Name = What was requested
+  Definition = Details concerning a test or procedure requested.
+  Requirements = This allows tracing of authorization for the report and tracking whether proposals/recommendations were acted upon
+  Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
+  Workflow Mapping = Event.basedOn
+  v2 Mapping = ORC? OBR-2/3?
+  RIM Mapping = outboundRelationship[typeCode=FLFS].target
+
+ -- Row 4 -----------------------------------
   Element = DiagnosticReport.status
   Card. = 1..1
   Is Modifier = y
@@ -161,7 +175,7 @@
   Committee Notes = [#5692]
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DiagnosticReport.category
   Card. = 0..1
   Aliases = Department, Sub-department, service, discipline
@@ -176,9 +190,10 @@
   Committee Notes = #8514
   w5 = class
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DiagnosticReport.code
   Card. = 1..1
+  Aliases = type
   Summary = Y
   Type = CodeableConcept
   Binding = DiagnosticReportCodes
@@ -190,7 +205,7 @@
   Committee Notes = #5961
   w5 = what
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DiagnosticReport.subject
   Card. = 0..1
   Aliases = Patient
@@ -204,23 +219,26 @@
   RIM Mapping = participation[typeCode=SBJ]
   w5 = who.focus
 
- -- Row 7 -----------------------------------
-  Element = DiagnosticReport.encounter
+ -- Row 8 -----------------------------------
+  Element = DiagnosticReport.context
   Card. = 0..1
+  Aliases = encounter
   Summary = Y
-  Type = Reference(Encounter)
+  Type = Reference(Encounter|EpisodeOfCare)
   Short Name = Health care event when test ordered
-  Definition = The link to the health care event (encounter) when the order was made.
+  Definition = The healthcare event  (e.g. a patient and healthcare provider interaction) which this DiagnosticReport per is about.
+  Requirements = Links the request to the Encounter context
+  Comments = This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter or episode but still be tied to the context of the encounter or episode (e.g. pre-admission lab tests).
   Workflow Mapping = Event.context
   v2 Mapping = PV1-19
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   Committee Notes = [#3839]
   w5 = context
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DiagnosticReport.effective[x]
   Card. = 0..1
-  Aliases = Observation time, Effective Time
+  Aliases = Observation time, Effective Time, Occurrence
   Summary = y
   Type = dateTime|Period
   Short Name = Clinically Relevant time/time-period for report
@@ -232,7 +250,7 @@
   RIM Mapping = effectiveTime
   w5 = when.done
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DiagnosticReport.issued
   Card. = 0..1
   Aliases = Date Created, Date published, Date Issued
@@ -247,7 +265,7 @@
   Committee Notes = #7500
   w5 = when.recorded
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DiagnosticReport.performer
   Card. = 0..*
   Aliases = Laboratory, Service, Practitioner, Department, Company
@@ -260,7 +278,7 @@
   Committee Notes = 12/22/2016 EH: 8936,11428
   w5 = who.witness
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DiagnosticReport.performer.role
   Card. = 0..1
   Summary = y
@@ -272,7 +290,7 @@
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DiagnosticReport.performer.actor
   Card. = 1..1
   Summary = y
@@ -285,30 +303,7 @@
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
   RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
 
- -- Row 13 -----------------------------------
-  Element = DiagnosticReport.performer.onBehalfOf
-  Card. = 0..1
-  Type = Reference(Organization)
-  Short Name = Organization was acting for
-  Definition = The organization the practitioner was acting on behalf of.
-  Requirements = Practitioners can be associated with multiple organizations. This element indicates which organization they were acting on behalf of when performing the action.
-  Workflow Mapping = Event.performer.onBehalfOf
-  v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
-
  -- Row 14 -----------------------------------
-  Element = DiagnosticReport.request
-  Card. = 0..*
-  Type = Reference(ProcedureRequest|ReferralRequest)
-  Short Name = What was requested
-  Definition = Details concerning a test or procedure requested.
-  Requirements = Need to be able to track completion of requests based on reports issued and also to report what diagnostic tests were requested (not always the same as what is delivered)
-  Comments = Note: Usually there is one test request for each result, however in some circumstances multiple test requests may be represented using a single test result resource. Note that there are also cases where one request leads to multiple reports.
-  Workflow Mapping = Event.basedOn
-  v2 Mapping = ORC? OBR-2/3?
-  RIM Mapping = outboundRelationship[typeCode=FLFS].target
-
- -- Row 15 -----------------------------------
   Element = DiagnosticReport.specimen
   Card. = 0..*
   Type = Reference(Specimen)
@@ -319,7 +314,7 @@
   v2 Mapping = SPM
   RIM Mapping = participation[typeCode=SBJ]
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DiagnosticReport.result
   Card. = 0..*
   Aliases = Data, Atomic Value, Result, Atomic result, Data, Test, Analyte,Battery, Organizer
@@ -330,7 +325,7 @@
   v2 Mapping = OBXs
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Card. = 0..*
   Type = Reference(ImagingStudy|ImagingManifest)
@@ -340,7 +335,7 @@
   RIM Mapping = outboundRelationship[typeCode=COMP].target[classsCode=DGIMG, moodCode=EVN]
   Committee Notes = 6246
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = DiagnosticReport.image
   Card. = 0..*
   Aliases = DICOM, Slides, Scans
@@ -352,7 +347,7 @@
   v2 Mapping = OBX?
   RIM Mapping = outboundRelationship[typeCode=COMP].target
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = DiagnosticReport.image.comment
   Card. = 0..1
   Type = string
@@ -362,7 +357,7 @@
   Comments = The comment should be displayed with the image. It would be common for the report to include additional discussion of the image contents in other sections such as the conclusion.
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = DiagnosticReport.image.link
   Card. = 1..1
   Summary = Y
@@ -370,7 +365,7 @@
   Short Name = Reference to the image source
   RIM Mapping = .value.reference
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = DiagnosticReport.conclusion
   Card. = 0..1
   Aliases = Report
@@ -381,7 +376,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=\"SPRT\"].source[classCode=OBS, moodCode=EVN, code=LOINC:48767-8].value (type=ST)
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = DiagnosticReport.codedDiagnosis
   Card. = 0..*
   Type = CodeableConcept
@@ -390,7 +385,7 @@
   v2 Mapping = OBX
   RIM Mapping = inboundRelationship[typeCode=SPRT].source[classCode=OBS, moodCode=EVN, code=LOINC:54531-9].value (type=CD)
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = DiagnosticReport.presentedForm
   Card. = 0..*
   Type = Attachment
@@ -476,10 +471,10 @@
   Path = DiagnosticReport.image.link
 
  -- Row 13 -----------------------------------
-  Name = request
+  Name = based-on
   Type = reference
-  Description = Reference to the test or procedure request.
-  Path = DiagnosticReport.request
+  Description = Reference to the procedure request.
+  Path = DiagnosticReport.basedOn
 
  -- Row 14 -----------------------------------
   Name = patient
@@ -492,7 +487,14 @@
   Name = encounter
   Type = reference
   Description = The Encounter when the order was made
-  Path = DiagnosticReport.encounter
+  Path = DiagnosticReport.context
+  Target Types = Encounter
+
+ -- Row 16 -----------------------------------
+  Name = contenxt
+  Type = reference
+  Description = Healthcare event (Episode of Care or Encounter) related to the report
+  Path = DiagnosticReport.context
 
 === Sheet Profiles =====================================
 

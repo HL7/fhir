@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DiagnosticReport mlns="http://hl7.org/fhir">
 	<id value="example-pgx"/>
+	<basedOn>
+		<reference value="ProcedureRequest/example-pgx"/>
+	</basedOn>
 	<status value="final"/>
 	<code>
 		<coding>
@@ -21,9 +24,7 @@
 			<reference value="Organization/4829"/>
 		</actor>
 	</performer>
-	<request>
-		<reference value="ProcedureRequest/example-pgx"/>
-	</request>
+
 	<result>
 		<reference value="Observation/example-phenotype"/>
 	</result>
