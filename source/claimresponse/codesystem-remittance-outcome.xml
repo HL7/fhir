@@ -17,7 +17,7 @@
   <concept>
     <code value="error"/>
     <display value="Error"/>
-    <definition value="One or more erros have been detected in the Claim"/>
+    <definition value="One or more errors have been detected in the Claim"/>
   </concept>
   <concept>
     <code value="partial"/>
