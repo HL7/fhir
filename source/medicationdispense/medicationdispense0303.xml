@@ -15,7 +15,17 @@
             </code>
         </Medication>
     </contained>
+    <partOf>
+        <reference value="Procedure/biopsy"></reference>
+    </partOf>
     <status value="on-hold"/>
+    <category>
+        <coding>
+            <system value="http://hl7.org/fhir/ValueSet/medication-dispense-category"/>
+            <code value="outpatient"/>
+            <display value="Outpatient"/>
+        </coding>
+    </category>
     <medicationReference>
         <!-- Linked to a RESOURCE Medication -->
         <reference value="#med0310"/>
@@ -24,6 +34,9 @@
         <reference value="Patient/pat1"/>
         <display value="Donald Duck"/>  
     </subject>
+    <context>
+        <reference value="Encounter/f001"></reference>
+    </context>
     <performer>
         <role>
             <coding>
@@ -61,7 +74,6 @@
         <code value="d"/>
     </daysSupply>
     <whenPrepared value="2016-04-15T07:14:00+05:00"/>
-    <whenHandedOver value="2016-04-15T07:14:00+05:00"/>
     <dosageInstruction>
         <sequence value="1"/>
         <text value="one to two tablets every 4-6 hours as needed for rib pain" />
@@ -102,6 +114,13 @@
             </coding>
         </method>
     </dosageInstruction>
+    <detectedIssue>
+        <reference value="DetectedIssue/allergy"></reference>
+    </detectedIssue>
+    <notDone value="true"></notDone>
+    <notDoneReasonReference>
+        <reference value="DetectedIssue/allergy"></reference>
+    </notDoneReasonReference>
 </MedicationDispense>
 
 

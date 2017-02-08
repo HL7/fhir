@@ -147,4 +147,7 @@
             </coding>
         </reason>
     </substitution>
+    <detectedIssue>
+        <reference value="DetectedIssue/allergy"></reference>
+    </detectedIssue>
 </MedicationRequest>
