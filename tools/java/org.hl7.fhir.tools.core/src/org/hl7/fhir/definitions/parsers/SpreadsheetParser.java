@@ -674,6 +674,8 @@ public class SpreadsheetParser {
             pack.setSourceType(ConformancePackageSourceType.Bundle);
           else if ("spreadsheet".equalsIgnoreCase(type))
             pack.setSourceType(ConformancePackageSourceType.Spreadsheet);
+          else if ("structuredefinition".equalsIgnoreCase(type))
+            pack.setSourceType(ConformancePackageSourceType.StructureDefinition);
           else
             throw new Exception("Unknown source type: "+type+" at "+getLocation(row));
           String example = checkFile(sheet, row, "Example", true, null); // todo-profile

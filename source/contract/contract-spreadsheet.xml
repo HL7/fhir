@@ -10,17 +10,17 @@
   <LastAuthor>Moehrke, John (GE Healthcare)</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-03-12T18:14:04Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7260</WindowHeight>
-  <WindowWidth>15300</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4946,7 +4946,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6727,10 +6726,10 @@
     <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s132"><Data ss:Type="String">!consent</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">contract-consent.xml</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">contract-consent-profile-spreadsheet.xml</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="String">spreadsheet</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">consent</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">consentdirective.xml</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">consentdirective.profile.xml</Data></Cell>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">structuredefinition</Data></Cell>
     <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6990,6 +6989,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7057,47 +7057,47 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">PCD-notOrg</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentDirective Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notOrg</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notOrg.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s162"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">PCD-notThem</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentDirective Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notThem</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notThem.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s162"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">PCD-notThis</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentDirective Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notThis</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notThis.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s162"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">PCD-notAuthor</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentDirective Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notAuthor</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notAuthor.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s162"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"/>
+    <Cell ss:StyleID="s161"><Data ss:Type="String">PCD-notLabs</Data></Cell>
     <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">ConsentDirective Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notLabs</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">pcd-example-notLabs.xml</Data></Cell>
     <Cell ss:StyleID="s151"/>
     <Cell ss:StyleID="s162"/>
    </Row>
@@ -7407,6 +7407,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7426,7 +7427,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

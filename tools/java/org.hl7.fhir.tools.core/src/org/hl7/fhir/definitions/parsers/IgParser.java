@@ -200,7 +200,7 @@ public class IgParser {
 //Lloyd: This causes issues for profiles & extensions defined outside of HL7
 //            sd.setUrl("http://hl7.org/fhir/StructureDefinition/"+sd.getId());
             pr.forceMetadata("id", sd.getId()+"-profile");
-            pr.setSourceType(ConformancePackageSourceType.SturctureDefinition);
+            pr.setSourceType(ConformancePackageSourceType.StructureDefinition);
             ConstraintStructure cs = new ConstraintStructure(sd, igd);
             pr.getProfiles().add(cs);
             igd.getProfiles().add(pr);

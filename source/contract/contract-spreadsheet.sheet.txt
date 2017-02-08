@@ -661,10 +661,10 @@
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = !consent
+  Name = consent
   IG Name = core
-  Filename = contract-consent.xml
-  Type = spreadsheet
+  Filename = consentdirective.xml
+  Type = structuredefinition
 
 === Sheet Examples =====================================
 
@@ -673,5 +673,35 @@
   Identity = C-123
   Description = General Contract Example
   Filename = contract-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = PCD-notOrg
+  Identity = pcd-example-notOrg
+  Description = ConsentDirective Example
+  Filename = pcd-example-notOrg.xml
+
+ -- Row 3 -----------------------------------
+  Name = PCD-notThem
+  Identity = pcd-example-notThem
+  Description = ConsentDirective Example
+  Filename = pcd-example-notThem.xml
+
+ -- Row 4 -----------------------------------
+  Name = PCD-notThis
+  Identity = pcd-example-notThis
+  Description = ConsentDirective Example
+  Filename = pcd-example-notThis.xml
+
+ -- Row 5 -----------------------------------
+  Name = PCD-notAuthor
+  Identity = pcd-example-notAuthor
+  Description = ConsentDirective Example
+  Filename = pcd-example-notAuthor.xml
+
+ -- Row 6 -----------------------------------
+  Name = PCD-notLabs
+  Identity = pcd-example-notLabs
+  Description = ConsentDirective Example
+  Filename = pcd-example-notLabs.xml
 
 === Sheet Examples =====================================

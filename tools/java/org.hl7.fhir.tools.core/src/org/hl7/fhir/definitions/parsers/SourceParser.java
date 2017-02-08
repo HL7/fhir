@@ -71,6 +71,7 @@ import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.definitions.model.WorkGroup;
 import org.hl7.fhir.definitions.validation.FHIRPathUsage;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
@@ -103,6 +104,7 @@ import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 import org.hl7.fhir.utilities.validation.ValidationMessage;
 import org.hl7.fhir.utilities.xhtml.NodeType;
+import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 import org.hl7.fhir.utilities.xml.XMLUtil;
@@ -740,8 +742,21 @@ public class SourceParser {
       SpreadsheetParser sparser = new SpreadsheetParser(ap.getCategory(), new CSFileInputStream(ap.getSource()), Utilities.noString(ap.getId()) ? ap.getSource() : ap.getId(), definitions, srcDir, logger, registry, version, context, genDate, false, extensionDefinitions, page, false, ini, committee, definitions.getProfileIds(), fpUsages, page.getConceptMaps());
       sparser.setFolder(Utilities.getDirectoryForFile(ap.getSource()));
       sparser.parseConformancePackage(ap, definitions, Utilities.getDirectoryForFile(ap.getSource()), ap.getCategory(), issues);
+    } else if (ap.getSourceType() == ConformancePackageSourceType.StructureDefinition) {
+      Resource rf = new XmlParser().parse(new CSFileInputStream(ap.getSource()));
+      if (!(rf instanceof StructureDefinition)) 
+        throw new Exception("Error parsing Profile: not a structure definition");
+      StructureDefinition sd = (StructureDefinition) rf;
+      ap.putMetadata("id", sd.getId()+"-pack");
+      ap.putMetadata("date", sd.getDateElement().asStringValue());
+      ap.putMetadata("title", sd.getTitle());
+      ap.putMetadata("status", sd.getStatus().toCode());
+      ap.putMetadata("description", new XhtmlComposer().compose(sd.getText().getDiv()));
+      ap.setTitle(sd.getTitle());
+      new ProfileUtilities(page.getWorkerContext(), null, null).setIds(sd, false);
+      ap.getProfiles().add(new ConstraintStructure(sd, definitions.getUsageIG(ap.getCategory(), "Parsing "+ap.getSource())));
     } else // if (ap.getSourceType() == ConformancePackageSourceType.Bundle) {
-      parseConformanceDocument(ap, ap.getId(), new File(ap.getSource()), ap.getCategory());
+      parseConformanceDocument(ap, ap.getId(), new CSFile(ap.getSource()), ap.getCategory());
   }
 
   private void loadGlobalBindings() throws Exception {
