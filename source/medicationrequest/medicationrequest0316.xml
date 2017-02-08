@@ -81,6 +81,12 @@
             <system value="http://unitsofmeasure.org"/>
             <code value="mg/kg"/> 
         </doseQuantity>
+        <maxDosePerLifetime>
+            <value value="400"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/> 
+        </maxDosePerLifetime>
         <rateQuantity>
             <value value="20"/>
             <unit value="min"/>
