@@ -385,7 +385,7 @@
 
  -- Row 24 -----------------------------------
   Element = ChargeItem.account
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = Reference(Account)
   Short Name = Account to place this charge

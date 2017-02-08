@@ -911,10 +911,10 @@
   <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultColumnWidth="60"
    ss:DefaultRowHeight="14.25">
-   <Column ss:StyleID="s70" ss:Width="147.75"/>
+   <Column ss:StyleID="s70" ss:Width="140.25"/>
    <Column ss:StyleID="s69" ss:Width="49.5"/>
    <Column ss:StyleID="s69" ss:Width="40.5"/>
-   <Column ss:StyleID="s71" ss:Width="42.75"/>
+   <Column ss:StyleID="s71" ss:Width="21.375"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="92.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="29.25"/>
    <Column ss:StyleID="s69" ss:Width="36.75"/>
@@ -1813,7 +1813,7 @@
    <Row ss:AutoFitHeight="0" ss:Height="128.25">
     <Cell><Data ss:Type="String">ChargeItem.account</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:Index="3"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Reference(Account)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2054,20 +2054,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Selected/>
-   <TopRowVisible>21</TopRowVisible>
-   <FreezePanes/>
-   <FrozenNoSplit/>
-   <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
-   <ActivePane>1</ActivePane>
+   <TopRowVisible>19</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-    </Pane>
-    <Pane>
-     <Number>1</Number>
-     <ActiveRow>22</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
