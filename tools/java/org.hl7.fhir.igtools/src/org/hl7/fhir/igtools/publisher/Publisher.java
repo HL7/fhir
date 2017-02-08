@@ -855,7 +855,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     igm.setBase(location);
     specMaps.add(igm);
     if (!Constants.VERSION.equals(igm.getVersion()))
-      log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG is from version "+igm.getVersion()+". Will try to run anyway)");
+      log("Version mismatch. This IG is version "+Constants.VERSION+", while the IG '"+name+"' is from version "+igm.getVersion()+". Will try to run anyway)");
 
     for (String fn : files.keySet()) {
       if (fn.endsWith(".json")) {

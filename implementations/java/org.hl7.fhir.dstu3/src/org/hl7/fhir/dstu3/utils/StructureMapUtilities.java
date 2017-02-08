@@ -2372,6 +2372,8 @@ public class StructureMapUtilities {
       assert (Utilities.noString(element));
       // 1. start the new structure definition
       StructureDefinition sdn = worker.fetchResource(StructureDefinition.class, type.getType());
+      if (sdn == null)
+        throw new FHIRException("Unable to find definition for "+type.getType());
       ElementDefinition edn = sdn.getSnapshot().getElementFirstRep();
       PropertyWithType pn = createProfile(map, profiles, new PropertyWithType(sdn.getId(), new Property(worker, edn, sdn), null, type), sliceName, tgt);
 
