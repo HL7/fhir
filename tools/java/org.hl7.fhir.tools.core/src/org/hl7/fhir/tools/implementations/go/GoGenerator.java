@@ -258,7 +258,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
     }
 
     private void generateConformanceStatement(Definitions definitions, String outputDir, STGroup templateGroup) throws IOException {
-        ST utilTemplate = templateGroup.getInstanceOf("conformance_statement.json");
+        ST utilTemplate = templateGroup.getInstanceOf("capability_statement.json");
 
         // Generate current ISO8601 datetime
         Date currDate = new Date();
@@ -283,7 +283,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         });
         utilTemplate.add("ResourceSearchInfos", searchInfos);
 
-        File outputFile = new File(Utilities.path(outputDir, "conformance_statement.json"));
+        File outputFile = new File(Utilities.path(outputDir, "capability_statement.json"));
         Writer controllerWriter = new BufferedWriter(new FileWriter(outputFile));
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
@@ -300,7 +300,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             searchInfos.add(searchInfo);
         }
 
-        // Go through te search infos to create the set of unique required indexes.
+        // Go through the search infos to create the set of unique required indexes.
         // We do this to simplify the data passed to the template and to avoid duplicates.
         //
         // For example, a duplicate would arise in the following scenario:

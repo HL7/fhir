@@ -1,14 +1,14 @@
 {
-  "resourceType" : "Conformance",
+  "resourceType" : "CapabilityStatement",
   "url" : "/metadata",
   "version" : "1",
-  "name" : "GoFHIR Conformance Statement",
+  "name" : "GoFHIR Capability Statement",
   "status" : "active",
   "date" : "<Date>",
-  "publisher" : "Not Provided",
-  "description" : "GoFHIR conformance statement",
+  "publisher" : "The MITRE Corporation",
+  "description" : "GoFHIR capability statement",
   "kind" : "instance",
-  "fhirVersion" : "1.6.0",
+  "fhirVersion" : "1.8.0",
   "acceptUnknown" : "extensions",
   "format" : [
     "json"
