@@ -38,7 +38,7 @@ This is a case where a Patient is giving a limited (read-only) access to an indi
 	</sourceAttachment>
 
   <!-- this is opt-out - e.g. nothing approved unless otherwise stated -->
-  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
 
   <except>
     <type value="permit"/>

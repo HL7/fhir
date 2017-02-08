@@ -40,7 +40,7 @@
 	  <!-- likely use url pointer to common text -->
 	</sourceAttachment>
 
-  <!-- this is plain out opt-out with no exceptions -->
-  <policyRule value="http://goodhealth.org/consent/policy/opt-out"/>  
+  <!-- this is plain out opt-in with no exceptions -->
+  <policyRule value="http://goodhealth.org/consent/policy/opt-in"/>  
 
 </Consent>

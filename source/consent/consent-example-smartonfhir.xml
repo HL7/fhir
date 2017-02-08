@@ -40,12 +40,12 @@
   </period>
   <dateTime value="2016-06-23T17:02:33+10:00"/>
 
-  <consentor>
+  <consentingParty>
     <!-- this is the patient record that matches the person
       making the decision. note: it's not always a related person
     -->
     <reference value="RelatedPerson/peter"/>
-  </consentor>
+  </consentingParty>
   <organization>
     <!-- The organization running the Authentication server -->
     <reference value="Organization/example"/>

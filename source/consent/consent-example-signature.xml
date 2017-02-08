@@ -35,9 +35,9 @@
     <end value="2016-10-10"/>
   </period>
   <dateTime value="2016-05-26T00:41:10-04:00"/>
-  <consentor>
+  <consentingParty>
     <reference value="Patient/72"/> <!-- author is patient themselves, and they sign -->
-  </consentor>
+  </consentingParty>
   <!-- this consent relates to sharing data with a specific recipient -->
   <actor>
       <role>

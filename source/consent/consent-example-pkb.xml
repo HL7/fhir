@@ -32,7 +32,7 @@
   </organization>
 
   <!-- nothing is approved unless the patient says it is -->	    
-  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-in"/>
+  <policyRule value="http://hl7.org/fhir/ConsentPolicy/opt-out"/>
 
   <except>
     <!-- we permit -->

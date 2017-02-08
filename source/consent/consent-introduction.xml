@@ -88,10 +88,13 @@ Alternatively, a consumer may author/publish their privacy preferences as a self
 </p>
 <p>
 The Consent resource on FHIR provides support for alternative representations for expressing 
-health information privacy consent directives in a standard form for the exchange of privacy policies 
-that can be enforced by consuming systems (e.g., scanned documents, computable structured entries).
-It may be used to represent the Privacy Consent Directive itself, or a derived consent statement 
-that is not the original Consent Directive.
+interoperable health information privacy consent directives in a standard form for the 
+exchange and enforcement by sending, intermediating, or receiving systems of privacy policies 
+that can be enforced by consuming systems (e.g., scanned documents, of computable structured 
+entries elements, FHIR structures with optional attached, or referenced unstructured representations.) 
+It may be used to represent the Privacy Consent Directive itself, a Consent Statement, which 
+electronically represents a Consent Directive, or Consent Metadata, which is the minimum 
+necessary consent content derived from a Consent Directive for use in workflow management.
 </p>
 </div>
 

@@ -3,7 +3,7 @@
 <h2>Policies</h2>
 
 <p>
-This speciifcation defines 2 magic values for consent policyRule:
+This specification defines 2 magic values for consent policyRule:
 </p>
 <table class="grid">
  <tr>
@@ -11,12 +11,12 @@ This speciifcation defines 2 magic values for consent policyRule:
   <td><b>Description</b></td>
  </tr>
  <tr>
-  <td>http://hl7.org/fhir/ConsentPolicy/opt-in</td>
-  <td>The basic policy is to grant no authority. No actions are approved, unless they are explicitly detailed in the exceptions</td>
+  <td>http://hl7.org/fhir/ConsentPolicy/opt-out</td>
+  <td>The basic 'deny' policy is to grant no authority for data access or use. No actions are approved, unless they are explicitly detailed in the exceptions</td>
  </tr>
  <tr>
-  <td>http://hl7.org/fhir/ConsentPolicy/opt-out</td>
-  <td>The basic policy is to grant all authority. All actions are approved, unless they are explicitly detailed in the exceptions</td>
+  <td>http://hl7.org/fhir/ConsentPolicy/opt-in</td>
+  <td>The basic 'permit' policy is to grant generally acceptable authority for data access and use. All generally acceptable actions are approved, unless they are explicitly detailed in the exceptions</td>
  </tr>
 </table>
 <p>
