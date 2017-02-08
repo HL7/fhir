@@ -1,0 +1,232 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = GraphCompartmentRule
+  Binding = code list
+  Reference = #graph-compartment-rule
+  Definition = How a compartment must be linked
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = CompartmentCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/compartment-type
+  Definition = Identifies a compartment
+  Conformance = required
+
+=== Sheet graph-compartment-rule =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = identical
+  Display = Identical
+  Definition = The compartment must be identical (the same literal reference)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = matching
+  Display = Matching
+  Definition = The compartment must be the same - the record must be about the same patient, but the reference may be different
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = different
+  Display = Different
+  Definition = The compartment must be different
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = custom
+  Display = Custom
+  Definition = The compartment rule is defined in the accompanying FHIRPath expression
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = GraphDefinition
+  UML = 0;0
+  Type = MetadataResource
+  Short Name = Definition of an graph of resources
+  Definition = A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set
+  Workflow Mapping = Definition
+  RIM Mapping = n/a
+  w5 = conformance.behavior
+
+ -- Row 2 -----------------------------------
+  Element = GraphDefinition.url
+  Workflow Mapping = Definition.url
+
+ -- Row 3 -----------------------------------
+  Element = GraphDefinition.version
+  Workflow Mapping = Definition.version
+
+ -- Row 4 -----------------------------------
+  Element = GraphDefinition.name
+  Card. = 1..1
+  Workflow Mapping = Definition.title
+
+ -- Row 5 -----------------------------------
+  Element = GraphDefinition.status
+  Workflow Mapping = Definition.status (different ValueSet)
+
+ -- Row 6 -----------------------------------
+  Element = GraphDefinition.experimental
+  Workflow Mapping = Definition.experimental
+
+ -- Row 7 -----------------------------------
+  Element = GraphDefinition.date
+  Workflow Mapping = Definition.date
+
+ -- Row 8 -----------------------------------
+  Element = GraphDefinition.publisher
+  Workflow Mapping = Definition.publisher
+
+ -- Row 9 -----------------------------------
+  Element = GraphDefinition.contact
+  Workflow Mapping = Definition.contact
+
+ -- Row 10 -----------------------------------
+  Element = GraphDefinition.description
+  Workflow Mapping = Definition.description
+
+ -- Row 11 -----------------------------------
+  Element = GraphDefinition.useContext
+  Workflow Mapping = Definition.useContext
+
+ -- Row 12 -----------------------------------
+  Element = GraphDefinition.jurisdiction
+  Workflow Mapping = Definition.jurisdiction
+
+ -- Row 13 -----------------------------------
+  Element = GraphDefinition.purpose
+  Workflow Mapping = Definition.purpose
+
+ -- Row 14 -----------------------------------
+  Element = GraphDefinition.start
+  Card. = 1..1
+  Type = code
+  Binding = ResourceType
+  Short Name = Type of resource at which the graph starts
+  Definition = The type of FHIR resource at which instances of this graph start
+
+ -- Row 15 -----------------------------------
+  Element = GraphDefinition.profile
+  Card. = 0..1
+  Type = uri
+  Short Name = Profile on base resource
+  Definition = The profile that describes the use of the base resource
+  Comments = The code does not include the \'$\' prefix that is always included in the URL when the operation is invoked
+
+ -- Row 16 -----------------------------------
+  Element = GraphDefinition.link
+  Card. = 0..*
+  Short Name = Links this graph makes rules about
+  Definition = Links this graph makes rules about
+
+ -- Row 17 -----------------------------------
+  Element = GraphDefinition.link.path
+  Card. = 1..1
+  Type = string
+  Short Name = Path in the resource that contains the link
+  Definition = Path in the resource that contains the link
+
+ -- Row 18 -----------------------------------
+  Element = GraphDefinition.link.sliceName
+  Card. = 0..1
+  Type = string
+  Short Name = Which slice (if profiled)
+  Definition = Which slice (if profiled)
+
+ -- Row 19 -----------------------------------
+  Element = GraphDefinition.link.min
+  Card. = 0..1
+  Type = integer
+  Short Name = Minimum occurences for this link
+  Definition = Minimum occurences for this link
+
+ -- Row 20 -----------------------------------
+  Element = GraphDefinition.link.max
+  Card. = 0..1
+  Type = string
+  Short Name = Maximum occurences for this link
+  Definition = Maximum occurences for this link
+
+ -- Row 21 -----------------------------------
+  Element = GraphDefinition.link.target
+  Card. = 1..*
+  Short Name = Potential target for the link
+  Definition = Potential target for the link
+
+ -- Row 22 -----------------------------------
+  Element = GraphDefinition.link.target.type
+  Card. = 1..1
+  Type = code
+  Binding = ResourceType
+  Short Name = Type of resource this link refers to
+  Definition = Type of resource this link refers to
+
+ -- Row 23 -----------------------------------
+  Element = GraphDefinition.link.target.profile
+  Card. = 0..1
+  Type = uri
+  Short Name = Profile for the target resource
+  Definition = Profile for the target resource
+
+ -- Row 24 -----------------------------------
+  Element = GraphDefinition.link.target.compartment
+  Card. = 0..*
+  Short Name = Compartment Consistency Rules
+  Definition = Compartment Consistency Rules
+
+ -- Row 25 -----------------------------------
+  Element = GraphDefinition.link.target.compartment.code
+  Card. = 1..1
+  Type = code
+  Binding = CompartmentCode
+  Short Name = Identifies the compartment
+  Definition = Identifies the compartment
+
+ -- Row 26 -----------------------------------
+  Element = GraphDefinition.link.target.compartment.rule
+  Card. = 1..1
+  Type = code
+  Binding = GraphCompartmentRule
+  Short Name = identical | matching | different | custom
+  Definition = identical | matching | different | no-rule | custom
+
+ -- Row 27 -----------------------------------
+  Element = GraphDefinition.link.target.compartment.expression
+  Card. = 0..1
+  Type = string
+  Short Name = Custom rule, as a FHIRPath expression
+  Definition = Custom rule, as a FHIRPath expression
+
+ -- Row 28 -----------------------------------
+  Element = GraphDefinition.link.target.link
+  Card. = 0..*
+  Type = @GraphDefinition.link
+  Short Name = Additional links from target resource
+  Definition = Additional links from target resource
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = start
+  Type = token
+  Path = GraphDefinition.start
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = example
+  Identity = example
+  Description = GraphDefinition example
+  Filename = graphdefinition-example.xml
+  Type = xml
+
+=== Sheet Examples =====================================

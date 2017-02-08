@@ -20,11 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8880</WindowHeight>
-  <WindowWidth>20160</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -66,14 +67,12 @@
  </Styles>
  <Worksheet ss:Name="compartments">
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="6" x:FullColumns="1"
-   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="64.8"
+   x:FullRows="1" ss:StyleID="s62" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="109.19999999999999"
-    ss:Span="1"/>
-   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0"
-    ss:Width="130.19999999999999"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="208.2"/>
-   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="253.79999999999998"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="109.5" ss:Span="1"/>
+   <Column ss:Index="3" ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="130.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="208.5"/>
+   <Column ss:StyleID="s62" ss:AutoFitWidth="0" ss:Width="253.5"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s63">
     <Cell><Data ss:Type="String">Name</Data></Cell>
     <Cell><Data ss:Type="String">Title</Data></Cell>
@@ -136,12 +135,12 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="120" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="64.8" ss:DefaultRowHeight="15">
-   <Column ss:AutoFitWidth="0" ss:Width="157.19999999999999"/>
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="121" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="64.5" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
-   <Column ss:Width="52.8"/>
-   <Column ss:Width="148.19999999999999"/>
+   <Column ss:Width="52.5"/>
+   <Column ss:Width="148.5"/>
    <Column ss:Width="198"/>
    <Row ss:AutoFitHeight="0" ss:StyleID="s65">
     <Cell><Data ss:Type="String">Resource</Data></Cell>
@@ -396,6 +395,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Goal</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">GraphDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Group</Data></Cell>
@@ -726,7 +728,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -734,8 +736,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>52</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

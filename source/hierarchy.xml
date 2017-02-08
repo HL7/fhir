@@ -174,6 +174,7 @@ signatures.html
       <page type="resource" resource="SearchParameter"/>
       <page type="resource" resource="CompartmentDefinition"/>
       <page type="resource" resource="DataElement"/>
+      <page type="resource" resource="GraphDefinition"/>
     </page>
 
     <page title="Security and Privacy" filename="secpriv-module.html" icon="secpriv.jpg">

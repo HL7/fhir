@@ -21,6 +21,7 @@ urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
 http://usextension/snomed.info/sct
 https://precision.fda.gov/apps/
 http://hl7.org/fhir/oralservicecodes
+http://hl7.org/fhir/consent-term-type-codes
 http:hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://ihe.net/connectathon/practiceSettingCodes
 http://national.org/form
@@ -83,6 +84,7 @@ http:/acme.ped/apgarreflexirritability
 http://hl7.org/fhir/RxNorm
 http://snomed.infor/sct
 http://www.ensembl.org
+http://www.infoway-inforoute.ca.org/Consent-subtype-codes
 https://intranet.aumc.nl/labtestcodes
 http://acmelabs.org
 http://hl7.org/fhir/animal-breed

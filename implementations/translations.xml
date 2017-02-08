@@ -282,6 +282,9 @@
         <translation lang="en">Goal</translation>
         <translation lang="fr">But</translation>
     </item>
+    <item id="GraphDefinition">
+        <translation lang="en">GraphDefinition</translation>
+    </item>
 	<item id="Endpoint">
 		<translation lang="en">Endpoint</translation>
 	</item>

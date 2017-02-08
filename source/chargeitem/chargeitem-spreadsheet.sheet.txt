@@ -363,7 +363,7 @@
   Summary = N
   Type = CodeableConcept
   Binding = ChargeItemReason
-  Short Name = Why was the charged service rendered?
+  Short Name = Why was the charged  service rendered?
   Definition = Describes why the event occurred in coded or textual form.
   Comments = If the application of the charge item requires a reason to be given, it can be captured here. Textual reasons can be captured using reasonCode.text
   Workflow Mapping = Event.reasonCodeableConcept
