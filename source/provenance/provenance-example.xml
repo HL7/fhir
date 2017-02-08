@@ -63,9 +63,9 @@
       reference. (easier than XDS.b call with parameters!)
 	  Given the reference is to a FHIR DocumentReference, that resource describes the kind of content
     -->
-    <reference>
+    <whatReference>
 		<reference value="DocumentReference/example"/>    
 		<display value="CDA Document in XDS repository"/>
-	</reference>
+	</whatReference>
   </entity>
 </Provenance>

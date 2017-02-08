@@ -26,9 +26,8 @@
 
 <entity>
   <role value="source"/>
-  <reference>
+  <whatIdentifier>
 <!--    <reference value="https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1"/>  todo: this is not legal; fix once definition is fixed -->
-    <identifier>
       <type>
         <coding>
             <system value="https://hive.biochemistry.gwu.edu"/>
@@ -37,8 +36,6 @@
         </coding>
       </type>
       <value value="https://hive.biochemistry.gwu.edu/cgi-bin/prd/htscsrs/servlet.cgi?pageid=bcoexample_1"/>
-    </identifier>
-    <display value="Biocompute example"/>
-  </reference>
+  </whatIdentifier>
 </entity>
 </Provenance>

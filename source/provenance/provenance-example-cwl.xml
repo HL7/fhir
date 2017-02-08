@@ -27,13 +27,11 @@
 
 <entity>
   <role value="source"/>
-  <reference>
+  <whatIdentifier>
   <!--
     <reference value="https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl"/>
   removed this as it throws warnings in build. Could not figure out what to replace it with.
   -->
-  
-    <identifier>
       <type>
         <coding>
 	     <system value="https://github.com/common-workflow-language/workflows"/>
@@ -42,8 +40,6 @@
         </coding>
       </type>
       <value value="https://github.com/common-workflow-language/workflows/blob/master/workflows/lobSTR/lobSTR-workflow.cwl"/>
-    </identifier>
-  <display value="CWL example"/>
-  </reference>
+  </whatIdentifier>
 </entity>
 </Provenance>

@@ -314,13 +314,13 @@
   Prov Mapping = Entity.type
 
  -- Row 21 -----------------------------------
-  Element = Provenance.entity.reference
+  Element = Provenance.entity.what[x]
   Card. = 1..1
   Summary = y
-  Type = Reference(Any)
+  Type = uri|Reference(Any)|Identifier
   Short Name = Identity of entity
   Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
-  Comments = Identity may be a reference to a resource or to something else, depending on the type
+  Comments = Identity may be a reference to a resource or to something else, depending on the type.
   RIM Mapping = ./text/reference
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
@@ -401,14 +401,19 @@
   Path = Provenance.entity.type
 
  -- Row 10 -----------------------------------
-  Name = entity
+  Name = entity-ref
   Type = reference
-  Path = Provenance.entity.reference
+  Path = Provenance.entity.whatReference
 
  -- Row 11 -----------------------------------
   Name = recorded
   Type = date
   Path = Provenance.recorded
+
+ -- Row 12 -----------------------------------
+  Name = entity-id
+  Type = token
+  Path = Provenance.entity.whatIdentifier
 
 === Sheet Profiles =====================================
 
