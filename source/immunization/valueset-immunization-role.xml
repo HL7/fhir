@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Immunization Role Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
+    </telecom>
+  </contact>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the role a practitioner may play in the immunization event. This value set is provided as a suggestive example."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/v2/0443"/>
+      <concept>
+        <code value="OP"/>
+      </concept>
+      <concept>
+        <code value="AP"/>
+      </concept>
+	</include>
+  </compose>
+</ValueSet>

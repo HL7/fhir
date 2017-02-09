@@ -13,7 +13,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the reason why an administered doses has been assigned a particular status. Often, this reason describes why a dose is considered invalid. This value set is provided as a suggestive example."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>

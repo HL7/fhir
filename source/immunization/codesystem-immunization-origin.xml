@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/immunization-origin"/>
+  <name value="Immunization Event Origin"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This code system supports describing the source of the data when the report of the immunization event is not based on information from the person, entity or organization who administered the vaccine."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="provider"/>
+    <display value="Other Provider"/>
+    <definition value="The data for the immunization event originated with another provider."/>
+  </concept>
+  <concept>
+    <code value="record"/>
+    <display value="Written Record"/>
+    <definition value="The data for the immunization event originated with a written record for the patient."/>
+  </concept>
+  <concept>
+    <code value="recall"/>
+    <display value="Parent/Guardian/Patient Recall"/>
+    <definition value="The data for the immunization event originated from the recollection of the patient or parent/guardian of the patient."/>
+  </concept>
+  <concept>
+    <code value="school"/>
+    <display value="School Record"/>
+    <definition value="The data for the immunization event originated with a school record for the patient."/>
+  </concept>
+
+</CodeSystem>

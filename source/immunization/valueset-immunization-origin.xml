@@ -1,42 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="immunization-origin"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.2.20.3.281"/>
-  </identifier>
-  <url value="http://hl7.org/fhir/ValueSet/immunization-origin"/>
-  <name value="ImmunizationOrigin"/>
-  <status value="active"/>
-  <publisher value="PHER"/>
+  <name value="Immunization Origin Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://www.hl7.org/Special/committees/pher/index.cfm"/>
     </telecom>
   </contact>
-  <description value="This identifies the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine."/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the source of the data when the report of the immunization event is not based on information from the person, entity or organization who administered the vaccine. This value set is provided as a suggestive example."/>
   <compose>
     <include>
-	<!-- ImmunizationOrigin -->
-      <system value="urn:oid:2.16.840.1.113883.4.642.2.0"/>
+      <system value="http://hl7.org/fhir/immunization-origin"/>
       <concept>
-        <code value="provider"/>
-		<display value="Other Provider"/>
-      </concept>
-	  <concept>
-        <code value="record"/>
-		<display value="Writen Record"/>
-      </concept>
-	   <concept>
-        <code value="recall"/>
-		<display value="Parent/Guardian/Patient Recall"/>
-      </concept>
-	  <concept>
-        <code value="school"/>
-		<display value="School Record"/>
-      </concept>
+    <code value="provider"/>
+    <display value="Other Provider"/>
+  </concept>
+  <concept>
+    <code value="record"/>
+    <display value="Written Record"/>
+  </concept>
+  <concept>
+    <code value="recall"/>
+    <display value="Parent/Guardian/Patient Recall"/>
+  </concept>
+  <concept>
+    <code value="school"/>
+    <display value="School Record"/>
+  </concept>
     </include>
   </compose>
 </ValueSet>

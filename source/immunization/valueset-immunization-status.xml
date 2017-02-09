@@ -10,7 +10,7 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the immunization process."/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine."/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/medication-admin-status"/>

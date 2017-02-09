@@ -5,15 +5,17 @@
   <name value="Vaccination Protocol Dose Status codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
+  <description value="This code system supports describing the validity of a dose relative to a particular recommended schedule."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="count"/>
     <display value="Counts"/>
+    <definition value="The dose counts toward fulfilling a path to immunity for a patient, providing protection against the target disease."/>
   </concept>
   <concept>
     <code value="nocount"/>
     <display value="Does not Count"/>
+    <definition value="The dose does not count toward fulfilling a path to immunity for a patient."/>
   </concept>
 </CodeSystem>

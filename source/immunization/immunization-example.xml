@@ -7,7 +7,7 @@
 		<value value="urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"/>
 	</identifier>
 	<status value="completed"/>
-	<date value="2013-01-10"/>
+	<notGiven value="false"/>
 	<vaccineCode>
 		<coding>
 			<system value="urn:oid:1.2.36.1.2001.1005.17"/>
@@ -18,23 +18,17 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
-	<notGiven value="false"/>
-	<primarySource value="true"/>
-	<performer>
-		<reference value="Practitioner/example"/>
-	</performer>
-	<requester>
-		<reference value="Practitioner/example"/>
-	</requester>
 	<encounter>
 		<reference value="Encounter/example"/>
 	</encounter>
-	<manufacturer>
-		<reference value="Organization/hl7"/>
-	</manufacturer>
+	<date value="2013-01-10"/>
+	<primarySource value="true"/>
 	<location>
 		<reference value="Location/1"/>
 	</location>
+	<manufacturer>
+		<reference value="Organization/hl7"/>
+	</manufacturer>
 	<lotNumber value="AAJN11K"/>
 	<expirationDate value="2015-02-15"/>
 	<site>
@@ -56,6 +50,28 @@
 		<system value="http://unitsofmeasure.org"/>
 		<code value="mg"/>
 	</doseQuantity>
+	<practitioner>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/vaccination-practitioner-role"/>
+				<code value="OP"/>
+			</coding>
+		</role>
+    		<actor>
+     			<reference value="Practitioner/example"/>
+    		</actor>
+	</practitioner>
+	<practitioner>
+		<role>
+			<coding>
+				<system value="http://hl7.org/fhir/vaccination-practitioner-role"/>
+				<code value="AP"/>
+			</coding>
+		</role>
+    		<actor>
+     			<reference value="Practitioner/example"/>
+    		</actor>
+	</practitioner>
 	<note>
 		<text value="Notes on adminstration of vaccine"/>
 	</note>

@@ -5,27 +5,32 @@
   <name value="Vaccination Protocol Dose Status Reason codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
+  <description value="This code system supports describing the reason why an administered doses has been assigned a particular status. Often, this reason describes why a dose is considered invalid."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="advstorage"/>
     <display value="Adverse storage condition"/>
+    <definition value="The product was stored in a manner inconsistent with manufacturer guidelines potentially reducing the effectiveness of the product."/>
   </concept>
   <concept>
     <code value="coldchbrk"/>
     <display value="Cold chain break"/>
+    <definition value="The product was stored at a temperature inconsistent with manufacturer guidelines potentially reducing the effectiveness of the product."/>
   </concept>
   <concept>
     <code value="explot"/>
     <display value="Expired lot"/>
+    <definition value="The product was administered after the expiration date associated with lot of vaccine."/>
   </concept>
   <concept>
     <code value="outsidesched"/>
     <display value="Administered outside recommended schedule"/>
+    <definition value="The product was administered at a time inconsistent with the documented schedule."/>
   </concept>
   <concept>
     <code value="prodrecall"/>
     <display value="Product recall"/>
+    <definition value="The product administered has been recalled by the manufacturer."/>
   </concept>
 </CodeSystem>
