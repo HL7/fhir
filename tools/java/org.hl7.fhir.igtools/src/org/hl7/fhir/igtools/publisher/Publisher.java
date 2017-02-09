@@ -1599,6 +1599,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
   private void generateSnapshot(FetchedFile f, FetchedResource r, StructureDefinition sd, boolean close) throws Exception {
     boolean changed = false;
     dlog(LogCategory.PROGRESS, "Check Snapshot for "+sd.getUrl());
+    sd.setFhirVersion(version);
     ProfileUtilities utils = new ProfileUtilities(context, f.getErrors(), igpkp);
     StructureDefinition base = sd.hasBaseDefinition() ? fetchSnapshotted(sd.getBaseDefinition()) : null;
     utils.setIds(sd, true);

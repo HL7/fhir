@@ -334,7 +334,10 @@ public class IgSpreadsheetParser {
       }
     }
 
-    sd.setName(sd.getDifferential().getElementFirstRep().getShort());
+    if (hasMetadata("name"))
+      sd.setName(metadata("name"));
+    else
+      sd.setName(sd.getDifferential().getElementFirstRep().getShort());
     if (!sd.hasName())
       sd.setName("Profile "+sd.getId());
     sd.setPublisher(metadata("author.name"));
@@ -345,6 +348,8 @@ public class IgSpreadsheetParser {
     else
       sd.setDate(genDate.getTime());
 
+    if (hasMetadata("version")) 
+      sd.setVersion(metadata("version"));
     if (hasMetadata("status")) 
       sd.setStatus(PublicationStatus.fromCode(metadata("status")));
     else
