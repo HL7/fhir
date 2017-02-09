@@ -37,11 +37,6 @@ func RegisterController(name string, e *gin.Engine, m []gin.HandlerFunc, dal Dat
 	rcItem.GET("", rc.ShowHandler)
 	rcItem.PUT("", rc.UpdateHandler)
 	rcItem.DELETE("", rc.DeleteHandler)
-
-	if name == "Patient" || name == "Encounter" {
-		everythingItem := rcItem.Group("/$everything")
-		everythingItem.GET("", rc.EverythingHandler)
-	}
 }
 
 // RegisterRoutes registers the routes for each of the FHIR resources
@@ -94,10 +89,8 @@ func RegisterRoutes(e *gin.Engine, config map[string][]gin.HandlerFunc, dal Data
 	e.POST("/", batchHandlers...)
 
 	// Conformance Statement
-	e.StaticFile("metadata", "conformance/conformance_statement.json")
+	e.StaticFile("metadata", "conformance/capability_statement.json")
 
 	// Resources
-
 	<Resources:{r |	RegisterController("<r>", e, config["<r>"], dal, serverConfig)
-	}>
-}
+	}>}
