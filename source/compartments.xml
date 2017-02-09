@@ -20,7 +20,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
+  <WindowHeight>11610</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -422,7 +422,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Immunization</Data></Cell>
     <Cell><Data ss:Type="String">patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">performer | requester</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">practitioner</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ImmunizationRecommendation</Data></Cell>
@@ -728,7 +728,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>20</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -736,8 +736,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>52</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveRow>56</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

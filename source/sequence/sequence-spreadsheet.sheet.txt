@@ -9,7 +9,7 @@
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = HGNC-geneIdentifiers
+  Binding Name = !HGNC-geneIdentifiers
   Binding = value set
   Reference = valueset-HGNC-geneIdentifiers
   Definition = International curated set of gene identifiers in HGNC
@@ -17,7 +17,7 @@
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = HGVS-variantNomenclature
+  Binding Name = !HGVS-variantNomenclature
   Binding = value set
   Reference = valueset-HGVSvariant
   Definition = International nomenclature for variant naming
@@ -60,7 +60,7 @@
   Conformance = example
 
  -- Row 9 -----------------------------------
-  Binding Name = sequenceVariation
+  Binding Name = !sequenceVariation
   Binding = value set
   Reference = valueset-sequence-variationID
   Definition = Variant ID
@@ -72,23 +72,23 @@
   Binding = value set
   Reference = valueset-sequence-referenceSeq
   Definition = Reference identifier
-  Description = Reference identifier
+  Description = Reference identifier for reference sequence
   Conformance = example
 
  -- Row 11 -----------------------------------
   Binding Name = qualityStandardSequence
   Binding = value set
   Reference = valueset-sequence-quality-standardSequence
-  Definition = Reference identifier
-  Description = Reference identifier
+  Definition = Reference identifier of the sequence that used to mark the quality of tested samples.
+  Description = Reference identifier for standard sequence
   Conformance = example
 
  -- Row 12 -----------------------------------
   Binding Name = qualityMethod
   Binding = value set
   Reference = valueset-sequence-quality-method
-  Definition = Reference identifier
-  Description = Reference identifier
+  Definition = The method used to evaluate the numerical quality of the observed sequence.
+  Description = How to get the numerical score
   Conformance = example
 
  -- Row 13 -----------------------------------
