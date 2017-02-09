@@ -94,7 +94,18 @@ ProcedureRequest/123  (report is based on this request)
                     </valueCodeableConcept>
                     
                 </extension>
-        
+
+        <!--
+          Latest specification no longer contains DiagnosticRequest resources
+          The SPEC uses ProcedureRequest instead to provide a record of a request 
+          for a diagnostic investigation.
+
+          Although I only change the link here, there are lots of things that need to 
+          change in the original example of the original DiagnosticRequest (TODO)
+        -->
+                <basedOn>
+                    <reference value="ProcedureRequest/123"/>
+                </basedOn>
                 <status value="final"/>
                 <category>
                     <coding>
@@ -114,7 +125,6 @@ ProcedureRequest/123  (report is based on this request)
                     <reference value="Patient/119"/>
                     <display value = "Mary Chalmers"/>
                 </subject>
-
                 <effectiveDateTime value="2016-12-15"/>
                 <issued value="2016-12-15T14:15:30-06:00"/>
 
@@ -126,17 +136,6 @@ ProcedureRequest/123  (report is based on this request)
                     </actor>
                 </performer>
         
-        <!--
-          Latest specification no longer contains DiagnosticRequest resources
-          The SPEC uses ProcedureRequest instead to provide a record of a request 
-          for a diagnostic investigation.
-
-          Although I only change the link here, there are lots of things that need to 
-          change in the original example of the original DiagnosticRequest (TODO)
-        -->
-            <request>
-                    <reference value="ProcedureRequest/123"/>
-                </request>
 
 
                 <specimen>
