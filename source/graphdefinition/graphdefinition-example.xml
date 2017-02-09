@@ -34,9 +34,9 @@
   
   <!-- define the section -> list link -->
   <link>
-    <description value="Link to List"/>
     <!-- any section entry. Todo: this recurses; are we profiling this at all levels? --> 
     <path value="Composition.section.entry"/>
+    <description value="Link to List"/>
     <!-- 
       one target. This graph is not making rules about the content of the section entries - that
       would be done in a profile. it's just saying, if you see a reference to a list in a section
@@ -51,9 +51,8 @@
       
       <!-- and inside this list, any references -->
       <link>
-        <description value="Include any list entries"/>
-        <!-- any list entry. --> 
         <path value="List.entry.item"/>
+        <description value="Include any list entries"/>
         <target>
           <type value="Resource"/> <!-- todo: is this the right way to do 'Any'? -->
           <compartment>
