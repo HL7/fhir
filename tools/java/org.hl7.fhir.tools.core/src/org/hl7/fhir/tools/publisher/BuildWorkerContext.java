@@ -357,7 +357,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   @Override
   public IResourceValidator newValidator() {
-    return new InstanceValidator(this);
+    throw new Error("check this");
+//    return new InstanceValidator(this, null);
   }
 
   @Override

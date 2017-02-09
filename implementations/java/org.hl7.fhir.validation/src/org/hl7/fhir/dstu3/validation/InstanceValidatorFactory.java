@@ -8,8 +8,8 @@ import org.hl7.fhir.exceptions.FHIRException;
 public class InstanceValidatorFactory implements IValidatorFactory {
 
   @Override
-  public IResourceValidator makeValidator(IWorkerContext ctxts) throws FHIRException {
-    return new InstanceValidator(ctxts);
+  public IResourceValidator makeValidator(IWorkerContext ctxt) throws FHIRException {
+    return new InstanceValidator(ctxt, null);
   }
 
 }

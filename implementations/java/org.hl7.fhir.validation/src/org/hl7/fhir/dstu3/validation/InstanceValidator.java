@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu2.model.api.IBaseFhirEnum;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.context.IWorkerContext.ValidationResult;
@@ -77,6 +78,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.utils.FHIRLexer.FHIRLexerException;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IResourceValidator;
 import org.hl7.fhir.dstu3.utils.ValidationProfileSet;
 import org.hl7.fhir.dstu3.utils.ValidationProfileSet.ProfileRegistration;
@@ -268,10 +270,11 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
   }
 
-  public InstanceValidator(IWorkerContext theContext) {
+  public InstanceValidator(IWorkerContext theContext, IEvaluationContext hostServices) {
     super();
     this.context = theContext;
     fpe = new FHIRPathEngine(context);
+    fpe.setHostServices(hostServices);
     source = Source.InstanceValidator;
   }
 

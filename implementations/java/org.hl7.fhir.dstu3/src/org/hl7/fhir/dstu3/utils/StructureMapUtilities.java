@@ -148,7 +148,7 @@ public class StructureMapUtilities {
     }
 
     @Override
-    public boolean Log(String argument, List<Base> focus) {
+    public boolean log(String argument, List<Base> focus) {
       throw new Error("Not Implemented Yet");
     }
 

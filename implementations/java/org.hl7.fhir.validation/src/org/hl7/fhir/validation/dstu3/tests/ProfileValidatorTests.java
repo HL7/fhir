@@ -82,7 +82,7 @@ public class ProfileValidatorTests {
 	}
 
 	public void execute() throws Exception {
-	  InstanceValidator v = new InstanceValidator(SimpleWorkerContext.fromPack(pack.getAbsolutePath()));
+	  InstanceValidator v = new InstanceValidator(SimpleWorkerContext.fromPack(pack.getAbsolutePath()), null);
 	  
     Document reg = parseXml(registry.getAbsolutePath());
     List<Element> tests = new ArrayList<Element>();

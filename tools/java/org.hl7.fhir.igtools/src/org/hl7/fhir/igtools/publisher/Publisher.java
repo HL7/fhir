@@ -680,7 +680,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       context.connectToTSServer(txServer);
     
     // ;
-    validator = new InstanceValidator(context);
+    validator = new InstanceValidator(context, null); // todo: host services for reference resolution....
     validator.setAllowXsiLocation(true);
     validator.setNoBindingMsgSuppressed(true);
     if (paths.get("extension-domains") instanceof JsonArray) {

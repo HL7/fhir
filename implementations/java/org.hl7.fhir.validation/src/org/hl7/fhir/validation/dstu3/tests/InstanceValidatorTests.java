@@ -43,7 +43,7 @@ public class InstanceValidatorTests {
     if (!TestingUtilities.silent)
     System.out.println("Test "+path);
     FileInputStream file = new FileInputStream(Utilities.path(TestingUtilities.home(), path));
-		InstanceValidator val = new InstanceValidator(TestingUtilities.context);
+		InstanceValidator val = new InstanceValidator(TestingUtilities.context, null);
 		List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
 		val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
 		int ec = 0;
@@ -68,7 +68,7 @@ public class InstanceValidatorTests {
     if (!TestingUtilities.silent)
     System.out.println("Test Content");
     ByteArrayInputStream file = new ByteArrayInputStream(cnt.getBytes(Charsets.UTF_8));
-    InstanceValidator val = new InstanceValidator(TestingUtilities.context);
+    InstanceValidator val = new InstanceValidator(TestingUtilities.context, null);
     List<ValidationMessage> errors = new ArrayList<ValidationMessage>();
     val.validate(null, errors, file, json ? FhirFormat.JSON : FhirFormat.XML);
     int ec = 0;

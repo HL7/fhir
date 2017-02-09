@@ -25,6 +25,7 @@ import org.hl7.fhir.dstu3.model.ExpressionNode.Kind;
 import org.hl7.fhir.dstu3.model.ExpressionNode.Operation;
 import org.hl7.fhir.dstu3.model.ExpressionNode.SourceLocation;
 import org.hl7.fhir.dstu3.model.IntegerType;
+import org.hl7.fhir.dstu3.model.Property;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -103,7 +104,7 @@ public class FHIRPathEngine {
      * @param focus
      * @return
      */
-    public boolean Log(String argument, List<Base> focus);
+    public boolean log(String argument, List<Base> focus);
 
     // extensibility for functions
     /**
@@ -502,7 +503,7 @@ public class FHIRPathEngine {
 
 
   private void log(String name, List<Base> contents) {
-    if (hostServices == null || !hostServices.Log(name, contents)) {
+    if (hostServices == null || !hostServices.log(name, contents)) {
       if (log.length() > 0)
         log.append("; ");
       log.append(name);
@@ -2358,9 +2359,23 @@ public class FHIRPathEngine {
   private List<Base> funcResolve(ExecutionContext context, List<Base> focus, ExpressionNode exp) {
     List<Base> result = new ArrayList<Base>();
     for (Base item : focus) {
-      String s = convertToString(item);
       if (hostServices != null) {
-        Base res = hostServices.resolveReference(context.appInfo, s);
+        String s = convertToString(item);
+        if (item.fhirType().equals("Reference")) {
+          Property p = item.getChildByName("reference");
+          if (p.hasValues())
+            s = convertToString(p.getValues().get(0));
+        }
+        Base res = null;
+        if (s.startsWith("#")) {
+          String id = s.substring(1);
+          Property p = context.resource.getChildByName("contained");
+          for (Base c : p.getValues()) {
+            if (id.equals(c.getIdBase()))
+              res = c;
+          }
+        } else
+         res = hostServices.resolveReference(context.appInfo, s);
         if (res != null)
           result.add(res);
       }

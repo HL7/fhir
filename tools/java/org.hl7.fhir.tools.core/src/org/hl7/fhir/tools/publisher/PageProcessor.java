@@ -228,7 +228,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     }
 
     @Override
-    public boolean Log(String argument, List<Base> focus) {
+    public boolean log(String argument, List<Base> focus) {
       return false;
     }
 

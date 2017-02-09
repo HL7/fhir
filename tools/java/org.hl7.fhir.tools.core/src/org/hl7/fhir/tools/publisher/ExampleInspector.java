@@ -40,13 +40,18 @@ import org.hl7.fhir.dstu3.context.IWorkerContext;
 import org.hl7.fhir.dstu3.elementmodel.Element;
 import org.hl7.fhir.dstu3.elementmodel.Manager;
 import org.hl7.fhir.dstu3.elementmodel.Manager.FhirFormat;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.TypeDetails;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
+import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IEvaluationContext;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.BestPracticeWarningLevel;
 import org.hl7.fhir.dstu3.utils.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.XmlValidator;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.exceptions.PathEngineException;
 import org.hl7.fhir.rdf.ModelComparer;
 import org.hl7.fhir.rdf.ShExValidator;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -80,6 +85,57 @@ public class ExampleInspector {
     }
   }
 
+  private class ExampleHostServices implements IEvaluationContext {
+
+    @Override
+    public Base resolveConstant(Object appContext, String name) throws PathEngineException {
+      return null;
+    }
+
+    @Override
+    public TypeDetails resolveConstantType(Object appContext, String name) throws PathEngineException {
+      return null;
+    }
+
+    @Override
+    public boolean log(String argument, List<Base> focus) {
+//      System.out.println("FHIRPath log :"+focus.toString());
+      return false;
+    }
+
+    @Override
+    public FunctionDetails resolveFunction(String functionName) {
+      return null;
+    }
+
+    @Override
+    public TypeDetails checkFunction(Object appContext, String functionName, List<TypeDetails> parameters) throws PathEngineException {
+      return null;
+    }
+
+    @Override
+    public List<Base> executeFunction(Object appContext, String functionName, List<List<Base>> parameters) {
+      return null;
+    }
+
+    @Override
+    public Base resolveReference(Object appContext, String url) {
+      try {
+        String[] s = url.split("/");
+        if (s.length != 2 || !definitions.containsKey(s[0]))
+          return null;
+        String fn = Utilities.path(rootDir, s[0].toLowerCase()+"-"+s[1]+".xml");
+        File f = new File(fn);
+        if (!f.exists())
+          return null;
+        XmlParser xml = new XmlParser();
+        return xml.parse(new FileInputStream(f));
+      } catch (Exception e) {
+        return null;
+      }
+    }
+
+  }
   private static final boolean VALIDATE_BY_PROFILE = true;
   private static final boolean VALIDATE_BY_SCHEMATRON = false;
   private static final boolean VALIDATE_BY_JSON_SCHEMA = true;
@@ -96,7 +152,7 @@ public class ExampleInspector {
   private boolean bySchematron = VALIDATE_BY_SCHEMATRON;
   private boolean byJsonSchema = VALIDATE_BY_JSON_SCHEMA;
   private boolean byRdf = VALIDATE_RDF;
-
+  private ExampleHostServices hostServices; 
   
   public ExampleInspector(IWorkerContext context, Logger logger, String rootDir, String xsltDir, List<ValidationMessage> errors, Map<String, ResourceDefn> definitions) throws JsonSyntaxException, FileNotFoundException, IOException {
     super();
@@ -107,6 +163,7 @@ public class ExampleInspector {
     this.errorsExt = errors;
     this.errorsInt = new ArrayList<ValidationMessage>();
     this.definitions = definitions;
+    hostServices = new ExampleHostServices();
     jsonLdDefns = (JsonObject) new com.google.gson.JsonParser().parse(TextFile.fileToString(Utilities.path(rootDir, "fhir.jsonld")));
   }
 
@@ -122,7 +179,7 @@ public class ExampleInspector {
   private ShExValidator shex;
   
   public void prepare() throws Exception {
-    validator = new InstanceValidator(context);
+    validator = new InstanceValidator(context, hostServices);
     validator.setSuppressLoincSnomedMessages(true);
     validator.setResourceIdRule(IdStatus.REQUIRED);
     validator.setBestPracticeWarningLevel(BestPracticeWarningLevel.Warning);
@@ -428,6 +485,7 @@ public class ExampleInspector {
   public void setByRdf(boolean byRdf) {
     this.byRdf = byRdf;
   }
-  
+
+
   
  }

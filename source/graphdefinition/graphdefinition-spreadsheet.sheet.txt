@@ -127,13 +127,6 @@
   Definition = Links this graph makes rules about
 
  -- Row 17 -----------------------------------
-  Element = GraphDefinition.link.description
-  Card. = 0..1
-  Type = string
-  Short Name = Why this link is specified
-  Definition = Information about why this link is of interest in this graph definition
-
- -- Row 18 -----------------------------------
   Element = GraphDefinition.link.path
   Card. = 1..1
   Type = string
@@ -141,26 +134,33 @@
   Definition = Path in the resource that contains the link
   Comments = The path can be a literal path (e.g. Observation.subject), or it can be a query for reverse links (e.g. Provenance?target=[id])
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = GraphDefinition.link.sliceName
   Card. = 0..1
   Type = string
   Short Name = Which slice (if profiled)
   Definition = Which slice (if profiled)
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = GraphDefinition.link.min
   Card. = 0..1
   Type = integer
   Short Name = Minimum occurences for this link
   Definition = Minimum occurences for this link
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = GraphDefinition.link.max
   Card. = 0..1
   Type = string
   Short Name = Maximum occurences for this link
   Definition = Maximum occurences for this link
+
+ -- Row 21 -----------------------------------
+  Element = GraphDefinition.link.description
+  Card. = 0..1
+  Type = string
+  Short Name = Why this link is specified
+  Definition = Information about why this link is of interest in this graph definition
 
  -- Row 22 -----------------------------------
   Element = GraphDefinition.link.target
