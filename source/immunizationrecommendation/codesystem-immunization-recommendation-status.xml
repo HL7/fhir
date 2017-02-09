@@ -5,7 +5,7 @@
   <name value="Immunization Recommendation Status Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the status of the patient relative to a recommended dose. This value set is provided as a suggestive example."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
