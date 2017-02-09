@@ -6,11 +6,11 @@
 <p>
 The GraphDefinition resource provides a formal computable definition of a graph of resources - that is, a coherent set of resources that form 
 a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
-The GraphDefinition can be used to:
+The GraphDefinition resource can be used to:
 </p>
 <ul>
+ <li>Summarize a set of profiles on resources</li>
  <li>Define a graph of resources to return in a query</li>
- <li>Summarise a set of profiles on resources</li>
  <li>Define a graph of resources to include in a document</li>
  <li>Document rules about the relationship between a set of resources e.g. must all resources concern the same patient?</li>
 </ul>

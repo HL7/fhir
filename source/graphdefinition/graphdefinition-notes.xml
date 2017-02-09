@@ -1,8 +1,143 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<h3>Where to use GraphDefinitions</h3>
+<h3>Using GraphDefinitions</h3>
 <p>
-todo....
+The GraphDefinition resource can be used to:
+</p>
+<ul>
+ <li>Summarize a set of profiles on resources</li>
+ <li>Define a graph of resources to return in a query</li>
+ <li>Define a graph of resources to include in a document</li>
+ <li>Document rules about the relationship between a set of resources e.g. must all resources concern the same patient?</li>
+</ul>
+
+<a name="summary"> </a>
+<h4>Summarize a set of profiles on resources</h4>
+<p>
+FHIR resources are relatively granular. In many/most cases, many resources 
+are needed to handle any particular task. A typical example of this is a complex
+diagnostic report: it will start with a DiagnosticReport, which will link
+to a set of panels (Observation resources), each of which link to a set of 
+Observation resources for atomic data items.
+</p>
+<p>
+One way to represent this is to profile each of the resources, creating 
+100s of profiles, and then leave it to the user to infer the overall pattern
+of the report from the detailed profiles for each observation in the report. 
+But it's not easy to see the forest for the trees. A GraphDefinition can 
+summarise the overall picture and present a summary to the user. 
+</p>
+<p>
+Here's <a href="http://fhir.hl7.org.au/fhir/rcpa/pprofiles.html">an example</a> of 
+the kind of summary this represents. (Todo: make this an actual graph definition,
+and clone into the main spec)
+</p>
+
+<a name="fetch"> </a>
+<h4>Fetching a graph of resources</h4>
+<p>
+As another example of using many resources, to describe a medication
+dispense, an application needs, in addition to the MedicationDispense resource
+that describes the actual dispense, and application will typically retrieve 
+resources for the patient, provider, organizations, and the prescription for
+the dispense. 
+</p>
+<p>
+A client can retrieve a single resource:
+</p>
+<pre>
+  GET [base]/MedicationDispense/example
+</pre>
+<p>
+Then, when it reads the returned resource, if can fetch the referenced resources: 
+</p>
+<pre>
+  GET [base]/Patient/example
+  GET [base]/Practitioner/example
+  GET [base]/MedicationRequest/example
+  ... etc
+</pre>
+<p>
+This is a very inefficient way to retrieve all the required resources. An alternative 
+approach is to do a search, and _include the required resources:
+</p>
+<pre>
+  GET [base]/MedicationDispense?_id=example
+    &amp;_include=MedicationDispense.authorizingPrescription
+    &amp;_include=MedicationDispense.subject
+</pre>
+<p>
+But scaling up this approach to fetch a full package with it's dependencies
+becomes increasingly difficult as the package gets deeper. A graph definition
+can be used instead of inform the server what to return as part of the search:
+</p>
+<pre>
+  GET [base]/MedicationDispense?_id=example&amp;_graph=med-package
+</pre>
+<p>
+This is a reference to the local graph package 'med-package', with the 
+intent that the server returns the graph as outlined by the definition.
+</p>
+
+<a name="document"> </a>
+<h4>Building a document</h4>
+<p>
+A very similar issue applies when building a document using the <a href="composition-operations.html#document">$document 
+operation</a>. A document must include all the resources linked directly from the composition, but 
+whether to include additional linked resources is at the discretion of the document author. How does
+the user inform the $document operation which linked resources to include? One option is a boolean flag
+for including <b>all</b> linked data, but this may be extensive - up to an entire patient record - and 
+may include resources that are not desired.
+</p>
+<p>
+An operation can use a graph definition as a parameter to the $document operation:
+</p>
+<pre>
+GET [base]/Composition/example/$document?graph=example
+</pre>
+<p>
+This tells the server to include the graph of resources defined 
+in the <a href="graphdefinition-example.html">example GraphDefinition</a> - in this case,
+any resources referred to from lists, when the section content is a list.
+</p>
+
+<a name="rules"> </a>
+<h4>Document Relationship rules</h4>
+<p>
+One important question about the use of resources is cross-resource consistency. 
+For example, if an Observation refers to both a Patient and Encounter, does the 
+Encounter have to refer to the same patient? 
+</p>
+<p>
+In general, the answer to this is that it usually should - the record needs to be 
+consistent. However there are edge cases where the references may differ. For 
+example, with regard to patient references, they may differ for:
+</p>
+<ul>
+ <li>Health Records concerning mother and baby</li>
+ <li>Organ Transplants</li>
+ <li>Counselling, particularly family counselling</li>
+</ul>
+<p>
+Other reasons for the references to differ - mixing records about the same patient
+from different servers, or specific records about patients mixed with records
+about groups of patients (particularly common in veterinarian care).
+</p>
+<p>
+The <code>GraphDefinition</code> resource allows for compartment consistency rules
+to be made regarding the links between resources. For each link in the graph, the
+graph definition can make a rule about the compartment consistency. The rule 
+can specify one of the following consistencies:
+</p>
+<table class="codes">
+<tr><td><b>Code</b></td><td><b>Meaning</b></td></tr>
+<tr><td>identical</td><td>The compartment must be identical (the same literal reference)</td></tr>
+<tr><td>matching</td><td>The compartment must be the same - the record must be about the same patient, but the reference may be different</td></tr>
+<tr><td>different</td><td>The compartment must be different</td></tr>
+<tr><td>custom</td><td>The compartment rule is defined in the accompanying FHIRPath expression</td></tr>
+</table>
+<p>
+Todo: how would this be validated? - where is the graph referred to?
 </p>
 
 </div>
