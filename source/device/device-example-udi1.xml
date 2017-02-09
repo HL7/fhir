@@ -49,4 +49,14 @@
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
+		<safety>
+		<coding>
+			<system value="http://hl7.org/fhir/device-safety"/>
+			<code value="mr-unsafe"/>
+			<display value="MR Unsafe"/>
+		</coding>
+		<text value="MR Unsafe"/>
+		<!-- note: optional text value added here for a prettier generated narrative -->
+	</safety>
+	
 </Device>
