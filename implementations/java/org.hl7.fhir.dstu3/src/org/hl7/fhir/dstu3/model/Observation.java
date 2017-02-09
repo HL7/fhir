@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -62,19 +62,23 @@ public class Observation extends DomainResource {
          */
         FINAL, 
         /**
-         * The observation has been modified subsequent to being Final.
+         * Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.
          */
         AMENDED, 
+        /**
+         * Subsequent to being Final, the observation has been modified to correct an error in the test result.
+         */
+        CORRECTED, 
         /**
          * The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
          */
         CANCELLED, 
         /**
-         * The observation has been withdrawn following previous final release.
+         * The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
          */
         ENTEREDINERROR, 
         /**
-         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
          */
         UNKNOWN, 
         /**
@@ -92,6 +96,8 @@ public class Observation extends DomainResource {
           return FINAL;
         if ("amended".equals(codeString))
           return AMENDED;
+        if ("corrected".equals(codeString))
+          return CORRECTED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
         if ("entered-in-error".equals(codeString))
@@ -109,6 +115,7 @@ public class Observation extends DomainResource {
             case PRELIMINARY: return "preliminary";
             case FINAL: return "final";
             case AMENDED: return "amended";
+            case CORRECTED: return "corrected";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
             case UNKNOWN: return "unknown";
@@ -121,6 +128,7 @@ public class Observation extends DomainResource {
             case PRELIMINARY: return "http://hl7.org/fhir/observation-status";
             case FINAL: return "http://hl7.org/fhir/observation-status";
             case AMENDED: return "http://hl7.org/fhir/observation-status";
+            case CORRECTED: return "http://hl7.org/fhir/observation-status";
             case CANCELLED: return "http://hl7.org/fhir/observation-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/observation-status";
             case UNKNOWN: return "http://hl7.org/fhir/observation-status";
@@ -132,10 +140,11 @@ public class Observation extends DomainResource {
             case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
             case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
             case FINAL: return "The observation is complete.";
-            case AMENDED: return "The observation has been modified subsequent to being Final.";
+            case AMENDED: return "Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.";
+            case CORRECTED: return "Subsequent to being Final, the observation has been modified to correct an error in the test result.";
             case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
-            case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.";
-            case UNKNOWN: return "The observation status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".";
+            case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -145,9 +154,10 @@ public class Observation extends DomainResource {
             case PRELIMINARY: return "Preliminary";
             case FINAL: return "Final";
             case AMENDED: return "Amended";
+            case CORRECTED: return "Corrected";
             case CANCELLED: return "Cancelled";
             case ENTEREDINERROR: return "Entered in Error";
-            case UNKNOWN: return "Unknown Status";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -166,6 +176,8 @@ public class Observation extends DomainResource {
           return ObservationStatus.FINAL;
         if ("amended".equals(codeString))
           return ObservationStatus.AMENDED;
+        if ("corrected".equals(codeString))
+          return ObservationStatus.CORRECTED;
         if ("cancelled".equals(codeString))
           return ObservationStatus.CANCELLED;
         if ("entered-in-error".equals(codeString))
@@ -190,6 +202,8 @@ public class Observation extends DomainResource {
           return new Enumeration<ObservationStatus>(this, ObservationStatus.FINAL);
         if ("amended".equals(codeString))
           return new Enumeration<ObservationStatus>(this, ObservationStatus.AMENDED);
+        if ("corrected".equals(codeString))
+          return new Enumeration<ObservationStatus>(this, ObservationStatus.CORRECTED);
         if ("cancelled".equals(codeString))
           return new Enumeration<ObservationStatus>(this, ObservationStatus.CANCELLED);
         if ("entered-in-error".equals(codeString))
@@ -207,6 +221,8 @@ public class Observation extends DomainResource {
         return "final";
       if (code == ObservationStatus.AMENDED)
         return "amended";
+      if (code == ObservationStatus.CORRECTED)
+        return "corrected";
       if (code == ObservationStatus.CANCELLED)
         return "cancelled";
       if (code == ObservationStatus.ENTEREDINERROR)
@@ -3448,26 +3464,6 @@ public class Observation extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam VALUE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_VALUE_DATE);
 
  /**
-   * Search parameter: <b>combo-value-date</b>
-   * <p>
-   * Description: <b>The value or component value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.valueDateTime, Observation.valuePeriod, Observation.component.valueDateTime, Observation.component.valuePeriod</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="combo-value-date", path="Observation.value.as(DateTime) | Observation.value.as(Period) | Observation.component.value.as(DateTime) | Observation.component.value.as(Period)", description="The value or component value of the observation, if the value is a date or period of time", type="date" )
-  public static final String SP_COMBO_VALUE_DATE = "combo-value-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>combo-value-date</b>
-   * <p>
-   * Description: <b>The value or component value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.valueDateTime, Observation.valuePeriod, Observation.component.valueDateTime, Observation.component.valuePeriod</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam COMBO_VALUE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_COMBO_VALUE_DATE);
-
- /**
    * Search parameter: <b>code-value-string</b>
    * <p>
    * Description: <b>Code and string value parameter pair</b><br>
@@ -3506,6 +3502,32 @@ public class Observation extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam> COMPONENT_CODE_VALUE_QUANTITY = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.QuantityClientParam>(SP_COMPONENT_CODE_VALUE_QUANTITY);
+
+ /**
+   * Search parameter: <b>based-on</b>
+   * <p>
+   * Description: <b>Reference to the test or procedure request.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Observation.basedOn</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="based-on", path="Observation.basedOn", description="Reference to the test or procedure request.", type="reference", target={CarePlan.class, DeviceRequest.class, ImmunizationRecommendation.class, MedicationRequest.class, NutritionOrder.class, ProcedureRequest.class, ReferralRequest.class } )
+  public static final String SP_BASED_ON = "based-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
+   * <p>
+   * Description: <b>Reference to the test or procedure request.</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Observation.basedOn</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASED_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASED_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Observation:based-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("Observation:based-on").toLocked();
 
  /**
    * Search parameter: <b>related</b>
@@ -3962,26 +3984,6 @@ public class Observation extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam> CODE_VALUE_CONCEPT = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.TokenClientParam>(SP_CODE_VALUE_CONCEPT);
-
- /**
-   * Search parameter: <b>component-value-date</b>
-   * <p>
-   * Description: <b>The component value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.component.valueDateTime, Observation.component.valuePeriod</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="component-value-date", path="Observation.component.value.as(DateTime) | Observation.component.value.as(Period)", description="The component value of the observation, if the value is a date or period of time", type="date" )
-  public static final String SP_COMPONENT_VALUE_DATE = "component-value-date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>component-value-date</b>
-   * <p>
-   * Description: <b>The component value of the observation, if the value is a date or period of time</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Observation.component.valueDateTime, Observation.component.valuePeriod</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam COMPONENT_VALUE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_COMPONENT_VALUE_DATE);
 
  /**
    * Search parameter: <b>component-code-value-concept</b>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -331,7 +331,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="External identifier", formalDefinition="External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated." )
     protected List<Identifier> identifier;
 
@@ -350,7 +350,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * A larger event of which this particular event is a component or step.
      */
-    @Child(name = "partOf", type = {MedicationAdministration.class, MedicationDispense.class, MedicationStatement.class, Procedure.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "partOf", type = {MedicationAdministration.class, MedicationDispense.class, MedicationStatement.class, Procedure.class, Observation.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Part of referenced event", formalDefinition="A larger event of which this particular event is a component or step." )
     protected List<Reference> partOf;
     /**
@@ -382,7 +382,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * Indicates where type of medication statement and where the medication is expected to be consumed or administered.
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "category", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Type of medication usage", formalDefinition="Indicates where type of medication statement and where the medication is expected to be consumed or administered." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-statement-category")
     protected CodeableConcept category;
@@ -396,23 +396,18 @@ public class MedicationStatement extends DomainResource {
     protected Type medication;
 
     /**
-     * The person, animal or group who is/was taking the medication.
-     */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=7, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who is/was taking  the medication", formalDefinition="The person, animal or group who is/was taking the medication." )
-    protected Reference subject;
-
-    /**
-     * The actual object that is the target of the reference (The person, animal or group who is/was taking the medication.)
-     */
-    protected Resource subjectTarget;
-
-    /**
      * The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
      */
-    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "effective", type = {DateTimeType.class, Period.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Over what period was medication consumed?", formalDefinition="The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true)." )
     protected Type effective;
+
+    /**
+     * The date when the medication statement was asserted by the information source.
+     */
+    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When the statement was asserted?", formalDefinition="The date when the medication statement was asserted by the information source." )
+    protected DateTimeType dateAsserted;
 
     /**
      * The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.
@@ -427,9 +422,21 @@ public class MedicationStatement extends DomainResource {
     protected Resource informationSourceTarget;
 
     /**
+     * The person, animal or group who is/was taking the medication.
+     */
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=10, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who is/was taking  the medication", formalDefinition="The person, animal or group who is/was taking the medication." )
+    protected Reference subject;
+
+    /**
+     * The actual object that is the target of the reference (The person, animal or group who is/was taking the medication.)
+     */
+    protected Resource subjectTarget;
+
+    /**
      * Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
      */
-    @Child(name = "derivedFrom", type = {Reference.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "derivedFrom", type = {Reference.class}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additional supporting information", formalDefinition="Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement." )
     protected List<Reference> derivedFrom;
     /**
@@ -437,13 +444,6 @@ public class MedicationStatement extends DomainResource {
      */
     protected List<Resource> derivedFromTarget;
 
-
-    /**
-     * The date when the medication statement was asserted by the information source.
-     */
-    @Child(name = "dateAsserted", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When the statement was asserted?", formalDefinition="The date when the medication statement was asserted by the information source." )
-    protected DateTimeType dateAsserted;
 
     /**
      * Indicator of the certainty of whether the medication was taken by the patient.
@@ -495,7 +495,7 @@ public class MedicationStatement extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
     protected List<DosageInstruction> dosage;
 
-    private static final long serialVersionUID = 2120590549L;
+    private static final long serialVersionUID = 1911647047L;
 
   /**
    * Constructor
@@ -848,45 +848,6 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (The person, animal or group who is/was taking the medication.)
-     */
-    public Reference getSubject() { 
-      if (this.subject == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationStatement.subject");
-        else if (Configuration.doAutoCreate())
-          this.subject = new Reference(); // cc
-      return this.subject;
-    }
-
-    public boolean hasSubject() { 
-      return this.subject != null && !this.subject.isEmpty();
-    }
-
-    /**
-     * @param value {@link #subject} (The person, animal or group who is/was taking the medication.)
-     */
-    public MedicationStatement setSubject(Reference value) { 
-      this.subject = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, animal or group who is/was taking the medication.)
-     */
-    public Resource getSubjectTarget() { 
-      return this.subjectTarget;
-    }
-
-    /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, animal or group who is/was taking the medication.)
-     */
-    public MedicationStatement setSubjectTarget(Resource value) { 
-      this.subjectTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #effective} (The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).)
      */
     public Type getEffective() { 
@@ -932,6 +893,55 @@ public class MedicationStatement extends DomainResource {
     }
 
     /**
+     * @return {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
+     */
+    public DateTimeType getDateAssertedElement() { 
+      if (this.dateAsserted == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationStatement.dateAsserted");
+        else if (Configuration.doAutoCreate())
+          this.dateAsserted = new DateTimeType(); // bb
+      return this.dateAsserted;
+    }
+
+    public boolean hasDateAssertedElement() { 
+      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
+    }
+
+    public boolean hasDateAsserted() { 
+      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
+    }
+
+    /**
+     * @param value {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
+     */
+    public MedicationStatement setDateAssertedElement(DateTimeType value) { 
+      this.dateAsserted = value;
+      return this;
+    }
+
+    /**
+     * @return The date when the medication statement was asserted by the information source.
+     */
+    public Date getDateAsserted() { 
+      return this.dateAsserted == null ? null : this.dateAsserted.getValue();
+    }
+
+    /**
+     * @param value The date when the medication statement was asserted by the information source.
+     */
+    public MedicationStatement setDateAsserted(Date value) { 
+      if (value == null)
+        this.dateAsserted = null;
+      else {
+        if (this.dateAsserted == null)
+          this.dateAsserted = new DateTimeType();
+        this.dateAsserted.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #informationSource} (The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.)
      */
     public Reference getInformationSource() { 
@@ -967,6 +977,45 @@ public class MedicationStatement extends DomainResource {
      */
     public MedicationStatement setInformationSourceTarget(Resource value) { 
       this.informationSourceTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} (The person, animal or group who is/was taking the medication.)
+     */
+    public Reference getSubject() { 
+      if (this.subject == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MedicationStatement.subject");
+        else if (Configuration.doAutoCreate())
+          this.subject = new Reference(); // cc
+      return this.subject;
+    }
+
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
+    }
+
+    /**
+     * @param value {@link #subject} (The person, animal or group who is/was taking the medication.)
+     */
+    public MedicationStatement setSubject(Reference value) { 
+      this.subject = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, animal or group who is/was taking the medication.)
+     */
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
+    }
+
+    /**
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, animal or group who is/was taking the medication.)
+     */
+    public MedicationStatement setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
       return this;
     }
 
@@ -1031,55 +1080,6 @@ public class MedicationStatement extends DomainResource {
       if (this.derivedFromTarget == null)
         this.derivedFromTarget = new ArrayList<Resource>();
       return this.derivedFromTarget;
-    }
-
-    /**
-     * @return {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
-     */
-    public DateTimeType getDateAssertedElement() { 
-      if (this.dateAsserted == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationStatement.dateAsserted");
-        else if (Configuration.doAutoCreate())
-          this.dateAsserted = new DateTimeType(); // bb
-      return this.dateAsserted;
-    }
-
-    public boolean hasDateAssertedElement() { 
-      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
-    }
-
-    public boolean hasDateAsserted() { 
-      return this.dateAsserted != null && !this.dateAsserted.isEmpty();
-    }
-
-    /**
-     * @param value {@link #dateAsserted} (The date when the medication statement was asserted by the information source.). This is the underlying object with id, value and extensions. The accessor "getDateAsserted" gives direct access to the value
-     */
-    public MedicationStatement setDateAssertedElement(DateTimeType value) { 
-      this.dateAsserted = value;
-      return this;
-    }
-
-    /**
-     * @return The date when the medication statement was asserted by the information source.
-     */
-    public Date getDateAsserted() { 
-      return this.dateAsserted == null ? null : this.dateAsserted.getValue();
-    }
-
-    /**
-     * @param value The date when the medication statement was asserted by the information source.
-     */
-    public MedicationStatement setDateAsserted(Date value) { 
-      if (value == null)
-        this.dateAsserted = null;
-      else {
-        if (this.dateAsserted == null)
-          this.dateAsserted = new DateTimeType();
-        this.dateAsserted.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -1411,11 +1411,11 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("status", "code", "A code representing the patient or other source's judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("category", "CodeableConcept", "Indicates where type of medication statement and where the medication is expected to be consumed or administered.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
-        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("effective[x]", "dateTime|Period", "The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).", 0, java.lang.Integer.MAX_VALUE, effective));
-        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, informationSource));
-        childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("dateAsserted", "dateTime", "The date when the medication statement was asserted by the information source.", 0, java.lang.Integer.MAX_VALUE, dateAsserted));
+        childrenList.add(new Property("informationSource", "Reference(Patient|Practitioner|RelatedPerson|Organization)", "The person or organization that provided the information about the taking of this medication. Note: Use derivedFrom when a MedicationStatement is derived from other resources, e.g Claim or MedicationRequest.", 0, java.lang.Integer.MAX_VALUE, informationSource));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group who is/was taking the medication.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("derivedFrom", "Reference(Any)", "Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.", 0, java.lang.Integer.MAX_VALUE, derivedFrom));
         childrenList.add(new Property("taken", "code", "Indicator of the certainty of whether the medication was taken by the patient.", 0, java.lang.Integer.MAX_VALUE, taken));
         childrenList.add(new Property("reasonNotTaken", "CodeableConcept", "A code indicating why the medication was not taken.", 0, java.lang.Integer.MAX_VALUE, reasonNotTaken));
         childrenList.add(new Property("reasonForUseCodeableConcept", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseCodeableConcept));
@@ -1434,11 +1434,11 @@ public class MedicationStatement extends DomainResource {
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<MedicationStatementStatus>
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 1998965455: /*medication*/ return this.medication == null ? new Base[0] : new Base[] {this.medication}; // Type
-        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case -1468651097: /*effective*/ return this.effective == null ? new Base[0] : new Base[] {this.effective}; // Type
-        case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
-        case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case -1980855245: /*dateAsserted*/ return this.dateAsserted == null ? new Base[0] : new Base[] {this.dateAsserted}; // DateTimeType
+        case -2123220889: /*informationSource*/ return this.informationSource == null ? new Base[0] : new Base[] {this.informationSource}; // Reference
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
+        case 1077922663: /*derivedFrom*/ return this.derivedFrom == null ? new Base[0] : this.derivedFrom.toArray(new Base[this.derivedFrom.size()]); // Reference
         case 110124231: /*taken*/ return this.taken == null ? new Base[0] : new Base[] {this.taken}; // Enumeration<MedicationStatementTaken>
         case 2112880664: /*reasonNotTaken*/ return this.reasonNotTaken == null ? new Base[0] : this.reasonNotTaken.toArray(new Base[this.reasonNotTaken.size()]); // CodeableConcept
         case 909630431: /*reasonForUseCodeableConcept*/ return this.reasonForUseCodeableConcept == null ? new Base[0] : this.reasonForUseCodeableConcept.toArray(new Base[this.reasonForUseCodeableConcept.size()]); // CodeableConcept
@@ -1475,20 +1475,20 @@ public class MedicationStatement extends DomainResource {
         case 1998965455: // medication
           this.medication = castToType(value); // Type
           return value;
-        case -1867885268: // subject
-          this.subject = castToReference(value); // Reference
-          return value;
         case -1468651097: // effective
           this.effective = castToType(value); // Type
+          return value;
+        case -1980855245: // dateAsserted
+          this.dateAsserted = castToDateTime(value); // DateTimeType
           return value;
         case -2123220889: // informationSource
           this.informationSource = castToReference(value); // Reference
           return value;
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
+          return value;
         case 1077922663: // derivedFrom
           this.getDerivedFrom().add(castToReference(value)); // Reference
-          return value;
-        case -1980855245: // dateAsserted
-          this.dateAsserted = castToDateTime(value); // DateTimeType
           return value;
         case 110124231: // taken
           value = new MedicationStatementTakenEnumFactory().fromType(castToCode(value));
@@ -1531,16 +1531,16 @@ public class MedicationStatement extends DomainResource {
           this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("medication[x]")) {
           this.medication = castToType(value); // Type
-        } else if (name.equals("subject")) {
-          this.subject = castToReference(value); // Reference
         } else if (name.equals("effective[x]")) {
           this.effective = castToType(value); // Type
-        } else if (name.equals("informationSource")) {
-          this.informationSource = castToReference(value); // Reference
-        } else if (name.equals("derivedFrom")) {
-          this.getDerivedFrom().add(castToReference(value));
         } else if (name.equals("dateAsserted")) {
           this.dateAsserted = castToDateTime(value); // DateTimeType
+        } else if (name.equals("informationSource")) {
+          this.informationSource = castToReference(value); // Reference
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
+        } else if (name.equals("derivedFrom")) {
+          this.getDerivedFrom().add(castToReference(value));
         } else if (name.equals("taken")) {
           value = new MedicationStatementTakenEnumFactory().fromType(castToCode(value));
           this.taken = (Enumeration) value; // Enumeration<MedicationStatementTaken>
@@ -1570,12 +1570,12 @@ public class MedicationStatement extends DomainResource {
         case 50511102:  return getCategory(); 
         case 1458402129:  return getMedication(); 
         case 1998965455:  return getMedication(); 
-        case -1867885268:  return getSubject(); 
         case 247104889:  return getEffective(); 
         case -1468651097:  return getEffective(); 
-        case -2123220889:  return getInformationSource(); 
-        case 1077922663:  return addDerivedFrom(); 
         case -1980855245:  return getDateAssertedElement();
+        case -2123220889:  return getInformationSource(); 
+        case -1867885268:  return getSubject(); 
+        case 1077922663:  return addDerivedFrom(); 
         case 110124231:  return getTakenElement();
         case 2112880664:  return addReasonNotTaken(); 
         case 909630431:  return addReasonForUseCodeableConcept(); 
@@ -1597,11 +1597,11 @@ public class MedicationStatement extends DomainResource {
         case -892481550: /*status*/ return new String[] {"code"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 1998965455: /*medication*/ return new String[] {"CodeableConcept", "Reference"};
-        case -1867885268: /*subject*/ return new String[] {"Reference"};
         case -1468651097: /*effective*/ return new String[] {"dateTime", "Period"};
-        case -2123220889: /*informationSource*/ return new String[] {"Reference"};
-        case 1077922663: /*derivedFrom*/ return new String[] {"Reference"};
         case -1980855245: /*dateAsserted*/ return new String[] {"dateTime"};
+        case -2123220889: /*informationSource*/ return new String[] {"Reference"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
+        case 1077922663: /*derivedFrom*/ return new String[] {"Reference"};
         case 110124231: /*taken*/ return new String[] {"code"};
         case 2112880664: /*reasonNotTaken*/ return new String[] {"CodeableConcept"};
         case 909630431: /*reasonForUseCodeableConcept*/ return new String[] {"CodeableConcept"};
@@ -1643,10 +1643,6 @@ public class MedicationStatement extends DomainResource {
           this.medication = new Reference();
           return this.medication;
         }
-        else if (name.equals("subject")) {
-          this.subject = new Reference();
-          return this.subject;
-        }
         else if (name.equals("effectiveDateTime")) {
           this.effective = new DateTimeType();
           return this.effective;
@@ -1655,15 +1651,19 @@ public class MedicationStatement extends DomainResource {
           this.effective = new Period();
           return this.effective;
         }
+        else if (name.equals("dateAsserted")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.dateAsserted");
+        }
         else if (name.equals("informationSource")) {
           this.informationSource = new Reference();
           return this.informationSource;
         }
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
+        }
         else if (name.equals("derivedFrom")) {
           return addDerivedFrom();
-        }
-        else if (name.equals("dateAsserted")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.dateAsserted");
         }
         else if (name.equals("taken")) {
           throw new FHIRException("Cannot call addChild on a primitive type MedicationStatement.taken");
@@ -1714,15 +1714,15 @@ public class MedicationStatement extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.category = category == null ? null : category.copy();
         dst.medication = medication == null ? null : medication.copy();
-        dst.subject = subject == null ? null : subject.copy();
         dst.effective = effective == null ? null : effective.copy();
+        dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
         dst.informationSource = informationSource == null ? null : informationSource.copy();
+        dst.subject = subject == null ? null : subject.copy();
         if (derivedFrom != null) {
           dst.derivedFrom = new ArrayList<Reference>();
           for (Reference i : derivedFrom)
             dst.derivedFrom.add(i.copy());
         };
-        dst.dateAsserted = dateAsserted == null ? null : dateAsserted.copy();
         dst.taken = taken == null ? null : taken.copy();
         if (reasonNotTaken != null) {
           dst.reasonNotTaken = new ArrayList<CodeableConcept>();
@@ -1765,9 +1765,9 @@ public class MedicationStatement extends DomainResource {
         MedicationStatement o = (MedicationStatement) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true)
            && compareDeep(context, o.context, true) && compareDeep(status, o.status, true) && compareDeep(category, o.category, true)
-           && compareDeep(medication, o.medication, true) && compareDeep(subject, o.subject, true) && compareDeep(effective, o.effective, true)
-           && compareDeep(informationSource, o.informationSource, true) && compareDeep(derivedFrom, o.derivedFrom, true)
-           && compareDeep(dateAsserted, o.dateAsserted, true) && compareDeep(taken, o.taken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
+           && compareDeep(medication, o.medication, true) && compareDeep(effective, o.effective, true) && compareDeep(dateAsserted, o.dateAsserted, true)
+           && compareDeep(informationSource, o.informationSource, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(derivedFrom, o.derivedFrom, true) && compareDeep(taken, o.taken, true) && compareDeep(reasonNotTaken, o.reasonNotTaken, true)
            && compareDeep(reasonForUseCodeableConcept, o.reasonForUseCodeableConcept, true) && compareDeep(reasonForUseReference, o.reasonForUseReference, true)
            && compareDeep(note, o.note, true) && compareDeep(dosage, o.dosage, true);
       }
@@ -1785,8 +1785,8 @@ public class MedicationStatement extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, partOf
-          , context, status, category, medication, subject, effective, informationSource
-          , derivedFrom, dateAsserted, taken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
+          , context, status, category, medication, effective, dateAsserted, informationSource
+          , subject, derivedFrom, taken, reasonNotTaken, reasonForUseCodeableConcept, reasonForUseReference
           , note, dosage);
       }
 

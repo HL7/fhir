@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -157,306 +157,7 @@ public class Medication extends DomainResource {
     }
 
     @Block()
-    public static class MedicationProductComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Describes the form of the item.  Powder; tablets; capsule.
-         */
-        @Child(name = "form", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="powder | tablets | capsule +", formalDefinition="Describes the form of the item.  Powder; tablets; capsule." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-form-codes")
-        protected CodeableConcept form;
-
-        /**
-         * Identifies a particular constituent of interest in the product.
-         */
-        @Child(name = "ingredient", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Active or inactive ingredient", formalDefinition="Identifies a particular constituent of interest in the product." )
-        protected List<MedicationProductIngredientComponent> ingredient;
-
-        /**
-         * Information about a group of medication produced or packaged from one production run.
-         */
-        @Child(name = "batch", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Identifies a single production run", formalDefinition="Information about a group of medication produced or packaged from one production run." )
-        protected List<MedicationProductBatchComponent> batch;
-
-        private static final long serialVersionUID = 1132853671L;
-
-    /**
-     * Constructor
-     */
-      public MedicationProductComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
-         */
-        public CodeableConcept getForm() { 
-          if (this.form == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationProductComponent.form");
-            else if (Configuration.doAutoCreate())
-              this.form = new CodeableConcept(); // cc
-          return this.form;
-        }
-
-        public boolean hasForm() { 
-          return this.form != null && !this.form.isEmpty();
-        }
-
-        /**
-         * @param value {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
-         */
-        public MedicationProductComponent setForm(CodeableConcept value) { 
-          this.form = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
-         */
-        public List<MedicationProductIngredientComponent> getIngredient() { 
-          if (this.ingredient == null)
-            this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
-          return this.ingredient;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public MedicationProductComponent setIngredient(List<MedicationProductIngredientComponent> theIngredient) { 
-          this.ingredient = theIngredient;
-          return this;
-        }
-
-        public boolean hasIngredient() { 
-          if (this.ingredient == null)
-            return false;
-          for (MedicationProductIngredientComponent item : this.ingredient)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public MedicationProductIngredientComponent addIngredient() { //3
-          MedicationProductIngredientComponent t = new MedicationProductIngredientComponent();
-          if (this.ingredient == null)
-            this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
-          this.ingredient.add(t);
-          return t;
-        }
-
-        public MedicationProductComponent addIngredient(MedicationProductIngredientComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.ingredient == null)
-            this.ingredient = new ArrayList<MedicationProductIngredientComponent>();
-          this.ingredient.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #ingredient}, creating it if it does not already exist
-         */
-        public MedicationProductIngredientComponent getIngredientFirstRep() { 
-          if (getIngredient().isEmpty()) {
-            addIngredient();
-          }
-          return getIngredient().get(0);
-        }
-
-        /**
-         * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
-         */
-        public List<MedicationProductBatchComponent> getBatch() { 
-          if (this.batch == null)
-            this.batch = new ArrayList<MedicationProductBatchComponent>();
-          return this.batch;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public MedicationProductComponent setBatch(List<MedicationProductBatchComponent> theBatch) { 
-          this.batch = theBatch;
-          return this;
-        }
-
-        public boolean hasBatch() { 
-          if (this.batch == null)
-            return false;
-          for (MedicationProductBatchComponent item : this.batch)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public MedicationProductBatchComponent addBatch() { //3
-          MedicationProductBatchComponent t = new MedicationProductBatchComponent();
-          if (this.batch == null)
-            this.batch = new ArrayList<MedicationProductBatchComponent>();
-          this.batch.add(t);
-          return t;
-        }
-
-        public MedicationProductComponent addBatch(MedicationProductBatchComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.batch == null)
-            this.batch = new ArrayList<MedicationProductBatchComponent>();
-          this.batch.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #batch}, creating it if it does not already exist
-         */
-        public MedicationProductBatchComponent getBatchFirstRep() { 
-          if (getBatch().isEmpty()) {
-            addBatch();
-          }
-          return getBatch().get(0);
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, java.lang.Integer.MAX_VALUE, form));
-          childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
-          childrenList.add(new Property("batch", "", "Information about a group of medication produced or packaged from one production run.", 0, java.lang.Integer.MAX_VALUE, batch));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
-        case -206409263: /*ingredient*/ return this.ingredient == null ? new Base[0] : this.ingredient.toArray(new Base[this.ingredient.size()]); // MedicationProductIngredientComponent
-        case 93509434: /*batch*/ return this.batch == null ? new Base[0] : this.batch.toArray(new Base[this.batch.size()]); // MedicationProductBatchComponent
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 3148996: // form
-          this.form = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -206409263: // ingredient
-          this.getIngredient().add((MedicationProductIngredientComponent) value); // MedicationProductIngredientComponent
-          return value;
-        case 93509434: // batch
-          this.getBatch().add((MedicationProductBatchComponent) value); // MedicationProductBatchComponent
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("form")) {
-          this.form = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("ingredient")) {
-          this.getIngredient().add((MedicationProductIngredientComponent) value);
-        } else if (name.equals("batch")) {
-          this.getBatch().add((MedicationProductBatchComponent) value);
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3148996:  return getForm(); 
-        case -206409263:  return addIngredient(); 
-        case 93509434:  return addBatch(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 3148996: /*form*/ return new String[] {"CodeableConcept"};
-        case -206409263: /*ingredient*/ return new String[] {};
-        case 93509434: /*batch*/ return new String[] {};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("form")) {
-          this.form = new CodeableConcept();
-          return this.form;
-        }
-        else if (name.equals("ingredient")) {
-          return addIngredient();
-        }
-        else if (name.equals("batch")) {
-          return addBatch();
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public MedicationProductComponent copy() {
-        MedicationProductComponent dst = new MedicationProductComponent();
-        copyValues(dst);
-        dst.form = form == null ? null : form.copy();
-        if (ingredient != null) {
-          dst.ingredient = new ArrayList<MedicationProductIngredientComponent>();
-          for (MedicationProductIngredientComponent i : ingredient)
-            dst.ingredient.add(i.copy());
-        };
-        if (batch != null) {
-          dst.batch = new ArrayList<MedicationProductBatchComponent>();
-          for (MedicationProductBatchComponent i : batch)
-            dst.batch.add(i.copy());
-        };
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof MedicationProductComponent))
-          return false;
-        MedicationProductComponent o = (MedicationProductComponent) other;
-        return compareDeep(form, o.form, true) && compareDeep(ingredient, o.ingredient, true) && compareDeep(batch, o.batch, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof MedicationProductComponent))
-          return false;
-        MedicationProductComponent o = (MedicationProductComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(form, ingredient, batch
-          );
-      }
-
-  public String fhirType() {
-    return "Medication.product";
-
-  }
-
-  }
-
-    @Block()
-    public static class MedicationProductIngredientComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MedicationIngredientComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The actual ingredient - either a substance (simple ingredient) or another medication.
          */
@@ -483,14 +184,14 @@ public class Medication extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationProductIngredientComponent() {
+      public MedicationIngredientComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public MedicationProductIngredientComponent(Type item) {
+      public MedicationIngredientComponent(Type item) {
         super();
         this.item = item;
       }
@@ -535,7 +236,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #item} (The actual ingredient - either a substance (simple ingredient) or another medication.)
          */
-        public MedicationProductIngredientComponent setItem(Type value) { 
+        public MedicationIngredientComponent setItem(Type value) { 
           this.item = value;
           return this;
         }
@@ -546,7 +247,7 @@ public class Medication extends DomainResource {
         public BooleanType getIsActiveElement() { 
           if (this.isActive == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationProductIngredientComponent.isActive");
+              throw new Error("Attempt to auto-create MedicationIngredientComponent.isActive");
             else if (Configuration.doAutoCreate())
               this.isActive = new BooleanType(); // bb
           return this.isActive;
@@ -563,7 +264,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #isActive} (Indication of whether this ingredient affects the therapeutic action of the drug.). This is the underlying object with id, value and extensions. The accessor "getIsActive" gives direct access to the value
          */
-        public MedicationProductIngredientComponent setIsActiveElement(BooleanType value) { 
+        public MedicationIngredientComponent setIsActiveElement(BooleanType value) { 
           this.isActive = value;
           return this;
         }
@@ -578,7 +279,7 @@ public class Medication extends DomainResource {
         /**
          * @param value Indication of whether this ingredient affects the therapeutic action of the drug.
          */
-        public MedicationProductIngredientComponent setIsActive(boolean value) { 
+        public MedicationIngredientComponent setIsActive(boolean value) { 
             if (this.isActive == null)
               this.isActive = new BooleanType();
             this.isActive.setValue(value);
@@ -591,7 +292,7 @@ public class Medication extends DomainResource {
         public Ratio getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationProductIngredientComponent.amount");
+              throw new Error("Attempt to auto-create MedicationIngredientComponent.amount");
             else if (Configuration.doAutoCreate())
               this.amount = new Ratio(); // cc
           return this.amount;
@@ -604,7 +305,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #amount} (Specifies how many (or how much) of the items there are in this Medication.  For example, 250 mg per tablet.  This is expressed as a ratio where the numerator is 250mg and the denominator is 1 tablet.)
          */
-        public MedicationProductIngredientComponent setAmount(Ratio value) { 
+        public MedicationIngredientComponent setAmount(Ratio value) { 
           this.amount = value;
           return this;
         }
@@ -701,8 +402,8 @@ public class Medication extends DomainResource {
           return super.addChild(name);
       }
 
-      public MedicationProductIngredientComponent copy() {
-        MedicationProductIngredientComponent dst = new MedicationProductIngredientComponent();
+      public MedicationIngredientComponent copy() {
+        MedicationIngredientComponent dst = new MedicationIngredientComponent();
         copyValues(dst);
         dst.item = item == null ? null : item.copy();
         dst.isActive = isActive == null ? null : isActive.copy();
@@ -714,9 +415,9 @@ public class Medication extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationProductIngredientComponent))
+        if (!(other instanceof MedicationIngredientComponent))
           return false;
-        MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
+        MedicationIngredientComponent o = (MedicationIngredientComponent) other;
         return compareDeep(item, o.item, true) && compareDeep(isActive, o.isActive, true) && compareDeep(amount, o.amount, true)
           ;
       }
@@ -725,9 +426,9 @@ public class Medication extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationProductIngredientComponent))
+        if (!(other instanceof MedicationIngredientComponent))
           return false;
-        MedicationProductIngredientComponent o = (MedicationProductIngredientComponent) other;
+        MedicationIngredientComponent o = (MedicationIngredientComponent) other;
         return compareValues(isActive, o.isActive, true);
       }
 
@@ -736,14 +437,14 @@ public class Medication extends DomainResource {
       }
 
   public String fhirType() {
-    return "Medication.product.ingredient";
+    return "Medication.ingredient";
 
   }
 
   }
 
     @Block()
-    public static class MedicationProductBatchComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MedicationBatchComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * The assigned lot number of a batch of the specified product.
          */
@@ -763,7 +464,7 @@ public class Medication extends DomainResource {
     /**
      * Constructor
      */
-      public MedicationProductBatchComponent() {
+      public MedicationBatchComponent() {
         super();
       }
 
@@ -773,7 +474,7 @@ public class Medication extends DomainResource {
         public StringType getLotNumberElement() { 
           if (this.lotNumber == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationProductBatchComponent.lotNumber");
+              throw new Error("Attempt to auto-create MedicationBatchComponent.lotNumber");
             else if (Configuration.doAutoCreate())
               this.lotNumber = new StringType(); // bb
           return this.lotNumber;
@@ -790,7 +491,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #lotNumber} (The assigned lot number of a batch of the specified product.). This is the underlying object with id, value and extensions. The accessor "getLotNumber" gives direct access to the value
          */
-        public MedicationProductBatchComponent setLotNumberElement(StringType value) { 
+        public MedicationBatchComponent setLotNumberElement(StringType value) { 
           this.lotNumber = value;
           return this;
         }
@@ -805,7 +506,7 @@ public class Medication extends DomainResource {
         /**
          * @param value The assigned lot number of a batch of the specified product.
          */
-        public MedicationProductBatchComponent setLotNumber(String value) { 
+        public MedicationBatchComponent setLotNumber(String value) { 
           if (Utilities.noString(value))
             this.lotNumber = null;
           else {
@@ -822,7 +523,7 @@ public class Medication extends DomainResource {
         public DateTimeType getExpirationDateElement() { 
           if (this.expirationDate == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationProductBatchComponent.expirationDate");
+              throw new Error("Attempt to auto-create MedicationBatchComponent.expirationDate");
             else if (Configuration.doAutoCreate())
               this.expirationDate = new DateTimeType(); // bb
           return this.expirationDate;
@@ -839,7 +540,7 @@ public class Medication extends DomainResource {
         /**
          * @param value {@link #expirationDate} (When this specific batch of product will expire.). This is the underlying object with id, value and extensions. The accessor "getExpirationDate" gives direct access to the value
          */
-        public MedicationProductBatchComponent setExpirationDateElement(DateTimeType value) { 
+        public MedicationBatchComponent setExpirationDateElement(DateTimeType value) { 
           this.expirationDate = value;
           return this;
         }
@@ -854,7 +555,7 @@ public class Medication extends DomainResource {
         /**
          * @param value When this specific batch of product will expire.
          */
-        public MedicationProductBatchComponent setExpirationDate(Date value) { 
+        public MedicationBatchComponent setExpirationDate(Date value) { 
           if (value == null)
             this.expirationDate = null;
           else {
@@ -938,8 +639,8 @@ public class Medication extends DomainResource {
           return super.addChild(name);
       }
 
-      public MedicationProductBatchComponent copy() {
-        MedicationProductBatchComponent dst = new MedicationProductBatchComponent();
+      public MedicationBatchComponent copy() {
+        MedicationBatchComponent dst = new MedicationBatchComponent();
         copyValues(dst);
         dst.lotNumber = lotNumber == null ? null : lotNumber.copy();
         dst.expirationDate = expirationDate == null ? null : expirationDate.copy();
@@ -950,9 +651,9 @@ public class Medication extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MedicationProductBatchComponent))
+        if (!(other instanceof MedicationBatchComponent))
           return false;
-        MedicationProductBatchComponent o = (MedicationProductBatchComponent) other;
+        MedicationBatchComponent o = (MedicationBatchComponent) other;
         return compareDeep(lotNumber, o.lotNumber, true) && compareDeep(expirationDate, o.expirationDate, true)
           ;
       }
@@ -961,9 +662,9 @@ public class Medication extends DomainResource {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MedicationProductBatchComponent))
+        if (!(other instanceof MedicationBatchComponent))
           return false;
-        MedicationProductBatchComponent o = (MedicationProductBatchComponent) other;
+        MedicationBatchComponent o = (MedicationBatchComponent) other;
         return compareValues(lotNumber, o.lotNumber, true) && compareValues(expirationDate, o.expirationDate, true)
           ;
       }
@@ -974,7 +675,7 @@ public class Medication extends DomainResource {
       }
 
   public String fhirType() {
-    return "Medication.product.batch";
+    return "Medication.batch";
 
   }
 
@@ -1452,39 +1153,54 @@ public class Medication extends DomainResource {
     protected BooleanType isOverTheCounter;
 
     /**
-     * Describes the details of the manufacturer.
+     * Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.
      */
     @Child(name = "manufacturer", type = {Organization.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Manufacturer of the item", formalDefinition="Describes the details of the manufacturer." )
+    @Description(shortDefinition="Manufacturer of the item", formalDefinition="Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product." )
     protected Reference manufacturer;
 
     /**
-     * The actual object that is the target of the reference (Describes the details of the manufacturer.)
+     * The actual object that is the target of the reference (Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.)
      */
     protected Organization manufacturerTarget;
 
     /**
-     * Information that only applies to products (not packages).
+     * Describes the form of the item.  Powder; tablets; capsule.
      */
-    @Child(name = "product", type = {}, order=5, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Administrable medication details", formalDefinition="Information that only applies to products (not packages)." )
-    protected MedicationProductComponent product;
+    @Child(name = "form", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="powder | tablets | capsule +", formalDefinition="Describes the form of the item.  Powder; tablets; capsule." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-form-codes")
+    protected CodeableConcept form;
+
+    /**
+     * Identifies a particular constituent of interest in the product.
+     */
+    @Child(name = "ingredient", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Active or inactive ingredient", formalDefinition="Identifies a particular constituent of interest in the product." )
+    protected List<MedicationIngredientComponent> ingredient;
+
+    /**
+     * Information about a group of medication produced or packaged from one production run.
+     */
+    @Child(name = "batch", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Identifies a single production run", formalDefinition="Information about a group of medication produced or packaged from one production run." )
+    protected List<MedicationBatchComponent> batch;
 
     /**
      * Information that only applies to packages (not products).
      */
-    @Child(name = "package", type = {}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "package", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Details about packaged medications", formalDefinition="Information that only applies to packages (not products)." )
     protected MedicationPackageComponent package_;
 
     /**
      * Photo(s) or graphic representation(s) of the medication.
      */
-    @Child(name = "image", type = {Attachment.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Image of medication", formalDefinition="Photo(s) or graphic representation(s) of the medication." )
+    @Child(name = "image", type = {Attachment.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Picture of the medication", formalDefinition="Photo(s) or graphic representation(s) of the medication." )
     protected List<Attachment> image;
 
-    private static final long serialVersionUID = -157282746L;
+    private static final long serialVersionUID = 658867539L;
 
   /**
    * Constructor
@@ -1657,7 +1373,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return {@link #manufacturer} (Describes the details of the manufacturer.)
+     * @return {@link #manufacturer} (Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.)
      */
     public Reference getManufacturer() { 
       if (this.manufacturer == null)
@@ -1673,7 +1389,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @param value {@link #manufacturer} (Describes the details of the manufacturer.)
+     * @param value {@link #manufacturer} (Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.)
      */
     public Medication setManufacturer(Reference value) { 
       this.manufacturer = value;
@@ -1681,7 +1397,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
+     * @return {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.)
      */
     public Organization getManufacturerTarget() { 
       if (this.manufacturerTarget == null)
@@ -1693,7 +1409,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @param value {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer.)
+     * @param value {@link #manufacturer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.)
      */
     public Medication setManufacturerTarget(Organization value) { 
       this.manufacturerTarget = value;
@@ -1701,27 +1417,133 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return {@link #product} (Information that only applies to products (not packages).)
+     * @return {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
      */
-    public MedicationProductComponent getProduct() { 
-      if (this.product == null)
+    public CodeableConcept getForm() { 
+      if (this.form == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Medication.product");
+          throw new Error("Attempt to auto-create Medication.form");
         else if (Configuration.doAutoCreate())
-          this.product = new MedicationProductComponent(); // cc
-      return this.product;
+          this.form = new CodeableConcept(); // cc
+      return this.form;
     }
 
-    public boolean hasProduct() { 
-      return this.product != null && !this.product.isEmpty();
+    public boolean hasForm() { 
+      return this.form != null && !this.form.isEmpty();
     }
 
     /**
-     * @param value {@link #product} (Information that only applies to products (not packages).)
+     * @param value {@link #form} (Describes the form of the item.  Powder; tablets; capsule.)
      */
-    public Medication setProduct(MedicationProductComponent value) { 
-      this.product = value;
+    public Medication setForm(CodeableConcept value) { 
+      this.form = value;
       return this;
+    }
+
+    /**
+     * @return {@link #ingredient} (Identifies a particular constituent of interest in the product.)
+     */
+    public List<MedicationIngredientComponent> getIngredient() { 
+      if (this.ingredient == null)
+        this.ingredient = new ArrayList<MedicationIngredientComponent>();
+      return this.ingredient;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Medication setIngredient(List<MedicationIngredientComponent> theIngredient) { 
+      this.ingredient = theIngredient;
+      return this;
+    }
+
+    public boolean hasIngredient() { 
+      if (this.ingredient == null)
+        return false;
+      for (MedicationIngredientComponent item : this.ingredient)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MedicationIngredientComponent addIngredient() { //3
+      MedicationIngredientComponent t = new MedicationIngredientComponent();
+      if (this.ingredient == null)
+        this.ingredient = new ArrayList<MedicationIngredientComponent>();
+      this.ingredient.add(t);
+      return t;
+    }
+
+    public Medication addIngredient(MedicationIngredientComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.ingredient == null)
+        this.ingredient = new ArrayList<MedicationIngredientComponent>();
+      this.ingredient.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #ingredient}, creating it if it does not already exist
+     */
+    public MedicationIngredientComponent getIngredientFirstRep() { 
+      if (getIngredient().isEmpty()) {
+        addIngredient();
+      }
+      return getIngredient().get(0);
+    }
+
+    /**
+     * @return {@link #batch} (Information about a group of medication produced or packaged from one production run.)
+     */
+    public List<MedicationBatchComponent> getBatch() { 
+      if (this.batch == null)
+        this.batch = new ArrayList<MedicationBatchComponent>();
+      return this.batch;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Medication setBatch(List<MedicationBatchComponent> theBatch) { 
+      this.batch = theBatch;
+      return this;
+    }
+
+    public boolean hasBatch() { 
+      if (this.batch == null)
+        return false;
+      for (MedicationBatchComponent item : this.batch)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public MedicationBatchComponent addBatch() { //3
+      MedicationBatchComponent t = new MedicationBatchComponent();
+      if (this.batch == null)
+        this.batch = new ArrayList<MedicationBatchComponent>();
+      this.batch.add(t);
+      return t;
+    }
+
+    public Medication addBatch(MedicationBatchComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.batch == null)
+        this.batch = new ArrayList<MedicationBatchComponent>();
+      this.batch.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #batch}, creating it if it does not already exist
+     */
+    public MedicationBatchComponent getBatchFirstRep() { 
+      if (getBatch().isEmpty()) {
+        addBatch();
+      }
+      return getBatch().get(0);
     }
 
     /**
@@ -1807,8 +1629,10 @@ public class Medication extends DomainResource {
         childrenList.add(new Property("status", "code", "A code to iindicate if the medication is in active use.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer.", 0, java.lang.Integer.MAX_VALUE, isBrand));
         childrenList.add(new Property("isOverTheCounter", "boolean", "Set to true if the medication can be obtained without an order from a prescriber.", 0, java.lang.Integer.MAX_VALUE, isOverTheCounter));
-        childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
-        childrenList.add(new Property("product", "", "Information that only applies to products (not packages).", 0, java.lang.Integer.MAX_VALUE, product));
+        childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, java.lang.Integer.MAX_VALUE, manufacturer));
+        childrenList.add(new Property("form", "CodeableConcept", "Describes the form of the item.  Powder; tablets; capsule.", 0, java.lang.Integer.MAX_VALUE, form));
+        childrenList.add(new Property("ingredient", "", "Identifies a particular constituent of interest in the product.", 0, java.lang.Integer.MAX_VALUE, ingredient));
+        childrenList.add(new Property("batch", "", "Information about a group of medication produced or packaged from one production run.", 0, java.lang.Integer.MAX_VALUE, batch));
         childrenList.add(new Property("package", "", "Information that only applies to packages (not products).", 0, java.lang.Integer.MAX_VALUE, package_));
         childrenList.add(new Property("image", "Attachment", "Photo(s) or graphic representation(s) of the medication.", 0, java.lang.Integer.MAX_VALUE, image));
       }
@@ -1821,7 +1645,9 @@ public class Medication extends DomainResource {
         case 2055403645: /*isBrand*/ return this.isBrand == null ? new Base[0] : new Base[] {this.isBrand}; // BooleanType
         case -650796023: /*isOverTheCounter*/ return this.isOverTheCounter == null ? new Base[0] : new Base[] {this.isOverTheCounter}; // BooleanType
         case -1969347631: /*manufacturer*/ return this.manufacturer == null ? new Base[0] : new Base[] {this.manufacturer}; // Reference
-        case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // MedicationProductComponent
+        case 3148996: /*form*/ return this.form == null ? new Base[0] : new Base[] {this.form}; // CodeableConcept
+        case -206409263: /*ingredient*/ return this.ingredient == null ? new Base[0] : this.ingredient.toArray(new Base[this.ingredient.size()]); // MedicationIngredientComponent
+        case 93509434: /*batch*/ return this.batch == null ? new Base[0] : this.batch.toArray(new Base[this.batch.size()]); // MedicationBatchComponent
         case -807062458: /*package*/ return this.package_ == null ? new Base[0] : new Base[] {this.package_}; // MedicationPackageComponent
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
         default: return super.getProperty(hash, name, checkValid);
@@ -1848,8 +1674,14 @@ public class Medication extends DomainResource {
         case -1969347631: // manufacturer
           this.manufacturer = castToReference(value); // Reference
           return value;
-        case -309474065: // product
-          this.product = (MedicationProductComponent) value; // MedicationProductComponent
+        case 3148996: // form
+          this.form = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case -206409263: // ingredient
+          this.getIngredient().add((MedicationIngredientComponent) value); // MedicationIngredientComponent
+          return value;
+        case 93509434: // batch
+          this.getBatch().add((MedicationBatchComponent) value); // MedicationBatchComponent
           return value;
         case -807062458: // package
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
@@ -1875,8 +1707,12 @@ public class Medication extends DomainResource {
           this.isOverTheCounter = castToBoolean(value); // BooleanType
         } else if (name.equals("manufacturer")) {
           this.manufacturer = castToReference(value); // Reference
-        } else if (name.equals("product")) {
-          this.product = (MedicationProductComponent) value; // MedicationProductComponent
+        } else if (name.equals("form")) {
+          this.form = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("ingredient")) {
+          this.getIngredient().add((MedicationIngredientComponent) value);
+        } else if (name.equals("batch")) {
+          this.getBatch().add((MedicationBatchComponent) value);
         } else if (name.equals("package")) {
           this.package_ = (MedicationPackageComponent) value; // MedicationPackageComponent
         } else if (name.equals("image")) {
@@ -1894,7 +1730,9 @@ public class Medication extends DomainResource {
         case 2055403645:  return getIsBrandElement();
         case -650796023:  return getIsOverTheCounterElement();
         case -1969347631:  return getManufacturer(); 
-        case -309474065:  return getProduct(); 
+        case 3148996:  return getForm(); 
+        case -206409263:  return addIngredient(); 
+        case 93509434:  return addBatch(); 
         case -807062458:  return getPackage(); 
         case 100313435:  return addImage(); 
         default: return super.makeProperty(hash, name);
@@ -1910,7 +1748,9 @@ public class Medication extends DomainResource {
         case 2055403645: /*isBrand*/ return new String[] {"boolean"};
         case -650796023: /*isOverTheCounter*/ return new String[] {"boolean"};
         case -1969347631: /*manufacturer*/ return new String[] {"Reference"};
-        case -309474065: /*product*/ return new String[] {};
+        case 3148996: /*form*/ return new String[] {"CodeableConcept"};
+        case -206409263: /*ingredient*/ return new String[] {};
+        case 93509434: /*batch*/ return new String[] {};
         case -807062458: /*package*/ return new String[] {};
         case 100313435: /*image*/ return new String[] {"Attachment"};
         default: return super.getTypesForProperty(hash, name);
@@ -1937,9 +1777,15 @@ public class Medication extends DomainResource {
           this.manufacturer = new Reference();
           return this.manufacturer;
         }
-        else if (name.equals("product")) {
-          this.product = new MedicationProductComponent();
-          return this.product;
+        else if (name.equals("form")) {
+          this.form = new CodeableConcept();
+          return this.form;
+        }
+        else if (name.equals("ingredient")) {
+          return addIngredient();
+        }
+        else if (name.equals("batch")) {
+          return addBatch();
         }
         else if (name.equals("package")) {
           this.package_ = new MedicationPackageComponent();
@@ -1965,7 +1811,17 @@ public class Medication extends DomainResource {
         dst.isBrand = isBrand == null ? null : isBrand.copy();
         dst.isOverTheCounter = isOverTheCounter == null ? null : isOverTheCounter.copy();
         dst.manufacturer = manufacturer == null ? null : manufacturer.copy();
-        dst.product = product == null ? null : product.copy();
+        dst.form = form == null ? null : form.copy();
+        if (ingredient != null) {
+          dst.ingredient = new ArrayList<MedicationIngredientComponent>();
+          for (MedicationIngredientComponent i : ingredient)
+            dst.ingredient.add(i.copy());
+        };
+        if (batch != null) {
+          dst.batch = new ArrayList<MedicationBatchComponent>();
+          for (MedicationBatchComponent i : batch)
+            dst.batch.add(i.copy());
+        };
         dst.package_ = package_ == null ? null : package_.copy();
         if (image != null) {
           dst.image = new ArrayList<Attachment>();
@@ -1988,8 +1844,8 @@ public class Medication extends DomainResource {
         Medication o = (Medication) other;
         return compareDeep(code, o.code, true) && compareDeep(status, o.status, true) && compareDeep(isBrand, o.isBrand, true)
            && compareDeep(isOverTheCounter, o.isOverTheCounter, true) && compareDeep(manufacturer, o.manufacturer, true)
-           && compareDeep(product, o.product, true) && compareDeep(package_, o.package_, true) && compareDeep(image, o.image, true)
-          ;
+           && compareDeep(form, o.form, true) && compareDeep(ingredient, o.ingredient, true) && compareDeep(batch, o.batch, true)
+           && compareDeep(package_, o.package_, true) && compareDeep(image, o.image, true);
       }
 
       @Override
@@ -2005,7 +1861,7 @@ public class Medication extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(code, status, isBrand, isOverTheCounter
-          , manufacturer, product, package_, image);
+          , manufacturer, form, ingredient, batch, package_, image);
       }
 
   @Override
@@ -2018,17 +1874,17 @@ public class Medication extends DomainResource {
    * <p>
    * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Path: <b>Medication.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient-code", path="Medication.product.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
+  @SearchParamDefinition(name="ingredient-code", path="Medication.ingredient.item.as(CodeableConcept)", description="The product contained", type="token" )
   public static final String SP_INGREDIENT_CODE = "ingredient-code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient-code</b>
    * <p>
    * Description: <b>The product contained</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.ingredient.itemCodeableConcept</b><br>
+   * Path: <b>Medication.ingredient.itemCodeableConcept</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam INGREDIENT_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INGREDIENT_CODE);
@@ -2104,17 +1960,17 @@ public class Medication extends DomainResource {
    * <p>
    * Description: <b>The product contained</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
+   * Path: <b>Medication.ingredient.itemReference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="ingredient", path="Medication.product.ingredient.item.as(Reference)", description="The product contained", type="reference", target={Medication.class, Substance.class } )
+  @SearchParamDefinition(name="ingredient", path="Medication.ingredient.item.as(Reference)", description="The product contained", type="reference", target={Medication.class, Substance.class } )
   public static final String SP_INGREDIENT = "ingredient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>ingredient</b>
    * <p>
    * Description: <b>The product contained</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Medication.product.ingredient.itemReference</b><br>
+   * Path: <b>Medication.ingredient.itemReference</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INGREDIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INGREDIENT);
@@ -2130,17 +1986,17 @@ public class Medication extends DomainResource {
    * <p>
    * Description: <b>powder | tablets | capsule +</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.form</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="form", path="Medication.product.form", description="powder | tablets | capsule +", type="token" )
+  @SearchParamDefinition(name="form", path="Medication.form", description="powder | tablets | capsule +", type="token" )
   public static final String SP_FORM = "form";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>form</b>
    * <p>
    * Description: <b>powder | tablets | capsule +</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Medication.product.form</b><br>
+   * Path: <b>Medication.form</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam FORM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FORM);

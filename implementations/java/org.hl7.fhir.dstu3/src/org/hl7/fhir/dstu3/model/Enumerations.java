@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2429,6 +2429,10 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         GOAL, 
         /**
+         * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
+         */
+        GRAPHDEFINITION, 
+        /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
         GROUP, 
@@ -2501,7 +2505,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         MEDICATIONDISPENSE, 
         /**
-         * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+         * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
          */
         MEDICATIONREQUEST, 
         /**
@@ -2923,6 +2927,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FLAG;
         if ("Goal".equals(codeString))
           return GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -3171,6 +3177,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -3351,6 +3358,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
             case GOAL: return "http://hl7.org/fhir/resource-types";
+            case GRAPHDEFINITION: return "http://hl7.org/fhir/resource-types";
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
@@ -3531,6 +3539,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
+            case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
@@ -3549,7 +3558,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
             case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
-            case MEDICATIONREQUEST: return "An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
+            case MEDICATIONREQUEST: return "An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
@@ -3711,6 +3720,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -4002,6 +4012,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.FLAG;
         if ("Goal".equals(codeString))
           return FHIRAllTypes.GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return FHIRAllTypes.GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return FHIRAllTypes.GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -4362,6 +4374,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.FLAG);
         if ("Goal".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.GOAL);
+        if ("GraphDefinition".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.GRAPHDEFINITION);
         if ("Group".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.GROUP);
         if ("GuidanceResponse".equals(codeString))
@@ -4715,6 +4729,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Flag";
       if (code == FHIRAllTypes.GOAL)
         return "Goal";
+      if (code == FHIRAllTypes.GRAPHDEFINITION)
+        return "GraphDefinition";
       if (code == FHIRAllTypes.GROUP)
         return "Group";
       if (code == FHIRAllTypes.GUIDANCERESPONSE)
@@ -5288,6 +5304,10 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         GOAL, 
         /**
+         * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
+         */
+        GRAPHDEFINITION, 
+        /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
         GROUP, 
@@ -5360,7 +5380,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         MEDICATIONDISPENSE, 
         /**
-         * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+         * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
          */
         MEDICATIONREQUEST, 
         /**
@@ -5774,6 +5794,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FLAG;
         if ("Goal".equals(codeString))
           return GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -6018,6 +6040,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -6196,6 +6219,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
             case GOAL: return "http://hl7.org/fhir/resource-types";
+            case GRAPHDEFINITION: return "http://hl7.org/fhir/resource-types";
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
@@ -6374,6 +6398,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
+            case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
@@ -6392,7 +6417,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
             case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
-            case MEDICATIONREQUEST: return "An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
+            case MEDICATIONREQUEST: return "An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
@@ -6552,6 +6577,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -6841,6 +6867,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.FLAG;
         if ("Goal".equals(codeString))
           return FHIRDefinedType.GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return FHIRDefinedType.GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return FHIRDefinedType.GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -7197,6 +7225,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.FLAG);
         if ("Goal".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.GOAL);
+        if ("GraphDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.GRAPHDEFINITION);
         if ("Group".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.GROUP);
         if ("GuidanceResponse".equals(codeString))
@@ -7546,6 +7576,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Flag";
       if (code == FHIRDefinedType.GOAL)
         return "Goal";
+      if (code == FHIRDefinedType.GRAPHDEFINITION)
+        return "GraphDefinition";
       if (code == FHIRDefinedType.GROUP)
         return "Group";
       if (code == FHIRDefinedType.GUIDANCERESPONSE)
@@ -8152,7 +8184,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         COMPLETE, 
         /**
-         * One or more erros have been detected in the Claim
+         * One or more errors have been detected in the Claim
          */
         ERROR, 
         /**
@@ -8193,7 +8225,7 @@ The catalog does not replicate the content of the item, since that is expected t
         public String getDefinition() {
           switch (this) {
             case COMPLETE: return "The processing has completed without errors";
-            case ERROR: return "One or more erros have been detected in the Claim";
+            case ERROR: return "One or more errors have been detected in the Claim";
             case PARTIAL: return "No errors have been detected in the Claim and some of the adjudication has been performed.";
             default: return "?";
           }
@@ -8463,6 +8495,10 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         GOAL, 
         /**
+         * A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.
+         */
+        GRAPHDEFINITION, 
+        /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
         GROUP, 
@@ -8535,7 +8571,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         MEDICATIONDISPENSE, 
         /**
-         * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
+         * An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationRequest" rather than "MedicationPrescription" or "MedicationOrder" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.
          */
         MEDICATIONREQUEST, 
         /**
@@ -8841,6 +8877,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FLAG;
         if ("Goal".equals(codeString))
           return GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -9031,6 +9069,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -9155,6 +9194,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "http://hl7.org/fhir/resource-types";
             case FLAG: return "http://hl7.org/fhir/resource-types";
             case GOAL: return "http://hl7.org/fhir/resource-types";
+            case GRAPHDEFINITION: return "http://hl7.org/fhir/resource-types";
             case GROUP: return "http://hl7.org/fhir/resource-types";
             case GUIDANCERESPONSE: return "http://hl7.org/fhir/resource-types";
             case HEALTHCARESERVICE: return "http://hl7.org/fhir/resource-types";
@@ -9279,6 +9319,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.";
             case FLAG: return "Prospective warnings of potential issues when providing care to the patient.";
             case GOAL: return "Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.";
+            case GRAPHDEFINITION: return "A formal computable definition of a graph of resources - that is, a coherent set of resources that form a graph by following references. The Graph Definition resource defines a set and makes rules about the set.";
             case GROUP: return "Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.";
             case GUIDANCERESPONSE: return "A guidance response is the formal response to a guidance request, including any output parameters returned by the evaluation, as well as the description of any proposed actions to be taken.";
             case HEALTHCARESERVICE: return "The details of a healthcare service available at a location.";
@@ -9297,7 +9338,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
             case MEDICATIONDISPENSE: return "Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.";
-            case MEDICATIONREQUEST: return "An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
+            case MEDICATIONREQUEST: return "An order or request for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called \"MedicationRequest\" rather than \"MedicationPrescription\" or \"MedicationOrder\" to generalize the use across inpatient and outpatient settings as well as for care plans, etc and to harmonize with workflow patterns.";
             case MEDICATIONSTATEMENT: return "A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains \r\rThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.";
             case MESSAGEDEFINITION: return "Defines the characteristics of a message that can be shared between systems, including the type of event that initiates the message, the content to be transmitted and what response(s), if any, are permitted.";
             case MESSAGEHEADER: return "The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.";
@@ -9403,6 +9444,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case FAMILYMEMBERHISTORY: return "FamilyMemberHistory";
             case FLAG: return "Flag";
             case GOAL: return "Goal";
+            case GRAPHDEFINITION: return "GraphDefinition";
             case GROUP: return "Group";
             case GUIDANCERESPONSE: return "GuidanceResponse";
             case HEALTHCARESERVICE: return "HealthcareService";
@@ -9584,6 +9626,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return ResourceType.FLAG;
         if ("Goal".equals(codeString))
           return ResourceType.GOAL;
+        if ("GraphDefinition".equals(codeString))
+          return ResourceType.GRAPHDEFINITION;
         if ("Group".equals(codeString))
           return ResourceType.GROUP;
         if ("GuidanceResponse".equals(codeString))
@@ -9832,6 +9876,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<ResourceType>(this, ResourceType.FLAG);
         if ("Goal".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.GOAL);
+        if ("GraphDefinition".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.GRAPHDEFINITION);
         if ("Group".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.GROUP);
         if ("GuidanceResponse".equals(codeString))
@@ -10073,6 +10119,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "Flag";
       if (code == ResourceType.GOAL)
         return "Goal";
+      if (code == ResourceType.GRAPHDEFINITION)
+        return "GraphDefinition";
       if (code == ResourceType.GROUP)
         return "Group";
       if (code == ResourceType.GUIDANCERESPONSE)

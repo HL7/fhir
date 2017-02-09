@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.exceptions.FHIRException;
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 public enum ResourceType {
     Account,
@@ -56,6 +56,7 @@ public enum ResourceType {
     FamilyMemberHistory,
     Flag,
     Goal,
+    GraphDefinition,
     Group,
     GuidanceResponse,
     HealthcareService,
@@ -228,6 +229,8 @@ public enum ResourceType {
       return "flag";
     case Goal:
       return "goal";
+    case GraphDefinition:
+      return "graphdefinition";
     case Group:
       return "group";
     case GuidanceResponse:
@@ -468,6 +471,8 @@ public enum ResourceType {
       return Flag;
     if ("Goal".equals(code))
       return Goal;
+    if ("GraphDefinition".equals(code))
+      return GraphDefinition;
     if ("Group".equals(code))
       return Group;
     if ("GuidanceResponse".equals(code))

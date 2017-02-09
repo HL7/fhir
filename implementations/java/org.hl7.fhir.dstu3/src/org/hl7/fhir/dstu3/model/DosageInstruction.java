@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -77,10 +77,10 @@ public class DosageInstruction extends Type implements ICompositeType {
     protected Timing timing;
 
     /**
-     * Take "as needed" (for x).
+     * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
      */
     @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Take \"as needed\" (for x)", formalDefinition="Take \"as needed\" (for x)." )
+    @Description(shortDefinition="Take \"as needed\" (for x)", formalDefinition="Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-as-needed-reason")
     protected Type asNeeded;
 
@@ -324,14 +324,14 @@ public class DosageInstruction extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #asNeeded} (Take "as needed" (for x).)
+     * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).)
      */
     public Type getAsNeeded() { 
       return this.asNeeded;
     }
 
     /**
-     * @return {@link #asNeeded} (Take "as needed" (for x).)
+     * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).)
      */
     public BooleanType getAsNeededBooleanType() throws FHIRException { 
       if (!(this.asNeeded instanceof BooleanType))
@@ -344,7 +344,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #asNeeded} (Take "as needed" (for x).)
+     * @return {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).)
      */
     public CodeableConcept getAsNeededCodeableConcept() throws FHIRException { 
       if (!(this.asNeeded instanceof CodeableConcept))
@@ -361,7 +361,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #asNeeded} (Take "as needed" (for x).)
+     * @param value {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).)
      */
     public DosageInstruction setAsNeeded(Type value) { 
       this.asNeeded = value;
@@ -621,7 +621,7 @@ public class DosageInstruction extends Type implements ICompositeType {
         childrenList.add(new Property("text", "string", "Free text dosage instructions e.g. SIG.", 0, java.lang.Integer.MAX_VALUE, text));
         childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Supplemental instructions - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
         childrenList.add(new Property("timing", "Timing", "When medication should be administered.", 0, java.lang.Integer.MAX_VALUE, timing));
-        childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Take \"as needed\" (for x).", 0, java.lang.Integer.MAX_VALUE, asNeeded));
+        childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("site", "CodeableConcept", "Body site to administer to.", 0, java.lang.Integer.MAX_VALUE, site));
         childrenList.add(new Property("route", "CodeableConcept", "How drug should enter body.", 0, java.lang.Integer.MAX_VALUE, route));
         childrenList.add(new Property("method", "CodeableConcept", "Technique for administering medication.", 0, java.lang.Integer.MAX_VALUE, method));

@@ -11,7 +11,7 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 2 -----------------------------------
-  Binding Name = Device Kind
+  Binding Name = DeviceKind
   Binding = value set
   Reference = valueset-device-kind
   Definition = Codes to identify medical devices
@@ -19,14 +19,14 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 3 -----------------------------------
-  Binding Name = Device Status
+  Binding Name = DeviceStatus
   Binding = code list
   Reference = #device-status
   Definition = The availability status of the device.
   Conformance = required
 
  -- Row 4 -----------------------------------
-  Binding Name = UDI Entry Type
+  Binding Name = UDIEntryType
   Binding = code list
   Reference = #udi-entry-type
   Definition = Codes to identify how udi data was entered
@@ -217,7 +217,7 @@
   Element = Device.udi.entryType
   Card. = 0..1
   Type = code
-  Binding = UDI Entry Type
+  Binding = UDIEntryType
   Short Name = barcode | rfid | manual +
   Definition = A coded entry to indicate how the data was entered.
   Requirements = Supports a way to distinguish hand entered from machine read data.
@@ -229,7 +229,7 @@
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = Device Status
+  Binding = DeviceStatus
   Short Name = active | inactive | entered-in-error | unknown
   Definition = Status of the Device availability.
   RIM Mapping = .statusCode
@@ -239,7 +239,7 @@
   Element = Device.type
   Card. = 0..1
   Type = CodeableConcept
-  Binding = Device Kind
+  Binding = DeviceKind
   Short Name = What kind of device this is
   Definition = Code or identifier to identify a kind of device.
   UDI Mapping = Type description using GMDN or other code system

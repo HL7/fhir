@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -66,6 +66,8 @@ public class ResourceFactory extends Factory {
             return new Subscription();
         if ("DocumentReference".equals(name))
             return new DocumentReference();
+        if ("GraphDefinition".equals(name))
+            return new GraphDefinition();
         if ("ImagingManifest".equals(name))
             return new ImagingManifest();
         if ("Parameters".equals(name))
@@ -450,6 +452,7 @@ public class ResourceFactory extends Factory {
         case 1260711798: return new FamilyMemberHistory();
         case 2192268: return new Flag();
         case 2224947: return new Goal();
+        case -180371167: return new GraphDefinition();
         case 69076575: return new Group();
         case 997117913: return new GuidanceResponse();
         case 933423720: return new HealthcareService();

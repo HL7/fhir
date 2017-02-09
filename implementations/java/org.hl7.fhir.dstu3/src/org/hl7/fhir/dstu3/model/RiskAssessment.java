@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -63,19 +63,23 @@ public class RiskAssessment extends DomainResource {
          */
         FINAL, 
         /**
-         * The observation has been modified subsequent to being Final.
+         * Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.
          */
         AMENDED, 
+        /**
+         * Subsequent to being Final, the observation has been modified to correct an error in the test result.
+         */
+        CORRECTED, 
         /**
          * The observation is unavailable because the measurement was not started or not completed (also sometimes called "aborted").
          */
         CANCELLED, 
         /**
-         * The observation has been withdrawn following previous final release.
+         * The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
          */
         ENTEREDINERROR, 
         /**
-         * The observation status is unknown.  Note that "unknown" is a value of last resort and every attempt should be made to provide a meaningful value other than "unknown".
+         * The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
          */
         UNKNOWN, 
         /**
@@ -93,6 +97,8 @@ public class RiskAssessment extends DomainResource {
           return FINAL;
         if ("amended".equals(codeString))
           return AMENDED;
+        if ("corrected".equals(codeString))
+          return CORRECTED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
         if ("entered-in-error".equals(codeString))
@@ -110,6 +116,7 @@ public class RiskAssessment extends DomainResource {
             case PRELIMINARY: return "preliminary";
             case FINAL: return "final";
             case AMENDED: return "amended";
+            case CORRECTED: return "corrected";
             case CANCELLED: return "cancelled";
             case ENTEREDINERROR: return "entered-in-error";
             case UNKNOWN: return "unknown";
@@ -122,6 +129,7 @@ public class RiskAssessment extends DomainResource {
             case PRELIMINARY: return "http://hl7.org/fhir/observation-status";
             case FINAL: return "http://hl7.org/fhir/observation-status";
             case AMENDED: return "http://hl7.org/fhir/observation-status";
+            case CORRECTED: return "http://hl7.org/fhir/observation-status";
             case CANCELLED: return "http://hl7.org/fhir/observation-status";
             case ENTEREDINERROR: return "http://hl7.org/fhir/observation-status";
             case UNKNOWN: return "http://hl7.org/fhir/observation-status";
@@ -133,10 +141,11 @@ public class RiskAssessment extends DomainResource {
             case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
             case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
             case FINAL: return "The observation is complete.";
-            case AMENDED: return "The observation has been modified subsequent to being Final.";
+            case AMENDED: return "Subsequent to being Final, the observation has been modified subsequent.  This includes updates/new information and corrections.";
+            case CORRECTED: return "Subsequent to being Final, the observation has been modified to correct an error in the test result.";
             case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
-            case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.";
-            case UNKNOWN: return "The observation status is unknown.  Note that \"unknown\" is a value of last resort and every attempt should be made to provide a meaningful value other than \"unknown\".";
+            case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request. Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -146,9 +155,10 @@ public class RiskAssessment extends DomainResource {
             case PRELIMINARY: return "Preliminary";
             case FINAL: return "Final";
             case AMENDED: return "Amended";
+            case CORRECTED: return "Corrected";
             case CANCELLED: return "Cancelled";
             case ENTEREDINERROR: return "Entered in Error";
-            case UNKNOWN: return "Unknown Status";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -167,6 +177,8 @@ public class RiskAssessment extends DomainResource {
           return RiskAssessmentStatus.FINAL;
         if ("amended".equals(codeString))
           return RiskAssessmentStatus.AMENDED;
+        if ("corrected".equals(codeString))
+          return RiskAssessmentStatus.CORRECTED;
         if ("cancelled".equals(codeString))
           return RiskAssessmentStatus.CANCELLED;
         if ("entered-in-error".equals(codeString))
@@ -191,6 +203,8 @@ public class RiskAssessment extends DomainResource {
           return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.FINAL);
         if ("amended".equals(codeString))
           return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.AMENDED);
+        if ("corrected".equals(codeString))
+          return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.CORRECTED);
         if ("cancelled".equals(codeString))
           return new Enumeration<RiskAssessmentStatus>(this, RiskAssessmentStatus.CANCELLED);
         if ("entered-in-error".equals(codeString))
@@ -208,6 +222,8 @@ public class RiskAssessment extends DomainResource {
         return "final";
       if (code == RiskAssessmentStatus.AMENDED)
         return "amended";
+      if (code == RiskAssessmentStatus.CORRECTED)
+        return "corrected";
       if (code == RiskAssessmentStatus.CANCELLED)
         return "cancelled";
       if (code == RiskAssessmentStatus.ENTEREDINERROR)

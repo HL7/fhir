@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -445,10 +445,10 @@ public class ChargeItem extends DomainResource {
     protected Identifier identifier;
 
     /**
-     * Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.
+     * References the source of pricing information, rules of application for the code this ChargeItem uses.
      */
     @Child(name = "definition", type = {UriType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Definition of the Charge Item", formalDefinition="Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource." )
+    @Description(shortDefinition="Defining information about the code of this charge item", formalDefinition="References the source of pricing information, rules of application for the code this ChargeItem uses." )
     protected List<UriType> definition;
 
     /**
@@ -475,7 +475,8 @@ public class ChargeItem extends DomainResource {
      * A code that identifies the charge, like a billing code.
      */
     @Child(name = "code", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Code of the ChargeItem", formalDefinition="A code that identifies the charge, like a billing code." )
+    @Description(shortDefinition="A code that identifies the charge, like a billing code", formalDefinition="A code that identifies the charge, like a billing code." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/chargeitem-billingcodes")
     protected CodeableConcept code;
 
     /**
@@ -598,9 +599,10 @@ public class ChargeItem extends DomainResource {
     /**
      * Describes why the event occurred in coded or textual form.
      */
-    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Why was the charged service rendered?", formalDefinition="Describes why the event occurred in coded or textual form." )
-    protected List<CodeableConcept> reasonCodeableConcept;
+    @Child(name = "reason", type = {CodeableConcept.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Why was the charged  service rendered?", formalDefinition="Describes why the event occurred in coded or textual form." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/icd-10")
+    protected List<CodeableConcept> reason;
 
     /**
      * Indicated the rendered service that caused this charge.
@@ -617,14 +619,14 @@ public class ChargeItem extends DomainResource {
     /**
      * Account into which this ChargeItems belongs.
      */
-    @Child(name = "account", type = {Account.class}, order=20, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "account", type = {Account.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Account to place this charge", formalDefinition="Account into which this ChargeItems belongs." )
-    protected Reference account;
-
+    protected List<Reference> account;
     /**
-     * The actual object that is the target of the reference (Account into which this ChargeItems belongs.)
+     * The actual objects that are the target of the reference (Account into which this ChargeItems belongs.)
      */
-    protected Account accountTarget;
+    protected List<Account> accountTarget;
+
 
     /**
      * Comments made about the event by the performer, subject or other participants.
@@ -645,7 +647,7 @@ public class ChargeItem extends DomainResource {
     protected List<Resource> supportingInformationTarget;
 
 
-    private static final long serialVersionUID = -478088511L;
+    private static final long serialVersionUID = 1421123938L;
 
   /**
    * Constructor
@@ -689,7 +691,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return {@link #definition} (Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.)
+     * @return {@link #definition} (References the source of pricing information, rules of application for the code this ChargeItem uses.)
      */
     public List<UriType> getDefinition() { 
       if (this.definition == null)
@@ -715,7 +717,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return {@link #definition} (Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.)
+     * @return {@link #definition} (References the source of pricing information, rules of application for the code this ChargeItem uses.)
      */
     public UriType addDefinitionElement() {//2 
       UriType t = new UriType();
@@ -726,7 +728,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @param value {@link #definition} (Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.)
+     * @param value {@link #definition} (References the source of pricing information, rules of application for the code this ChargeItem uses.)
      */
     public ChargeItem addDefinition(String value) { //1
       UriType t = new UriType();
@@ -738,7 +740,7 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @param value {@link #definition} (Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.)
+     * @param value {@link #definition} (References the source of pricing information, rules of application for the code this ChargeItem uses.)
      */
     public boolean hasDefinition(String value) { 
       if (this.definition == null)
@@ -1476,56 +1478,56 @@ public class ChargeItem extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonCodeableConcept} (Describes why the event occurred in coded or textual form.)
+     * @return {@link #reason} (Describes why the event occurred in coded or textual form.)
      */
-    public List<CodeableConcept> getReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonCodeableConcept;
+    public List<CodeableConcept> getReason() { 
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      return this.reason;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ChargeItem setReasonCodeableConcept(List<CodeableConcept> theReasonCodeableConcept) { 
-      this.reasonCodeableConcept = theReasonCodeableConcept;
+    public ChargeItem setReason(List<CodeableConcept> theReason) { 
+      this.reason = theReason;
       return this;
     }
 
-    public boolean hasReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
+    public boolean hasReason() { 
+      if (this.reason == null)
         return false;
-      for (CodeableConcept item : this.reasonCodeableConcept)
+      for (CodeableConcept item : this.reason)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addReasonCodeableConcept() { //3
+    public CodeableConcept addReason() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
       return t;
     }
 
-    public ChargeItem addReasonCodeableConcept(CodeableConcept t) { //3
+    public ChargeItem addReason(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reason == null)
+        this.reason = new ArrayList<CodeableConcept>();
+      this.reason.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonCodeableConcept}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reason}, creating it if it does not already exist
      */
-    public CodeableConcept getReasonCodeableConceptFirstRep() { 
-      if (getReasonCodeableConcept().isEmpty()) {
-        addReasonCodeableConcept();
+    public CodeableConcept getReasonFirstRep() { 
+      if (getReason().isEmpty()) {
+        addReason();
       }
-      return getReasonCodeableConcept().get(0);
+      return getReason().get(0);
     }
 
     /**
@@ -1594,45 +1596,76 @@ public class ChargeItem extends DomainResource {
     /**
      * @return {@link #account} (Account into which this ChargeItems belongs.)
      */
-    public Reference getAccount() { 
+    public List<Reference> getAccount() { 
       if (this.account == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ChargeItem.account");
-        else if (Configuration.doAutoCreate())
-          this.account = new Reference(); // cc
+        this.account = new ArrayList<Reference>();
       return this.account;
     }
 
-    public boolean hasAccount() { 
-      return this.account != null && !this.account.isEmpty();
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ChargeItem setAccount(List<Reference> theAccount) { 
+      this.account = theAccount;
+      return this;
     }
 
-    /**
-     * @param value {@link #account} (Account into which this ChargeItems belongs.)
-     */
-    public ChargeItem setAccount(Reference value) { 
-      this.account = value;
+    public boolean hasAccount() { 
+      if (this.account == null)
+        return false;
+      for (Reference item : this.account)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addAccount() { //3
+      Reference t = new Reference();
+      if (this.account == null)
+        this.account = new ArrayList<Reference>();
+      this.account.add(t);
+      return t;
+    }
+
+    public ChargeItem addAccount(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.account == null)
+        this.account = new ArrayList<Reference>();
+      this.account.add(t);
       return this;
     }
 
     /**
-     * @return {@link #account} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Account into which this ChargeItems belongs.)
+     * @return The first repetition of repeating field {@link #account}, creating it if it does not already exist
      */
-    public Account getAccountTarget() { 
+    public Reference getAccountFirstRep() { 
+      if (getAccount().isEmpty()) {
+        addAccount();
+      }
+      return getAccount().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Account> getAccountTarget() { 
       if (this.accountTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ChargeItem.account");
-        else if (Configuration.doAutoCreate())
-          this.accountTarget = new Account(); // aa
+        this.accountTarget = new ArrayList<Account>();
       return this.accountTarget;
     }
 
     /**
-     * @param value {@link #account} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Account into which this ChargeItems belongs.)
+     * @deprecated Use Reference#setResource(IBaseResource) instead
      */
-    public ChargeItem setAccountTarget(Account value) { 
-      this.accountTarget = value;
-      return this;
+    @Deprecated
+    public Account addAccountTarget() { 
+      Account r = new Account();
+      if (this.accountTarget == null)
+        this.accountTarget = new ArrayList<Account>();
+      this.accountTarget.add(r);
+      return r;
     }
 
     /**
@@ -1754,7 +1787,7 @@ public class ChargeItem extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this event performer or other systems.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("definition", "uri", "Pricing information, rules of application for the code this ChargeItem uses. TODO: Define target Resource.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("definition", "uri", "References the source of pricing information, rules of application for the code this ChargeItem uses.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("status", "code", "The current state of the ChargeItem.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("partOf", "Reference(ChargeItem)", "ChargeItems can be grouped to larger ChargeItems covering the whole set.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("code", "CodeableConcept", "A code that identifies the charge, like a billing code.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1771,7 +1804,7 @@ public class ChargeItem extends DomainResource {
         childrenList.add(new Property("overrideReason", "string", "If the list price or the rule based factor associated with the code is overridden, this attribute can capture a text to indicate the  reason for this action.", 0, java.lang.Integer.MAX_VALUE, overrideReason));
         childrenList.add(new Property("enterer", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who entered the charge item.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("enteredDate", "dateTime", "Date the charge item was entered.", 0, java.lang.Integer.MAX_VALUE, enteredDate));
-        childrenList.add(new Property("reasonCodeableConcept", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCodeableConcept));
+        childrenList.add(new Property("reason", "CodeableConcept", "Describes why the event occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("service", "Reference(DiagnosticReport|ImagingStudy|Immunization|MedicationAdministration|MedicationDispense|Observation|Procedure|SupplyDelivery)", "Indicated the rendered service that caused this charge.", 0, java.lang.Integer.MAX_VALUE, service));
         childrenList.add(new Property("account", "Reference(Account)", "Account into which this ChargeItems belongs.", 0, java.lang.Integer.MAX_VALUE, account));
         childrenList.add(new Property("note", "Annotation", "Comments made about the event by the performer, subject or other participants.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -1799,9 +1832,9 @@ public class ChargeItem extends DomainResource {
         case -742878928: /*overrideReason*/ return this.overrideReason == null ? new Base[0] : new Base[] {this.overrideReason}; // StringType
         case -1591951995: /*enterer*/ return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Reference
         case 555978181: /*enteredDate*/ return this.enteredDate == null ? new Base[0] : new Base[] {this.enteredDate}; // DateTimeType
-        case -610155331: /*reasonCodeableConcept*/ return this.reasonCodeableConcept == null ? new Base[0] : this.reasonCodeableConcept.toArray(new Base[this.reasonCodeableConcept.size()]); // CodeableConcept
+        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : this.reason.toArray(new Base[this.reason.size()]); // CodeableConcept
         case 1984153269: /*service*/ return this.service == null ? new Base[0] : this.service.toArray(new Base[this.service.size()]); // Reference
-        case -1177318867: /*account*/ return this.account == null ? new Base[0] : new Base[] {this.account}; // Reference
+        case -1177318867: /*account*/ return this.account == null ? new Base[0] : this.account.toArray(new Base[this.account.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -1248768647: /*supportingInformation*/ return this.supportingInformation == null ? new Base[0] : this.supportingInformation.toArray(new Base[this.supportingInformation.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -1867,14 +1900,14 @@ public class ChargeItem extends DomainResource {
         case 555978181: // enteredDate
           this.enteredDate = castToDateTime(value); // DateTimeType
           return value;
-        case -610155331: // reasonCodeableConcept
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case -934964668: // reason
+          this.getReason().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case 1984153269: // service
           this.getService().add(castToReference(value)); // Reference
           return value;
         case -1177318867: // account
-          this.account = castToReference(value); // Reference
+          this.getAccount().add(castToReference(value)); // Reference
           return value;
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
@@ -1926,12 +1959,12 @@ public class ChargeItem extends DomainResource {
           this.enterer = castToReference(value); // Reference
         } else if (name.equals("enteredDate")) {
           this.enteredDate = castToDateTime(value); // DateTimeType
-        } else if (name.equals("reasonCodeableConcept")) {
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value));
+        } else if (name.equals("reason")) {
+          this.getReason().add(castToCodeableConcept(value));
         } else if (name.equals("service")) {
           this.getService().add(castToReference(value));
         } else if (name.equals("account")) {
-          this.account = castToReference(value); // Reference
+          this.getAccount().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("supportingInformation")) {
@@ -1963,9 +1996,9 @@ public class ChargeItem extends DomainResource {
         case -742878928:  return getOverrideReasonElement();
         case -1591951995:  return getEnterer(); 
         case 555978181:  return getEnteredDateElement();
-        case -610155331:  return addReasonCodeableConcept(); 
+        case -934964668:  return addReason(); 
         case 1984153269:  return addService(); 
-        case -1177318867:  return getAccount(); 
+        case -1177318867:  return addAccount(); 
         case 3387378:  return addNote(); 
         case -1248768647:  return addSupportingInformation(); 
         default: return super.makeProperty(hash, name);
@@ -1994,7 +2027,7 @@ public class ChargeItem extends DomainResource {
         case -742878928: /*overrideReason*/ return new String[] {"string"};
         case -1591951995: /*enterer*/ return new String[] {"Reference"};
         case 555978181: /*enteredDate*/ return new String[] {"dateTime"};
-        case -610155331: /*reasonCodeableConcept*/ return new String[] {"CodeableConcept"};
+        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
         case 1984153269: /*service*/ return new String[] {"Reference"};
         case -1177318867: /*account*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
@@ -2078,15 +2111,14 @@ public class ChargeItem extends DomainResource {
         else if (name.equals("enteredDate")) {
           throw new FHIRException("Cannot call addChild on a primitive type ChargeItem.enteredDate");
         }
-        else if (name.equals("reasonCodeableConcept")) {
-          return addReasonCodeableConcept();
+        else if (name.equals("reason")) {
+          return addReason();
         }
         else if (name.equals("service")) {
           return addService();
         }
         else if (name.equals("account")) {
-          this.account = new Reference();
-          return this.account;
+          return addAccount();
         }
         else if (name.equals("note")) {
           return addNote();
@@ -2140,17 +2172,21 @@ public class ChargeItem extends DomainResource {
         dst.overrideReason = overrideReason == null ? null : overrideReason.copy();
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.enteredDate = enteredDate == null ? null : enteredDate.copy();
-        if (reasonCodeableConcept != null) {
-          dst.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonCodeableConcept)
-            dst.reasonCodeableConcept.add(i.copy());
+        if (reason != null) {
+          dst.reason = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reason)
+            dst.reason.add(i.copy());
         };
         if (service != null) {
           dst.service = new ArrayList<Reference>();
           for (Reference i : service)
             dst.service.add(i.copy());
         };
-        dst.account = account == null ? null : account.copy();
+        if (account != null) {
+          dst.account = new ArrayList<Reference>();
+          for (Reference i : account)
+            dst.account.add(i.copy());
+        };
         if (note != null) {
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
@@ -2182,7 +2218,7 @@ public class ChargeItem extends DomainResource {
            && compareDeep(requestingOrganization, o.requestingOrganization, true) && compareDeep(quantity, o.quantity, true)
            && compareDeep(bodysite, o.bodysite, true) && compareDeep(factorOverride, o.factorOverride, true)
            && compareDeep(priceOverride, o.priceOverride, true) && compareDeep(overrideReason, o.overrideReason, true)
-           && compareDeep(enterer, o.enterer, true) && compareDeep(enteredDate, o.enteredDate, true) && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true)
+           && compareDeep(enterer, o.enterer, true) && compareDeep(enteredDate, o.enteredDate, true) && compareDeep(reason, o.reason, true)
            && compareDeep(service, o.service, true) && compareDeep(account, o.account, true) && compareDeep(note, o.note, true)
            && compareDeep(supportingInformation, o.supportingInformation, true);
       }
@@ -2203,7 +2239,7 @@ public class ChargeItem extends DomainResource {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, status
           , partOf, code, subject, context, occurrence, participant, performingOrganization
           , requestingOrganization, quantity, bodysite, factorOverride, priceOverride, overrideReason
-          , enterer, enteredDate, reasonCodeableConcept, service, account, note, supportingInformation
+          , enterer, enteredDate, reason, service, account, note, supportingInformation
           );
       }
 
@@ -2231,32 +2267,6 @@ public class ChargeItem extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>partof</b>
-   * <p>
-   * Description: <b>Part of referenced ChargeItem</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ChargeItem.partOf</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="partof", path="ChargeItem.partOf", description="Part of referenced ChargeItem", type="reference", target={ChargeItem.class } )
-  public static final String SP_PARTOF = "partof";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>partof</b>
-   * <p>
-   * Description: <b>Part of referenced ChargeItem</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ChargeItem.partOf</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTOF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTOF);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ChargeItem:partof</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTOF = new ca.uhn.fhir.model.api.Include("ChargeItem:partof").toLocked();
 
  /**
    * Search parameter: <b>performing-organization</b>
@@ -2287,17 +2297,17 @@ public class ChargeItem extends DomainResource {
  /**
    * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>Code of the ChargeItem</b><br>
+   * Description: <b>A code that identifies the charge, like a billing code</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ChargeItem.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="ChargeItem.code", description="Code of the ChargeItem", type="token" )
+  @SearchParamDefinition(name="code", path="ChargeItem.code", description="A code that identifies the charge, like a billing code", type="token" )
   public static final String SP_CODE = "code";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>Code of the ChargeItem</b><br>
+   * Description: <b>A code that identifies the charge, like a billing code</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ChargeItem.code</b><br>
    * </p>

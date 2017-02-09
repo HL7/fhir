@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -141,13 +141,13 @@ public class Timing extends Type implements ICompositeType {
         }
         public String getDisplay() {
           switch (this) {
-            case S: return "s";
-            case MIN: return "min";
-            case H: return "h";
-            case D: return "d";
-            case WK: return "wk";
-            case MO: return "mo";
-            case A: return "a";
+            case S: return "second";
+            case MIN: return "minute";
+            case H: return "hour";
+            case D: return "day";
+            case WK: return "week";
+            case MO: return "month";
+            case A: return "year";
             default: return "?";
           }
         }

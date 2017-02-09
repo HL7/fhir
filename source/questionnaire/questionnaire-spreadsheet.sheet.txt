@@ -295,11 +295,12 @@
  -- Row 6 -----------------------------------
   Element = Questionnaire.date
   Card. = 0..1
-  Aliases = Date created, Date published, Date issued, Date updated
+  Aliases = Revision Date
   Summary = y
   Type = dateTime
   Short Name = Date this version was authored
   Definition = The date that this questionnaire was last changed
+  Comments = Upon creation Questionnaire.date will be the creation date and upon transition to \"active\", Questionnaire.date will be the publication date.  However, the date will change with any significant modification of the Questionnaire, so to reliably find this information, Provenance or extensions must be used.
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 

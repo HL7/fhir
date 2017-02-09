@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sun, Feb 5, 2017 22:32-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -49,23 +49,18 @@ import org.hl7.fhir.exceptions.FHIRException;
 public class BodySite extends DomainResource {
 
     /**
-     * The person to which the body site belongs.
-     */
-    @Child(name = "patient", type = {Patient.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who this is about", formalDefinition="The person to which the body site belongs." )
-    protected Reference patient;
-
-    /**
-     * The actual object that is the target of the reference (The person to which the body site belongs.)
-     */
-    protected Patient patientTarget;
-
-    /**
      * Identifier for this instance of the anatomical location.
      */
-    @Child(name = "identifier", type = {Identifier.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Bodysite identifier", formalDefinition="Identifier for this instance of the anatomical location." )
     protected List<Identifier> identifier;
+
+    /**
+     * Whether this body site is in active use.
+     */
+    @Child(name = "active", type = {BooleanType.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="Whether this body site record is in active use", formalDefinition="Whether this body site is in active use." )
+    protected BooleanType active;
 
     /**
      * Named anatomical location - ideally coded where possible.
@@ -98,13 +93,18 @@ public class BodySite extends DomainResource {
     protected List<Attachment> image;
 
     /**
-     * Whether this body site is in active use.
+     * The person to which the body site belongs.
      */
-    @Child(name = "active", type = {BooleanType.class}, order=6, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="Whether this body site record is in active use", formalDefinition="Whether this body site is in active use." )
-    protected BooleanType active;
+    @Child(name = "patient", type = {Patient.class}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who this is about", formalDefinition="The person to which the body site belongs." )
+    protected Reference patient;
 
-    private static final long serialVersionUID = 286141813L;
+    /**
+     * The actual object that is the target of the reference (The person to which the body site belongs.)
+     */
+    protected Patient patientTarget;
+
+    private static final long serialVersionUID = -871837171L;
 
   /**
    * Constructor
@@ -119,50 +119,6 @@ public class BodySite extends DomainResource {
     public BodySite(Reference patient) {
       super();
       this.patient = patient;
-    }
-
-    /**
-     * @return {@link #patient} (The person to which the body site belongs.)
-     */
-    public Reference getPatient() { 
-      if (this.patient == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.patient");
-        else if (Configuration.doAutoCreate())
-          this.patient = new Reference(); // cc
-      return this.patient;
-    }
-
-    public boolean hasPatient() { 
-      return this.patient != null && !this.patient.isEmpty();
-    }
-
-    /**
-     * @param value {@link #patient} (The person to which the body site belongs.)
-     */
-    public BodySite setPatient(Reference value) { 
-      this.patient = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person to which the body site belongs.)
-     */
-    public Patient getPatientTarget() { 
-      if (this.patientTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.patient");
-        else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient(); // aa
-      return this.patientTarget;
-    }
-
-    /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person to which the body site belongs.)
-     */
-    public BodySite setPatientTarget(Patient value) { 
-      this.patientTarget = value;
-      return this;
     }
 
     /**
@@ -216,6 +172,51 @@ public class BodySite extends DomainResource {
         addIdentifier();
       }
       return getIdentifier().get(0);
+    }
+
+    /**
+     * @return {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     */
+    public BooleanType getActiveElement() { 
+      if (this.active == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create BodySite.active");
+        else if (Configuration.doAutoCreate())
+          this.active = new BooleanType(); // bb
+      return this.active;
+    }
+
+    public boolean hasActiveElement() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    public boolean hasActive() { 
+      return this.active != null && !this.active.isEmpty();
+    }
+
+    /**
+     * @param value {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     */
+    public BodySite setActiveElement(BooleanType value) { 
+      this.active = value;
+      return this;
+    }
+
+    /**
+     * @return Whether this body site is in active use.
+     */
+    public boolean getActive() { 
+      return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
+    }
+
+    /**
+     * @param value Whether this body site is in active use.
+     */
+    public BodySite setActive(boolean value) { 
+        if (this.active == null)
+          this.active = new BooleanType();
+        this.active.setValue(value);
+      return this;
     }
 
     /**
@@ -398,71 +399,70 @@ public class BodySite extends DomainResource {
     }
 
     /**
-     * @return {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @return {@link #patient} (The person to which the body site belongs.)
      */
-    public BooleanType getActiveElement() { 
-      if (this.active == null)
+    public Reference getPatient() { 
+      if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create BodySite.active");
+          throw new Error("Attempt to auto-create BodySite.patient");
         else if (Configuration.doAutoCreate())
-          this.active = new BooleanType(); // bb
-      return this.active;
+          this.patient = new Reference(); // cc
+      return this.patient;
     }
 
-    public boolean hasActiveElement() { 
-      return this.active != null && !this.active.isEmpty();
-    }
-
-    public boolean hasActive() { 
-      return this.active != null && !this.active.isEmpty();
+    public boolean hasPatient() { 
+      return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
-     * @param value {@link #active} (Whether this body site is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
+     * @param value {@link #patient} (The person to which the body site belongs.)
      */
-    public BodySite setActiveElement(BooleanType value) { 
-      this.active = value;
+    public BodySite setPatient(Reference value) { 
+      this.patient = value;
       return this;
     }
 
     /**
-     * @return Whether this body site is in active use.
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person to which the body site belongs.)
      */
-    public boolean getActive() { 
-      return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
+    public Patient getPatientTarget() { 
+      if (this.patientTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create BodySite.patient");
+        else if (Configuration.doAutoCreate())
+          this.patientTarget = new Patient(); // aa
+      return this.patientTarget;
     }
 
     /**
-     * @param value Whether this body site is in active use.
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person to which the body site belongs.)
      */
-    public BodySite setActive(boolean value) { 
-        if (this.active == null)
-          this.active = new BooleanType();
-        this.active.setValue(value);
+    public BodySite setPatientTarget(Patient value) { 
+      this.patientTarget = value;
       return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("identifier", "Identifier", "Identifier for this instance of the anatomical location.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("active", "boolean", "Whether this body site is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
         childrenList.add(new Property("code", "CodeableConcept", "Named anatomical location - ideally coded where possible.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("qualifier", "CodeableConcept", "Qualifier to refine the anatomical location.  These include qualifiers for laterality, relative location, directionality, number, and plane.", 0, java.lang.Integer.MAX_VALUE, qualifier));
         childrenList.add(new Property("description", "string", "Description of anatomical location.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("image", "Attachment", "Image or images used to identify a location.", 0, java.lang.Integer.MAX_VALUE, image));
-        childrenList.add(new Property("active", "boolean", "Whether this body site is in active use.", 0, java.lang.Integer.MAX_VALUE, active));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person to which the body site belongs.", 0, java.lang.Integer.MAX_VALUE, patient));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1247940438: /*qualifier*/ return this.qualifier == null ? new Base[0] : this.qualifier.toArray(new Base[this.qualifier.size()]); // CodeableConcept
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 100313435: /*image*/ return this.image == null ? new Base[0] : this.image.toArray(new Base[this.image.size()]); // Attachment
-        case -1422950650: /*active*/ return this.active == null ? new Base[0] : new Base[] {this.active}; // BooleanType
+        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -471,11 +471,11 @@ public class BodySite extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -791418107: // patient
-          this.patient = castToReference(value); // Reference
-          return value;
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
+          return value;
+        case -1422950650: // active
+          this.active = castToBoolean(value); // BooleanType
           return value;
         case 3059181: // code
           this.code = castToCodeableConcept(value); // CodeableConcept
@@ -489,8 +489,8 @@ public class BodySite extends DomainResource {
         case 100313435: // image
           this.getImage().add(castToAttachment(value)); // Attachment
           return value;
-        case -1422950650: // active
-          this.active = castToBoolean(value); // BooleanType
+        case -791418107: // patient
+          this.patient = castToReference(value); // Reference
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -499,10 +499,10 @@ public class BodySite extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("patient")) {
-          this.patient = castToReference(value); // Reference
-        } else if (name.equals("identifier")) {
+        if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
+        } else if (name.equals("active")) {
+          this.active = castToBoolean(value); // BooleanType
         } else if (name.equals("code")) {
           this.code = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("qualifier")) {
@@ -511,8 +511,8 @@ public class BodySite extends DomainResource {
           this.description = castToString(value); // StringType
         } else if (name.equals("image")) {
           this.getImage().add(castToAttachment(value));
-        } else if (name.equals("active")) {
-          this.active = castToBoolean(value); // BooleanType
+        } else if (name.equals("patient")) {
+          this.patient = castToReference(value); // Reference
         } else
           return super.setProperty(name, value);
         return value;
@@ -521,13 +521,13 @@ public class BodySite extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -791418107:  return getPatient(); 
         case -1618432855:  return addIdentifier(); 
+        case -1422950650:  return getActiveElement();
         case 3059181:  return getCode(); 
         case -1247940438:  return addQualifier(); 
         case -1724546052:  return getDescriptionElement();
         case 100313435:  return addImage(); 
-        case -1422950650:  return getActiveElement();
+        case -791418107:  return getPatient(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -536,13 +536,13 @@ public class BodySite extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -791418107: /*patient*/ return new String[] {"Reference"};
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1422950650: /*active*/ return new String[] {"boolean"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1247940438: /*qualifier*/ return new String[] {"CodeableConcept"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 100313435: /*image*/ return new String[] {"Attachment"};
-        case -1422950650: /*active*/ return new String[] {"boolean"};
+        case -791418107: /*patient*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -550,12 +550,11 @@ public class BodySite extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("patient")) {
-          this.patient = new Reference();
-          return this.patient;
-        }
-        else if (name.equals("identifier")) {
+        if (name.equals("identifier")) {
           return addIdentifier();
+        }
+        else if (name.equals("active")) {
+          throw new FHIRException("Cannot call addChild on a primitive type BodySite.active");
         }
         else if (name.equals("code")) {
           this.code = new CodeableConcept();
@@ -570,8 +569,9 @@ public class BodySite extends DomainResource {
         else if (name.equals("image")) {
           return addImage();
         }
-        else if (name.equals("active")) {
-          throw new FHIRException("Cannot call addChild on a primitive type BodySite.active");
+        else if (name.equals("patient")) {
+          this.patient = new Reference();
+          return this.patient;
         }
         else
           return super.addChild(name);
@@ -585,12 +585,12 @@ public class BodySite extends DomainResource {
       public BodySite copy() {
         BodySite dst = new BodySite();
         copyValues(dst);
-        dst.patient = patient == null ? null : patient.copy();
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.active = active == null ? null : active.copy();
         dst.code = code == null ? null : code.copy();
         if (qualifier != null) {
           dst.qualifier = new ArrayList<CodeableConcept>();
@@ -603,7 +603,7 @@ public class BodySite extends DomainResource {
           for (Attachment i : image)
             dst.image.add(i.copy());
         };
-        dst.active = active == null ? null : active.copy();
+        dst.patient = patient == null ? null : patient.copy();
         return dst;
       }
 
@@ -618,9 +618,9 @@ public class BodySite extends DomainResource {
         if (!(other instanceof BodySite))
           return false;
         BodySite o = (BodySite) other;
-        return compareDeep(patient, o.patient, true) && compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(code, o.code, true)
            && compareDeep(qualifier, o.qualifier, true) && compareDeep(description, o.description, true) && compareDeep(image, o.image, true)
-           && compareDeep(active, o.active, true);
+           && compareDeep(patient, o.patient, true);
       }
 
       @Override
@@ -630,12 +630,12 @@ public class BodySite extends DomainResource {
         if (!(other instanceof BodySite))
           return false;
         BodySite o = (BodySite) other;
-        return compareValues(description, o.description, true) && compareValues(active, o.active, true);
+        return compareValues(active, o.active, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(patient, identifier, code
-          , qualifier, description, image, active);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, code
+          , qualifier, description, image, patient);
       }
 
   @Override
