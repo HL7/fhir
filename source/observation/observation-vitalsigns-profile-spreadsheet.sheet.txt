@@ -585,44 +585,6 @@
   Type = code
   Value = kg/m2
 
-=== Sheet MBP =====================================
-
- -- Row 1 -----------------------------------
-  Element = Observation
-  Profile Name = MeanBloodPressure
-  Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Name = FHIR Mean Blood Pressure Profile
-  Definition = This profile defines  how to represent Mean Blood Pressure observations in FHIR using a standard LOINC code and UCUM units of measure.  Mean blood Pressure is defined as Mean Arterial Pressure or MAP = 2/3 diastolic blood pressure + 1/2 systolic blood pressure.
-
- -- Row 2 -----------------------------------
-  Element = Observation.code
-  Aliases = Test, Name,
-  Short Name = Mean Blood Pressure
-  Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
-
- -- Row 3 -----------------------------------
-  Element = Observation.code.coding
-  Profile Name = MBPCode
-  Discriminator = code|unordered|open
-
- -- Row 4 -----------------------------------
-  Element = Observation.code.coding.system
-  Type = uri
-  Value = http://loinc.org
-
- -- Row 5 -----------------------------------
-  Element = Observation.code.coding.code
-  Type = code
-  Value = 8478-0
-
- -- Row 6 -----------------------------------
-  Element = Observation.valueQuantity
-
- -- Row 7 -----------------------------------
-  Element = Observation.valueQuantity.code
-  Type = code
-  Value = mm[Hg]
-
 === Sheet BP =====================================
 
  -- Row 1 -----------------------------------
@@ -754,7 +716,7 @@
  -- Row 5 -----------------------------------
   Element = Observation.code.coding.code
   Type = code
-  Value = 8716-3
+  Value = 85353-1
 
  -- Row 6 -----------------------------------
   Element = Observation.valueQuantity
