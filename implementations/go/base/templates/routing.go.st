@@ -37,6 +37,11 @@ func RegisterController(name string, e *gin.Engine, m []gin.HandlerFunc, dal Dat
 	rcItem.GET("", rc.ShowHandler)
 	rcItem.PUT("", rc.UpdateHandler)
 	rcItem.DELETE("", rc.DeleteHandler)
+
+	if name == "Patient" || name == "Encounter" {
+		everythingItem := rcItem.Group("/$everything")
+		everythingItem.GET("", rc.EverythingHandler)
+	}
 }
 
 // RegisterRoutes registers the routes for each of the FHIR resources
