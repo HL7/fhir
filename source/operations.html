@@ -189,6 +189,13 @@ Servers SHALL support this method of invocation. E.g.
 GET [base]/ValueSet/$expand?url=http://hl7.org/fhir/ValueSet/body-sit&amp;filter=abdo
 </pre>
 <p>
+When using the HTTP GET operation, if there is a repeating parameter for the extended operation the values for that parameter
+are repeated by repeating the named parameter. E.g. Observation $stats statistic parameter
+</p>
+<pre>
+GET [base]/Observation/$stats?subject=Patient/123&code=55284-4&system=http://loinc.org&duration=1&statistic=average&statistic=min&statistic=max&statistic=count
+</pre>
+<p>
 If the only parameter to a specific invocation of the operation is a resource, then the operation
 can also be executed by a POST with that resource as the body of the request.
 </p>
