@@ -2360,6 +2360,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
 
   private void generateProfiles() throws Exception {
     StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
     boolean found = false;
     for (FetchedFile f : fileList) {
@@ -2369,19 +2370,21 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getKind() == StructureDefinitionKind.RESOURCE) {
             found = true;
             String name = sd.getName();
-            genEntryItem(list, table, f, r, name);
+            genEntryItem(list, lists, table, f, r, name);
           }
         }
       }
     }
     if (found) {
       fragment("list-profiles", list.toString(), otherFilesRun);
+      fragment("list-simple-profiles", lists.toString(), otherFilesRun);
       fragment("table-profiles", table.toString(), otherFilesRun);
     }
   }
 
   private void generateExtensions() throws Exception {
     StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
     boolean found = false;
     for (FetchedFile f : fileList) {
@@ -2391,19 +2394,21 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (sd.getDerivation() == TypeDerivationRule.CONSTRAINT && sd.getType().equals("Extension")) {
             found = true;
             String name = sd.getName();
-            genEntryItem(list, table, f, r, name);
+            genEntryItem(list, lists, table, f, r, name);
           }
         }
       }
     }
     if (found) {
       fragment("list-extensions", list.toString(), otherFilesRun);
+      fragment("lists-extensions", lists.toString(), otherFilesRun);
       fragment("table-extensions", table.toString(), otherFilesRun);
     }
   }
 
   private void generateLogicals() throws Exception {
     StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
     boolean found = false;
     for (FetchedFile f : fileList) {
@@ -2413,18 +2418,19 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           if (sd.getKind() == StructureDefinitionKind.LOGICAL) {
             found = true;
             String name = sd.getName();
-            genEntryItem(list, table, f, r, name);
+            genEntryItem(list, lists, table, f, r, name);
           }
         }
       }
     }
     if (found) {
       fragment("list-logicals", list.toString(), otherFilesRun);
+      fragment("list-simple-logicals", lists.toString(), otherFilesRun);
       fragment("table-logicals", table.toString(), otherFilesRun);
     }
   }
 
-  private void genEntryItem(StringBuilder list, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
+  private void genEntryItem(StringBuilder list, StringBuilder lists, StringBuilder table, FetchedFile f, FetchedResource r, String name) throws Exception {
     String ref = igpkp.doReplacements(igpkp.getLinkFor(r), r, null, null);
     PrimitiveType desc = new StringType(r.getTitle());
     if (r.getResource() != null && r.getResource() instanceof MetadataResource) {
@@ -2432,11 +2438,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
       desc = getDesc((MetadataResource) r.getResource(), desc);
     }
     list.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> "+Utilities.escapeXml(desc.asStringValue())+"</li>\r\n");
+    lists.append(" <li><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a></li>\r\n");
     table.append(" <tr><td><a href=\""+ref+"\">"+Utilities.escapeXml(name)+"</a> </td><td>"+new BaseRenderer(context, null, igpkp, specMaps).processMarkdown("description", desc )+"</td></tr>\r\n");
   }
 
   private void generateResourceReferences(ResourceType rt) throws Exception {
     StringBuilder list = new StringBuilder();
+    StringBuilder lists = new StringBuilder();
     StringBuilder table = new StringBuilder();
     boolean found = false;
     for (FetchedFile f : fileList) {
@@ -2446,12 +2454,13 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           String name = r.getTitle();
           if (Utilities.noString(name))
             name = rt.toString();
-          genEntryItem(list, table, f, r, name);
+          genEntryItem(list, lists, table, f, r, name);
         }
       }
     }
     if (found) {
       fragment("list-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), list.toString(), otherFilesRun);
+      fragment("list-simple-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), lists.toString(), otherFilesRun);
       fragment("table-"+Utilities.pluralizeMe(rt.toString().toLowerCase()), table.toString(), otherFilesRun);
     }
   }

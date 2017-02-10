@@ -3332,7 +3332,7 @@ public class ProfileUtilities extends TranslatingUtilities {
     TableModel model = gen.new TableModel();
     
     model.setDocoImg(prefix+"help16.png");
-    model.setDocoRef(prefix+"igs.html#table");
+    model.setDocoRef(prefix+"formats.html#table"); // todo: change to graph definition
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Property", "A profiled resource", null, 0));
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Card.", "Minimum and Maximum # of times the the element can appear in the instance", null, 0));
     model.getTitles().add(gen.new Title(null, model.getDocoRef(), "Content", "What goes here", null, 0));
