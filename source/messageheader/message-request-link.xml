@@ -30,12 +30,12 @@
       <!--  this message is posted to http://acme.com/ehr/fhir, 
              with an event 'link' to link 2 patient records, and nominates
              2 patients on the server  -->
-        <data>
+        <focus>
           <reference value="http://acme.com/ehr/fhir/Patient/pat1"/>
-        </data>
-        <data>
+        </focus>
+        <focus>
           <reference value="http://acme.com/ehr/fhir/Patient/pat12"/>
-        </data>
+        </focus>
       </MessageHeader>
     </resource>
   </entry>

@@ -51,7 +51,7 @@
   </response>
   
   <!-- Here's the payload, the resource that this admin-update concerns -->
-  <data>
+  <focus>
     <reference value="Patient/example"/>
-  </data>
+  </focus>
 </MessageHeader>
