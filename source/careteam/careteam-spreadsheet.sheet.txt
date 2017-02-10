@@ -99,7 +99,7 @@
   Id = 1
   Context = CareTeam.participant
   English = CareTeam.participant.onBehalfOf can only be populated when CareTeam.participant.member is a Practitioner
-  XPath = true()
+  XPath = contains(f:member, \'/Practitioner\') or not(exists(f:onBehalfOf))
   Expression = onBehalfOf.exists() implies (member.resolve() is Practitioner)
 
 === Sheet Data Elements =====================================
@@ -177,6 +177,7 @@
  -- Row 8 -----------------------------------
   Element = CareTeam.participant
   Card. = 0..*
+  Inv. = 1
   Short Name = Members of the team
   Definition = Identifies all people and organizations who are expected to be involved in the care team.
   v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)

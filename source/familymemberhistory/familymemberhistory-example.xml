@@ -8,7 +8,11 @@
   <identifier>
 	<value value="12345"/>
   </identifier>
+  <definition>
+    <display value="Family Member History Questionnaire"/>
+  </definition>
   <status value="completed"/>
+  <notDone value="false"/>
   <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>

@@ -28,6 +28,20 @@
   Definition = Identification of the Condition or diagnosis.
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = FamilyHistoryNotDoneReason
+  Binding = code list
+  Reference = #history-not-done-reason
+  Definition = Codes describing the reason why a family member history was not done.
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = FamilyHistoryReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
+  Definition = Codes indicating why the family member history was done.
+  Conformance = example
+
 === Sheet history-status =====================================
 
  -- Row 1 -----------------------------------
@@ -57,6 +71,32 @@
   Display = Health unknown
   Definition = Health information for this individual is unavailable/unknown.
 
+=== Sheet history-not-done-reason =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = subject-unknown
+  Display = Subject Unknown
+  Definition = Patient does not know the subject, e.g. the biological parent of an adopted patient.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = withheld
+  Display = Information Withheld
+  Definition = The patient withheld or refused to share the information.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = unable-to-obtain
+  Display = Unable To Obtain
+  Definition = Information cannot be obtained; e.g. unconscious patient
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = deferred
+  Display = Deferred
+  Definition = Patient does not have the information now, but can provide the information at a later date.
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -73,6 +113,13 @@
   XPath = exists(*[starts-with(local-name(.), \'age\')]) or not(exists(f:estimatedAge))
   Expression = age.exists() or estimatedAge.empty()
 
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = FamilyMemberHistory
+  English = Not Done Reason can only be specified if NotDone is \"true\"
+  XPath = f:notDone=\'true\' or not(exists(f:notDoneReason))
+  Expression = notDone or notDoneReason.exists().not()
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -87,6 +134,7 @@
  -- Row 2 -----------------------------------
   Element = FamilyMemberHistory.identifier
   Card. = 0..*
+  Summary = Y
   Type = Identifier
   Short Name = External Id(s) for this record
   Definition = This records identifiers associated with this family member history record that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
@@ -95,6 +143,15 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = FamilyMemberHistory.definition
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(PlanDefinition|Questionnaire)
+  Short Name = Instantiates protocol or definition
+  Definition = A protocol or questionnaire that was adhered to in whole or in part by this event
+  RIM Mapping = .outboundRelationship[typeCode=DEFN].target
+
+ -- Row 4 -----------------------------------
   Element = FamilyMemberHistory.status
   Card. = 1..1
   Is Modifier = Y
@@ -105,7 +162,32 @@
   Definition = A code specifying the status of the record of the family history of a specific family member
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
+  Element = FamilyMemberHistory.notDone
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Name = Family member history did not occur
+  Definition = If true, indicates that the family member history did not actually occur.
+  Requirements = Creating a FamilyMemberHistory where notDone is true is intended for situations where there\'s a need for a specific statement in the record about something not being done.  If the need is merely to indicate that a request wasn\'t fulfilled, that should be handled using Task.
+  Comments = The more attributes are populated, the more constrained the negated statement is.
+  RIM Mapping = .actionNegationInd
+  Default Value = False
+
+ -- Row 6 -----------------------------------
+  Element = FamilyMemberHistory.notDoneReason
+  Card. = 0..1
+  Summary = Y
+  Inv. = 3
+  Type = CodeableConcept
+  Binding = FamilyHistoryNotDoneReason
+  Short Name = subject-unknown | withheld | unable-to-obtain | deferred
+  Definition = Describes why the family member history did not occur in coded and/or textual form.
+  Requirements = This is a separate element to allow it to have a distinct binding from reasonCode
+  RIM Mapping = .reasonCode
+
+ -- Row 7 -----------------------------------
   Element = FamilyMemberHistory.patient
   Card. = 1..1
   Aliases = Proband
@@ -117,7 +199,7 @@
   Committee Notes = [#3703]
   w5 = who.focus
 
- -- Row 5 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = FamilyMemberHistory.date
   Card. = 0..1
   Summary = y
@@ -129,7 +211,7 @@
   RIM Mapping = participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 6 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = FamilyMemberHistory.name
   Card. = 0..1
   Summary = y
@@ -139,7 +221,7 @@
   Requirements = Allows greater ease in ensuring the same person is being talked about
   RIM Mapping = name
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = FamilyMemberHistory.relationship
   Card. = 1..1
   Summary = y
@@ -149,7 +231,7 @@
   Definition = The type of relationship this person has to the patient (father, mother, brother etc.)
   RIM Mapping = code
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = FamilyMemberHistory.gender
   Card. = 0..1
   Summary = Y
@@ -159,7 +241,7 @@
   Definition = Administrative Gender - the gender that the relative is considered to have for administration and record keeping purposes.
   Requirements = Not all relationship codes imply gender and the relative\'s gender can be relevant for risk assessments
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = FamilyMemberHistory.born[x]
   Card. = 0..1
   Inv. = 1
@@ -169,7 +251,7 @@
   Requirements = Allows calculation of the relative\'s age
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE]. birthDate (could be URG)
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = FamilyMemberHistory.age[x]
   Card. = 0..1
   Summary = Y
@@ -181,7 +263,7 @@
   Comments = use estimatedAge to indicate whether the age is actual or not
   RIM Mapping = participation[typeCode=SBJ].act[classCode=OBS,moodCode=EVN, code=\"age\"].value
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = FamilyMemberHistory.estimatedAge
   Card. = 0..1
   Is Modifier = Y
@@ -193,7 +275,7 @@
   Requirements = Clinicians often prefer to specify an estimaged age rather than an age range
   Missing Meaning = It is unknown whether the age is an estimate or not
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = FamilyMemberHistory.deceased[x]
   Card. = 0..1
   Summary = Y
@@ -202,7 +284,29 @@
   Definition = Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
+  Element = FamilyMemberHistory.reasonCodeableConcept
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = FamilyHistoryReason
+  Short Name = Why was family member history performed?
+  Definition = Describes why the family member history occurred in coded or textual form.
+  Comments = Textual reasons can be caprued using reasonCode.text
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 17 -----------------------------------
+  Element = FamilyMemberHistory.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition|Observation|AllergyIntolerance|QuestionnaireResponse)
+  Short Name = Why was family member history performed?
+  Definition = Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 18 -----------------------------------
   Element = FamilyMemberHistory.note
   Card. = 0..*
   Type = Annotation
@@ -210,7 +314,7 @@
   Definition = This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ANNGEN].value
 
- -- Row 14 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = FamilyMemberHistory.condition
   Card. = 0..*
   UML = right
@@ -219,7 +323,7 @@
   Comments = If none of the conditions listed have an outcome of \"death\" specified, that indicates that none of the specified conditions are known to have been the primary cause of death
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION, value<Diagnosis]
 
- -- Row 15 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = FamilyMemberHistory.condition.code
   Card. = 1..1
   Type = CodeableConcept
@@ -228,7 +332,7 @@
   Definition = The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like \'cancer\' depending on how much is known about the condition and the capabilities of the creating system
   RIM Mapping = .value
 
- -- Row 16 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = FamilyMemberHistory.condition.outcome
   Card. = 0..1
   Type = CodeableConcept
@@ -237,7 +341,7 @@
   Definition = Indicates what happened as a result of this condition.  If the condition resulted in death, deceased date is captured on the relation.
   RIM Mapping = outboundRelationship[typeCode=OUTC)].target[classCode=OBS, moodCode=EVN, code=ActCode#ASSERTION].value
 
- -- Row 17 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = FamilyMemberHistory.condition.onset[x]
   Card. = 0..1
   Type = Age | Range | Period | string
@@ -246,7 +350,7 @@
   Requirements = Age of onset of a condition in relatives is predictive of risk for the patient
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"Subject Age at measurement\", value<Diagnosis].value[@xsi:typeCode=\'TS\' or \'IVL_TS\']  Use originalText for string
 
- -- Row 18 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = FamilyMemberHistory.condition.note
   Card. = 0..*
   Type = Annotation
@@ -291,6 +395,16 @@
   Type = token
   Description = A search by a gender code of a family member
   Path = FamilyMemberHistory.gender
+
+ -- Row 7 -----------------------------------
+  Name = definition
+  Type = reference
+  Path = FamilyMemberHistory.definition
+
+ -- Row 8 -----------------------------------
+  Name = status
+  Type = token
+  Path = FamilyMemberHistory.status
 
 === Sheet Profiles =====================================
 
