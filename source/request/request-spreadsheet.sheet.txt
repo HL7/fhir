@@ -182,7 +182,7 @@
   Context = Request.requester
   English = onBehalfOf can only be specified if agent is practitioner or device
   XPath = contains(f:agent, \'/Practitioner\') or contains(f:agent, \'/Device\') or not(exists(f:onBehalfOf))
-  Expression = (agent is Practitioner) or (agent is Device) or onBehalfOf.exists().not()
+  Expression = (agent.resolve().empty()) or (agent.resolve() is Device) or (agent.resolve() is Practitioner) or onBehalfOf.exists().not()
 
 === Sheet Data Elements =====================================
 

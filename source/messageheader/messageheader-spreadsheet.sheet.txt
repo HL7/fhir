@@ -266,7 +266,7 @@
   Card. = 1..1
   Type = id
   Short Name = Id of original message
-  Definition = The id of the message that this message is a response to
+  Definition = The MessageHeader.id of the message to which this message is a response
   Requirements = Allows receiver to know what message is being responded to
   v2 Mapping = MSA-2
   RIM Mapping = ./acknowledges.id[isNormalDatatype()]
@@ -296,7 +296,7 @@
   RIM Mapping = AcknowledgementDetail or Observation[classCode=\"ALRT\" and moodCode=\"EVN\"]
 
  -- Row 24 -----------------------------------
-  Element = MessageHeader.data
+  Element = MessageHeader.focus
   Card. = 0..*
   Type = Reference(Any)
   Short Name = The actual content of the message
@@ -373,9 +373,9 @@
   Path = MessageHeader.responsible
 
  -- Row 14 -----------------------------------
-  Name = data
+  Name = focus
   Type = reference
-  Path = MessageHeader.data
+  Path = MessageHeader.focus
 
 === Sheet Profiles =====================================
 
