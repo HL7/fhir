@@ -22,7 +22,6 @@
   <WindowTopY>1335</WindowTopY>
   <TabRatio>808</TabRatio>
   <ActiveSheet>1</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1120,7 +1119,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-BodyWeight</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'59574-4'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#13;&#13;1.  One code in `Observation.code` which must have&#13;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#13;    -   a fixed  `Observation.code.coding.code`= **'29463-7'**&#13;    -   Other additional codes are allowed - e.g. more specific LOINC&#13;        Codes, SNOMED CT concepts, system specific codes. All codes&#13;        SHALL have an system value&#13;2.  `Observation.valueQuantity.code` = **'kg', 'g', or '[lb_av]'**</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:Formula="=&quot;summary-&quot;&amp;R[-19]C[1]"><Data ss:Type="String">summary-RespRate</Data></Cell>
@@ -1204,8 +1203,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>42</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

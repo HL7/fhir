@@ -279,7 +279,7 @@
   Summary = Y
   Type = code
   Binding = TaskIntent
-  Short Name = proposed | planned | actionable +
+  Short Name = proposal | plan | order +
   Definition = Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
   Comments = This element is immutable.  Proposed tasks, planned tasks, etc. must be distinct instances.\n\nIn most cases, Tasks will have an intent of \"order\"
   Workflow Mapping = Request.intent

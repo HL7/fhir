@@ -39,16 +39,22 @@ http://hl7.org/fhir/v3/ActPharmacySupplyType
 http://hl7.org/fhir/message-type
 http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode
 urn:ietf:rfc:3986
+<<<<<<< .mine
+http://nema.org/dicom/dicm
+https://www.usps.com/
+https://www.census.gov/geo/reference/
+https://precision.fda.gov/files/
+https://precision.fda.gov/jobs/
+=======
 http://hl7.org/fhir/performer-role
 https://system/PGxReport
 https://rtmms.nist.gov
+>>>>>>> .r11093
 http://www.ncbi.nlm.nih.gov/nuccore
-http://www.genenames.org
 http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode
 http://hl7.org/fhir/paymenttype
 http://hl7.org/fhir/audit-event-sub-type
 https://github.com/common-workflow-language/workflows
-http://www.hgvs.org/mutnomen
 urn:iso:std:iso:4217
 http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://hl7.org/fhir/ValueSet/adverse-event-seriousness
