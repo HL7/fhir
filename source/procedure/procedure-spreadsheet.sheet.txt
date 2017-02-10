@@ -16,9 +16,10 @@
 
  -- Row 3 -----------------------------------
   Binding Name = ProcedureStatus
-  Binding = code list
-  Reference = #procedure-status
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/event-status
   Definition = A code specifying the state of the procedure.
+  Conformance = required
   v3 = ActStatus
 
  -- Row 4 -----------------------------------
@@ -105,57 +106,6 @@
   Code = because-of
   Display = Because Of
   Definition = This procedure caused the related one to be performed.
-
-=== Sheet procedure-status =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = preparation
-  Display = Preparation
-  Definition = The core procedure has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.
-  v3 = =ActStatus.new
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = in-progress
-  Display = In Progress
-  Definition = The procedure is currently occurring.
-  v3 = =ActStatus.active
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = suspended
-  Display = Suspended
-  Definition = The procedure has been temporarily stopped but is expected to resume in the future
-  v3 = =ActStatus.suspended
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = aborted
-  Display = Aboted
-  Definition = The procedure was terminated without completing successfully.
-  v3 = =ActStatus.aborted
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = completed
-  Display = Completed
-  Definition = All actions involved in the procedure have taken place.
-  v3 = =ActStatus.completed
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = entered-in-error
-  Display = Entered in Error
-  Definition = This electronic record should never have existed.
-  v3 = =ActStatus.nullified
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = unknown
-  Display = Unknown
-  Definition = The authoring system does not know which of the status values currently applies for this procedure.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it\'s just not known which one.
-  v3 = =NullFlavor.unknown
 
 === Sheet Invariants =====================================
 
@@ -384,6 +334,7 @@
  -- Row 20 -----------------------------------
   Element = Procedure.notDoneReason
   Card. = 0..1
+  Summary = Y
   Inv. = 1
   Type = CodeableConcept
   Binding = ProcedureNegationReason

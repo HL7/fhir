@@ -25,7 +25,7 @@
  -- Row 4 -----------------------------------
   Binding Name = CommunicationReason
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActReason
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
   Definition = Codes for describing reasons for the occurrence of a communication.
   Conformance = example
 
@@ -274,30 +274,44 @@
   w5 = who.actor
 
  -- Row 18 -----------------------------------
-  Element = Communication.reason
+  Element = Communication.reasonCodeableConcept
   Card. = 0..*
+  Summary = Y
   Type = CodeableConcept
   Binding = CommunicationReason
   Short Name = Indication for message
   Definition = The reason or justification for the communication.
+  Comments = Textual reasons can be caprued using reasonCode.text
   Workflow Mapping = Event.reasonCodableConcept
+  RIM Mapping = .reasonCode
   w5 = why
 
  -- Row 19 -----------------------------------
+  Element = Communication.reasonReference
+  Card. = 0..*
+  Summary = Y
+  Type = Reference(Condition|Observation)
+  Short Name = Why was communication done?
+  Definition = Indicates another resource whose existence justifies this communication
+  Workflow Mapping = Event.reasonReference
+  RIM Mapping = .outboundRelationship[typeCode=RSON].target
+  w5 = why
+
+ -- Row 20 -----------------------------------
   Element = Communication.payload
   Card. = 0..*
   UML = 380;50
   Short Name = Message payload
   Definition = Text, attachment(s), or resource(s) that was communicated to the recipient.
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Communication.payload.content[x]
   Card. = 1..1
   Type = string|Attachment|Reference(Any)
   Short Name = Message part content
   Definition = A communicated content (or for multi-part communications, one portion of the communication)
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Communication.note
   Card. = 0..*
   Type = Annotation

@@ -10,5 +10,7 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  
+  <context>
+	<reference value="Encounter/example"/>
+  </context>
 </CommunicationRequest>

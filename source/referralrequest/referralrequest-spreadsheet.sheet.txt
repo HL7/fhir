@@ -118,6 +118,7 @@
  -- Row 4 -----------------------------------
   Element = ReferralRequest.groupIdentifier
   Card. = 0..1
+  Aliases = grouperId, requisition
   Is Modifier = N
   Summary = Y
   Type = Identifier

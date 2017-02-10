@@ -386,6 +386,7 @@
   Definition = A manifestation or symptom that led to the recording of this condition
   SNOMED CT Concept Domain = < 404684003 |Clinical finding|
   RIM Mapping = [code=\"diagnosis\"].value
+  w5 = why
 
  -- Row 21 -----------------------------------
   Element = Condition.evidence.detail
@@ -396,6 +397,7 @@
   Short Name = Supporting information found elsewhere
   Definition = Links to other relevant information, including pathology reports
   RIM Mapping = .self
+  w5 = why
 
  -- Row 22 -----------------------------------
   Element = Condition.note
