@@ -292,7 +292,13 @@
  -- Row 1 -----------------------------------
   Name = General
   Identity = example
-  Description = Example of immunizationrecommendation
+  Description = Example of immunizationrecommendation using a vaccine code
   Filename = immunizationrecommendation-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = General
+  Identity = example
+  Description = Example of immunizationrecommendation using a target disease
+  Filename = immunizationrecommendation-target-disease-example.xml
 
 === Sheet Examples =====================================
