@@ -2401,7 +2401,7 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
     }
     if (found) {
       fragment("list-extensions", list.toString(), otherFilesRun);
-      fragment("lists-extensions", lists.toString(), otherFilesRun);
+      fragment("list-simple-extensions", lists.toString(), otherFilesRun);
       fragment("table-extensions", table.toString(), otherFilesRun);
     }
   }
