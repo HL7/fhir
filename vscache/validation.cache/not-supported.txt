@@ -87,7 +87,6 @@ http://www.infoway-inforoute.ca.org/Consent-subtype-codes
 https://intranet.aumc.nl/labtestcodes
 http://acmelabs.org
 http://hl7.org/fhir/animal-breed
-http://orionhealth.com/fhir/apps/referraltypes
 http:/acme.ped/apgarcolor
 http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup
 http://hl7.org/fhir/patient-contact-relationship
@@ -95,7 +94,6 @@ http://hl7.org/fhir/ValueSet/procedure-reason
 http://hl7.org/fhir/media-method
 http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType
 http://hl7.org/fhir/ValueSet/diagnostic-service-sections
-http://orionhealth.com/fhir/apps/prioritycodes
 http://unstats.un.org/unsd/methods/m49/m49.htm
 http:/acme.ped/apgarrespiratoryeffort
 https://www.census.gov/geo/reference/

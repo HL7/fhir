@@ -17,23 +17,14 @@
   </groupIdentifier>
   <status value="active"/>
   <intent value="order"/>
-  <!-- replace with a code from a recognized coding system-->
   <type>
     <coding>
-      <system value="http://orionhealth.com/fhir/apps/referraltypes"/>
-      <code value="rfs"/>
-      <display value="Referral for service"/>
+      <system value="http://snomed.info/sct"/>
+      <code value="103696004"/>
+      <display value="Patient referral to specialist"/>
     </coding>
   </type>
-  <!-- replace with a code from a recognized coding system-->
-  <!-- replace with a code from a recognized coding system-->
-  <priority>
-    <coding>
-      <system value="http://orionhealth.com/fhir/apps/prioritycodes"/>
-      <code value="med"/>
-      <display value="Medium"/>
-    </coding>
-  </priority>
+  <priority value="routine"/>
   <serviceRequested>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -51,8 +42,10 @@
   </context>
   <authoredOn value="2014-02-14"/>
   <requester>
-    <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
-    <display value="Serena Shrink"/>
+	<agent>
+		<reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
+		<display value="Serena Shrink"/>
+	</agent>
   </requester>
   <specialty>
     <coding>
@@ -65,9 +58,9 @@
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597"/>
     <display value="Dr Dave"/>
   </recipient>
-  <reason>
+  <reasonCode>
     <text value="For consideration of Grommets"/>
-  </reason>
+  </reasonCode>
   <description value="In the past 2 years Beverly has had 6 instances of r) sided Otitis media. She is
     falling behind her peers at school, and displaying some learning difficulties."/>
   

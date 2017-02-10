@@ -49,6 +49,10 @@
     <display value="Diagnostic procedure, NOS"/>
     <display value="Diagnostic procedure (procedure)"/>
   </concept>
+  <concept id="103696004" display="Patient referral to specialist">
+    <display value="Patient referral to specialist"/>
+    <display value="Patient referral to specialist (procedure)"/>
+  </concept>
   <concept id="104177005" display="Blood culture for bacteria, including anaerobic screen (procedure)">
     <display value="Blood culture for bacteria, including anaerobic screen"/>
     <display value="Blood culture for bacteria, including anaerobic screen (procedure)"/>
@@ -15139,6 +15143,13 @@
     <display value="Near to"/>
     <display value="Neighbor of"/>
     <display value="Proximal (qualifier value)"/>
+  </concept>
+  <concept id="40468003" display="Viral hepatitis, type A">
+    <display value="Viral hepatitis, type A"/>
+    <display value="Infectious hepatitis"/>
+    <display value="Hepatitis A"/>
+    <display value="IH - Infectious hepatitis"/>
+    <display value="Viral hepatitis, type A (disorder)"/>
   </concept>
   <concept id="404684003" display="Clinical finding (finding)">
     <display value="Clinical finding (finding)"/>
