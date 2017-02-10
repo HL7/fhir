@@ -6,6 +6,7 @@ http://fdi.org/fhir/oralsurfacecodes
 http://snomed.info/id
 http://hl7.org/fhir/pharmacy-form
 http://hl7.org/fhir/ValueSet/claim-careteamrole
+http://hl7.org/fhir/vaccination-practitioner-role
 http://snomed/sct
 https://precision.fda.gov/files/
 http://hl7.org/fhir/sid/ndc
@@ -16,6 +17,7 @@ http://hl7.org/fhir/ValueSet/medication-dispense-category
 http://nehta.gov.au/codes/medications/changetype
 http://hl7.org/fhir/ValueSet/ex-paymenttype
 urn:ietf:bcp:13
+http://hl7.org/fhir/vaccination-origin
 urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd
 http://usextension/snomed.info/sct
 https://precision.fda.gov/apps/
@@ -39,18 +41,11 @@ http://hl7.org/fhir/v3/ActPharmacySupplyType
 http://hl7.org/fhir/message-type
 http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode
 urn:ietf:rfc:3986
-<<<<<<< .mine
-http://nema.org/dicom/dicm
-https://www.usps.com/
-https://www.census.gov/geo/reference/
-https://precision.fda.gov/files/
-https://precision.fda.gov/jobs/
-=======
 http://hl7.org/fhir/performer-role
 https://system/PGxReport
 https://rtmms.nist.gov
->>>>>>> .r11093
 http://www.ncbi.nlm.nih.gov/nuccore
+http://www.genenames.org
 http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode
 http://hl7.org/fhir/paymenttype
 http://hl7.org/fhir/audit-event-sub-type
@@ -67,6 +62,7 @@ http://hl7.org/fhir/sid/icd-10-cm
 http://hl7.org/fhir/ValueSet/provider-qualification
 http://hl7.org/fhir/ValueSet/ex-diagnosistype
 http://acme.org/lab/codes/organisms
+http://www.ebi.ac.uk/ipd/imgt/hla/
 http://orionhealth.com/fhir/apps/specialties
 https://hive.biochemistry.gwu.edu
 http://cancer.questionnaire.org/system/code/yesno
@@ -75,7 +71,6 @@ http://goodhealthhospital.org/diet-type-codes
 urn:iso:std:iso:11073:10101
 http://nema.org/dicom/dicm
 http://hl7.org/fhir/sid/icd-9
-http://www.ncbi.nlm.nih.gov/projects/SNP
 http://hl7.org/fhir/c80-doc-typecodes
 http://hl7.org/fhir
 http://hl7.org/fhir/familial-relationship
@@ -109,6 +104,7 @@ http://www.ncbi.nlm.nih.gov/gtr/
 http:hl7.org/fhir
 http://ihe.net/connectathon/classCodes
 http://www.ihe.net/xds/connectathon/healthcareFacilityTypeCodes
+http://www.ebi.ac.uk/cgi-bin/ipd/imgt/hla/
 http:/acme.ec/gcsverbal
 urn:iso:std:iso:3166
 http://example.com

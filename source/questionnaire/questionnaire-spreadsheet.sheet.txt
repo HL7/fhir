@@ -198,8 +198,8 @@
  -- Row 7 -----------------------------------
   Id = 7
   Context = Questionnaire.item.enableWhen
-  English = enableWhen must contain either an \'answer\' or an \'answered\' element
-  XPath = count(*[starts-with(local-name(.), \'answer\')]|answered) = 1
+  English = enableWhen must contain either a \'answer\' or a \'hasAnswer\' element
+  XPath = count(*[starts-with(local-name(.), \'answer\')]|hasAnswer) = 1
   Expression = hasAnswer.exists() xor answer.exists()
 
  -- Row 8 -----------------------------------

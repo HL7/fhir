@@ -20,6 +20,7 @@
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <TabRatio>613</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4318,12 +4319,12 @@
    <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s112"><Data ss:Type="Number">7</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">Answered or answer</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">Answer or hasAnswer</Data></Cell>
     <Cell ss:StyleID="s92"/>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Questionnaire.item.enableWhen</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">enableWhen must contain either an 'answer' or an 'answered' element</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">enableWhen must contain either a 'answer' or a 'hasAnswer' element</Data></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">hasAnswer.exists() xor answer.exists()</Data></Cell>
-    <Cell ss:StyleID="s114"><Data ss:Type="String">count(*[starts-with(local-name(.), 'answer')]|answered) = 1</Data></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">count(*[starts-with(local-name(.), 'answer')]|hasAnswer) = 1</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s112"><Data ss:Type="Number">8</Data><NamedCell
