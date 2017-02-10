@@ -27,12 +27,19 @@
         </coding>
     </kind>
 
-    <orderedItemCodeableConcept>
+    <orderedItem>
+      <quantity>
+        <value value = "10"/>
+      </quantity>
+        <itemCodeableConcept>
         <coding>
             <code value='BlueTubes'/>
             <display value='Blood collect tubes blue cap'/>
         </coding>
-    </orderedItemCodeableConcept>
+    </itemCodeableConcept>
+
+  </orderedItem>
+
     <supplier>
         <display value="Vendor1"/>
     </supplier>

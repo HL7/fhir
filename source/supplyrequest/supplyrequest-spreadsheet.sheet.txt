@@ -152,7 +152,20 @@
   Committee Notes = [3417]
 
  -- Row 8 -----------------------------------
-  Element = SupplyRequest.orderedItem[x]
+  Element = SupplyRequest.orderedItem
+  Card. = 0..1
+  Short Name = Medication, Substance, or Device requested to be supplied
+  Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+
+ -- Row 9 -----------------------------------
+  Element = SupplyRequest.orderedItem.quantity
+  Card. = 1..1
+  Type = Quantity
+  Short Name = Medication, Substance, or Device requested to be supplied
+  Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+
+ -- Row 10 -----------------------------------
+  Element = SupplyRequest.orderedItem.item[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Medication|Substance|Device)
   Binding = SupplyRequestItem
@@ -162,7 +175,7 @@
   Workflow Mapping = Request.code
   RIM Mapping = .participation[typeCode=PRD].role
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = SupplyRequest.supplier
   Card. = 0..*
   Type = Reference(Organization)
@@ -170,7 +183,7 @@
   Definition = Who is intended to fulfill the request
   Workflow Mapping = Request.performer
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = SupplyRequest.reason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
@@ -179,14 +192,14 @@
   Definition = Why the supply item was requested
   Workflow Mapping = Request.reasonCode
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = SupplyRequest.when
   Card. = 0..1
   UML = 400;30
   Short Name = When the request should be fulfilled
   Definition = When the request should be fulfilled
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = SupplyRequest.when.code
   Card. = 0..1
   Type = CodeableConcept
@@ -195,7 +208,7 @@
   Definition = Code indicating when the request should be fulfilled.
   Comments = Code may simply be a priority code
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = SupplyRequest.when.schedule
   Card. = 0..1
   Type = Timing
@@ -203,14 +216,14 @@
   Definition = Formal fulfillment schedule
   Workflow Mapping = Request.occurrence.occurrenceTiming
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = SupplyRequest.from
   Card. = 0..1
   Type = Reference(Organization|Location)
   Short Name = The origin of the supply
   Definition = Where the supply is expected to come from
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = SupplyRequest.to
   Card. = 0..1
   Type = Reference(Organization|Location|Patient)
