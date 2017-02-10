@@ -1,0 +1,33 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = response-request
+  Binding = code list
+  Reference = #response-request
+  Definition = HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
+  Description = Response Request codes
+  Conformance = required
+
+=== Sheet response-request =====================================
+
+ -- Row 1 -----------------------------------
+  Code = AL
+  Display = Always
+  Definition = Always respond
+
+ -- Row 2 -----------------------------------
+  Code = ER
+  Display = Error/reject conditions only
+  Definition = Error/reject conditions only
+
+ -- Row 3 -----------------------------------
+  Code = NE
+  Display = Never
+
+ -- Row 4 -----------------------------------
+  Code = SU
+  Display = Successful completion only
+  Definition = Successful completion only
+
+=== Sheet Search =====================================

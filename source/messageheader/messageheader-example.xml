@@ -9,7 +9,7 @@
   </text>
  <event>
     <system value="http://hl7.org/fhir/message-type"/>
-    <code value="admin-update"/>
+    <code value="admin-notify"/>
   </event>   
   <destination>
     <name value="Acme Message Gateway"/>
