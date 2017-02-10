@@ -1684,7 +1684,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Id of original message</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The id of the message that this message is a response to</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The MessageHeader.id of the message to which this message is a response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Allows receiver to know what message is being responded to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1753,7 +1753,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Specific list of hints/warnings/errors </Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Specific list of hints/warnings/errors</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Full details of any issues found in the message</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3789,8 +3789,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
