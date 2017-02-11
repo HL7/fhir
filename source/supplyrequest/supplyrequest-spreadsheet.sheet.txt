@@ -154,15 +154,14 @@
  -- Row 8 -----------------------------------
   Element = SupplyRequest.orderedItem
   Card. = 0..1
-  Short Name = Medication, Substance, or Device requested to be supplied
-  Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+  Short Name = The item being requested
 
  -- Row 9 -----------------------------------
   Element = SupplyRequest.orderedItem.quantity
   Card. = 1..1
   Type = Quantity
-  Short Name = Medication, Substance, or Device requested to be supplied
-  Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+  Short Name = The requested amount of the item indicated
+  Definition = This is the quantity of  the indicated item that is being ordered
 
  -- Row 10 -----------------------------------
   Element = SupplyRequest.orderedItem.item[x]
