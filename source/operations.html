@@ -193,7 +193,7 @@ When using the HTTP GET operation, if there is a repeating parameter for the ext
 are repeated by repeating the named parameter. E.g. Observation $stats statistic parameter
 </p>
 <pre>
-GET [base]/Observation/$stats?subject=Patient/123&code=55284-4&system=http://loinc.org&duration=1&statistic=average&statistic=min&statistic=max&statistic=count
+GET [base]/Observation/$stats?subject=Patient/123&amp;code=55284-4&amp;system=http://loinc.org&amp;duration=1&amp;statistic=average&amp;statistic=min&amp;statistic=max&statistic=count
 </pre>
 <p>
 If the only parameter to a specific invocation of the operation is a resource, then the operation
