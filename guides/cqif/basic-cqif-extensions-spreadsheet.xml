@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-01-04T20:51:38Z</LastSaved>
+  <LastSaved>2017-02-02T23:02:27Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -4328,7 +4328,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="88" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="92" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -6669,6 +6669,36 @@
     <Cell><Data ss:Type="String">A URI that refers to the value set from which this coding was chosen. The URI may be a URN specifying an OID, or it may be the canoncical URL for a ValueSet resource</Data></Cell>
     <Cell><Data ss:Type="String">Need to be able to determine the source value set for a coding when reporting data results for quality measurement. In addition, this extension can be used to indicate that a Coding should come from a particular value set as part of an activity definition or an action returned as part of a CDS Guidance response</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">measureInfo</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">Measure criteria for the resource</Data></Cell>
+    <Cell><Data ss:Type="String">The measure criteria that resulted in the resource being included in a particular evaluatedResources bundle</Data></Cell>
+    <Cell><Data ss:Type="String">When reporting measure evaluation data, it is important to be able to determine why a particular resource was included in the result</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">measureInfo.measure</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Reference(Measure)</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The measure being calculated</Data></Cell>
+    <Cell><Data ss:Type="String">The measure that resulted in this resource being included in the measure report</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">measureInfo.groupIdentifier</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The group identifier</Data></Cell>
+    <Cell><Data ss:Type="String">The group within the measure that resulted in this resource being included in the measure report</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">measureInfo.populationIdentifier</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">Identifier</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">The population identifier</Data></Cell>
+    <Cell><Data ss:Type="String">The population within the measure that resulted in this resource being included in the measure report</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6686,7 +6716,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>67</TopRowBottomPane>
+   <TopRowBottomPane>69</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6703,8 +6733,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>76</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>88</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
