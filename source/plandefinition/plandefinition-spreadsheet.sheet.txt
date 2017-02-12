@@ -806,12 +806,12 @@
   Definition = Defines whether the action can be selected multiple times
 
  -- Row 66 -----------------------------------
-  Element = PlanDefinition.actionDefinition.activityDefinition
+  Element = PlanDefinition.actionDefinition.definition
   Card. = 0..1
-  Type = Reference(ActivityDefinition)
+  Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Description of the activity to be performed
-  Definition = A reference to an ActivityDefinition that describes the action to be taken in detail
-  Comments = Note that the resource is optional, and if no resource is specified, a dynamicValue with a root (/) path can be used to define the entire resource dynamically
+  Definition = A reference to an ActivityDefinition that describes the action to be taken in detail, or a PlanDefinition that describes a series of actions to be taken
+  Comments = Note that the definition is optional, and if no definition is specified, a dynamicValue with a root (~) path can be used to define the entire resource dynamically
   Workflow Mapping = Definition.definition
 
  -- Row 67 -----------------------------------

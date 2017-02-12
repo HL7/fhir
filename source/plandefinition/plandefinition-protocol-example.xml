@@ -96,8 +96,8 @@ For those who have not been overweight, a 2 year interval is appropriate for the
       <!-- CQL: exists ([Observation: Obesity]) or not exists ([Observation: BMI] O where O.effectiveDateTime 2 years or less before Today()) -->
     </condition>
     <!--	Activities that occur within timepoint-->
-    <activityDefinition>
+    <definition>
       <reference value="#procedure"/>
-    </activityDefinition>
+    </definition>
   </actionDefinition>
 </PlanDefinition>

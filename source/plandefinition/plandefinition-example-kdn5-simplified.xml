@@ -286,15 +286,15 @@
           (see http://build.fhir.org/codesystem-action-grouping-behavior.html#sentence-group)-->
           <actionDefinition>
             <textEquivalent value="Gemcitabine 1250 mg/m² IV over 30 minutes on days 1 and 8" />
-            <activityDefinition>
+            <definition>
               <reference value="#1111"/>
-            </activityDefinition>
+            </definition>
           </actionDefinition>
           <actionDefinition>
             <textEquivalent value="CARBOplatin AUC 5 IV over 30 minutes on Day 1" />
-            <activityDefinition>
+            <definition>
               <reference value="#2222"/>
-            </activityDefinition>
+            </definition>
           </actionDefinition> <!-- end of regimen entries -->
         </actionDefinition> <!-- end of cycle definitions -->
       </actionDefinition> <!-- end of regimen parts -->

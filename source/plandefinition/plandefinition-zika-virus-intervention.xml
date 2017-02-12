@@ -35,36 +35,36 @@
 			<kind value="applicability"/>
 			<expression value="Should Administer Zika Virus Exposure Assessment"/>
 		</condition>
-		<activityDefinition>
+		<definition>
 			<reference value="ActivityDefinition/administer-zika-virus-exposure-assessment"/>
-		</activityDefinition>
+		</definition>
     </actionDefinition>
     <actionDefinition>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum + Urine rRT-PCR Test"/>
 		</condition>
-		<activityDefinition>
+		<definition>
 			<reference value="ActivityDefinition/order-serum-urine-rrt-pcr-test"/>
-		</activityDefinition>
+		</definition>
     </actionDefinition>
     <actionDefinition>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Order Serum Zika Virus IgM + Dengue Virus IgM"/>
 		</condition>
-		<activityDefinition>
+		<definition>
 			<reference value="ActivityDefinition/order-serum-zika-dengue-virus-igm"/>
-		</activityDefinition>
+		</definition>
     </actionDefinition>
     <actionDefinition>
 		<condition>
 			<kind value="applicability"/>
 			<expression value="Should Consider IgM Antibody Testing"/>
 		</condition>
-		<activityDefinition>
+		<definition>
 			<reference value="ActivityDefinition/consider-igm-antibody-testing"/>
-		</activityDefinition>
+		</definition>
     </actionDefinition>
     <actionDefinition>
 		<condition>
@@ -72,14 +72,14 @@
 			<expression value="Should Provide Mosquito Prevention and Contraception Advice"/>
 		</condition>
 		<actionDefinition>
-			<activityDefinition>
+			<definition>
 				<reference value="ActivityDefinition/provide-mosquito-prevention-advice"/>
-			</activityDefinition>
+			</definition>
 		</actionDefinition>
 		<actionDefinition>
-			<activityDefinition>
+			<definition>
 				<reference value="ActivityDefinition/provide-contraception-advice"/>
-			</activityDefinition>
+			</definition>
 		</actionDefinition>
     </actionDefinition>
   </actionDefinition>
