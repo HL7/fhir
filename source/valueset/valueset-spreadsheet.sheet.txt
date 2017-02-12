@@ -301,7 +301,7 @@
   Element = ValueSet.compose.include.concept.display
   Card. = 0..1
   Type = string
-  Short Name = Text to display for this code for this value set
+  Short Name = Text to display for this code for this value set in this valueset
   Definition = The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system
   Comments = The value set resource allows for an alternative display to be specified for when this concept is used in this particular value set. See notes in the value set narrative about the correct use of this element
   RIM Mapping = N/A
