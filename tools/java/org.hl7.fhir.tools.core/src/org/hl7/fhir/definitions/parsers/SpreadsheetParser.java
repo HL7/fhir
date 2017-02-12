@@ -2272,7 +2272,24 @@ public class SpreadsheetParser {
     // things that go on Extension.value
     if (!Utilities.noString(sheet.getColumn(row, "Type"))) {
       ElementDefn exv = new ElementDefn();
-      exv.setName("value[x]");
+      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
+      if (exv.getTypes().size()>1) {
+        exv.setName("valueReference");
+        for (TypeRef t : exv.getTypes()) {
+          if (!t.getName().equals("Reference")) {
+            exv.setName("value[x]");
+            break;
+          }
+        }
+      } else {
+        TypeRef type = exv.getTypes().get(0);
+        if (type.getName().equals("*") || type.getParams().size()>1)
+          exv.setName("value[x]");
+        else {
+          String name = type.getName();
+          exv.setName("value" + name.substring(0,1).toUpperCase() + name.substring(1));
+        }
+      }
       exe.getElements().add(exv);
       String bindingName = sheet.getColumn(row, "Binding");
       if (!Utilities.noString(bindingName)) {
@@ -2291,7 +2308,6 @@ public class SpreadsheetParser {
       }
       // exv.setBinding();
       exv.setMaxLength(sheet.getColumn(row, "Max Length"));
-      exv.getTypes().addAll(new TypeParser().parse(sheet.getColumn(row, "Type"), true, profileExtensionBase, context, false, sheet.title));
       exv.setExample(processValue(sheet, row, "Example", sheet.getColumn(row, "Example"), exv));
     }
   }

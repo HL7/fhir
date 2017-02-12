@@ -56,12 +56,12 @@
   Must Support = Y
 
  -- Row 10 -----------------------------------
-  Element = Provenance.agent.actor
+  Element = Provenance.agent.who[x]
   Card. = !0..1
   Must Support = Y
 
  -- Row 11 -----------------------------------
-  Element = Provenance.agent.userId
+  Element = Provenance.agent.onBehalfOf[x]
   Card. = !0..1
   Must Support = Y
 

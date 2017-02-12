@@ -339,6 +339,17 @@ public class ProfileUtilities extends TranslatingUtilities {
       throw new Error("type on first snapshot element for "+derived.getSnapshot().getElementFirstRep().getPath()+" in "+derived.getUrl()+" from "+base.getUrl());
     updateMaps(base, derived);
     setIds(derived, false);
+    
+    //Check that all differential elements have a corresponding snapshot element
+    HashMap<String, ElementDefinition> snapshotElements = new HashMap<String, ElementDefinition>();
+    for (ElementDefinition e : derived.getSnapshot().getElement()) {
+      snapshotElements.put(e.getId(), e);
+    }
+    for (ElementDefinition e : derived.getDifferential().getElement()) {
+      if (!snapshotElements.containsKey(e.getId()))
+        throw new DefinitionException("Snapshot does not contain differential element with id: " + e.getId());
+//        System.out.println("**BAD Differential element: " + profileName + ":" + e.getId());
+    }
   }
 
   /**
@@ -457,12 +468,13 @@ public class ProfileUtilities extends TranslatingUtilities {
 
           // differential - if the first one in the list has a name, we'll process it. Else we'll treat it as the base definition of the slice.
           int start = 0;
+          boolean skipSlicingElement = false;
           if (!diffMatches.get(0).hasSliceName()) {
             updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
             if (!outcome.hasType()) {
               throw new DefinitionException("not done yet");
             }
-            start = 1;
+            skipSlicingElement = true;
           } else 
             checkExtensionDoco(outcome);
 
@@ -475,6 +487,11 @@ public class ProfileUtilities extends TranslatingUtilities {
             // our processing scope for the differential is the item in the list, and all the items before the next one in the list
             ndc = differential.getElement().indexOf(diffMatches.get(i));
             ndl = findEndOfElement(differential, ndc);
+            if (skipSlicingElement && i == 0) {
+              ndc = ndc + 1;
+              if (ndc > ndl)
+                continue;
+            }
             // now we process the base scope repeatedly for each instance of the item in the differential list
             processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, i), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true);
           }

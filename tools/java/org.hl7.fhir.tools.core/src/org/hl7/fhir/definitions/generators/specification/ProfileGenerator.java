@@ -1213,7 +1213,10 @@ public class ProfileGenerator {
       SliceHandle hnd = new SliceHandle();
       hnd.name = path; // though this it not used?
       myParents.add(hnd);
-      ce.setSliceName(e.getProfileName());
+      if (path.contains(".")) { // We don't want a slice name on the root
+        ce.setSliceName(e.getProfileName());
+        ce.setId(ce.getId()+":"+e.getProfileName());
+      }
     }
 
     if (!Utilities.noString(inheritedType) && snapshot != SnapShotMode.None) {

@@ -179,19 +179,21 @@
   Value = { \"value\" : \"4.5\", \"units\" : \"mmol/L\" }
 
  -- Row 14 -----------------------------------
-  Element = Observation.referenceRange.meaning
+  Element = Observation.referenceRange.type
   Card. = 0..0
   Type = CodeableConcept
-  Short Name = Range is a recommended range
-  Definition = Range is a recommended range
-  To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
  -- Row 15 -----------------------------------
+  Element = Observation.referenceRange.appliesTo
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 16 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -254,19 +256,21 @@
   Committee Notes = 2.0 mmol/L
 
  -- Row 9 -----------------------------------
-  Element = Observation.referenceRange.meaning
+  Element = Observation.referenceRange.type
   Card. = 0..0
   Type = CodeableConcept
-  Short Name = Range is a recommended range
-  Definition = Range is a recommended range
-  To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
  -- Row 10 -----------------------------------
+  Element = Observation.referenceRange.appliesTo
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 11 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -330,19 +334,21 @@
   Comments = Per Australian NHF Recommendations
 
  -- Row 9 -----------------------------------
-  Element = Observation.referenceRange.meaning
+  Element = Observation.referenceRange.type
   Card. = 0..0
   Type = CodeableConcept
-  Short Name = Range is a recommended range
-  Definition = Range is a recommended range
-  To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
  -- Row 10 -----------------------------------
+  Element = Observation.referenceRange.appliesTo
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 11 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 
@@ -416,19 +422,21 @@
   Value = { \"value\" : \"3.0\", \"units\" : \"mmol/L\" }
 
  -- Row 10 -----------------------------------
-  Element = Observation.referenceRange.meaning
+  Element = Observation.referenceRange.type
   Card. = 0..0
   Type = CodeableConcept
-  Short Name = Range is a recommended range
-  Definition = Range is a recommended range
-  To Do = so I suppose it should be coded, right? But coded how? No publically available terminologies include an appropriate code???
 
  -- Row 11 -----------------------------------
+  Element = Observation.referenceRange.appliesTo
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 12 -----------------------------------
   Element = Observation.referenceRange.age
   Card. = 0..0
   Type = Range
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Observation.related
   Card. = 0..0
 

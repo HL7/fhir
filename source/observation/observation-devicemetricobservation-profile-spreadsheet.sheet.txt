@@ -100,10 +100,9 @@
   Committee Notes = [#3689]
 
  -- Row 17 -----------------------------------
-  Element = Observation.encounter
+  Element = Observation.context
   Card. = 0..0
   Must Support = N
-  Type = Reference(Encounter)
 
  -- Row 18 -----------------------------------
   Element = Observation.referenceRange

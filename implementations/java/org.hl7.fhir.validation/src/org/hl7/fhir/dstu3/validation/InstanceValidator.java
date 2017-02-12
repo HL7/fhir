@@ -223,14 +223,23 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     }
     
     public boolean addProfile(List<ValidationMessage> errors, String profile, boolean error, String path, Element element) {
-      StructureDefinition sd = context.fetchResource(StructureDefinition.class, profile);
+      String effectiveProfile = profile;
+      String version = null;
+      if (profile.contains("|")) {
+        effectiveProfile = profile.substring(0, profile.indexOf('|') - 1);
+        version = profile.substring(profile.indexOf('|'));
+      }
+      StructureDefinition sd = context.fetchResource(StructureDefinition.class, effectiveProfile);
       if (warningOrError(error, errors, IssueType.INVALID, element.line(), element.col(), path, sd != null, "StructureDefinition reference \"{0}\" could not be resolved", profile)) {
-        if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, sd.hasSnapshot(),
-            "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
-          if (!profiles.containsKey(sd)) {
-            profiles.put(sd,  new ProfileUsage(sd));
-            addAncestorProfiles(sd);
-            return true;
+        if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, version==null || (sd.getVersion()!=null && sd.getVersion().equals(version)), 
+             "Referenced version " + version + " does not match found version " + sd.getVersion() + " for profile " + sd.getUrl(), profile)) {
+          if (rule(errors, IssueType.STRUCTURE, element.line(), element.col(), path, sd.hasSnapshot(),
+              "StructureDefinition has no snapshot - validation is against the snapshot, so it must be provided")) {
+            if (!profiles.containsKey(sd)) {
+              profiles.put(sd,  new ProfileUsage(sd));
+              addAncestorProfiles(sd);
+              return true;
+            }
           }
         }
       }

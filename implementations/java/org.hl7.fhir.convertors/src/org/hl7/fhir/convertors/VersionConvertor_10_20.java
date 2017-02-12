@@ -908,7 +908,7 @@ public class VersionConvertor_10_20 {
     }
   }
 
-  public org.hl7.fhir.dstu3.model.ElementDefinition convertElementDefinition(org.hl7.fhir.dstu2.model.ElementDefinition src) throws FHIRException {
+  public org.hl7.fhir.dstu3.model.ElementDefinition convertElementDefinition(org.hl7.fhir.dstu2.model.ElementDefinition src, List<String> slicePaths) throws FHIRException {
     if (src == null || src.isEmpty())
       return null;
     org.hl7.fhir.dstu3.model.ElementDefinition tgt = new org.hl7.fhir.dstu3.model.ElementDefinition();
@@ -917,7 +917,8 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu2.model.Enumeration<org.hl7.fhir.dstu2.model.ElementDefinition.PropertyRepresentation> t : src.getRepresentation())
       tgt.addRepresentation(convertPropertyRepresentation(t.getValue()));
     if (src.hasName()) {
-      tgt.setSliceName(src.getName());
+      if (slicePaths.contains(src.getPath()))
+        tgt.setSliceName(src.getName());
       tgt.setId(src.getName());
     }
     if (src.hasLabel())
@@ -1754,7 +1755,7 @@ public class VersionConvertor_10_20 {
     if (src instanceof org.hl7.fhir.dstu2.model.ContactPoint)
       return convertContactPoint((org.hl7.fhir.dstu2.model.ContactPoint) src);
     if (src instanceof org.hl7.fhir.dstu2.model.ElementDefinition)
-      return convertElementDefinition((org.hl7.fhir.dstu2.model.ElementDefinition) src);
+      return convertElementDefinition((org.hl7.fhir.dstu2.model.ElementDefinition) src, new ArrayList<String>());
     if (src instanceof org.hl7.fhir.dstu2.model.HumanName)
       return convertHumanName((org.hl7.fhir.dstu2.model.HumanName) src);
     if (src instanceof org.hl7.fhir.dstu2.model.Meta)
@@ -5068,8 +5069,12 @@ public class VersionConvertor_10_20 {
     tgt.setStringency(convertDataElementStringency(src.getStringency()));
     for (org.hl7.fhir.dstu2.model.DataElement.DataElementMappingComponent t : src.getMapping())
       tgt.addMapping(convertDataElementMappingComponent(t));
-    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement())
-      tgt.addElement(convertElementDefinition(t));
+    List<String> slicePaths = new ArrayList<String>();
+    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
+      if (t.hasSlicing())
+        slicePaths.add(t.getPath());
+      tgt.addElement(convertElementDefinition(t, slicePaths));
+    }
     return tgt;
   }
 
@@ -11163,8 +11168,12 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotComponent tgt = new org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement())
-      tgt.addElement(convertElementDefinition(t));
+    List<String> slicePaths = new ArrayList<String>();
+    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
+      if (t.hasSlicing())
+        slicePaths.add(t.getPath());
+      tgt.addElement(convertElementDefinition(t, slicePaths));
+    }
     return tgt;
   }
 
@@ -11183,8 +11192,12 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionDifferentialComponent tgt = new org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionDifferentialComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement())
-      tgt.addElement(convertElementDefinition(t));
+    List<String> slicePaths = new ArrayList<String>();
+    for (org.hl7.fhir.dstu2.model.ElementDefinition t : src.getElement()) {
+      if (t.hasSlicing())
+        slicePaths.add(t.getPath());
+      tgt.addElement(convertElementDefinition(t, slicePaths));
+    }
     return tgt;
   }
 

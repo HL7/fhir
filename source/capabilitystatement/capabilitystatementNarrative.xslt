@@ -526,7 +526,9 @@
   </xsl:template>
   <xsl:template name="doCapabilityStatement" as="node()">
     <xsl:variable name="documentation" as="xs:string">
-      <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)), '')"/>
+      <xsl:if test="normalize-space(documentation/@value)!=''">
+        <xsl:copy-of select="string-join(fn:markDownToString(fn:handleMarkdown(documentation/@value)), '')"/>
+      </xsl:if>
     </xsl:variable>
     <xsl:variable name="value" as="xs:string">
       <xsl:choose>
