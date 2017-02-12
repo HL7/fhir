@@ -161,7 +161,7 @@
   Card. = 1..1
   Type = Quantity
   Short Name = The requested amount of the item indicated
-  Definition = This is the quantity of  the indicated item that is being ordered
+  Definition = The amount that is being ordered of the indicated item
 
  -- Row 10 -----------------------------------
   Element = SupplyRequest.orderedItem.item[x]

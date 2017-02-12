@@ -17,7 +17,7 @@
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
   <WindowHeight>8445</WindowHeight>
-  <WindowWidth>26235</WindowWidth>
+  <WindowWidth>22125</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -5595,7 +5595,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Code Composition based on supplied properties</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Given a set of properties, return one or more possible matching codes&#10;&#10;This operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. &#10;&#10;When looking for matches, there are 3 possible types of match:&#10;* a complete match - a code that represents all the provided properties correctly&#10;* a partial match - a code that represents some of the provided properties correctly, and not others &#10;* a possible match - a code that may represent the provided properties closely, but may capture less or more precise informationfor some of the properties&#10;&#10;The $compose operation can be called in one of 2 modes:&#10;* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code&#10;* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded&#10;&#10;The compose operation is still preliminary. The interface can be expected to change as more experience is gained from implementations.&#10;</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Given a set of properties, return one or more possible matching codes&#10;&#10;This operation takes a set of properties, and examines the code system looking for codes in the code system that match a set of known properties. &#10;&#10;When looking for matches, there are 3 possible types of match:&#10;* a complete match - a code that represents all the provided properties correctly&#10;* a partial match - a code that represents some of the provided properties correctly, and not others &#10;* a possible match - a code that may represent the provided properties closely, but may capture less or more precise informationfor some of the properties&#10;&#10;The $compose operation can be called in one of 2 modes:&#10;* By a human, looking for the best match for a set of properties. In this mode, the server returns a list of complete, possible or partial matches (possibly with comments), so that the user can choose (or not) the most appropriate code&#10;* By a machine (typically in a system interface performing a transformation). In this mode, the server returns only a list of complete and partial matches, but no possible matches. The machine can choose a code from the list (or not) based on what properties are not coded&#10;&#10;These modes are differentiated by the 'exact' parameter, so the client can indicate whether it only wants exact matches (including partial matches) or whether potential matches based on text matching are desired&#10; &#10;The compose operation is still preliminary. The interface can be expected to change as more experience is gained from implementations.&#10;</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell><Data ss:Type="String">$compose-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$compose-response.txt</Data></Cell>
@@ -6156,7 +6156,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>39</TopRowBottomPane>
+   <TopRowBottomPane>26</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6173,8 +6173,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>48</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>33</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
