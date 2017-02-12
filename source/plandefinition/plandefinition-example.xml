@@ -11,8 +11,8 @@
       <id value="referralToMentalHealthCare"/>
 	  <status value="draft"/>
 	  <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-	  <!-- Category indicates the overall type of resource that is defined by this activity, a ReferralRequest in this case -->
-	  <category value="referral"/>
+	  <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
+	  <kind value="ReferralRequest"/>
 	  <code>
 		<coding>
 		  <system value="http://snomed.info/sct"/>
@@ -35,7 +35,7 @@
     <ActivityDefinition>
       <id value="citalopramPrescription"/>
       <status value="draft"/>
-      <category value="drug"/>
+      <kind value="MedicationRequest"/>
       <productReference>
         <reference value="#citalopramMedication"/>
       </productReference>
@@ -103,7 +103,7 @@
             </denominator>
           </amount>
         </ingredient>
-      
+
     </Medication>
   </contained>
   <contained>

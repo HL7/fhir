@@ -7,8 +7,8 @@
   </text>
   <status value="draft"/>
   <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-  <!-- Category indicates the overall type of resource that is defined by this activity, a ReferralRequest in this case -->
-  <category value="referral"/>
+  <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
+  <kind value="ReferralRequest"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -18,7 +18,7 @@
   </code>
   <timingTiming>
     <event>
-	  <!-- The expression here specifies the value for the timing of the resulting resource. 
+	  <!-- The expression here specifies the value for the timing of the resulting resource.
 		   In this case, referralRequest.fulfillmentTime.start -->
       <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
         <valueString value="Now()"/>
@@ -27,4 +27,3 @@
   </timingTiming>
   <participantType value="practitioner"/>
 </ActivityDefinition>
- 

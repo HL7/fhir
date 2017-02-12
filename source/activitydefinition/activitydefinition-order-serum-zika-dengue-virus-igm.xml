@@ -14,7 +14,7 @@
 	<display value="Explanation of diagnostic tests for Zika virus and which to use based on the patient’s clinical and exposure history."/>
 	<url value="http://www.cdc.gov/zika/hc-providers/diagnostic.html"/>
   </relatedArtifact>
-  <category value="diagnostic"/>
+  <kind value="DiagnosticRequest"/>
   <code>
     <text value="Serum Zika and Dengue Virus IgM"/>
   </code>

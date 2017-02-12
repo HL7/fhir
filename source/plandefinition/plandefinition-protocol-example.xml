@@ -30,7 +30,7 @@
       <status value="draft"/>
       <!--Extra information on activity-->
       <description value="Extra information on activity "/>
-      <category value="procedure"/>
+      <kind value="ProcedureRequest"/>
       <code>
         <coding>
           <system value="http://loinc.org"/>
@@ -67,7 +67,7 @@
       <code value="protocol"/>
     </coding>
   </type>
-<!--The status of the protocol.draft | active | retired-->	
+<!--The status of the protocol.draft | active | retired-->
   <status value="draft"/>
   <!--When is the protocol to be used-->
   <purpose value="Example of A medical algorithm for assessment and treatment of overweight and obesity"/>

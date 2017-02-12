@@ -36,7 +36,7 @@
             </denominator>
           </amount>
         </ingredient>
-      
+
     </Medication>
   </contained>
   <contained>
@@ -52,7 +52,7 @@
     </Substance>
   </contained>
 	<status value="draft"/>
-	<category value="drug"/>
+	<kind value="MedicationRequest"/>
 	<productReference>
 		<reference value="#citalopramMedication"/>
 	</productReference>

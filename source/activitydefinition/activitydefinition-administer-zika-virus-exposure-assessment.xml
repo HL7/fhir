@@ -9,7 +9,7 @@
   <url value="http://example.org/ActivityDefinition/administer-zika-virus-exposure-assessment"/>
   <status value="draft"/>
   <description value="Administer Zika Virus Exposure Assessment"/>
-  <category value="procedure"/>
+  <kind value="ProcedureRequest"/>
   <code>
     <coding>
       <system value="http://example.org/questionnaires"/>
@@ -25,5 +25,3 @@
   </timingTiming>
   <participantType value="practitioner"/>
 </ActivityDefinition>
-
-

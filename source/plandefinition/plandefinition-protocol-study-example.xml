@@ -65,7 +65,7 @@
     <ActivityDefinition>
       <id value="encounter"/>
       <status value="draft"/>
-      <category value="encounter"/>
+      <kind value="AppointmentRequest"/>
     </ActivityDefinition>
   </contained>
   <extension url="http://hl7.org/fhir/example-do-not-use/Profilestudyprotocol#arm" id="arm-dose1">
