@@ -24,10 +24,6 @@
     <end value="2013-01-28T14:27:00+01:00"/>
   </performedPeriod>
   <performer>
-    <actor>
-      <reference value="Practitioner/f201"/>
-      <display value="Dokter Bronsig"/>
-    </actor>
     <role>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -35,6 +31,10 @@
         <display value="Medical oncologist"/>
       </coding>
     </role>
+	<actor>
+      <reference value="Practitioner/f201"/>
+      <display value="Dokter Bronsig"/>
+    </actor>
   </performer>
   <reasonCodeableConcept>
     <text value="DiagnosticReport/f201"/>

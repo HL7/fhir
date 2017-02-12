@@ -9,6 +9,7 @@
        <value value="12345"/>
   </identifier>
   <status value="completed"/>
+  <notDone value="false"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -30,7 +31,7 @@
     <reference value="Location/1"/>
 	<display value="Burgers University Medical Center, South Wing, second floor"/>
   </location>
-  <notDone value="false"/>
+  
   <complicationDetail>
 		<display value="Perforated intestine condition"/>
   </complicationDetail>

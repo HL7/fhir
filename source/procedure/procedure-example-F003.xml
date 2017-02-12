@@ -21,10 +21,6 @@
         <end value="2013-03-24T10:30:10+01:00"/>
     </performedPeriod>
 	<performer>
-        <actor>
-            <reference value="Practitioner/F001"/>
-            <display value="E.M.J.M. van den broek"/>
-        </actor>
         <role>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
@@ -33,6 +29,10 @@
             </coding>
             <text value="Care role"/>
         </role>
+		<actor>
+            <reference value="Practitioner/F001"/>
+            <display value="E.M.J.M. van den broek"/>
+        </actor>
     </performer>
     <reasonCodeableConcept>
       <text value="abcess in retropharyngeal area"/>

@@ -129,7 +129,7 @@
   Summary = Y
   Type = code
   Binding = ReferralRequestStatus
-  Short Name = draft | active | cancelled | completed | entered-in-error
+  Short Name = draft | active | suspended | cancelled | completed | entered-in-error | unknown
   Definition = The status of the authorization/intention reflected by the referral request record
   Requirements = Workflow status is handled by the Task resource
   v2 Mapping = RF1-1
@@ -138,6 +138,7 @@
  -- Row 8 -----------------------------------
   Element = ReferralRequest.intent
   Card. = 1..1
+  Aliases = category
   Is Modifier = Y
   Summary = Y
   Type = code
@@ -350,3 +351,99 @@
   Definition = Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
   Comments = This element does not point to the Provenance associated with the *current* version of the resource - as it would be created after this version existed.  The Provenance for the current version can be retrieved with a _revinclude.
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the referral
+  Path = ReferralRequest.status
+
+ -- Row 2 -----------------------------------
+  Name = date
+  Type = date
+  Description = Creation or activation date
+  Path = ReferralRequest.authoredOn
+
+ -- Row 3 -----------------------------------
+  Name = type
+  Type = token
+  Description = The type of the referral
+  Path = ReferralRequest.type
+
+ -- Row 4 -----------------------------------
+  Name = specialty
+  Type = token
+  Description = The specialty that the referral is for
+  Path = ReferralRequest.specialty
+
+ -- Row 5 -----------------------------------
+  Name = priority
+  Type = token
+  Description = The priority assigned to the referral
+  Path = ReferralRequest.priority
+
+ -- Row 6 -----------------------------------
+  Name = recipient
+  Type = reference
+  Description = The person that the referral was sent to
+  Path = ReferralRequest.recipient
+
+ -- Row 7 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = Who the referral is about
+  Path = ReferralRequest.patient
+
+ -- Row 8 -----------------------------------
+  Name = requester
+  Type = reference
+  Path = ReferralRequest.requester.agent
+
+ -- Row 9 -----------------------------------
+  Name = intent
+  Type = token
+  Description = Proposal, plan or order
+  Path = ReferralRequest.intent
+
+ -- Row 10 -----------------------------------
+  Name = context
+  Type = reference
+  Description = Part of encounter or episode of care
+  Path = ReferralRequest.context
+
+ -- Row 11 -----------------------------------
+  Name = based-on
+  Type = reference
+  Description = Request being fulfilled
+  Path = ReferralRequest.basedOn
+
+ -- Row 12 -----------------------------------
+  Name = group-identifier
+  Type = token
+  Description = Part of common request
+  Path = ReferralRequest.groupIdentifier
+
+ -- Row 13 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = ReferralRequest.identifier
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = referralrequest-extensions
+  IG Name = core
+  Filename = referralrequest-extensions.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = Example of referralrequest
+  Filename = referralrequest-example.xml
+
+=== Sheet Examples =====================================

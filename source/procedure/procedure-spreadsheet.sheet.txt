@@ -184,6 +184,30 @@
   w5 = status
 
  -- Row 7 -----------------------------------
+  Element = Procedure.notDone
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = y
+  Type = boolean
+  Short Name = True if procedure was not performed as scheduled
+  Definition = Set this to true if the record is saying that the procedure was NOT performed
+  Comments = If true, it means the procedure did not occur as described.  Typically it would be accompanied by attributes describing the type of activity.  It might also be accompanied by body site information or time information (i.e. no procedure was done to the left arm or no procedure was done in this 2-year period).  Specifying additional information such as performer, outcome, etc. is generally inappropriate.  For example, it\'s not that useful to say \"There was no appendectomy done at 12:03pm June 6th by Dr. Smith with a successful outcome\" as it implies that there *could* have been an appendectomy done at any other time, by any other clinician or with any other outcome.
+  RIM Mapping = .actionNegationInd
+  Committee Notes = GF#11027
+  Default Value = false
+
+ -- Row 8 -----------------------------------
+  Element = Procedure.notDoneReason
+  Card. = 0..1
+  Summary = Y
+  Inv. = 1
+  Type = CodeableConcept
+  Binding = ProcedureNegationReason
+  Short Name = Reason procedure was not performed
+  Definition = A code indicating why the procedure was not performed.
+  RIM Mapping = .reason.Observation.value
+
+ -- Row 9 -----------------------------------
   Element = Procedure.category
   Card. = 0..1
   Summary = Y
@@ -194,7 +218,7 @@
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
   w5 = class
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Procedure.code
   Card. = 0..1
   Aliases = type
@@ -208,7 +232,7 @@
   RIM Mapping = .code
   w5 = what
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Procedure.subject
   Card. = 1..1
   Aliases = patient
@@ -221,7 +245,7 @@
   Committee Notes = [#3709]
   w5 = who.focus
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Procedure.context
   Card. = 0..1
   Aliases = encounter
@@ -233,9 +257,10 @@
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Procedure.performed[x]
   Card. = 0..1
+  Aliases = timing
   Summary = y
   Type = dateTime | Period | Timing
   Short Name = Date/Period the procedure was performed
@@ -244,7 +269,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.done
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Procedure.performer
   Card. = 0..*
   Summary = y
@@ -253,7 +278,18 @@
   Definition = Limited to \'real\' people rather than equipment
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
+  Element = Procedure.performer.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = ProcedurePerformerRole
+  Short Name = The role the actor was in
+  Definition = For example: surgeon, anaethetist, endoscopist
+  v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
+  RIM Mapping = .functionCode
+
+ -- Row 16 -----------------------------------
   Element = Procedure.performer.actor
   Card. = 1..1
   Summary = y
@@ -265,18 +301,7 @@
   RIM Mapping = .role
   w5 = who.actor
 
- -- Row 14 -----------------------------------
-  Element = Procedure.performer.role
-  Card. = 0..1
-  Summary = y
-  Type = CodeableConcept
-  Binding = ProcedurePerformerRole
-  Short Name = The role the actor was in
-  Definition = For example: surgeon, anaethetist, endoscopist
-  v2 Mapping = Some combination of STF-18 / PRA-3 / PRT-4 / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17 / OBX-25
-  RIM Mapping = .functionCode
-
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Procedure.performer.onBehalfOf
   Card. = 0..1
   Type = Reference (Organization)
@@ -285,7 +310,7 @@
   Requirements = Practitioners and Devices can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of when performing the action
   RIM Mapping = .scoper
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Procedure.location
   Card. = 0..1
   Summary = Y
@@ -296,7 +321,7 @@
   RIM Mapping = .participation[typeCode=LOC].role[classCode=SDLOC]
   w5 = where
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Procedure.reasonCodeableConcept
   Card. = 0..*
   Summary = y
@@ -307,7 +332,7 @@
   RIM Mapping = .reasonCode
   w5 = why
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Procedure.reasonReference
   Card. = 0..*
   Summary = y
@@ -317,30 +342,6 @@
   Comments = e.g. endoscopy for dilatation and biopsy, combination diagnosis and therapeutic
   RIM Mapping = .reasonCode
   w5 = why
-
- -- Row 19 -----------------------------------
-  Element = Procedure.notDone
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = y
-  Type = boolean
-  Short Name = True if procedure was not performed as scheduled
-  Definition = Set this to true if the record is saying that the procedure was NOT performed
-  Comments = If true, it means the procedure did not occur as described.  Typically it would be accompanied by attributes describing the type of activity.  It might also be accompanied by body site information or time information (i.e. no procedure was done to the left arm or no procedure was done in this 2-year period).  Specifying additional information such as performer, outcome, etc. is generally inappropriate.  For example, it\'s not that useful to say \"There was no appendectomy done at 12:03pm June 6th by Dr. Smith with a successful outcome\" as it implies that there *could* have been an appendectomy done at any other time, by any other clinician or with any other outcome.
-  RIM Mapping = .actionNegationInd
-  Committee Notes = GF#11027
-  Default Value = false
-
- -- Row 20 -----------------------------------
-  Element = Procedure.notDoneReason
-  Card. = 0..1
-  Summary = Y
-  Inv. = 1
-  Type = CodeableConcept
-  Binding = ProcedureNegationReason
-  Short Name = Reason procedure was not performed
-  Definition = A code indicating why the procedure was not performed.
-  RIM Mapping = .reason.Observation.value
 
  -- Row 21 -----------------------------------
   Element = Procedure.bodySite

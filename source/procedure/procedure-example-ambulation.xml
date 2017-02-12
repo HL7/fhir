@@ -18,6 +18,15 @@
   </basedOn>
 
   <status value="suspended"/>
+  <notDone value="true"/>
+  <notDoneReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="398254007"/>
+      <display value="  Pre-eclampsia (disorder)"/>
+    </coding>
+    <text value="Pre-eclampsia"/>
+  </notDoneReason>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -47,15 +56,6 @@
 		<reference value="Observation/blood-pressure"/>
 		<display value="Blood Pressure"/>
   </reasonReference>
-  <notDone value="true"/>
-  <notDoneReason>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="398254007"/>
-      <display value="  Pre-eclampsia (disorder)"/>
-    </coding>
-    <text value="Pre-eclampsia"/>
-  </notDoneReason>
 </Procedure>
 <!-- 
 

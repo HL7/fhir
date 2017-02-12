@@ -21,10 +21,6 @@
         <end value="2011-06-27"/>
     </performedPeriod>
 	<performer>
-        <actor>
-            <reference value="Practitioner/f002"/>
-            <display value="P. Voigt"/>
-        </actor>
         <role>
             <coding>
                 <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/> <!-- "AssignedRoleType" coding system -->
@@ -33,6 +29,10 @@
             </coding>
             <text value="Care role"/>
         </role>
+		<actor>
+            <reference value="Practitioner/f002"/>
+            <display value="P. Voigt"/>
+        </actor>
     </performer>
 	<reasonCodeableConcept>
       <text value="Heart valve disorder"/>

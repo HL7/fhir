@@ -377,7 +377,7 @@
 
  -- Row 20 -----------------------------------
   Element = Condition.evidence.code
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Inv. = 2
   Type = CodeableConcept
