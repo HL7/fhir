@@ -288,7 +288,7 @@
 450	Event type	2.16.840.1.113883.18.286	eventType	
 452	Health care provider type code	2.16.840.1.113883.18.287	healthCareProviderTypeCode	
 453	Health care provider classification	2.16.840.1.113883.18.288	healthCareProviderClassification	
-454	Health care provider area of specialization	2.16.840.1.113883.18.289	healthCareProviderAreaOfSpecialization	
+// 454	Health care provider area of specialization	2.16.840.1.113883.18.289	healthCareProviderAreaOfSpecialization	
 455	Type of bill code	2.16.840.1.113883.18.290	typeOfBillCode	
 456	Revenue code	2.16.840.1.113883.18.291	revenueCode	
 457	Overall Claim Disposition Code	2.16.840.1.113883.18.292	overallClaimDispositionCode	
