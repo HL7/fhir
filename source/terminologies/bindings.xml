@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
   <LastSaved>2016-10-03T22:33:50Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -239,11 +239,13 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>7260</WindowHeight>
-  <WindowWidth>15300</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
+  <ActiveSheet>11</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1047,14 +1049,10 @@
     <HorizontalResolution>-3</HorizontalResolution>
     <VerticalResolution>-3</VerticalResolution>
    </Print>
-   <Selected/>
-   <TopRowVisible>8</TopRowVisible>
-   <LeftColumnVisible>2</LeftColumnVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>23</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>29</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4599,7 +4597,7 @@
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s99"/>
     <Cell ss:StyleID="s99"><Data ss:Type="String">Required</Data></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">To be conformant, instances of this element SHALL include a code from the specified value set.</Data></Cell>
+    <Cell ss:StyleID="s99"><Data ss:Type="String">To be conformant, the concept in this element SHALL be from the specified value set</Data></Cell>
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s97"/>
     <Cell ss:StyleID="s100"/>
@@ -4610,7 +4608,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s104"/>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Extensible</Data></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">To be conformant, the concept in this element SHALL be from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</Data></Cell>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s105"/>
@@ -5141,6 +5139,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5160,7 +5159,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
