@@ -218,9 +218,10 @@ public class BindingsParser {
   private void touchVS(ValueSet vs) throws FHIRFormatError, URISyntaxException {
     ValueSetUtilities.makeShareable(vs);
 
-    ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + vs.getId());
+    String nid = registry.idForName(vs.getId());
+    ValueSetUtilities.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + nid);
     if (vs.getUserData("cs") != null)
-      CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + vs.getId());
+      CodeSystemUtilities.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + nid);
   }
 
   private ValueSet loadValueSet(String ref, String committee) throws Exception {
