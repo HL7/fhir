@@ -688,7 +688,7 @@
  -- Row 24 -----------------------------------
   Name = subsumes
   Use = Resource | Instance
-  Documentation = Test whether code \"sub\" is subsumed by code \"super\" given the semantics of subsumption in the underlying code system (see hierarchyMeaning)
+  Documentation = Test the subsumption relationship between code/Coding A and code/Coding B given the semantics of subsumption in the underlying code system (see hierarchyMeaning)
   Type = operation
   Example.Request = $subsumes-request.txt
   Example.Response = $subsumes-response.txt
@@ -697,7 +697,7 @@
  -- Row 25 -----------------------------------
   Name = subsumes.codeA
   Use = in
-  Documentation = The \"sub\" code that is to be tested. If a code is provided, a system must be provided
+  Documentation = The \"A\" code that is to be tested. If a code is provided, a system must be provided
   Type = code
   Min = 0
   Max = 1
@@ -705,7 +705,7 @@
  -- Row 26 -----------------------------------
   Name = subsumes.codeB
   Use = in
-  Documentation = The \"super\" code that is to be validated. If a code is provided, a system must be provided
+  Documentation = The \"B\" code that is to be tested. If a code is provided, a system must be provided
   Type = code
   Min = 0
   Max = 1
@@ -713,7 +713,7 @@
  -- Row 27 -----------------------------------
   Name = subsumes.system
   Use = in
-  Documentation = The system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance
+  Documentation = The code system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance
   Type = uri
   Min = 0
   Max = 1
@@ -721,7 +721,7 @@
  -- Row 28 -----------------------------------
   Name = subsumes.version
   Use = in
-  Documentation = The version of the system, if one was provided in the source data
+  Documentation = The version of the code system, if one was provided in the source data
   Type = string
   Min = 0
   Max = 1
@@ -729,7 +729,7 @@
  -- Row 29 -----------------------------------
   Name = subsumes.codingA
   Use = in
-  Documentation = The \"sub\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Documentation = The \"A\" Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established
   Type = Coding
   Min = 0
   Max = 1
@@ -737,7 +737,7 @@
  -- Row 30 -----------------------------------
   Name = subsumes.codingB
   Use = in
-  Documentation = The \"super\" coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established
+  Documentation = The \"B\" Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established
   Type = Coding
   Min = 0
   Max = 1
@@ -745,7 +745,7 @@
  -- Row 31 -----------------------------------
   Name = subsumes.outcome
   Use = out
-  Documentation = Whether \"sub\" is subsumed by \"super\". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes, then it returns an error (i.e. an OperationOutcome)
+  Documentation = The subsumption relationship between code/Coding \"A\" and code/Coding \"B\". There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes/Codings, then it returns an error (i.e. an OperationOutcome)
   Type = code
   Min = 1
   Max = 1

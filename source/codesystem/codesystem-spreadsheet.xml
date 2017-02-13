@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8445</WindowHeight>
-  <WindowWidth>22125</WindowWidth>
+  <WindowHeight>8955</WindowHeight>
+  <WindowWidth>19290</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -5505,7 +5505,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Subsumption Testing</Data></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Test whether code &quot;sub&quot; is subsumed by code &quot;super&quot; given the semantics of subsumption in the underlying code system (see hierarchyMeaning)</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Test the subsumption relationship between code/Coding A and code/Coding B given the semantics of subsumption in the underlying code system (see hierarchyMeaning)</Data></Cell>
     <Cell ss:StyleID="s129"/>
     <Cell><Data ss:Type="String">$subsumes-request.txt</Data></Cell>
     <Cell><Data ss:Type="String">$subsumes-response.txt</Data></Cell>
@@ -5518,7 +5518,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;sub&quot; code that is to be tested. If a code is provided, a system must be provided</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;A&quot; code that is to be tested. If a code is provided, a system must be provided</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -5529,7 +5529,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;super&quot; code that is to be validated. If a code is provided, a system must be provided</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;B&quot; code that is to be tested. If a code is provided, a system must be provided</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -5540,7 +5540,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">uri</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The code system in which subsumption testing is to be performed. This must be provided unless the operation is invoked on a code system instance</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -5551,7 +5551,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">string</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The version of the code system, if one was provided in the source data</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5562,7 +5562,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;sub&quot; coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;A&quot; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5573,7 +5573,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;super&quot; coding to test. The coding system does not have to match the specified subsumption system, but the relationships between the systems must be well established</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The &quot;B&quot; Coding that is to be tested. The code system does not have to match the specified subsumption code system, but the relationships between the code systems must be well established</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5584,7 +5584,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">code</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Whether &quot;sub&quot; is subsumed by &quot;super&quot;. There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The subsumption relationship between code/Coding &quot;A&quot; and code/Coding &quot;B&quot;. There are 4 possible codes to be returned: equivalent, subsumes, subsumed-by, and not-subsumed. If the server is unable to determine the relationship between the codes/Codings, then it returns an error (i.e. an OperationOutcome)</Data></Cell>
     <Cell ss:StyleID="s129"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6156,9 +6156,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>26</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>7</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6166,6 +6166,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -6173,8 +6174,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>33</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>31</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

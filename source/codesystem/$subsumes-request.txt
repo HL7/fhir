@@ -1,4 +1,4 @@
-// Using simple parameters: is viral hepatitis a disorder of the liver?
+// Using simple parameters: is 'Viral hepatitis' (3738000) a 'Disorder of liver' (235856003)?
 GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&codeA=3738000&codeB=235856003
 
 --------------------------------------

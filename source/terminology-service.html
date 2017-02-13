@@ -511,7 +511,7 @@ HTTP/1.1 200 OK
 
 <h3>Subsumption testing</h3>
 <p>
-To test whether <i>code A</i> subsumes <i>code B</i>, perform a $subsumes operation.
+To test the subsumption relationship between <i>code/Coding A</i> and <i>code/Coding B</i>, perform a $subsumes operation.
 Subsumption testing is based on <a href="codesystem.html#subsumption">the CodeSystem definition of subsumption</a>.
 The client passes the server the following information:
 </p>
@@ -521,8 +521,7 @@ The client passes the server the following information:
  <li> (Optionally) the version of the code system to use (mostly, this should not matter)</li>
 </ul>
 <p>
-If the client passes Codings, it is allowed to use system values that are different from the system in which subsumption testing is to be performed.
-In this case, the server SHALL return an error unless the relationships between the various code systems is well defined.
+If the client passes Codings, it is allowed to use code system values that are different from the code system in which subsumption testing is to be performed.  In this case, the server SHALL return an error unless the relationships between the various code systems is well defined.
 </p>
 <p>
 If the concepts can be compared, then the server returns an outcome code:
@@ -537,7 +536,7 @@ If the concepts can be compared, then the server returns an outcome code:
 <div class="example">
 <p><b>Examples</b></p>
 <p>
-Test whether a SNOMED CT Concept 399211009 (History of myocardial infarction) is subsumed by 22298006 (Myocardial infarction):
+Test whether a SNOMED CT Concept 'Disorder of liver' (235856003) subsumes 'Viral hepatitis' (3738000):
 </p>
 <pre class="http">
 GET [base]/CodeSystem/$subsumes?system=http://snomed.info/sct&amp;codeA=235856003&amp;codeB=3738000
