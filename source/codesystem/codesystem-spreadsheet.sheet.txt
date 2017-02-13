@@ -570,7 +570,7 @@
  -- Row 8 -----------------------------------
   Name = lookup.property
   Use = in
-  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: system, version, display, definition, designation, parent, child, and lang.X where X is a language code in a designation. These properties refer to the directly return parameters documented for the operation
+  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return. The following properties are defined for all code systems: url, name, version (code system info) and code information: display, definition, designation, parent and child, and for designations, lang.X where X is a designation language code. Some of the properties are returned explicit in named parameters (when the names match), and the rest (except for lang.X) in the property parameter group
   Type = code
   Min = 0
   Max = *
