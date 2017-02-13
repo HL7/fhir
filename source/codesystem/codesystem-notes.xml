@@ -200,9 +200,10 @@ code, display name and code system.  For example, a code system of drug informat
 which contains information about the content of the medication (e.g., RxNorm), or a set of  
 observation types, that contain methods, units, etc. (e.g., LOINC).  
 In FHIR, these are handled by splitting the concept into two distinct parts - the 
-<b>ValueSet</b> resource is used to manage the codes, display names and relationships.  
-A separate "detail" resource (e.g., <a href="medication.html">Medication</a> for 
-drugs, <a href="dataelement.html">DataElement</a> for observation types, 
+Terminology, (<b>Code System</b> &amp; <code>ValueSet</code> resources) is used to 
+manage the codes, display names and relationships.  A separate "detail" 
+resource (e.g., <a href="medication.html">Medication</a> for drugs, 
+<a href="dataelement.html">DataElement</a> for observation types, 
 <a href="location.html">Location</a> for location, etc.) is used to convey detailed 
 information (dose form &amp; strength, allowed data type or permitted values, address &amp;
 hours of operation, etc.).  One "detail" resource instance is created for each code.
@@ -222,7 +223,7 @@ resources, independent retrieval and update is possible.</li>
 similar information in circumstances where the code may be unknown, unavailable or 
 occasionally non-existent (e.g., custom compounds, non-registered locations).  Having 
 a distinct resource supports these capabilities, which would not be possible using 
-<b>ValueSet</b>.</li>
+<code>CodeSystem</code>/<code>ValueSet</code>.</li>
 </ul>
 <p>
 Note that this division in FHIR does not imply that a similar division is required in 
@@ -231,7 +232,7 @@ systems may choose to only expose or maintain one aspect of such information typ
 only the discrete resource instances or only the value set).
 </p>
 <p>
-The linkage between the "detail" resource and the <b>ValueSet</b> is accomplished via the 
+The linkage between the "detail" resource and the Terminology resources is accomplished via the 
 <code>code</code> element (or equivalent) on the detail resource.  As well, the "name" or 
 "title" on the detail resource generally corresponds with the display name on the matching 
 code.  Most detail resources will also have an "identifier" element.  This <i>can</i> be
