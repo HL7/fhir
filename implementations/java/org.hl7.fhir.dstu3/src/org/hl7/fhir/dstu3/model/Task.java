@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1866,7 +1866,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * Indicates the "level" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc.
      */
     @Child(name = "intent", type = {CodeType.class}, order=8, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="proposed | planned | actionable +", formalDefinition="Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc." )
+    @Description(shortDefinition="proposal | plan | order +", formalDefinition="Indicates the \"level\" of actionability associated with the Task.  I.e. Is this a proposed task, a planned task, an actionable task, etc." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
     protected Enumeration<TaskIntent> intent;
 

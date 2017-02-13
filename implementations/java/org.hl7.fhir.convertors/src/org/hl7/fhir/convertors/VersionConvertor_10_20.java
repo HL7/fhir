@@ -5,18 +5,23 @@ import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.model.CodeableConcept;
+import org.hl7.fhir.dstu2.model.Reference;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.Annotation;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.DosageInstruction;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent;
+import org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
@@ -3257,7 +3262,7 @@ public class VersionConvertor_10_20 {
     tgt.setSent(src.getSent());
     tgt.setReceived(src.getReceived());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
+      tgt.addReasonCodeableConcept(convertCodeableConcept(t));
     tgt.setSubject(convertReference(src.getSubject()));
     return tgt;
   }
@@ -3281,7 +3286,7 @@ public class VersionConvertor_10_20 {
     tgt.setEncounter(convertReference(src.getContext()));
     tgt.setSent(src.getSent());
     tgt.setReceived(src.getReceived());
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReason())
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCodeableConcept())
       tgt.addReason(convertCodeableConcept(t));
     tgt.setSubject(convertReference(src.getSubject()));
     return tgt;
@@ -3346,16 +3351,30 @@ public class VersionConvertor_10_20 {
       tgt.addPayload(convertCommunicationRequestPayloadComponent(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
-    tgt.setRequester(convertReference(src.getRequester()));
+    tgt.getRequester().setAgent(convertReference(src.getRequester()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
     tgt.setContext(convertReference(src.getEncounter()));
-    tgt.setScheduled(convertType(src.getScheduled()));
+    tgt.setOccurrence(convertType(src.getScheduled()));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getReason())
-      tgt.addReason(convertCodeableConcept(t));
-    tgt.setRequestedOn(src.getRequestedOn());
+      tgt.addReasonCode(convertCodeableConcept(t));
+    tgt.setAuthoredOn(src.getRequestedOn());
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setPriority(convertCodeableConcept(src.getPriority()));
+    tgt.setPriority(convertPriorityCode(src.getPriority()));
     return tgt;
+  }
+
+  private org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority convertPriorityCode(org.hl7.fhir.dstu2.model.CodeableConcept priority) {
+    for (org.hl7.fhir.dstu2.model.Coding c : priority.getCoding()) {
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "routine".equals(c.getCode()))
+          return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority.ROUTINE;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "urgent".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority.URGENT;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "stat".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority.STAT;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "asap".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority.ASAP;
+    }
+    return null;
   }
 
   public org.hl7.fhir.dstu2.model.CommunicationRequest convertCommunicationRequest(org.hl7.fhir.dstu3.model.CommunicationRequest src) throws FHIRException {
@@ -3373,16 +3392,28 @@ public class VersionConvertor_10_20 {
       tgt.addPayload(convertCommunicationRequestPayloadComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getMedium())
       tgt.addMedium(convertCodeableConcept(t));
-    tgt.setRequester(convertReference(src.getRequester()));
+    tgt.setRequester(convertReference(src.getRequester().getAgent()));
     tgt.setStatus(convertCommunicationRequestStatus(src.getStatus()));
     tgt.setEncounter(convertReference(src.getContext()));
-    tgt.setScheduled(convertType(src.getScheduled()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReason())
+    tgt.setScheduled(convertType(src.getOccurrence()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getReasonCode())
       tgt.addReason(convertCodeableConcept(t));
-    tgt.setRequestedOn(src.getRequestedOn());
+    tgt.setRequestedOn(src.getAuthoredOn());
     tgt.setSubject(convertReference(src.getSubject()));
-    tgt.setPriority(convertCodeableConcept(src.getPriority()));
+    tgt.setPriority(convertPriorityCode(src.getPriority()));
     return tgt;
+  }
+
+  private org.hl7.fhir.dstu2.model.CodeableConcept convertPriorityCode(org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationPriority priority) {
+    org.hl7.fhir.dstu2.model.CodeableConcept cc = new org.hl7.fhir.dstu2.model.CodeableConcept();
+    switch (priority) {
+    case ROUTINE: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("routine"); break;
+    case URGENT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("urgent"); break;
+    case STAT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("stat"); break;
+    case ASAP: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("asap"); break;
+    default: return null;
+    }
+    return cc;
   }
 
   public org.hl7.fhir.dstu3.model.CommunicationRequest.CommunicationRequestStatus convertCommunicationRequestStatus(org.hl7.fhir.dstu2.model.CommunicationRequest.CommunicationRequestStatus src) throws FHIRException {
@@ -4009,7 +4040,7 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu3.model.Condition.ConditionEvidenceComponent tgt = new org.hl7.fhir.dstu3.model.Condition.ConditionEvidenceComponent();
     copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
+    tgt.addCode(convertCodeableConcept(src.getCode()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getDetail())
       tgt.addDetail(convertReference(t));
     return tgt;
@@ -4020,7 +4051,8 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.Condition.ConditionEvidenceComponent tgt = new org.hl7.fhir.dstu2.model.Condition.ConditionEvidenceComponent();
     copyElement(src, tgt);
-    tgt.setCode(convertCodeableConcept(src.getCode()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept cc : src.getCode())
+      tgt.setCode(convertCodeableConcept(cc));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getDetail())
       tgt.addDetail(convertReference(t));
     return tgt;
@@ -7273,8 +7305,10 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setNotGiven(src.getWasNotGiven());
     tgt.setPrimarySource(!src.getReported());
-    tgt.setPerformer(convertReference(src.getPerformer()));
-    tgt.setRequester(convertReference(src.getRequester()));
+    if (src.hasPerformer())
+      tgt.addPractitioner().setActor(convertReference(src.getPerformer())).setRole(new org.hl7.fhir.dstu3.model.CodeableConcept().addCoding(new Coding().setSystem("http://hl7.org/fhir/v2/0443").setCode("AP")));
+    if (src.hasRequester())
+      tgt.addPractitioner().setActor(convertReference(src.getRequester())).setRole(new org.hl7.fhir.dstu3.model.CodeableConcept().addCoding(new Coding().setSystem("http://hl7.org/fhir/v2/0443").setCode("OP")));
     tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setManufacturer(convertReference(src.getManufacturer()));
     tgt.setLocation(convertReference(src.getLocation()));
@@ -7307,8 +7341,8 @@ public class VersionConvertor_10_20 {
     tgt.setPatient(convertReference(src.getPatient()));
     tgt.setWasNotGiven(src.getNotGiven());
     tgt.setReported(!src.getPrimarySource());
-    tgt.setPerformer(convertReference(src.getPerformer()));
-    tgt.setRequester(convertReference(src.getRequester()));
+    tgt.setPerformer(convertReference(getPerformer(src.getPractitioner())));
+    tgt.setRequester(convertReference(getRequester(src.getPractitioner())));
     tgt.setEncounter(convertReference(src.getEncounter()));
     tgt.setManufacturer(convertReference(src.getManufacturer()));
     tgt.setLocation(convertReference(src.getLocation()));
@@ -7325,6 +7359,30 @@ public class VersionConvertor_10_20 {
     for (org.hl7.fhir.dstu3.model.Immunization.ImmunizationVaccinationProtocolComponent t : src.getVaccinationProtocol())
       tgt.addVaccinationProtocol(convertImmunizationVaccinationProtocolComponent(t));
     return tgt;
+  }
+
+  private org.hl7.fhir.dstu3.model.Reference getPerformer(List<ImmunizationPractitionerComponent> practitioner) {
+    for (ImmunizationPractitionerComponent p : practitioner) {
+      if (hasConcept(p.getRole(), "http://hl7.org/fhir/v2/0443", "AP"))
+        return p.getActor();
+    }
+    return null;
+  }
+
+  private org.hl7.fhir.dstu3.model.Reference getRequester(List<ImmunizationPractitionerComponent> practitioner) {
+    for (ImmunizationPractitionerComponent p : practitioner) {
+      if (hasConcept(p.getRole(), "http://hl7.org/fhir/v2/0443", "OP"))
+        return p.getActor();
+    }
+    return null;
+  }
+
+  private boolean hasConcept(org.hl7.fhir.dstu3.model.CodeableConcept cc, String system, String code) {
+    for (org.hl7.fhir.dstu3.model.Coding c : cc.getCoding()) {
+      if (system.equals(c.getSystem()) && code.equals(c.getCode()))
+        return true;
+    }
+    return false;
   }
 
   public org.hl7.fhir.dstu3.model.Immunization.ImmunizationExplanationComponent convertImmunizationExplanationComponent(org.hl7.fhir.dstu2.model.Immunization.ImmunizationExplanationComponent src) throws FHIRException {
@@ -8549,7 +8607,7 @@ public class VersionConvertor_10_20 {
     tgt.setResponsible(convertReference(src.getResponsible()));
     tgt.setReason(convertCodeableConcept(src.getReason()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getData())
-      tgt.addData(convertReference(t));
+      tgt.addFocus(convertReference(t));
     return tgt;
   }
 
@@ -8569,7 +8627,7 @@ public class VersionConvertor_10_20 {
     tgt.setReceiver(convertReference(src.getReceiver()));
     tgt.setResponsible(convertReference(src.getResponsible()));
     tgt.setReason(convertCodeableConcept(src.getReason()));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getData())
+    for (org.hl7.fhir.dstu3.model.Reference t : src.getFocus())
       tgt.addData(convertReference(t));
     return tgt;
   }
@@ -10574,20 +10632,34 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertReferralStatus(src.getStatus()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setPriority(convertCodeableConcept(src.getPriority()));
+    tgt.setPriority(convertReferralPriorityCode(src.getPriority()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setFulfillmentTime(convertPeriod(src.getFulfillmentTime()));
-    tgt.setRequester(convertReference(src.getRequester()));
+    tgt.setOccurrence(convertPeriod(src.getFulfillmentTime()));
+    tgt.getRequester().setAgent(convertReference(src.getRequester()));
     tgt.setSpecialty(convertCodeableConcept(src.getSpecialty()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
+    tgt.addReasonCode(convertCodeableConcept(src.getReason()));
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getServiceRequested())
       tgt.addServiceRequested(convertCodeableConcept(t));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupportingInformation())
       tgt.addSupportingInfo(convertReference(t));
     return tgt;
+  }
+
+  private ReferralPriority convertReferralPriorityCode(CodeableConcept priority) {
+    for (org.hl7.fhir.dstu2.model.Coding c : priority.getCoding()) {
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "routine".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority.ROUTINE;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "urgent".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority.URGENT;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "stat".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority.STAT;
+      if ("http://hl7.org/fhir/diagnostic-order-priority".equals(c.getSystem()) &&  "asap".equals(c.getCode()))
+        return org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority.ASAP;
+    }
+    return null;
   }
 
   public org.hl7.fhir.dstu2.model.ReferralRequest convertReferralRequest(org.hl7.fhir.dstu3.model.ReferralRequest src) throws FHIRException {
@@ -10599,14 +10671,15 @@ public class VersionConvertor_10_20 {
       tgt.addIdentifier(convertIdentifier(t));
     tgt.setStatus(convertReferralStatus(src.getStatus()));
     tgt.setType(convertCodeableConcept(src.getType()));
-    tgt.setPriority(convertCodeableConcept(src.getPriority()));
+    tgt.setPriority(convertReferralPriorityCode(src.getPriority()));
     tgt.setPatient(convertReference(src.getPatient()));
-    tgt.setFulfillmentTime(convertPeriod(src.getFulfillmentTime()));
-    tgt.setRequester(convertReference(src.getRequester()));
+    tgt.setFulfillmentTime(convertPeriod(src.getOccurrencePeriod()));
+    tgt.setRequester(convertReference(src.getRequester().getAgent()));
     tgt.setSpecialty(convertCodeableConcept(src.getSpecialty()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getRecipient())
       tgt.addRecipient(convertReference(t));
-    tgt.setReason(convertCodeableConcept(src.getReason()));
+    for (org.hl7.fhir.dstu3.model.CodeableConcept cc : src.getReasonCode())
+      tgt.setReason(convertCodeableConcept(cc));
     tgt.setDescription(src.getDescription());
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getServiceRequested())
       tgt.addServiceRequested(convertCodeableConcept(t));
@@ -10614,6 +10687,19 @@ public class VersionConvertor_10_20 {
       tgt.addSupportingInformation(convertReference(t));
     return tgt;
   }
+
+  private org.hl7.fhir.dstu2.model.CodeableConcept convertReferralPriorityCode(org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority priority) {
+    org.hl7.fhir.dstu2.model.CodeableConcept cc = new org.hl7.fhir.dstu2.model.CodeableConcept();
+    switch (priority) {
+    case ROUTINE: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("routine"); break;
+    case URGENT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("urgent"); break;
+    case STAT: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("stat"); break;
+    case ASAP: cc.addCoding().setSystem("http://hl7.org/fhir/diagnostic-order-priority").setCode("asap"); break;
+    default: return null;
+    }
+    return cc;
+  }
+
 
   public org.hl7.fhir.dstu3.model.ReferralRequest.ReferralRequestStatus convertReferralStatus(org.hl7.fhir.dstu2.model.ReferralRequest.ReferralStatus src) throws FHIRException {
     if (src == null)
@@ -11474,7 +11560,7 @@ public class VersionConvertor_10_20 {
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
     tgt.setStatus(convertSupplyRequestStatus(src.getStatus()));
     tgt.setKind(convertCodeableConcept(src.getKind()));
-    tgt.setOrderedItem(convertReference(src.getOrderedItem()));
+    tgt.getOrderedItem().setItem(convertReference(src.getOrderedItem()));
     for (org.hl7.fhir.dstu2.model.Reference t : src.getSupplier())
       tgt.addSupplier(convertReference(t));
     tgt.setReason(convertType(src.getReason()));
@@ -11494,7 +11580,7 @@ public class VersionConvertor_10_20 {
     tgt.setIdentifier(convertIdentifier(src.getIdentifier()));
     tgt.setStatus(convertSupplyRequestStatus(src.getStatus()));
     tgt.setKind(convertCodeableConcept(src.getKind()));
-//    tgt.setOrderedItem(convertReference(src.getOrderedItem()));
+    tgt.setOrderedItem(convertReference(src.getOrderedItem().getItemReference()));
     for (org.hl7.fhir.dstu3.model.Reference t : src.getSupplier())
       tgt.addSupplier(convertReference(t));
     tgt.setReason(convertType(src.getReason()));

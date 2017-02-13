@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -388,7 +388,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/udi-entry-type")
         protected Enumeration<UDIEntryType> entryType;
 
-        private static final long serialVersionUID = -1105798343L;
+        private static final long serialVersionUID = 1028215381L;
 
     /**
      * Constructor
@@ -1087,7 +1087,15 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     @Description(shortDefinition="Device notes and comments", formalDefinition="Descriptive information, usage information or implantation information that is not captured in an existing element." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = -38360524L;
+    /**
+     * Provides additional safety characteristics about a medical device.  For example devices containing latex.
+     */
+    @Child(name = "safety", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Safety Characteristics of Device", formalDefinition="Provides additional safety characteristics about a medical device.  For example devices containing latex." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-safety")
+    protected List<CodeableConcept> safety;
+
+    private static final long serialVersionUID = -393443189L;
 
   /**
    * Constructor
@@ -1827,6 +1835,59 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
       return getNote().get(0);
     }
 
+    /**
+     * @return {@link #safety} (Provides additional safety characteristics about a medical device.  For example devices containing latex.)
+     */
+    public List<CodeableConcept> getSafety() { 
+      if (this.safety == null)
+        this.safety = new ArrayList<CodeableConcept>();
+      return this.safety;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public Device setSafety(List<CodeableConcept> theSafety) { 
+      this.safety = theSafety;
+      return this;
+    }
+
+    public boolean hasSafety() { 
+      if (this.safety == null)
+        return false;
+      for (CodeableConcept item : this.safety)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addSafety() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.safety == null)
+        this.safety = new ArrayList<CodeableConcept>();
+      this.safety.add(t);
+      return t;
+    }
+
+    public Device addSafety(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.safety == null)
+        this.safety = new ArrayList<CodeableConcept>();
+      this.safety.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #safety}, creating it if it does not already exist
+     */
+    public CodeableConcept getSafetyFirstRep() { 
+      if (getSafety().isEmpty()) {
+        addSafety();
+      }
+      return getSafety().get(0);
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Unique instance identifiers assigned to a device by manufacturers other organizations or owners.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -1845,6 +1906,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         childrenList.add(new Property("location", "Reference(Location)", "The place where the device can be found.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("url", "uri", "A network address on which the device may be contacted directly.", 0, java.lang.Integer.MAX_VALUE, url));
         childrenList.add(new Property("note", "Annotation", "Descriptive information, usage information or implantation information that is not captured in an existing element.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("safety", "CodeableConcept", "Provides additional safety characteristics about a medical device.  For example devices containing latex.", 0, java.lang.Integer.MAX_VALUE, safety));
       }
 
       @Override
@@ -1866,6 +1928,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case 116079: /*url*/ return this.url == null ? new Base[0] : new Base[] {this.url}; // UriType
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case -909893934: /*safety*/ return this.safety == null ? new Base[0] : this.safety.toArray(new Base[this.safety.size()]); // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1923,6 +1986,9 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
+        case -909893934: // safety
+          this.getSafety().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1963,6 +2029,8 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
           this.url = castToUri(value); // UriType
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
+        } else if (name.equals("safety")) {
+          this.getSafety().add(castToCodeableConcept(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1987,6 +2055,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         case 1901043637:  return getLocation(); 
         case 116079:  return getUrlElement();
         case 3387378:  return addNote(); 
+        case -909893934:  return addSafety(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -2011,6 +2080,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case 116079: /*url*/ return new String[] {"uri"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
+        case -909893934: /*safety*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -2071,6 +2141,9 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         else if (name.equals("note")) {
           return addNote();
         }
+        else if (name.equals("safety")) {
+          return addSafety();
+        }
         else
           return super.addChild(name);
       }
@@ -2111,6 +2184,11 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
           for (Annotation i : note)
             dst.note.add(i.copy());
         };
+        if (safety != null) {
+          dst.safety = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : safety)
+            dst.safety.add(i.copy());
+        };
         return dst;
       }
 
@@ -2130,7 +2208,8 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
            && compareDeep(manufactureDate, o.manufactureDate, true) && compareDeep(expirationDate, o.expirationDate, true)
            && compareDeep(model, o.model, true) && compareDeep(version, o.version, true) && compareDeep(patient, o.patient, true)
            && compareDeep(owner, o.owner, true) && compareDeep(contact, o.contact, true) && compareDeep(location, o.location, true)
-           && compareDeep(url, o.url, true) && compareDeep(note, o.note, true);
+           && compareDeep(url, o.url, true) && compareDeep(note, o.note, true) && compareDeep(safety, o.safety, true)
+          ;
       }
 
       @Override
@@ -2149,7 +2228,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, udi, status
           , type, lotNumber, manufacturer, manufactureDate, expirationDate, model, version
-          , patient, owner, contact, location, url, note);
+          , patient, owner, contact, location, url, note, safety);
       }
 
   @Override

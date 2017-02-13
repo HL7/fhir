@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -50,25 +50,33 @@ public class ReferralRequest extends DomainResource {
 
     public enum ReferralRequestStatus {
         /**
-         * A draft referral that has yet to be send.
+         * The request has been created but is not yet complete or ready for action
          */
         DRAFT, 
         /**
-         * The referral is complete and is ready for fulfillment.
+         * The request is ready to be acted upon
          */
         ACTIVE, 
         /**
-         * The referral has been cancelled without being completed. For example it is no longer needed.
+         * The authorization/request to act has been temporarily withdrawn but is expected to resume in the future
+         */
+        SUSPENDED, 
+        /**
+         * The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.
          */
         CANCELLED, 
         /**
-         * The referral has been completely actioned.
+         * Activity against the request has been sufficiently completed to the satisfaction of the requester
          */
         COMPLETED, 
         /**
-         * This referral record should never have existed, though it's possible some degree of real-world activity or decisions may have been taken due to its existence
+         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
          */
         ENTEREDINERROR, 
+        /**
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         */
+        UNKNOWN, 
         /**
          * added to help the parsers with the generic types
          */
@@ -80,12 +88,16 @@ public class ReferralRequest extends DomainResource {
           return DRAFT;
         if ("active".equals(codeString))
           return ACTIVE;
+        if ("suspended".equals(codeString))
+          return SUSPENDED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
         if ("completed".equals(codeString))
           return COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return UNKNOWN;
         if (Configuration.isAcceptInvalidEnums())
           return null;
         else
@@ -95,29 +107,35 @@ public class ReferralRequest extends DomainResource {
           switch (this) {
             case DRAFT: return "draft";
             case ACTIVE: return "active";
+            case SUSPENDED: return "suspended";
             case CANCELLED: return "cancelled";
             case COMPLETED: return "completed";
             case ENTEREDINERROR: return "entered-in-error";
+            case UNKNOWN: return "unknown";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case DRAFT: return "http://hl7.org/fhir/referral-request-status";
-            case ACTIVE: return "http://hl7.org/fhir/referral-request-status";
-            case CANCELLED: return "http://hl7.org/fhir/referral-request-status";
-            case COMPLETED: return "http://hl7.org/fhir/referral-request-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/referral-request-status";
+            case DRAFT: return "http://hl7.org/fhir/request-status";
+            case ACTIVE: return "http://hl7.org/fhir/request-status";
+            case SUSPENDED: return "http://hl7.org/fhir/request-status";
+            case CANCELLED: return "http://hl7.org/fhir/request-status";
+            case COMPLETED: return "http://hl7.org/fhir/request-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/request-status";
+            case UNKNOWN: return "http://hl7.org/fhir/request-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case DRAFT: return "A draft referral that has yet to be send.";
-            case ACTIVE: return "The referral is complete and is ready for fulfillment.";
-            case CANCELLED: return "The referral has been cancelled without being completed. For example it is no longer needed.";
-            case COMPLETED: return "The referral has been completely actioned.";
-            case ENTEREDINERROR: return "This referral record should never have existed, though it's possible some degree of real-world activity or decisions may have been taken due to its existence";
+            case DRAFT: return "The request has been created but is not yet complete or ready for action";
+            case ACTIVE: return "The request is ready to be acted upon";
+            case SUSPENDED: return "The authorization/request to act has been temporarily withdrawn but is expected to resume in the future";
+            case CANCELLED: return "The authorization/request to act has been terminated prior to the full completion of the intended actions.  No further activity should occur.";
+            case COMPLETED: return "Activity against the request has been sufficiently completed to the satisfaction of the requester";
+            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -125,9 +143,11 @@ public class ReferralRequest extends DomainResource {
           switch (this) {
             case DRAFT: return "Draft";
             case ACTIVE: return "Active";
+            case SUSPENDED: return "Suspended";
             case CANCELLED: return "Cancelled";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
+            case UNKNOWN: return "Unknown";
             default: return "?";
           }
         }
@@ -142,12 +162,16 @@ public class ReferralRequest extends DomainResource {
           return ReferralRequestStatus.DRAFT;
         if ("active".equals(codeString))
           return ReferralRequestStatus.ACTIVE;
+        if ("suspended".equals(codeString))
+          return ReferralRequestStatus.SUSPENDED;
         if ("cancelled".equals(codeString))
           return ReferralRequestStatus.CANCELLED;
         if ("completed".equals(codeString))
           return ReferralRequestStatus.COMPLETED;
         if ("entered-in-error".equals(codeString))
           return ReferralRequestStatus.ENTEREDINERROR;
+        if ("unknown".equals(codeString))
+          return ReferralRequestStatus.UNKNOWN;
         throw new IllegalArgumentException("Unknown ReferralRequestStatus code '"+codeString+"'");
         }
         public Enumeration<ReferralRequestStatus> fromType(Base code) throws FHIRException {
@@ -162,12 +186,16 @@ public class ReferralRequest extends DomainResource {
           return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.DRAFT);
         if ("active".equals(codeString))
           return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.ACTIVE);
+        if ("suspended".equals(codeString))
+          return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.SUSPENDED);
         if ("cancelled".equals(codeString))
           return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.CANCELLED);
         if ("completed".equals(codeString))
           return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.COMPLETED);
         if ("entered-in-error".equals(codeString))
           return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.ENTEREDINERROR);
+        if ("unknown".equals(codeString))
+          return new Enumeration<ReferralRequestStatus>(this, ReferralRequestStatus.UNKNOWN);
         throw new FHIRException("Unknown ReferralRequestStatus code '"+codeString+"'");
         }
     public String toCode(ReferralRequestStatus code) {
@@ -175,12 +203,16 @@ public class ReferralRequest extends DomainResource {
         return "draft";
       if (code == ReferralRequestStatus.ACTIVE)
         return "active";
+      if (code == ReferralRequestStatus.SUSPENDED)
+        return "suspended";
       if (code == ReferralRequestStatus.CANCELLED)
         return "cancelled";
       if (code == ReferralRequestStatus.COMPLETED)
         return "completed";
       if (code == ReferralRequestStatus.ENTEREDINERROR)
         return "entered-in-error";
+      if (code == ReferralRequestStatus.UNKNOWN)
+        return "unknown";
       return "?";
       }
     public String toSystem(ReferralRequestStatus code) {
@@ -378,6 +410,370 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       }
     }
 
+    public enum ReferralPriority {
+        /**
+         * The request has normal priority
+         */
+        ROUTINE, 
+        /**
+         * The request should be actioned promptly - higher priority than routine
+         */
+        URGENT, 
+        /**
+         * The request should be actioned as soon as possible - higher priority than urgent
+         */
+        ASAP, 
+        /**
+         * The request should be actioned immediately - highest possible priority.  E.g. an emergency
+         */
+        STAT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ReferralPriority fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("routine".equals(codeString))
+          return ROUTINE;
+        if ("urgent".equals(codeString))
+          return URGENT;
+        if ("asap".equals(codeString))
+          return ASAP;
+        if ("stat".equals(codeString))
+          return STAT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferralPriority code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case ROUTINE: return "routine";
+            case URGENT: return "urgent";
+            case ASAP: return "asap";
+            case STAT: return "stat";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case ROUTINE: return "http://hl7.org/fhir/request-priority";
+            case URGENT: return "http://hl7.org/fhir/request-priority";
+            case ASAP: return "http://hl7.org/fhir/request-priority";
+            case STAT: return "http://hl7.org/fhir/request-priority";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case ROUTINE: return "The request has normal priority";
+            case URGENT: return "The request should be actioned promptly - higher priority than routine";
+            case ASAP: return "The request should be actioned as soon as possible - higher priority than urgent";
+            case STAT: return "The request should be actioned immediately - highest possible priority.  E.g. an emergency";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case ROUTINE: return "Routine";
+            case URGENT: return "Urgent";
+            case ASAP: return "ASAP";
+            case STAT: return "STAT";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ReferralPriorityEnumFactory implements EnumFactory<ReferralPriority> {
+    public ReferralPriority fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("routine".equals(codeString))
+          return ReferralPriority.ROUTINE;
+        if ("urgent".equals(codeString))
+          return ReferralPriority.URGENT;
+        if ("asap".equals(codeString))
+          return ReferralPriority.ASAP;
+        if ("stat".equals(codeString))
+          return ReferralPriority.STAT;
+        throw new IllegalArgumentException("Unknown ReferralPriority code '"+codeString+"'");
+        }
+        public Enumeration<ReferralPriority> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<ReferralPriority>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("routine".equals(codeString))
+          return new Enumeration<ReferralPriority>(this, ReferralPriority.ROUTINE);
+        if ("urgent".equals(codeString))
+          return new Enumeration<ReferralPriority>(this, ReferralPriority.URGENT);
+        if ("asap".equals(codeString))
+          return new Enumeration<ReferralPriority>(this, ReferralPriority.ASAP);
+        if ("stat".equals(codeString))
+          return new Enumeration<ReferralPriority>(this, ReferralPriority.STAT);
+        throw new FHIRException("Unknown ReferralPriority code '"+codeString+"'");
+        }
+    public String toCode(ReferralPriority code) {
+      if (code == ReferralPriority.ROUTINE)
+        return "routine";
+      if (code == ReferralPriority.URGENT)
+        return "urgent";
+      if (code == ReferralPriority.ASAP)
+        return "asap";
+      if (code == ReferralPriority.STAT)
+        return "stat";
+      return "?";
+      }
+    public String toSystem(ReferralPriority code) {
+      return code.getSystem();
+      }
+    }
+
+    @Block()
+    public static class ReferralRequestRequesterComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The device, practitioner, etc. who initiated the request.
+         */
+        @Child(name = "agent", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Individual making the request", formalDefinition="The device, practitioner, etc. who initiated the request." )
+        protected Reference agent;
+
+        /**
+         * The actual object that is the target of the reference (The device, practitioner, etc. who initiated the request.)
+         */
+        protected Resource agentTarget;
+
+        /**
+         * The organization the device or practitioner was acting on behalf of.
+         */
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Organization agent is acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
+        protected Reference onBehalfOf;
+
+        /**
+         * The actual object that is the target of the reference (The organization the device or practitioner was acting on behalf of.)
+         */
+        protected Organization onBehalfOfTarget;
+
+        private static final long serialVersionUID = -71453027L;
+
+    /**
+     * Constructor
+     */
+      public ReferralRequestRequesterComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ReferralRequestRequesterComponent(Reference agent) {
+        super();
+        this.agent = agent;
+      }
+
+        /**
+         * @return {@link #agent} (The device, practitioner, etc. who initiated the request.)
+         */
+        public Reference getAgent() { 
+          if (this.agent == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ReferralRequestRequesterComponent.agent");
+            else if (Configuration.doAutoCreate())
+              this.agent = new Reference(); // cc
+          return this.agent;
+        }
+
+        public boolean hasAgent() { 
+          return this.agent != null && !this.agent.isEmpty();
+        }
+
+        /**
+         * @param value {@link #agent} (The device, practitioner, etc. who initiated the request.)
+         */
+        public ReferralRequestRequesterComponent setAgent(Reference value) { 
+          this.agent = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #agent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
+         */
+        public Resource getAgentTarget() { 
+          return this.agentTarget;
+        }
+
+        /**
+         * @param value {@link #agent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device, practitioner, etc. who initiated the request.)
+         */
+        public ReferralRequestRequesterComponent setAgentTarget(Resource value) { 
+          this.agentTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Reference getOnBehalfOf() { 
+          if (this.onBehalfOf == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ReferralRequestRequesterComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOf = new Reference(); // cc
+          return this.onBehalfOf;
+        }
+
+        public boolean hasOnBehalfOf() { 
+          return this.onBehalfOf != null && !this.onBehalfOf.isEmpty();
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} (The organization the device or practitioner was acting on behalf of.)
+         */
+        public ReferralRequestRequesterComponent setOnBehalfOf(Reference value) { 
+          this.onBehalfOf = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public Organization getOnBehalfOfTarget() { 
+          if (this.onBehalfOfTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ReferralRequestRequesterComponent.onBehalfOf");
+            else if (Configuration.doAutoCreate())
+              this.onBehalfOfTarget = new Organization(); // aa
+          return this.onBehalfOfTarget;
+        }
+
+        /**
+         * @param value {@link #onBehalfOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization the device or practitioner was acting on behalf of.)
+         */
+        public ReferralRequestRequesterComponent setOnBehalfOfTarget(Organization value) { 
+          this.onBehalfOfTarget = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("agent", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who initiated the request.", 0, java.lang.Integer.MAX_VALUE, agent));
+          childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 92750597: /*agent*/ return this.agent == null ? new Base[0] : new Base[] {this.agent}; // Reference
+        case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 92750597: // agent
+          this.agent = castToReference(value); // Reference
+          return value;
+        case -14402964: // onBehalfOf
+          this.onBehalfOf = castToReference(value); // Reference
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("agent")) {
+          this.agent = castToReference(value); // Reference
+        } else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = castToReference(value); // Reference
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92750597:  return getAgent(); 
+        case -14402964:  return getOnBehalfOf(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 92750597: /*agent*/ return new String[] {"Reference"};
+        case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("agent")) {
+          this.agent = new Reference();
+          return this.agent;
+        }
+        else if (name.equals("onBehalfOf")) {
+          this.onBehalfOf = new Reference();
+          return this.onBehalfOf;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ReferralRequestRequesterComponent copy() {
+        ReferralRequestRequesterComponent dst = new ReferralRequestRequesterComponent();
+        copyValues(dst);
+        dst.agent = agent == null ? null : agent.copy();
+        dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ReferralRequestRequesterComponent))
+          return false;
+        ReferralRequestRequesterComponent o = (ReferralRequestRequesterComponent) other;
+        return compareDeep(agent, o.agent, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ReferralRequestRequesterComponent))
+          return false;
+        ReferralRequestRequesterComponent o = (ReferralRequestRequesterComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(agent, onBehalfOf);
+      }
+
+  public String fhirType() {
+    return "ReferralRequest.requester";
+
+  }
+
+  }
+
     /**
      * Business identifier that uniquely identifies the referral/care transfer request instance.
      */
@@ -386,9 +782,21 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Identifier> identifier;
 
     /**
+     * A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.
+     */
+    @Child(name = "definition", type = {ActivityDefinition.class, PlanDefinition.class, HealthcareService.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Instantiates protocol or definition", formalDefinition="A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request." )
+    protected List<Reference> definition;
+    /**
+     * The actual objects that are the target of the reference (A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    protected List<Resource> definitionTarget;
+
+
+    /**
      * Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
      */
-    @Child(name = "basedOn", type = {ReferralRequest.class, CarePlan.class, ProcedureRequest.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "basedOn", type = {ReferralRequest.class, CarePlan.class, ProcedureRequest.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request fulfilled by this request", formalDefinition="Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part." )
     protected List<Reference> basedOn;
     /**
@@ -398,24 +806,36 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
 
 
     /**
+     * Completed or terminated request(s) whose function is taken by this new request.
+     */
+    @Child(name = "replaces", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Request(s) replaced by this request", formalDefinition="Completed or terminated request(s) whose function is taken by this new request." )
+    protected List<Reference> replaces;
+    /**
+     * The actual objects that are the target of the reference (Completed or terminated request(s) whose function is taken by this new request.)
+     */
+    protected List<Resource> replacesTarget;
+
+
+    /**
      * The business identifier of the logical "grouping" request/order that this referral is a part of.
      */
-    @Child(name = "groupIdentifier", type = {Identifier.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "groupIdentifier", type = {Identifier.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Composite request this is part of", formalDefinition="The business identifier of the logical \"grouping\" request/order that this referral is a part of." )
     protected Identifier groupIdentifier;
 
     /**
      * The status of the authorization/intention reflected by the referral request record.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="draft | active | cancelled | completed | entered-in-error", formalDefinition="The status of the authorization/intention reflected by the referral request record." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/referral-request-status")
+    @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="draft | active | suspended | cancelled | completed | entered-in-error | unknown", formalDefinition="The status of the authorization/intention reflected by the referral request record." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-status")
     protected Enumeration<ReferralRequestStatus> status;
 
     /**
      * Distinguishes the "level" of authorization/demand implicit in this request.
      */
-    @Child(name = "intent", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
+    @Child(name = "intent", type = {CodeType.class}, order=6, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="proposal | plan | order", formalDefinition="Distinguishes the \"level\" of authorization/demand implicit in this request." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-intent")
     protected Enumeration<ReferralCategory> intent;
@@ -423,7 +843,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * An indication of the type of referral (or where applicable the type of transfer of care) request.
      */
-    @Child(name = "type", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Referral/Transition of care request type", formalDefinition="An indication of the type of referral (or where applicable the type of transfer of care) request." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/referral-type")
     protected CodeableConcept type;
@@ -431,15 +851,15 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * An indication of the urgency of referral (or where applicable the type of transfer of care) request.
      */
-    @Child(name = "priority", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "priority", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Urgency of referral / transfer of care request", formalDefinition="An indication of the urgency of referral (or where applicable the type of transfer of care) request." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/request-priority")
-    protected CodeableConcept priority;
+    protected Enumeration<ReferralPriority> priority;
 
     /**
      * The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion.
      */
-    @Child(name = "serviceRequested", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "serviceRequested", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Actions requested as part of the referral", formalDefinition="The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/c80-practice-codes")
     protected List<CodeableConcept> serviceRequested;
@@ -447,7 +867,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The patient who is the subject of a referral or transfer of care request.
      */
-    @Child(name = "patient", type = {Patient.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient referred to care or transfer", formalDefinition="The patient who is the subject of a referral or transfer of care request." )
     protected Reference patient;
 
@@ -459,7 +879,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The encounter at which the request for referral or transfer of care is initiated.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Originating encounter", formalDefinition="The encounter at which the request for referral or transfer of care is initiated." )
     protected Reference context;
 
@@ -471,33 +891,28 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The period of time within which the services identified in the referral/transfer of care is specified or required to occur.
      */
-    @Child(name = "fulfillmentTime", type = {Period.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Requested service(s) fulfillment time", formalDefinition="The period of time within which the services identified in the referral/transfer of care is specified or required to occur." )
-    protected Period fulfillmentTime;
+    protected Type occurrence;
 
     /**
      * Date/DateTime of creation for draft requests and date of activation for active requests.
      */
-    @Child(name = "authoredOn", type = {DateTimeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "authoredOn", type = {DateTimeType.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date of creation/activation", formalDefinition="Date/DateTime of creation for draft requests and date of activation for active requests." )
     protected DateTimeType authoredOn;
 
     /**
-     * The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).
+     * The individual who initiated the request and has responsibility for its activation.
      */
-    @Child(name = "requester", type = {Practitioner.class, Organization.class, Patient.class}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Requester of referral / transfer of care", formalDefinition="The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral)." )
-    protected Reference requester;
-
-    /**
-     * The actual object that is the target of the reference (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
-     */
-    protected Resource requesterTarget;
+    @Child(name = "requester", type = {}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who/what is requesting service", formalDefinition="The individual who initiated the request and has responsibility for its activation." )
+    protected ReferralRequestRequesterComponent requester;
 
     /**
      * Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology.
      */
-    @Child(name = "specialty", type = {CodeableConcept.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "specialty", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The clinical specialty (discipline) that the referral is requested for", formalDefinition="Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-specialty")
     protected CodeableConcept specialty;
@@ -505,7 +920,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.
      */
-    @Child(name = "recipient", type = {Practitioner.class, Organization.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "recipient", type = {Practitioner.class, Organization.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Receiver of referral / transfer of care request", formalDefinition="The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request." )
     protected List<Reference> recipient;
     /**
@@ -517,22 +932,34 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.
      */
-    @Child(name = "reason", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reason for referral / transfer of care request", formalDefinition="Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
-    protected CodeableConcept reason;
+    protected List<CodeableConcept> reasonCode;
+
+    /**
+     * Indicates another resource whose existence justifies this request.
+     */
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Why is service needed?", formalDefinition="Indicates another resource whose existence justifies this request." )
+    protected List<Reference> reasonReference;
+    /**
+     * The actual objects that are the target of the reference (Indicates another resource whose existence justifies this request.)
+     */
+    protected List<Resource> reasonReferenceTarget;
+
 
     /**
      * The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    @Child(name = "description", type = {StringType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "description", type = {StringType.class}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A textual description of the referral", formalDefinition="The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary." )
     protected StringType description;
 
     /**
      * Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan.
      */
-    @Child(name = "supportingInfo", type = {Reference.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supportingInfo", type = {Reference.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Additonal information to support referral or transfer of care request", formalDefinition="Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan." )
     protected List<Reference> supportingInfo;
     /**
@@ -544,11 +971,23 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Comments made about the referral request by any of the participants.
      */
-    @Child(name = "note", type = {Annotation.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "note", type = {Annotation.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Comments made about referral request", formalDefinition="Comments made about the referral request by any of the participants." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 919221985L;
+    /**
+     * Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.
+     */
+    @Child(name = "relevantHistory", type = {Provenance.class}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Key events in history of request", formalDefinition="Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource." )
+    protected List<Reference> relevantHistory;
+    /**
+     * The actual objects that are the target of the reference (Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.)
+     */
+    protected List<Provenance> relevantHistoryTarget;
+
+
+    private static final long serialVersionUID = -414588692L;
 
   /**
    * Constructor
@@ -620,6 +1059,69 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
+     * @return {@link #definition} (A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.)
+     */
+    public List<Reference> getDefinition() { 
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      return this.definition;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ReferralRequest setDefinition(List<Reference> theDefinition) { 
+      this.definition = theDefinition;
+      return this;
+    }
+
+    public boolean hasDefinition() { 
+      if (this.definition == null)
+        return false;
+      for (Reference item : this.definition)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addDefinition() { //3
+      Reference t = new Reference();
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return t;
+    }
+
+    public ReferralRequest addDefinition(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.definition == null)
+        this.definition = new ArrayList<Reference>();
+      this.definition.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #definition}, creating it if it does not already exist
+     */
+    public Reference getDefinitionFirstRep() { 
+      if (getDefinition().isEmpty()) {
+        addDefinition();
+      }
+      return getDefinition().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getDefinitionTarget() { 
+      if (this.definitionTarget == null)
+        this.definitionTarget = new ArrayList<Resource>();
+      return this.definitionTarget;
+    }
+
+    /**
      * @return {@link #basedOn} (Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.)
      */
     public List<Reference> getBasedOn() { 
@@ -680,6 +1182,69 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       if (this.basedOnTarget == null)
         this.basedOnTarget = new ArrayList<Resource>();
       return this.basedOnTarget;
+    }
+
+    /**
+     * @return {@link #replaces} (Completed or terminated request(s) whose function is taken by this new request.)
+     */
+    public List<Reference> getReplaces() { 
+      if (this.replaces == null)
+        this.replaces = new ArrayList<Reference>();
+      return this.replaces;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ReferralRequest setReplaces(List<Reference> theReplaces) { 
+      this.replaces = theReplaces;
+      return this;
+    }
+
+    public boolean hasReplaces() { 
+      if (this.replaces == null)
+        return false;
+      for (Reference item : this.replaces)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addReplaces() { //3
+      Reference t = new Reference();
+      if (this.replaces == null)
+        this.replaces = new ArrayList<Reference>();
+      this.replaces.add(t);
+      return t;
+    }
+
+    public ReferralRequest addReplaces(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.replaces == null)
+        this.replaces = new ArrayList<Reference>();
+      this.replaces.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #replaces}, creating it if it does not already exist
+     */
+    public Reference getReplacesFirstRep() { 
+      if (getReplaces().isEmpty()) {
+        addReplaces();
+      }
+      return getReplaces().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getReplacesTarget() { 
+      if (this.replacesTarget == null)
+        this.replacesTarget = new ArrayList<Resource>();
+      return this.replacesTarget;
     }
 
     /**
@@ -821,15 +1386,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.)
+     * @return {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public CodeableConcept getPriority() { 
+    public Enumeration<ReferralPriority> getPriorityElement() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.priority");
         else if (Configuration.doAutoCreate())
-          this.priority = new CodeableConcept(); // cc
+          this.priority = new Enumeration<ReferralPriority>(new ReferralPriorityEnumFactory()); // bb
       return this.priority;
+    }
+
+    public boolean hasPriorityElement() { 
+      return this.priority != null && !this.priority.isEmpty();
     }
 
     public boolean hasPriority() { 
@@ -837,10 +1406,31 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.)
+     * @param value {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public ReferralRequest setPriority(CodeableConcept value) { 
+    public ReferralRequest setPriorityElement(Enumeration<ReferralPriority> value) { 
       this.priority = value;
+      return this;
+    }
+
+    /**
+     * @return An indication of the urgency of referral (or where applicable the type of transfer of care) request.
+     */
+    public ReferralPriority getPriority() { 
+      return this.priority == null ? null : this.priority.getValue();
+    }
+
+    /**
+     * @param value An indication of the urgency of referral (or where applicable the type of transfer of care) request.
+     */
+    public ReferralRequest setPriority(ReferralPriority value) { 
+      if (value == null)
+        this.priority = null;
+      else {
+        if (this.priority == null)
+          this.priority = new Enumeration<ReferralPriority>(new ReferralPriorityEnumFactory());
+        this.priority.setValue(value);
+      }
       return this;
     }
 
@@ -981,26 +1571,47 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #fulfillmentTime} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
+     * @return {@link #occurrence} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
      */
-    public Period getFulfillmentTime() { 
-      if (this.fulfillmentTime == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ReferralRequest.fulfillmentTime");
-        else if (Configuration.doAutoCreate())
-          this.fulfillmentTime = new Period(); // cc
-      return this.fulfillmentTime;
-    }
-
-    public boolean hasFulfillmentTime() { 
-      return this.fulfillmentTime != null && !this.fulfillmentTime.isEmpty();
+    public Type getOccurrence() { 
+      return this.occurrence;
     }
 
     /**
-     * @param value {@link #fulfillmentTime} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
+     * @return {@link #occurrence} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
      */
-    public ReferralRequest setFulfillmentTime(Period value) { 
-      this.fulfillmentTime = value;
+    public DateTimeType getOccurrenceDateTimeType() throws FHIRException { 
+      if (!(this.occurrence instanceof DateTimeType))
+        throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.occurrence.getClass().getName()+" was encountered");
+      return (DateTimeType) this.occurrence;
+    }
+
+    public boolean hasOccurrenceDateTimeType() { 
+      return this.occurrence instanceof DateTimeType;
+    }
+
+    /**
+     * @return {@link #occurrence} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
+     */
+    public Period getOccurrencePeriod() throws FHIRException { 
+      if (!(this.occurrence instanceof Period))
+        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.occurrence.getClass().getName()+" was encountered");
+      return (Period) this.occurrence;
+    }
+
+    public boolean hasOccurrencePeriod() { 
+      return this.occurrence instanceof Period;
+    }
+
+    public boolean hasOccurrence() { 
+      return this.occurrence != null && !this.occurrence.isEmpty();
+    }
+
+    /**
+     * @param value {@link #occurrence} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
+     */
+    public ReferralRequest setOccurrence(Type value) { 
+      this.occurrence = value;
       return this;
     }
 
@@ -1054,14 +1665,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #requester} (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
+     * @return {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public Reference getRequester() { 
+    public ReferralRequestRequesterComponent getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.requester");
         else if (Configuration.doAutoCreate())
-          this.requester = new Reference(); // cc
+          this.requester = new ReferralRequestRequesterComponent(); // cc
       return this.requester;
     }
 
@@ -1070,25 +1681,10 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @param value {@link #requester} (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
+     * @param value {@link #requester} (The individual who initiated the request and has responsibility for its activation.)
      */
-    public ReferralRequest setRequester(Reference value) { 
+    public ReferralRequest setRequester(ReferralRequestRequesterComponent value) { 
       this.requester = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
-     */
-    public Resource getRequesterTarget() { 
-      return this.requesterTarget;
-    }
-
-    /**
-     * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
-     */
-    public ReferralRequest setRequesterTarget(Resource value) { 
-      this.requesterTarget = value;
       return this;
     }
 
@@ -1180,27 +1776,119 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #reason} (Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.)
+     * @return {@link #reasonCode} (Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.)
      */
-    public CodeableConcept getReason() { 
-      if (this.reason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ReferralRequest.reason");
-        else if (Configuration.doAutoCreate())
-          this.reason = new CodeableConcept(); // cc
-      return this.reason;
-    }
-
-    public boolean hasReason() { 
-      return this.reason != null && !this.reason.isEmpty();
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
-     * @param value {@link #reason} (Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.)
+     * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ReferralRequest setReason(CodeableConcept value) { 
-      this.reason = value;
+    public ReferralRequest setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
+    }
+
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
+        return false;
+      for (CodeableConcept item : this.reasonCode)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public CodeableConcept addReasonCode() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
+      return t;
+    }
+
+    public ReferralRequest addReasonCode(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
+     */
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
+      }
+      return getReasonCode().get(0);
+    }
+
+    /**
+     * @return {@link #reasonReference} (Indicates another resource whose existence justifies this request.)
+     */
+    public List<Reference> getReasonReference() { 
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      return this.reasonReference;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ReferralRequest setReasonReference(List<Reference> theReasonReference) { 
+      this.reasonReference = theReasonReference;
+      return this;
+    }
+
+    public boolean hasReasonReference() { 
+      if (this.reasonReference == null)
+        return false;
+      for (Reference item : this.reasonReference)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addReasonReference() { //3
+      Reference t = new Reference();
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return t;
+    }
+
+    public ReferralRequest addReasonReference(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.reasonReference == null)
+        this.reasonReference = new ArrayList<Reference>();
+      this.reasonReference.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #reasonReference}, creating it if it does not already exist
+     */
+    public Reference getReasonReferenceFirstRep() { 
+      if (getReasonReference().isEmpty()) {
+        addReasonReference();
+      }
+      return getReasonReference().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Resource> getReasonReferenceTarget() { 
+      if (this.reasonReferenceTarget == null)
+        this.reasonReferenceTarget = new ArrayList<Resource>();
+      return this.reasonReferenceTarget;
     }
 
     /**
@@ -1368,51 +2056,134 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       return getNote().get(0);
     }
 
+    /**
+     * @return {@link #relevantHistory} (Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.)
+     */
+    public List<Reference> getRelevantHistory() { 
+      if (this.relevantHistory == null)
+        this.relevantHistory = new ArrayList<Reference>();
+      return this.relevantHistory;
+    }
+
+    /**
+     * @return Returns a reference to <code>this</code> for easy method chaining
+     */
+    public ReferralRequest setRelevantHistory(List<Reference> theRelevantHistory) { 
+      this.relevantHistory = theRelevantHistory;
+      return this;
+    }
+
+    public boolean hasRelevantHistory() { 
+      if (this.relevantHistory == null)
+        return false;
+      for (Reference item : this.relevantHistory)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    public Reference addRelevantHistory() { //3
+      Reference t = new Reference();
+      if (this.relevantHistory == null)
+        this.relevantHistory = new ArrayList<Reference>();
+      this.relevantHistory.add(t);
+      return t;
+    }
+
+    public ReferralRequest addRelevantHistory(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.relevantHistory == null)
+        this.relevantHistory = new ArrayList<Reference>();
+      this.relevantHistory.add(t);
+      return this;
+    }
+
+    /**
+     * @return The first repetition of repeating field {@link #relevantHistory}, creating it if it does not already exist
+     */
+    public Reference getRelevantHistoryFirstRep() { 
+      if (getRelevantHistory().isEmpty()) {
+        addRelevantHistory();
+      }
+      return getRelevantHistory().get(0);
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public List<Provenance> getRelevantHistoryTarget() { 
+      if (this.relevantHistoryTarget == null)
+        this.relevantHistoryTarget = new ArrayList<Provenance>();
+      return this.relevantHistoryTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public Provenance addRelevantHistoryTarget() { 
+      Provenance r = new Provenance();
+      if (this.relevantHistoryTarget == null)
+        this.relevantHistoryTarget = new ArrayList<Provenance>();
+      this.relevantHistoryTarget.add(r);
+      return r;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Business identifier that uniquely identifies the referral/care transfer request instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition|HealthcareService)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(ReferralRequest|CarePlan|ProcedureRequest)", "Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.", 0, java.lang.Integer.MAX_VALUE, basedOn));
+        childrenList.add(new Property("replaces", "Reference(Any)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces));
         childrenList.add(new Property("groupIdentifier", "Identifier", "The business identifier of the logical \"grouping\" request/order that this referral is a part of.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
         childrenList.add(new Property("status", "code", "The status of the authorization/intention reflected by the referral request record.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("intent", "code", "Distinguishes the \"level\" of authorization/demand implicit in this request.", 0, java.lang.Integer.MAX_VALUE, intent));
         childrenList.add(new Property("type", "CodeableConcept", "An indication of the type of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("priority", "CodeableConcept", "An indication of the urgency of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("priority", "code", "An indication of the urgency of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("serviceRequested", "CodeableConcept", "The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion.", 0, java.lang.Integer.MAX_VALUE, serviceRequested));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter at which the request for referral or transfer of care is initiated.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("fulfillmentTime", "Period", "The period of time within which the services identified in the referral/transfer of care is specified or required to occur.", 0, java.lang.Integer.MAX_VALUE, fulfillmentTime));
+        childrenList.add(new Property("occurrence[x]", "dateTime|Period", "The period of time within which the services identified in the referral/transfer of care is specified or required to occur.", 0, java.lang.Integer.MAX_VALUE, occurrence));
         childrenList.add(new Property("authoredOn", "dateTime", "Date/DateTime of creation for draft requests and date of activation for active requests.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
-        childrenList.add(new Property("requester", "Reference(Practitioner|Organization|Patient)", "The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).", 0, java.lang.Integer.MAX_VALUE, requester));
+        childrenList.add(new Property("requester", "", "The individual who initiated the request and has responsibility for its activation.", 0, java.lang.Integer.MAX_VALUE, requester));
         childrenList.add(new Property("specialty", "CodeableConcept", "Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology.", 0, java.lang.Integer.MAX_VALUE, specialty));
         childrenList.add(new Property("recipient", "Reference(Practitioner|Organization)", "The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.", 0, java.lang.Integer.MAX_VALUE, recipient));
-        childrenList.add(new Property("reason", "CodeableConcept", "Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
+        childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource whose existence justifies this request.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("description", "string", "The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("supportingInfo", "Reference(Any)", "Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan.", 0, java.lang.Integer.MAX_VALUE, supportingInfo));
         childrenList.add(new Property("note", "Annotation", "Comments made about the referral request by any of the participants.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("relevantHistory", "Reference(Provenance)", "Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.", 0, java.lang.Integer.MAX_VALUE, relevantHistory));
       }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
+        case -1014418093: /*definition*/ return this.definition == null ? new Base[0] : this.definition.toArray(new Base[this.definition.size()]); // Reference
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
+        case -430332865: /*replaces*/ return this.replaces == null ? new Base[0] : this.replaces.toArray(new Base[this.replaces.size()]); // Reference
         case -445338488: /*groupIdentifier*/ return this.groupIdentifier == null ? new Base[0] : new Base[] {this.groupIdentifier}; // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ReferralRequestStatus>
         case -1183762788: /*intent*/ return this.intent == null ? new Base[0] : new Base[] {this.intent}; // Enumeration<ReferralCategory>
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
-        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // CodeableConcept
+        case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ReferralPriority>
         case 190229561: /*serviceRequested*/ return this.serviceRequested == null ? new Base[0] : this.serviceRequested.toArray(new Base[this.serviceRequested.size()]); // CodeableConcept
         case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
-        case 1098185163: /*fulfillmentTime*/ return this.fulfillmentTime == null ? new Base[0] : new Base[] {this.fulfillmentTime}; // Period
+        case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
-        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // Reference
+        case 693933948: /*requester*/ return this.requester == null ? new Base[0] : new Base[] {this.requester}; // ReferralRequestRequesterComponent
         case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : new Base[] {this.specialty}; // CodeableConcept
         case 820081177: /*recipient*/ return this.recipient == null ? new Base[0] : this.recipient.toArray(new Base[this.recipient.size()]); // Reference
-        case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
+        case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 1922406657: /*supportingInfo*/ return this.supportingInfo == null ? new Base[0] : this.supportingInfo.toArray(new Base[this.supportingInfo.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
+        case 1538891575: /*relevantHistory*/ return this.relevantHistory == null ? new Base[0] : this.relevantHistory.toArray(new Base[this.relevantHistory.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1424,8 +2195,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case -1618432855: // identifier
           this.getIdentifier().add(castToIdentifier(value)); // Identifier
           return value;
+        case -1014418093: // definition
+          this.getDefinition().add(castToReference(value)); // Reference
+          return value;
         case -332612366: // basedOn
           this.getBasedOn().add(castToReference(value)); // Reference
+          return value;
+        case -430332865: // replaces
+          this.getReplaces().add(castToReference(value)); // Reference
           return value;
         case -445338488: // groupIdentifier
           this.groupIdentifier = castToIdentifier(value); // Identifier
@@ -1442,7 +2219,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.type = castToCodeableConcept(value); // CodeableConcept
           return value;
         case -1165461084: // priority
-          this.priority = castToCodeableConcept(value); // CodeableConcept
+          value = new ReferralPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ReferralPriority>
           return value;
         case 190229561: // serviceRequested
           this.getServiceRequested().add(castToCodeableConcept(value)); // CodeableConcept
@@ -1453,14 +2231,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 951530927: // context
           this.context = castToReference(value); // Reference
           return value;
-        case 1098185163: // fulfillmentTime
-          this.fulfillmentTime = castToPeriod(value); // Period
+        case 1687874001: // occurrence
+          this.occurrence = castToType(value); // Type
           return value;
         case -1500852503: // authoredOn
           this.authoredOn = castToDateTime(value); // DateTimeType
           return value;
         case 693933948: // requester
-          this.requester = castToReference(value); // Reference
+          this.requester = (ReferralRequestRequesterComponent) value; // ReferralRequestRequesterComponent
           return value;
         case -1694759682: // specialty
           this.specialty = castToCodeableConcept(value); // CodeableConcept
@@ -1468,8 +2246,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 820081177: // recipient
           this.getRecipient().add(castToReference(value)); // Reference
           return value;
-        case -934964668: // reason
-          this.reason = castToCodeableConcept(value); // CodeableConcept
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case -1146218137: // reasonReference
+          this.getReasonReference().add(castToReference(value)); // Reference
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -1480,6 +2261,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3387378: // note
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
+        case 1538891575: // relevantHistory
+          this.getRelevantHistory().add(castToReference(value)); // Reference
+          return value;
         default: return super.setProperty(hash, name, value);
         }
 
@@ -1489,8 +2273,12 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("identifier")) {
           this.getIdentifier().add(castToIdentifier(value));
+        } else if (name.equals("definition")) {
+          this.getDefinition().add(castToReference(value));
         } else if (name.equals("basedOn")) {
           this.getBasedOn().add(castToReference(value));
+        } else if (name.equals("replaces")) {
+          this.getReplaces().add(castToReference(value));
         } else if (name.equals("groupIdentifier")) {
           this.groupIdentifier = castToIdentifier(value); // Identifier
         } else if (name.equals("status")) {
@@ -1502,31 +2290,36 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         } else if (name.equals("type")) {
           this.type = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("priority")) {
-          this.priority = castToCodeableConcept(value); // CodeableConcept
+          value = new ReferralPriorityEnumFactory().fromType(castToCode(value));
+          this.priority = (Enumeration) value; // Enumeration<ReferralPriority>
         } else if (name.equals("serviceRequested")) {
           this.getServiceRequested().add(castToCodeableConcept(value));
         } else if (name.equals("patient")) {
           this.patient = castToReference(value); // Reference
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
-        } else if (name.equals("fulfillmentTime")) {
-          this.fulfillmentTime = castToPeriod(value); // Period
+        } else if (name.equals("occurrence[x]")) {
+          this.occurrence = castToType(value); // Type
         } else if (name.equals("authoredOn")) {
           this.authoredOn = castToDateTime(value); // DateTimeType
         } else if (name.equals("requester")) {
-          this.requester = castToReference(value); // Reference
+          this.requester = (ReferralRequestRequesterComponent) value; // ReferralRequestRequesterComponent
         } else if (name.equals("specialty")) {
           this.specialty = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("recipient")) {
           this.getRecipient().add(castToReference(value));
-        } else if (name.equals("reason")) {
-          this.reason = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonReference")) {
+          this.getReasonReference().add(castToReference(value));
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("supportingInfo")) {
           this.getSupportingInfo().add(castToReference(value));
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
+        } else if (name.equals("relevantHistory")) {
+          this.getRelevantHistory().add(castToReference(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1536,24 +2329,29 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855:  return addIdentifier(); 
+        case -1014418093:  return addDefinition(); 
         case -332612366:  return addBasedOn(); 
+        case -430332865:  return addReplaces(); 
         case -445338488:  return getGroupIdentifier(); 
         case -892481550:  return getStatusElement();
         case -1183762788:  return getIntentElement();
         case 3575610:  return getType(); 
-        case -1165461084:  return getPriority(); 
+        case -1165461084:  return getPriorityElement();
         case 190229561:  return addServiceRequested(); 
         case -791418107:  return getPatient(); 
         case 951530927:  return getContext(); 
-        case 1098185163:  return getFulfillmentTime(); 
+        case -2022646513:  return getOccurrence(); 
+        case 1687874001:  return getOccurrence(); 
         case -1500852503:  return getAuthoredOnElement();
         case 693933948:  return getRequester(); 
         case -1694759682:  return getSpecialty(); 
         case 820081177:  return addRecipient(); 
-        case -934964668:  return getReason(); 
+        case 722137681:  return addReasonCode(); 
+        case -1146218137:  return addReasonReference(); 
         case -1724546052:  return getDescriptionElement();
         case 1922406657:  return addSupportingInfo(); 
         case 3387378:  return addNote(); 
+        case 1538891575:  return addRelevantHistory(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -1563,24 +2361,28 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
+        case -1014418093: /*definition*/ return new String[] {"Reference"};
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
+        case -430332865: /*replaces*/ return new String[] {"Reference"};
         case -445338488: /*groupIdentifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
         case -1183762788: /*intent*/ return new String[] {"code"};
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
-        case -1165461084: /*priority*/ return new String[] {"CodeableConcept"};
+        case -1165461084: /*priority*/ return new String[] {"code"};
         case 190229561: /*serviceRequested*/ return new String[] {"CodeableConcept"};
         case -791418107: /*patient*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
-        case 1098185163: /*fulfillmentTime*/ return new String[] {"Period"};
+        case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
-        case 693933948: /*requester*/ return new String[] {"Reference"};
+        case 693933948: /*requester*/ return new String[] {};
         case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
         case 820081177: /*recipient*/ return new String[] {"Reference"};
-        case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
+        case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case -1724546052: /*description*/ return new String[] {"string"};
         case 1922406657: /*supportingInfo*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
+        case 1538891575: /*relevantHistory*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1591,8 +2393,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (name.equals("identifier")) {
           return addIdentifier();
         }
+        else if (name.equals("definition")) {
+          return addDefinition();
+        }
         else if (name.equals("basedOn")) {
           return addBasedOn();
+        }
+        else if (name.equals("replaces")) {
+          return addReplaces();
         }
         else if (name.equals("groupIdentifier")) {
           this.groupIdentifier = new Identifier();
@@ -1609,8 +2417,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           return this.type;
         }
         else if (name.equals("priority")) {
-          this.priority = new CodeableConcept();
-          return this.priority;
+          throw new FHIRException("Cannot call addChild on a primitive type ReferralRequest.priority");
         }
         else if (name.equals("serviceRequested")) {
           return addServiceRequested();
@@ -1623,15 +2430,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.context = new Reference();
           return this.context;
         }
-        else if (name.equals("fulfillmentTime")) {
-          this.fulfillmentTime = new Period();
-          return this.fulfillmentTime;
+        else if (name.equals("occurrenceDateTime")) {
+          this.occurrence = new DateTimeType();
+          return this.occurrence;
+        }
+        else if (name.equals("occurrencePeriod")) {
+          this.occurrence = new Period();
+          return this.occurrence;
         }
         else if (name.equals("authoredOn")) {
           throw new FHIRException("Cannot call addChild on a primitive type ReferralRequest.authoredOn");
         }
         else if (name.equals("requester")) {
-          this.requester = new Reference();
+          this.requester = new ReferralRequestRequesterComponent();
           return this.requester;
         }
         else if (name.equals("specialty")) {
@@ -1641,9 +2452,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("recipient")) {
           return addRecipient();
         }
-        else if (name.equals("reason")) {
-          this.reason = new CodeableConcept();
-          return this.reason;
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
+        }
+        else if (name.equals("reasonReference")) {
+          return addReasonReference();
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ReferralRequest.description");
@@ -1653,6 +2466,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         }
         else if (name.equals("note")) {
           return addNote();
+        }
+        else if (name.equals("relevantHistory")) {
+          return addRelevantHistory();
         }
         else
           return super.addChild(name);
@@ -1671,10 +2487,20 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        if (definition != null) {
+          dst.definition = new ArrayList<Reference>();
+          for (Reference i : definition)
+            dst.definition.add(i.copy());
+        };
         if (basedOn != null) {
           dst.basedOn = new ArrayList<Reference>();
           for (Reference i : basedOn)
             dst.basedOn.add(i.copy());
+        };
+        if (replaces != null) {
+          dst.replaces = new ArrayList<Reference>();
+          for (Reference i : replaces)
+            dst.replaces.add(i.copy());
         };
         dst.groupIdentifier = groupIdentifier == null ? null : groupIdentifier.copy();
         dst.status = status == null ? null : status.copy();
@@ -1688,7 +2514,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         };
         dst.patient = patient == null ? null : patient.copy();
         dst.context = context == null ? null : context.copy();
-        dst.fulfillmentTime = fulfillmentTime == null ? null : fulfillmentTime.copy();
+        dst.occurrence = occurrence == null ? null : occurrence.copy();
         dst.authoredOn = authoredOn == null ? null : authoredOn.copy();
         dst.requester = requester == null ? null : requester.copy();
         dst.specialty = specialty == null ? null : specialty.copy();
@@ -1697,7 +2523,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (Reference i : recipient)
             dst.recipient.add(i.copy());
         };
-        dst.reason = reason == null ? null : reason.copy();
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
+        };
+        if (reasonReference != null) {
+          dst.reasonReference = new ArrayList<Reference>();
+          for (Reference i : reasonReference)
+            dst.reasonReference.add(i.copy());
+        };
         dst.description = description == null ? null : description.copy();
         if (supportingInfo != null) {
           dst.supportingInfo = new ArrayList<Reference>();
@@ -1708,6 +2543,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           dst.note = new ArrayList<Annotation>();
           for (Annotation i : note)
             dst.note.add(i.copy());
+        };
+        if (relevantHistory != null) {
+          dst.relevantHistory = new ArrayList<Reference>();
+          for (Reference i : relevantHistory)
+            dst.relevantHistory.add(i.copy());
         };
         return dst;
       }
@@ -1723,13 +2563,15 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (!(other instanceof ReferralRequest))
           return false;
         ReferralRequest o = (ReferralRequest) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(basedOn, o.basedOn, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
+           && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(type, o.type, true)
            && compareDeep(priority, o.priority, true) && compareDeep(serviceRequested, o.serviceRequested, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(context, o.context, true) && compareDeep(fulfillmentTime, o.fulfillmentTime, true)
+           && compareDeep(patient, o.patient, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true) && compareDeep(specialty, o.specialty, true)
-           && compareDeep(recipient, o.recipient, true) && compareDeep(reason, o.reason, true) && compareDeep(description, o.description, true)
-           && compareDeep(supportingInfo, o.supportingInfo, true) && compareDeep(note, o.note, true);
+           && compareDeep(recipient, o.recipient, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(description, o.description, true) && compareDeep(supportingInfo, o.supportingInfo, true)
+           && compareDeep(note, o.note, true) && compareDeep(relevantHistory, o.relevantHistory, true);
       }
 
       @Override
@@ -1739,15 +2581,16 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         if (!(other instanceof ReferralRequest))
           return false;
         ReferralRequest o = (ReferralRequest) other;
-        return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(authoredOn, o.authoredOn, true)
-           && compareValues(description, o.description, true);
+        return compareValues(status, o.status, true) && compareValues(intent, o.intent, true) && compareValues(priority, o.priority, true)
+           && compareValues(authoredOn, o.authoredOn, true) && compareValues(description, o.description, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, basedOn, groupIdentifier
-          , status, intent, type, priority, serviceRequested, patient, context, fulfillmentTime
-          , authoredOn, requester, specialty, recipient, reason, description, supportingInfo
-          , note);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
+          , replaces, groupIdentifier, status, intent, type, priority, serviceRequested
+          , patient, context, occurrence, authoredOn, requester, specialty, recipient, reasonCode
+          , reasonReference, description, supportingInfo, note, relevantHistory);
       }
 
   @Override
@@ -1778,19 +2621,19 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
  /**
    * Search parameter: <b>requester</b>
    * <p>
-   * Description: <b>Requester of referral / transfer of care</b><br>
+   * Description: <b>Individual making the request</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.requester</b><br>
+   * Path: <b>ReferralRequest.requester.agent</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="requester", path="ReferralRequest.requester", description="Requester of referral / transfer of care", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Organization.class, Patient.class, Practitioner.class } )
+  @SearchParamDefinition(name="requester", path="ReferralRequest.requester.agent", description="Individual making the request", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient"), @ca.uhn.fhir.model.api.annotation.Compartment(name="Practitioner") }, target={Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class } )
   public static final String SP_REQUESTER = "requester";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>requester</b>
    * <p>
-   * Description: <b>Requester of referral / transfer of care</b><br>
+   * Description: <b>Individual making the request</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.requester</b><br>
+   * Path: <b>ReferralRequest.requester.agent</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REQUESTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REQUESTER);
@@ -1922,6 +2765,32 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam GROUP_IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_GROUP_IDENTIFIER);
 
  /**
+   * Search parameter: <b>based-on</b>
+   * <p>
+   * Description: <b>Request being fulfilled</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.basedOn</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="based-on", path="ReferralRequest.basedOn", description="Request being fulfilled", type="reference", target={CarePlan.class, ProcedureRequest.class, ReferralRequest.class } )
+  public static final String SP_BASED_ON = "based-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>based-on</b>
+   * <p>
+   * Description: <b>Request being fulfilled</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.basedOn</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASED_ON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASED_ON);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ReferralRequest:based-on</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASED_ON = new ca.uhn.fhir.model.api.Include("ReferralRequest:based-on").toLocked();
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>Who the referral is about</b><br>
@@ -1998,32 +2867,6 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>ReferralRequest:context</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("ReferralRequest:context").toLocked();
-
- /**
-   * Search parameter: <b>basedon</b>
-   * <p>
-   * Description: <b>Request being fulfilled</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.basedOn</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="basedon", path="ReferralRequest.basedOn", description="Request being fulfilled", type="reference", target={CarePlan.class, ProcedureRequest.class, ReferralRequest.class } )
-  public static final String SP_BASEDON = "basedon";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>basedon</b>
-   * <p>
-   * Description: <b>Request being fulfilled</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.basedOn</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASEDON = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASEDON);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ReferralRequest:basedon</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASEDON = new ca.uhn.fhir.model.api.Include("ReferralRequest:basedon").toLocked();
 
  /**
    * Search parameter: <b>status</b>

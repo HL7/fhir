@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -317,39 +317,39 @@ public class GraphDefinition extends MetadataResource {
     @Block()
     public static class GraphDefinitionLinkComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Information about why this link is of interest in this graph definition.
-         */
-        @Child(name = "description", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Why this link is specified", formalDefinition="Information about why this link is of interest in this graph definition." )
-        protected StringType description;
-
-        /**
          * Path in the resource that contains the link.
          */
-        @Child(name = "path", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Path in the resource that contains the link", formalDefinition="Path in the resource that contains the link." )
         protected StringType path;
 
         /**
          * Which slice (if profiled).
          */
-        @Child(name = "sliceName", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sliceName", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Which slice (if profiled)", formalDefinition="Which slice (if profiled)." )
         protected StringType sliceName;
 
         /**
          * Minimum occurences for this link.
          */
-        @Child(name = "min", type = {IntegerType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "min", type = {IntegerType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Minimum occurences for this link", formalDefinition="Minimum occurences for this link." )
         protected IntegerType min;
 
         /**
          * Maximum occurences for this link.
          */
-        @Child(name = "max", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "max", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Maximum occurences for this link", formalDefinition="Maximum occurences for this link." )
         protected StringType max;
+
+        /**
+         * Information about why this link is of interest in this graph definition.
+         */
+        @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Why this link is specified", formalDefinition="Information about why this link is of interest in this graph definition." )
+        protected StringType description;
 
         /**
          * Potential target for the link.
@@ -358,7 +358,7 @@ public class GraphDefinition extends MetadataResource {
         @Description(shortDefinition="Potential target for the link", formalDefinition="Potential target for the link." )
         protected List<GraphDefinitionLinkTargetComponent> target;
 
-        private static final long serialVersionUID = 789367632L;
+        private static final long serialVersionUID = -593733346L;
 
     /**
      * Constructor
@@ -374,55 +374,6 @@ public class GraphDefinition extends MetadataResource {
         super();
         this.path = path;
       }
-
-        /**
-         * @return {@link #description} (Information about why this link is of interest in this graph definition.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public StringType getDescriptionElement() { 
-          if (this.description == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create GraphDefinitionLinkComponent.description");
-            else if (Configuration.doAutoCreate())
-              this.description = new StringType(); // bb
-          return this.description;
-        }
-
-        public boolean hasDescriptionElement() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        public boolean hasDescription() { 
-          return this.description != null && !this.description.isEmpty();
-        }
-
-        /**
-         * @param value {@link #description} (Information about why this link is of interest in this graph definition.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
-         */
-        public GraphDefinitionLinkComponent setDescriptionElement(StringType value) { 
-          this.description = value;
-          return this;
-        }
-
-        /**
-         * @return Information about why this link is of interest in this graph definition.
-         */
-        public String getDescription() { 
-          return this.description == null ? null : this.description.getValue();
-        }
-
-        /**
-         * @param value Information about why this link is of interest in this graph definition.
-         */
-        public GraphDefinitionLinkComponent setDescription(String value) { 
-          if (Utilities.noString(value))
-            this.description = null;
-          else {
-            if (this.description == null)
-              this.description = new StringType();
-            this.description.setValue(value);
-          }
-          return this;
-        }
 
         /**
          * @return {@link #path} (Path in the resource that contains the link.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
@@ -613,6 +564,55 @@ public class GraphDefinition extends MetadataResource {
         }
 
         /**
+         * @return {@link #description} (Information about why this link is of interest in this graph definition.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create GraphDefinitionLinkComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (Information about why this link is of interest in this graph definition.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public GraphDefinitionLinkComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return Information about why this link is of interest in this graph definition.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value Information about why this link is of interest in this graph definition.
+         */
+        public GraphDefinitionLinkComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #target} (Potential target for the link.)
          */
         public List<GraphDefinitionLinkTargetComponent> getTarget() { 
@@ -667,22 +667,22 @@ public class GraphDefinition extends MetadataResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("description", "string", "Information about why this link is of interest in this graph definition.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("path", "string", "Path in the resource that contains the link.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("sliceName", "string", "Which slice (if profiled).", 0, java.lang.Integer.MAX_VALUE, sliceName));
           childrenList.add(new Property("min", "integer", "Minimum occurences for this link.", 0, java.lang.Integer.MAX_VALUE, min));
           childrenList.add(new Property("max", "string", "Maximum occurences for this link.", 0, java.lang.Integer.MAX_VALUE, max));
+          childrenList.add(new Property("description", "string", "Information about why this link is of interest in this graph definition.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("target", "", "Potential target for the link.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
         case -825289923: /*sliceName*/ return this.sliceName == null ? new Base[0] : new Base[] {this.sliceName}; // StringType
         case 108114: /*min*/ return this.min == null ? new Base[0] : new Base[] {this.min}; // IntegerType
         case 107876: /*max*/ return this.max == null ? new Base[0] : new Base[] {this.max}; // StringType
+        case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -880905839: /*target*/ return this.target == null ? new Base[0] : this.target.toArray(new Base[this.target.size()]); // GraphDefinitionLinkTargetComponent
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -692,9 +692,6 @@ public class GraphDefinition extends MetadataResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case -1724546052: // description
-          this.description = castToString(value); // StringType
-          return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
           return value;
@@ -707,6 +704,9 @@ public class GraphDefinition extends MetadataResource {
         case 107876: // max
           this.max = castToString(value); // StringType
           return value;
+        case -1724546052: // description
+          this.description = castToString(value); // StringType
+          return value;
         case -880905839: // target
           this.getTarget().add((GraphDefinitionLinkTargetComponent) value); // GraphDefinitionLinkTargetComponent
           return value;
@@ -717,9 +717,7 @@ public class GraphDefinition extends MetadataResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("description")) {
-          this.description = castToString(value); // StringType
-        } else if (name.equals("path")) {
+        if (name.equals("path")) {
           this.path = castToString(value); // StringType
         } else if (name.equals("sliceName")) {
           this.sliceName = castToString(value); // StringType
@@ -727,6 +725,8 @@ public class GraphDefinition extends MetadataResource {
           this.min = castToInteger(value); // IntegerType
         } else if (name.equals("max")) {
           this.max = castToString(value); // StringType
+        } else if (name.equals("description")) {
+          this.description = castToString(value); // StringType
         } else if (name.equals("target")) {
           this.getTarget().add((GraphDefinitionLinkTargetComponent) value);
         } else
@@ -737,11 +737,11 @@ public class GraphDefinition extends MetadataResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052:  return getDescriptionElement();
         case 3433509:  return getPathElement();
         case -825289923:  return getSliceNameElement();
         case 108114:  return getMinElement();
         case 107876:  return getMaxElement();
+        case -1724546052:  return getDescriptionElement();
         case -880905839:  return addTarget(); 
         default: return super.makeProperty(hash, name);
         }
@@ -751,11 +751,11 @@ public class GraphDefinition extends MetadataResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1724546052: /*description*/ return new String[] {"string"};
         case 3433509: /*path*/ return new String[] {"string"};
         case -825289923: /*sliceName*/ return new String[] {"string"};
         case 108114: /*min*/ return new String[] {"integer"};
         case 107876: /*max*/ return new String[] {"string"};
+        case -1724546052: /*description*/ return new String[] {"string"};
         case -880905839: /*target*/ return new String[] {};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -764,10 +764,7 @@ public class GraphDefinition extends MetadataResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("description")) {
-          throw new FHIRException("Cannot call addChild on a primitive type GraphDefinition.description");
-        }
-        else if (name.equals("path")) {
+        if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type GraphDefinition.path");
         }
         else if (name.equals("sliceName")) {
@@ -779,6 +776,9 @@ public class GraphDefinition extends MetadataResource {
         else if (name.equals("max")) {
           throw new FHIRException("Cannot call addChild on a primitive type GraphDefinition.max");
         }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type GraphDefinition.description");
+        }
         else if (name.equals("target")) {
           return addTarget();
         }
@@ -789,11 +789,11 @@ public class GraphDefinition extends MetadataResource {
       public GraphDefinitionLinkComponent copy() {
         GraphDefinitionLinkComponent dst = new GraphDefinitionLinkComponent();
         copyValues(dst);
-        dst.description = description == null ? null : description.copy();
         dst.path = path == null ? null : path.copy();
         dst.sliceName = sliceName == null ? null : sliceName.copy();
         dst.min = min == null ? null : min.copy();
         dst.max = max == null ? null : max.copy();
+        dst.description = description == null ? null : description.copy();
         if (target != null) {
           dst.target = new ArrayList<GraphDefinitionLinkTargetComponent>();
           for (GraphDefinitionLinkTargetComponent i : target)
@@ -809,8 +809,8 @@ public class GraphDefinition extends MetadataResource {
         if (!(other instanceof GraphDefinitionLinkComponent))
           return false;
         GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other;
-        return compareDeep(description, o.description, true) && compareDeep(path, o.path, true) && compareDeep(sliceName, o.sliceName, true)
-           && compareDeep(min, o.min, true) && compareDeep(max, o.max, true) && compareDeep(target, o.target, true)
+        return compareDeep(path, o.path, true) && compareDeep(sliceName, o.sliceName, true) && compareDeep(min, o.min, true)
+           && compareDeep(max, o.max, true) && compareDeep(description, o.description, true) && compareDeep(target, o.target, true)
           ;
       }
 
@@ -821,13 +821,13 @@ public class GraphDefinition extends MetadataResource {
         if (!(other instanceof GraphDefinitionLinkComponent))
           return false;
         GraphDefinitionLinkComponent o = (GraphDefinitionLinkComponent) other;
-        return compareValues(description, o.description, true) && compareValues(path, o.path, true) && compareValues(sliceName, o.sliceName, true)
-           && compareValues(min, o.min, true) && compareValues(max, o.max, true);
+        return compareValues(path, o.path, true) && compareValues(sliceName, o.sliceName, true) && compareValues(min, o.min, true)
+           && compareValues(max, o.max, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(description, path, sliceName
-          , min, max, target);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, sliceName, min, max
+          , description, target);
       }
 
   public String fhirType() {

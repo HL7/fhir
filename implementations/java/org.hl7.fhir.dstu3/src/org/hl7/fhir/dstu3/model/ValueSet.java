@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -667,7 +667,7 @@ public class ValueSet extends MetadataResource {
         /**
          * Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true.
          */
-        @Child(name = "filter", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "filter", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=true, summary=true)
         @Description(shortDefinition="Select codes/concepts by their properties (including relationships)", formalDefinition="Select concepts by specify a matching criteria based on the properties (including relationships) defined by the system. If multiple filters are specified, they SHALL all be true." )
         protected List<ConceptSetFilterComponent> filter;
 
@@ -1131,7 +1131,7 @@ public class ValueSet extends MetadataResource {
          * The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system.
          */
         @Child(name = "display", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Text to display for this code for this value set", formalDefinition="The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system." )
+        @Description(shortDefinition="Text to display for this code for this value set in this valueset", formalDefinition="The text to display to the user for this concept in the context of this valueset. If no display is provided, then applications using the value set use the display specified for the code by the system." )
         protected StringType display;
 
         /**
@@ -1728,14 +1728,14 @@ public class ValueSet extends MetadataResource {
         /**
          * A code that identifies a property defined in the code system.
          */
-        @Child(name = "property", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "property", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="A property defined by the code system", formalDefinition="A code that identifies a property defined in the code system." )
         protected CodeType property;
 
         /**
          * The kind of operation to perform as a part of the filter criteria.
          */
-        @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=true, summary=false)
+        @Child(name = "op", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="= | is-a | descendent-of | is-not-a | regex | in | not-in | generalizes | exists", formalDefinition="The kind of operation to perform as a part of the filter criteria." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/filter-operator")
         protected Enumeration<FilterOperator> op;
@@ -1743,7 +1743,7 @@ public class ValueSet extends MetadataResource {
         /**
          * The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value.
          */
-        @Child(name = "value", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Code from the system, or regex criteria", formalDefinition="The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value." )
         protected CodeType value;
 

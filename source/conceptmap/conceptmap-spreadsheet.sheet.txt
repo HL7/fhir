@@ -1,6 +1,33 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = ConceptMapGroupUnmappedMode
+  Binding = code list
+  Reference = #conceptmap-unmapped-mode
+  Definition = Defines which action to take if there is no match in the group.
+  Conformance = required
+
+=== Sheet conceptmap-unmapped-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = provided
+  Display = Provided Code
+  Definition = Use the code as provided in the $translate request
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = fixed
+  Display = Fixed Code
+  Definition = Use the code explicitly provided in the group.unmapped
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = other-map
+  Display = Other Map
+  Definition = Use the map identified by the canonical URL in URL
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -9,6 +36,23 @@
   English = If the map is narrower or inexact, there SHALL be some comments
   XPath = exists(f:comments) or not(exists(f:equivalence)) or ((f:equivalence/@value != \'narrower\') and (f:equivalence/@value != \'inexact\'))
   Expression = comments.exists() or equivalence.empty() or ((equivalence != \'narrower\') and (equivalence != \'inexact\'))
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = ConceptMap.group.unmapped
+  English = If the mode is \'fixed\', a code must be provided
+  XPath = (f:mode/@value != \'fixed\') or exists(f:code)
+  Expression = (mode = \'fixed\') implies code.exists()
+  Severity = error
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Context = ConceptMap.group.unmapped
+  English = If the mode is \'other-map\', a code must be provided
+  XPath = (f:mode/@value != \'other-map\') or exists(f:url)
+  Expression = (mode = \'other-map\') implies url.exists()
+  Severity = error
 
 === Sheet Data Elements =====================================
 
@@ -145,6 +189,14 @@
   Definition = Identity (code or path) or the element/item being mapped
 
  -- Row 26 -----------------------------------
+  Element = ConceptMap.group.element.display
+  Card. = 0..1
+  Type = string
+  Short Name = Display for the code
+  Definition = The display for the code. The display is only provided to help editors when editing the concept map
+  Comments = The display is ignored when processing the map
+
+ -- Row 27 -----------------------------------
   Element = ConceptMap.group.element.target
   Card. = 0..*
   UML = 520;20
@@ -153,7 +205,7 @@
   Definition = A concept from the target value set that this concept maps to
   Comments = Ideally there would only be one map, with equal or equivalent mapping. But multiple maps are allowed for several narrower options, or to assert that other concepts are unmatched
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ConceptMap.group.element.target.code
   Card. = 0..1
   Type = code
@@ -161,7 +213,15 @@
   Short Name = Code that identifies the target element
   Definition = Identity (code or path) or the element/item that the map refers to
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
+  Element = ConceptMap.group.element.target.display
+  Card. = 0..1
+  Type = string
+  Short Name = Display for the code
+  Definition = The display for the code. The display is only provided to help editors when editing the concept map
+  Comments = The display is ignored when processing the map
+
+ -- Row 30 -----------------------------------
   Element = ConceptMap.group.element.target.equivalence
   Card. = 0..1
   Is Modifier = Yes
@@ -171,7 +231,7 @@
   Definition = The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is \'wider\' than the source)
   Default Value = equivalent
 
- -- Row 29 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ConceptMap.group.element.target.comments
   Card. = 0..1
   Inv. = 1
@@ -179,7 +239,7 @@
   Short Name = Description of status/issues in mapping
   Definition = A description of status/issues in mapping that conveys additional information not represented in  the structured data
 
- -- Row 30 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn
   Card. = 0..*
   UML = 580;200
@@ -187,14 +247,14 @@
   Short Name = Other elements required for this mapping (from context)
   Definition = A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value
 
- -- Row 31 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.property
   Card. = 1..1
   Type = uri
   Short Name = Reference to property mapping depends on
   Definition = A reference to an element that holds a coded value that corresponds to a code system property. The idea is that the information model carries an element somwhere that is labelled to correspond with a code system property
 
- -- Row 32 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.system
   Card. = 0..1
   Type = uri
@@ -202,19 +262,65 @@
   Definition = An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)
   Missing Meaning = The code is in the source (dependsOn) or target (product) system
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ConceptMap.group.element.target.dependsOn.code
   Card. = 1..1
   Type = string
   Short Name = Value of the referenced element
   Definition = Identity (code or path) or the element/item/ValueSet that the map depends on / refers to
 
- -- Row 34 -----------------------------------
+ -- Row 36 -----------------------------------
+  Element = ConceptMap.group.element.target.dependsOndisplay
+  Card. = 0..1
+  Type = string
+  Short Name = Display for the code
+  Definition = The display for the code. The display is only provided to help editors when editing the concept map
+  Comments = The display is ignored when processing the map
+
+ -- Row 37 -----------------------------------
   Element = ConceptMap.group.element.target.product
   Card. = 0..*
   Type = @ConceptMap.group.element.target.dependsOn
   Short Name = Other concepts that this mapping also produces
   Definition = A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on
+
+ -- Row 38 -----------------------------------
+  Element = ConceptMap.group.unmapped
+  Card. = 0..1
+  Short Name = When no match in the mappings
+  Definition = What to do when there is no match in the mappings in the group
+  Comments = This only applies if the source code is in the system defined for the group
+
+ -- Row 39 -----------------------------------
+  Element = ConceptMap.group.unmapped.mode
+  Card. = 1..1
+  Type = code
+  Binding = ConceptMapGroupUnmappedMode
+  Short Name = provided | fixed | other-map
+  Definition = Defines which action to take if there is no match in the group. One of 3 actions is possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL)
+
+ -- Row 40 -----------------------------------
+  Element = ConceptMap.group.unmapped.code
+  Card. = 0..1
+  Type = code
+  Binding = !
+  Short Name = Fixed code when mode = fixed
+  Definition = The fixed code to use when the mode = \'fixed\'  - all unmapped codes are mapped to a single fixed code
+
+ -- Row 41 -----------------------------------
+  Element = ConceptMap.group.unmapped.display
+  Card. = 0..1
+  Type = string
+  Short Name = Display for the code
+  Definition = The display for the code. The display is only provided to help editors when editing the concept map
+  Comments = The display is ignored when processing the map
+
+ -- Row 42 -----------------------------------
+  Element = ConceptMap.group.unmapped.url
+  Card. = 0..1
+  Type = uri
+  Short Name = Canonical URL for other concept map
+  Definition = The canonical URL of the map to use if this map contains no mapping
 
 === Sheet Search =====================================
 
@@ -267,6 +373,11 @@
   Name = product
   Type = uri
   Path = ConceptMap.group.element.target.product.property
+
+ -- Row 11 -----------------------------------
+  Name = other
+  Type = uri
+  Path = ConceptMap.group.unmapped.url
 
 === Sheet Profiles =====================================
 

@@ -47,37 +47,45 @@
         <target value="http://hl7.org/fhir/v3/AddressUse"/>
         <element>
             <code value="home"/>
+            <display value="home"/>
             <target>
                 <code value="H"/>
+                <display value="home"/>
                 <!-- this applies, but it's the default to reduce volume 
         <equivalence value="equivalent"/> -->
             </target>
         </element>
         <element>
-            <code value="home"/>
-            <target>
-                <code value="H"/>
-            </target>
-        </element>
-        <element>
             <code value="work"/>
+            <display value="work"/>
             <target>
                 <code value="WP"/>
+                <display value="work place"/>
             </target>
         </element>
         <element>
             <code value="temp"/>
+            <display value="temp"/>
             <target>
                 <code value="TMP"/>
+                <display value="temporary address"/>
             </target>
         </element>
         <element>
             <code value="old"/>
+            <display value="old"/>
             <target>
                 <code value="BAD"/>
+                <display value="bad address"/>
                 <equivalence value="disjoint"/>
                 <comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>
             </target>
         </element>
+        <!-- for all other codes, we map to 'temp'. This is a silly thing to do in reality, but it serves the purpose here -->
+        <unmapped>
+          <mode value="fixed"/>
+          <code value="temp"/>
+          <display value="temp"/>
+        </unmapped>
     </group>
 </ConceptMap>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -187,6 +187,228 @@ public class SupplyRequest extends DomainResource {
       return code.getSystem();
       }
     }
+
+    @Block()
+    public static class SupplyRequestOrderedItemComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The amount that is being ordered of the indicated item.
+         */
+        @Child(name = "quantity", type = {Quantity.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The requested amount of the item indicated", formalDefinition="The amount that is being ordered of the indicated item." )
+        protected Quantity quantity;
+
+        /**
+         * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+         */
+        @Child(name = "item", type = {CodeableConcept.class, Medication.class, Substance.class, Device.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Medication, Substance, or Device requested to be supplied", formalDefinition="The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supply-item")
+        protected Type item;
+
+        private static final long serialVersionUID = 1628109307L;
+
+    /**
+     * Constructor
+     */
+      public SupplyRequestOrderedItemComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SupplyRequestOrderedItemComponent(Quantity quantity) {
+        super();
+        this.quantity = quantity;
+      }
+
+        /**
+         * @return {@link #quantity} (The amount that is being ordered of the indicated item.)
+         */
+        public Quantity getQuantity() { 
+          if (this.quantity == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SupplyRequestOrderedItemComponent.quantity");
+            else if (Configuration.doAutoCreate())
+              this.quantity = new Quantity(); // cc
+          return this.quantity;
+        }
+
+        public boolean hasQuantity() { 
+          return this.quantity != null && !this.quantity.isEmpty();
+        }
+
+        /**
+         * @param value {@link #quantity} (The amount that is being ordered of the indicated item.)
+         */
+        public SupplyRequestOrderedItemComponent setQuantity(Quantity value) { 
+          this.quantity = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+         */
+        public Type getItem() { 
+          return this.item;
+        }
+
+        /**
+         * @return {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+         */
+        public CodeableConcept getItemCodeableConcept() throws FHIRException { 
+          if (!(this.item instanceof CodeableConcept))
+            throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.item.getClass().getName()+" was encountered");
+          return (CodeableConcept) this.item;
+        }
+
+        public boolean hasItemCodeableConcept() { 
+          return this.item instanceof CodeableConcept;
+        }
+
+        /**
+         * @return {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+         */
+        public Reference getItemReference() throws FHIRException { 
+          if (!(this.item instanceof Reference))
+            throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.item.getClass().getName()+" was encountered");
+          return (Reference) this.item;
+        }
+
+        public boolean hasItemReference() { 
+          return this.item instanceof Reference;
+        }
+
+        public boolean hasItem() { 
+          return this.item != null && !this.item.isEmpty();
+        }
+
+        /**
+         * @param value {@link #item} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+         */
+        public SupplyRequestOrderedItemComponent setItem(Type value) { 
+          this.item = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("quantity", "Quantity", "The amount that is being ordered of the indicated item.", 0, java.lang.Integer.MAX_VALUE, quantity));
+          childrenList.add(new Property("item[x]", "CodeableConcept|Reference(Medication|Substance|Device)", "The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.", 0, java.lang.Integer.MAX_VALUE, item));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // Quantity
+        case 3242771: /*item*/ return this.item == null ? new Base[0] : new Base[] {this.item}; // Type
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case -1285004149: // quantity
+          this.quantity = castToQuantity(value); // Quantity
+          return value;
+        case 3242771: // item
+          this.item = castToType(value); // Type
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("quantity")) {
+          this.quantity = castToQuantity(value); // Quantity
+        } else if (name.equals("item[x]")) {
+          this.item = castToType(value); // Type
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1285004149:  return getQuantity(); 
+        case 2116201613:  return getItem(); 
+        case 3242771:  return getItem(); 
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case -1285004149: /*quantity*/ return new String[] {"Quantity"};
+        case 3242771: /*item*/ return new String[] {"CodeableConcept", "Reference"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("quantity")) {
+          this.quantity = new Quantity();
+          return this.quantity;
+        }
+        else if (name.equals("itemCodeableConcept")) {
+          this.item = new CodeableConcept();
+          return this.item;
+        }
+        else if (name.equals("itemReference")) {
+          this.item = new Reference();
+          return this.item;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SupplyRequestOrderedItemComponent copy() {
+        SupplyRequestOrderedItemComponent dst = new SupplyRequestOrderedItemComponent();
+        copyValues(dst);
+        dst.quantity = quantity == null ? null : quantity.copy();
+        dst.item = item == null ? null : item.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SupplyRequestOrderedItemComponent))
+          return false;
+        SupplyRequestOrderedItemComponent o = (SupplyRequestOrderedItemComponent) other;
+        return compareDeep(quantity, o.quantity, true) && compareDeep(item, o.item, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SupplyRequestOrderedItemComponent))
+          return false;
+        SupplyRequestOrderedItemComponent o = (SupplyRequestOrderedItemComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(quantity, item);
+      }
+
+  public String fhirType() {
+    return "SupplyRequest.orderedItem";
+
+  }
+
+  }
 
     @Block()
     public static class SupplyRequestWhenComponent extends BackboneElement implements IBaseBackboneElement {
@@ -431,12 +653,11 @@ public class SupplyRequest extends DomainResource {
     protected CodeableConcept kind;
 
     /**
-     * The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
+     * The item being requested.
      */
-    @Child(name = "orderedItem", type = {CodeableConcept.class, Medication.class, Substance.class, Device.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Medication, Substance, or Device requested to be supplied", formalDefinition="The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/supply-item")
-    protected Type orderedItem;
+    @Child(name = "orderedItem", type = {}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="The item being requested", formalDefinition="The item being requested." )
+    protected SupplyRequestOrderedItemComponent orderedItem;
 
     /**
      * Who is intended to fulfill the request.
@@ -489,7 +710,7 @@ public class SupplyRequest extends DomainResource {
      */
     protected Resource toTarget;
 
-    private static final long serialVersionUID = -1951078640L;
+    private static final long serialVersionUID = 622598051L;
 
   /**
    * Constructor
@@ -728,36 +949,15 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @return {@link #orderedItem} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+     * @return {@link #orderedItem} (The item being requested.)
      */
-    public Type getOrderedItem() { 
+    public SupplyRequestOrderedItemComponent getOrderedItem() { 
+      if (this.orderedItem == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SupplyRequest.orderedItem");
+        else if (Configuration.doAutoCreate())
+          this.orderedItem = new SupplyRequestOrderedItemComponent(); // cc
       return this.orderedItem;
-    }
-
-    /**
-     * @return {@link #orderedItem} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
-     */
-    public CodeableConcept getOrderedItemCodeableConcept() throws FHIRException { 
-      if (!(this.orderedItem instanceof CodeableConcept))
-        throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.orderedItem.getClass().getName()+" was encountered");
-      return (CodeableConcept) this.orderedItem;
-    }
-
-    public boolean hasOrderedItemCodeableConcept() { 
-      return this.orderedItem instanceof CodeableConcept;
-    }
-
-    /**
-     * @return {@link #orderedItem} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
-     */
-    public Reference getOrderedItemReference() throws FHIRException { 
-      if (!(this.orderedItem instanceof Reference))
-        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.orderedItem.getClass().getName()+" was encountered");
-      return (Reference) this.orderedItem;
-    }
-
-    public boolean hasOrderedItemReference() { 
-      return this.orderedItem instanceof Reference;
     }
 
     public boolean hasOrderedItem() { 
@@ -765,9 +965,9 @@ public class SupplyRequest extends DomainResource {
     }
 
     /**
-     * @param value {@link #orderedItem} (The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.)
+     * @param value {@link #orderedItem} (The item being requested.)
      */
-    public SupplyRequest setOrderedItem(Type value) { 
+    public SupplyRequest setOrderedItem(SupplyRequestOrderedItemComponent value) { 
       this.orderedItem = value;
       return this;
     }
@@ -1002,7 +1202,7 @@ public class SupplyRequest extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this supply request.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "Status of the supply request.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("kind", "CodeableConcept", "Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.", 0, java.lang.Integer.MAX_VALUE, kind));
-        childrenList.add(new Property("orderedItem[x]", "CodeableConcept|Reference(Medication|Substance|Device)", "The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
+        childrenList.add(new Property("orderedItem", "", "The item being requested.", 0, java.lang.Integer.MAX_VALUE, orderedItem));
         childrenList.add(new Property("supplier", "Reference(Organization)", "Who is intended to fulfill the request.", 0, java.lang.Integer.MAX_VALUE, supplier));
         childrenList.add(new Property("reason[x]", "CodeableConcept|Reference(Any)", "Why the supply item was requested.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("when", "", "When the request should be fulfilled.", 0, java.lang.Integer.MAX_VALUE, when));
@@ -1019,7 +1219,7 @@ public class SupplyRequest extends DomainResource {
         case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : new Base[] {this.identifier}; // Identifier
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<SupplyRequestStatus>
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // CodeableConcept
-        case 2129914144: /*orderedItem*/ return this.orderedItem == null ? new Base[0] : new Base[] {this.orderedItem}; // Type
+        case 2129914144: /*orderedItem*/ return this.orderedItem == null ? new Base[0] : new Base[] {this.orderedItem}; // SupplyRequestOrderedItemComponent
         case -1663305268: /*supplier*/ return this.supplier == null ? new Base[0] : this.supplier.toArray(new Base[this.supplier.size()]); // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // Type
         case 3648314: /*when*/ return this.when == null ? new Base[0] : new Base[] {this.when}; // SupplyRequestWhenComponent
@@ -1053,7 +1253,7 @@ public class SupplyRequest extends DomainResource {
           this.kind = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 2129914144: // orderedItem
-          this.orderedItem = castToType(value); // Type
+          this.orderedItem = (SupplyRequestOrderedItemComponent) value; // SupplyRequestOrderedItemComponent
           return value;
         case -1663305268: // supplier
           this.getSupplier().add(castToReference(value)); // Reference
@@ -1090,8 +1290,8 @@ public class SupplyRequest extends DomainResource {
           this.status = (Enumeration) value; // Enumeration<SupplyRequestStatus>
         } else if (name.equals("kind")) {
           this.kind = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("orderedItem[x]")) {
-          this.orderedItem = castToType(value); // Type
+        } else if (name.equals("orderedItem")) {
+          this.orderedItem = (SupplyRequestOrderedItemComponent) value; // SupplyRequestOrderedItemComponent
         } else if (name.equals("supplier")) {
           this.getSupplier().add(castToReference(value));
         } else if (name.equals("reason[x]")) {
@@ -1116,7 +1316,6 @@ public class SupplyRequest extends DomainResource {
         case -1618432855:  return getIdentifier(); 
         case -892481550:  return getStatusElement();
         case 3292052:  return getKind(); 
-        case -1574475936:  return getOrderedItem(); 
         case 2129914144:  return getOrderedItem(); 
         case -1663305268:  return addSupplier(); 
         case -669418564:  return getReason(); 
@@ -1138,7 +1337,7 @@ public class SupplyRequest extends DomainResource {
         case -1618432855: /*identifier*/ return new String[] {"Identifier"};
         case -892481550: /*status*/ return new String[] {"code"};
         case 3292052: /*kind*/ return new String[] {"CodeableConcept"};
-        case 2129914144: /*orderedItem*/ return new String[] {"CodeableConcept", "Reference"};
+        case 2129914144: /*orderedItem*/ return new String[] {};
         case -1663305268: /*supplier*/ return new String[] {"Reference"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept", "Reference"};
         case 3648314: /*when*/ return new String[] {};
@@ -1173,12 +1372,8 @@ public class SupplyRequest extends DomainResource {
           this.kind = new CodeableConcept();
           return this.kind;
         }
-        else if (name.equals("orderedItemCodeableConcept")) {
-          this.orderedItem = new CodeableConcept();
-          return this.orderedItem;
-        }
-        else if (name.equals("orderedItemReference")) {
-          this.orderedItem = new Reference();
+        else if (name.equals("orderedItem")) {
+          this.orderedItem = new SupplyRequestOrderedItemComponent();
           return this.orderedItem;
         }
         else if (name.equals("supplier")) {

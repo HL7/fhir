@@ -1282,14 +1282,16 @@ public class ArgonautConverter extends ConverterBase {
 				//			if (subject != null)
 				//				imm.addVaccinationProtocol().setDoseSequence(Integer.parseInt(cda.getChild(subject, "value").getAttribute("value")));
 
+				boolean hasprf = false;
 				for (Element e : cda.getChildren(sa, "performer")) {
-					if (imm.hasPerformer())
+					if (imm.hasPractitioner())
 						throw new Error("additional performer discovered");
 					Practitioner p = processPerformer(cda, convert, context, e, "assignedEntity", "assignedPerson");
 					Reference ref = new Reference().setReference("Practitioner/"+p.getId()).setDisplay(p.getUserString("display"));
-					imm.setPerformer(ref);
+					imm.addPractitioner().setActor(ref).setRole(new org.hl7.fhir.dstu3.model.CodeableConcept().addCoding(new Coding().setSystem("http://hl7.org/fhir/v2/0443").setCode("AP")));
+					hasprf = true;
 				}
-				imm.setPrimarySource(!imm.hasPerformer());
+				imm.setPrimarySource(hasprf);
 				saveResource(imm);
 			}
 		}

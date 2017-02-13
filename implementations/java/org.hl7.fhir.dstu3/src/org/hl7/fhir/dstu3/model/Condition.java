@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -584,10 +584,10 @@ public class Condition extends DomainResource {
         /**
          * A manifestation or symptom that led to the recording of this condition.
          */
-        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "code", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Manifestation/symptom", formalDefinition="A manifestation or symptom that led to the recording of this condition." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/manifestation-or-symptom")
-        protected CodeableConcept code;
+        protected List<CodeableConcept> code;
 
         /**
          * Links to other relevant information, including pathology reports.
@@ -601,7 +601,7 @@ public class Condition extends DomainResource {
         protected List<Resource> detailTarget;
 
 
-        private static final long serialVersionUID = 945689926L;
+        private static final long serialVersionUID = 1135831276L;
 
     /**
      * Constructor
@@ -613,25 +613,54 @@ public class Condition extends DomainResource {
         /**
          * @return {@link #code} (A manifestation or symptom that led to the recording of this condition.)
          */
-        public CodeableConcept getCode() { 
+        public List<CodeableConcept> getCode() { 
           if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ConditionEvidenceComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
+            this.code = new ArrayList<CodeableConcept>();
           return this.code;
         }
 
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public ConditionEvidenceComponent setCode(List<CodeableConcept> theCode) { 
+          this.code = theCode;
+          return this;
+        }
+
         public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
+          if (this.code == null)
+            return false;
+          for (CodeableConcept item : this.code)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        public CodeableConcept addCode() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
+          return t;
+        }
+
+        public ConditionEvidenceComponent addCode(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.code == null)
+            this.code = new ArrayList<CodeableConcept>();
+          this.code.add(t);
+          return this;
         }
 
         /**
-         * @param value {@link #code} (A manifestation or symptom that led to the recording of this condition.)
+         * @return The first repetition of repeating field {@link #code}, creating it if it does not already exist
          */
-        public ConditionEvidenceComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
+        public CodeableConcept getCodeFirstRep() { 
+          if (getCode().isEmpty()) {
+            addCode();
+          }
+          return getCode().get(0);
         }
 
         /**
@@ -706,7 +735,7 @@ public class Condition extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
+        case 3059181: /*code*/ return this.code == null ? new Base[0] : this.code.toArray(new Base[this.code.size()]); // CodeableConcept
         case -1335224239: /*detail*/ return this.detail == null ? new Base[0] : this.detail.toArray(new Base[this.detail.size()]); // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -717,7 +746,7 @@ public class Condition extends DomainResource {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
+          this.getCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1335224239: // detail
           this.getDetail().add(castToReference(value)); // Reference
@@ -730,7 +759,7 @@ public class Condition extends DomainResource {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
+          this.getCode().add(castToCodeableConcept(value));
         } else if (name.equals("detail")) {
           this.getDetail().add(castToReference(value));
         } else
@@ -741,7 +770,7 @@ public class Condition extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3059181:  return getCode(); 
+        case 3059181:  return addCode(); 
         case -1335224239:  return addDetail(); 
         default: return super.makeProperty(hash, name);
         }
@@ -761,8 +790,7 @@ public class Condition extends DomainResource {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
+          return addCode();
         }
         else if (name.equals("detail")) {
           return addDetail();
@@ -774,7 +802,11 @@ public class Condition extends DomainResource {
       public ConditionEvidenceComponent copy() {
         ConditionEvidenceComponent dst = new ConditionEvidenceComponent();
         copyValues(dst);
-        dst.code = code == null ? null : code.copy();
+        if (code != null) {
+          dst.code = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : code)
+            dst.code.add(i.copy());
+        };
         if (detail != null) {
           dst.detail = new ArrayList<Reference>();
           for (Reference i : detail)

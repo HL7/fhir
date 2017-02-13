@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 8, 2017 18:19-0500 for FHIR v1.9.0
+// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -50,31 +50,31 @@ public class Procedure extends DomainResource {
 
     public enum ProcedureStatus {
         /**
-         * The core procedure has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.
+         * The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.
          */
         PREPARATION, 
         /**
-         * The procedure is currently occurring.
+         * The event is currently occurring
          */
         INPROGRESS, 
         /**
-         * The procedure has been temporarily stopped but is expected to resume in the future
+         * The event has been temporarily stopped but is expected to resume in the future
          */
         SUSPENDED, 
         /**
-         * The procedure was terminated without completing successfully.
+         * The event was  prior to the full completion of the intended actions
          */
         ABORTED, 
         /**
-         * All actions involved in the procedure have taken place.
+         * The event has now concluded
          */
         COMPLETED, 
         /**
-         * This electronic record should never have existed.
+         * This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be "cancelled" rather than "entered-in-error".)
          */
         ENTEREDINERROR, 
         /**
-         * The authoring system does not know which of the status values currently applies for this procedure.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
+         * The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for "other" - one of the listed statuses is presumed to apply, it's just not known which one.
          */
         UNKNOWN, 
         /**
@@ -117,25 +117,25 @@ public class Procedure extends DomainResource {
         }
         public String getSystem() {
           switch (this) {
-            case PREPARATION: return "http://hl7.org/fhir/procedure-status";
-            case INPROGRESS: return "http://hl7.org/fhir/procedure-status";
-            case SUSPENDED: return "http://hl7.org/fhir/procedure-status";
-            case ABORTED: return "http://hl7.org/fhir/procedure-status";
-            case COMPLETED: return "http://hl7.org/fhir/procedure-status";
-            case ENTEREDINERROR: return "http://hl7.org/fhir/procedure-status";
-            case UNKNOWN: return "http://hl7.org/fhir/procedure-status";
+            case PREPARATION: return "http://hl7.org/fhir/event-status";
+            case INPROGRESS: return "http://hl7.org/fhir/event-status";
+            case SUSPENDED: return "http://hl7.org/fhir/event-status";
+            case ABORTED: return "http://hl7.org/fhir/event-status";
+            case COMPLETED: return "http://hl7.org/fhir/event-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/event-status";
+            case UNKNOWN: return "http://hl7.org/fhir/event-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case PREPARATION: return "The core procedure has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.";
-            case INPROGRESS: return "The procedure is currently occurring.";
-            case SUSPENDED: return "The procedure has been temporarily stopped but is expected to resume in the future";
-            case ABORTED: return "The procedure was terminated without completing successfully.";
-            case COMPLETED: return "All actions involved in the procedure have taken place.";
-            case ENTEREDINERROR: return "This electronic record should never have existed.";
-            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this procedure.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
+            case PREPARATION: return "The core event has not started yet, but some staging activities have begun (e.g. surgical suite preparation).  Preparation stages may be tracked for billing purposes.";
+            case INPROGRESS: return "The event is currently occurring";
+            case SUSPENDED: return "The event has been temporarily stopped but is expected to resume in the future";
+            case ABORTED: return "The event was  prior to the full completion of the intended actions";
+            case COMPLETED: return "The event has now concluded";
+            case ENTEREDINERROR: return "This electronic record should never have existed, though it is possible that real-world decisions were based on it.  (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)";
+            case UNKNOWN: return "The authoring system does not know which of the status values currently applies for this request.  Note: This concept is not to be used for \"other\" - one of the listed statuses is presumed to apply, it's just not known which one.";
             default: return "?";
           }
         }
@@ -144,7 +144,7 @@ public class Procedure extends DomainResource {
             case PREPARATION: return "Preparation";
             case INPROGRESS: return "In Progress";
             case SUSPENDED: return "Suspended";
-            case ABORTED: return "Aboted";
+            case ABORTED: return "Aborted";
             case COMPLETED: return "Completed";
             case ENTEREDINERROR: return "Entered in Error";
             case UNKNOWN: return "Unknown";
@@ -223,9 +223,17 @@ public class Procedure extends DomainResource {
     @Block()
     public static class ProcedurePerformerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
+         * For example: surgeon, anaethetist, endoscopist.
+         */
+        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="The role the actor was in", formalDefinition="For example: surgeon, anaethetist, endoscopist." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
+        protected CodeableConcept role;
+
+        /**
          * The practitioner who was involved in the procedure.
          */
-        @Child(name = "actor", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "actor", type = {Practitioner.class, Organization.class, Patient.class, RelatedPerson.class, Device.class}, order=2, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="The reference to the practitioner", formalDefinition="The practitioner who was involved in the procedure." )
         protected Reference actor;
 
@@ -233,14 +241,6 @@ public class Procedure extends DomainResource {
          * The actual object that is the target of the reference (The practitioner who was involved in the procedure.)
          */
         protected Resource actorTarget;
-
-        /**
-         * For example: surgeon, anaethetist, endoscopist.
-         */
-        @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The role the actor was in", formalDefinition="For example: surgeon, anaethetist, endoscopist." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
-        protected CodeableConcept role;
 
         /**
          * The organization the device or practitioner was acting on behalf of.
@@ -254,7 +254,7 @@ public class Procedure extends DomainResource {
          */
         protected Organization onBehalfOfTarget;
 
-        private static final long serialVersionUID = 2049308924L;
+        private static final long serialVersionUID = 213950062L;
 
     /**
      * Constructor
@@ -270,6 +270,30 @@ public class Procedure extends DomainResource {
         super();
         this.actor = actor;
       }
+
+        /**
+         * @return {@link #role} (For example: surgeon, anaethetist, endoscopist.)
+         */
+        public CodeableConcept getRole() { 
+          if (this.role == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ProcedurePerformerComponent.role");
+            else if (Configuration.doAutoCreate())
+              this.role = new CodeableConcept(); // cc
+          return this.role;
+        }
+
+        public boolean hasRole() { 
+          return this.role != null && !this.role.isEmpty();
+        }
+
+        /**
+         * @param value {@link #role} (For example: surgeon, anaethetist, endoscopist.)
+         */
+        public ProcedurePerformerComponent setRole(CodeableConcept value) { 
+          this.role = value;
+          return this;
+        }
 
         /**
          * @return {@link #actor} (The practitioner who was involved in the procedure.)
@@ -307,30 +331,6 @@ public class Procedure extends DomainResource {
          */
         public ProcedurePerformerComponent setActorTarget(Resource value) { 
           this.actorTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #role} (For example: surgeon, anaethetist, endoscopist.)
-         */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ProcedurePerformerComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
-        }
-
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
-        }
-
-        /**
-         * @param value {@link #role} (For example: surgeon, anaethetist, endoscopist.)
-         */
-        public ProcedurePerformerComponent setRole(CodeableConcept value) { 
-          this.role = value;
           return this;
         }
 
@@ -380,16 +380,16 @@ public class Procedure extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("actor", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("role", "CodeableConcept", "For example: surgeon, anaethetist, endoscopist.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Practitioner|Organization|Patient|RelatedPerson|Device)", "The practitioner who was involved in the procedure.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
 
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
         case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
+        case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -399,11 +399,11 @@ public class Procedure extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 92645877: // actor
-          this.actor = castToReference(value); // Reference
-          return value;
         case 3506294: // role
           this.role = castToCodeableConcept(value); // CodeableConcept
+          return value;
+        case 92645877: // actor
+          this.actor = castToReference(value); // Reference
           return value;
         case -14402964: // onBehalfOf
           this.onBehalfOf = castToReference(value); // Reference
@@ -415,10 +415,10 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actor")) {
-          this.actor = castToReference(value); // Reference
-        } else if (name.equals("role")) {
+        if (name.equals("role")) {
           this.role = castToCodeableConcept(value); // CodeableConcept
+        } else if (name.equals("actor")) {
+          this.actor = castToReference(value); // Reference
         } else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = castToReference(value); // Reference
         } else
@@ -429,8 +429,8 @@ public class Procedure extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92645877:  return getActor(); 
         case 3506294:  return getRole(); 
+        case 92645877:  return getActor(); 
         case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
         }
@@ -440,8 +440,8 @@ public class Procedure extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 92645877: /*actor*/ return new String[] {"Reference"};
         case 3506294: /*role*/ return new String[] {"CodeableConcept"};
+        case 92645877: /*actor*/ return new String[] {"Reference"};
         case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
         }
@@ -450,13 +450,13 @@ public class Procedure extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("actor")) {
-          this.actor = new Reference();
-          return this.actor;
-        }
-        else if (name.equals("role")) {
+        if (name.equals("role")) {
           this.role = new CodeableConcept();
           return this.role;
+        }
+        else if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
         }
         else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = new Reference();
@@ -469,8 +469,8 @@ public class Procedure extends DomainResource {
       public ProcedurePerformerComponent copy() {
         ProcedurePerformerComponent dst = new ProcedurePerformerComponent();
         copyValues(dst);
-        dst.actor = actor == null ? null : actor.copy();
         dst.role = role == null ? null : role.copy();
+        dst.actor = actor == null ? null : actor.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         return dst;
       }
@@ -482,7 +482,7 @@ public class Procedure extends DomainResource {
         if (!(other instanceof ProcedurePerformerComponent))
           return false;
         ProcedurePerformerComponent o = (ProcedurePerformerComponent) other;
-        return compareDeep(actor, o.actor, true) && compareDeep(role, o.role, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
+        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
           ;
       }
 
@@ -497,7 +497,7 @@ public class Procedure extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, role, onBehalfOf
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
           );
       }
 
@@ -777,13 +777,28 @@ public class Procedure extends DomainResource {
      */
     @Child(name = "status", type = {CodeType.class}, order=4, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="preparation | in-progress | suspended | aborted | completed | entered-in-error | unknown", formalDefinition="A code specifying the state of the procedure. Generally this will be in-progress or completed state." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-status")
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-status")
     protected Enumeration<ProcedureStatus> status;
+
+    /**
+     * Set this to true if the record is saying that the procedure was NOT performed.
+     */
+    @Child(name = "notDone", type = {BooleanType.class}, order=5, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="True if procedure was not performed as scheduled", formalDefinition="Set this to true if the record is saying that the procedure was NOT performed." )
+    protected BooleanType notDone;
+
+    /**
+     * A code indicating why the procedure was not performed.
+     */
+    @Child(name = "notDoneReason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Reason procedure was not performed", formalDefinition="A code indicating why the procedure was not performed." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason")
+    protected CodeableConcept notDoneReason;
 
     /**
      * A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").
      */
-    @Child(name = "category", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "category", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Classification of the procedure", formalDefinition="A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\")." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-category")
     protected CodeableConcept category;
@@ -791,7 +806,7 @@ public class Procedure extends DomainResource {
     /**
      * The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "code", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Identification of the procedure", formalDefinition="The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
@@ -799,7 +814,7 @@ public class Procedure extends DomainResource {
     /**
      * The person, animal or group on which the procedure was performed.
      */
-    @Child(name = "subject", type = {Patient.class, Group.class}, order=7, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=9, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who the procedure was performed on", formalDefinition="The person, animal or group on which the procedure was performed." )
     protected Reference subject;
 
@@ -811,7 +826,7 @@ public class Procedure extends DomainResource {
     /**
      * The encounter during which the procedure was performed.
      */
-    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "context", type = {Encounter.class, EpisodeOfCare.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The encounter associated with the procedure", formalDefinition="The encounter during which the procedure was performed." )
     protected Reference context;
 
@@ -823,21 +838,21 @@ public class Procedure extends DomainResource {
     /**
      * The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
      */
-    @Child(name = "performed", type = {DateTimeType.class, Period.class, Timing.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "performed", type = {DateTimeType.class, Period.class, Timing.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Date/Period the procedure was performed", formalDefinition="The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured." )
     protected Type performed;
 
     /**
      * Limited to 'real' people rather than equipment.
      */
-    @Child(name = "performer", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "performer", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="The people who performed the procedure", formalDefinition="Limited to 'real' people rather than equipment." )
     protected List<ProcedurePerformerComponent> performer;
 
     /**
      * The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.
      */
-    @Child(name = "location", type = {Location.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "location", type = {Location.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Where the procedure happened", formalDefinition="The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant." )
     protected Reference location;
 
@@ -849,7 +864,7 @@ public class Procedure extends DomainResource {
     /**
      * The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.
      */
-    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Coded reason procedure performed", formalDefinition="The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
     protected List<CodeableConcept> reasonCodeableConcept;
@@ -857,7 +872,7 @@ public class Procedure extends DomainResource {
     /**
      * The condition that is the reason why the procedure was performed.
      */
-    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonReference", type = {Condition.class, Observation.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Condition that is the reason the procedure performed", formalDefinition="The condition that is the reason why the procedure was performed." )
     protected List<Reference> reasonReference;
     /**
@@ -865,21 +880,6 @@ public class Procedure extends DomainResource {
      */
     protected List<Resource> reasonReferenceTarget;
 
-
-    /**
-     * Set this to true if the record is saying that the procedure was NOT performed.
-     */
-    @Child(name = "notDone", type = {BooleanType.class}, order=14, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="True if procedure was not performed as scheduled", formalDefinition="Set this to true if the record is saying that the procedure was NOT performed." )
-    protected BooleanType notDone;
-
-    /**
-     * A code indicating why the procedure was not performed.
-     */
-    @Child(name = "notDoneReason", type = {CodeableConcept.class}, order=15, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Reason procedure was not performed", formalDefinition="A code indicating why the procedure was not performed." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason")
-    protected CodeableConcept notDoneReason;
 
     /**
      * Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.
@@ -971,7 +971,7 @@ public class Procedure extends DomainResource {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-kind")
     protected List<CodeableConcept> usedCode;
 
-    private static final long serialVersionUID = 252859972L;
+    private static final long serialVersionUID = 2061593566L;
 
   /**
    * Constructor
@@ -1273,6 +1273,75 @@ public class Procedure extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<ProcedureStatus>(new ProcedureStatusEnumFactory());
         this.status.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #notDone} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     */
+    public BooleanType getNotDoneElement() { 
+      if (this.notDone == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Procedure.notDone");
+        else if (Configuration.doAutoCreate())
+          this.notDone = new BooleanType(); // bb
+      return this.notDone;
+    }
+
+    public boolean hasNotDoneElement() { 
+      return this.notDone != null && !this.notDone.isEmpty();
+    }
+
+    public boolean hasNotDone() { 
+      return this.notDone != null && !this.notDone.isEmpty();
+    }
+
+    /**
+     * @param value {@link #notDone} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
+     */
+    public Procedure setNotDoneElement(BooleanType value) { 
+      this.notDone = value;
+      return this;
+    }
+
+    /**
+     * @return Set this to true if the record is saying that the procedure was NOT performed.
+     */
+    public boolean getNotDone() { 
+      return this.notDone == null || this.notDone.isEmpty() ? false : this.notDone.getValue();
+    }
+
+    /**
+     * @param value Set this to true if the record is saying that the procedure was NOT performed.
+     */
+    public Procedure setNotDone(boolean value) { 
+        if (this.notDone == null)
+          this.notDone = new BooleanType();
+        this.notDone.setValue(value);
+      return this;
+    }
+
+    /**
+     * @return {@link #notDoneReason} (A code indicating why the procedure was not performed.)
+     */
+    public CodeableConcept getNotDoneReason() { 
+      if (this.notDoneReason == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Procedure.notDoneReason");
+        else if (Configuration.doAutoCreate())
+          this.notDoneReason = new CodeableConcept(); // cc
+      return this.notDoneReason;
+    }
+
+    public boolean hasNotDoneReason() { 
+      return this.notDoneReason != null && !this.notDoneReason.isEmpty();
+    }
+
+    /**
+     * @param value {@link #notDoneReason} (A code indicating why the procedure was not performed.)
+     */
+    public Procedure setNotDoneReason(CodeableConcept value) { 
+      this.notDoneReason = value;
       return this;
     }
 
@@ -1671,75 +1740,6 @@ public class Procedure extends DomainResource {
       if (this.reasonReferenceTarget == null)
         this.reasonReferenceTarget = new ArrayList<Resource>();
       return this.reasonReferenceTarget;
-    }
-
-    /**
-     * @return {@link #notDone} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
-     */
-    public BooleanType getNotDoneElement() { 
-      if (this.notDone == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Procedure.notDone");
-        else if (Configuration.doAutoCreate())
-          this.notDone = new BooleanType(); // bb
-      return this.notDone;
-    }
-
-    public boolean hasNotDoneElement() { 
-      return this.notDone != null && !this.notDone.isEmpty();
-    }
-
-    public boolean hasNotDone() { 
-      return this.notDone != null && !this.notDone.isEmpty();
-    }
-
-    /**
-     * @param value {@link #notDone} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotDone" gives direct access to the value
-     */
-    public Procedure setNotDoneElement(BooleanType value) { 
-      this.notDone = value;
-      return this;
-    }
-
-    /**
-     * @return Set this to true if the record is saying that the procedure was NOT performed.
-     */
-    public boolean getNotDone() { 
-      return this.notDone == null || this.notDone.isEmpty() ? false : this.notDone.getValue();
-    }
-
-    /**
-     * @param value Set this to true if the record is saying that the procedure was NOT performed.
-     */
-    public Procedure setNotDone(boolean value) { 
-        if (this.notDone == null)
-          this.notDone = new BooleanType();
-        this.notDone.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #notDoneReason} (A code indicating why the procedure was not performed.)
-     */
-    public CodeableConcept getNotDoneReason() { 
-      if (this.notDoneReason == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Procedure.notDoneReason");
-        else if (Configuration.doAutoCreate())
-          this.notDoneReason = new CodeableConcept(); // cc
-      return this.notDoneReason;
-    }
-
-    public boolean hasNotDoneReason() { 
-      return this.notDoneReason != null && !this.notDoneReason.isEmpty();
-    }
-
-    /**
-     * @param value {@link #notDoneReason} (A code indicating why the procedure was not performed.)
-     */
-    public Procedure setNotDoneReason(CodeableConcept value) { 
-      this.notDoneReason = value;
-      return this;
     }
 
     /**
@@ -2304,6 +2304,8 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("basedOn", "Reference(CarePlan|ProcedureRequest|ReferralRequest)", "A reference to a resource that contains details of the request for this procedure.", 0, java.lang.Integer.MAX_VALUE, basedOn));
         childrenList.add(new Property("partOf", "Reference(Procedure|Observation|MedicationAdministration)", "A larger event of which this particular procedure is a component or step.", 0, java.lang.Integer.MAX_VALUE, partOf));
         childrenList.add(new Property("status", "code", "A code specifying the state of the procedure. Generally this will be in-progress or completed state.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("notDone", "boolean", "Set this to true if the record is saying that the procedure was NOT performed.", 0, java.lang.Integer.MAX_VALUE, notDone));
+        childrenList.add(new Property("notDoneReason", "CodeableConcept", "A code indicating why the procedure was not performed.", 0, java.lang.Integer.MAX_VALUE, notDoneReason));
         childrenList.add(new Property("category", "CodeableConcept", "A code that classifies the procedure for searching, sorting and display purposes (e.g. \"Surgical Procedure\").", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("code", "CodeableConcept", "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Patient|Group)", "The person, animal or group on which the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, subject));
@@ -2313,8 +2315,6 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("location", "Reference(Location)", "The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("reasonCodeableConcept", "CodeableConcept", "The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, reasonCodeableConcept));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "The condition that is the reason why the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
-        childrenList.add(new Property("notDone", "boolean", "Set this to true if the record is saying that the procedure was NOT performed.", 0, java.lang.Integer.MAX_VALUE, notDone));
-        childrenList.add(new Property("notDoneReason", "CodeableConcept", "A code indicating why the procedure was not performed.", 0, java.lang.Integer.MAX_VALUE, notDoneReason));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("outcome", "CodeableConcept", "The outcome of the procedure - did it resolve reasons for the procedure being performed?", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("report", "Reference(DiagnosticReport)", "This could be a histology result, pathology report, surgical report, etc..", 0, java.lang.Integer.MAX_VALUE, report));
@@ -2335,6 +2335,8 @@ public class Procedure extends DomainResource {
         case -332612366: /*basedOn*/ return this.basedOn == null ? new Base[0] : this.basedOn.toArray(new Base[this.basedOn.size()]); // Reference
         case -995410646: /*partOf*/ return this.partOf == null ? new Base[0] : this.partOf.toArray(new Base[this.partOf.size()]); // Reference
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<ProcedureStatus>
+        case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
+        case -1973169255: /*notDoneReason*/ return this.notDoneReason == null ? new Base[0] : new Base[] {this.notDoneReason}; // CodeableConcept
         case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
@@ -2344,8 +2346,6 @@ public class Procedure extends DomainResource {
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
         case -610155331: /*reasonCodeableConcept*/ return this.reasonCodeableConcept == null ? new Base[0] : this.reasonCodeableConcept.toArray(new Base[this.reasonCodeableConcept.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
-        case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
-        case -1973169255: /*notDoneReason*/ return this.notDoneReason == null ? new Base[0] : new Base[] {this.notDoneReason}; // CodeableConcept
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
         case -934521548: /*report*/ return this.report == null ? new Base[0] : this.report.toArray(new Base[this.report.size()]); // Reference
@@ -2380,6 +2380,12 @@ public class Procedure extends DomainResource {
           value = new ProcedureStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ProcedureStatus>
           return value;
+        case 2128257269: // notDone
+          this.notDone = castToBoolean(value); // BooleanType
+          return value;
+        case -1973169255: // notDoneReason
+          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
+          return value;
         case 50511102: // category
           this.category = castToCodeableConcept(value); // CodeableConcept
           return value;
@@ -2406,12 +2412,6 @@ public class Procedure extends DomainResource {
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
-          return value;
-        case 2128257269: // notDone
-          this.notDone = castToBoolean(value); // BooleanType
-          return value;
-        case -1973169255: // notDoneReason
-          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
           return value;
         case 1702620169: // bodySite
           this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
@@ -2461,6 +2461,10 @@ public class Procedure extends DomainResource {
         } else if (name.equals("status")) {
           value = new ProcedureStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<ProcedureStatus>
+        } else if (name.equals("notDone")) {
+          this.notDone = castToBoolean(value); // BooleanType
+        } else if (name.equals("notDoneReason")) {
+          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("category")) {
           this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("code")) {
@@ -2479,10 +2483,6 @@ public class Procedure extends DomainResource {
           this.getReasonCodeableConcept().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
-        } else if (name.equals("notDone")) {
-          this.notDone = castToBoolean(value); // BooleanType
-        } else if (name.equals("notDoneReason")) {
-          this.notDoneReason = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("outcome")) {
@@ -2516,6 +2516,8 @@ public class Procedure extends DomainResource {
         case -332612366:  return addBasedOn(); 
         case -995410646:  return addPartOf(); 
         case -892481550:  return getStatusElement();
+        case 2128257269:  return getNotDoneElement();
+        case -1973169255:  return getNotDoneReason(); 
         case 50511102:  return getCategory(); 
         case 3059181:  return getCode(); 
         case -1867885268:  return getSubject(); 
@@ -2526,8 +2528,6 @@ public class Procedure extends DomainResource {
         case 1901043637:  return getLocation(); 
         case -610155331:  return addReasonCodeableConcept(); 
         case -1146218137:  return addReasonReference(); 
-        case 2128257269:  return getNotDoneElement();
-        case -1973169255:  return getNotDoneReason(); 
         case 1702620169:  return addBodySite(); 
         case -1106507950:  return getOutcome(); 
         case -934521548:  return addReport(); 
@@ -2551,6 +2551,8 @@ public class Procedure extends DomainResource {
         case -332612366: /*basedOn*/ return new String[] {"Reference"};
         case -995410646: /*partOf*/ return new String[] {"Reference"};
         case -892481550: /*status*/ return new String[] {"code"};
+        case 2128257269: /*notDone*/ return new String[] {"boolean"};
+        case -1973169255: /*notDoneReason*/ return new String[] {"CodeableConcept"};
         case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -1867885268: /*subject*/ return new String[] {"Reference"};
@@ -2560,8 +2562,6 @@ public class Procedure extends DomainResource {
         case 1901043637: /*location*/ return new String[] {"Reference"};
         case -610155331: /*reasonCodeableConcept*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
-        case 2128257269: /*notDone*/ return new String[] {"boolean"};
-        case -1973169255: /*notDoneReason*/ return new String[] {"CodeableConcept"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
         case -934521548: /*report*/ return new String[] {"Reference"};
@@ -2593,6 +2593,13 @@ public class Procedure extends DomainResource {
         }
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type Procedure.status");
+        }
+        else if (name.equals("notDone")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Procedure.notDone");
+        }
+        else if (name.equals("notDoneReason")) {
+          this.notDoneReason = new CodeableConcept();
+          return this.notDoneReason;
         }
         else if (name.equals("category")) {
           this.category = new CodeableConcept();
@@ -2634,13 +2641,6 @@ public class Procedure extends DomainResource {
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
-        }
-        else if (name.equals("notDone")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Procedure.notDone");
-        }
-        else if (name.equals("notDoneReason")) {
-          this.notDoneReason = new CodeableConcept();
-          return this.notDoneReason;
         }
         else if (name.equals("bodySite")) {
           return addBodySite();
@@ -2706,6 +2706,8 @@ public class Procedure extends DomainResource {
             dst.partOf.add(i.copy());
         };
         dst.status = status == null ? null : status.copy();
+        dst.notDone = notDone == null ? null : notDone.copy();
+        dst.notDoneReason = notDoneReason == null ? null : notDoneReason.copy();
         dst.category = category == null ? null : category.copy();
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
@@ -2727,8 +2729,6 @@ public class Procedure extends DomainResource {
           for (Reference i : reasonReference)
             dst.reasonReference.add(i.copy());
         };
-        dst.notDone = notDone == null ? null : notDone.copy();
-        dst.notDoneReason = notDoneReason == null ? null : notDoneReason.copy();
         if (bodySite != null) {
           dst.bodySite = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : bodySite)
@@ -2791,15 +2791,15 @@ public class Procedure extends DomainResource {
         Procedure o = (Procedure) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(definition, o.definition, true)
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(partOf, o.partOf, true) && compareDeep(status, o.status, true)
-           && compareDeep(category, o.category, true) && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(context, o.context, true) && compareDeep(performed, o.performed, true) && compareDeep(performer, o.performer, true)
-           && compareDeep(location, o.location, true) && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true)
-           && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(notDone, o.notDone, true)
-           && compareDeep(notDoneReason, o.notDoneReason, true) && compareDeep(bodySite, o.bodySite, true)
-           && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true) && compareDeep(complication, o.complication, true)
-           && compareDeep(complicationDetail, o.complicationDetail, true) && compareDeep(followUp, o.followUp, true)
-           && compareDeep(note, o.note, true) && compareDeep(focalDevice, o.focalDevice, true) && compareDeep(usedReference, o.usedReference, true)
-           && compareDeep(usedCode, o.usedCode, true);
+           && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true) && compareDeep(category, o.category, true)
+           && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
+           && compareDeep(performed, o.performed, true) && compareDeep(performer, o.performer, true) && compareDeep(location, o.location, true)
+           && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(bodySite, o.bodySite, true) && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true)
+           && compareDeep(complication, o.complication, true) && compareDeep(complicationDetail, o.complicationDetail, true)
+           && compareDeep(followUp, o.followUp, true) && compareDeep(note, o.note, true) && compareDeep(focalDevice, o.focalDevice, true)
+           && compareDeep(usedReference, o.usedReference, true) && compareDeep(usedCode, o.usedCode, true)
+          ;
       }
 
       @Override
@@ -2814,8 +2814,8 @@ public class Procedure extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
-          , partOf, status, category, code, subject, context, performed, performer, location
-          , reasonCodeableConcept, reasonReference, notDone, notDoneReason, bodySite, outcome
+          , partOf, status, notDone, notDoneReason, category, code, subject, context, performed
+          , performer, location, reasonCodeableConcept, reasonReference, bodySite, outcome
           , report, complication, complicationDetail, followUp, note, focalDevice, usedReference
           , usedCode);
       }
