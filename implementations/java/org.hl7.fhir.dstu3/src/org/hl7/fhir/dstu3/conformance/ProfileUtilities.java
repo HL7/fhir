@@ -474,6 +474,7 @@ public class ProfileUtilities extends TranslatingUtilities {
             if (!outcome.hasType()) {
               throw new DefinitionException("not done yet");
             }
+            result.getElement().remove(result.getElement().size()-1);
             skipSlicingElement = true;
           } else 
             checkExtensionDoco(outcome);
@@ -487,11 +488,11 @@ public class ProfileUtilities extends TranslatingUtilities {
             // our processing scope for the differential is the item in the list, and all the items before the next one in the list
             ndc = differential.getElement().indexOf(diffMatches.get(i));
             ndl = findEndOfElement(differential, ndc);
-            if (skipSlicingElement && i == 0) {
+/*            if (skipSlicingElement && i == 0) {
               ndc = ndc + 1;
               if (ndc > ndl)
                 continue;
-            }
+            }*/
             // now we process the base scope repeatedly for each instance of the item in the differential list
             processPaths(result, base, differential, baseCursor, ndc, nbl, ndl, url, profileName+pathTail(diffMatches, i), contextPathSrc, contextPathDst, trimDifferential, contextName, resultPathBase, true);
           }

@@ -1522,10 +1522,10 @@ public class Publisher implements IWorkerContext.ILoggingService, IReferenceReso
           boolean altered = false;
           if (businessVersion != null) {
             if (!bc.hasVersion()) {
-              bc.setVersion(businessVersion);
               altered = true;
             } else if (!bc.getVersion().equals(businessVersion))
-              throw new Exception("Business version mismatch in "+f.getName()+" - is "+bc.getVersion()+" but must be missing or equal to "+businessVersion);
+              System.out.println("Business version mismatch in "+f.getName()+" - overriding from "+bc.getVersion()+" to "+businessVersion);
+            bc.setVersion(businessVersion);
           }
           if (!bc.hasDate()) {
             altered = true;
