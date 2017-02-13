@@ -144,6 +144,7 @@ signatures.html
         <page title="CVX" filename="cvx.html"/>
         <page title="CPT" filename="cpt.html"/>
         <page title="NDC" filename="ndc.html"/>
+        <page title="ICD-X" filename="icd.html"/>
         <pages type="codesystem" filename="template-codesystem.html"/>
         <pages type="v2-table" filename="template-v2.html"/>
         <page title="Code Systems" filename="terminologies-v3.html"/>
