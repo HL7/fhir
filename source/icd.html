@@ -81,17 +81,17 @@ Variants (other variants exist which are not listed here):
 <table class=grid">
  <tr>
   <td>Germany</td>
-  <td>Netherlands</td>
-  <td>United States</td>
- </tr>
- <tr>
   <td><code>http://hl7.org/fhir/sid/icd-10-de</code></td>
-  <td><code>http://hl7.org/fhir/sid/icd-10-nl</code></td>
-  <td><code>http://hl7.org/fhir/sid/icd-10-cm</code></td>
+  <td>2.16.840.1.113883.6.3.2</td>
  </tr>
  <tr>
+  <td>Netherlands</td>
+  <td><code>http://hl7.org/fhir/sid/icd-10-nl</code></td>
   <td>1.2.276.0.76.5.409</td>
-  <td>2.16.840.1.113883.6.3.2</td>
+ </tr>
+ <tr>
+  <td>United States</td>
+  <td><code>http://hl7.org/fhir/sid/icd-10-cm</code></td>
   <td>2.16.840.1.113883.6.90</td>
  </tr>
 </table>
@@ -123,8 +123,15 @@ For "dagger and asterisk" coding of an underlying generalized disease and a spec
 </p>
  
 <p>
-Dual Coding Example: "Staph aureus bronchiolitis" is coded using ICD-10 codes J21.8 "Acute bronchiolitis due to other specified organisms" and B95.6 "Staphylococcus aureus as the cause of diseases classified to other chapters" as "J21.8 B95.6".
+Dual Coding Example: "Staph aureus bronchiolitis" is coded using ICD-10 codes J21.8 "Acute bronchiolitis due to other specified organisms" and B95.6 "Staphylococcus aureus as the cause of diseases classified to other chapters"
+as 
 </p>
+<pre>
+  &lt;coding&gt;
+    &lt;system value=&quot;http://hl7.org/fhir/sid/icd-10&quot;/&gt;
+    &lt;code value=&quot;J21.8 B95.6&quot;/&gt;
+  &lt;/coding&gt;
+</pre>
 
 <h3>Copyright/License Issues</h3>
 
