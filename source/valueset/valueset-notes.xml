@@ -148,14 +148,25 @@ alternative approaches that are more efficient, as long as the outcome is the sa
 <p>
 An expansion may include entries in the expansion that only serve an arbitrary grouping purpose, to make it easier
 for a human to use the list. These entries have no system or code, and must be marked as abstract. Note that the 
-value set <code>codeSystem</code> and <code>compose</code> offer no support for defining these, but this does not exclude servers from using
-extensions or other knowledge to introduce such groups as an implementation feature. 
+<code>CodeSystem</code> resource and <code>ValueSet.compose</code> offer no support for defining heirarchies and groups, 
+but this does not exclude servers from using extensions or other knowledge to introduce such groups as an implementation feature. 
 </p>
 <p>
 The codes in the expansion should be treated as case sensitive - implementers should use the correct 
 case. Implementers can consult the definition of the underlying code systems to determine whether the code system
 that defines the code is case sensitive or not. 
 </p>
+<p>
+It is important that expansions be identified properly. Any value set definition may produce an infinite 
+number of expansions, depending on the expansion profile and $expand operation parameters. Any expansions 
+produced must be clearly identified so that there is no confusion. The following rules apply:
+</p>
+<ul>
+ <li>The canonical URL for the expansion is the same as the value set it was expanded from</li>
+ <li>Each expansion SHALL have a unique identifier in <code>ValueSet.expansion.identifier</code></li>
+ <li>The result of an $expand operation may use the same identifier in ValueSet.expansion.identifier as a 
+   previous expansion, but if it does, the canonical representation of the value set expansion SHALL be identical (e.g. a cached response)</li>
+</ul>
 <p>
 Whether to store expanded value sets, or simply to store their definitions and expand on the fly is 
 a matter for system deployment. Some servers, including public value sets servers, only store expansions. 
@@ -166,7 +177,8 @@ leaves open the question of how to audit the specific expansion that was used fo
 One solution to this is to use a dedicated terminology server, and have the clients ask for 
 expansions on demand based on the value set definitions, and for the server to store (and reuse as 
 appropriate) the returned expansion (when it reuses the expansion, ValueSet.expansion.identifier will
-be the same).
+be the same). If expansions are shared, users need to be aware of how expansion identifiers (which may be 
+server specific) work.  
 </p>
 
 
