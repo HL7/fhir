@@ -41,24 +41,4 @@
         <reference value="Media/LM-203.bmp"/>
         <display value="Picture_Luigi_Maas"/>
     </photo>-->
-		<role>
-  <organization>
-     <reference value="Organization/f201"/>
-     <display value="AUMC"/>
- </organization>
- <code>
-     <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="33526004"/>
-        <display value="Electronic laboratory reporting"/>   
-     </coding> 
- </code>
- <specialty>
-    <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="159285000"/>
-        <display value="Medical laboratory technician"/>
-    </coding>
- </specialty>
-		</role>
 </Practitioner>

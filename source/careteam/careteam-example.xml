@@ -14,11 +14,6 @@
         <family value="Dietician"/>
         <given value="Dorothy"/>
       </name>
-      <role>
-        <specialty>
-          <text value="Dietician"/>
-        </specialty>
-      </role>
     </Practitioner>
   </contained>
   <identifier>

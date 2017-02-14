@@ -44,6 +44,15 @@ resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
 <p>
 	A standard extension <a href="extension-practitioner-animalspecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
 </p>
+<p>
+  The <a href="practitionerrole.html">PractitionerRole</a> resource provides the details of roles that the practitioner 
+  is approved to perform for which organizations (an at which locations, and optionally what services too).
+</p>
+<p>
+  Practitioners are also often grouped into <a href="careteam.html">CareTeams</a> independently of roles, where the CareTeam
+  defines what specific role that they are fulfilling within the team, and may or may not have actual practitioner role resources
+  created for the practitioner (and in the care team context, the organization the practitioner is representing)
+</p>
 </div>
 
 <div>

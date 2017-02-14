@@ -294,6 +294,12 @@
 
 === Sheet Profiles =====================================
 
+ -- Row 1 -----------------------------------
+  Name = PractitionerRole Extensions
+  IG Name = core
+  Filename = practitionerrole-extensions.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
@@ -301,5 +307,11 @@
   Identity = example
   Description = Dr Adam Careful\'s role at the Acme Hospital
   Filename = practitionerrole-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = HL7
+  Identity = 3ad0687e-f477-468c-afd5-fcc2bf897808
+  Description = HL7 Defined Practitioner Role examples
+  Filename = practitionerrole-examples-general.xml
 
 === Sheet Examples =====================================

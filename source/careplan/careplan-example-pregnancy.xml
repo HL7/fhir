@@ -31,11 +31,6 @@
         <family value="Midwife"/>
         <given value="Mavis"/>
       </name>
-      <role>
-        <specialty>
-          <text value="Midwife"/>
-        </specialty>
-      </role>
     </Practitioner>
   </contained>
   <contained>
@@ -45,11 +40,6 @@
         <family value="Obstetrician"/>
         <given value="Oscar"/>
       </name>
-      <role>
-        <specialty>
-          <text value="Obstetrician"/>
-        </specialty>
-      </role>
     </Practitioner>
   </contained>
   <contained>

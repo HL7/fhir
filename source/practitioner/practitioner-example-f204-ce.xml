@@ -33,24 +33,4 @@
         <display value="Picture_Carla_Espinosa"/>
     </photo>-->
    
-		<role>
-    <organization>
-        <reference value="Organization/f201"/>
-        <display value="AUMC"/>
-    </organization>
-    <code>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="224565004"/>
-            <display value="Renal nurse"/>
-        </coding>
-    </code>
-    <specialty>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="9632001"/>
-            <display value="Nursing procedure"/>
-        </coding>
-    </specialty>
-		</role>
 </Practitioner>

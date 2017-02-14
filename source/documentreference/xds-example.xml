@@ -142,26 +142,6 @@
           <family value="Smitty"/>
           <given value="Gerald"/>
         </name>
-        <role>
-          <organization>
-            <display value="Cleveland Clinic"/>
-          </organization>
-          <code>
-            <coding>
-              <code value="Attending"/>
-            </coding>
-          </code>
-          <specialty>
-            <coding>
-              <code value="Orthopedic"/>
-            </coding>
-          </specialty>
-        </role>
-        <role>
-          <organization>
-            <display value="Parma Community"/>
-          </organization>
-        </role>
       </Practitioner>
     </resource>
     <request>
@@ -187,26 +167,6 @@
           <family value="Dopplemeyer"/>
           <given value="Sherry"/>
         </name>
-        <role>
-          <organization>
-            <display value="Cleveland Clinic"/>
-          </organization>
-          <code>
-            <coding>
-              <code value="Primary Surgon"/>
-            </coding>
-          </code>
-          <specialty>
-            <coding>
-              <code value="Orthopedic"/>
-            </coding>
-          </specialty>
-        </role>
-        <role>
-          <organization>
-            <display value="Berea Community"/>
-          </organization>
-        </role>
       </Practitioner>
     </resource>
     <request>

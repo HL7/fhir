@@ -17,14 +17,17 @@ single service and the list of locations it is available. Both are acceptable op
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
-<blockquote class="dstu-note">
-<p><a name="dstu"> </a>
-<b>STU Note:</b>   The Role BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
-</p>
-</blockquote>
 <p>
-	The Qualifications are not a part of the PractitionerRole, as they may be appropriate for the role,
-    however they are a property of the Practitioner, not the role they may perform for an Organization.
+	Qualifications (from the Practitioner resource) do not imply a Roles, but might be considered when an Organization 
+  allocates practitioners to roles within their organization, and could provide useful information (such as expiry information)
+  which could need to be tracked in some situations to ensure they continue to be eligible for a specific role.
+</p>
+<p>
+  The <a href="careteam.html">CareTeam</a> resource is also often used to provide details of a role that a practitioner is
+  allocated to perform, but is usually scoped to a much finer granularity of care, and often within the specific context
+  of a <a href="patient.html">Patient</a>, or functional role (eg. Crisis planning team). In contrast the PractitionerRole
+  is used in a more general sense to cover all the places that the practitioner is allocated to work (and specific details
+  relevant to that role - such as a specific contact number, or electronic services endpoint).
 </p>
 </div>
 

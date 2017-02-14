@@ -14,17 +14,6 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 				<family value="Smitty"/>
 				<given value="Gerald"/>
 			</name>
-			<role>
-				<organization>
-					<display value="Cleveland Clinic"/>
-				</organization>
-				<code>
-					<text value="Attending"/>
-				</code>
-				<specialty>
-					<text value="Orthopedic"/>
-				</specialty>
-			</role>
 		</Practitioner>
 	</contained>
 	<masterIdentifier>
