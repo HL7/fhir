@@ -15,6 +15,39 @@
       </code>
     </Medication>
   </contained>
+  <contained>
+    <Provenance>
+      <id value="signature"/>
+      <target>
+        <reference value="ProcedureRequest/physiotherapy"/>
+      </target>
+      <recorded value="2017-02-01T17:23:07Z"/>
+      <agent>
+        <role>
+          <system value="http://hl7.org/fhir/provenance-participant-role"/>
+          <code value="author"/>
+        </role>
+        <whoReference>
+          <reference value="Practitioner/example"/>
+          <display value="Dr Adam Careful"/>
+        </whoReference>
+      </agent>
+      <signature>
+        <type>
+          <system value="urn:iso-astm:E1762-95:2013"/>
+          <code value="1.2.840.10065.1.12.1.1"/>
+          <display value="Author's Signature"/>
+        </type>
+        <when value="2017-02-01T17:23:07Z"/>
+        <whoReference>
+          <reference value="Practitioner/example"/>
+          <display value="Dr Adam Careful"/>
+        </whoReference>
+        <contentType value="application/signature+xml"/>
+        <blob value="dGhpcyBibG9iIGlzIHNuaXBwZWQ="/>
+      </signature>
+    </Provenance>
+  </contained>
   <status value="in-progress" />
   <medicationReference>
     <reference value="#med0301"/> 
