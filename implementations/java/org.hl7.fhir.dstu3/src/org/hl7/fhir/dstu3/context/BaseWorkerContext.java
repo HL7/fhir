@@ -570,7 +570,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
         // ... could be a problem if the server doesn't have the code systems we have locally, so we try not to depend on the server
         try {
           ValueSetExpansionOutcome vse = expandVS(vs, true, false);
-          if (vse.getValueset() != null)
+          if (vse.getValueset() != null && !hasTooCostlyExpansion(vse.getValueset()))
             return verifyCodeInternal(vse.getValueset(), code);
         } catch (Exception e) {
           // failed? we'll just try the server
@@ -582,6 +582,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
+
+  private boolean hasTooCostlyExpansion(ValueSet valueset) {
+    return valueset != null && valueset.hasExpansion() && ToolingExtensions.hasExtension(valueset.getExpansion(), "http://hl7.org/fhir/StructureDefinition/valueset-toocostly");
+  }
 
   @Override
   public ValidationResult validateCode(String system, String code, String display, ValueSet vs) {
