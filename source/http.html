@@ -486,7 +486,7 @@ Servers are permitted to reject update interactions because of integrity concern
 Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
 </p>
 <ul>
- <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for </li>
+ <li><b><code>400</code> Bad Request</b> - resource could not be parsed or failed basic FHIR validation rules (or multiple matches were found for conditional criteria)</li>
  <li><b><code>401</code> Not Authorized</b> - authorization is required for the interaction that was attempted</li>
  <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
  <li><b><code>405</code> Method Not allowed</b> - the resource did not exist prior to the update, and the server does not allow client defined ids</li>
@@ -833,19 +833,28 @@ this is not the main usage.
 Searches are processed as specified for the <a href="search.html">Search handling mechanism</a>.
 </p>
 <p>
-If the search fails (cannot be executed, not that there is no matches), the return value is
-a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
-</p>
-<p>
 If the search succeeds, the server SHALL return a 200 OK HTTP status code and the return content SHALL be a <a href="bundle.html">Bundle</a>
 with <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a collection of
 zero or more resources in a defined order. The result collection can be long, so servers may use paging. If they do, they SHALL use the method
-<a href="#paging">described below</a> below (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving</a>)
+<a href="#paging">described below</a> (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving</a>)
 for breaking the collection into pages if appropriate. The server MAY also return an <a href="operationoutcome.html">OperationOutcome</a> resource
 within the <code>searchset</code> Bundle entries that contains additional information about the search; if one is sent it SHALL NOT include any
 issues with a <code>fatal</code> or <code>error</code> <a href="valueset-issue-severity.html">severity</a>, and it SHALL be marked with a
 <a href="valueset-search-entry-mode.html">Bundle.entry.search.mode</a> of <code>outcome</code>.
 </p>
+<p>
+If the search fails (cannot be executed, not that there is no matches), the return value is
+a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
+</p>
+<p>
+Common HTTP Status codes returned on FHIR-related errors (in addition to normal HTTP errors related to security, header and content type negotiation issues):
+</p>
+<ul>
+ <li><b><code>400</code> Bad Request</b> - search could not be processed or failed basic FHIR validation rules</li>
+ <li><b><code>401</code> Not Authorized</b> - authorization is required for the interaction that was attempted</li>
+ <li><b><code>404</code> Not Found</b> - resource type not supported, or not a FHIR end-point</li>
+</ul>
+
 <a name="vsearch"> </a>
 <h4>Variant Searches</h4>
 <p>
