@@ -42,13 +42,13 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="500mg daily for 5 days" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="421984009"/>
                 <display value="Until finished - dosing instruction fragment (qualifier value)"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>

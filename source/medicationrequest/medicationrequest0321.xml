@@ -42,10 +42,7 @@
                         </denominator>
                     </amount>
                 </ingredient>
-                <batch>
-                    <lotNumber value="12345"/>
-                    <expirationDate value="2019-10-31"/>
-                </batch>
+               
             
             <package>
                 <container>
@@ -69,6 +66,10 @@
                         <code value="mL"/>
                     </amount>
                 </content>
+                <batch>
+                    <lotNumber value="12345"/>
+                    <expirationDate value="2019-10-31"/>
+                </batch>
             </package>
         </Medication>
     </contained>
@@ -112,9 +113,9 @@
     <dosageInstruction>
         <sequence value="2"/>
         <text value="inject 10 units subcut before breakfast"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Before Breakfast"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>
@@ -132,9 +133,9 @@
     <dosageInstruction>
         <sequence value="2"/>
         <text value="15 units before lunch"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Before Lunch"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>
@@ -152,9 +153,9 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="20 units before dinner"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Before Dinner"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>

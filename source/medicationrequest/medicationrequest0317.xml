@@ -50,12 +50,12 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Rapidly increase dose until tolerated"></text>
-        </additionalInstructions>
-        <additionalInstructions>
+        </additionalInstruction>
+        <additionalInstruction>
             <text value="Administer on alternate days"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <duration value="12"/>
@@ -90,12 +90,12 @@
         <sequence value="2"/>
         <text
             value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Rapidly increase dose until tolerated"></text>
-        </additionalInstructions>
-        <additionalInstructions>
+        </additionalInstruction>
+        <additionalInstruction>
         <text value="Administer on alternate days"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <duration value="12"/>
@@ -130,12 +130,12 @@
         <sequence value="3"/>
         <text
             value="Rapid daily-dose escalation, until tolerated, from 3 mg/d, and then 10 mg/d, to the recommended maintenance dose of 30 mg IV over 120 min, 3 times per wk on alternate days for up to 12 wk"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Rapidly increase dose until tolerated"></text>
-        </additionalInstructions>
-        <additionalInstructions>
+        </additionalInstruction>
+        <additionalInstruction>
         <text value="Administer on alternate days"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <duration value="12"/>

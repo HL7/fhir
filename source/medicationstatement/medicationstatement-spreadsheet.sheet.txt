@@ -224,6 +224,7 @@
   Type = Reference (MedicationAdministration |MedicationDispense |MedicationStatement | Procedure | Observation )
   Short Name = Part of referenced event
   Definition = A larger event of which this particular event is a component or step.
+  Requirements = This should not be used when indicating which resource a MedicationStatement has been derived from.  If that is the use case, then MedicationStatement.derivedFrom should be used.
   Workflow Mapping = …part of
   RIM Mapping = .outboundRelationship[typeCode=COMP]/target[classCode=SPLY or SBADM or PROC or OBS,moodCode=EVN]
 
@@ -324,7 +325,7 @@
   Type = Reference(Any)
   Short Name = Additional supporting information
   Definition = Allows linking the MedicationStatement to the underlying MedicationRequest, or to other information that supports or is used to derive the MedicationStatement.
-  Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
+  Comments = Likely references would be to MedicationRequest, MedicationDispense, Claim, Observation or QuestionnaireAnswers.  The most common use cases for deriving a MedicationStatement comes from creating a MedicationStatement from a MedicationRequest or from a lab observation or a claim.  it should be noted that the amount of information that is available varies from the type resource that you derive the MedicationStatement from.
   RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
  -- Row 14 -----------------------------------
@@ -450,8 +451,15 @@
  -- Row 10 -----------------------------------
   Name = patient
   Type = reference
+  Description = Returns statements for a specific patient.
   Path = MedicationStatement.subject
   Target Types = Patient
+
+ -- Row 11 -----------------------------------
+  Name = context
+  Type = reference
+  Description = Returns statements for a specific context (episode or episode of Care).
+  Path = MedicationStatement.context
 
 === Sheet Profiles =====================================
 

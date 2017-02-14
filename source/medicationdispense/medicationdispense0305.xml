@@ -67,13 +67,13 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Take 4 tablets daily for 7 days starting January 16, 2015" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after Food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <boundsPeriod>
@@ -109,13 +109,13 @@
     <dosageInstruction>
         <sequence value="2"/>
         <text value="Take 2 tablets daily for 7 days starting January 23, 2015" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after Food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <boundsPeriod>
@@ -151,13 +151,13 @@
     <dosageInstruction>
         <sequence value="3"/>
         <text value="Take 1 tablets daily for 7 days starting January 31, 2015" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after Food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <boundsPeriod>

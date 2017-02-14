@@ -54,10 +54,7 @@
         </denominator>
       </amount>
     </ingredient>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
+
   
   <package>
     <container>
@@ -77,5 +74,9 @@
         </coding>
       </itemCodeableConcept>
     </content>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch>
   </package>
 </Medication>

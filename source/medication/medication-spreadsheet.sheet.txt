@@ -17,8 +17,8 @@
 
  -- Row 3 -----------------------------------
   Binding Name = MedicationContainer
-  Binding = value set
-  Reference = valueset-medication-package-form-codes
+  Binding = code list
+  Reference = #medication-package-form
   Definition = A coded concept defining the kind of container a medication package is packaged in
   Conformance = example
 
@@ -28,6 +28,56 @@
   Reference = #medication-status
   Definition = A coded concept defining if the medication is in active use
   Conformance = required
+
+=== Sheet medication-package-form =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = ampoule
+  Display = Ampoule
+  Definition = A sealed glass capsule containing a liquid
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = bottle
+  Display = Bottle
+  Definition = A container, typically made of glass or plastic and with a narrow neck, used for storing liquids.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = box
+  Display = Box
+  Definition = A container with a flat base and sides, typically square or rectangular and having a lid.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = cartridge
+  Display = Cartridge
+  Definition = A device of various configuration and composition used with a syringe for the application of anesthetic or other materials to a patient.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = container
+  Display = Container
+  Definition = A package intended to store pharmaceuticals.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = tube
+  Display = Tube
+  Definition = A long, hollow cylinder of metal, plastic, glass, etc., for holding medications, typically creams or ointments
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = unitdose
+  Display = Unit Dose Blister
+  Definition = A dose of medicine prepared in an individual package for convenience, safety or monitoring.
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = vial
+  Display = Vial
+  Definition = A small container, typically cylindrical and made of glass, used especially for holding liquid medications.
 
 === Sheet medication-status =====================================
 
@@ -172,35 +222,6 @@
   RIM Mapping = .quantity
 
  -- Row 12 -----------------------------------
-  Element = Medication.batch
-  Card. = 0..*
-  UML = 300;240
-  Short Name = Identifies a single production run
-  Definition = Information about a group of medication produced or packaged from one production run.
-  SCRIPT 10.6 Mapping = no mapping
-  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
-
- -- Row 13 -----------------------------------
-  Element = Medication.batch.lotNumber
-  Card. = 0..1
-  Type = string
-  Short Name = Identifier assigned to batch
-  Definition = The assigned lot number of a batch of the specified product.
-  SCRIPT 10.6 Mapping = no mapping
-  v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
-  RIM Mapping = .id
-
- -- Row 14 -----------------------------------
-  Element = Medication.batch.expirationDate
-  Card. = 0..1
-  Type = dateTime
-  Short Name = When batch will expire
-  Definition = When this specific batch of product will expire.
-  SCRIPT 10.6 Mapping = no mapping
-  v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
-  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
-
- -- Row 15 -----------------------------------
   Element = Medication.package
   Card. = 0..1
   UML = 0;120
@@ -210,7 +231,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player[classCode=CONT]
 
- -- Row 16 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Medication.package.container
   Card. = 0..1
   Type = CodeableConcept
@@ -219,8 +240,9 @@
   Definition = The kind of container that this package comes as
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .code
+  Committee Notes = Value set is exemplar.  EDQM is used as a source.
 
- -- Row 17 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Medication.package.content
   Card. = 0..*
   UML = 0;240
@@ -229,7 +251,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .scopesRole[typeCode=CONT]
 
- -- Row 18 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Medication.package.content.item[x]
   Card. = 1..1
   Type = CodeableConcept|Reference(Medication)
@@ -238,7 +260,7 @@
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .player
 
- -- Row 19 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Medication.package.content.amount
   Card. = 0..1
   Type = SimpleQuantity
@@ -246,6 +268,35 @@
   Definition = The amount of the product that is in the package
   SCRIPT 10.6 Mapping = no mapping
   RIM Mapping = .quantity
+
+ -- Row 17 -----------------------------------
+  Element = Medication.package.batch
+  Card. = 0..*
+  UML = 300;240
+  Short Name = Identifies a single production run
+  Definition = Information about a group of medication produced or packaged from one production run.
+  SCRIPT 10.6 Mapping = no mapping
+  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
+
+ -- Row 18 -----------------------------------
+  Element = Medication.package.batch.lotNumber
+  Card. = 0..1
+  Type = string
+  Short Name = Identifier assigned to batch
+  Definition = The assigned lot number of a batch of the specified product.
+  SCRIPT 10.6 Mapping = no mapping
+  v2 Mapping = RXA-15 Substance Lot Number / RXG-19 Substance Lot Number
+  RIM Mapping = .id
+
+ -- Row 19 -----------------------------------
+  Element = Medication.package.batch.expirationDate
+  Card. = 0..1
+  Type = dateTime
+  Short Name = When batch will expire
+  Definition = When this specific batch of product will expire.
+  SCRIPT 10.6 Mapping = no mapping
+  v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
+  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
  -- Row 20 -----------------------------------
   Element = Medication.image

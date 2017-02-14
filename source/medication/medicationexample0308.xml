@@ -83,10 +83,7 @@
         </denominator>
       </amount>
     </ingredient>
-    <batch>
-      <lotNumber value="658484"/>
-      <expirationDate value="2020-07-31"/>
-    </batch>
+
   
   <package>
     <container>
@@ -106,5 +103,9 @@
         <code value="TAB"/>
       </amount>
     </content>
+    <batch>
+      <lotNumber value="658484"/>
+      <expirationDate value="2020-07-31"/>
+    </batch>
   </package>
 </Medication>

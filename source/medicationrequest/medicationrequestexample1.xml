@@ -63,13 +63,13 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="One tablet daily" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>

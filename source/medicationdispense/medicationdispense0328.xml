@@ -55,9 +55,9 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Use two sprays twice daily"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Shake Well"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="2"/>

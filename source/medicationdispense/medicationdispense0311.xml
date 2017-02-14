@@ -56,13 +56,13 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Insert two suppositories (240mg) rectally twice daily as needed for fever to a maximim of 6 per day"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="418637003"/>
                 <display value="Do not take with any other paracetamol products (qualifier value)"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="2"/>

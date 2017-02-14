@@ -110,9 +110,9 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Apply twice daily to affected area on left arm"/>
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Apply sparingly"></text>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="2"/>

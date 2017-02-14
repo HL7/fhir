@@ -40,10 +40,7 @@
           </coding>
         </itemCodeableConcept>
       </ingredient>
-      <batch>
-        <lotNumber value="123455"/>
-        <expirationDate value="2016-07-09"/>
-      </batch>
+      
     
     <package>
       <container>
@@ -53,6 +50,10 @@
           <display value="Intravenous Fluid container, single-use"/>
         </coding>
       </container>
+      <batch>
+        <lotNumber value="123455"/>
+        <expirationDate value="2016-07-09"/>
+      </batch>
     </package>
   </Medication>
   </contained>

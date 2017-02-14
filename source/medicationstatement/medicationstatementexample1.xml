@@ -64,11 +64,13 @@
           </denominator>
         </amount>
       </ingredient>
+      <package>
+        
       <batch>
         <lotNumber value="9494788"/>
         <expirationDate value="2017-05-22"/>
       </batch> 
-    
+      </package>
     </Medication>
   </contained>
   <identifier>
@@ -115,9 +117,9 @@
   <dosage>
     <sequence value="1"/>
     <text value="1-2 tablets once daily at bedtime as needed for restless legs" />
-    <additionalInstructions>
+    <additionalInstruction>
       <text value="Taking at bedtime"/>
-    </additionalInstructions>
+    </additionalInstruction>
     <timing>
       <repeat>
           <frequency value="1"/>

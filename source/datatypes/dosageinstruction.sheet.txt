@@ -2,9 +2,9 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = AdditionalInstructions
+  Binding Name = AdditionalInstruction
   Binding = value set
-  Reference = valueset-additional-instructions-codes
+  Reference = valueset-additional-instruction-codes
   Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
   Conformance = example
 
@@ -67,17 +67,25 @@
   RIM Mapping = .text
 
  -- Row 4 -----------------------------------
-  Element = DosageInstruction.additionalInstructions
+  Element = DosageInstruction.additionalInstruction
   Card. = 0..*
   UML = //element(*,SIGType)/Timing
   Type = CodeableConcept
-  Binding = AdditionalInstructions
-  Short Name = Supplemental instructions - e.g. \"with meals\"
-  Definition = Supplemental instructions - e.g. \"with meals\"
-  Requirements = Additional instructions such as \"Swallow with plenty of water\" which may or may not be coded.
+  Binding = AdditionalInstruction
+  Short Name = Supplemental instruction - e.g. \"with meals\"
+  Definition = Supplemental instruction - e.g. \"with meals\"
+  Requirements = Additional instruction such as \"Swallow with plenty of water\" which may or may not be coded.
   RIM Mapping = .text
 
  -- Row 5 -----------------------------------
+  Element = DosageInstruction.patientInstruction
+  Card. = 0..1
+  Type = string
+  Short Name = Patient or consumer oriented instructions
+  Definition = Instructions in terms that are understood by the patient or consumer
+  RIM Mapping = .text
+
+ -- Row 6 -----------------------------------
   Element = DosageInstruction.timing
   Card. = 0..1
   UML = //element(*,SIGType)/SiteofAdministration
@@ -88,7 +96,7 @@
   Comments = This attribute may not always be populated while the DosageInstruction.text is expected to be populated.  If both are populated, then the DosageInstruction.text should reflect the content of the Dosage.timing.
   RIM Mapping = .effectiveTime
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DosageInstruction.asNeeded[x]
   Card. = 0..1
   UML = Message/Body/NewRx/MedicationPrescribed/StructuredSIG/SiteofAdministration
@@ -99,7 +107,7 @@
   Comments = Can express \"as needed\" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express \"as needed\" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not \"prn\" or \"as needed\"
   RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, code=\"as needed\"].value=boolean or codable concept
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = DosageInstruction.site
   Card. = 0..1
   UML = //element(*,SIGType)/RouteofAdministration
@@ -111,7 +119,7 @@
   Comments = If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
   RIM Mapping = .approachSiteCode
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = DosageInstruction.route
   Card. = 0..1
   UML = //element(*,SIGType)/Dose/DoseDeliveryMethodCode
@@ -122,7 +130,7 @@
   Requirements = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient\'s body.
   RIM Mapping = .routeCode
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = DosageInstruction.method
   Card. = 0..1
   UML = //element(*,SIGType)/Dose
@@ -134,7 +142,7 @@
   Comments = Terminologies used often pre-coordinate this term with the route and or form of administration.
   RIM Mapping = .doseQuantity
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DosageInstruction.dose[x]
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
@@ -145,7 +153,7 @@
   Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
   RIM Mapping = .doseQuantity
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DosageInstruction.maxDosePerPeriod
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
@@ -156,7 +164,7 @@
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example \"2 tablets every 4 hours to a maximum of 8/day\"
   RIM Mapping = .maxDoseQuantity
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DosageInstruction.maxDosePerAdministration
   Card. = 0..1
   UML = //element(*,SIGType)/MaximumDoseRestriction
@@ -167,7 +175,7 @@
   Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
   RIM Mapping = not supported
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = DosageInstruction.maxDosePerLifetime
   Card. = 0..1
   Type = SimpleQuantity
@@ -176,7 +184,7 @@
   Requirements = The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
   RIM Mapping = not supported
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = DosageInstruction.rate[x]
   Card. = 0..1
   UML = no mapping

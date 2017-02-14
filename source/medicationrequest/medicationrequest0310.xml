@@ -47,9 +47,9 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Take 1-2 tablets once daily at bedtime as needed for restless legs" />
-        <additionalInstructions>
+        <additionalInstruction>
             <text value="Take at bedtime"/>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>

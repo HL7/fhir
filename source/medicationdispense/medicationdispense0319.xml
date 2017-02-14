@@ -68,13 +68,13 @@
     <dosageInstruction>
         <sequence value="1"/>
         <text value="Two tablets at once" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>
@@ -106,13 +106,13 @@
     <dosageInstruction>
         <sequence value="2"/>
         <text value="One tablet daily for 4 days" />
-        <additionalInstructions>
+        <additionalInstruction>
             <coding>
                 <system value="http://snomed.info/sct"/>
                 <code value="311504000"/>
                 <display value="With or after food"/>
             </coding>
-        </additionalInstructions>
+        </additionalInstruction>
         <timing>
             <repeat>
                 <frequency value="4"/>

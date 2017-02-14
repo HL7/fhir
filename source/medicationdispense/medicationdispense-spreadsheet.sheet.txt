@@ -577,6 +577,12 @@
   Description = The identity of a patient to list dispenses  for
   Path = MedicationDispense.subject
 
+ -- Row 15 -----------------------------------
+  Name = context
+  Type = reference
+  Description = Returns dispenses with a specific context (episode or episode of care)
+  Path = MedicationDispense.context
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
