@@ -74,6 +74,7 @@
                 <display value="Warning. May cause drowsiness. If affected do not drive or operate machinery. Avoid alcoholic drink (qualifier value)"/>
             </coding>
         </additionalInstruction>
+        <patientInstruction value="Take one to two tablets every four to six hours as needed for rib pain"></patientInstruction>
         <timing>
             <repeat>
                 <frequency value="1"/>
