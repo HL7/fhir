@@ -7,10 +7,10 @@
       <p>Update Person resource for Peter James CHALMERS (Jim), MRN: 12345 (Acme Healthcare)</p>
     </div>
   </text>
- <event>
+  <event>
     <system value="http://hl7.org/fhir/message-type"/>
     <code value="admin-notify"/>
-  </event>   
+  </event>
   <destination>
     <name value="Acme Message Gateway"/>
     
@@ -20,14 +20,17 @@
       <reference value="Device/example"/>
     </target>
     <endpoint value="llp:10.11.12.14:5432"/>
-  </destination>  
+  </destination>
+  <sender>
+    <reference value="Organization/1"/>
+  </sender>
   <timestamp value="2012-01-04T09:10:14Z"/>
   <enterer>
     <reference value="Practitioner/example"/>
   </enterer>
   <author>
     <reference value="Practitioner/example"/>
-  </author> 
+  </author>
   <source>
     <name value="Acme Central Patient Registry"/>
     <software value="FooBar Patient Manager"/>
@@ -37,19 +40,17 @@
       <value value="+1 (555) 123 4567"/>
     </contact>
     <endpoint value="llp:10.11.12.13:5432"/>
-  </source>  
+  </source>
   <reason>
     <coding>
       <system value="http://hl7.org/fhir/message-reasons-encounter"/>
       <code value="admit"/>
     </coding>
   </reason>
- 
   <response>
     <identifier value="5015fe84-8e76-4526-89d8-44b322e8d4fb"/>
     <code value="ok"/>
   </response>
-  
   <!-- Here's the payload, the resource that this admin-update concerns -->
   <focus>
     <reference value="Patient/example"/>

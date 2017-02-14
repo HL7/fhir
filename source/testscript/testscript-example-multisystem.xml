@@ -113,6 +113,12 @@
 		</action>
 		<action>
 			<assert>
+				<description value="Confirm that the request method GET was sent by the client system under test."/>
+				<requestMethod value="get"/>
+			</assert>
+		</action>
+		<action>
+			<assert>
 				<description value="Confirm that the client requested an Accept of xml."/>
 				<direction value="request"/>
 				<headerField value="Accept"/>

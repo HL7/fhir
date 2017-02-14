@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1231,16 +1231,28 @@ public class MessageHeader extends DomainResource {
     protected Resource receiverTarget;
 
     /**
+     * Identifies the sending system to allow the use of a trust relationship.
+     */
+    @Child(name = "sender", type = {Practitioner.class, Organization.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Real world sender of the message", formalDefinition="Identifies the sending system to allow the use of a trust relationship." )
+    protected Reference sender;
+
+    /**
+     * The actual object that is the target of the reference (Identifies the sending system to allow the use of a trust relationship.)
+     */
+    protected Resource senderTarget;
+
+    /**
      * The time that the message was sent.
      */
-    @Child(name = "timestamp", type = {InstantType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "timestamp", type = {InstantType.class}, order=4, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Time that the message was sent", formalDefinition="The time that the message was sent." )
     protected InstantType timestamp;
 
     /**
      * The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.
      */
-    @Child(name = "enterer", type = {Practitioner.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "enterer", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The source of the data entry", formalDefinition="The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions." )
     protected Reference enterer;
 
@@ -1252,7 +1264,7 @@ public class MessageHeader extends DomainResource {
     /**
      * The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.
      */
-    @Child(name = "author", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The source of the decision", formalDefinition="The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions." )
     protected Reference author;
 
@@ -1264,21 +1276,9 @@ public class MessageHeader extends DomainResource {
     /**
      * The source application from which this message originated.
      */
-    @Child(name = "source", type = {}, order=6, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "source", type = {}, order=7, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Message Source Application", formalDefinition="The source application from which this message originated." )
     protected MessageSourceComponent source;
-
-    /**
-     * Identifies the sending system to allow the use of a trust relationship.
-     */
-    @Child(name = "sender", type = {Practitioner.class, Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Real world sender of the message", formalDefinition="Identifies the sending system to allow the use of a trust relationship." )
-    protected Reference sender;
-
-    /**
-     * The actual object that is the target of the reference (Identifies the sending system to allow the use of a trust relationship.)
-     */
-    protected Resource senderTarget;
 
     /**
      * The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.
@@ -1319,7 +1319,7 @@ public class MessageHeader extends DomainResource {
     protected List<Resource> focusTarget;
 
 
-    private static final long serialVersionUID = 618462759L;
+    private static final long serialVersionUID = 1142547869L;
 
   /**
    * Constructor
@@ -1451,6 +1451,45 @@ public class MessageHeader extends DomainResource {
      */
     public MessageHeader setReceiverTarget(Resource value) { 
       this.receiverTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #sender} (Identifies the sending system to allow the use of a trust relationship.)
+     */
+    public Reference getSender() { 
+      if (this.sender == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MessageHeader.sender");
+        else if (Configuration.doAutoCreate())
+          this.sender = new Reference(); // cc
+      return this.sender;
+    }
+
+    public boolean hasSender() { 
+      return this.sender != null && !this.sender.isEmpty();
+    }
+
+    /**
+     * @param value {@link #sender} (Identifies the sending system to allow the use of a trust relationship.)
+     */
+    public MessageHeader setSender(Reference value) { 
+      this.sender = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the sending system to allow the use of a trust relationship.)
+     */
+    public Resource getSenderTarget() { 
+      return this.senderTarget;
+    }
+
+    /**
+     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the sending system to allow the use of a trust relationship.)
+     */
+    public MessageHeader setSenderTarget(Resource value) { 
+      this.senderTarget = value;
       return this;
     }
 
@@ -1612,45 +1651,6 @@ public class MessageHeader extends DomainResource {
     }
 
     /**
-     * @return {@link #sender} (Identifies the sending system to allow the use of a trust relationship.)
-     */
-    public Reference getSender() { 
-      if (this.sender == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MessageHeader.sender");
-        else if (Configuration.doAutoCreate())
-          this.sender = new Reference(); // cc
-      return this.sender;
-    }
-
-    public boolean hasSender() { 
-      return this.sender != null && !this.sender.isEmpty();
-    }
-
-    /**
-     * @param value {@link #sender} (Identifies the sending system to allow the use of a trust relationship.)
-     */
-    public MessageHeader setSender(Reference value) { 
-      this.sender = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the sending system to allow the use of a trust relationship.)
-     */
-    public Resource getSenderTarget() { 
-      return this.senderTarget;
-    }
-
-    /**
-     * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the sending system to allow the use of a trust relationship.)
-     */
-    public MessageHeader setSenderTarget(Resource value) { 
-      this.senderTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #responsible} (The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.)
      */
     public Reference getResponsible() { 
@@ -1805,11 +1805,11 @@ public class MessageHeader extends DomainResource {
         childrenList.add(new Property("event", "Coding", "Code that identifies the event this message represents and connects it with its definition. Events defined as part of the FHIR specification have the system value \"http://hl7.org/fhir/message-events\".", 0, java.lang.Integer.MAX_VALUE, event));
         childrenList.add(new Property("destination", "", "The destination application which the message is intended for.", 0, java.lang.Integer.MAX_VALUE, destination));
         childrenList.add(new Property("receiver", "Reference(Practitioner|Organization)", "Allows data conveyed by a message to be addressed to a particular person or department when routing to a specific application isn't sufficient.", 0, java.lang.Integer.MAX_VALUE, receiver));
+        childrenList.add(new Property("sender", "Reference(Practitioner|Organization)", "Identifies the sending system to allow the use of a trust relationship.", 0, java.lang.Integer.MAX_VALUE, sender));
         childrenList.add(new Property("timestamp", "instant", "The time that the message was sent.", 0, java.lang.Integer.MAX_VALUE, timestamp));
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "The person or device that performed the data entry leading to this message. Where there is more than one candidate, pick the most proximal to the message. Can provide other enterers in extensions.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("author", "Reference(Practitioner)", "The logical author of the message - the person or device that decided the described event should happen. Where there is more than one candidate, pick the most proximal to the MessageHeader. Can provide other authors in extensions.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("source", "", "The source application from which this message originated.", 0, java.lang.Integer.MAX_VALUE, source));
-        childrenList.add(new Property("sender", "Reference(Practitioner|Organization)", "Identifies the sending system to allow the use of a trust relationship.", 0, java.lang.Integer.MAX_VALUE, sender));
         childrenList.add(new Property("responsible", "Reference(Practitioner|Organization)", "The person or organization that accepts overall responsibility for the contents of the message. The implication is that the message event happened under the policies of the responsible party.", 0, java.lang.Integer.MAX_VALUE, responsible));
         childrenList.add(new Property("reason", "CodeableConcept", "Coded indication of the cause for the event - indicates  a reason for the occurrence of the event that is a focus of this message.", 0, java.lang.Integer.MAX_VALUE, reason));
         childrenList.add(new Property("response", "", "Information about the message that this message is a response to.  Only present if this message is a response.", 0, java.lang.Integer.MAX_VALUE, response));
@@ -1822,11 +1822,11 @@ public class MessageHeader extends DomainResource {
         case 96891546: /*event*/ return this.event == null ? new Base[0] : new Base[] {this.event}; // Coding
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : this.destination.toArray(new Base[this.destination.size()]); // MessageDestinationComponent
         case -808719889: /*receiver*/ return this.receiver == null ? new Base[0] : new Base[] {this.receiver}; // Reference
+        case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
         case 55126294: /*timestamp*/ return this.timestamp == null ? new Base[0] : new Base[] {this.timestamp}; // InstantType
         case -1591951995: /*enterer*/ return this.enterer == null ? new Base[0] : new Base[] {this.enterer}; // Reference
         case -1406328437: /*author*/ return this.author == null ? new Base[0] : new Base[] {this.author}; // Reference
         case -896505829: /*source*/ return this.source == null ? new Base[0] : new Base[] {this.source}; // MessageSourceComponent
-        case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
         case 1847674614: /*responsible*/ return this.responsible == null ? new Base[0] : new Base[] {this.responsible}; // Reference
         case -934964668: /*reason*/ return this.reason == null ? new Base[0] : new Base[] {this.reason}; // CodeableConcept
         case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // MessageHeaderResponseComponent
@@ -1848,6 +1848,9 @@ public class MessageHeader extends DomainResource {
         case -808719889: // receiver
           this.receiver = castToReference(value); // Reference
           return value;
+        case -905962955: // sender
+          this.sender = castToReference(value); // Reference
+          return value;
         case 55126294: // timestamp
           this.timestamp = castToInstant(value); // InstantType
           return value;
@@ -1859,9 +1862,6 @@ public class MessageHeader extends DomainResource {
           return value;
         case -896505829: // source
           this.source = (MessageSourceComponent) value; // MessageSourceComponent
-          return value;
-        case -905962955: // sender
-          this.sender = castToReference(value); // Reference
           return value;
         case 1847674614: // responsible
           this.responsible = castToReference(value); // Reference
@@ -1888,6 +1888,8 @@ public class MessageHeader extends DomainResource {
           this.getDestination().add((MessageDestinationComponent) value);
         } else if (name.equals("receiver")) {
           this.receiver = castToReference(value); // Reference
+        } else if (name.equals("sender")) {
+          this.sender = castToReference(value); // Reference
         } else if (name.equals("timestamp")) {
           this.timestamp = castToInstant(value); // InstantType
         } else if (name.equals("enterer")) {
@@ -1896,8 +1898,6 @@ public class MessageHeader extends DomainResource {
           this.author = castToReference(value); // Reference
         } else if (name.equals("source")) {
           this.source = (MessageSourceComponent) value; // MessageSourceComponent
-        } else if (name.equals("sender")) {
-          this.sender = castToReference(value); // Reference
         } else if (name.equals("responsible")) {
           this.responsible = castToReference(value); // Reference
         } else if (name.equals("reason")) {
@@ -1917,11 +1917,11 @@ public class MessageHeader extends DomainResource {
         case 96891546:  return getEvent(); 
         case -1429847026:  return addDestination(); 
         case -808719889:  return getReceiver(); 
+        case -905962955:  return getSender(); 
         case 55126294:  return getTimestampElement();
         case -1591951995:  return getEnterer(); 
         case -1406328437:  return getAuthor(); 
         case -896505829:  return getSource(); 
-        case -905962955:  return getSender(); 
         case 1847674614:  return getResponsible(); 
         case -934964668:  return getReason(); 
         case -340323263:  return getResponse(); 
@@ -1937,11 +1937,11 @@ public class MessageHeader extends DomainResource {
         case 96891546: /*event*/ return new String[] {"Coding"};
         case -1429847026: /*destination*/ return new String[] {};
         case -808719889: /*receiver*/ return new String[] {"Reference"};
+        case -905962955: /*sender*/ return new String[] {"Reference"};
         case 55126294: /*timestamp*/ return new String[] {"instant"};
         case -1591951995: /*enterer*/ return new String[] {"Reference"};
         case -1406328437: /*author*/ return new String[] {"Reference"};
         case -896505829: /*source*/ return new String[] {};
-        case -905962955: /*sender*/ return new String[] {"Reference"};
         case 1847674614: /*responsible*/ return new String[] {"Reference"};
         case -934964668: /*reason*/ return new String[] {"CodeableConcept"};
         case -340323263: /*response*/ return new String[] {};
@@ -1964,6 +1964,10 @@ public class MessageHeader extends DomainResource {
           this.receiver = new Reference();
           return this.receiver;
         }
+        else if (name.equals("sender")) {
+          this.sender = new Reference();
+          return this.sender;
+        }
         else if (name.equals("timestamp")) {
           throw new FHIRException("Cannot call addChild on a primitive type MessageHeader.timestamp");
         }
@@ -1978,10 +1982,6 @@ public class MessageHeader extends DomainResource {
         else if (name.equals("source")) {
           this.source = new MessageSourceComponent();
           return this.source;
-        }
-        else if (name.equals("sender")) {
-          this.sender = new Reference();
-          return this.sender;
         }
         else if (name.equals("responsible")) {
           this.responsible = new Reference();
@@ -2017,11 +2017,11 @@ public class MessageHeader extends DomainResource {
             dst.destination.add(i.copy());
         };
         dst.receiver = receiver == null ? null : receiver.copy();
+        dst.sender = sender == null ? null : sender.copy();
         dst.timestamp = timestamp == null ? null : timestamp.copy();
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.author = author == null ? null : author.copy();
         dst.source = source == null ? null : source.copy();
-        dst.sender = sender == null ? null : sender.copy();
         dst.responsible = responsible == null ? null : responsible.copy();
         dst.reason = reason == null ? null : reason.copy();
         dst.response = response == null ? null : response.copy();
@@ -2045,8 +2045,8 @@ public class MessageHeader extends DomainResource {
           return false;
         MessageHeader o = (MessageHeader) other;
         return compareDeep(event, o.event, true) && compareDeep(destination, o.destination, true) && compareDeep(receiver, o.receiver, true)
-           && compareDeep(timestamp, o.timestamp, true) && compareDeep(enterer, o.enterer, true) && compareDeep(author, o.author, true)
-           && compareDeep(source, o.source, true) && compareDeep(sender, o.sender, true) && compareDeep(responsible, o.responsible, true)
+           && compareDeep(sender, o.sender, true) && compareDeep(timestamp, o.timestamp, true) && compareDeep(enterer, o.enterer, true)
+           && compareDeep(author, o.author, true) && compareDeep(source, o.source, true) && compareDeep(responsible, o.responsible, true)
            && compareDeep(reason, o.reason, true) && compareDeep(response, o.response, true) && compareDeep(focus, o.focus, true)
           ;
       }
@@ -2063,7 +2063,7 @@ public class MessageHeader extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(event, destination, receiver
-          , timestamp, enterer, author, source, sender, responsible, reason, response
+          , sender, timestamp, enterer, author, source, responsible, reason, response
           , focus);
       }
 

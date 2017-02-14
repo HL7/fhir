@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -48,812 +48,6 @@ import org.hl7.fhir.exceptions.FHIRException;
  */
 @ResourceDef(name="Practitioner", profile="http://hl7.org/fhir/Profile/Practitioner")
 public class Practitioner extends DomainResource {
-
-    @Block()
-    public static class PractitionerRoleComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The organization where the Practitioner performs the roles associated.
-         */
-        @Child(name = "organization", type = {Organization.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Organization where the roles are performed", formalDefinition="The organization where the Practitioner performs the roles associated." )
-        protected Reference organization;
-
-        /**
-         * The actual object that is the target of the reference (The organization where the Practitioner performs the roles associated.)
-         */
-        protected Organization organizationTarget;
-
-        /**
-         * Roles which this practitioner is authorized to perform for the organization.
-         */
-        @Child(name = "code", type = {CodeableConcept.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Roles which this practitioner may perform", formalDefinition="Roles which this practitioner is authorized to perform for the organization." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-role")
-        protected CodeableConcept code;
-
-        /**
-         * Specific specialty of the practitioner.
-         */
-        @Child(name = "specialty", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Specific specialty of the practitioner", formalDefinition="Specific specialty of the practitioner." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/practitioner-specialty")
-        protected List<CodeableConcept> specialty;
-
-        /**
-         * Business Identifiers that are specific to a role/location.
-         */
-        @Child(name = "identifier", type = {Identifier.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Business Identifiers that are specific to a role/location", formalDefinition="Business Identifiers that are specific to a role/location." )
-        protected List<Identifier> identifier;
-
-        /**
-         * Contact details that are specific to the role/location/service.
-         */
-        @Child(name = "telecom", type = {ContactPoint.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Contact details that are specific to the role/location/service", formalDefinition="Contact details that are specific to the role/location/service." )
-        protected List<ContactPoint> telecom;
-
-        /**
-         * The period during which the person is authorized to act as a practitioner in these role(s) for the organization.
-         */
-        @Child(name = "period", type = {Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The period during which the practitioner is authorized to perform in these role(s)", formalDefinition="The period during which the person is authorized to act as a practitioner in these role(s) for the organization." )
-        protected Period period;
-
-        /**
-         * The location(s) at which this practitioner provides care.
-         */
-        @Child(name = "location", type = {Location.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The location(s) at which this practitioner provides care", formalDefinition="The location(s) at which this practitioner provides care." )
-        protected List<Reference> location;
-        /**
-         * The actual objects that are the target of the reference (The location(s) at which this practitioner provides care.)
-         */
-        protected List<Location> locationTarget;
-
-
-        /**
-         * The list of healthcare services that this worker provides for this role's Organization/Location(s).
-         */
-        @Child(name = "healthcareService", type = {HealthcareService.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)", formalDefinition="The list of healthcare services that this worker provides for this role's Organization/Location(s)." )
-        protected List<Reference> healthcareService;
-        /**
-         * The actual objects that are the target of the reference (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
-         */
-        protected List<HealthcareService> healthcareServiceTarget;
-
-
-        /**
-         * Technical endpoints providing access to services operated for the PractitonerRole.
-         */
-        @Child(name = "endpoint", type = {Endpoint.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Technical endpoints providing access to services operated for the PractitonerRole", formalDefinition="Technical endpoints providing access to services operated for the PractitonerRole." )
-        protected List<Reference> endpoint;
-        /**
-         * The actual objects that are the target of the reference (Technical endpoints providing access to services operated for the PractitonerRole.)
-         */
-        protected List<Endpoint> endpointTarget;
-
-
-        private static final long serialVersionUID = 677139919L;
-
-    /**
-     * Constructor
-     */
-      public PractitionerRoleComponent() {
-        super();
-      }
-
-        /**
-         * @return {@link #organization} (The organization where the Practitioner performs the roles associated.)
-         */
-        public Reference getOrganization() { 
-          if (this.organization == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleComponent.organization");
-            else if (Configuration.doAutoCreate())
-              this.organization = new Reference(); // cc
-          return this.organization;
-        }
-
-        public boolean hasOrganization() { 
-          return this.organization != null && !this.organization.isEmpty();
-        }
-
-        /**
-         * @param value {@link #organization} (The organization where the Practitioner performs the roles associated.)
-         */
-        public PractitionerRoleComponent setOrganization(Reference value) { 
-          this.organization = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
-         */
-        public Organization getOrganizationTarget() { 
-          if (this.organizationTarget == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleComponent.organization");
-            else if (Configuration.doAutoCreate())
-              this.organizationTarget = new Organization(); // aa
-          return this.organizationTarget;
-        }
-
-        /**
-         * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization where the Practitioner performs the roles associated.)
-         */
-        public PractitionerRoleComponent setOrganizationTarget(Organization value) { 
-          this.organizationTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #code} (Roles which this practitioner is authorized to perform for the organization.)
-         */
-        public CodeableConcept getCode() { 
-          if (this.code == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleComponent.code");
-            else if (Configuration.doAutoCreate())
-              this.code = new CodeableConcept(); // cc
-          return this.code;
-        }
-
-        public boolean hasCode() { 
-          return this.code != null && !this.code.isEmpty();
-        }
-
-        /**
-         * @param value {@link #code} (Roles which this practitioner is authorized to perform for the organization.)
-         */
-        public PractitionerRoleComponent setCode(CodeableConcept value) { 
-          this.code = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #specialty} (Specific specialty of the practitioner.)
-         */
-        public List<CodeableConcept> getSpecialty() { 
-          if (this.specialty == null)
-            this.specialty = new ArrayList<CodeableConcept>();
-          return this.specialty;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setSpecialty(List<CodeableConcept> theSpecialty) { 
-          this.specialty = theSpecialty;
-          return this;
-        }
-
-        public boolean hasSpecialty() { 
-          if (this.specialty == null)
-            return false;
-          for (CodeableConcept item : this.specialty)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public CodeableConcept addSpecialty() { //3
-          CodeableConcept t = new CodeableConcept();
-          if (this.specialty == null)
-            this.specialty = new ArrayList<CodeableConcept>();
-          this.specialty.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addSpecialty(CodeableConcept t) { //3
-          if (t == null)
-            return this;
-          if (this.specialty == null)
-            this.specialty = new ArrayList<CodeableConcept>();
-          this.specialty.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #specialty}, creating it if it does not already exist
-         */
-        public CodeableConcept getSpecialtyFirstRep() { 
-          if (getSpecialty().isEmpty()) {
-            addSpecialty();
-          }
-          return getSpecialty().get(0);
-        }
-
-        /**
-         * @return {@link #identifier} (Business Identifiers that are specific to a role/location.)
-         */
-        public List<Identifier> getIdentifier() { 
-          if (this.identifier == null)
-            this.identifier = new ArrayList<Identifier>();
-          return this.identifier;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setIdentifier(List<Identifier> theIdentifier) { 
-          this.identifier = theIdentifier;
-          return this;
-        }
-
-        public boolean hasIdentifier() { 
-          if (this.identifier == null)
-            return false;
-          for (Identifier item : this.identifier)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Identifier addIdentifier() { //3
-          Identifier t = new Identifier();
-          if (this.identifier == null)
-            this.identifier = new ArrayList<Identifier>();
-          this.identifier.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addIdentifier(Identifier t) { //3
-          if (t == null)
-            return this;
-          if (this.identifier == null)
-            this.identifier = new ArrayList<Identifier>();
-          this.identifier.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #identifier}, creating it if it does not already exist
-         */
-        public Identifier getIdentifierFirstRep() { 
-          if (getIdentifier().isEmpty()) {
-            addIdentifier();
-          }
-          return getIdentifier().get(0);
-        }
-
-        /**
-         * @return {@link #telecom} (Contact details that are specific to the role/location/service.)
-         */
-        public List<ContactPoint> getTelecom() { 
-          if (this.telecom == null)
-            this.telecom = new ArrayList<ContactPoint>();
-          return this.telecom;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setTelecom(List<ContactPoint> theTelecom) { 
-          this.telecom = theTelecom;
-          return this;
-        }
-
-        public boolean hasTelecom() { 
-          if (this.telecom == null)
-            return false;
-          for (ContactPoint item : this.telecom)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public ContactPoint addTelecom() { //3
-          ContactPoint t = new ContactPoint();
-          if (this.telecom == null)
-            this.telecom = new ArrayList<ContactPoint>();
-          this.telecom.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addTelecom(ContactPoint t) { //3
-          if (t == null)
-            return this;
-          if (this.telecom == null)
-            this.telecom = new ArrayList<ContactPoint>();
-          this.telecom.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #telecom}, creating it if it does not already exist
-         */
-        public ContactPoint getTelecomFirstRep() { 
-          if (getTelecom().isEmpty()) {
-            addTelecom();
-          }
-          return getTelecom().get(0);
-        }
-
-        /**
-         * @return {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
-         */
-        public Period getPeriod() { 
-          if (this.period == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PractitionerRoleComponent.period");
-            else if (Configuration.doAutoCreate())
-              this.period = new Period(); // cc
-          return this.period;
-        }
-
-        public boolean hasPeriod() { 
-          return this.period != null && !this.period.isEmpty();
-        }
-
-        /**
-         * @param value {@link #period} (The period during which the person is authorized to act as a practitioner in these role(s) for the organization.)
-         */
-        public PractitionerRoleComponent setPeriod(Period value) { 
-          this.period = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #location} (The location(s) at which this practitioner provides care.)
-         */
-        public List<Reference> getLocation() { 
-          if (this.location == null)
-            this.location = new ArrayList<Reference>();
-          return this.location;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setLocation(List<Reference> theLocation) { 
-          this.location = theLocation;
-          return this;
-        }
-
-        public boolean hasLocation() { 
-          if (this.location == null)
-            return false;
-          for (Reference item : this.location)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addLocation() { //3
-          Reference t = new Reference();
-          if (this.location == null)
-            this.location = new ArrayList<Reference>();
-          this.location.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addLocation(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.location == null)
-            this.location = new ArrayList<Reference>();
-          this.location.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #location}, creating it if it does not already exist
-         */
-        public Reference getLocationFirstRep() { 
-          if (getLocation().isEmpty()) {
-            addLocation();
-          }
-          return getLocation().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<Location> getLocationTarget() { 
-          if (this.locationTarget == null)
-            this.locationTarget = new ArrayList<Location>();
-          return this.locationTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public Location addLocationTarget() { 
-          Location r = new Location();
-          if (this.locationTarget == null)
-            this.locationTarget = new ArrayList<Location>();
-          this.locationTarget.add(r);
-          return r;
-        }
-
-        /**
-         * @return {@link #healthcareService} (The list of healthcare services that this worker provides for this role's Organization/Location(s).)
-         */
-        public List<Reference> getHealthcareService() { 
-          if (this.healthcareService == null)
-            this.healthcareService = new ArrayList<Reference>();
-          return this.healthcareService;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setHealthcareService(List<Reference> theHealthcareService) { 
-          this.healthcareService = theHealthcareService;
-          return this;
-        }
-
-        public boolean hasHealthcareService() { 
-          if (this.healthcareService == null)
-            return false;
-          for (Reference item : this.healthcareService)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addHealthcareService() { //3
-          Reference t = new Reference();
-          if (this.healthcareService == null)
-            this.healthcareService = new ArrayList<Reference>();
-          this.healthcareService.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addHealthcareService(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.healthcareService == null)
-            this.healthcareService = new ArrayList<Reference>();
-          this.healthcareService.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #healthcareService}, creating it if it does not already exist
-         */
-        public Reference getHealthcareServiceFirstRep() { 
-          if (getHealthcareService().isEmpty()) {
-            addHealthcareService();
-          }
-          return getHealthcareService().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<HealthcareService> getHealthcareServiceTarget() { 
-          if (this.healthcareServiceTarget == null)
-            this.healthcareServiceTarget = new ArrayList<HealthcareService>();
-          return this.healthcareServiceTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public HealthcareService addHealthcareServiceTarget() { 
-          HealthcareService r = new HealthcareService();
-          if (this.healthcareServiceTarget == null)
-            this.healthcareServiceTarget = new ArrayList<HealthcareService>();
-          this.healthcareServiceTarget.add(r);
-          return r;
-        }
-
-        /**
-         * @return {@link #endpoint} (Technical endpoints providing access to services operated for the PractitonerRole.)
-         */
-        public List<Reference> getEndpoint() { 
-          if (this.endpoint == null)
-            this.endpoint = new ArrayList<Reference>();
-          return this.endpoint;
-        }
-
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public PractitionerRoleComponent setEndpoint(List<Reference> theEndpoint) { 
-          this.endpoint = theEndpoint;
-          return this;
-        }
-
-        public boolean hasEndpoint() { 
-          if (this.endpoint == null)
-            return false;
-          for (Reference item : this.endpoint)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Reference addEndpoint() { //3
-          Reference t = new Reference();
-          if (this.endpoint == null)
-            this.endpoint = new ArrayList<Reference>();
-          this.endpoint.add(t);
-          return t;
-        }
-
-        public PractitionerRoleComponent addEndpoint(Reference t) { //3
-          if (t == null)
-            return this;
-          if (this.endpoint == null)
-            this.endpoint = new ArrayList<Reference>();
-          this.endpoint.add(t);
-          return this;
-        }
-
-        /**
-         * @return The first repetition of repeating field {@link #endpoint}, creating it if it does not already exist
-         */
-        public Reference getEndpointFirstRep() { 
-          if (getEndpoint().isEmpty()) {
-            addEndpoint();
-          }
-          return getEndpoint().get(0);
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public List<Endpoint> getEndpointTarget() { 
-          if (this.endpointTarget == null)
-            this.endpointTarget = new ArrayList<Endpoint>();
-          return this.endpointTarget;
-        }
-
-        /**
-         * @deprecated Use Reference#setResource(IBaseResource) instead
-         */
-        @Deprecated
-        public Endpoint addEndpointTarget() { 
-          Endpoint r = new Endpoint();
-          if (this.endpointTarget == null)
-            this.endpointTarget = new ArrayList<Endpoint>();
-          this.endpointTarget.add(r);
-          return r;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("organization", "Reference(Organization)", "The organization where the Practitioner performs the roles associated.", 0, java.lang.Integer.MAX_VALUE, organization));
-          childrenList.add(new Property("code", "CodeableConcept", "Roles which this practitioner is authorized to perform for the organization.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("specialty", "CodeableConcept", "Specific specialty of the practitioner.", 0, java.lang.Integer.MAX_VALUE, specialty));
-          childrenList.add(new Property("identifier", "Identifier", "Business Identifiers that are specific to a role/location.", 0, java.lang.Integer.MAX_VALUE, identifier));
-          childrenList.add(new Property("telecom", "ContactPoint", "Contact details that are specific to the role/location/service.", 0, java.lang.Integer.MAX_VALUE, telecom));
-          childrenList.add(new Property("period", "Period", "The period during which the person is authorized to act as a practitioner in these role(s) for the organization.", 0, java.lang.Integer.MAX_VALUE, period));
-          childrenList.add(new Property("location", "Reference(Location)", "The location(s) at which this practitioner provides care.", 0, java.lang.Integer.MAX_VALUE, location));
-          childrenList.add(new Property("healthcareService", "Reference(HealthcareService)", "The list of healthcare services that this worker provides for this role's Organization/Location(s).", 0, java.lang.Integer.MAX_VALUE, healthcareService));
-          childrenList.add(new Property("endpoint", "Reference(Endpoint)", "Technical endpoints providing access to services operated for the PractitonerRole.", 0, java.lang.Integer.MAX_VALUE, endpoint));
-        }
-
-      @Override
-      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
-        switch (hash) {
-        case 1178922291: /*organization*/ return this.organization == null ? new Base[0] : new Base[] {this.organization}; // Reference
-        case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
-        case -1694759682: /*specialty*/ return this.specialty == null ? new Base[0] : this.specialty.toArray(new Base[this.specialty.size()]); // CodeableConcept
-        case -1618432855: /*identifier*/ return this.identifier == null ? new Base[0] : this.identifier.toArray(new Base[this.identifier.size()]); // Identifier
-        case -1429363305: /*telecom*/ return this.telecom == null ? new Base[0] : this.telecom.toArray(new Base[this.telecom.size()]); // ContactPoint
-        case -991726143: /*period*/ return this.period == null ? new Base[0] : new Base[] {this.period}; // Period
-        case 1901043637: /*location*/ return this.location == null ? new Base[0] : this.location.toArray(new Base[this.location.size()]); // Reference
-        case 1289661064: /*healthcareService*/ return this.healthcareService == null ? new Base[0] : this.healthcareService.toArray(new Base[this.healthcareService.size()]); // Reference
-        case 1741102485: /*endpoint*/ return this.endpoint == null ? new Base[0] : this.endpoint.toArray(new Base[this.endpoint.size()]); // Reference
-        default: return super.getProperty(hash, name, checkValid);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(int hash, String name, Base value) throws FHIRException {
-        switch (hash) {
-        case 1178922291: // organization
-          this.organization = castToReference(value); // Reference
-          return value;
-        case 3059181: // code
-          this.code = castToCodeableConcept(value); // CodeableConcept
-          return value;
-        case -1694759682: // specialty
-          this.getSpecialty().add(castToCodeableConcept(value)); // CodeableConcept
-          return value;
-        case -1618432855: // identifier
-          this.getIdentifier().add(castToIdentifier(value)); // Identifier
-          return value;
-        case -1429363305: // telecom
-          this.getTelecom().add(castToContactPoint(value)); // ContactPoint
-          return value;
-        case -991726143: // period
-          this.period = castToPeriod(value); // Period
-          return value;
-        case 1901043637: // location
-          this.getLocation().add(castToReference(value)); // Reference
-          return value;
-        case 1289661064: // healthcareService
-          this.getHealthcareService().add(castToReference(value)); // Reference
-          return value;
-        case 1741102485: // endpoint
-          this.getEndpoint().add(castToReference(value)); // Reference
-          return value;
-        default: return super.setProperty(hash, name, value);
-        }
-
-      }
-
-      @Override
-      public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("organization")) {
-          this.organization = castToReference(value); // Reference
-        } else if (name.equals("code")) {
-          this.code = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("specialty")) {
-          this.getSpecialty().add(castToCodeableConcept(value));
-        } else if (name.equals("identifier")) {
-          this.getIdentifier().add(castToIdentifier(value));
-        } else if (name.equals("telecom")) {
-          this.getTelecom().add(castToContactPoint(value));
-        } else if (name.equals("period")) {
-          this.period = castToPeriod(value); // Period
-        } else if (name.equals("location")) {
-          this.getLocation().add(castToReference(value));
-        } else if (name.equals("healthcareService")) {
-          this.getHealthcareService().add(castToReference(value));
-        } else if (name.equals("endpoint")) {
-          this.getEndpoint().add(castToReference(value));
-        } else
-          return super.setProperty(name, value);
-        return value;
-      }
-
-      @Override
-      public Base makeProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1178922291:  return getOrganization(); 
-        case 3059181:  return getCode(); 
-        case -1694759682:  return addSpecialty(); 
-        case -1618432855:  return addIdentifier(); 
-        case -1429363305:  return addTelecom(); 
-        case -991726143:  return getPeriod(); 
-        case 1901043637:  return addLocation(); 
-        case 1289661064:  return addHealthcareService(); 
-        case 1741102485:  return addEndpoint(); 
-        default: return super.makeProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
-        switch (hash) {
-        case 1178922291: /*organization*/ return new String[] {"Reference"};
-        case 3059181: /*code*/ return new String[] {"CodeableConcept"};
-        case -1694759682: /*specialty*/ return new String[] {"CodeableConcept"};
-        case -1618432855: /*identifier*/ return new String[] {"Identifier"};
-        case -1429363305: /*telecom*/ return new String[] {"ContactPoint"};
-        case -991726143: /*period*/ return new String[] {"Period"};
-        case 1901043637: /*location*/ return new String[] {"Reference"};
-        case 1289661064: /*healthcareService*/ return new String[] {"Reference"};
-        case 1741102485: /*endpoint*/ return new String[] {"Reference"};
-        default: return super.getTypesForProperty(hash, name);
-        }
-
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("organization")) {
-          this.organization = new Reference();
-          return this.organization;
-        }
-        else if (name.equals("code")) {
-          this.code = new CodeableConcept();
-          return this.code;
-        }
-        else if (name.equals("specialty")) {
-          return addSpecialty();
-        }
-        else if (name.equals("identifier")) {
-          return addIdentifier();
-        }
-        else if (name.equals("telecom")) {
-          return addTelecom();
-        }
-        else if (name.equals("period")) {
-          this.period = new Period();
-          return this.period;
-        }
-        else if (name.equals("location")) {
-          return addLocation();
-        }
-        else if (name.equals("healthcareService")) {
-          return addHealthcareService();
-        }
-        else if (name.equals("endpoint")) {
-          return addEndpoint();
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public PractitionerRoleComponent copy() {
-        PractitionerRoleComponent dst = new PractitionerRoleComponent();
-        copyValues(dst);
-        dst.organization = organization == null ? null : organization.copy();
-        dst.code = code == null ? null : code.copy();
-        if (specialty != null) {
-          dst.specialty = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : specialty)
-            dst.specialty.add(i.copy());
-        };
-        if (identifier != null) {
-          dst.identifier = new ArrayList<Identifier>();
-          for (Identifier i : identifier)
-            dst.identifier.add(i.copy());
-        };
-        if (telecom != null) {
-          dst.telecom = new ArrayList<ContactPoint>();
-          for (ContactPoint i : telecom)
-            dst.telecom.add(i.copy());
-        };
-        dst.period = period == null ? null : period.copy();
-        if (location != null) {
-          dst.location = new ArrayList<Reference>();
-          for (Reference i : location)
-            dst.location.add(i.copy());
-        };
-        if (healthcareService != null) {
-          dst.healthcareService = new ArrayList<Reference>();
-          for (Reference i : healthcareService)
-            dst.healthcareService.add(i.copy());
-        };
-        if (endpoint != null) {
-          dst.endpoint = new ArrayList<Reference>();
-          for (Reference i : endpoint)
-            dst.endpoint.add(i.copy());
-        };
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof PractitionerRoleComponent))
-          return false;
-        PractitionerRoleComponent o = (PractitionerRoleComponent) other;
-        return compareDeep(organization, o.organization, true) && compareDeep(code, o.code, true) && compareDeep(specialty, o.specialty, true)
-           && compareDeep(identifier, o.identifier, true) && compareDeep(telecom, o.telecom, true) && compareDeep(period, o.period, true)
-           && compareDeep(location, o.location, true) && compareDeep(healthcareService, o.healthcareService, true)
-           && compareDeep(endpoint, o.endpoint, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof PractitionerRoleComponent))
-          return false;
-        PractitionerRoleComponent o = (PractitionerRoleComponent) other;
-        return true;
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(organization, code, specialty
-          , identifier, telecom, period, location, healthcareService, endpoint);
-      }
-
-  public String fhirType() {
-    return "Practitioner.role";
-
-  }
-
-  }
 
     @Block()
     public static class PractitionerQualificationComponent extends BackboneElement implements IBaseBackboneElement {
@@ -1258,28 +452,21 @@ public class Practitioner extends DomainResource {
     protected List<Attachment> photo;
 
     /**
-     * The list of roles/organizations that the practitioner is associated with.
-     */
-    @Child(name = "role", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Roles/organizations the practitioner is associated with", formalDefinition="The list of roles/organizations that the practitioner is associated with." )
-    protected List<PractitionerRoleComponent> role;
-
-    /**
      * Qualifications obtained by training and certification.
      */
-    @Child(name = "qualification", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "qualification", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Qualifications obtained by training and certification", formalDefinition="Qualifications obtained by training and certification." )
     protected List<PractitionerQualificationComponent> qualification;
 
     /**
      * A language the practitioner is able to use in patient communication.
      */
-    @Child(name = "communication", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "communication", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A language the practitioner is able to use in patient communication", formalDefinition="A language the practitioner is able to use in patient communication." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/languages")
     protected List<CodeableConcept> communication;
 
-    private static final long serialVersionUID = -983959994L;
+    private static final long serialVersionUID = 2128349259L;
 
   /**
    * Constructor
@@ -1697,59 +884,6 @@ public class Practitioner extends DomainResource {
     }
 
     /**
-     * @return {@link #role} (The list of roles/organizations that the practitioner is associated with.)
-     */
-    public List<PractitionerRoleComponent> getRole() { 
-      if (this.role == null)
-        this.role = new ArrayList<PractitionerRoleComponent>();
-      return this.role;
-    }
-
-    /**
-     * @return Returns a reference to <code>this</code> for easy method chaining
-     */
-    public Practitioner setRole(List<PractitionerRoleComponent> theRole) { 
-      this.role = theRole;
-      return this;
-    }
-
-    public boolean hasRole() { 
-      if (this.role == null)
-        return false;
-      for (PractitionerRoleComponent item : this.role)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    public PractitionerRoleComponent addRole() { //3
-      PractitionerRoleComponent t = new PractitionerRoleComponent();
-      if (this.role == null)
-        this.role = new ArrayList<PractitionerRoleComponent>();
-      this.role.add(t);
-      return t;
-    }
-
-    public Practitioner addRole(PractitionerRoleComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.role == null)
-        this.role = new ArrayList<PractitionerRoleComponent>();
-      this.role.add(t);
-      return this;
-    }
-
-    /**
-     * @return The first repetition of repeating field {@link #role}, creating it if it does not already exist
-     */
-    public PractitionerRoleComponent getRoleFirstRep() { 
-      if (getRole().isEmpty()) {
-        addRole();
-      }
-      return getRole().get(0);
-    }
-
-    /**
      * @return {@link #qualification} (Qualifications obtained by training and certification.)
      */
     public List<PractitionerQualificationComponent> getQualification() { 
@@ -1865,7 +999,6 @@ public class Practitioner extends DomainResource {
         childrenList.add(new Property("gender", "code", "Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.", 0, java.lang.Integer.MAX_VALUE, gender));
         childrenList.add(new Property("birthDate", "date", "The date of birth for the practitioner.", 0, java.lang.Integer.MAX_VALUE, birthDate));
         childrenList.add(new Property("photo", "Attachment", "Image of the person.", 0, java.lang.Integer.MAX_VALUE, photo));
-        childrenList.add(new Property("role", "", "The list of roles/organizations that the practitioner is associated with.", 0, java.lang.Integer.MAX_VALUE, role));
         childrenList.add(new Property("qualification", "", "Qualifications obtained by training and certification.", 0, java.lang.Integer.MAX_VALUE, qualification));
         childrenList.add(new Property("communication", "CodeableConcept", "A language the practitioner is able to use in patient communication.", 0, java.lang.Integer.MAX_VALUE, communication));
       }
@@ -1881,7 +1014,6 @@ public class Practitioner extends DomainResource {
         case -1249512767: /*gender*/ return this.gender == null ? new Base[0] : new Base[] {this.gender}; // Enumeration<AdministrativeGender>
         case -1210031859: /*birthDate*/ return this.birthDate == null ? new Base[0] : new Base[] {this.birthDate}; // DateType
         case 106642994: /*photo*/ return this.photo == null ? new Base[0] : this.photo.toArray(new Base[this.photo.size()]); // Attachment
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : this.role.toArray(new Base[this.role.size()]); // PractitionerRoleComponent
         case -631333393: /*qualification*/ return this.qualification == null ? new Base[0] : this.qualification.toArray(new Base[this.qualification.size()]); // PractitionerQualificationComponent
         case -1035284522: /*communication*/ return this.communication == null ? new Base[0] : this.communication.toArray(new Base[this.communication.size()]); // CodeableConcept
         default: return super.getProperty(hash, name, checkValid);
@@ -1917,9 +1049,6 @@ public class Practitioner extends DomainResource {
         case 106642994: // photo
           this.getPhoto().add(castToAttachment(value)); // Attachment
           return value;
-        case 3506294: // role
-          this.getRole().add((PractitionerRoleComponent) value); // PractitionerRoleComponent
-          return value;
         case -631333393: // qualification
           this.getQualification().add((PractitionerQualificationComponent) value); // PractitionerQualificationComponent
           return value;
@@ -1950,8 +1079,6 @@ public class Practitioner extends DomainResource {
           this.birthDate = castToDate(value); // DateType
         } else if (name.equals("photo")) {
           this.getPhoto().add(castToAttachment(value));
-        } else if (name.equals("role")) {
-          this.getRole().add((PractitionerRoleComponent) value);
         } else if (name.equals("qualification")) {
           this.getQualification().add((PractitionerQualificationComponent) value);
         } else if (name.equals("communication")) {
@@ -1972,7 +1099,6 @@ public class Practitioner extends DomainResource {
         case -1249512767:  return getGenderElement();
         case -1210031859:  return getBirthDateElement();
         case 106642994:  return addPhoto(); 
-        case 3506294:  return addRole(); 
         case -631333393:  return addQualification(); 
         case -1035284522:  return addCommunication(); 
         default: return super.makeProperty(hash, name);
@@ -1991,7 +1117,6 @@ public class Practitioner extends DomainResource {
         case -1249512767: /*gender*/ return new String[] {"code"};
         case -1210031859: /*birthDate*/ return new String[] {"date"};
         case 106642994: /*photo*/ return new String[] {"Attachment"};
-        case 3506294: /*role*/ return new String[] {};
         case -631333393: /*qualification*/ return new String[] {};
         case -1035284522: /*communication*/ return new String[] {"CodeableConcept"};
         default: return super.getTypesForProperty(hash, name);
@@ -2024,9 +1149,6 @@ public class Practitioner extends DomainResource {
         }
         else if (name.equals("photo")) {
           return addPhoto();
-        }
-        else if (name.equals("role")) {
-          return addRole();
         }
         else if (name.equals("qualification")) {
           return addQualification();
@@ -2074,11 +1196,6 @@ public class Practitioner extends DomainResource {
           for (Attachment i : photo)
             dst.photo.add(i.copy());
         };
-        if (role != null) {
-          dst.role = new ArrayList<PractitionerRoleComponent>();
-          for (PractitionerRoleComponent i : role)
-            dst.role.add(i.copy());
-        };
         if (qualification != null) {
           dst.qualification = new ArrayList<PractitionerQualificationComponent>();
           for (PractitionerQualificationComponent i : qualification)
@@ -2105,9 +1222,8 @@ public class Practitioner extends DomainResource {
         Practitioner o = (Practitioner) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(active, o.active, true) && compareDeep(name, o.name, true)
            && compareDeep(telecom, o.telecom, true) && compareDeep(address, o.address, true) && compareDeep(gender, o.gender, true)
-           && compareDeep(birthDate, o.birthDate, true) && compareDeep(photo, o.photo, true) && compareDeep(role, o.role, true)
-           && compareDeep(qualification, o.qualification, true) && compareDeep(communication, o.communication, true)
-          ;
+           && compareDeep(birthDate, o.birthDate, true) && compareDeep(photo, o.photo, true) && compareDeep(qualification, o.qualification, true)
+           && compareDeep(communication, o.communication, true);
       }
 
       @Override
@@ -2123,8 +1239,7 @@ public class Practitioner extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, active, name
-          , telecom, address, gender, birthDate, photo, role, qualification, communication
-          );
+          , telecom, address, gender, birthDate, photo, qualification, communication);
       }
 
   @Override
@@ -2137,17 +1252,17 @@ public class Practitioner extends DomainResource {
    * <p>
    * Description: <b>A practitioner's Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.identifier, Practitioner.role.identifier</b><br>
+   * Path: <b>Practitioner.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Practitioner.identifier | Practitioner.role.identifier", description="A practitioner's Identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="Practitioner.identifier", description="A practitioner's Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
    * Description: <b>A practitioner's Identifier</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.identifier, Practitioner.role.identifier</b><br>
+   * Path: <b>Practitioner.identifier</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
@@ -2173,26 +1288,6 @@ public class Practitioner extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam GIVEN = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_GIVEN);
 
  /**
-   * Search parameter: <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.role.specialty</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="specialty", path="Practitioner.role.specialty", description="The practitioner has this specialty at an organization", type="token" )
-  public static final String SP_SPECIALTY = "specialty";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
-   * <p>
-   * Description: <b>The practitioner has this specialty at an organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.role.specialty</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
-
- /**
    * Search parameter: <b>address</b>
    * <p>
    * Description: <b>A server defined search that may match any of the string fields in the Address, including line, city, state, country, postalCode, and/or text</b><br>
@@ -2211,26 +1306,6 @@ public class Practitioner extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS);
-
- /**
-   * Search parameter: <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.role.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="role", path="Practitioner.role.code", description="The practitioner can perform this role at for the organization", type="token" )
-  public static final String SP_ROLE = "role";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>role</b>
-   * <p>
-   * Description: <b>The practitioner can perform this role at for the organization</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Practitioner.role.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ROLE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ROLE);
 
  /**
    * Search parameter: <b>address-state</b>
@@ -2333,32 +1408,6 @@ public class Practitioner extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam ADDRESS_COUNTRY = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ADDRESS_COUNTRY);
 
  /**
-   * Search parameter: <b>endpoint</b>
-   * <p>
-   * Description: <b>The endpoint of the practitioner for a role at an organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.endpoint</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="endpoint", path="Practitioner.role.endpoint", description="The endpoint of the practitioner for a role at an organization", type="reference", target={Endpoint.class } )
-  public static final String SP_ENDPOINT = "endpoint";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>endpoint</b>
-   * <p>
-   * Description: <b>The endpoint of the practitioner for a role at an organization</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.endpoint</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENDPOINT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENDPOINT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Practitioner:endpoint</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENDPOINT = new ca.uhn.fhir.model.api.Include("Practitioner:endpoint").toLocked();
-
- /**
    * Search parameter: <b>phonetic</b>
    * <p>
    * Description: <b>A portion of either family or given name using some kind of phonetic matching algorithm</b><br>
@@ -2383,46 +1432,20 @@ public class Practitioner extends DomainResource {
    * <p>
    * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom(system=phone), Practitioner.role.telecom(system=phone)</b><br>
+   * Path: <b>Practitioner.telecom(system=phone)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="phone", path="Practitioner.telecom.where(system='phone') | Practitioner.role.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
+  @SearchParamDefinition(name="phone", path="Practitioner.telecom.where(system='phone')", description="A value in a phone contact", type="token" )
   public static final String SP_PHONE = "phone";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>phone</b>
    * <p>
    * Description: <b>A value in a phone contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom(system=phone), Practitioner.role.telecom(system=phone)</b><br>
+   * Path: <b>Practitioner.telecom(system=phone)</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PHONE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PHONE);
-
- /**
-   * Search parameter: <b>organization</b>
-   * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.organization</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="organization", path="Practitioner.role.organization", description="The identity of the organization the practitioner represents / acts on behalf of", type="reference", target={Organization.class } )
-  public static final String SP_ORGANIZATION = "organization";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
-   * <p>
-   * Description: <b>The identity of the organization the practitioner represents / acts on behalf of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.organization</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Practitioner:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("Practitioner:organization").toLocked();
 
  /**
    * Search parameter: <b>name</b>
@@ -2469,46 +1492,20 @@ public class Practitioner extends DomainResource {
    * <p>
    * Description: <b>The value in any kind of contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom, Practitioner.role.telecom</b><br>
+   * Path: <b>Practitioner.telecom</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="telecom", path="Practitioner.telecom | Practitioner.role.telecom", description="The value in any kind of contact", type="token" )
+  @SearchParamDefinition(name="telecom", path="Practitioner.telecom", description="The value in any kind of contact", type="token" )
   public static final String SP_TELECOM = "telecom";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>telecom</b>
    * <p>
    * Description: <b>The value in any kind of contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom, Practitioner.role.telecom</b><br>
+   * Path: <b>Practitioner.telecom</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TELECOM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TELECOM);
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>One of the locations at which this practitioner provides care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.location</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="Practitioner.role.location", description="One of the locations at which this practitioner provides care", type="reference", target={Location.class } )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>One of the locations at which this practitioner provides care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Practitioner.role.location</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Practitioner:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Practitioner:location").toLocked();
 
  /**
    * Search parameter: <b>family</b>
@@ -2575,17 +1572,17 @@ public class Practitioner extends DomainResource {
    * <p>
    * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom(system=email), Practitioner.role.telecom(system=email)</b><br>
+   * Path: <b>Practitioner.telecom(system=email)</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="email", path="Practitioner.telecom.where(system='email') | Practitioner.role.telecom.where(system='email')", description="A value in an email contact", type="token" )
+  @SearchParamDefinition(name="email", path="Practitioner.telecom.where(system='email')", description="A value in an email contact", type="token" )
   public static final String SP_EMAIL = "email";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>email</b>
    * <p>
    * Description: <b>A value in an email contact</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Practitioner.telecom(system=email), Practitioner.role.telecom(system=email)</b><br>
+   * Path: <b>Practitioner.telecom(system=email)</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EMAIL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EMAIL);

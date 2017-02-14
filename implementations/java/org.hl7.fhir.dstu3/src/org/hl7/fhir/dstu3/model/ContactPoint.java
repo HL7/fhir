@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -69,6 +69,10 @@ public class ContactPoint extends Type implements ICompositeType {
          */
         URL, 
         /**
+         * A contact that can be used for sending an sms message (e.g. mobide phones, some landlines)
+         */
+        SMS, 
+        /**
          * A contact that is not a phone, fax, page or email address and is not expressible as a URL.  E.g. Internal mail address.  This SHOULD NOT be used for contacts that are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.)  Extensions may be used to distinguish "other" contact types.
          */
         OTHER, 
@@ -89,6 +93,8 @@ public class ContactPoint extends Type implements ICompositeType {
           return PAGER;
         if ("url".equals(codeString))
           return URL;
+        if ("sms".equals(codeString))
+          return SMS;
         if ("other".equals(codeString))
           return OTHER;
         if (Configuration.isAcceptInvalidEnums())
@@ -103,6 +109,7 @@ public class ContactPoint extends Type implements ICompositeType {
             case EMAIL: return "email";
             case PAGER: return "pager";
             case URL: return "url";
+            case SMS: return "sms";
             case OTHER: return "other";
             default: return "?";
           }
@@ -114,6 +121,7 @@ public class ContactPoint extends Type implements ICompositeType {
             case EMAIL: return "http://hl7.org/fhir/contact-point-system";
             case PAGER: return "http://hl7.org/fhir/contact-point-system";
             case URL: return "http://hl7.org/fhir/contact-point-system";
+            case SMS: return "http://hl7.org/fhir/contact-point-system";
             case OTHER: return "http://hl7.org/fhir/contact-point-system";
             default: return "?";
           }
@@ -125,6 +133,7 @@ public class ContactPoint extends Type implements ICompositeType {
             case EMAIL: return "The value is an email address.";
             case PAGER: return "The value is a pager number. These may be local pager numbers that are only usable on a particular pager system.";
             case URL: return "A contact that is not a phone, fax, pager or email address and is expressed as a URL.  This is intended for various personal contacts including blogs, Skype, Twitter, Facebook, etc. Do not use for email addresses.";
+            case SMS: return "A contact that can be used for sending an sms message (e.g. mobide phones, some landlines)";
             case OTHER: return "A contact that is not a phone, fax, page or email address and is not expressible as a URL.  E.g. Internal mail address.  This SHOULD NOT be used for contacts that are expressible as a URL (e.g. Skype, Twitter, Facebook, etc.)  Extensions may be used to distinguish \"other\" contact types.";
             default: return "?";
           }
@@ -136,6 +145,7 @@ public class ContactPoint extends Type implements ICompositeType {
             case EMAIL: return "Email";
             case PAGER: return "Pager";
             case URL: return "URL";
+            case SMS: return "SMS";
             case OTHER: return "Other";
             default: return "?";
           }
@@ -157,6 +167,8 @@ public class ContactPoint extends Type implements ICompositeType {
           return ContactPointSystem.PAGER;
         if ("url".equals(codeString))
           return ContactPointSystem.URL;
+        if ("sms".equals(codeString))
+          return ContactPointSystem.SMS;
         if ("other".equals(codeString))
           return ContactPointSystem.OTHER;
         throw new IllegalArgumentException("Unknown ContactPointSystem code '"+codeString+"'");
@@ -179,6 +191,8 @@ public class ContactPoint extends Type implements ICompositeType {
           return new Enumeration<ContactPointSystem>(this, ContactPointSystem.PAGER);
         if ("url".equals(codeString))
           return new Enumeration<ContactPointSystem>(this, ContactPointSystem.URL);
+        if ("sms".equals(codeString))
+          return new Enumeration<ContactPointSystem>(this, ContactPointSystem.SMS);
         if ("other".equals(codeString))
           return new Enumeration<ContactPointSystem>(this, ContactPointSystem.OTHER);
         throw new FHIRException("Unknown ContactPointSystem code '"+codeString+"'");
@@ -194,6 +208,8 @@ public class ContactPoint extends Type implements ICompositeType {
         return "pager";
       if (code == ContactPointSystem.URL)
         return "url";
+      if (code == ContactPointSystem.SMS)
+        return "sms";
       if (code == ContactPointSystem.OTHER)
         return "other";
       return "?";
@@ -347,7 +363,7 @@ public class ContactPoint extends Type implements ICompositeType {
      * Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
     @Child(name = "system", type = {CodeType.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="phone | fax | email | pager | url | other", formalDefinition="Telecommunications form for contact point - what communications system is required to make use of the contact." )
+    @Description(shortDefinition="phone | fax | email | pager | url | sms | other", formalDefinition="Telecommunications form for contact point - what communications system is required to make use of the contact." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/contact-point-system")
     protected Enumeration<ContactPointSystem> system;
 

@@ -9771,8 +9771,8 @@ public class VersionConvertor_10_20 {
     tgt.setBirthDate(src.getBirthDate());
     for (org.hl7.fhir.dstu2.model.Attachment t : src.getPhoto())
       tgt.addPhoto(convertAttachment(t));
-    for (org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent t : src.getPractitionerRole())
-      tgt.addRole(convertPractitionerPractitionerRoleComponent(t));
+//    for (org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent t : src.getPractitionerRole())
+//      tgt.addRole(convertPractitionerPractitionerRoleComponent(t));
     for (org.hl7.fhir.dstu2.model.Practitioner.PractitionerQualificationComponent t : src.getQualification())
       tgt.addQualification(convertPractitionerQualificationComponent(t));
     for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getCommunication())
@@ -9798,8 +9798,8 @@ public class VersionConvertor_10_20 {
     tgt.setBirthDate(src.getBirthDate());
     for (org.hl7.fhir.dstu3.model.Attachment t : src.getPhoto())
       tgt.addPhoto(convertAttachment(t));
-    for (org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent t : src.getRole())
-      tgt.addPractitionerRole(convertPractitionerPractitionerRoleComponent(t));
+//    for (org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent t : src.getRole())
+//      tgt.addPractitionerRole(convertPractitionerPractitionerRoleComponent(t));
     for (org.hl7.fhir.dstu3.model.Practitioner.PractitionerQualificationComponent t : src.getQualification())
       tgt.addQualification(convertPractitionerQualificationComponent(t));
     for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getCommunication())
@@ -9807,39 +9807,39 @@ public class VersionConvertor_10_20 {
     return tgt;
   }
 
-  public org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent convertPractitionerPractitionerRoleComponent(org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent tgt = new org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent();
-    copyElement(src, tgt);
-    tgt.setOrganization(convertReference(src.getManagingOrganization()));
-    tgt.setCode(convertCodeableConcept(src.getRole()));
-    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getSpecialty())
-      tgt.addSpecialty(convertCodeableConcept(t));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getLocation())
-      tgt.addLocation(convertReference(t));
-    for (org.hl7.fhir.dstu2.model.Reference t : src.getHealthcareService())
-      tgt.addHealthcareService(convertReference(t));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent convertPractitionerPractitionerRoleComponent(org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent tgt = new org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent();
+//    copyElement(src, tgt);
+//    tgt.setOrganization(convertReference(src.getManagingOrganization()));
+//    tgt.setCode(convertCodeableConcept(src.getRole()));
+//    for (org.hl7.fhir.dstu2.model.CodeableConcept t : src.getSpecialty())
+//      tgt.addSpecialty(convertCodeableConcept(t));
+//    tgt.setPeriod(convertPeriod(src.getPeriod()));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getLocation())
+//      tgt.addLocation(convertReference(t));
+//    for (org.hl7.fhir.dstu2.model.Reference t : src.getHealthcareService())
+//      tgt.addHealthcareService(convertReference(t));
+//    return tgt;
+//  }
 
-  public org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent convertPractitionerPractitionerRoleComponent(org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent src) throws FHIRException {
-    if (src == null || src.isEmpty())
-      return null;
-    org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent tgt = new org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent();
-    copyElement(src, tgt);
-    tgt.setManagingOrganization(convertReference(src.getOrganization()));
-    tgt.setRole(convertCodeableConcept(src.getCode()));
-    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getSpecialty())
-      tgt.addSpecialty(convertCodeableConcept(t));
-    tgt.setPeriod(convertPeriod(src.getPeriod()));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getLocation())
-      tgt.addLocation(convertReference(t));
-    for (org.hl7.fhir.dstu3.model.Reference t : src.getHealthcareService())
-      tgt.addHealthcareService(convertReference(t));
-    return tgt;
-  }
+//  public org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent convertPractitionerPractitionerRoleComponent(org.hl7.fhir.dstu3.model.Practitioner.PractitionerRoleComponent src) throws FHIRException {
+//    if (src == null || src.isEmpty())
+//      return null;
+//    org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent tgt = new org.hl7.fhir.dstu2.model.Practitioner.PractitionerPractitionerRoleComponent();
+//    copyElement(src, tgt);
+//    tgt.setManagingOrganization(convertReference(src.getOrganization()));
+//    tgt.setRole(convertCodeableConcept(src.getCode()));
+//    for (org.hl7.fhir.dstu3.model.CodeableConcept t : src.getSpecialty())
+//      tgt.addSpecialty(convertCodeableConcept(t));
+//    tgt.setPeriod(convertPeriod(src.getPeriod()));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getLocation())
+//      tgt.addLocation(convertReference(t));
+//    for (org.hl7.fhir.dstu3.model.Reference t : src.getHealthcareService())
+//      tgt.addHealthcareService(convertReference(t));
+//    return tgt;
+//  }
 
   public org.hl7.fhir.dstu3.model.Practitioner.PractitionerQualificationComponent convertPractitionerQualificationComponent(org.hl7.fhir.dstu2.model.Practitioner.PractitionerQualificationComponent src) throws FHIRException {
     if (src == null || src.isEmpty())

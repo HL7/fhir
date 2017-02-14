@@ -646,7 +646,7 @@ public class CCDAConverter {
 			}
 		}
 		// ref and p are both sorted. now we fill out p as much as we can (remembering it might already be populated)
-		p.addRole().setCode(convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
+//		p.addRole().setCode(convert.makeCodeableConceptFromCD(cda.getChild(assignedEntity, "code")));
 		for (Element e : cda.getChildren(assignedEntity, "id"))
 			addToIdList(p.getIdentifier(), convert.makeIdentifierFromII(e));
 		for (Element e : cda.getChildren(assignedEntity, "addr"))

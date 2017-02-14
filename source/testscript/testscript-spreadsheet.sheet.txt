@@ -66,6 +66,14 @@
   Description = The type of destination profile the test system supports.
   Conformance = extensible
 
+ -- Row 9 -----------------------------------
+  Binding Name = TestScriptRequestMethodCode
+  Binding = code list
+  Reference = #http-operations
+  Definition = The allowable request method or HTTP operation codes.
+  Description = The allowable request method or HTTP operation codes.
+  Conformance = required
+
 === Sheet content-type =====================================
 
  -- Row 1 -----------------------------------
@@ -248,6 +256,44 @@
   Display = unprocessable
   Definition = Response code is 422.
 
+=== Sheet http-operations =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = delete
+  Display = DELETE
+  Definition = HTTP DELETE operation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = get
+  Display = GET
+  Definition = HTTP GET operation
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = options
+  Display = OPTIONS
+  Definition = HTTP OPTIONS operation
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = patch
+  Display = PATCH
+  Definition = HTTP PATCH operation
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = post
+  Display = POST
+  Definition = HTTP POST operation
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = put
+  Display = PUT
+  Definition = HTTP PUT operation
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -282,15 +328,15 @@
   Id = 5
   Context = TestScript.setup.action.assert
   English = Only a single assertion SHALL be present within setup action assert element.
-  XPath = count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  <=1
-  Expression = contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() <=1
+  XPath = count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  <=1
+  Expression = contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() <=1
 
  -- Row 6 -----------------------------------
   Id = 6
   Context = TestScript.test.action.assert
   English = Only a single assertion SHALL be present within test action assert element.
-  XPath = count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  <=1
-  Expression = contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() <=1
+  XPath = count(f:contentType) + count(f:expression) + count(f:headerField) + count(f:minimumId) + count(f:navigationLinks) + count(f:path) + count(f:requestMethod) + count(f:resource) + count(f:responseCode) + count(f:response) + count(f:rule) + count(f:ruleset) + count(f:validateProfileId)  <=1
+  Expression = contentType.count() + expression.count() + headerField.count() + minimumId.count() + navigationLinks.count() + path.count() + requestMethod.count() + resource.count() + responseCode.count() + response.count() + rule.count() + ruleset.count() + validateProfileId.count() <=1
 
  -- Row 7 -----------------------------------
   Id = 7
@@ -1029,6 +1075,15 @@
   Comments = If both \"path\" and a \"fixtureId\" are specified, then the path will be evaluated against the request or response body mapped to the fixtureId.  If \"path\" is specified and a \"fixtureId\" is not, then the path will be evaluated against the response body of the last operation.  Test engines are to store the request and response body and headers of the last operation at all times for subsequent assertions.
 
  -- Row 96 -----------------------------------
+  Element = TestScript.setup.action.assert.requestMethod
+  Card. = 0..1
+  Type = code
+  Binding = TestScriptRequestMethodCode
+  Short Name = delete | get | options | patch | post | put
+  Definition = The request method or HTTP operation code to compare against that used by the client system under test.
+  Comments = If \"requestMethod\" is specified then it will be used in place of \"value\". The \"requestMethod\" will evaluate against the last operation\'s request HTTP operation.
+
+ -- Row 97 -----------------------------------
   Element = TestScript.setup.action.assert.requestURL
   Card. = 0..1
   Type = string
@@ -1036,7 +1091,7 @@
   Definition = The value to use in a comparison against the request URL path string.
   Comments = If \"requestURL\" is specified then it will be used in place of \"value\". The \"requestURL\" will evaluate against the last operation\'s full request URL path string.
 
- -- Row 97 -----------------------------------
+ -- Row 98 -----------------------------------
   Element = TestScript.setup.action.assert.resource
   Card. = 0..1
   Type = code
@@ -1045,7 +1100,7 @@
   Definition = The type of the resource.  See http://build.fhir.org/resourcelist.html.
   Comments = This will be expected resource type in response body e.g. in read, vread, search, etc.  See http://build.fhir.org/resourcelist.html for complete list of resource types; e.g. <assert > <resourceType value=\"Patient\" </assert>
 
- -- Row 98 -----------------------------------
+ -- Row 99 -----------------------------------
   Element = TestScript.setup.action.assert.response
   Card. = 0..1
   Type = code
@@ -1054,7 +1109,7 @@
   Definition = okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable
   Comments = This is a shorter way of achieving similar verifications via \"assert.responseCode\".  If you need more control, then use \"assert.responseCode\"  e.g. <assert>  <contentType value=\"json\" />  <response value=\"okay\"/> </assert>
 
- -- Row 99 -----------------------------------
+ -- Row 100 -----------------------------------
   Element = TestScript.setup.action.assert.responseCode
   Card. = 0..1
   Type = string
@@ -1062,7 +1117,7 @@
   Definition = The value of the HTTP response code to be tested
   Comments = To be used with \"operator\" attribute value. Asserts that the response code equals this value if \"operator\" is not specified.   If the operator is \"in\" or \"notIn\" then the responseCode would be a comma-separated list of values e.g. \"200,201\". Otherwise, it\'s expected to be a numeric value.   If \"fixture\" is not specified, then the \"responseBodyId\" value of the last operation is assumed.
 
- -- Row 100 -----------------------------------
+ -- Row 101 -----------------------------------
   Element = TestScript.setup.action.assert.rule
   Card. = 0..1
   Type = =ActionAssertRule
@@ -1070,14 +1125,14 @@
   Definition = The TestScript.rule this assert will evaluate
   Comments = Each rule should get evaluated by test engines as one assertion regardless of how many assertions are contained within the external rule template.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.
 
- -- Row 101 -----------------------------------
+ -- Row 102 -----------------------------------
   Element = TestScript.setup.action.assert.rule.ruleId
   Card. = 1..1
   Type = id
   Short Name = Id of the TestScript.rule
   Definition = The TestScript.rule id value this assert will evaluate
 
- -- Row 102 -----------------------------------
+ -- Row 103 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param
   Card. = 0..*
   Type = =ActionAssertRuleParam
@@ -1085,7 +1140,7 @@
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
 
- -- Row 103 -----------------------------------
+ -- Row 104 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param.name
   Card. = 1..1
   Type = string
@@ -1093,7 +1148,7 @@
   Definition = Descriptive name for this parameter that matches the external assert rule parameter name
   Comments = The external rule template would be looking for the parameter by this name.
 
- -- Row 104 -----------------------------------
+ -- Row 105 -----------------------------------
   Element = TestScript.setup.action.assert.rule.param.value
   Card. = 1..1
   Type = string
@@ -1101,7 +1156,7 @@
   Definition = The value for the parameter that will be passed on to the external rule template.
   Comments = This value overwrites the value (if any) specified in TestScript.rule.param.value.  The param value can be a string-representation of a number, string, or boolean that is expected.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before supplying this value to the external rule template.
 
- -- Row 105 -----------------------------------
+ -- Row 106 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset
   Card. = 0..1
   Type = =ActionAssertRuleset
@@ -1109,14 +1164,14 @@
   Definition = The TestScript.ruleset this assert will evaluate
   Comments = Each rule within a ruleset should get evaluated by test engines as a separate assertion.  The impact of negative rule evaluation on test script execution is the same as an assertion failure which is descibed elsewhere in the TestScript resource.  If the first rule within the ruleset results in a failed assertion, then test engines do not have to evaluate the rest of the rules within the ruleset.
 
- -- Row 106 -----------------------------------
+ -- Row 107 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rulesetId
   Card. = 1..1
   Type = id
   Short Name = Id of the TestScript.ruleset
   Definition = The TestScript.ruleset id value this assert will evaluate
 
- -- Row 107 -----------------------------------
+ -- Row 108 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule
   Card. = 0..*
   Type = =ActionAssertRulesetRule
@@ -1124,21 +1179,21 @@
   Definition = The referenced rule within the external ruleset template
   Comments = This qualifies each param name so that  a parameter with the same name can be used differently by the different rules with the ruleset.
 
- -- Row 108 -----------------------------------
+ -- Row 109 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.ruleId
   Card. = 1..1
   Type = id
   Short Name = Id of referenced rule within the ruleset
   Definition = Id of the referenced rule within the external ruleset template
 
- -- Row 109 -----------------------------------
+ -- Row 110 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.param
   Card. = 0..*
   Short Name = Rule parameter template
   Definition = Each rule template can take one or more parameters for rule evaluation
   Comments = The parameter value can be dynamic at runtime.
 
- -- Row 110 -----------------------------------
+ -- Row 111 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.param.name
   Card. = 1..1
   Type = string
@@ -1146,7 +1201,7 @@
   Definition = Descriptive name for this parameter that matches the external assert ruleset rule parameter name
   Comments = The external rule template would be looking for the parameter by this name.
 
- -- Row 111 -----------------------------------
+ -- Row 112 -----------------------------------
   Element = TestScript.setup.action.assert.ruleset.rule.param.value
   Card. = 1..1
   Type = string
@@ -1154,7 +1209,7 @@
   Definition = The value for the parameter that will be passed on to the external ruleset rule template.
   Comments = This value overwrites the value (if any) specified in TestScript.ruleset.rule.param.value.  The param value can be a string-representation of a number, string, or boolean that is expected.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before supplying this value to the external rule template.
 
- -- Row 112 -----------------------------------
+ -- Row 113 -----------------------------------
   Element = TestScript.setup.action.assert.sourceId
   Card. = 0..1
   Type = id
@@ -1162,7 +1217,7 @@
   Definition = Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
   Comments = This can be a statically defined fixture (at the top of the testscript) or a dynamically set fixture created by responseId of the action.operation element.
 
- -- Row 113 -----------------------------------
+ -- Row 114 -----------------------------------
   Element = TestScript.setup.action.assert.validateProfileId
   Card. = 0..1
   Type = id
@@ -1170,7 +1225,7 @@
   Definition = The ID of the Profile to validate against.
   Comments = The ID of a Profile fixture. Asserts that the response is valid according to the Profile specified by validateProfileId.
 
- -- Row 114 -----------------------------------
+ -- Row 115 -----------------------------------
   Element = TestScript.setup.action.assert.value
   Card. = 0..1
   Type = string
@@ -1178,7 +1233,7 @@
   Definition = The value to compare to
   Comments = The string-representation of a number, string, or boolean that is expected.  Test engines do have to look for placeholders (${}) and replace the variable placeholders with the variable values at runtime before comparing this value to the actual value.
 
- -- Row 115 -----------------------------------
+ -- Row 116 -----------------------------------
   Element = TestScript.setup.action.assert.warningOnly
   Card. = 0..1
   Type = boolean
@@ -1187,28 +1242,28 @@
   Comments = If this element is specified and it is true, then assertion failures can be logged by test engine but should not stop the test script execution from proceeding.  There are likely cases where the spec is not clear on what should happen. If the spec says something is optional (maybe a response header for example), but a server doesn’t do it, we could choose to issue a warning.
   Default Value = False
 
- -- Row 116 -----------------------------------
+ -- Row 117 -----------------------------------
   Element = TestScript.test
   Card. = 0..*
   UML = 580;270
   Short Name = A test in this script
   Definition = A test in this script.
 
- -- Row 117 -----------------------------------
+ -- Row 118 -----------------------------------
   Element = TestScript.test.name
   Card. = 0..1
   Type = string
   Short Name = Tracking/logging name of this test
   Definition = The name of this test used for tracking/logging purposes by test engines.
 
- -- Row 118 -----------------------------------
+ -- Row 119 -----------------------------------
   Element = TestScript.test.description
   Card. = 0..1
   Type = string
   Short Name = Tracking/reporting short description of the test
   Definition = A short description of the test used by test engines for tracking and reporting purposes.
 
- -- Row 119 -----------------------------------
+ -- Row 120 -----------------------------------
   Element = TestScript.test.action
   Card. = 1..*
   UML = 450;380
@@ -1217,14 +1272,14 @@
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 
- -- Row 120 -----------------------------------
+ -- Row 121 -----------------------------------
   Element = TestScript.test.action.operation
   Card. = 0..1
   Type = @TestScript.setup.action.operation
   Short Name = The setup operation to perform
   Definition = An operation would involve a REST request to a server.
 
- -- Row 121 -----------------------------------
+ -- Row 122 -----------------------------------
   Element = TestScript.test.action.assert
   Card. = 0..1
   Type = @TestScript.setup.action.assert
@@ -1232,14 +1287,14 @@
   Definition = Evaluates the results of previous operations to determine if the server under test behaves appropriately.
   Comments = In order to evaluate an assertion, the request, response, and results of the most recently executed operation must always be maintained by the test engine.
 
- -- Row 122 -----------------------------------
+ -- Row 123 -----------------------------------
   Element = TestScript.teardown
   Card. = 0..1
   UML = 70;290
   Short Name = A series of required clean up steps
   Definition = A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
 
- -- Row 123 -----------------------------------
+ -- Row 124 -----------------------------------
   Element = TestScript.teardown.action
   Card. = 1..*
   UML = 200;380
@@ -1248,7 +1303,7 @@
   Definition = The teardown action will only contain an operation.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
 
- -- Row 124 -----------------------------------
+ -- Row 125 -----------------------------------
   Element = TestScript.teardown.action.operation
   Card. = 1..1
   Type = @TestScript.setup.action.operation

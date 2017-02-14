@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -388,7 +388,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/udi-entry-type")
         protected Enumeration<UDIEntryType> entryType;
 
-        private static final long serialVersionUID = 1028215381L;
+        private static final long serialVersionUID = -1105798343L;
 
     /**
      * Constructor
@@ -1095,7 +1095,7 @@ http://hl7.org/fhir/NamingSystem/iccbba-other-di.
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-safety")
     protected List<CodeableConcept> safety;
 
-    private static final long serialVersionUID = -393443189L;
+    private static final long serialVersionUID = 2064742171L;
 
   /**
    * Constructor

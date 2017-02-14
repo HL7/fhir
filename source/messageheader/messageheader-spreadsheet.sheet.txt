@@ -129,6 +129,19 @@
   w5 = who.focus
 
  -- Row 9 -----------------------------------
+  Element = MessageHeader.sender
+  Card. = 0..1
+  Type = Reference(Practitioner | Organization)
+  Short Name = Real world sender of the message
+  Definition = Identifies the sending system to allow the use of a trust relationship.
+  Requirements = Allows routing beyond just the application level
+  Comments = Use case is for where a (trusted) sending system is responsible for multiple organizations, and therefore cannot differentiate based on source endpoint / authentication alone.
+  v2 Mapping = PRT-5:PRT-4=\'WAYR\' / PRT-8:PRT-4=\'WAYR\'
+  RIM Mapping = Not directly supported.  Could be shared using attentionLine.value with an appropriate keyWordText
+  Committee Notes = Is this in the 80%?
+  w5 = who.focus
+
+ -- Row 10 -----------------------------------
   Element = MessageHeader.timestamp
   Card. = 1..1
   Type = instant
@@ -139,7 +152,7 @@
   RIM Mapping = ./creationTime[isNormalDatatype()]
   w5 = when.init
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MessageHeader.enterer
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -151,7 +164,7 @@
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[typeCode=\"ENT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
   w5 = who.author
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MessageHeader.author
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -163,7 +176,7 @@
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"AUT\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=(\"DEV\", \"PSN\") and determinerCode=\"INST\"])
   w5 = who.author
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MessageHeader.source
   Card. = 1..1
   UML = 420;95
@@ -174,7 +187,7 @@
   RIM Mapping = unique(./communicationFunction[typeCode=\"SND\"])
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MessageHeader.source.name
   Card. = 0..1
   Type = string
@@ -184,7 +197,7 @@
   v2 Mapping = MSH-3
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/name[type=\'ST\' and isNormalDatatype()])
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MessageHeader.source.software
   Card. = 0..1
   Type = string
@@ -194,7 +207,7 @@
   v2 Mapping = SFT-3 ( +SFT-1)
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/softwareName[isNormalDatatype()])
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MessageHeader.source.version
   Card. = 0..1
   Type = string
@@ -205,7 +218,7 @@
   RIM Mapping = (Not supported)
   Committee Notes = Version is not captured as a distinct property in v3
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MessageHeader.source.contact
   Card. = 0..1
   Type = ContactPoint
@@ -216,7 +229,7 @@
   RIM Mapping = unique(./entity[determinerCode=\"INST\" and classCode=\"DEV\"]/scopesRole[normalRole() and classCode=\"CON\" and layer[classCode=\"PSN\"]/telecom[isNormalDatatype()])
   Committee Notes = Should actually have a code for the role in the v3 mapping to indicate that the contact is for \"problems\"
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MessageHeader.source.endpoint
   Card. = 1..1
   Type = uri
@@ -227,7 +240,7 @@
   v2 Mapping = MSH-24
   RIM Mapping = ./telecom[isNormalDatatype()]
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MessageHeader.responsible
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
@@ -239,7 +252,7 @@
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/player[isNormalEntity() and classCode=\"PSN\" and determinerCode=\"INST\"] or ./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/participation[isHighest(priorityCode) and typeCode=\"RESP\" and isNormalParticipation]/role[classCode=\"ASSIGNED\" and isNormalRole()]/scoper[isNormalEntity() and classCode=\"ORG\" and determinerCode=\"INST\"])
   w5 = who.witness
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MessageHeader.reason
   Card. = 0..1
   Type = CodeableConcept
@@ -251,7 +264,7 @@
   RIM Mapping = unique(./controlAct[classCode=\"CACT\" and classCode=\"EVN\" and isNormalAct()]/reasonCode[isNormalDatatype()])
   w5 = why
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MessageHeader.response
   Card. = 0..1
   Is Modifier = y
@@ -261,7 +274,7 @@
   v2 Mapping = MSA
   RIM Mapping = ./conveyedAcknowledgement
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MessageHeader.response.identifier
   Card. = 1..1
   Type = id
@@ -271,7 +284,7 @@
   v2 Mapping = MSA-2
   RIM Mapping = ./acknowledges.id[isNormalDatatype()]
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MessageHeader.response.code
   Card. = 1..1
   Is Modifier = y
@@ -284,7 +297,7 @@
   v2 Mapping = MSA-1
   RIM Mapping = ./typeCode[isNormalDatatype()]
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MessageHeader.response.details
   Card. = 0..1
   Type = Reference(OperationOutcome)
@@ -295,7 +308,7 @@
   v2 Mapping = ERR
   RIM Mapping = AcknowledgementDetail or Observation[classCode=\"ALRT\" and moodCode=\"EVN\"]
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MessageHeader.focus
   Card. = 0..*
   Type = Reference(Any)
@@ -358,26 +371,37 @@
   Path = MessageHeader.source.endpoint
 
  -- Row 11 -----------------------------------
+  Name = sender
+  Type = reference
+  Path = MessageHeader.sender
+
+ -- Row 12 -----------------------------------
   Name = response-id
   Type = token
   Path = MessageHeader.response.identifier
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = code
   Type = token
   Path = MessageHeader.response.code
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = responsible
   Type = reference
   Path = MessageHeader.responsible
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = focus
   Type = reference
   Path = MessageHeader.focus
 
 === Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Response Request
+  IG Name = core
+  Filename = messageheader-extensions.xml
+  Type = spreadsheet
 
 === Sheet Examples =====================================
 

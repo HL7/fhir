@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1884,17 +1884,17 @@ public class MedicationStatement extends DomainResource {
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Who is/was taking  the medication</b><br>
+   * Description: <b>Returns statements for a specific patient.</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationStatement.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="MedicationStatement.subject", description="Who is/was taking  the medication", type="reference", target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="MedicationStatement.subject", description="Returns statements for a specific patient.", type="reference", target={Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Who is/was taking  the medication</b><br>
+   * Description: <b>Returns statements for a specific patient.</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>MedicationStatement.subject</b><br>
    * </p>
@@ -1906,6 +1906,32 @@ public class MedicationStatement extends DomainResource {
    * the path value of "<b>MedicationStatement:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationStatement:patient").toLocked();
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>Returns statements for a specific context (episode or episode of Care).</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="MedicationStatement.context", description="Returns statements for a specific context (episode or episode of Care).", type="reference", target={Encounter.class, EpisodeOfCare.class } )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>Returns statements for a specific context (episode or episode of Care).</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationStatement:context</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("MedicationStatement:context").toLocked();
 
  /**
    * Search parameter: <b>medication</b>

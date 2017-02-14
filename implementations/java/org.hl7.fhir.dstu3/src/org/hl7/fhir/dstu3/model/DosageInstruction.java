@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -62,24 +62,31 @@ public class DosageInstruction extends Type implements ICompositeType {
     protected StringType text;
 
     /**
-     * Supplemental instructions - e.g. "with meals".
+     * Supplemental instruction - e.g. "with meals".
      */
-    @Child(name = "additionalInstructions", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Supplemental instructions - e.g. \"with meals\"", formalDefinition="Supplemental instructions - e.g. \"with meals\"." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/additional-instructions-codes")
-    protected List<CodeableConcept> additionalInstructions;
+    @Child(name = "additionalInstruction", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Supplemental instruction - e.g. \"with meals\"", formalDefinition="Supplemental instruction - e.g. \"with meals\"." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/additional-instruction-codes")
+    protected List<CodeableConcept> additionalInstruction;
+
+    /**
+     * Instructions in terms that are understood by the patient or consumer.
+     */
+    @Child(name = "patientInstruction", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Patient or consumer oriented instructions", formalDefinition="Instructions in terms that are understood by the patient or consumer." )
+    protected StringType patientInstruction;
 
     /**
      * When medication should be administered.
      */
-    @Child(name = "timing", type = {Timing.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "timing", type = {Timing.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="When medication should be administered", formalDefinition="When medication should be administered." )
     protected Timing timing;
 
     /**
      * Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
      */
-    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "asNeeded", type = {BooleanType.class, CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Take \"as needed\" (for x)", formalDefinition="Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-as-needed-reason")
     protected Type asNeeded;
@@ -87,7 +94,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * Body site to administer to.
      */
-    @Child(name = "site", type = {CodeableConcept.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "site", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Body site to administer to", formalDefinition="Body site to administer to." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/approach-site-codes")
     protected CodeableConcept site;
@@ -95,7 +102,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * How drug should enter body.
      */
-    @Child(name = "route", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "route", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="How drug should enter body", formalDefinition="How drug should enter body." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/route-codes")
     protected CodeableConcept route;
@@ -103,7 +110,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * Technique for administering medication.
      */
-    @Child(name = "method", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "method", type = {CodeableConcept.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Technique for administering medication", formalDefinition="Technique for administering medication." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/administration-method-codes")
     protected CodeableConcept method;
@@ -111,39 +118,39 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * Amount of medication per dose.
      */
-    @Child(name = "dose", type = {Range.class, SimpleQuantity.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "dose", type = {Range.class, SimpleQuantity.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Amount of medication per dose", formalDefinition="Amount of medication per dose." )
     protected Type dose;
 
     /**
      * Upper limit on medication per unit of time.
      */
-    @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "maxDosePerPeriod", type = {Ratio.class}, order=10, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Upper limit on medication per unit of time", formalDefinition="Upper limit on medication per unit of time." )
     protected Ratio maxDosePerPeriod;
 
     /**
      * Upper limit on medication per administration.
      */
-    @Child(name = "maxDosePerAdministration", type = {SimpleQuantity.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "maxDosePerAdministration", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Upper limit on medication per administration", formalDefinition="Upper limit on medication per administration." )
     protected SimpleQuantity maxDosePerAdministration;
 
     /**
      * Upper limit on medication per lifetime of the patient.
      */
-    @Child(name = "maxDosePerLifetime", type = {SimpleQuantity.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "maxDosePerLifetime", type = {SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Upper limit on medication per lifetime of the patient", formalDefinition="Upper limit on medication per lifetime of the patient." )
     protected SimpleQuantity maxDosePerLifetime;
 
     /**
      * Amount of medication per unit of time.
      */
-    @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "rate", type = {Ratio.class, Range.class, SimpleQuantity.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Amount of medication per unit of time", formalDefinition="Amount of medication per unit of time." )
     protected Type rate;
 
-    private static final long serialVersionUID = 1097478883L;
+    private static final long serialVersionUID = 70626458L;
 
   /**
    * Constructor
@@ -247,56 +254,105 @@ public class DosageInstruction extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #additionalInstructions} (Supplemental instructions - e.g. "with meals".)
+     * @return {@link #additionalInstruction} (Supplemental instruction - e.g. "with meals".)
      */
-    public List<CodeableConcept> getAdditionalInstructions() { 
-      if (this.additionalInstructions == null)
-        this.additionalInstructions = new ArrayList<CodeableConcept>();
-      return this.additionalInstructions;
+    public List<CodeableConcept> getAdditionalInstruction() { 
+      if (this.additionalInstruction == null)
+        this.additionalInstruction = new ArrayList<CodeableConcept>();
+      return this.additionalInstruction;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DosageInstruction setAdditionalInstructions(List<CodeableConcept> theAdditionalInstructions) { 
-      this.additionalInstructions = theAdditionalInstructions;
+    public DosageInstruction setAdditionalInstruction(List<CodeableConcept> theAdditionalInstruction) { 
+      this.additionalInstruction = theAdditionalInstruction;
       return this;
     }
 
-    public boolean hasAdditionalInstructions() { 
-      if (this.additionalInstructions == null)
+    public boolean hasAdditionalInstruction() { 
+      if (this.additionalInstruction == null)
         return false;
-      for (CodeableConcept item : this.additionalInstructions)
+      for (CodeableConcept item : this.additionalInstruction)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addAdditionalInstructions() { //3
+    public CodeableConcept addAdditionalInstruction() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.additionalInstructions == null)
-        this.additionalInstructions = new ArrayList<CodeableConcept>();
-      this.additionalInstructions.add(t);
+      if (this.additionalInstruction == null)
+        this.additionalInstruction = new ArrayList<CodeableConcept>();
+      this.additionalInstruction.add(t);
       return t;
     }
 
-    public DosageInstruction addAdditionalInstructions(CodeableConcept t) { //3
+    public DosageInstruction addAdditionalInstruction(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.additionalInstructions == null)
-        this.additionalInstructions = new ArrayList<CodeableConcept>();
-      this.additionalInstructions.add(t);
+      if (this.additionalInstruction == null)
+        this.additionalInstruction = new ArrayList<CodeableConcept>();
+      this.additionalInstruction.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #additionalInstructions}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #additionalInstruction}, creating it if it does not already exist
      */
-    public CodeableConcept getAdditionalInstructionsFirstRep() { 
-      if (getAdditionalInstructions().isEmpty()) {
-        addAdditionalInstructions();
+    public CodeableConcept getAdditionalInstructionFirstRep() { 
+      if (getAdditionalInstruction().isEmpty()) {
+        addAdditionalInstruction();
       }
-      return getAdditionalInstructions().get(0);
+      return getAdditionalInstruction().get(0);
+    }
+
+    /**
+     * @return {@link #patientInstruction} (Instructions in terms that are understood by the patient or consumer.). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
+     */
+    public StringType getPatientInstructionElement() { 
+      if (this.patientInstruction == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create DosageInstruction.patientInstruction");
+        else if (Configuration.doAutoCreate())
+          this.patientInstruction = new StringType(); // bb
+      return this.patientInstruction;
+    }
+
+    public boolean hasPatientInstructionElement() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
+    }
+
+    public boolean hasPatientInstruction() { 
+      return this.patientInstruction != null && !this.patientInstruction.isEmpty();
+    }
+
+    /**
+     * @param value {@link #patientInstruction} (Instructions in terms that are understood by the patient or consumer.). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
+     */
+    public DosageInstruction setPatientInstructionElement(StringType value) { 
+      this.patientInstruction = value;
+      return this;
+    }
+
+    /**
+     * @return Instructions in terms that are understood by the patient or consumer.
+     */
+    public String getPatientInstruction() { 
+      return this.patientInstruction == null ? null : this.patientInstruction.getValue();
+    }
+
+    /**
+     * @param value Instructions in terms that are understood by the patient or consumer.
+     */
+    public DosageInstruction setPatientInstruction(String value) { 
+      if (Utilities.noString(value))
+        this.patientInstruction = null;
+      else {
+        if (this.patientInstruction == null)
+          this.patientInstruction = new StringType();
+        this.patientInstruction.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -619,7 +675,8 @@ public class DosageInstruction extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("sequence", "integer", "Indicates the order in which the dosage instructions should be applied or interpreted.", 0, java.lang.Integer.MAX_VALUE, sequence));
         childrenList.add(new Property("text", "string", "Free text dosage instructions e.g. SIG.", 0, java.lang.Integer.MAX_VALUE, text));
-        childrenList.add(new Property("additionalInstructions", "CodeableConcept", "Supplemental instructions - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstructions));
+        childrenList.add(new Property("additionalInstruction", "CodeableConcept", "Supplemental instruction - e.g. \"with meals\".", 0, java.lang.Integer.MAX_VALUE, additionalInstruction));
+        childrenList.add(new Property("patientInstruction", "string", "Instructions in terms that are understood by the patient or consumer.", 0, java.lang.Integer.MAX_VALUE, patientInstruction));
         childrenList.add(new Property("timing", "Timing", "When medication should be administered.", 0, java.lang.Integer.MAX_VALUE, timing));
         childrenList.add(new Property("asNeeded[x]", "boolean|CodeableConcept", "Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, asNeeded));
         childrenList.add(new Property("site", "CodeableConcept", "Body site to administer to.", 0, java.lang.Integer.MAX_VALUE, site));
@@ -637,7 +694,8 @@ public class DosageInstruction extends Type implements ICompositeType {
         switch (hash) {
         case 1349547969: /*sequence*/ return this.sequence == null ? new Base[0] : new Base[] {this.sequence}; // IntegerType
         case 3556653: /*text*/ return this.text == null ? new Base[0] : new Base[] {this.text}; // StringType
-        case -1206718612: /*additionalInstructions*/ return this.additionalInstructions == null ? new Base[0] : this.additionalInstructions.toArray(new Base[this.additionalInstructions.size()]); // CodeableConcept
+        case 1623641575: /*additionalInstruction*/ return this.additionalInstruction == null ? new Base[0] : this.additionalInstruction.toArray(new Base[this.additionalInstruction.size()]); // CodeableConcept
+        case 737543241: /*patientInstruction*/ return this.patientInstruction == null ? new Base[0] : new Base[] {this.patientInstruction}; // StringType
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Timing
         case -1432923513: /*asNeeded*/ return this.asNeeded == null ? new Base[0] : new Base[] {this.asNeeded}; // Type
         case 3530567: /*site*/ return this.site == null ? new Base[0] : new Base[] {this.site}; // CodeableConcept
@@ -662,8 +720,11 @@ public class DosageInstruction extends Type implements ICompositeType {
         case 3556653: // text
           this.text = castToString(value); // StringType
           return value;
-        case -1206718612: // additionalInstructions
-          this.getAdditionalInstructions().add(castToCodeableConcept(value)); // CodeableConcept
+        case 1623641575: // additionalInstruction
+          this.getAdditionalInstruction().add(castToCodeableConcept(value)); // CodeableConcept
+          return value;
+        case 737543241: // patientInstruction
+          this.patientInstruction = castToString(value); // StringType
           return value;
         case -873664438: // timing
           this.timing = castToTiming(value); // Timing
@@ -706,8 +767,10 @@ public class DosageInstruction extends Type implements ICompositeType {
           this.sequence = castToInteger(value); // IntegerType
         } else if (name.equals("text")) {
           this.text = castToString(value); // StringType
-        } else if (name.equals("additionalInstructions")) {
-          this.getAdditionalInstructions().add(castToCodeableConcept(value));
+        } else if (name.equals("additionalInstruction")) {
+          this.getAdditionalInstruction().add(castToCodeableConcept(value));
+        } else if (name.equals("patientInstruction")) {
+          this.patientInstruction = castToString(value); // StringType
         } else if (name.equals("timing")) {
           this.timing = castToTiming(value); // Timing
         } else if (name.equals("asNeeded[x]")) {
@@ -738,7 +801,8 @@ public class DosageInstruction extends Type implements ICompositeType {
         switch (hash) {
         case 1349547969:  return getSequenceElement();
         case 3556653:  return getTextElement();
-        case -1206718612:  return addAdditionalInstructions(); 
+        case 1623641575:  return addAdditionalInstruction(); 
+        case 737543241:  return getPatientInstructionElement();
         case -873664438:  return getTiming(); 
         case -544329575:  return getAsNeeded(); 
         case -1432923513:  return getAsNeeded(); 
@@ -762,7 +826,8 @@ public class DosageInstruction extends Type implements ICompositeType {
         switch (hash) {
         case 1349547969: /*sequence*/ return new String[] {"integer"};
         case 3556653: /*text*/ return new String[] {"string"};
-        case -1206718612: /*additionalInstructions*/ return new String[] {"CodeableConcept"};
+        case 1623641575: /*additionalInstruction*/ return new String[] {"CodeableConcept"};
+        case 737543241: /*patientInstruction*/ return new String[] {"string"};
         case -873664438: /*timing*/ return new String[] {"Timing"};
         case -1432923513: /*asNeeded*/ return new String[] {"boolean", "CodeableConcept"};
         case 3530567: /*site*/ return new String[] {"CodeableConcept"};
@@ -786,8 +851,11 @@ public class DosageInstruction extends Type implements ICompositeType {
         else if (name.equals("text")) {
           throw new FHIRException("Cannot call addChild on a primitive type DosageInstruction.text");
         }
-        else if (name.equals("additionalInstructions")) {
-          return addAdditionalInstructions();
+        else if (name.equals("additionalInstruction")) {
+          return addAdditionalInstruction();
+        }
+        else if (name.equals("patientInstruction")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DosageInstruction.patientInstruction");
         }
         else if (name.equals("timing")) {
           this.timing = new Timing();
@@ -859,11 +927,12 @@ public class DosageInstruction extends Type implements ICompositeType {
         copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.text = text == null ? null : text.copy();
-        if (additionalInstructions != null) {
-          dst.additionalInstructions = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : additionalInstructions)
-            dst.additionalInstructions.add(i.copy());
+        if (additionalInstruction != null) {
+          dst.additionalInstruction = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : additionalInstruction)
+            dst.additionalInstruction.add(i.copy());
         };
+        dst.patientInstruction = patientInstruction == null ? null : patientInstruction.copy();
         dst.timing = timing == null ? null : timing.copy();
         dst.asNeeded = asNeeded == null ? null : asNeeded.copy();
         dst.site = site == null ? null : site.copy();
@@ -888,12 +957,12 @@ public class DosageInstruction extends Type implements ICompositeType {
         if (!(other instanceof DosageInstruction))
           return false;
         DosageInstruction o = (DosageInstruction) other;
-        return compareDeep(sequence, o.sequence, true) && compareDeep(text, o.text, true) && compareDeep(additionalInstructions, o.additionalInstructions, true)
-           && compareDeep(timing, o.timing, true) && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(site, o.site, true)
-           && compareDeep(route, o.route, true) && compareDeep(method, o.method, true) && compareDeep(dose, o.dose, true)
-           && compareDeep(maxDosePerPeriod, o.maxDosePerPeriod, true) && compareDeep(maxDosePerAdministration, o.maxDosePerAdministration, true)
-           && compareDeep(maxDosePerLifetime, o.maxDosePerLifetime, true) && compareDeep(rate, o.rate, true)
-          ;
+        return compareDeep(sequence, o.sequence, true) && compareDeep(text, o.text, true) && compareDeep(additionalInstruction, o.additionalInstruction, true)
+           && compareDeep(patientInstruction, o.patientInstruction, true) && compareDeep(timing, o.timing, true)
+           && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(site, o.site, true) && compareDeep(route, o.route, true)
+           && compareDeep(method, o.method, true) && compareDeep(dose, o.dose, true) && compareDeep(maxDosePerPeriod, o.maxDosePerPeriod, true)
+           && compareDeep(maxDosePerAdministration, o.maxDosePerAdministration, true) && compareDeep(maxDosePerLifetime, o.maxDosePerLifetime, true)
+           && compareDeep(rate, o.rate, true);
       }
 
       @Override
@@ -903,13 +972,14 @@ public class DosageInstruction extends Type implements ICompositeType {
         if (!(other instanceof DosageInstruction))
           return false;
         DosageInstruction o = (DosageInstruction) other;
-        return compareValues(sequence, o.sequence, true) && compareValues(text, o.text, true);
+        return compareValues(sequence, o.sequence, true) && compareValues(text, o.text, true) && compareValues(patientInstruction, o.patientInstruction, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, text, additionalInstructions
-          , timing, asNeeded, site, route, method, dose, maxDosePerPeriod, maxDosePerAdministration
-          , maxDosePerLifetime, rate);
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(sequence, text, additionalInstruction
+          , patientInstruction, timing, asNeeded, site, route, method, dose, maxDosePerPeriod
+          , maxDosePerAdministration, maxDosePerLifetime, rate);
       }
 
 

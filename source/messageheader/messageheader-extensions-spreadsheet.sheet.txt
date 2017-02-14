@@ -2,32 +2,33 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = response-request
+  Binding Name = messageheader-response-request
   Binding = code list
-  Reference = #response-request
+  Reference = #messageheader-response-request
   Definition = HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.
-  Description = Response Request codes
+  Description = Message Header Response Request codes
   Conformance = required
 
-=== Sheet response-request =====================================
+=== Sheet messageheader-response-request =====================================
 
  -- Row 1 -----------------------------------
-  Code = AL
+  Code = always
   Display = Always
-  Definition = Always respond
+  Definition = initiator expects a response for this message
 
  -- Row 2 -----------------------------------
-  Code = ER
+  Code = on-error
   Display = Error/reject conditions only
-  Definition = Error/reject conditions only
+  Definition = initiator expects a response only if in error
 
  -- Row 3 -----------------------------------
-  Code = NE
+  Code = never
   Display = Never
+  Definition = initiator does not expect a response
 
  -- Row 4 -----------------------------------
-  Code = SU
+  Code = on-success
   Display = Successful completion only
-  Definition = Successful completion only
+  Definition = initiator expects a response only if successful
 
 === Sheet Search =====================================

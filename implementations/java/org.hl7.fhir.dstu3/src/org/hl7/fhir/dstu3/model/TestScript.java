@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -498,6 +498,162 @@ public class TestScript extends MetadataResource {
       return "?";
       }
     public String toSystem(AssertionOperatorType code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum TestScriptRequestMethodCode {
+        /**
+         * HTTP DELETE operation
+         */
+        DELETE, 
+        /**
+         * HTTP GET operation
+         */
+        GET, 
+        /**
+         * HTTP OPTIONS operation
+         */
+        OPTIONS, 
+        /**
+         * HTTP PATCH operation
+         */
+        PATCH, 
+        /**
+         * HTTP POST operation
+         */
+        POST, 
+        /**
+         * HTTP PUT operation
+         */
+        PUT, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static TestScriptRequestMethodCode fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("delete".equals(codeString))
+          return DELETE;
+        if ("get".equals(codeString))
+          return GET;
+        if ("options".equals(codeString))
+          return OPTIONS;
+        if ("patch".equals(codeString))
+          return PATCH;
+        if ("post".equals(codeString))
+          return POST;
+        if ("put".equals(codeString))
+          return PUT;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown TestScriptRequestMethodCode code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case DELETE: return "delete";
+            case GET: return "get";
+            case OPTIONS: return "options";
+            case PATCH: return "patch";
+            case POST: return "post";
+            case PUT: return "put";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case DELETE: return "http://hl7.org/fhir/http-operations";
+            case GET: return "http://hl7.org/fhir/http-operations";
+            case OPTIONS: return "http://hl7.org/fhir/http-operations";
+            case PATCH: return "http://hl7.org/fhir/http-operations";
+            case POST: return "http://hl7.org/fhir/http-operations";
+            case PUT: return "http://hl7.org/fhir/http-operations";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case DELETE: return "HTTP DELETE operation";
+            case GET: return "HTTP GET operation";
+            case OPTIONS: return "HTTP OPTIONS operation";
+            case PATCH: return "HTTP PATCH operation";
+            case POST: return "HTTP POST operation";
+            case PUT: return "HTTP PUT operation";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case DELETE: return "DELETE";
+            case GET: return "GET";
+            case OPTIONS: return "OPTIONS";
+            case PATCH: return "PATCH";
+            case POST: return "POST";
+            case PUT: return "PUT";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class TestScriptRequestMethodCodeEnumFactory implements EnumFactory<TestScriptRequestMethodCode> {
+    public TestScriptRequestMethodCode fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("delete".equals(codeString))
+          return TestScriptRequestMethodCode.DELETE;
+        if ("get".equals(codeString))
+          return TestScriptRequestMethodCode.GET;
+        if ("options".equals(codeString))
+          return TestScriptRequestMethodCode.OPTIONS;
+        if ("patch".equals(codeString))
+          return TestScriptRequestMethodCode.PATCH;
+        if ("post".equals(codeString))
+          return TestScriptRequestMethodCode.POST;
+        if ("put".equals(codeString))
+          return TestScriptRequestMethodCode.PUT;
+        throw new IllegalArgumentException("Unknown TestScriptRequestMethodCode code '"+codeString+"'");
+        }
+        public Enumeration<TestScriptRequestMethodCode> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<TestScriptRequestMethodCode>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("delete".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.DELETE);
+        if ("get".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.GET);
+        if ("options".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.OPTIONS);
+        if ("patch".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.PATCH);
+        if ("post".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.POST);
+        if ("put".equals(codeString))
+          return new Enumeration<TestScriptRequestMethodCode>(this, TestScriptRequestMethodCode.PUT);
+        throw new FHIRException("Unknown TestScriptRequestMethodCode code '"+codeString+"'");
+        }
+    public String toCode(TestScriptRequestMethodCode code) {
+      if (code == TestScriptRequestMethodCode.DELETE)
+        return "delete";
+      if (code == TestScriptRequestMethodCode.GET)
+        return "get";
+      if (code == TestScriptRequestMethodCode.OPTIONS)
+        return "options";
+      if (code == TestScriptRequestMethodCode.PATCH)
+        return "patch";
+      if (code == TestScriptRequestMethodCode.POST)
+        return "post";
+      if (code == TestScriptRequestMethodCode.PUT)
+        return "put";
+      return "?";
+      }
+    public String toSystem(TestScriptRequestMethodCode code) {
       return code.getSystem();
       }
     }
@@ -6353,16 +6509,24 @@ public class TestScript extends MetadataResource {
         protected StringType path;
 
         /**
+         * The request method or HTTP operation code to compare against that used by the client system under test.
+         */
+        @Child(name = "requestMethod", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="delete | get | options | patch | post | put", formalDefinition="The request method or HTTP operation code to compare against that used by the client system under test." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/http-operations")
+        protected Enumeration<TestScriptRequestMethodCode> requestMethod;
+
+        /**
          * The value to use in a comparison against the request URL path string.
          */
-        @Child(name = "requestURL", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "requestURL", type = {StringType.class}, order=15, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Request URL comparison value", formalDefinition="The value to use in a comparison against the request URL path string." )
         protected StringType requestURL;
 
         /**
          * The type of the resource.  See http://build.fhir.org/resourcelist.html.
          */
-        @Child(name = "resource", type = {CodeType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "resource", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Resource type", formalDefinition="The type of the resource.  See http://build.fhir.org/resourcelist.html." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/defined-types")
         protected CodeType resource;
@@ -6370,7 +6534,7 @@ public class TestScript extends MetadataResource {
         /**
          * okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
          */
-        @Child(name = "response", type = {CodeType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "response", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable", formalDefinition="okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/assert-response-code-types")
         protected Enumeration<AssertionResponseTypes> response;
@@ -6378,53 +6542,53 @@ public class TestScript extends MetadataResource {
         /**
          * The value of the HTTP response code to be tested.
          */
-        @Child(name = "responseCode", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "responseCode", type = {StringType.class}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP response code to test", formalDefinition="The value of the HTTP response code to be tested." )
         protected StringType responseCode;
 
         /**
          * The TestScript.rule this assert will evaluate.
          */
-        @Child(name = "rule", type = {}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "rule", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.rule", formalDefinition="The TestScript.rule this assert will evaluate." )
         protected ActionAssertRuleComponent rule;
 
         /**
          * The TestScript.ruleset this assert will evaluate.
          */
-        @Child(name = "ruleset", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "ruleset", type = {}, order=20, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The reference to a TestScript.ruleset", formalDefinition="The TestScript.ruleset this assert will evaluate." )
         protected ActionAssertRulesetComponent ruleset;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=20, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=21, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against." )
         protected IdType sourceId;
 
         /**
          * The ID of the Profile to validate against.
          */
-        @Child(name = "validateProfileId", type = {IdType.class}, order=21, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "validateProfileId", type = {IdType.class}, order=22, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Profile Id of validation profile reference", formalDefinition="The ID of the Profile to validate against." )
         protected IdType validateProfileId;
 
         /**
          * The value to compare to.
          */
-        @Child(name = "value", type = {StringType.class}, order=22, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {StringType.class}, order=23, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The value to compare to", formalDefinition="The value to compare to." )
         protected StringType value;
 
         /**
          * Whether or not the test execution will produce a warning only on error for this assert.
          */
-        @Child(name = "warningOnly", type = {BooleanType.class}, order=23, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "warningOnly", type = {BooleanType.class}, order=24, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = -1283101988L;
+        private static final long serialVersionUID = 171718507L;
 
     /**
      * Constructor
@@ -7067,6 +7231,55 @@ public class TestScript extends MetadataResource {
         }
 
         /**
+         * @return {@link #requestMethod} (The request method or HTTP operation code to compare against that used by the client system under test.). This is the underlying object with id, value and extensions. The accessor "getRequestMethod" gives direct access to the value
+         */
+        public Enumeration<TestScriptRequestMethodCode> getRequestMethodElement() { 
+          if (this.requestMethod == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.requestMethod");
+            else if (Configuration.doAutoCreate())
+              this.requestMethod = new Enumeration<TestScriptRequestMethodCode>(new TestScriptRequestMethodCodeEnumFactory()); // bb
+          return this.requestMethod;
+        }
+
+        public boolean hasRequestMethodElement() { 
+          return this.requestMethod != null && !this.requestMethod.isEmpty();
+        }
+
+        public boolean hasRequestMethod() { 
+          return this.requestMethod != null && !this.requestMethod.isEmpty();
+        }
+
+        /**
+         * @param value {@link #requestMethod} (The request method or HTTP operation code to compare against that used by the client system under test.). This is the underlying object with id, value and extensions. The accessor "getRequestMethod" gives direct access to the value
+         */
+        public SetupActionAssertComponent setRequestMethodElement(Enumeration<TestScriptRequestMethodCode> value) { 
+          this.requestMethod = value;
+          return this;
+        }
+
+        /**
+         * @return The request method or HTTP operation code to compare against that used by the client system under test.
+         */
+        public TestScriptRequestMethodCode getRequestMethod() { 
+          return this.requestMethod == null ? null : this.requestMethod.getValue();
+        }
+
+        /**
+         * @param value The request method or HTTP operation code to compare against that used by the client system under test.
+         */
+        public SetupActionAssertComponent setRequestMethod(TestScriptRequestMethodCode value) { 
+          if (value == null)
+            this.requestMethod = null;
+          else {
+            if (this.requestMethod == null)
+              this.requestMethod = new Enumeration<TestScriptRequestMethodCode>(new TestScriptRequestMethodCodeEnumFactory());
+            this.requestMethod.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #requestURL} (The value to use in a comparison against the request URL path string.). This is the underlying object with id, value and extensions. The accessor "getRequestURL" gives direct access to the value
          */
         public StringType getRequestURLElement() { 
@@ -7517,6 +7730,7 @@ public class TestScript extends MetadataResource {
           childrenList.add(new Property("navigationLinks", "boolean", "Whether or not the test execution performs validation on the bundle navigation links.", 0, java.lang.Integer.MAX_VALUE, navigationLinks));
           childrenList.add(new Property("operator", "code", "The operator type defines the conditional behavior of the assert. If not defined, the default is equals.", 0, java.lang.Integer.MAX_VALUE, operator));
           childrenList.add(new Property("path", "string", "The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.", 0, java.lang.Integer.MAX_VALUE, path));
+          childrenList.add(new Property("requestMethod", "code", "The request method or HTTP operation code to compare against that used by the client system under test.", 0, java.lang.Integer.MAX_VALUE, requestMethod));
           childrenList.add(new Property("requestURL", "string", "The value to use in a comparison against the request URL path string.", 0, java.lang.Integer.MAX_VALUE, requestURL));
           childrenList.add(new Property("resource", "code", "The type of the resource.  See http://build.fhir.org/resourcelist.html.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("response", "code", "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.", 0, java.lang.Integer.MAX_VALUE, response));
@@ -7545,6 +7759,7 @@ public class TestScript extends MetadataResource {
         case 1001488901: /*navigationLinks*/ return this.navigationLinks == null ? new Base[0] : new Base[] {this.navigationLinks}; // BooleanType
         case -500553564: /*operator*/ return this.operator == null ? new Base[0] : new Base[] {this.operator}; // Enumeration<AssertionOperatorType>
         case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        case 1217874000: /*requestMethod*/ return this.requestMethod == null ? new Base[0] : new Base[] {this.requestMethod}; // Enumeration<TestScriptRequestMethodCode>
         case 37099616: /*requestURL*/ return this.requestURL == null ? new Base[0] : new Base[] {this.requestURL}; // StringType
         case -341064690: /*resource*/ return this.resource == null ? new Base[0] : new Base[] {this.resource}; // CodeType
         case -340323263: /*response*/ return this.response == null ? new Base[0] : new Base[] {this.response}; // Enumeration<AssertionResponseTypes>
@@ -7604,6 +7819,10 @@ public class TestScript extends MetadataResource {
           return value;
         case 3433509: // path
           this.path = castToString(value); // StringType
+          return value;
+        case 1217874000: // requestMethod
+          value = new TestScriptRequestMethodCodeEnumFactory().fromType(castToCode(value));
+          this.requestMethod = (Enumeration) value; // Enumeration<TestScriptRequestMethodCode>
           return value;
         case 37099616: // requestURL
           this.requestURL = castToString(value); // StringType
@@ -7672,6 +7891,9 @@ public class TestScript extends MetadataResource {
           this.operator = (Enumeration) value; // Enumeration<AssertionOperatorType>
         } else if (name.equals("path")) {
           this.path = castToString(value); // StringType
+        } else if (name.equals("requestMethod")) {
+          value = new TestScriptRequestMethodCodeEnumFactory().fromType(castToCode(value));
+          this.requestMethod = (Enumeration) value; // Enumeration<TestScriptRequestMethodCode>
         } else if (name.equals("requestURL")) {
           this.requestURL = castToString(value); // StringType
         } else if (name.equals("resource")) {
@@ -7714,6 +7936,7 @@ public class TestScript extends MetadataResource {
         case 1001488901:  return getNavigationLinksElement();
         case -500553564:  return getOperatorElement();
         case 3433509:  return getPathElement();
+        case 1217874000:  return getRequestMethodElement();
         case 37099616:  return getRequestURLElement();
         case -341064690:  return getResourceElement();
         case -340323263:  return getResponseElement();
@@ -7745,6 +7968,7 @@ public class TestScript extends MetadataResource {
         case 1001488901: /*navigationLinks*/ return new String[] {"boolean"};
         case -500553564: /*operator*/ return new String[] {"code"};
         case 3433509: /*path*/ return new String[] {"string"};
+        case 1217874000: /*requestMethod*/ return new String[] {"code"};
         case 37099616: /*requestURL*/ return new String[] {"string"};
         case -341064690: /*resource*/ return new String[] {"code"};
         case -340323263: /*response*/ return new String[] {"code"};
@@ -7801,6 +8025,9 @@ public class TestScript extends MetadataResource {
         else if (name.equals("path")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.path");
         }
+        else if (name.equals("requestMethod")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.requestMethod");
+        }
         else if (name.equals("requestURL")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.requestURL");
         }
@@ -7853,6 +8080,7 @@ public class TestScript extends MetadataResource {
         dst.navigationLinks = navigationLinks == null ? null : navigationLinks.copy();
         dst.operator = operator == null ? null : operator.copy();
         dst.path = path == null ? null : path.copy();
+        dst.requestMethod = requestMethod == null ? null : requestMethod.copy();
         dst.requestURL = requestURL == null ? null : requestURL.copy();
         dst.resource = resource == null ? null : resource.copy();
         dst.response = response == null ? null : response.copy();
@@ -7878,11 +8106,11 @@ public class TestScript extends MetadataResource {
            && compareDeep(compareToSourcePath, o.compareToSourcePath, true) && compareDeep(contentType, o.contentType, true)
            && compareDeep(expression, o.expression, true) && compareDeep(headerField, o.headerField, true)
            && compareDeep(minimumId, o.minimumId, true) && compareDeep(navigationLinks, o.navigationLinks, true)
-           && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(requestURL, o.requestURL, true)
-           && compareDeep(resource, o.resource, true) && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true)
-           && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(sourceId, o.sourceId, true)
-           && compareDeep(validateProfileId, o.validateProfileId, true) && compareDeep(value, o.value, true)
-           && compareDeep(warningOnly, o.warningOnly, true);
+           && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(requestMethod, o.requestMethod, true)
+           && compareDeep(requestURL, o.requestURL, true) && compareDeep(resource, o.resource, true) && compareDeep(response, o.response, true)
+           && compareDeep(responseCode, o.responseCode, true) && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true)
+           && compareDeep(sourceId, o.sourceId, true) && compareDeep(validateProfileId, o.validateProfileId, true)
+           && compareDeep(value, o.value, true) && compareDeep(warningOnly, o.warningOnly, true);
       }
 
       @Override
@@ -7897,18 +8125,18 @@ public class TestScript extends MetadataResource {
            && compareValues(compareToSourcePath, o.compareToSourcePath, true) && compareValues(contentType, o.contentType, true)
            && compareValues(expression, o.expression, true) && compareValues(headerField, o.headerField, true)
            && compareValues(minimumId, o.minimumId, true) && compareValues(navigationLinks, o.navigationLinks, true)
-           && compareValues(operator, o.operator, true) && compareValues(path, o.path, true) && compareValues(requestURL, o.requestURL, true)
-           && compareValues(resource, o.resource, true) && compareValues(response, o.response, true) && compareValues(responseCode, o.responseCode, true)
-           && compareValues(sourceId, o.sourceId, true) && compareValues(validateProfileId, o.validateProfileId, true)
+           && compareValues(operator, o.operator, true) && compareValues(path, o.path, true) && compareValues(requestMethod, o.requestMethod, true)
+           && compareValues(requestURL, o.requestURL, true) && compareValues(resource, o.resource, true) && compareValues(response, o.response, true)
+           && compareValues(responseCode, o.responseCode, true) && compareValues(sourceId, o.sourceId, true) && compareValues(validateProfileId, o.validateProfileId, true)
            && compareValues(value, o.value, true) && compareValues(warningOnly, o.warningOnly, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(label, description, direction
           , compareToSourceId, compareToSourceExpression, compareToSourcePath, contentType, expression
-          , headerField, minimumId, navigationLinks, operator, path, requestURL, resource
-          , response, responseCode, rule, ruleset, sourceId, validateProfileId, value, warningOnly
-          );
+          , headerField, minimumId, navigationLinks, operator, path, requestMethod, requestURL
+          , resource, response, responseCode, rule, ruleset, sourceId, validateProfileId
+          , value, warningOnly);
       }
 
   public String fhirType() {

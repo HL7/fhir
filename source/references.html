@@ -34,7 +34,7 @@ Resources contain two types of references:
 </ul>
 <p>
 References are always defined and represented in one particular direction - from one resource (source) to another (target).
-References are either provided as a literal URL, which may either be absolute or relative, or as a logical identifier. 
+References are either provided as a literal URL, which may either be absolute or relative, or as a logical identifier.
 Resolving the references is discussed below.
 </p>
 <p>
@@ -59,7 +59,7 @@ the same patient for their subjects, and profiles may make rules about this.
 </p>
 
 <p>
-In a resource, references are represented with a <code>reference</code> (literal reference), 
+In a resource, references are represented with a <code>reference</code> (literal reference),
 an <code>identifier</code> (logical reference), and a <code>display</code> (text description of target).
 </p>
 
@@ -82,7 +82,7 @@ At least one of <code>reference</code>, <code>identifier</code> and <code>displa
 <h3>Literal References</h3>
 
 <p>
-The <code>reference</code> is the key element - resources are identified and addressed by their URL. It  
+The <code>reference</code> is the key element - resources are identified and addressed by their URL. It
 contains a url that is either
 </p>
 <ul>
@@ -98,7 +98,7 @@ Notes:
  <li>Using absolute URLs provides a stable, scalable approach suitable for a cloud/web context, while using relative/logical references provides a
    flexible approach suitable for use when trading across closed ecosystem boundaries. (see <a href="managing.html">"Managing Resource Identity"</a> for further discussion)</li>
  <li>Absolute URLs do not need to point to a <a href="http.html">FHIR RESTful server</a>, though this is the preferred approach.
-   Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification. 
+   Whether or not the reference is to a FHIR RESTful server, the reference SHALL point to a Resource as defined by this specification.
    <br/>Note: This regex is true if the reference to a resource is consistent with a FHIR API:
    <pre>
    ((http|https)://([A-Za-z0-9\\\.\:\%\$]\/)*)?([%piperesources%])\/[%id_regex%](\/_history\/[%id_regex%])?
@@ -128,8 +128,8 @@ Notes:
 <h3>Logical References</h3>
 
 <p>
-In many contexts where FHIR is used, applications building a resource may know an identifier for the target 
-of the reference, but there is no way for the application to convert this to a literal reference that 
+In many contexts where FHIR is used, applications building a resource may know an identifier for the target
+of the reference, but there is no way for the application to convert this to a literal reference that
 directly references an actual resource. This situation may arise for several reasons:
 </p>
 <ul>
@@ -138,8 +138,8 @@ directly references an actual resource. This situation may arise for several rea
  <li>The application is not in a RESTful environment - it is creating a message or a document</li>
 </ul>
 <p>
-In this cases, the source application may provide the identifier as a logical reference to the 
-entity that the target resource would describe. 
+In this cases, the source application may provide the identifier as a logical reference to the
+entity that the target resource would describe.
 </p>
 
 <div class="example">
@@ -155,30 +155,30 @@ entity that the target resource would describe.
 </div>
 
 <p>
-When processing a resource, an application 
-may be able to use the identifier directly, on the grounds that all it needs is the identifier, 
+When processing a resource, an application
+may be able to use the identifier directly, on the grounds that all it needs is the identifier,
 or it may be able to resolve the identifier directly. Alternatively, it may be able to use
-a server to resolve the logical reference to a literal reference to a resource. 
+a server to resolve the logical reference to a literal reference to a resource.
 </p>
 <p>
-Irrespective of how the resolution occurs, any system processing a logical reference will only be 
-able to resolve the identifier to a reference if it understands the business context in which the 
-identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not. 
+Irrespective of how the resolution occurs, any system processing a logical reference will only be
+able to resolve the identifier to a reference if it understands the business context in which the
+identifier is used. Sometimes this is global (e.g. a national identifier) but often it is not.
 </p>
 <p>
-For this reason, none of the useful mechanisms described for working with references (e.g. 
-<a href="search.html#chaining">chaining</a>, <a href="search.html#include">includes</a>) are 
-possible, nor should servers be expected to be able to automatically resolve the reference. 
-Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see 
-<a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.referencePolicy">CapabilityStatement.rest.resource.referencePolicy</a>. 
+For this reason, none of the useful mechanisms described for working with references (e.g.
+<a href="search.html#chaining">chaining</a>, <a href="search.html#include">includes</a>) are
+possible, nor should servers be expected to be able to automatically resolve the reference.
+Servers may accept an identifier based reference untouched, resolve it, and/or reject it - see
+<a href="capabilitystatement-definitions.html#CapabilityStatement.rest.resource.referencePolicy">CapabilityStatement.rest.resource.referencePolicy</a>.
 </p>
 <p>
-When both an identifier and a literal reference are provided, the literal reference is preferred. 
-Applications processing the resource are allowed - but not required - to check that the identifier 
+When both an identifier and a literal reference are provided, the literal reference is preferred.
+Applications processing the resource are allowed - but not required - to check that the identifier
 matches the literal reference, if they understand how to resolve the logical reference.
 </p>
 <p>
-Applications converting a logical reference to a literal reference may choose to leave the 
+Applications converting a logical reference to a literal reference may choose to leave the
 logical reference present, or remove it.
 </p>
 
@@ -187,8 +187,8 @@ logical reference present, or remove it.
 
 <p>
 Irrespective of whether a literal and/or logical reference is provided, or neither, the
-<code>display</code> element may be used to provide a very short description of the 
-target resource. 
+<code>display</code> element may be used to provide a very short description of the
+target resource.
 </p>
 <div class="example">
 <pre class="xml" fragment="Reference">
@@ -198,38 +198,38 @@ target resource.
   &lt;/custodian&gt;
 </pre>
 <p>
-This text can be used by any application that cannot resolve the reference 
+This text can be used by any application that cannot resolve the reference
 to fill out the text portion of a hyperlink referring to the target resource, for instance.
 It can also save time fetching a target resource, and determining how to convert it to
-a very short textual description. 
+a very short textual description.
 </p>
 </div>
 <p>
-In general, the <code>display</code>, if populated, does not have identical content 
-to the Resource.text of the referenced resource.  The purpose is to identify what's 
+In general, the <code>display</code>, if populated, does not have identical content
+to the Resource.text of the referenced resource.  The purpose is to identify what's
 being referenced, not to more fully describe it.
 </p>
 
 <a name="canonical"> </a>
 <h3>Canonical URLs</h3>
 <p>
-Many resource types have a defined element "url" which is the canonical URL that always identifies the 
-resource. These include all the conformance and knowledge resources (most of the resources 
+Many resource types have a defined element "url" which is the canonical URL that always identifies the
+resource. These include all the conformance and knowledge resources (most of the resources
 not found in the <a href="compartmentdefinition-patient.html">Patient Compartment</a>).
 </p>
 <p>
 The canonical URL remains the same when the resource is copied from server to server, while the logical
 id of the resource - it's local identifier - usually changes as the resource is copied. The canonical
-URL serves as a stable logical identifier for the conformance artifact, and <b>is the preferred 
+URL serves as a stable logical identifier for the conformance artifact, and <b>is the preferred
 way to reference a conformance or knowledge resource</b>. The canonical URL is also the location where the master copy of
-the artifact is found. 
+the artifact is found.
 </p>
 <p>
-References to these resource may use the <code>Reference</code> type described above, 
+References to these resource may use the <code>Reference</code> type described above,
 but they can also be referenced using a <a href="datatypes.html#uri"><code>uri</code></a>.
 </p>
 <p>
-When the type of the canonical reference is a <code>uri</code>, the URL may include a 
+When the type of the canonical reference is a <code>uri</code>, the URL may include a
 version, in order be precise about which version of the resource is being referred to.
 To do this, append the version to the canonical url with a '|' like this:
 </p>
@@ -252,10 +252,10 @@ search.
 </p>
 <p>
 Systems resolving references to resources that might have cannonical URLs SHOULD first
-try to resolve the reference using the cannonical URL, and then fall back to direct 
-resolution using the URL as a literal reference if a local version of the canonical 
-resource cannot be found. This approach is safe because the local version cannot be 
-a different artifact than the master copy, though implementations will need to make 
+try to resolve the reference using the cannonical URL, and then fall back to direct
+resolution using the URL as a literal reference if a local version of the canonical
+resource cannot be found. This approach is safe because the local version cannot be
+a different artifact than the master copy, though implementations will need to make
 appropriate arrangements regarding the currency of their local copy of the artifact.
 </p>
 
@@ -348,22 +348,25 @@ Some notes about use and interpretation of contained resources:
 </p>
 
 <ul>
-  <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions)</li>
-  <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below)</li>
-  <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other resources. Since there 
-     are no nested contained resources, there is only one container resource</li>
-  <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained</li>
-  <li>Contained resources SHALL NOT contain additional contained resources</li>
-  <li>Contained resources SHALL NOT contain any narrative</li>
-  <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it</li>
+  <li>The <code>contained</code> element SHALL NOT have extensions on it (though contained resources can still contain extensions).</li>
+  <li>The contained resource can be put in any resource that inherits from DomainResource. The contained element is then located at the
+  beginnning of the resource after any text narrative and before any extension.</li>
+  <li>Contained resources share the same internal id resolution space as the parent resource (for id attributes, see below).</li>
+  <li>When resolving references, references are resolved by looking through the 'container' resource - the one that contains the other
+  resources. Since there are no nested contained resources, there is only one container resource.</li>
+  <li>References to contained resources are never resolved outside the container resource. Specifically, resolution stops at the elements
+  Bundle.entry.resource and Parameters.parameter.resource, but not at DomainResource.contained.</li>
+  <li>Contained resources SHALL NOT contain additional contained resources.</li>
+  <li>Contained resources SHALL NOT contain any narrative.</li>
+  <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it.</li>
 </ul>
 
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>STU Note:</b>  
-It might be necessary to allow for the reverse (that is, for a contained resource to reference the container). 
-However this would cause many difficult consequences on the API. 
+<b>STU Note:</b>
+It might be necessary to allow for the reverse (that is, for a contained resource to reference the container).
+However this would cause many difficult consequences on the API.
 Feedback on this issue is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
 </p>
 </blockquote>
@@ -373,19 +376,19 @@ Resources that are contained inline do not "inherit" context from their parent r
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,
 there is no implication that the contained resource has the same subject as the parent resource.
 </p>
-    
+
 <p>
-Resources can only be contained in other resources if there is a reference from the resource to 
+Resources can only be contained in other resources if there is a reference from the resource to
 the contained resource. This is intended to ensure that the meaning of the contained resource
-is clear, and that there is no confusion as to its significance. 
+is clear, and that there is no confusion as to its significance.
 </p>
 
 <blockquote class="dstu-note">
 <a name="dstu2"> </a>
 <p>
 <b>STU Note:</b> There are some identified use cases where it would be useful to include resources that refer
-to the contained resource rather than the container referring to the contained resource, but this 
-has a series of structural ramifications for the API. Whether these can be resolved is an open 
+to the contained resource rather than the container referring to the contained resource, but this
+has a series of structural ramifications for the API. Whether these can be resolved is an open
 issue for investigation during the period of trial use.
 </p>
 <p>

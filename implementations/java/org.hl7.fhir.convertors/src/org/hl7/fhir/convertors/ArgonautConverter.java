@@ -605,9 +605,9 @@ public class ArgonautConverter extends ConverterBase {
 		if (!first)
 			b.append(")");
 
-		Element e = cda.getChild(ae, "representedOrganization");
-		if (e != null)
-			perf.addRole().setOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
+//		Element e = cda.getChild(ae, "representedOrganization");
+//		if (e != null)
+//			perf.addRole().setOrganization(new Reference().setReference("Organization/"+processOrganization(e, cda, convert, context).getId()));
 		perf.setUserData("display", b.toString());
 		return perf;
 	}

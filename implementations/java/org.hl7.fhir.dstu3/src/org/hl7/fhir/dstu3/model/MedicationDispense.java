@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Feb 13, 2017 22:47+1100 for FHIR v1.9.0
+// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3076,6 +3076,32 @@ public class MedicationDispense extends DomainResource {
    * the path value of "<b>MedicationDispense:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationDispense:patient").toLocked();
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>Returns dispenses with a specific context (episode or episode of care)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.context</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="MedicationDispense.context", description="Returns dispenses with a specific context (episode or episode of care)", type="reference", target={Encounter.class, EpisodeOfCare.class } )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>Returns dispenses with a specific context (episode or episode of care)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationDispense.context</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONTEXT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationDispense:context</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("MedicationDispense:context").toLocked();
 
  /**
    * Search parameter: <b>status</b>

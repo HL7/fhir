@@ -13447,6 +13447,10 @@
     <display value="Diverticulosis"/>
     <display value="Diverticulum (morphologic abnormality)"/>
   </concept>
+  <concept id="311501008" display="Half to one hour before food">
+    <display value="Half to one hour before food"/>
+    <display value="Half to one hour before food (qualifier value)"/>
+  </concept>
   <concept id="311504000" display="With or after food (qualifier value)">
     <display value="With or after food"/>
     <display value="With or after food (qualifier value)"/>
