@@ -20,7 +20,7 @@
   <WindowWidth>19440</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1510,7 +1510,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>24</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1643,7 +1644,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">response-request</Data><NamedCell
+    <Cell ss:StyleID="s103"><Data ss:Type="String">messageheader-response-request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1659,21 +1660,22 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">N</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">response-request</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">messageheader-response-request</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">AL|NE|SU|ER</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">always|on-error|never|on-success</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="String">AL|NE|</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">always</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s104"><Data ss:Type="Number">2</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="Number">10</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s104"><Data ss:Type="String">initiator requests a response</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><Data ss:Type="String"> core extension to enable the capability currently available through MSH-16 (Application Level acknowledgement) in V2 to declare at a message instance level whether a response is required or only upon error or success, or never.  The Message Definition data will provide perhaps what would be acceptable response requests, but could not indicate for each instance what is appropriate.&#10;&#10;&#10;</Data><NamedCell
+    <Cell ss:StyleID="s105"><Data ss:Type="String">This extension enables the capability currently available through MSH-16 (Application Level acknowledgement) in HL7 Version 2 to declare at a message instance level whether a response is required or only upon error or success, or never.&#10;&#10;&#10;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Sender values the field.  R</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Sender values the field for the instance.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">  The Message Definition data provides perhaps what would be acceptable response requests, but could not indicate for each instance what is appropriate.  The initiator should be able to handle the response even if not expected.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">N/A</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2597,12 +2599,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>11</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2617,7 +2620,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3603,12 +3606,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">response-request</Data></Cell>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">messageheader-response-request</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">HL7-defined table of codes which identify conditions under which acknowledgments are required to be returned in response to a message.</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">#response-request</Data></Cell>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">Response Request codes</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">#messageheader-response-request</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">Message Header Response Request codes</Data></Cell>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s124"/>
@@ -4036,7 +4039,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4056,6 +4058,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5281,10 +5284,10 @@
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
- <Worksheet ss:Name="response-request">
+ <Worksheet ss:Name="messageheader-response-request">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='response-request'!R1C1:R1C9" ss:Hidden="1"/>
+    ss:RefersTo="='messageheader-response-request'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s144" ss:DefaultRowHeight="15">
@@ -5334,45 +5337,45 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s155"><Data ss:Type="String">AL</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">always</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s156"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">Always</Data></Cell>
-    <Cell ss:StyleID="s156"><Data ss:Type="String">Always respond</Data></Cell>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">initiator expects a response for this message</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s157"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">ER</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">on-error</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Error/reject conditions only</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Error/reject conditions only</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">initiator expects a response only if in error</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s151"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">NE</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">never</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Never</Data></Cell>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">initiator does not expect a response</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s151"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">SU</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">on-success</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s124"/>
     <Cell ss:StyleID="s150"/>
     <Cell ss:StyleID="s150"><Data ss:Type="String">Successful completion only</Data></Cell>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Successful completion only</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">initiator expects a response only if successful</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s151"/>
@@ -5905,8 +5908,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>27</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5914,21 +5917,5 @@
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
- </Worksheet>
- <Worksheet ss:Name="Sheet10">
-  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultRowHeight="15">
-   <Row ss:AutoFitHeight="0"/>
-  </Table>
-  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
-   <PageSetup>
-    <Header x:Margin="0.3"/>
-    <Footer x:Margin="0.3"/>
-    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
-   </PageSetup>
-   <Unsynced/>
-   <ProtectObjects>False</ProtectObjects>
-   <ProtectScenarios>False</ProtectScenarios>
-  </WorksheetOptions>
  </Worksheet>
 </Workbook>
