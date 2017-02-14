@@ -76,7 +76,7 @@
   Binding = value set
   Reference = valueset-immunization-role
   Definition = The role a practitioner plays in the immunization event
-  Conformance = example
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 
