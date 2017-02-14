@@ -22,6 +22,7 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/performer-role
   Definition = Codes describing the types of functional roles performers can take on when performing events
+  Conformance = example
 
  -- Row 5 -----------------------------------
   Binding Name = BodySite
@@ -29,6 +30,7 @@
   Reference = http://hl7.org/fhir/ValueSet/body-site
   Definition = Codes describing anatomical locations. May include laterality.
   Description = SNOMED CT Body site concepts
+  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = ChargeItemCode
