@@ -16,11 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>21930</WindowHeight>
-  <WindowWidth>-19456</WindowWidth>
+  <WindowHeight>13110</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -3638,7 +3639,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7367,7 +7367,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='contact-point-system'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="53" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="54" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s137" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s137" ss:Width="80.25"/>
    <Column ss:StyleID="s137" ss:AutoFitWidth="0" ss:Width="34.5"/>
@@ -7466,6 +7466,17 @@
     <Cell ss:StyleID="s151"><Data ss:Type="String">URL</Data></Cell>
     <Cell ss:StyleID="s151"><Data ss:Type="String">A contact that is not a phone, fax, pager or email address and is expressed as a URL.  This is intended for various personal contacts including blogs, Skype, Twitter, Facebook, etc. Do not use for email addresses.</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="String">&lt;0202.Internet(for non-email kinds of addresses)</Data></Cell>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s142"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="45">
+    <Cell ss:StyleID="s141"><Data ss:Type="String">sms</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="Number">7</Data></Cell>
+    <Cell ss:StyleID="s118"/>
+    <Cell ss:StyleID="s151"/>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">SMS</Data></Cell>
+    <Cell ss:StyleID="s151"><Data ss:Type="String">A contact that can be used for sending an sms message (e.g. mobide phones, some landlines)</Data></Cell>
+    <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s131"/>
     <Cell ss:StyleID="s142"/>
    </Row>
@@ -7989,6 +8000,7 @@
     <HorizontalResolution>-1</HorizontalResolution>
     <VerticalResolution>-1</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8008,7 +8020,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>

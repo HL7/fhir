@@ -54,6 +54,12 @@
   v2 = <0202.Internet(for non-email kinds of addresses)
 
  -- Row 6 -----------------------------------
+  Id = 7
+  Code = sms
+  Display = SMS
+  Definition = A contact that can be used for sending an sms message (e.g. mobide phones, some landlines)
+
+ -- Row 7 -----------------------------------
   Id = 4
   Code = other
   Display = Other
