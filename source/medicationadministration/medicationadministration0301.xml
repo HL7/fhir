@@ -65,4 +65,8 @@
       <code value="mg"/>
     </dose>
   </dosage>
+  <eventHistory>
+    <reference value="#signature"/>
+    <display value="Author's Signature"/>
+  </eventHistory>
 </MedicationAdministration>

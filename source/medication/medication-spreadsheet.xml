@@ -20,6 +20,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1128,7 +1129,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">active | inactive | entered-in-error</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A code to iindicate if the medication is in active use</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code to indicate if the medication is in active use</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">This status is not intended to specify if a medication is part of a formulary.</Data><NamedCell
@@ -3866,12 +3867,14 @@
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
+   <TopRowVisible>11</TopRowVisible>
+   <LeftColumnVisible>16</LeftColumnVisible>
    <FilterOn/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5329,6 +5332,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
@@ -7545,6 +7549,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
   </WorksheetOptions>

@@ -134,7 +134,7 @@
   Type = code
   Binding = MedicationStatus
   Short Name = active | inactive | entered-in-error
-  Definition = A code to iindicate if the medication is in active use
+  Definition = A code to indicate if the medication is in active use
   Comments = This status is not intended to specify if a medication is part of a formulary.
   RIM Mapping = .statusCode
 

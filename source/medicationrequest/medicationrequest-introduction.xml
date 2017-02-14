@@ -19,6 +19,7 @@ These instances can be linked in different ways, depending on the needs of the w
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
+    <p>The MedicationRequest resource is used to request or order medication for a subject. When requesting supplies or devices when there is a patient focus or instructions regarding their use, <a href="supplyrequest.html">SupplyRequest</a> or <a href="devicerequest.html">DeviceRequest</a>DeviceRequest should be used instead</p>
 <p>
 <b>The Medication domain includes a number of related resources</b>
 </p>
