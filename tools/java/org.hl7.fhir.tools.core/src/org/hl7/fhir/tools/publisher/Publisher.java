@@ -491,6 +491,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.log("Build final copy for HL7 web site", LogMessageType.Process);
     else
       page.log("Build local copy", LogMessageType.Process);
+    page.log("Detected Java version: " + System.getProperty("java.version")+" from "+System.getProperty("java.home")+" on "+System.getProperty("os.arch"), LogMessageType.Process);
     try {
       tester.initialTests();
       page.setFolders(new FolderManager(folder));
