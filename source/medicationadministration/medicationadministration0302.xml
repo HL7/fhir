@@ -88,13 +88,6 @@
    <end value="2015-01-15T14:30:00+01:00"/>
 </effectivePeriod>
   <performer>
-    <role>
-      <coding>
-        <system value="http://hl7.org/fhir/performer-role"/>
-        <code value="309295000"/>
-        <display value="Clinical Oncologist"/>
-      </coding>
-    </role>
     <actor>
     <reference value="Practitioner/f007"/>
     <display value="Patrick Pump"/>

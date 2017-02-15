@@ -93,13 +93,6 @@
   Definition = A code describing where the dispensed medication is expected to be consumed or administered
   Conformance = preferred
 
- -- Row 14 -----------------------------------
-  Binding Name = MedicationDispensePerformer
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/performer-role
-  Definition = A code describing the role that dispensed the medication
-  Conformance = example
-
 === Sheet medication-dispense-status =====================================
 
  -- Row 1 -----------------------------------
@@ -281,16 +274,6 @@
   RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 11 -----------------------------------
-  Element = MedicationDispense.performer.role
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = MedicationDispensePerformer
-  Short Name = What type of role the performer fulfilled
-  Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
-  Workflow Mapping = ….role
-  RIM Mapping = .functionCode
-
- -- Row 12 -----------------------------------
   Element = MedicationDispense.performer.actor
   Card. = 1..1
   Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
@@ -299,7 +282,7 @@
   Workflow Mapping = ….actor
   RIM Mapping = .role
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationDispense.performer.onBehalfOf
   Card. = 0..1
   Type = Reference(Organization)
@@ -308,7 +291,7 @@
   Workflow Mapping = ….onBehalfOf
   RIM Mapping = .role.scopingOrganization
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationRequest)
@@ -319,7 +302,7 @@
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -329,7 +312,7 @@
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -338,7 +321,7 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
@@ -347,7 +330,7 @@
   v2 Mapping = TQ1.6 Timing/Quantity Segment Service Duration.\rPrior to v2.5, ORC.7.3 Common Order Segment / Quantity/Timing / Duration component.  This is a formatted string, first character for the time unit (e.g., D=days), followed by the value.  For example, “D14” represents “14 days supply”\rFrom v2.5 on, TQ1.6 Timing/Quantity Segment / Service Duration.  This is a CQ data type (<Quantity (NM)> ^ <Units (CWE)>), thus for days supply, assuming the unit of measure is “days”, the numeric value is TQ1.6.1 (…|14^\rFor backwards compatibility, ORC.7 was permitted through v2.6.  Both forms (field and segment) may be present in v2.5, v2.5.1, and v2.6
   RIM Mapping = effectiveUseTime
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationDispense.whenPrepared
   Card. = 0..1
   Summary = y
@@ -358,7 +341,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].low
   Committee Notes = This is time of dispense (preparation).  The time of supply to the patient is a separate attribute.
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationDispense.whenHandedOver
   Card. = 0..1
   Type = dateTime
@@ -369,7 +352,7 @@
   RIM Mapping = .effectiveTime[xmi:type=IVL_TS].high
   Committee Notes = The time of supply to the patient (pickup/handover in community or supply in inpatient).
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationDispense.destination
   Card. = 0..1
   Type = Reference(Location)
@@ -379,7 +362,7 @@
   RIM Mapping = .participation[typeCode=DST].role
   Committee Notes = for inpatient setting this is core, but this may not be core for community setting.  Also core for internet pharmacy.  Core for radioactive materials  Will service delivery location be defined by another group?
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationDispense.receiver
   Card. = 0..*
   Type = Reference(Patient|Practitioner)
@@ -388,7 +371,7 @@
   RIM Mapping = .participation[typeCode=RCV].role
   Committee Notes = This is in the core because Controlled Drugs must be signed for and the recievers identiy must be recorded.
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationDispense.note
   Card. = 0..*
   Type = Annotation
@@ -398,7 +381,7 @@
   v2 Mapping = RXD-9 Dispense Notes
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationDispense.dosageInstruction
   Card. = 0..*
   UML = right
@@ -409,7 +392,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = MedicationDispense.substitution
   Card. = 0..1
   UML = right
@@ -418,7 +401,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SUBST, moodCode=EVN]
   Committee Notes = Significant discssion around this topic.  May not have it right yet. What about the attribution?
 
- -- Row 25 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = MedicationDispense.substitution.wasSubstituted
   Card. = 1..1
   Type = boolean
@@ -426,7 +409,7 @@
   Definition = True if the dispenser dispensed a different drug or product from what was prescribed.
   RIM Mapping = .actionNegationInd
 
- -- Row 26 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = MedicationDispense.substitution.type
   Card. = 0..1
   Type = CodeableConcept
@@ -437,7 +420,7 @@
   RIM Mapping = .code
   Committee Notes = No substitution made or expected Subtitution made but not expected Substitution expected but not made Substitution made and expected
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = MedicationDispense.substitution.reason
   Card. = 0..*
   Type = CodeableConcept
@@ -446,7 +429,7 @@
   Definition = Indicates the reason for the substitution of (or lack of substitution) from what was prescribed.
   RIM Mapping = .reasonCode
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
   Card. = 0..*
   Type = Reference(Practitioner)
@@ -454,7 +437,7 @@
   Definition = The person or organization that has primary responsibility for the substitution
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = MedicationDispense.detectedIssue
   Card. = 0..*
   Aliases = Contraindication; Drug Utilization Review (DUR); Alert
@@ -463,7 +446,7 @@
   Definition = Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ALRT,moodCode=EVN].value
 
- -- Row 30 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = MedicationDispense.notDone
   Card. = 0..1
   Type = boolean
@@ -472,7 +455,7 @@
   Workflow Mapping = …notDone
   RIM Mapping = .actionNegationInd
 
- -- Row 31 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = MedicationDispense.notDoneReason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(DetectedIssue)
@@ -481,7 +464,7 @@
   Workflow Mapping = …notDoneReason
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"not done reason\"].value
 
- -- Row 32 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = MedicationDispense.eventHistory
   Card. = 0..*
   Type = Reference(Provenance)

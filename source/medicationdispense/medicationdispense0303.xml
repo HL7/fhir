@@ -38,13 +38,6 @@
         <reference value="Encounter/f001"></reference>
     </context>
     <performer>
-        <role>
-            <coding>
-                <system value="http://snomed.infor/sct"/>
-                <code value="46255001"/>
-                <display value="Pharmacist"/>
-            </coding>
-        </role>
         <actor>
             <reference value="Practitioner/f006"/>
         </actor>
