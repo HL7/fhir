@@ -76,9 +76,9 @@
   Element = Identifier.system
   Card. = 0..1
   Type = uri
-  Short Name = The namespace for the identifier
-  Definition = Establishes the namespace in which set of possible id values is unique.
-  Requirements = There are many sequences of identifiers.  To perform matching, we need to know what sequence we\'re dealing with. The system identifies a particular sequence or set of unique identifiers
+  Short Name = The namespace for the identifier value
+  Definition = Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
+  Requirements = There are many sets  of identifiers.  To perform matching of two identifiers, we need to know what set we\'re dealing with. The system identifies a particular set of unique identifiers
   v2 Mapping = CX.4 / EI-2-4
   RIM Mapping = II.root or Role.id.root
   ServD Mapping = ./IdentifierType
