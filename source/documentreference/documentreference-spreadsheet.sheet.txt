@@ -95,7 +95,7 @@
   UML = 0;0
   Type = DomainResource
   Short Name = A reference to a document
-  Definition = A reference to a document .
+  Definition = A reference to a document.
   Comments = Usually, this is used for documents other than those defined by FHIR
   RIM Mapping = Document[classCode=\"DOC\" and moodCode=\"EVN\"]
   w5 = infrastructure.documents
@@ -339,7 +339,7 @@
 
  -- Row 23 -----------------------------------
   Element = DocumentReference.content.format
-  Card. = 0..*
+  Card. = 0..1
   Type = Coding
   Binding = DocumentFormat
   Short Name = Format/content rules for the document
