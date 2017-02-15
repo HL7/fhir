@@ -60,6 +60,7 @@ import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.conformance.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeType;
@@ -1137,6 +1138,9 @@ public class ProfileGenerator {
     } else {
       dst.setStrength(BindingStrength.EXAMPLE);    
     }
+    dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName").setValue(new StringType(src.getName()));
+    if (src.isShared())
+      dst.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding").setValue(new BooleanType(true));
     return dst;
   }
 
