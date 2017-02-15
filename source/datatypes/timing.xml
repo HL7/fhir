@@ -9,14 +9,14 @@
   <Author>Grahame</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-11-30T01:44:50Z</LastSaved>
+  <LastSaved>2017-02-14T23:46:35Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
+  <WindowHeight>13110</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -820,7 +820,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="3" x:FullColumns="1"
@@ -1502,7 +1502,7 @@
     <Cell ss:StyleID="s86"><Data ss:Type="String">Timing.repeat.when</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="Number">3</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1518,11 +1518,12 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Regular life events the event is tied to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A real world event that the occurrence of the event should be tied to.</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Real world events that the occurrence of the event should be tied to</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Timings are frequently determined by occurrences such as waking, eating and sleep</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">When more than one event is listed, the event is tied to the union of the specified events</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">EIVL.event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3840,7 +3841,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>5</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3856,8 +3857,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>13</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3872,7 +3873,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C8"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s100" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s100" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s100" ss:Width="55.5"/>
@@ -3939,17 +3940,6 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">period.empty() or periodUnit.exists()</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">not(exists(f:period)) or exists(f:periodUnit)</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s107"><Data ss:Type="Number">3</Data><NamedCell
-      ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">no frequency with when</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Either frequency or when can exist, not both</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">((period or frequency) and when).not()</Data></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">not((f:period or f:frequency) and f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><Data ss:Type="Number">4</Data><NamedCell
@@ -4025,19 +4015,8 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a timeOfDay, there cannot be be a when, a frequency, or a period</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">timeOfDay.exists() implies (when.empty() and frequency.empty() and period.empty())</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:timeofDay)) or (not(exists(f:when)) and not(exists(f:frequency)) and not (exists(f:period)))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><Data ss:Type="Number">11</Data><NamedCell
-      ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">dayOfWeek means no (when, frequency, or period)</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's a dayOfWeek, there cannot be be a frequency, or a period</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">dayOfWeek.exists() implies (frequency.empty() and period.empty())</Data></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">not(exists(f:timeofDay)) or (not(exists(f:frequency)) and not (exists(f:period)))</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">timeOfDay.exists() xor when.exists()</Data></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">exists(f:timeofDay) != exists(f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4453,8 +4432,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>11</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>7</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

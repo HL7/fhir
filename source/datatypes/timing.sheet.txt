@@ -247,67 +247,53 @@
   Expression = period.empty() or periodUnit.exists()
 
  -- Row 3 -----------------------------------
-  Id = 3
-  Context = Timing.repeat
-  English = Either frequency or when can exist, not both
-  XPath = not((f:period or f:frequency) and f:when)
-  Expression = ((period or frequency) and when).not()
-
- -- Row 4 -----------------------------------
   Id = 4
   Context = Timing.repeat
   English = duration SHALL be a non-negative value
   XPath = f:duration/@value >= 0 or not(f:duration/@value)
   Expression = duration.exists() implies duration >= 0
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 5
   Context = Timing.repeat
   English = period SHALL be a non-negative value
   XPath = f:period/@value >= 0 or not(f:period/@value)
   Expression = period.exists() implies period >= 0
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Id = 6
   Context = Timing.repeat
   English = If there\'s a periodMax, there must be a period
   XPath = not(exists(f:periodMax)) or exists(f:period)
   Expression = periodMax.empty() or period.exists()
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Id = 7
   Context = Timing.repeat
   English = If there\'s a durationMax, there must be a duration
   XPath = not(exists(f:durationMax)) or exists(f:duration)
   Expression = durationMax.empty() or duration.exists()
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Id = 8
   Context = Timing.repeat
   English = If there\'s a countMax, there must be a count
   XPath = not(exists(f:countMax)) or exists(f:count)
   Expression = countMax.empty() or count.exists()
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Id = 9
   Context = Timing.repeat
   English = If there\'s an offset, there must be a when
   XPath = not(exists(f:offset)) or exists(f:when)
   Expression = offset.empty() or when.exists()
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Id = 10
   Context = Timing.repeat
   English = If there\'s a timeOfDay, there cannot be be a when, a frequency, or a period
-  XPath = not(exists(f:timeofDay)) or (not(exists(f:when)) and not(exists(f:frequency)) and not (exists(f:period)))
-  Expression = timeOfDay.exists() implies (when.empty() and frequency.empty() and period.empty())
-
- -- Row 11 -----------------------------------
-  Id = 11
-  Context = Timing.repeat
-  English = If there\'s a dayOfWeek, there cannot be be a frequency, or a period
-  XPath = not(exists(f:timeofDay)) or (not(exists(f:frequency)) and not (exists(f:period)))
-  Expression = dayOfWeek.exists() implies (frequency.empty() and period.empty())
+  XPath = exists(f:timeofDay) != exists(f:when)
+  Expression = timeOfDay.exists() xor when.exists()
 
 === Sheet Data Elements =====================================
 
@@ -457,12 +443,13 @@
 
  -- Row 17 -----------------------------------
   Element = Timing.repeat.when
-  Card. = 0..1
+  Card. = 0..*
   Type = code
   Binding = EventTiming
   Short Name = Regular life events the event is tied to
-  Definition = A real world event that the occurrence of the event should be tied to.
+  Definition = Real world events that the occurrence of the event should be tied to
   Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
+  Comments = When more than one event is listed, the event is tied to the union of the specified events
   RIM Mapping = EIVL.event
 
  -- Row 18 -----------------------------------

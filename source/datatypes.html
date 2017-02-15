@@ -1160,9 +1160,9 @@ This table summarizes some common uses of the Timing Data Type criteria.
  <tr><td>1 tablet 3 times daily, 30 minutes before meals</td> <td></td>  <td></td>      <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td></td>               <td></td></tr>
  <tr><td>BID, 30 mins before meal, for next 10 days</td> <td></td>  <td></td>            <td>2</td>               <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td>AC</td>        <td>30</td>             <td>Duration = 10 days</td>               <td></td></tr>
  <tr><td>TID, for 14 days</td>   <td></td>                <td></td>                     <td>3</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>Duration = 14 days</td>               <td></td></tr>
- <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>Period, low = 2015-07-01T13:00:00</td>               <td></td></tr>
- <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td>Period, low = 2015-07-01T13:00:00</td>               <td></td></tr>
- <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td>Period, low = 2015-07-01T13:00:00</td>               <td></td></tr>
+ <tr><td>BID, start on 7/1/2015 at 1:00 PM</td> <td></td> <td></td>                     <td>2</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td>Period.start = 2015-07-01T13:00:00</td>               <td></td></tr>
+ <tr><td>Mon, Wed, Fri Morning</td> <td></td>             <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td>mon | wed | fri</td>    <td></td>                   <td>MORN</td>      <td></td>               <td></td>               <td></td></tr>
+ <tr><td>Every day at 10am</td>  <td></td>                <td></td>                     <td>1</td>                <td></td>                    <td>1</td>             <td>d</td>                  <td></td>               <td></td>                   <td>10:00</td>              <td></td>          <td></td>               <td></td>               <td></td></tr>
  <tr><td>Take once, at any time</td>  <td></td>           <td></td>                     <td></td>                 <td></td>                    <td></td>              <td></td>                   <td></td>               <td></td>                   <td></td>                   <td></td>          <td></td>               <td></td>               <td>1</td></tr>
 </table>
 
@@ -1200,6 +1200,11 @@ should not be used. Instead, a distinct organization-specific code should be use
 <p><b>Constraints</b></p>
 [%dt.constraints Timing%]
 
+<p>
+Note that these constraints still allow for non-sensical timing specifications such as "Once per day at 2:00 and 4:00" or "every 3 days on Friday".
+Implementers must take care to ensure that their configuration/data collection designs do not lead to these non-interpretable timing specifications.
+The elements <code>dayOfWeek</code>, <code>timeOfDay</code>, and <code>when</code> are particularly likely to be at issue here.
+</p>
 </div>
 <p>
 Timing is used in the following places: [%dtusage Timing%]
