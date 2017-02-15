@@ -39,3 +39,4 @@
   v2 Mapping = C*E.9. But note many systems use C*E.2 for this
   RIM Mapping = ./originalText[mediaType/code=\"text/plain\"]/data
   ORIM Mapping = fhir:CodeableConcept.text rdfs:subPropertyOf dt:CD.originalText
+  Translatable = y

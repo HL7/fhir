@@ -116,6 +116,7 @@
   Requirements = Applications need a label to display to a human user in place of the actual data if the data cannot be rendered or perceived by the viewer.
   RIM Mapping = ./title/data
   Example = \"Official Corporate Logo\"
+  Translatable = y
 
  -- Row 10 -----------------------------------
   Element = Attachment.creation

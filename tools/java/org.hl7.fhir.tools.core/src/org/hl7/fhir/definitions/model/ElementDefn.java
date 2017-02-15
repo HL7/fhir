@@ -90,6 +90,7 @@ public class ElementDefn {
 	private String displayHint; // hits for generated narrative
 	private String w5;
 	private boolean noBindingAllowed; // note to validator 
+	private boolean translatable;
 	
 	public ElementDefn() {
 		super();
@@ -942,6 +943,14 @@ public class ElementDefn {
 
   public boolean isFromTemplate() {
     return fromTemplate;
+  }
+
+  public boolean isTranslatable() {
+    return translatable;
+  }
+
+  public void setTranslatable(boolean translatable) {
+    this.translatable = translatable;
   }	
   
 }

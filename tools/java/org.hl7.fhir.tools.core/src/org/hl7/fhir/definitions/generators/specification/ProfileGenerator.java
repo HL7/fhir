@@ -1319,7 +1319,9 @@ public class ProfileGenerator {
     }
     if (e.getW5() != null)
       addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
-
+    if (e.isTranslatable())
+      ce.addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable", new BooleanType(true));
+    
     if (e.hasBinding()) {
       ce.setBinding(generateBinding(e.getBinding()));
     }

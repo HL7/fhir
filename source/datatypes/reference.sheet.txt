@@ -46,3 +46,4 @@
   Definition = Plain text narrative that identifies the resource in addition to the resource reference
   Comments = This is generally not the same as the Resource.text of the referenced resource.  The purpose is to identify what\'s being referenced, not to fully describe it.
   RIM Mapping = N/A
+  Translatable = y

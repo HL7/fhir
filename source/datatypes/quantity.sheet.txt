@@ -88,6 +88,7 @@
   Requirements = There are many representations for units of measure and in many contexts, particular representations are fixed and required. I.e. mcg for micrograms
   v2 Mapping = (see OBX.6 etc.) / CQ.2
   RIM Mapping = PQ.unit
+  Translatable = y
 
  -- Row 5 -----------------------------------
   Element = Quantity.system
