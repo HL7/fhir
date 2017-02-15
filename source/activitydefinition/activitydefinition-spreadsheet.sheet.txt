@@ -50,6 +50,13 @@
   Definition = A code that identifies the anatomical location.
   Conformance = example
 
+ -- Row 8 -----------------------------------
+  Binding Name = DefinitionTopic
+  Binding = code list
+  Reference = #definition-topic
+  Definition = High-level categorization of the definition, used for searching, sorting, and filtering
+  Conformance = example
+
 === Sheet activity-definition-category =====================================
 
  -- Row 1 -----------------------------------
@@ -69,6 +76,26 @@
   Code = assessment
   Display = Assessment
   Definition = The activity is intended to perform or is related to assessment of the patient
+
+=== Sheet definition-topic =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = treatment
+  Display = Treatment
+  Definition = The definition is related to treatment of the patient
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = education
+  Display = Education
+  Definition = The definition is related to education of the patient
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = assessment
+  Display = Assessment
+  Definition = The definition is related to assessment of the patient
 
 === Sheet Invariants =====================================
 
@@ -156,8 +183,9 @@
   Element = ActivityDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
-  Short Name = Descriptional topics for the asset
-  Definition = Clinical topics related to the content of the asset
+  Binding = DefinitionTopic
+  Short Name = E.g. Education, Treatment, Assessment, etc
+  Definition = Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the asset  so that it can be found by topical searches
 
  -- Row 19 -----------------------------------
@@ -198,14 +226,6 @@
   Definition = A reference to a Library resource containing any formal logic used by the asset
 
  -- Row 25 -----------------------------------
-  Element = ActivityDefinition.category
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = ActivityDefinitionCategory
-  Short Name = E.g. Education, Assessment, Treatment, etc
-  Definition = High-level categorization of the type of activity that can be useful for filtering and searching
-
- -- Row 26 -----------------------------------
   Element = ActivityDefinition.kind
   Card. = 0..1
   Type = code
@@ -214,7 +234,7 @@
   Definition = A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource
   Comments = May determine what types of extensions are permitted
 
- -- Row 27 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ActivityDefinition.code
   Card. = 0..1
   Type = CodeableConcept
@@ -225,7 +245,7 @@
   Comments = Tends to be less relevant for activities involving particular products.
   Workflow Mapping = Definition.subjectCodeableConcept
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ActivityDefinition.timing[x]
   Card. = 0..1
   Type = CodeableConcept | Timing
@@ -234,7 +254,7 @@
   Definition = The period, timing or frequency upon which the described activity is to occur.
   Requirements = Allows prompting for activities and detection of missed planned activities.
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ActivityDefinition.location
   Card. = 0..1
   Aliases = facility
@@ -244,7 +264,7 @@
   Requirements = Helps in planning of activity
   Comments = May reference a specific clinical location or may just identify a type of location.
 
- -- Row 30 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ActivityDefinition.participantType
   Card. = 0..*
   Type = code
@@ -252,7 +272,7 @@
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
- -- Row 31 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ActivityDefinition.product[x]
   Card. = 0..1
   Type = Reference(Medication|Substance)|CodeableConcept
@@ -260,7 +280,7 @@
   Short Name = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
 
- -- Row 32 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ActivityDefinition.quantity
   Card. = 0..1
   Aliases = dose
@@ -268,7 +288,7 @@
   Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
 
- -- Row 33 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ActivityDefinition.dosageInstruction
   Card. = 0..*
   Type = DosageInstruction
@@ -276,7 +296,7 @@
   Definition = Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources
   Comments = If a dosage instruction is used, the definition should not specify timing or quantity
 
- -- Row 34 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ActivityDefinition.bodySite
   Card. = 0..*
   Type = CodeableConcept
@@ -288,48 +308,48 @@
   Workflow Mapping = Procedure.targetBodySite
   RIM Mapping = targetSiteCode
 
- -- Row 35 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
   Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
 
- -- Row 36 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 37 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
- -- Row 38 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 39 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 40 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 41 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string

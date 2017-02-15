@@ -113,6 +113,13 @@
   Definition = Identifies types of parameters that can be tracked to determine goal achievement
   Conformance = example
 
+ -- Row 17 -----------------------------------
+  Binding Name = DefinitionTopic
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/definition-topic
+  Definition = High-level categorization of the definition, used for searching, sorting, and filtering
+  Conformance = example
+
 === Sheet plan-definition-type =====================================
 
  -- Row 1 -----------------------------------
@@ -458,8 +465,9 @@
   Element = PlanDefinition.topic
   Card. = 0..*
   Type = CodeableConcept
-  Short Name = Descriptional topics for the asset
-  Definition = Clinical topics related to the content of the asset
+  Binding = DefinitionTopic
+  Short Name = E.g. Education, Treatment, Assessment, etc
+  Definition = Descriptive topics related to the content of the plan definition. Topics provide a high-level categorization of the definition that can be useful for filtering and searching
   Requirements = Repositories must be able to determine how to categorize the asset so that it can be found by topical searches
   Workflow Mapping = Definition.subjectCodableConcept
 
