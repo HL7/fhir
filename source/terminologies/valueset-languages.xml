@@ -29,6 +29,14 @@
     <include>
       <system value="urn:ietf:bcp:47"/>
       <concept>
+        <code value="ar"/>
+        <display value="Arabic"/>
+        <designation>
+          <language value="en"/>
+          <value value="Arabic"/>
+        </designation>
+      </concept>
+      <concept>
         <code value="bn"/>
         <display value="Bengali"/>
         <designation>
@@ -51,7 +59,7 @@
           <language value="de"/>
           <value value="Bengalisch"/>
         </designation>
-		    <designation>
+        <designation>
           <language value="da"/>
           <value value="Bengalsk"/>
         </designation>
@@ -163,7 +171,7 @@
           <language value="de"/>
           <value value="Deutsch (Österreich)"/>
         </designation>
-    <designation>
+        <designation>
           <language value="da"/>
           <value value="Tysk (Østrig"/>
         </designation>
@@ -387,7 +395,7 @@
           <language value="de"/>
           <value value="Englisch (Indien)"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Indien)"/>
         </designation>
@@ -415,7 +423,7 @@
           <language value="de"/>
           <value value="Englisch (Neuseeland)"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (New Zeeland)"/>
         </designation>
@@ -443,7 +451,7 @@
           <language value="de"/>
           <value value="Englisch (Singapur)"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Singapore)"/>
         </designation>
@@ -471,7 +479,7 @@
           <language value="de"/>
           <value value="Englisch (USA)"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Engelsk (Amerikansk)"/>
         </designation>
@@ -769,6 +777,14 @@
         </designation>
       </concept>
       <concept>
+        <code value="hi"/>
+        <display value="Hindi"/>
+        <designation>
+          <language value="en"/>
+          <value value="Hindi"/>
+        </designation>
+      </concept>
+      <concept>
         <code value="hr"/>
         <display value="Croatian"/>
         <designation>
@@ -819,7 +835,7 @@
           <language value="de"/>
           <value value="Italienisch"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Italiensk"/>
         </designation>
@@ -847,7 +863,7 @@
           <language value="de"/>
           <value value="Italienisch (Schweiz)"/>
         </designation>
-            <designation>
+        <designation>
           <language value="da"/>
           <value value="Italiensk (Schweiz)"/>
         </designation>
@@ -1070,6 +1086,14 @@
         <designation>
           <language value="da"/>
           <value value="Norsk (Norge)"/>
+        </designation>
+      </concept>
+      <concept>
+        <code value="pa"/>
+        <display value="Punjabi"/>
+        <designation>
+          <language value="en"/>
+          <value value="Punjabi"/>
         </designation>
       </concept>
       <concept>
@@ -1319,8 +1343,8 @@
           <language value="de"/>
           <value value="Telugu"/>
         </designation>
-    
-    
+
+
         <designation>
           <language value="da"/>
           <value value="Telugu"/>
