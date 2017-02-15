@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>lloyd</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-01-18T15:22:05Z</LastSaved>
+  <LastSaved>2017-02-15T19:43:52Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,12 +20,12 @@
    <Path>\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9348</WindowHeight>
-  <WindowWidth>22992</WindowWidth>
+  <WindowHeight>9672</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>735</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1507,7 +1507,8 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">[Adjust vocabulary to be appropriate to your domain - generally should reflect what the performer does, not who they are]</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">.participation.functionCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1586,7 +1587,7 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="28.8">
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Event.reasonCodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Event.reasonCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">0..*</Data><NamedCell
@@ -1609,7 +1610,7 @@
     <Cell ss:StyleID="s93"><Data ss:Type="String">Describes why the event occurred in coded or textual form.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><Data ss:Type="String">Textual reasons can be caprued using reasonCode.text</Data><NamedCell
+    <Cell ss:StyleID="s93"><Data ss:Type="String">Textual reasons can be captured using reasonCode.text</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">.reasonCode</Data><NamedCell
@@ -1896,7 +1897,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2267,7 +2267,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
@@ -2341,7 +2340,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="27" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="28" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s116" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s116" ss:Width="73.8"/>
    <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="57"/>
@@ -2429,6 +2428,13 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">context</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s91"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">Event.context</Data></Cell>
+    <Cell ss:StyleID="s124"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s122"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Encounter</Data></Cell>
     <Cell ss:StyleID="s123"><Data ss:Type="String">Event.context</Data></Cell>
     <Cell ss:StyleID="s124"/>
    </Row>
@@ -2553,6 +2559,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -2572,14 +2579,13 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R2C2:R26C2</Range>
+   <Range>R2C2:R27C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>
@@ -4584,7 +4590,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
