@@ -322,7 +322,7 @@
   w5 = where
 
  -- Row 19 -----------------------------------
-  Element = Procedure.reasonCodeableConcept
+  Element = Procedure.reasonCode
   Card. = 0..*
   Summary = y
   Type = CodeableConcept

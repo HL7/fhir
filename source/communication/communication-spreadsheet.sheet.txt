@@ -279,7 +279,7 @@
   w5 = who.actor
 
  -- Row 18 -----------------------------------
-  Element = Communication.reasonCodeableConcept
+  Element = Communication.reasonCode
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept

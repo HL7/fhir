@@ -34,9 +34,9 @@
             <display value="E.M.J.M. van den broek"/>
         </actor>
     </performer>
-    <reasonCodeableConcept>
+    <reasonCode>
       <text value="abcess in retropharyngeal area"/>
-    </reasonCodeableConcept>
+    </reasonCode>
 	<bodySite>
             <coding>
                 <system value="http://snomed.info/sct"/>

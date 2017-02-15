@@ -285,7 +285,7 @@
   RIM Mapping = player[classCode=LIV, determinerCode=INSTANCE].deceasedInd, deceasedDate (could be URG)  For age, you\'d hang an observation off the role
 
  -- Row 16 -----------------------------------
-  Element = FamilyMemberHistory.reasonCodeableConcept
+  Element = FamilyMemberHistory.reasonCode
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept

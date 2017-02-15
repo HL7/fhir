@@ -34,9 +34,9 @@
             <display value="A. Langeveld"/>
         </actor>
     </performer>
-    <reasonCodeableConcept>
+    <reasonCode>
       <text value="ensure breathing during surgery"/>
-    </reasonCodeableConcept>
+    </reasonCode>
     <bodySite>        
         <coding>
             <system value="http://snomed.info/sct"/>

@@ -32,9 +32,9 @@
       <display value="Dr Bert Biopser"/>
     </actor>
   </performer>
-  <reasonCodeableConcept>
+  <reasonCode>
     <text value="Dark lesion l) forearm. getting darker last 3 months."/>
-  </reasonCodeableConcept>
+  </reasonCode>
   <bodySite>
       <coding>
         <system value="http://snomed.info/sct"/>
