@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.go;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2016, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011-2017, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 

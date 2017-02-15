@@ -34,3 +34,25 @@ func (x *<Name>) checkResourceType() error {
 	return nil
 }
 <endif>
+
+<if(Fields)>
+// Custom SetBSON implementation to properly deserialize embedded resources
+// otherwise represented as interface{} into resource-specific structs as they
+// are retrieved from the database.
+func (x *<Name>) SetBSON(raw bson.Raw) (err error) {
+	x2 := <LowerName>{}
+	if err = raw.Unmarshal(&x2); err == nil {
+<Fields:{f | <\t><\t>if x2.<f> != nil <\u007B>
+<if(FieldSliceIndicators.(f))>
+			for i := range x2.<f> <\u007B>
+    			x2.<f>[i] = BSONMapToResource(x2.<f>[i].(bson.M), true)
+    		<\u007D>
+<else>
+			x2.<f> = BSONMapToResource(x2.<f>.(bson.M), true)
+<endif>
+		<\u007D>}>
+		*x = <Name>(x2)
+	}
+	return
+}
+<endif>

@@ -5,6 +5,7 @@ package models
 import (
 	"encoding/json"
 	"reflect"
+	"gopkg.in/mgo.v2/bson"
 )
 
 func GetResourceID(resource interface{}) (id string, ok bool) {
@@ -21,8 +22,8 @@ func GetResourceMeta(resource interface{}) (meta *Meta, ok bool) {
 	return
 }
 
-/* When FHIR JSON is unmarshalled, types that are interface{} just get unmarshaled to map[string]interface{}.
-   This function converts that unmarshaled map to a specific resource type. */
+// When FHIR JSON is unmarshalled, types that are interface{} just get unmarshaled to map[string]interface{}.
+// This function converts that unmarshaled map to a specific resource type.
 func MapToResource(resourceMap interface{}, asPointer bool) interface{} {
 	b, _ := json.Marshal(&resourceMap)
 	m := resourceMap.(map[string]interface{})
@@ -32,6 +33,28 @@ func MapToResource(resourceMap interface{}, asPointer bool) interface{} {
 case "<r>":
 	x := <r>{\}
 	json.Unmarshal(b, &x)
+	if asPointer {
+		return &x
+	\} else {
+		return x
+	\}
+}>
+	}
+	return nil
+}
+
+// When bson objects from the database get unmarshaled, types that are interface{}
+// just get unmarshaled to map[string]interface{}. This function converts that unmarshaled
+// bson.M map to a specific resource type.
+func BSONMapToResource(bsonMap bson.M, asPointer bool) interface{} {
+	data, _ := bson.Marshal(bsonMap)
+	raw := bson.Raw{3, data}
+	t := bsonMap["resourceType"]
+	switch t {
+	<Resources:{r |
+case "<r>":
+    x := <r>{\}
+	raw.Unmarshal(&x)
 	if asPointer {
 		return &x
 	\} else {
