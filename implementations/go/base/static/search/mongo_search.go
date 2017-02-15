@@ -68,6 +68,10 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		var mgoPipe *mgo.Pipe
 		mgoPipe, total, err = m.aggregate(bsonQuery, query.Options())
 		if err != nil {
+			if err == mgo.ErrNotFound {
+				// This was a valid search that returned zero results
+				return nil, 0, nil
+			}
 			return nil, 0, err
 		}
 		err = mgoPipe.All(results)
@@ -76,6 +80,10 @@ func (m *MongoSearcher) Search(query Query) (results interface{}, total uint32, 
 		var mgoQuery *mgo.Query
 		mgoQuery, total, err = m.find(bsonQuery, query.Options())
 		if err != nil {
+			if err == mgo.ErrNotFound {
+				// This was a valid search that returned zero results
+				return nil, 0, nil
+			}
 			return nil, 0, err
 		}
 		err = mgoQuery.All(results)

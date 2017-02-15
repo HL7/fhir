@@ -35,7 +35,7 @@ func (x *<Name>) checkResourceType() error {
 }
 <endif>
 
-<if(Fields)>
+<if(!IsResource)>
 // Custom SetBSON implementation to properly deserialize embedded resources
 // otherwise represented as interface{} into resource-specific structs as they
 // are retrieved from the database.

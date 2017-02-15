@@ -559,7 +559,7 @@ public class MgoModel {
           imports.add("fmt");
         }
 
-        if (isDomainResource(name) || name.equals("Bundle") || name.equals("Parameters")) {
+        if (name.equals("Bundle") || name.equals("Parameters")) {
             imports.add("gopkg.in/mgo.v2/bson");
         }
 
