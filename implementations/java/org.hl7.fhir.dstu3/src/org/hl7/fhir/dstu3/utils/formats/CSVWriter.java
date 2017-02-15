@@ -15,6 +15,7 @@ import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Reference;
@@ -195,8 +196,9 @@ public class CSVWriter  extends TextStreamWriter  {
     }
   }
 
+
   private String itemList(List l) {
-    String s = "";
+    StringBuilder s = new StringBuilder();
     for (int i =0; i< l.size(); i++) {
       Object o = l.get(i);
       String val = "";
@@ -217,14 +219,20 @@ public class CSVWriter  extends TextStreamWriter  {
       } else if (o instanceof ElementDefinitionConstraintComponent) {
         ElementDefinitionConstraintComponent c = (ElementDefinitionConstraintComponent)o;
         val = c.getKey() + ":" + c.getHuman() + " {" + c.getExpression() + "}";
+      } else if (o instanceof ElementDefinitionSlicingDiscriminatorComponent) {
+        ElementDefinitionSlicingDiscriminatorComponent c = (ElementDefinitionSlicingDiscriminatorComponent)o;
+        val = c.getType().toCode() + ":" + c.getPath() + "}";
+        
       } else {
         val = o.toString();
         val = val.substring(val.indexOf("[")+1);
         val = val.substring(0, val.indexOf("]"));
       }
-      s = s + val + (i==0? "\n" : "");
+      s = s.append(val);
+      if (i == 0)
+        s.append("\n");
     }
-    return s;
+    return s.toString();
   }
   
   private String renderType(Type value) throws Exception {
