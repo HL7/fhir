@@ -56,13 +56,7 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 	<created value="2005-12-24T09:35:00+11:00"/>
 	<indexed value="2005-12-24T09:43:41+11:00"/>
 	<status value="current"/>
-	<docStatus>
-		<coding>
-			<system value="http://hl7.org/fhir/composition-status"/>
-			<code value="preliminary"/>
-			<display value="preliminary"/>
-		</coding>
-	</docStatus>
+	<docStatus value="preliminary"/>
 	<relatesTo>
 		<code value="appends"/>
 		<target>
