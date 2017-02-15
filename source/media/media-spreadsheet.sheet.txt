@@ -234,6 +234,7 @@
  -- Row 13 -----------------------------------
   Element = Media.bodySite
   Card. = 0..1
+  Summary = Y
   Type = CodeableConcept
   Binding = BodySite
   Short Name = Body part in media
@@ -256,6 +257,7 @@
  -- Row 15 -----------------------------------
   Element = Media.device
   Card. = 0..1
+  Summary = y
   Type = Reference(Device|DeviceMetric)
   Short Name = Observing Device
   Definition = The device used to collect the media.

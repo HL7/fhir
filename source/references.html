@@ -155,6 +155,12 @@ entity that the target resource would describe.
 </div>
 
 <p>
+There is no requirement that a Reference.identifier point to something that is actually exposed as a 
+FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a 
+FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.
+</p>
+
+<p>
 When processing a resource, an application
 may be able to use the identifier directly, on the grounds that all it needs is the identifier,
 or it may be able to resolve the identifier directly. Alternatively, it may be able to use
