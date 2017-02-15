@@ -311,11 +311,19 @@
     <!--   HL7   -->
       <concept>
         <code value="urn:hl7-org:sdwg:ccda-structuredBody:1.1"/>
-        <display value="For documents following C-CDA constraints using a structured body. "/>
+        <display value="For documents following C-CDA 1.1 constraints using a structured body. "/>
       </concept>
       <concept>
         <code value="urn:hl7-org:sdwg:ccda-nonXMLBody:1.1"/>
-        <display value="For documents following C-CDA constraints using a non structured body. "/>
+        <display value="For documents following C-CDA 1.1 constraints using a non structured body. "/>
+      </concept>
+      <concept>
+        <code value="urn:hl7-org:sdwg:ccda-structuredBody:2.1"/>
+        <display value="For documents following C-CDA 2.1 constraints using a structured body. "/>
+      </concept>
+      <concept>
+        <code value="urn:hl7-org:sdwg:ccda-nonXMLBody:2.1"/>
+        <display value="For documents following C-CDA 2.1 constraints using a non structured body. "/>
       </concept>
     </include>
   </compose>
