@@ -83,6 +83,14 @@
   Expression = value.exists() or dataAbsentReason.exists()
   Severity = error
 
+ -- Row 4 -----------------------------------
+  Id = vs-4
+  Context = Observation.category
+  English = Must have a category of \'vital-signs\' and a code system \'http://hl7.org/fhir/observation-category\'
+  XPath = exists(f:coding/code[@value=\'laboratory\']) and exists(f:coding/system[@value=\'http://hl7.org/fhir/observation-category\'])
+  Expression = where(coding.system=\'http://hl7.org/fhir/observation-category\' and coding.code=\'laboratory\').exists()
+  Severity = error
+
 === Sheet VitalSigns =====================================
 
  -- Row 1 -----------------------------------
@@ -102,10 +110,10 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.category
-  Card. = 1..1
+  Card. = 1..*
   Must Support = Y
+  Inv. = vs-4
   Type = CodeableConcept
-  Pattern = <valueCodeableConcept><coding><system value=\"http://hl7.org/fhir/observation-category\"/><code value=\"vital-signs\"/></coding></valueCodeableConcept>
 
  -- Row 4 -----------------------------------
   Element = Observation.code
