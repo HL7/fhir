@@ -907,4 +907,22 @@
   Description = Order for a medication that is intended to be given as a single, once only dose
   Filename = medicationrequest0332.xml
 
+ -- Row 34 -----------------------------------
+  Name = Morning
+  Identity = medrx0333
+  Description = Order for a medication that is intended to be given in the morning
+  Filename = medicationrequest0333.xml
+
+ -- Row 35 -----------------------------------
+  Name = Monday
+  Identity = medrx0334
+  Description = Order for a medication that is intended to be given on a specific day
+  Filename = medicationrequest0334.xml
+
+ -- Row 36 -----------------------------------
+  Name = Time
+  Identity = medrx0335
+  Description = Order for a medication that is intended to be given at a specific time
+  Filename = medicationrequest0335.xml
+
 === Sheet Examples =====================================

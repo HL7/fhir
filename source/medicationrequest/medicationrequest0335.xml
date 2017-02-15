@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationrequest.xsd"
+    xmlns="http://hl7.org/fhir">
+    <id value="medrx0335"/>
+    <identifier>
+        <use value="official"/>
+        <system value="http://www.bmc.nl/portal/prescriptions"/>
+        <value value="12345689"/>
+    </identifier>
+    <status value="on-hold"/>
+    <intent value="order">
+    </intent>
+    <medicationCodeableConcept>
+        <coding>
+            <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+            <code value="884308"/>
+            <display value="Nystatin 100UNT/MG Topical Ointment"/>
+        </coding>
+    </medicationCodeableConcept>
+    <subject>
+        <!-- Linked to the resource patient who needs the medication -->
+        <reference value="Patient/pat1"/>
+        <display value="Donald Duck"/>   
+    </subject>
+    <authoredOn value="2015-01-15"/>
+    <requester>
+        <agent>
+            <reference value="Practitioner/f007"/>
+            <display value="Patrick Pump"/>
+        </agent>
+        <onBehalfOf>
+            <reference value="Organization/f002"/>
+        </onBehalfOf>
+    </requester>
+    <dosageInstruction>
+        <sequence value="1"/>
+        <text value="Apply to affected areas at 9am daily"/>
+        <timing>
+            <repeat>
+            <timeOfDay value="09:00:00"></timeOfDay>
+            </repeat>
+        </timing>
+        <doseQuantity>
+            <value value="1"/>
+            <unit value="ea"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="ea"/>
+        </doseQuantity>
+    </dosageInstruction>
+    <dispenseRequest>
+        <validityPeriod>
+            <start value="2015-01-15"/>
+            <end value="2016-01-15"/>
+        </validityPeriod>
+        <numberOfRepeatsAllowed value="3"></numberOfRepeatsAllowed>
+        <quantity>
+            <value value="30"/>
+            <unit value="g"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="g"/> 
+        </quantity>
+        <expectedSupplyDuration>
+            <value value="10"></value>
+            <unit value="days"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="d"/> 
+        </expectedSupplyDuration>
+    </dispenseRequest>   
+    <substitution>
+        <allowed value="true"></allowed>
+        <reason>
+            <coding>
+                <system value="http://hl7.org/fhir"/>
+                <code value="FP"/>
+                <display value="formulary policy"/>             
+            </coding>
+        </reason>
+    </substitution>
+</MedicationRequest>
