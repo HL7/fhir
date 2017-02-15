@@ -276,7 +276,7 @@
   UML = 400;80
   Short Name = The people who performed the procedure
   Definition = Limited to \'real\' people rather than equipment
-  RIM Mapping = .participation[typeCode=PFM]
+  RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 15 -----------------------------------
   Element = Procedure.performer.role

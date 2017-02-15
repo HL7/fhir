@@ -104,7 +104,7 @@
   Card. = 0..*
   Aliases = supersedes, prior, renewed order
   Summary = Y
-  Type = Reference(Any)
+  Type = Reference(ReferralRequest)
   Short Name = Request(s) replaced by this request
   Definition = Completed or terminated request(s) whose function is taken by this new request
   Requirements = Allows tracing the continuation of a therapy or administrative process instantiated through multiple requests
@@ -185,11 +185,11 @@
   w5 = what
 
  -- Row 12 -----------------------------------
-  Element = ReferralRequest.patient
-  Card. = 0..1
+  Element = ReferralRequest.subject
+  Card. = 1..1
   Is Modifier = N
   Summary = Y
-  Type = Reference(Patient)
+  Type = Reference(Patient|Group)
   Short Name = Patient referred to care or transfer
   Definition = The patient who is the subject of a referral or transfer of care request
   Comments = Referral of family, group or community is to be catered for by profiles
@@ -216,9 +216,10 @@
   Is Modifier = N
   Summary = Y
   Type = dateTime|Period
-  Short Name = Requested service(s) fulfillment time
+  Short Name = When the service(s) requested in the referral should occur
   Definition = The period of time within which the services identified in the referral/transfer of care is specified or required to occur
   Requirements = Use cases: (1) to indicate that the requested service is not to happen before a specified date, and saving the start date in Period.start; (2) to indicate that the requested service must happen before a specified date, and saving the end date in Period.end; (3) to indicate that the requested service must happen during the specified dates (\"start\" and \"end\" values).
+  Comments = When the occurrenceDateTime is used, then it is indicating that the requested service must happen before the specified date
   v2 Mapping = OBR-7/OBR-8
   w5 = when.planned
 
@@ -394,7 +395,7 @@
   Name = patient
   Type = reference
   Description = Who the referral is about
-  Path = ReferralRequest.patient
+  Path = ReferralRequest.subject
 
  -- Row 8 -----------------------------------
   Name = requester
@@ -429,6 +430,36 @@
   Name = identifier
   Type = token
   Path = ReferralRequest.identifier
+
+ -- Row 14 -----------------------------------
+  Name = definition
+  Type = reference
+  Path = ReferralRequest.definition
+
+ -- Row 15 -----------------------------------
+  Name = replaces
+  Type = reference
+  Path = ReferralRequest.replaces
+
+ -- Row 16 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = ReferralRequest.subject
+
+ -- Row 17 -----------------------------------
+  Name = authored-on
+  Type = date
+  Path = ReferralRequest.authoredOn
+
+ -- Row 18 -----------------------------------
+  Name = service
+  Type = token
+  Path = ReferralRequest.serviceRequested
+
+ -- Row 19 -----------------------------------
+  Name = occurrence-date
+  Type = date
+  Path = ReferralRequest.occurrence[x]
 
 === Sheet Profiles =====================================
 

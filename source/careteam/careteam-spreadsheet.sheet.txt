@@ -181,7 +181,7 @@
   Short Name = Members of the team
   Definition = Identifies all people and organizations who are expected to be involved in the care team.
   v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
-  RIM Mapping = .participation[typeCode=PFM]
+  RIM Mapping = .participation[typeCode=PRF]
 
  -- Row 9 -----------------------------------
   Element = CareTeam.participant.role
