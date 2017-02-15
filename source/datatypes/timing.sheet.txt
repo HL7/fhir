@@ -123,6 +123,12 @@
   Display = Night
   Definition = event occurs during the night
 
+ -- Row 19 -----------------------------------
+  Id = 5
+  Code = PHS
+  Display = After Sleep
+  Definition = event occurs [offset] after subject goes to sleep
+
 === Sheet units-of-time =====================================
 
  -- Row 1 -----------------------------------
@@ -284,9 +290,9 @@
  -- Row 8 -----------------------------------
   Id = 9
   Context = Timing.repeat
-  English = If there\'s an offset, there must be a when
+  English = If there\'s an offset, there must be a when (and not C, CM, CD, CV)
   XPath = not(exists(f:offset)) or exists(f:when)
-  Expression = offset.empty() or when.exists()
+  Expression = offset.empty() or (when.exists() and (when in (\'C\' | \'CM\' | \'CD\' | \'CV\').not()))
 
  -- Row 9 -----------------------------------
   Id = 10

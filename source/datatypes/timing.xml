@@ -4001,9 +4001,9 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">offset needs when</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's an offset, there must be a when</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's an offset, there must be a when (and not C, CM, CD, CV)</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">offset.empty() or when.exists()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">offset.empty() or (when.exists() and (when in ('C' | 'CM' | 'CD' | 'CV').not()))</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:offset)) or exists(f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4417,7 +4417,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4425,14 +4425,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>10</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7174,12 +7174,12 @@
     <Cell ss:StyleID="s144"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s143"><Data ss:Type="String">PHS</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">After Sleep</Data></Cell>
+    <Cell ss:StyleID="s154"><Data ss:Type="String">event occurs [offset] after subject goes to sleep</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7586,8 +7586,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
