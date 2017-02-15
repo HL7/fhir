@@ -1799,13 +1799,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
       if (rep.hasWhen()) {
         String st = "";
-        if (rep.hasPeriod()) {
-          st = rep.getPeriod().toPlainString();
-          if (rep.hasPeriodMax())
-            st = st + "-"+rep.getPeriodMax().toPlainString();
-          st = st + displayTimeUnits(rep.getPeriodUnit());
+        if (rep.hasOffset()) {
+          st = Integer.toString(rep.getOffset())+"min ";
         }
-        b.append("Do "+st+displayEventCode(rep.getWhen()));
+        b.append("Do "+st);
+        for (Enumeration<EventTiming> wh : rep.getWhen())
+          b.append(displayEventCode(wh.getValue()));
       } else {
         String st = "";
         if (!rep.hasFrequency() || (!rep.hasFrequencyMax() && rep.getFrequency() == 1) )
@@ -1829,7 +1828,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return b.toString();
   }
 
-  private Object displayEventCode(EventTiming when) {
+  private String displayEventCode(EventTiming when) {
     switch (when) {
     case C: return "at meals";
     case CD: return "at lunch";
@@ -3312,8 +3311,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
-  private String describe(FilterOperator opSimple) {
-    switch (opSimple) {
+  private String describe(FilterOperator op) {
+    switch (op) { 
     case EQUAL: return " = ";
     case ISA: return " is-a ";
     case ISNOTA: return " is-not-a ";
@@ -3321,6 +3320,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
 		case NULL: return " ?? ";
 		case IN: return " in ";
 		case NOTIN: return " not in ";
+    case DESCENDENTOF: return " descends from ";
+    case EXISTS: return " exists ";
+    case GENERALIZES: return " generalizes ";
     }
     return null;
   }

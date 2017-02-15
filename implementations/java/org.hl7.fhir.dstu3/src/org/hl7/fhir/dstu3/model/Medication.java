@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1210,10 +1210,10 @@ public class Medication extends DomainResource {
     protected CodeableConcept code;
 
     /**
-     * A code to iindicate if the medication is in active use.
+     * A code to indicate if the medication is in active use.
      */
     @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to iindicate if the medication is in active use." )
+    @Description(shortDefinition="active | inactive | entered-in-error", formalDefinition="A code to indicate if the medication is in active use." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-status")
     protected Enumeration<MedicationStatus> status;
 
@@ -1306,7 +1306,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (A code to iindicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Enumeration<MedicationStatus> getStatusElement() { 
       if (this.status == null)
@@ -1326,7 +1326,7 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @param value {@link #status} (A code to iindicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #status} (A code to indicate if the medication is in active use.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
     public Medication setStatusElement(Enumeration<MedicationStatus> value) { 
       this.status = value;
@@ -1334,14 +1334,14 @@ public class Medication extends DomainResource {
     }
 
     /**
-     * @return A code to iindicate if the medication is in active use.
+     * @return A code to indicate if the medication is in active use.
      */
     public MedicationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
-     * @param value A code to iindicate if the medication is in active use.
+     * @param value A code to indicate if the medication is in active use.
      */
     public Medication setStatus(MedicationStatus value) { 
       if (value == null)
@@ -1645,7 +1645,7 @@ public class Medication extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("code", "CodeableConcept", "A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("status", "code", "A code to iindicate if the medication is in active use.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("status", "code", "A code to indicate if the medication is in active use.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("isBrand", "boolean", "Set to true if the item is attributable to a specific manufacturer.", 0, java.lang.Integer.MAX_VALUE, isBrand));
         childrenList.add(new Property("isOverTheCounter", "boolean", "Set to true if the medication can be obtained without an order from a prescriber.", 0, java.lang.Integer.MAX_VALUE, isOverTheCounter));
         childrenList.add(new Property("manufacturer", "Reference(Organization)", "Describes the details of the manufacturer of the medication product.  This is not intended to represent the distributor of a medication product.", 0, java.lang.Integer.MAX_VALUE, manufacturer));

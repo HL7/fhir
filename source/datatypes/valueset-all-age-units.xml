@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        This value set includes all common UCUM codes used for Age: 
+      </p>
+      <ul>
+        <li>min - minutes</li>
+        <li>h - hours</li>
+        <li>wk - weeks</li>
+        <li>mo - months</li>
+        <li>a - years</li>
+      </ul>
+      <p> 
+        The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved.
+     </p>
+    
+    </div>
+  </text>
+  <name value="UCUM Codes"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="UCUM Codes for units of measure. This value set includes all UCUM codes"/>
+  <copyright value="The UCUM codes, UCUM table (regardless of format), and UCUM Specification are copyright © 1999-2009, Regenstrief Institute, Inc. and the Unified Codes for Units of Measures (UCUM) Organization. All rights reserved."/>
+  <compose>
+    <include>
+      <system value="http://unitsofmeasure.org"/>
+      <concept>
+        <code value="min"/>
+        <display value="minute"/>
+      </concept>
+      <concept>
+        <code value="h"/>
+        <display value="hour"/>
+      </concept>
+      <concept>
+        <code value="wk"/>
+        <display value="week"/>
+      </concept>
+      <concept>
+        <code value="mo"/>
+        <display value="month"/>
+      </concept>
+      <concept>
+        <code value="a"/>
+        <display value="year"/>
+      </concept>
+    </include>
+  </compose>
+</ValueSet>

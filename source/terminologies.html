@@ -52,6 +52,7 @@ including the separation between code systems and value sets.
 <p>
 When codes are carried in resources, one of 4 different data types is used:
 </p>
+
 <table class="grid">
  <tr><td><a href="datatypes.html#code">code</a></td><td>The instance represents the <i>code</i> only. The <i>system</i> is implicit - it is defined as part of the definition of the element, and not carried in the instance. </td></tr>
  <tr><td><a href="datatypes.html#Coding">Coding</a></td><td>A data type that has a <i>code</i> and a <i>system</i> element that identifies where the definition of the code comes from</td></tr>
@@ -323,6 +324,7 @@ Almost all of the elements that have a coded data type are bound to a value set.
 are associated with various degrees of flexibility as to how closely the value set should be
 followed:
 </p>
+<%linkcodelist http://hl7.org/fhir/binding-strength%>
 <table class="grid">
  <tr><td>required</td><td>To be conformant, codes in this element SHALL be from the specified value set</td></tr>
  <tr><td>extensible</td><td>To be conformant, instances of this element must include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (from different code systems, including local ones) or (data type allowing) text) may be included instead.</td></tr>

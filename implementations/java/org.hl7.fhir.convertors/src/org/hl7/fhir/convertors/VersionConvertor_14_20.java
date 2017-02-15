@@ -37,12 +37,15 @@ import java.util.List;
 import org.hl7.fhir.dstu2016may.model.CodeSystem.ConceptDefinitionPropertyComponent;
 import org.hl7.fhir.dstu2016may.model.CodeableConcept;
 import org.hl7.fhir.dstu2016may.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.FilterOperator;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
+import org.hl7.fhir.dstu3.model.Timing.EventTiming;
 import org.hl7.fhir.exceptions.FHIRException;
 
 public class VersionConvertor_14_20 {
@@ -1320,7 +1323,7 @@ public class VersionConvertor_14_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent();
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2016may.model.StringType t : src.getDiscriminator())
-      tgt.addDiscriminator(t.getValue());
+      tgt.addDiscriminator(ProfileUtilities.interpretR2Discriminator(t.getValue()));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasOrdered())
@@ -1334,8 +1337,8 @@ public class VersionConvertor_14_20 {
       return null;
     org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionSlicingComponent tgt = new org.hl7.fhir.dstu2016may.model.ElementDefinition.ElementDefinitionSlicingComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getDiscriminator())
-      tgt.addDiscriminator(t.getValue());
+    for (ElementDefinitionSlicingDiscriminatorComponent t : src.getDiscriminator())
+      tgt.addDiscriminator(ProfileUtilities.buildR2Discriminator(t));
     if (src.hasDescription())
       tgt.setDescription(src.getDescription());
     if (src.hasOrdered())
@@ -1744,7 +1747,7 @@ public class VersionConvertor_14_20 {
     if (src.hasPeriodMax())
       tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnit(convertUnitsOfTime(src.getPeriodUnit()));
-    tgt.setWhen(convertEventTiming(src.getWhen()));
+    tgt.addWhen(convertEventTiming(src.getWhen()));
     if (src.hasOffset())
       tgt.setOffset(src.getOffset());
     return tgt;
@@ -1774,7 +1777,8 @@ public class VersionConvertor_14_20 {
     if (src.hasPeriodMax())
       tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnit(convertUnitsOfTime(src.getPeriodUnit()));
-    tgt.setWhen(convertEventTiming(src.getWhen()));
+    for (Enumeration<EventTiming> t : src.getWhen())
+      tgt.setWhen(convertEventTiming(t.getValue()));
     if (src.hasOffset())
       tgt.setOffset(src.getOffset());
     return tgt;

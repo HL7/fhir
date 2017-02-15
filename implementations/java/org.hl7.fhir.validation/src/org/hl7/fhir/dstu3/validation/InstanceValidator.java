@@ -42,8 +42,10 @@ import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
+import org.hl7.fhir.dstu3.model.ElementDefinition.DiscriminatorType;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
@@ -2212,17 +2214,14 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       long t = System.nanoTime();
       // GG: this approach is flawed because it treats discriminators individually rather than collectively 
       String expression = "true";
-      for (StringType s : slice.getSlicing().getDiscriminator()) {
-        String discriminator = s.getValue();
-        if (discriminator.endsWith("@profile"))
+      for (ElementDefinitionSlicingDiscriminatorComponent s : slice.getSlicing().getDiscriminator()) {
+        String discriminator = s.getPath();
+        if (s.getType() == DiscriminatorType.PROFILE)
           throw new FHIRException("Validating against slices with discriminators based on profiles is not yet supported by the FHIRPath engine: " + discriminator);
         // Todo: Fix this once FHIRPath (and this engine) supports a boolean function that test profile conformance
         
         ElementDefinition criteriaElement = getCriteriaForDiscriminator(path, ed, discriminator, profile);
-        if (discriminator.endsWith("@type")) {
-          discriminator = discriminator.substring(0, discriminator.indexOf('@'));
-          if (discriminator.endsWith("."))
-            discriminator = discriminator.substring(0, discriminator.length()-1);
+        if (s.getType() == DiscriminatorType.TYPE) {
           String type = null;
           if (!criteriaElement.getPath().contains("[") && discriminator.contains("[")) {
             discriminator = discriminator.substring(0, discriminator.indexOf('['));

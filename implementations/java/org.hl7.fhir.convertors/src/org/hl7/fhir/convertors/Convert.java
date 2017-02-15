@@ -581,7 +581,7 @@ public class Convert {
 	  t.setRepeat(new TimingRepeatComponent());
 	  Element e = cda.getChild(eivl, "event");
 	  t.getRepeat().setBounds(makePeriodFromIVL(ivl));
-	  t.getRepeat().setWhen(convertEventTiming(e.getAttribute("code")));
+	  t.getRepeat().addWhen(convertEventTiming(e.getAttribute("code")));
 	  return t;
   }
 

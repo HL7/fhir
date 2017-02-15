@@ -46,6 +46,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.PropertyRepresentation;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
@@ -630,8 +631,8 @@ public class XmlSpecGenerator extends OutputStreamWriter {
 
   private String describeSlicing(ElementDefinitionSlicingComponent slicing) {
     CommaSeparatedStringBuilder csv = new CommaSeparatedStringBuilder();
-    for (StringType d : slicing.getDiscriminator()) {
-      csv.append(d.getValue());
+    for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) {
+      csv.append(d.getType().toCode()+":"+d.getPath());
     }
     String s = slicing.getOrdered() ? " in any order" : " in the specified order" + slicing.getRules().getDisplay();
     return " sliced by "+csv.toString()+" "+s;

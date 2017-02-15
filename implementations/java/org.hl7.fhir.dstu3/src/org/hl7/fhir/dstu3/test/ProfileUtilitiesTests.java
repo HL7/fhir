@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.DiscriminatorType;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Reference;
@@ -571,7 +572,7 @@ public class ProfileUtilitiesTests {
     // set the slice up
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
-    id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("use");
+    id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator().setPath("use").setType(DiscriminatorType.VALUE);
     
     // first slice: 
     id = focus.getDifferential().addElement();
@@ -663,7 +664,7 @@ public class ProfileUtilitiesTests {
     if (!implicit) {
       id = focus.getDifferential().addElement();
       id.setPath("Patient.extension");
-      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("url");
+      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator().setPath("url").setType(DiscriminatorType.VALUE);
       id.setMax("3");
     }
     // first slice: 
@@ -749,7 +750,7 @@ public class ProfileUtilitiesTests {
     if (!implicit) {
       id = focus.getDifferential().addElement();
       id.setPath("Patient.extension");
-      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("url");
+      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator().setPath("url").setType(DiscriminatorType.VALUE);
     }
     // first slice  - a simple one to get us going: 
     id = focus.getDifferential().addElement();
@@ -766,7 +767,7 @@ public class ProfileUtilitiesTests {
     if (!implicit) {
       id = focus.getDifferential().addElement();
       id.setPath("Patient.extension.extension");
-      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("url");
+      id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator().setPath("url").setType(DiscriminatorType.VALUE);
     }
     id = focus.getDifferential().addElement();
     id.setPath("Patient.extension.extension");
@@ -855,7 +856,7 @@ public class ProfileUtilitiesTests {
     id = focus.getDifferential().addElement();
     id.setPath("Organization.address.extension");
     id.setSliceName("USLabCountycodes");
-    id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator("url");
+    id.getSlicing().setOrdered(false).setRules(SlicingRules.OPEN).addDiscriminator().setPath("url").setType(DiscriminatorType.VALUE);
     id.setShort("County/Parish FIPS codes");
     id.setDefinition("County/Parish FIPS codes.");
     id.setRequirements("County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).");

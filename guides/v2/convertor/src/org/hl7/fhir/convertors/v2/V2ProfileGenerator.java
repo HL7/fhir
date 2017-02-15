@@ -28,6 +28,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ElementDefinition.DiscriminatorType;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
@@ -252,7 +253,7 @@ public class V2ProfileGenerator {
     ed.setPath("Component.text");
     ed.setMax("0");
 
-    sd.getDifferential().addElement().setPath("Component:"+dt.code+".component").getSlicing().setOrdered(true).addDiscriminator("index");
+    sd.getDifferential().addElement().setPath("Component:"+dt.code+".component").getSlicing().setOrdered(true).addDiscriminator().setType(DiscriminatorType.VALUE).setPath("index");
 
     int i = 0;
     for (Component comp : dt.components) {
@@ -322,7 +323,7 @@ public class V2ProfileGenerator {
     sd.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     int i = 0;
-    sd.getDifferential().addElement().setPath("Segment:"+segment.code+".element").getSlicing().setOrdered(true).addDiscriminator("index");
+    sd.getDifferential().addElement().setPath("Segment:"+segment.code+".element").getSlicing().setOrdered(true).addDiscriminator().setType(DiscriminatorType.VALUE).setPath("index");
     for (SegmentDataElement sde : segment.elements) {
       i++;
       ElementDefinition ed = sd.getDifferential().addElement();

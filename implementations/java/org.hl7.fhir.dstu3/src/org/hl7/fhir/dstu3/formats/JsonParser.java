@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1136,10 +1136,21 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getTimeOfDay().get(i));
       }
     };
-    if (json.has("when"))
-      res.setWhenElement(parseEnumeration(json.get("when").getAsString(), Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
-    if (json.has("_when"))
-      parseElementProperties(json.getAsJsonObject("_when"), res.getWhenElement());
+    if (json.has("when")) {
+      JsonArray array = json.getAsJsonArray("when");
+      for (int i = 0; i < array.size(); i++) {
+        res.getWhen().add(parseEnumeration(array.get(i).getAsString(), Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
+      }
+    };
+    if (json.has("_when")) {
+      JsonArray array = json.getAsJsonArray("_when");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getWhen().size())
+          res.getWhen().add(parseEnumeration(null, Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getWhen().get(i));
+      }
+    };
     if (json.has("offset"))
       res.setOffsetElement(parseUnsignedInt(json.get("offset").getAsString()));
     if (json.has("_offset"))
@@ -1323,16 +1334,7 @@ public class JsonParser extends JsonParserBase {
     if (json.has("discriminator")) {
       JsonArray array = json.getAsJsonArray("discriminator");
       for (int i = 0; i < array.size(); i++) {
-        res.getDiscriminator().add(parseString(array.get(i).getAsString()));
-      }
-    };
-    if (json.has("_discriminator")) {
-      JsonArray array = json.getAsJsonArray("_discriminator");
-      for (int i = 0; i < array.size(); i++) {
-        if (i == res.getDiscriminator().size())
-          res.getDiscriminator().add(parseString(null));
-        if (array.get(i) instanceof JsonObject) 
-          parseElementProperties(array.get(i).getAsJsonObject(), res.getDiscriminator().get(i));
+        res.getDiscriminator().add(parseElementDefinitionElementDefinitionSlicingDiscriminatorComponent(array.get(i).getAsJsonObject(), owner));
       }
     };
     if (json.has("description"))
@@ -1347,6 +1349,24 @@ public class JsonParser extends JsonParserBase {
       res.setRulesElement(parseEnumeration(json.get("rules").getAsString(), ElementDefinition.SlicingRules.NULL, new ElementDefinition.SlicingRulesEnumFactory()));
     if (json.has("_rules"))
       parseElementProperties(json.getAsJsonObject("_rules"), res.getRulesElement());
+  }
+
+  protected ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent parseElementDefinitionElementDefinitionSlicingDiscriminatorComponent(JsonObject json, ElementDefinition owner) throws IOException, FHIRFormatError {
+    ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent res = new ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent();
+    parseElementDefinitionElementDefinitionSlicingDiscriminatorComponentProperties(json, owner, res);
+    return res;
+  }
+
+  protected void parseElementDefinitionElementDefinitionSlicingDiscriminatorComponentProperties(JsonObject json, ElementDefinition owner, ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent res) throws IOException, FHIRFormatError {
+    parseTypeProperties(json, res);
+    if (json.has("type"))
+      res.setTypeElement(parseEnumeration(json.get("type").getAsString(), ElementDefinition.DiscriminatorType.NULL, new ElementDefinition.DiscriminatorTypeEnumFactory()));
+    if (json.has("_type"))
+      parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("path"))
+      res.setPathElement(parseString(json.get("path").getAsString()));
+    if (json.has("_path"))
+      parseElementProperties(json.getAsJsonObject("_path"), res.getPathElement());
   }
 
   protected ElementDefinition.ElementDefinitionBaseComponent parseElementDefinitionElementDefinitionBaseComponent(JsonObject json, ElementDefinition owner) throws IOException, FHIRFormatError {
@@ -21601,10 +21621,18 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
-      if (element.hasWhenElement()) {
-        composeEnumerationCore("when", element.getWhenElement(), new Timing.EventTimingEnumFactory(), false);
-        composeEnumerationExtras("when", element.getWhenElement(), new Timing.EventTimingEnumFactory(), false);
-      }
+      if (element.hasWhen()) {
+        openArray("when");
+        for (Enumeration<Timing.EventTiming> e : element.getWhen()) 
+          composeEnumerationCore(null, e, new Timing.EventTimingEnumFactory(), true);
+        closeArray();
+        if (anyHasExtras(element.getWhen())) {
+          openArray("_when");
+          for (Enumeration<Timing.EventTiming> e : element.getWhen()) 
+            composeEnumerationExtras(null, e, new Timing.EventTimingEnumFactory(), true);
+          closeArray();
+        }
+      };
       if (element.hasOffsetElement()) {
         composeUnsignedIntCore("offset", element.getOffsetElement(), false);
         composeUnsignedIntExtras("offset", element.getOffsetElement(), false);
@@ -21785,15 +21813,9 @@ public class JsonParser extends JsonParserBase {
       composeElement(element);
       if (element.hasDiscriminator()) {
         openArray("discriminator");
-        for (StringType e : element.getDiscriminator()) 
-          composeStringCore(null, e, true);
+        for (ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent e : element.getDiscriminator()) 
+          composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent(null, e);
         closeArray();
-        if (anyHasExtras(element.getDiscriminator())) {
-          openArray("_discriminator");
-          for (StringType e : element.getDiscriminator()) 
-            composeStringExtras(null, e, true);
-          closeArray();
-        }
       };
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
@@ -21806,6 +21828,26 @@ public class JsonParser extends JsonParserBase {
       if (element.hasRulesElement()) {
         composeEnumerationCore("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory(), false);
         composeEnumerationExtras("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory(), false);
+      }
+  }
+
+  protected void composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent(String name, ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent element) throws IOException {
+    if (element != null) {
+      open(name);
+      composeElementDefinitionElementDefinitionSlicingDiscriminatorComponentInner(element);
+      close();
+    }
+  }
+
+  protected void composeElementDefinitionElementDefinitionSlicingDiscriminatorComponentInner(ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent element) throws IOException {
+      composeElement(element);
+      if (element.hasTypeElement()) {
+        composeEnumerationCore("type", element.getTypeElement(), new ElementDefinition.DiscriminatorTypeEnumFactory(), false);
+        composeEnumerationExtras("type", element.getTypeElement(), new ElementDefinition.DiscriminatorTypeEnumFactory(), false);
+      }
+      if (element.hasPathElement()) {
+        composeStringCore("path", element.getPathElement(), false);
+        composeStringExtras("path", element.getPathElement(), false);
       }
   }
 

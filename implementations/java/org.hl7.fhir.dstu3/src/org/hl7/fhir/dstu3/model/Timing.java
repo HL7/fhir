@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -410,6 +410,10 @@ public class Timing extends Type implements ICompositeType {
          */
         NIGHT, 
         /**
+         * event occurs [offset] after subject goes to sleep
+         */
+        PHS, 
+        /**
          * null
          */
         HS, 
@@ -480,6 +484,8 @@ public class Timing extends Type implements ICompositeType {
           return EVE;
         if ("NIGHT".equals(codeString))
           return NIGHT;
+        if ("PHS".equals(codeString))
+          return PHS;
         if ("HS".equals(codeString))
           return HS;
         if ("WAKE".equals(codeString))
@@ -519,6 +525,7 @@ public class Timing extends Type implements ICompositeType {
             case AFT: return "AFT";
             case EVE: return "EVE";
             case NIGHT: return "NIGHT";
+            case PHS: return "PHS";
             case HS: return "HS";
             case WAKE: return "WAKE";
             case C: return "C";
@@ -542,6 +549,7 @@ public class Timing extends Type implements ICompositeType {
             case AFT: return "http://hl7.org/fhir/event-timing";
             case EVE: return "http://hl7.org/fhir/event-timing";
             case NIGHT: return "http://hl7.org/fhir/event-timing";
+            case PHS: return "http://hl7.org/fhir/event-timing";
             case HS: return "http://hl7.org/fhir/v3/TimingEvent";
             case WAKE: return "http://hl7.org/fhir/v3/TimingEvent";
             case C: return "http://hl7.org/fhir/v3/TimingEvent";
@@ -565,6 +573,7 @@ public class Timing extends Type implements ICompositeType {
             case AFT: return "event occurs during the afternoon";
             case EVE: return "event occurs during the evening";
             case NIGHT: return "event occurs during the night";
+            case PHS: return "event occurs [offset] after subject goes to sleep";
             case HS: return "";
             case WAKE: return "";
             case C: return "";
@@ -588,6 +597,7 @@ public class Timing extends Type implements ICompositeType {
             case AFT: return "Afternoon";
             case EVE: return "Evening";
             case NIGHT: return "Night";
+            case PHS: return "After Sleep";
             case HS: return "HS";
             case WAKE: return "WAKE";
             case C: return "C";
@@ -620,6 +630,8 @@ public class Timing extends Type implements ICompositeType {
           return EventTiming.EVE;
         if ("NIGHT".equals(codeString))
           return EventTiming.NIGHT;
+        if ("PHS".equals(codeString))
+          return EventTiming.PHS;
         if ("HS".equals(codeString))
           return EventTiming.HS;
         if ("WAKE".equals(codeString))
@@ -666,6 +678,8 @@ public class Timing extends Type implements ICompositeType {
           return new Enumeration<EventTiming>(this, EventTiming.EVE);
         if ("NIGHT".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.NIGHT);
+        if ("PHS".equals(codeString))
+          return new Enumeration<EventTiming>(this, EventTiming.PHS);
         if ("HS".equals(codeString))
           return new Enumeration<EventTiming>(this, EventTiming.HS);
         if ("WAKE".equals(codeString))
@@ -705,6 +719,8 @@ public class Timing extends Type implements ICompositeType {
         return "EVE";
       if (code == EventTiming.NIGHT)
         return "NIGHT";
+      if (code == EventTiming.PHS)
+        return "PHS";
       if (code == EventTiming.HS)
         return "HS";
       if (code == EventTiming.WAKE)
@@ -837,12 +853,12 @@ public class Timing extends Type implements ICompositeType {
         protected List<TimeType> timeOfDay;
 
         /**
-         * A real world event that the occurrence of the event should be tied to.
+         * Real world events that the occurrence of the event should be tied to.
          */
-        @Child(name = "when", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="A real world event that the occurrence of the event should be tied to." )
+        @Child(name = "when", type = {CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="Real world events that the occurrence of the event should be tied to." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/event-timing")
-        protected Enumeration<EventTiming> when;
+        protected List<Enumeration<EventTiming>> when;
 
         /**
          * The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.
@@ -851,7 +867,7 @@ public class Timing extends Type implements ICompositeType {
         @Description(shortDefinition="Minutes from event (before or after)", formalDefinition="The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event." )
         protected UnsignedIntType offset;
 
-        private static final long serialVersionUID = -1646532442L;
+        private static final long serialVersionUID = -1590643356L;
 
     /**
      * Constructor
@@ -1587,52 +1603,64 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #when} (A real world event that the occurrence of the event should be tied to.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
+         * @return {@link #when} (Real world events that the occurrence of the event should be tied to.)
          */
-        public Enumeration<EventTiming> getWhenElement() { 
+        public List<Enumeration<EventTiming>> getWhen() { 
           if (this.when == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TimingRepeatComponent.when");
-            else if (Configuration.doAutoCreate())
-              this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory()); // bb
+            this.when = new ArrayList<Enumeration<EventTiming>>();
           return this.when;
         }
 
-        public boolean hasWhenElement() { 
-          return this.when != null && !this.when.isEmpty();
+        /**
+         * @return Returns a reference to <code>this</code> for easy method chaining
+         */
+        public TimingRepeatComponent setWhen(List<Enumeration<EventTiming>> theWhen) { 
+          this.when = theWhen;
+          return this;
         }
 
         public boolean hasWhen() { 
-          return this.when != null && !this.when.isEmpty();
+          if (this.when == null)
+            return false;
+          for (Enumeration<EventTiming> item : this.when)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #when} (A real world event that the occurrence of the event should be tied to.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
+         * @return {@link #when} (Real world events that the occurrence of the event should be tied to.)
          */
-        public TimingRepeatComponent setWhenElement(Enumeration<EventTiming> value) { 
-          this.when = value;
+        public Enumeration<EventTiming> addWhenElement() {//2 
+          Enumeration<EventTiming> t = new Enumeration<EventTiming>(new EventTimingEnumFactory());
+          if (this.when == null)
+            this.when = new ArrayList<Enumeration<EventTiming>>();
+          this.when.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #when} (Real world events that the occurrence of the event should be tied to.)
+         */
+        public TimingRepeatComponent addWhen(EventTiming value) { //1
+          Enumeration<EventTiming> t = new Enumeration<EventTiming>(new EventTimingEnumFactory());
+          t.setValue(value);
+          if (this.when == null)
+            this.when = new ArrayList<Enumeration<EventTiming>>();
+          this.when.add(t);
           return this;
         }
 
         /**
-         * @return A real world event that the occurrence of the event should be tied to.
+         * @param value {@link #when} (Real world events that the occurrence of the event should be tied to.)
          */
-        public EventTiming getWhen() { 
-          return this.when == null ? null : this.when.getValue();
-        }
-
-        /**
-         * @param value A real world event that the occurrence of the event should be tied to.
-         */
-        public TimingRepeatComponent setWhen(EventTiming value) { 
-          if (value == null)
-            this.when = null;
-          else {
-            if (this.when == null)
-              this.when = new Enumeration<EventTiming>(new EventTimingEnumFactory());
-            this.when.setValue(value);
-          }
-          return this;
+        public boolean hasWhen(EventTiming value) { 
+          if (this.when == null)
+            return false;
+          for (Enumeration<EventTiming> v : this.when)
+            if (v.getValue().equals(value)) // code
+              return true;
+          return false;
         }
 
         /**
@@ -1695,7 +1723,7 @@ public class Timing extends Type implements ICompositeType {
           childrenList.add(new Property("periodUnit", "code", "The units of time for the period in UCUM units.", 0, java.lang.Integer.MAX_VALUE, periodUnit));
           childrenList.add(new Property("dayOfWeek", "code", "If one or more days of week is provided, then the action happens only on the specified day(s).", 0, java.lang.Integer.MAX_VALUE, dayOfWeek));
           childrenList.add(new Property("timeOfDay", "time", "Specified time of day for action to take place.", 0, java.lang.Integer.MAX_VALUE, timeOfDay));
-          childrenList.add(new Property("when", "code", "A real world event that the occurrence of the event should be tied to.", 0, java.lang.Integer.MAX_VALUE, when));
+          childrenList.add(new Property("when", "code", "Real world events that the occurrence of the event should be tied to.", 0, java.lang.Integer.MAX_VALUE, when));
           childrenList.add(new Property("offset", "unsignedInt", "The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.", 0, java.lang.Integer.MAX_VALUE, offset));
         }
 
@@ -1715,7 +1743,7 @@ public class Timing extends Type implements ICompositeType {
         case 384367333: /*periodUnit*/ return this.periodUnit == null ? new Base[0] : new Base[] {this.periodUnit}; // Enumeration<UnitsOfTime>
         case -730552025: /*dayOfWeek*/ return this.dayOfWeek == null ? new Base[0] : this.dayOfWeek.toArray(new Base[this.dayOfWeek.size()]); // Enumeration<DayOfWeek>
         case 21434232: /*timeOfDay*/ return this.timeOfDay == null ? new Base[0] : this.timeOfDay.toArray(new Base[this.timeOfDay.size()]); // TimeType
-        case 3648314: /*when*/ return this.when == null ? new Base[0] : new Base[] {this.when}; // Enumeration<EventTiming>
+        case 3648314: /*when*/ return this.when == null ? new Base[0] : this.when.toArray(new Base[this.when.size()]); // Enumeration<EventTiming>
         case -1019779949: /*offset*/ return this.offset == null ? new Base[0] : new Base[] {this.offset}; // UnsignedIntType
         default: return super.getProperty(hash, name, checkValid);
         }
@@ -1769,7 +1797,7 @@ public class Timing extends Type implements ICompositeType {
           return value;
         case 3648314: // when
           value = new EventTimingEnumFactory().fromType(castToCode(value));
-          this.when = (Enumeration) value; // Enumeration<EventTiming>
+          this.getWhen().add((Enumeration) value); // Enumeration<EventTiming>
           return value;
         case -1019779949: // offset
           this.offset = castToUnsignedInt(value); // UnsignedIntType
@@ -1812,7 +1840,7 @@ public class Timing extends Type implements ICompositeType {
           this.getTimeOfDay().add(castToTime(value));
         } else if (name.equals("when")) {
           value = new EventTimingEnumFactory().fromType(castToCode(value));
-          this.when = (Enumeration) value; // Enumeration<EventTiming>
+          this.getWhen().add((Enumeration) value);
         } else if (name.equals("offset")) {
           this.offset = castToUnsignedInt(value); // UnsignedIntType
         } else
@@ -1837,7 +1865,7 @@ public class Timing extends Type implements ICompositeType {
         case 384367333:  return getPeriodUnitElement();
         case -730552025:  return addDayOfWeekElement();
         case 21434232:  return addTimeOfDayElement();
-        case 3648314:  return getWhenElement();
+        case 3648314:  return addWhenElement();
         case -1019779949:  return getOffsetElement();
         default: return super.makeProperty(hash, name);
         }
@@ -1951,7 +1979,11 @@ public class Timing extends Type implements ICompositeType {
           for (TimeType i : timeOfDay)
             dst.timeOfDay.add(i.copy());
         };
-        dst.when = when == null ? null : when.copy();
+        if (when != null) {
+          dst.when = new ArrayList<Enumeration<EventTiming>>();
+          for (Enumeration<EventTiming> i : when)
+            dst.when.add(i.copy());
+        };
         dst.offset = offset == null ? null : offset.copy();
         return dst;
       }

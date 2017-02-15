@@ -68,7 +68,10 @@
     <element id="DiagnosticReport.extension">
       <path value="DiagnosticReport.extension"/>
       <slicing>
-        <discriminator value="url"/>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>
@@ -287,7 +290,10 @@
     <element id="DiagnosticReport.result">
       <path value="DiagnosticReport.result"/>
       <slicing>
-        <discriminator value="reference.code"/>
+        <discriminator>
+          <type value="value"/>
+          <path value="reference.resolve().code"/>
+        </discriminator>
         <ordered value="false"/>
         <rules value="open"/>
       </slicing>

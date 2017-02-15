@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -189,10 +189,10 @@ public class Identifier extends Type implements ICompositeType {
     protected CodeableConcept type;
 
     /**
-     * Establishes the namespace in which set of possible id values is unique.
+     * Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
      */
     @Child(name = "system", type = {UriType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The namespace for the identifier", formalDefinition="Establishes the namespace in which set of possible id values is unique." )
+    @Description(shortDefinition="The namespace for the identifier value", formalDefinition="Establishes the namespace for the value - that is, a URL that describes a set values that are unique." )
     protected UriType system;
 
     /**
@@ -304,7 +304,7 @@ public class Identifier extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+     * @return {@link #system} (Establishes the namespace for the value - that is, a URL that describes a set values that are unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public UriType getSystemElement() { 
       if (this.system == null)
@@ -324,7 +324,7 @@ public class Identifier extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
+     * @param value {@link #system} (Establishes the namespace for the value - that is, a URL that describes a set values that are unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
     public Identifier setSystemElement(UriType value) { 
       this.system = value;
@@ -332,14 +332,14 @@ public class Identifier extends Type implements ICompositeType {
     }
 
     /**
-     * @return Establishes the namespace in which set of possible id values is unique.
+     * @return Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
      */
     public String getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
-     * @param value Establishes the namespace in which set of possible id values is unique.
+     * @param value Establishes the namespace for the value - that is, a URL that describes a set values that are unique.
      */
     public Identifier setSystem(String value) { 
       if (Utilities.noString(value))
@@ -473,7 +473,7 @@ public class Identifier extends Type implements ICompositeType {
         super.listChildren(childrenList);
         childrenList.add(new Property("use", "code", "The purpose of this identifier.", 0, java.lang.Integer.MAX_VALUE, use));
         childrenList.add(new Property("type", "CodeableConcept", "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("system", "uri", "Establishes the namespace in which set of possible id values is unique.", 0, java.lang.Integer.MAX_VALUE, system));
+        childrenList.add(new Property("system", "uri", "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("value", "string", "The portion of the identifier typically relevant to the user and which is unique within the context of the system.", 0, java.lang.Integer.MAX_VALUE, value));
         childrenList.add(new Property("period", "Period", "Time period during which identifier is/was valid for use.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("assigner", "Reference(Organization)", "Organization that issued/manages the identifier.", 0, java.lang.Integer.MAX_VALUE, assigner));

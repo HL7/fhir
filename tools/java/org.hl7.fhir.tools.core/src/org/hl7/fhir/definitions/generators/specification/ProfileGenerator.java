@@ -1451,7 +1451,7 @@ public class ProfileGenerator {
     ce.getSlicing().setDescription(e.getSliceDescription());
     String[] d = e.getDiscriminator().get(0).split("\\|");
     if (d.length >= 1)
-      ce.getSlicing().addDiscriminator(d[0].trim());
+      ce.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(d[0].trim()));
     if (d.length >= 2)
       ce.getSlicing().setOrdered(Boolean.parseBoolean(d[1].trim()));
     else
@@ -1464,7 +1464,7 @@ public class ProfileGenerator {
       String s = e.getDiscriminator().get(i).trim();
       if (s.contains("|"))
         throw new Exception("illegal discriminator \""+s+"\" at "+path);
-      ce.getSlicing().addDiscriminator(s);
+      ce.getSlicing().addDiscriminator(ProfileUtilities.interpretR2Discriminator(s));
     }
   }
 

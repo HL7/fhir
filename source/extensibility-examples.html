@@ -173,7 +173,10 @@ will use this resource, a StructureDefinition on the patient resource is used:
         one of the extensions is one we have defined --&gt;
       &lt;slicing&gt;
         &lt;!-- extension is always sliced on url --&gt;
-        &lt;discriminator value=&quot;url&quot;/&gt; 
+        &lt;discriminator&gt; 
+          &lt;type value=&quot;value&quot;/&gt;
+          &lt;path value=&quot;url&quot;/&gt;
+        &lt;/discriminator&gt; 
         &lt;!-- we don't care what the order of any extensions is --&gt;
         &lt;ordered value=&quot;false&quot;/&gt;
         &lt;!-- Other extensions are allowed in addition to this one --&gt;
@@ -404,7 +407,10 @@ Here's the relevant parts of the definition of this extension:
     &lt;element&gt;
       &lt;path value=&quot;Extension.extension&quot;/&gt;
       &lt;slicing&gt;
-        &lt;discriminator value=&quot;url&quot;/&gt;
+        &lt;discriminator&gt; 
+          &lt;type value=&quot;value&quot;/&gt;
+          &lt;path value=&quot;url&quot;/&gt;
+        &lt;/discriminator&gt; 
         &lt;ordered value=&quot;true&quot;/&gt;
         &lt;rules value=&quot;openAtEnd&quot;/&gt;
       &lt;/slicing&gt;
@@ -558,7 +564,10 @@ This is the same as for a simple extension:
         one of the extensions is one we have defined --&gt;
       &lt;slicing&gt;
         &lt;!-- extension is always sliced on url --&gt;
-        &lt;discriminator value=&quot;url&quot;/&gt; 
+        &lt;discriminator&gt; 
+          &lt;type value=&quot;value&quot;/&gt;
+          &lt;path value=&quot;url&quot;/&gt;
+        &lt;/discriminator&gt; 
         &lt;!-- we don't care what the order of any extensions is --&gt;
         &lt;ordered value=&quot;false&quot;/&gt;
         &lt;!-- Other extensions are allowed in addition to this one --&gt;

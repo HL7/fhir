@@ -454,24 +454,37 @@ the elements designated in the discriminator is unique and distinct
 for each possible slice and applications can easily determine
 which slice an item in a list is. The intention is that 
 this can be done in generated code, e.g. using a switch/case 
-statement. When slicing elements with a choice of types, the 
-discriminator SHALL be "@type". This is for a common usecase where 
-you want to profile an element that has a choice (like value[x]) of data types
-differently for the different types it may have.
+statement. 
 </p>
 <p>
 When a constraining structure designates one or more discriminators, it SHALL
-fix the value of the element for each discriminator for each
-slice (using <a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>), 
-or if the element has a terminology binding, it SHALL be associated with a required binding with a 
-<a href="valueset.html#required">Value Set</a> that enumerates the list of possible codes in the value set.
-The structure definition SHALL ensure that there is no overlap between the
-set of values and/or codes in the value sets between slices. Note: At present, 
-only a fixed value or a required value set should be used for slicing; using 
-<a href="elementdefinition-definitions.html#ElementDefinition.pattern_x_">ElementDefinition.pattern[x]</a>
-is not recommended as a basis for slicing while issues related to this are investigated during the STU period.
-
-
+ensure that the possible values for each slice are different and non-overlapping,
+so that the slices can easily be distinguished.
+</p>
+<p>
+Each discriminator is a pair of values: a type that indicates how the field is 
+processed when evaluating the discriminator, and a <a href="http://hl7.org/fhirpath">FHIRPath</a>
+expression that identifies the element in which the discriminator is found. There are 
+five different processing types for discriminators:
+</p>
+<%linkcodelist http://hl7.org/fhir/discriminator-type%>
+<p>
+The FHIRPath statement that allows for the selection of the element on which the
+discriminator is based is a restricted FHIRPath statement that is allowed to include:
+</p>
+<ul>
+ <li>Element selections (e.g. FHIRPath statements without "()" such as <code>component.value</code>)</li>
+ <li>The function <code>extension(url)</code> to allow selection of a particular extension</li>
+ <li>The function <code>resolve()</code> to allow slicing to across resource boundaries</li>
+</ul>
+<p>
+Each slice must use the <a href="elementdefinition.html">element definition</a> for the 
+element in the descriminator(s) to ensure that the slices are clearly differentiated (by
+assigning a fixed value, a specific type, or a profile, depending on the discriminator 
+type. If the type is 'value', then the element definition must use either 
+<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>), 
+or if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> 
+that enumerates the list of possible codes in the value set ("extensional definition").
 </p>
 <p>
 It is the composite (combined) values of the discriminators 
@@ -521,26 +534,21 @@ These entries together form a "slice group" that is:
 		slice group whose path was <i>Observation.name</i> </li>
 </ol>
 <p>
-The value of the discriminator element is a path name that identifies
-the descendant element using a dotted notation. For references, the path
-transitions smoothly across the reference and into the children of the 
-root element/object of the resource. For extensions, an extension can be
-qualified with the URL of the extensions being referred to.
-There are two special names: @type, and @profile. Here are some example discriminators:
+Some examples of descriminators:
 </p>
 <table class="grid">
- <tr>  <td><b>Context</b></td> <td><b>Discriminator</b></td> <td><b>Interpretation</b></td> </tr>
- <tr>  <td>List.entry</td> <td>item.reference.name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
- <tr>  <td>List.entry</td> <td>item.reference.@type</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
- <tr>  <td>List.entry</td> <td>item.reference.@profile</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition (todo: how to do that?)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.extension("http://acme.org/extensions/test").code</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
- <tr>  <td>List.entry.extension</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
- <tr>  <td>List.entry</td> <td>item.reference.@type, item.reference.code</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
+ <tr>  <td><b>Context</b></td> <td><b>Discriminator Type</b></td> <td><b>Discriminator Path</b></td> <td><b>Interpretation</b></td> </tr>
+ <tr>  <td>List.entry</td> <td>value</td> <td>item.reference.resolve().name</td> <td>Entries are differentiated by the name element on the target resource - probably an observation, which could be determined by other information in the profile</td> </tr>
+ <tr>  <td>List.entry</td> <td>type</td> <td>item.reference.resolve()</td> <td>Entries are differentiated by the type of the target element that the reference points to</td> </tr>
+ <tr>  <td>List.entry</td> <td>profile</td> <td>item.reference.resolve()</td> <td>Entries are differentiated by a profile tag on the target of the reference, as specified by a structure definition (todo: how to do that?)</td> </tr>
+ <tr>  <td>List.entry</td> <td>value</td> <td>item.extension("http://acme.org/extensions/test").code</td> <td>Entries are differentiated by the value of the code element in the extension with the designated URL</td> </tr>
+ <tr>  <td>List.entry.extension</td> <td>value</td> <td>url</td> <td>Extensions are differentiated by the value of their url property (usually how extensions are sliced)</td> </tr>
+ <tr>  <td>List.entry</td> <td>type, value</td> <td>item.reference.resolve(), item.reference.resolve().code</td> <td>Extensions are differentiated by the combination of the type of the referenced resource, and, if it has one, the code element of that resource. This would be
    appropriate for where a List might be composed of a Condition, and set of observations, each differentiated by its name - the condition has no name, so that is evaluated as a null in the discriminator set</td> </tr>
- <tr>  <td>Observation.value[x]</td> <td>@type</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
+ <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
-Note that @type and @profile can also be used where a repeating element contains a resource directly (e.g. 
+Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g. 
 <a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
 </p>
 <p>

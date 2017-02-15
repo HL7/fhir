@@ -25,6 +25,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintCom
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
@@ -226,12 +227,13 @@ public class StructureDefinitionRenderer extends BaseRenderer {
       s = Utilities.noString(s) ? slicing.getRules().getDisplay() : s+", "+ slicing.getRules().getDisplay();
       if (!Utilities.noString(s))
         s = " ("+s+")";
-      if (slicing.getDiscriminator().size() == 1)
-        return "<li>"+translate("sd.summary", "The element %s is sliced based on the value of %s", path, slicing.getDiscriminator().get(0).asStringValue())+s+"</li>\r\n";
       CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      for (StringType d : slicing.getDiscriminator()) 
-        b.append(d.asStringValue());
-      return "<li>"+translate("sd.summary", "The element %s is sliced based on the values of %s", path, slicing.getDiscriminator().get(0).asStringValue())+s+"</li>\r\n";
+      for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) 
+        b.append(d.getType().toCode()+":"+d.getPath());
+      if (slicing.getDiscriminator().size() == 1)
+        return "<li>"+translate("sd.summary", "The element %s is sliced based on the value of %s", path, b.toString())+s+"</li>\r\n";
+      else
+        return "<li>"+translate("sd.summary", "The element %s is sliced based on the values of %s", path, b.toString())+s+"</li>\r\n";
   }
 
   private void tryAdd(List<String> ext, String s) {
@@ -557,12 +559,12 @@ public class StructureDefinitionRenderer extends BaseRenderer {
     if (!slicing.getDiscriminator().isEmpty()) {
       b.append("<li>"+translate("sd.dict", "discriminators")+": ");
       boolean first = true;
-      for (StringType s : slicing.getDiscriminator()) {
+      for (ElementDefinitionSlicingDiscriminatorComponent s : slicing.getDiscriminator()) {
         if (first)
           first = false;
         else
           b.append(", ");
-        b.append(s.asStringValue());
+        b.append(s.getType().toCode()+":"+s.getPath());
       }
       b.append("</li>");
     }

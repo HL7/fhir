@@ -7,6 +7,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.hl7.fhir.dstu2.model.CodeableConcept;
 import org.hl7.fhir.dstu2.model.Reference;
 import org.hl7.fhir.dstu2.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.conformance.ProfileUtilities;
 import org.hl7.fhir.dstu3.model.Annotation;
 import org.hl7.fhir.dstu3.model.CapabilityStatement.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.CodeSystem;
@@ -20,10 +21,13 @@ import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapGroupComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.DosageInstruction;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
+import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Immunization.ImmunizationPractitionerComponent;
 import org.hl7.fhir.dstu3.model.ReferralRequest.ReferralPriority;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
+import org.hl7.fhir.dstu3.model.Timing.EventTiming;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -1063,7 +1067,7 @@ public class VersionConvertor_10_20 {
     org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent tgt = new org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent();
     copyElement(src, tgt);
     for (org.hl7.fhir.dstu2.model.StringType t : src.getDiscriminator())
-      tgt.addDiscriminator(t.getValue());
+      tgt.addDiscriminator(ProfileUtilities.interpretR2Discriminator(t.getValue()));
     tgt.setDescription(src.getDescription());
     tgt.setOrdered(src.getOrdered());
     tgt.setRules(convertSlicingRules(src.getRules()));
@@ -1075,8 +1079,8 @@ public class VersionConvertor_10_20 {
       return null;
     org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionSlicingComponent tgt = new org.hl7.fhir.dstu2.model.ElementDefinition.ElementDefinitionSlicingComponent();
     copyElement(src, tgt);
-    for (org.hl7.fhir.dstu3.model.StringType t : src.getDiscriminator())
-      tgt.addDiscriminator(t.getValue());
+    for (ElementDefinitionSlicingDiscriminatorComponent t : src.getDiscriminator())
+      tgt.addDiscriminator(ProfileUtilities.buildR2Discriminator(t));
     tgt.setDescription(src.getDescription());
     tgt.setOrdered(src.getOrdered());
     tgt.setRules(convertSlicingRules(src.getRules()));
@@ -1437,7 +1441,7 @@ public class VersionConvertor_10_20 {
     tgt.setPeriod(src.getPeriod());
     tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnit(convertUnitsOfTime(src.getPeriodUnits()));
-    tgt.setWhen(convertEventTiming(src.getWhen()));
+    tgt.addWhen(convertEventTiming(src.getWhen()));
     return tgt;
   }
 
@@ -1456,7 +1460,8 @@ public class VersionConvertor_10_20 {
     tgt.setPeriod(src.getPeriod());
     tgt.setPeriodMax(src.getPeriodMax());
     tgt.setPeriodUnits(convertUnitsOfTime(src.getPeriodUnit()));
-    tgt.setWhen(convertEventTiming(src.getWhen()));
+    for (Enumeration<EventTiming> t : src.getWhen())
+      tgt.setWhen(convertEventTiming(t.getValue()));
     return tgt;
   }
 

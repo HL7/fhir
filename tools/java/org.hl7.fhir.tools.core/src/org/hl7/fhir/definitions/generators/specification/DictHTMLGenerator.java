@@ -49,6 +49,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintCom
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionExampleComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.IdType;
@@ -161,12 +162,12 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     if (!slicing.getDiscriminator().isEmpty()) {
       b.append("<li>discriminators: ");
       boolean first = true;
-      for (StringType s : slicing.getDiscriminator()) {
+      for (ElementDefinitionSlicingDiscriminatorComponent s : slicing.getDiscriminator()) {
         if (first)
           first = false;
         else
           b.append(", ");
-        b.append(s.asStringValue());
+        b.append(s.getType().toCode()+":"+s.getPath());
       }
       b.append("</li>");
     }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -882,8 +882,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Timing", "dayOfWeek", element.getDayOfWeek().get(i), i);
     for (int i = 0; i < element.getTimeOfDay().size(); i++)
       composeTime(t, "Timing", "timeOfDay", element.getTimeOfDay().get(i), i);
-    if (element.hasWhenElement())
-      composeEnum(t, "Timing", "when", element.getWhenElement(), -1);
+    for (int i = 0; i < element.getWhen().size(); i++)
+      composeEnum(t, "Timing", "when", element.getWhen().get(i), i);
     if (element.hasOffsetElement())
       composeUnsignedInt(t, "Timing", "offset", element.getOffsetElement(), -1);
   }
@@ -973,13 +973,29 @@ public class RdfParser extends RdfParserBase {
     }
     composeElement(t, "slicing", name, element, index);
     for (int i = 0; i < element.getDiscriminator().size(); i++)
-      composeString(t, "ElementDefinition", "discriminator", element.getDiscriminator().get(i), i);
+      composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent(t, "ElementDefinition", "discriminator", element.getDiscriminator().get(i), i);
     if (element.hasDescriptionElement())
       composeString(t, "ElementDefinition", "description", element.getDescriptionElement(), -1);
     if (element.hasOrderedElement())
       composeBoolean(t, "ElementDefinition", "ordered", element.getOrderedElement(), -1);
     if (element.hasRulesElement())
       composeEnum(t, "ElementDefinition", "rules", element.getRulesElement(), -1);
+  }
+
+  protected void composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent(Complex parent, String parentType, String name, ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeElement(t, "discriminator", name, element, index);
+    if (element.hasTypeElement())
+      composeEnum(t, "ElementDefinition", "type", element.getTypeElement(), -1);
+    if (element.hasPathElement())
+      composeString(t, "ElementDefinition", "path", element.getPathElement(), -1);
   }
 
   protected void composeElementDefinitionElementDefinitionBaseComponent(Complex parent, String parentType, String name, ElementDefinition.ElementDefinitionBaseComponent element, int index) {

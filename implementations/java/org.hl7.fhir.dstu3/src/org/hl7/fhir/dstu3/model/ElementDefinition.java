@@ -29,11 +29,12 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
@@ -184,6 +185,131 @@ public class ElementDefinition extends Type implements ICompositeType {
       return "?";
       }
     public String toSystem(PropertyRepresentation code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum DiscriminatorType {
+        /**
+         * The slices have different values in the nominated element
+         */
+        VALUE, 
+        /**
+         * The slices are differentiated by the presence or absence of the nominated element
+         */
+        EXISTS, 
+        /**
+         * The slices have different values in the nominated element, as determined by testing them against the applicable ElementDefinition.pattern[x]
+         */
+        PATTERN, 
+        /**
+         * The slices are differentiated by conformance of the nominated element to a specifed profile
+         */
+        PROFILE, 
+        TYPE,
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static DiscriminatorType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("value".equals(codeString))
+          return VALUE;
+        if ("exists".equals(codeString))
+          return EXISTS;
+        if ("pattern".equals(codeString))
+          return PATTERN;
+        if ("profile".equals(codeString))
+          return PROFILE;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown DiscriminatorType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case VALUE: return "value";
+            case EXISTS: return "exists";
+            case PATTERN: return "pattern";
+            case PROFILE: return "profile";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case VALUE: return "http://hl7.org/fhir/discriminator-type";
+            case EXISTS: return "http://hl7.org/fhir/discriminator-type";
+            case PATTERN: return "http://hl7.org/fhir/discriminator-type";
+            case PROFILE: return "http://hl7.org/fhir/discriminator-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case VALUE: return "The slices have different values in the nominated element";
+            case EXISTS: return "The slices are differentiated by the presence or absence of the nominated element";
+            case PATTERN: return "The slices have different values in the nominated element, as determined by testing them against the applicable ElementDefinition.pattern[x]";
+            case PROFILE: return "The slices are differentiated by conformance of the nominated element to a specifed profile";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case VALUE: return "Value";
+            case EXISTS: return "Exists";
+            case PATTERN: return "Pattern";
+            case PROFILE: return "Profile";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class DiscriminatorTypeEnumFactory implements EnumFactory<DiscriminatorType> {
+    public DiscriminatorType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("value".equals(codeString))
+          return DiscriminatorType.VALUE;
+        if ("exists".equals(codeString))
+          return DiscriminatorType.EXISTS;
+        if ("pattern".equals(codeString))
+          return DiscriminatorType.PATTERN;
+        if ("profile".equals(codeString))
+          return DiscriminatorType.PROFILE;
+        throw new IllegalArgumentException("Unknown DiscriminatorType code '"+codeString+"'");
+        }
+        public Enumeration<DiscriminatorType> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<DiscriminatorType>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("value".equals(codeString))
+          return new Enumeration<DiscriminatorType>(this, DiscriminatorType.VALUE);
+        if ("exists".equals(codeString))
+          return new Enumeration<DiscriminatorType>(this, DiscriminatorType.EXISTS);
+        if ("pattern".equals(codeString))
+          return new Enumeration<DiscriminatorType>(this, DiscriminatorType.PATTERN);
+        if ("profile".equals(codeString))
+          return new Enumeration<DiscriminatorType>(this, DiscriminatorType.PROFILE);
+        throw new FHIRException("Unknown DiscriminatorType code '"+codeString+"'");
+        }
+    public String toCode(DiscriminatorType code) {
+      if (code == DiscriminatorType.VALUE)
+        return "value";
+      if (code == DiscriminatorType.EXISTS)
+        return "exists";
+      if (code == DiscriminatorType.PATTERN)
+        return "pattern";
+      if (code == DiscriminatorType.PROFILE)
+        return "profile";
+      return "?";
+      }
+    public String toSystem(DiscriminatorType code) {
       return code.getSystem();
       }
     }
@@ -609,9 +735,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
          */
-        @Child(name = "discriminator", type = {StringType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "discriminator", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Element values that are used to distinguish the slices", formalDefinition="Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices." )
-        protected List<StringType> discriminator;
+        protected List<ElementDefinitionSlicingDiscriminatorComponent> discriminator;
 
         /**
          * A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.
@@ -635,7 +761,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-slicing-rules")
         protected Enumeration<SlicingRules> rules;
 
-        private static final long serialVersionUID = 233544215L;
+        private static final long serialVersionUID = -311635839L;
 
     /**
      * Constructor
@@ -655,16 +781,16 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
          */
-        public List<StringType> getDiscriminator() { 
+        public List<ElementDefinitionSlicingDiscriminatorComponent> getDiscriminator() { 
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<StringType>();
+            this.discriminator = new ArrayList<ElementDefinitionSlicingDiscriminatorComponent>();
           return this.discriminator;
         }
 
         /**
          * @return Returns a reference to <code>this</code> for easy method chaining
          */
-        public ElementDefinitionSlicingComponent setDiscriminator(List<StringType> theDiscriminator) { 
+        public ElementDefinitionSlicingComponent setDiscriminator(List<ElementDefinitionSlicingDiscriminatorComponent> theDiscriminator) { 
           this.discriminator = theDiscriminator;
           return this;
         }
@@ -672,45 +798,37 @@ public class ElementDefinition extends Type implements ICompositeType {
         public boolean hasDiscriminator() { 
           if (this.discriminator == null)
             return false;
-          for (StringType item : this.discriminator)
+          for (ElementDefinitionSlicingDiscriminatorComponent item : this.discriminator)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
-        /**
-         * @return {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
-         */
-        public StringType addDiscriminatorElement() {//2 
-          StringType t = new StringType();
+        public ElementDefinitionSlicingDiscriminatorComponent addDiscriminator() { //3
+          ElementDefinitionSlicingDiscriminatorComponent t = new ElementDefinitionSlicingDiscriminatorComponent();
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<StringType>();
+            this.discriminator = new ArrayList<ElementDefinitionSlicingDiscriminatorComponent>();
           this.discriminator.add(t);
           return t;
         }
 
-        /**
-         * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
-         */
-        public ElementDefinitionSlicingComponent addDiscriminator(String value) { //1
-          StringType t = new StringType();
-          t.setValue(value);
+        public ElementDefinitionSlicingComponent addDiscriminator(ElementDefinitionSlicingDiscriminatorComponent t) { //3
+          if (t == null)
+            return this;
           if (this.discriminator == null)
-            this.discriminator = new ArrayList<StringType>();
+            this.discriminator = new ArrayList<ElementDefinitionSlicingDiscriminatorComponent>();
           this.discriminator.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #discriminator} (Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.)
+         * @return The first repetition of repeating field {@link #discriminator}, creating it if it does not already exist
          */
-        public boolean hasDiscriminator(String value) { 
-          if (this.discriminator == null)
-            return false;
-          for (StringType v : this.discriminator)
-            if (v.equals(value)) // string
-              return true;
-          return false;
+        public ElementDefinitionSlicingDiscriminatorComponent getDiscriminatorFirstRep() { 
+          if (getDiscriminator().isEmpty()) {
+            addDiscriminator();
+          }
+          return getDiscriminator().get(0);
         }
 
         /**
@@ -854,7 +972,7 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("discriminator", "string", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
+          childrenList.add(new Property("discriminator", "", "Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.", 0, java.lang.Integer.MAX_VALUE, discriminator));
           childrenList.add(new Property("description", "string", "A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("ordered", "boolean", "If the matching elements have to occur in the same order as defined in the profile.", 0, java.lang.Integer.MAX_VALUE, ordered));
           childrenList.add(new Property("rules", "code", "Whether additional slices are allowed or not. When the slices are ordered, profile authors can also say that additional slices are only allowed at the end.", 0, java.lang.Integer.MAX_VALUE, rules));
@@ -863,7 +981,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case -1888270692: /*discriminator*/ return this.discriminator == null ? new Base[0] : this.discriminator.toArray(new Base[this.discriminator.size()]); // StringType
+        case -1888270692: /*discriminator*/ return this.discriminator == null ? new Base[0] : this.discriminator.toArray(new Base[this.discriminator.size()]); // ElementDefinitionSlicingDiscriminatorComponent
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -1207109523: /*ordered*/ return this.ordered == null ? new Base[0] : new Base[] {this.ordered}; // BooleanType
         case 108873975: /*rules*/ return this.rules == null ? new Base[0] : new Base[] {this.rules}; // Enumeration<SlicingRules>
@@ -876,7 +994,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
         case -1888270692: // discriminator
-          this.getDiscriminator().add(castToString(value)); // StringType
+          this.getDiscriminator().add((ElementDefinitionSlicingDiscriminatorComponent) value); // ElementDefinitionSlicingDiscriminatorComponent
           return value;
         case -1724546052: // description
           this.description = castToString(value); // StringType
@@ -896,7 +1014,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
         if (name.equals("discriminator")) {
-          this.getDiscriminator().add(castToString(value));
+          this.getDiscriminator().add((ElementDefinitionSlicingDiscriminatorComponent) value);
         } else if (name.equals("description")) {
           this.description = castToString(value); // StringType
         } else if (name.equals("ordered")) {
@@ -912,7 +1030,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1888270692:  return addDiscriminatorElement();
+        case -1888270692:  return addDiscriminator(); 
         case -1724546052:  return getDescriptionElement();
         case -1207109523:  return getOrderedElement();
         case 108873975:  return getRulesElement();
@@ -924,7 +1042,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case -1888270692: /*discriminator*/ return new String[] {"string"};
+        case -1888270692: /*discriminator*/ return new String[] {};
         case -1724546052: /*description*/ return new String[] {"string"};
         case -1207109523: /*ordered*/ return new String[] {"boolean"};
         case 108873975: /*rules*/ return new String[] {"code"};
@@ -936,7 +1054,7 @@ public class ElementDefinition extends Type implements ICompositeType {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("discriminator")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.discriminator");
+          return addDiscriminator();
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.description");
@@ -955,8 +1073,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         ElementDefinitionSlicingComponent dst = new ElementDefinitionSlicingComponent();
         copyValues(dst);
         if (discriminator != null) {
-          dst.discriminator = new ArrayList<StringType>();
-          for (StringType i : discriminator)
+          dst.discriminator = new ArrayList<ElementDefinitionSlicingDiscriminatorComponent>();
+          for (ElementDefinitionSlicingDiscriminatorComponent i : discriminator)
             dst.discriminator.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
@@ -983,8 +1101,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (!(other instanceof ElementDefinitionSlicingComponent))
           return false;
         ElementDefinitionSlicingComponent o = (ElementDefinitionSlicingComponent) other;
-        return compareValues(discriminator, o.discriminator, true) && compareValues(description, o.description, true)
-           && compareValues(ordered, o.ordered, true) && compareValues(rules, o.rules, true);
+        return compareValues(description, o.description, true) && compareValues(ordered, o.ordered, true) && compareValues(rules, o.rules, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -997,6 +1115,244 @@ public class ElementDefinition extends Type implements ICompositeType {
 
   }
 
+  }
+
+    @Block()
+    public static class ElementDefinitionSlicingDiscriminatorComponent extends Element implements IBaseDatatypeElement {
+        /**
+         * How the element value is interpreted when discrimination is evaluated.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="value | exists | pattern | profile", formalDefinition="How the element value is interpreted when discrimination is evaluated." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/discriminator-type")
+        protected Enumeration<DiscriminatorType> type;
+
+        /**
+         * A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.
+         */
+        @Child(name = "path", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Path to element value", formalDefinition="A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based." )
+        protected StringType path;
+
+        private static final long serialVersionUID = 1151159293L;
+
+    /**
+     * Constructor
+     */
+      public ElementDefinitionSlicingDiscriminatorComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public ElementDefinitionSlicingDiscriminatorComponent(Enumeration<DiscriminatorType> type, StringType path) {
+        super();
+        this.type = type;
+        this.path = path;
+      }
+
+        /**
+         * @return {@link #type} (How the element value is interpreted when discrimination is evaluated.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public Enumeration<DiscriminatorType> getTypeElement() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionSlicingDiscriminatorComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Enumeration<DiscriminatorType>(new DiscriminatorTypeEnumFactory()); // bb
+          return this.type;
+        }
+
+        public boolean hasTypeElement() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (How the element value is interpreted when discrimination is evaluated.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+         */
+        public ElementDefinitionSlicingDiscriminatorComponent setTypeElement(Enumeration<DiscriminatorType> value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return How the element value is interpreted when discrimination is evaluated.
+         */
+        public DiscriminatorType getType() { 
+          return this.type == null ? null : this.type.getValue();
+        }
+
+        /**
+         * @param value How the element value is interpreted when discrimination is evaluated.
+         */
+        public ElementDefinitionSlicingDiscriminatorComponent setType(DiscriminatorType value) { 
+            if (this.type == null)
+              this.type = new Enumeration<DiscriminatorType>(new DiscriminatorTypeEnumFactory());
+            this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #path} (A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         */
+        public StringType getPathElement() { 
+          if (this.path == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionSlicingDiscriminatorComponent.path");
+            else if (Configuration.doAutoCreate())
+              this.path = new StringType(); // bb
+          return this.path;
+        }
+
+        public boolean hasPathElement() { 
+          return this.path != null && !this.path.isEmpty();
+        }
+
+        public boolean hasPath() { 
+          return this.path != null && !this.path.isEmpty();
+        }
+
+        /**
+         * @param value {@link #path} (A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         */
+        public ElementDefinitionSlicingDiscriminatorComponent setPathElement(StringType value) { 
+          this.path = value;
+          return this;
+        }
+
+        /**
+         * @return A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.
+         */
+        public String getPath() { 
+          return this.path == null ? null : this.path.getValue();
+        }
+
+        /**
+         * @param value A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.
+         */
+        public ElementDefinitionSlicingDiscriminatorComponent setPath(String value) { 
+            if (this.path == null)
+              this.path = new StringType();
+            this.path.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "code", "How the element value is interpreted when discrimination is evaluated.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("path", "string", "A FHIRPath expression, using a restricted subset of FHIRPath, that is used to identify the element on which discrimination is based.", 0, java.lang.Integer.MAX_VALUE, path));
+        }
+
+      @Override
+      public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // Enumeration<DiscriminatorType>
+        case 3433509: /*path*/ return this.path == null ? new Base[0] : new Base[] {this.path}; // StringType
+        default: return super.getProperty(hash, name, checkValid);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(int hash, String name, Base value) throws FHIRException {
+        switch (hash) {
+        case 3575610: // type
+          value = new DiscriminatorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<DiscriminatorType>
+          return value;
+        case 3433509: // path
+          this.path = castToString(value); // StringType
+          return value;
+        default: return super.setProperty(hash, name, value);
+        }
+
+      }
+
+      @Override
+      public Base setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type")) {
+          value = new DiscriminatorTypeEnumFactory().fromType(castToCode(value));
+          this.type = (Enumeration) value; // Enumeration<DiscriminatorType>
+        } else if (name.equals("path")) {
+          this.path = castToString(value); // StringType
+        } else
+          return super.setProperty(name, value);
+        return value;
+      }
+
+      @Override
+      public Base makeProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610:  return getTypeElement();
+        case 3433509:  return getPathElement();
+        default: return super.makeProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public String[] getTypesForProperty(int hash, String name) throws FHIRException {
+        switch (hash) {
+        case 3575610: /*type*/ return new String[] {"code"};
+        case 3433509: /*path*/ return new String[] {"string"};
+        default: return super.getTypesForProperty(hash, name);
+        }
+
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.type");
+        }
+        else if (name.equals("path")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.path");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public ElementDefinitionSlicingDiscriminatorComponent copy() {
+        ElementDefinitionSlicingDiscriminatorComponent dst = new ElementDefinitionSlicingDiscriminatorComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.path = path == null ? null : path.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof ElementDefinitionSlicingDiscriminatorComponent))
+          return false;
+        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(path, o.path, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof ElementDefinitionSlicingDiscriminatorComponent))
+          return false;
+        ElementDefinitionSlicingDiscriminatorComponent o = (ElementDefinitionSlicingDiscriminatorComponent) other;
+        return compareValues(type, o.type, true) && compareValues(path, o.path, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(type, path);
+      }
+
+  public String fhirType() {
+    return "ElementDefinition.slicing.discriminator";
+
+  }
   }
 
     @Block()

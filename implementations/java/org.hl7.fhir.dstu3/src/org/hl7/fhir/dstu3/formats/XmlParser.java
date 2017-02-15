@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Feb 14, 2017 12:54-0500 for FHIR v1.9.0
+// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1331,7 +1331,7 @@ public class XmlParser extends XmlParserBase {
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("timeOfDay")) {
         res.getTimeOfDay().add(parseTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("when")) {
-        res.setWhenElement(parseEnumeration(xpp, Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
+        res.getWhen().add(parseEnumeration(xpp, Timing.EventTiming.NULL, new Timing.EventTimingEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("offset")) {
         res.setOffsetElement(parseUnsignedInt(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
@@ -1439,13 +1439,38 @@ public class XmlParser extends XmlParserBase {
 
   protected boolean parseElementDefinitionElementDefinitionSlicingComponentContent(int eventType, XmlPullParser xpp, ElementDefinition owner, ElementDefinition.ElementDefinitionSlicingComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("discriminator")) {
-        res.getDiscriminator().add(parseString(xpp));
+        res.getDiscriminator().add(parseElementDefinitionElementDefinitionSlicingDiscriminatorComponent(xpp, owner));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("ordered")) {
         res.setOrderedElement(parseBoolean(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("rules")) {
         res.setRulesElement(parseEnumeration(xpp, ElementDefinition.SlicingRules.NULL, new ElementDefinition.SlicingRulesEnumFactory()));
+      } else if (!parseElementContent(eventType, xpp, res))
+        return false;
+    return true;
+  }
+
+  protected ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent parseElementDefinitionElementDefinitionSlicingDiscriminatorComponent(XmlPullParser xpp, ElementDefinition owner) throws XmlPullParserException, IOException, FHIRFormatError {
+    ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent res = new ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent();
+    parseElementAttributes(xpp, res);
+    next(xpp);
+    int eventType = nextNoWhitespace(xpp);
+    while (eventType != XmlPullParser.END_TAG) {
+  if (!parseElementDefinitionElementDefinitionSlicingDiscriminatorComponentContent(eventType, xpp, owner, res))
+        unknownContent(xpp);
+      eventType = nextNoWhitespace(xpp);
+    }
+    next(xpp);
+    parseElementClose(res);
+    return res;
+  }
+
+  protected boolean parseElementDefinitionElementDefinitionSlicingDiscriminatorComponentContent(int eventType, XmlPullParser xpp, ElementDefinition owner, ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent res) throws XmlPullParserException, IOException, FHIRFormatError {
+      if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
+        res.setTypeElement(parseEnumeration(xpp, ElementDefinition.DiscriminatorType.NULL, new ElementDefinition.DiscriminatorTypeEnumFactory()));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("path")) {
+        res.setPathElement(parseString(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
         return false;
     return true;
@@ -19719,8 +19744,9 @@ public class XmlParser extends XmlParserBase {
         for (TimeType e : element.getTimeOfDay()) 
           composeTime("timeOfDay", e);
       }
-      if (element.hasWhenElement())
-        composeEnumeration("when", element.getWhenElement(), new Timing.EventTimingEnumFactory());
+        if (element.hasWhen()) 
+          for (Enumeration<Timing.EventTiming> e : element.getWhen()) 
+            composeEnumeration("when", e, new Timing.EventTimingEnumFactory());
       if (element.hasOffsetElement()) {
         composeUnsignedInt("offset", element.getOffsetElement());
       }
@@ -19848,8 +19874,8 @@ public class XmlParser extends XmlParserBase {
   protected void composeElementDefinitionElementDefinitionSlicingComponentElements(ElementDefinition.ElementDefinitionSlicingComponent element) throws IOException {
       composeElementElements(element);
       if (element.hasDiscriminator()) { 
-        for (StringType e : element.getDiscriminator()) 
-          composeString("discriminator", e);
+        for (ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent e : element.getDiscriminator()) 
+          composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent("discriminator", e);
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
@@ -19859,6 +19885,25 @@ public class XmlParser extends XmlParserBase {
       }
       if (element.hasRulesElement())
         composeEnumeration("rules", element.getRulesElement(), new ElementDefinition.SlicingRulesEnumFactory());
+  }
+
+  protected void composeElementDefinitionElementDefinitionSlicingDiscriminatorComponent(String name, ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent element) throws IOException {
+    if (element != null) {
+      composeElementAttributes(element);
+      xml.enter(FHIR_NS, name);
+      composeElementDefinitionElementDefinitionSlicingDiscriminatorComponentElements(element);
+      composeElementClose(element);
+      xml.exit(FHIR_NS, name);
+    }
+  }
+
+  protected void composeElementDefinitionElementDefinitionSlicingDiscriminatorComponentElements(ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent element) throws IOException {
+      composeElementElements(element);
+      if (element.hasTypeElement())
+        composeEnumeration("type", element.getTypeElement(), new ElementDefinition.DiscriminatorTypeEnumFactory());
+      if (element.hasPathElement()) {
+        composeString("path", element.getPathElement());
+      }
   }
 
   protected void composeElementDefinitionElementDefinitionBaseComponent(String name, ElementDefinition.ElementDefinitionBaseComponent element) throws IOException {

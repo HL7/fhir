@@ -134,6 +134,7 @@ import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingComponent;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
@@ -6643,12 +6644,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       s = Utilities.noString(s) ? slicing.getRules().getDisplay() : s+", "+ slicing.getRules().getDisplay();
     if (!Utilities.noString(s))
       s = " ("+s+")";
-    if (slicing.getDiscriminator().size() == 1)
-      return "<li>The element "+path+" is sliced based on the value of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-    for (StringType d : slicing.getDiscriminator()) 
-      b.append(d.asStringValue());
-    return "<li>The element "+path+" is sliced based on the values of "+slicing.getDiscriminator().get(0).asStringValue()+s+"</li>\r\n";
+    for (ElementDefinitionSlicingDiscriminatorComponent d : slicing.getDiscriminator()) 
+      b.append(d.getType().toCode()+":"+d.getPath());
+    if (slicing.getDiscriminator().size() == 1)
+      return "<li>The element "+path+" is sliced based on the value of "+b.toString()+s+"</li>\r\n";
+    else
+      return "<li>The element "+path+" is sliced based on the values of "+b.toString()+s+"</li>\r\n";
   }
 
   private void tryAdd(List<String> ext, String s) {
