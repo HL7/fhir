@@ -266,9 +266,7 @@
         <!-- list of cycle definitions. in this case only one -->
         <groupingBehavior value="sentence-group" />
         <selectionBehavior value="exactly-one"/>
-        <actionDefinition>
-          <!-- Getting an error from the validator here? -->
-          <!--id value="cycle-definition-1"/-->
+        <actionDefinition id="cycle-definition-1">
           <textEquivalent value="21-day cycle for 6 cycles" />
 
           <timingTiming>
