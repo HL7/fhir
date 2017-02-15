@@ -291,9 +291,9 @@
  -- Row 9 -----------------------------------
   Id = 10
   Context = Timing.repeat
-  English = If there\'s a timeOfDay, there cannot be be a when, a frequency, or a period
-  XPath = exists(f:timeofDay) != exists(f:when)
-  Expression = timeOfDay.exists() xor when.exists()
+  English = If there\'s a timeOfDay, there cannot be be a when, or vice versa
+  XPath = not(exists(f:timeofDay)) or not(exists(f:when))
+  Expression = timeOfDay.empty() or when.empty()
 
 === Sheet Data Elements =====================================
 
