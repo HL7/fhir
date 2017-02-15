@@ -29,6 +29,21 @@
   Definition = Imaging view (projection) used when collecting an image
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = BodySite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/body-site
+  Definition = Codes describing anatomical locations. May include laterality.
+  Description = SNOMED CT Body site concepts
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = MediaReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/procedure-reason
+  Definition = The reason for the media
+  Conformance = example
+
 === Sheet digital-media-type =====================================
 
  -- Row 1 -----------------------------------
@@ -102,6 +117,29 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Media.basedOn
+  Card. = 0..*
+  Aliases = fufills
+  Summary = Y
+  Type = Reference(ProcedureRequest)
+  Short Name = Procedure that caused this media to be created
+  Definition = A procedure that is fulfilled in whole or in part by the creation of this media
+  Requirements = Allows tracing of authorization for the event and tracking whether proposals/recommendations were acted upon
+  RIM Mapping = .outboundRelationship[typeCode=FLFS].target
+
+ -- Row 4 -----------------------------------
+  Element = !Media.partOf
+  Card. = 0..*
+  Aliases = container
+  Summary = Y
+  Type = Reference(??)
+  Short Name = Part of referenced event
+  Definition = A larger event of which this particular event is a component or step
+  Requirements = E.g. Drug administration as part of a procedure, procedure as part of observation, etc.
+  Comments = Not to be used to link an event to an Encounter - use Event.context for that.\n\n[The allowed reference resources may be adjusted as appropriate for the event resource]
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[moodCode=EVN]
+
+ -- Row 5 -----------------------------------
   Element = Media.type
   Card. = 1..1
   Summary = y
@@ -112,7 +150,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Media.subtype
   Card. = 0..1
   Summary = y
@@ -124,7 +162,7 @@
   DICOM Mapping = 0008,0060 | 0008,1032
   w5 = class
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Media.view
   Card. = 0..1
   Summary = y
@@ -135,7 +173,7 @@
   RIM Mapping = DiagnosticImage.subjectOrientationCode
   w5 = class
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Media.subject
   Card. = 0..1
   Summary = y
@@ -146,19 +184,31 @@
   DICOM Mapping = ~0010,0020
   w5 = who.focus
 
- -- Row 7 -----------------------------------
-  Element = !Media.requester
+ -- Row 9 -----------------------------------
+  Element = Media.context
   Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner)
-  Short Name = Who asked that this image be collected
-  Definition = Who requested that this image be collected
-  Comments = Helps connect to workflow etc.
-  RIM Mapping = .participation[typeCode=\"REFB\"]???
-  DICOM Mapping = 0008,0090
-  w5 = who.init
+  Aliases = encounter
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter / Episode associated with media
+  Definition = The encounter or episode of care that establishes the context for this media
+  Requirements = Links the media to the Encounter context
+  Comments = This will typically be the encounter the media occurred within
+  RIM Mapping = .inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]
+  w5 = context
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
+  Element = Media.occurrence[x]
+  Card. = 0..1
+  Aliases = timing
+  Summary = Y
+  Type = dateTime|Period
+  Short Name = When Media was collected
+  Definition = The date and time(s) at which the media was collected
+  RIM Mapping = .effectiveTime
+  w5 = when.done
+
+ -- Row 11 -----------------------------------
   Element = Media.operator
   Card. = 0..1
   Summary = y
@@ -169,8 +219,32 @@
   DICOM Mapping = 0008,1060?
   w5 = who.actor
 
- -- Row 9 -----------------------------------
-  Element = Media.deviceName
+ -- Row 12 -----------------------------------
+  Element = Media.reasonCode
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = MediaReason
+  Short Name = Why was event performed?
+  Definition = Describes why the event occurred in coded or textual form.
+  Comments = Textual reasons can be caprued using reasonCode.text
+  RIM Mapping = .reasonCode
+  w5 = why
+
+ -- Row 13 -----------------------------------
+  Element = Media.bodySite
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = BodySite
+  Short Name = Body part in media
+  Definition = Indicates the site on the subject\'s body where the media was collected (i.e. the target site).
+  Comments = If the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use The standard extension[ body-site-instance](extension-body-site-instance.html).
+  SNOMED CT Concept Domain = < 123037004 |Body structure|
+  RIM Mapping = targetSiteCode
+  SNOMED CT Attribute = 718497002 |Inherent location|
+
+ -- Row 14 -----------------------------------
+  Element = !Media.deviceName
   Card. = 0..1
   Summary = y
   Type = string
@@ -179,7 +253,18 @@
   RIM Mapping = .participation[typeCode=\"DEV\"].role.player.Entity[classCode=\"DEV\"].name
   DICOM Mapping = 0008,0070
 
- -- Row 10 -----------------------------------
+ -- Row 15 -----------------------------------
+  Element = Media.device
+  Card. = 0..1
+  Type = Reference(Device|DeviceMetric)
+  Short Name = Observing Device
+  Definition = The device used to collect the media.
+  Comments = An extension should be used if further typing of the device is needed.  Scondary devices used to support collecting a media can be represented using either extension or through the Observation.related element.
+  SNOMED CT Concept Domain = < 49062001 |Device|
+  RIM Mapping = participation[typeCode=DEV]
+  SNOMED CT Attribute = 424226004 |Using device|
+
+ -- Row 16 -----------------------------------
   Element = Media.height
   Card. = 0..1
   Summary = y
@@ -190,7 +275,7 @@
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0010
 
- -- Row 11 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Media.width
   Card. = 0..1
   Summary = y
@@ -201,7 +286,7 @@
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = 0028,0011
 
- -- Row 12 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Media.frames
   Card. = 0..1
   Summary = y
@@ -212,7 +297,7 @@
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   Default Value = 1
 
- -- Row 13 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Media.duration
   Card. = 0..1
   Summary = y
@@ -220,10 +305,11 @@
   Type = unsignedInt
   Short Name = Length in seconds (audio / video)
   Definition = The duration of the recording in seconds - for audio and video
+  Comments = The duration might differ from occurencePeriod if recording was paused
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
   DICOM Mapping = ~0028,0002
 
- -- Row 14 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Media.content
   Card. = 1..1
   Type = Attachment
@@ -231,6 +317,15 @@
   Definition = The actual content of the media - inline or by direct reference to the media source file
   Comments = Recommended content types: image/jpeg, image/png, image/tiff, video/mpeg, audio/mp4, application/dicom. Application/dicom can contain the transfer syntax as a parameter.  For an media that covers a period of time (video/sound), the content.creationTime is the end time. Creation time is used for tracking, organizing versions and searching
   RIM Mapping = .text
+
+ -- Row 21 -----------------------------------
+  Element = Media.note
+  Card. = 0..*
+  Type = Annotation
+  Short Name = Comments made about the media
+  Definition = Comments made about the media by the performer, subject or other participants.
+  v2 Mapping = NTE
+  RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=ANNGEN, moodCode=EVN].value[xsi:type=ST]
 
 === Sheet Search =====================================
 
@@ -274,6 +369,31 @@
   Type = reference
   Path = Media.subject
   Target Types = Patient
+
+ -- Row 9 -----------------------------------
+  Name = based-on
+  Type = reference
+  Path = Media.basedOn
+
+ -- Row 10 -----------------------------------
+  Name = context
+  Type = reference
+  Path = Media.context
+
+ -- Row 11 -----------------------------------
+  Name = date
+  Type = date
+  Path = Media.occurrence[x]
+
+ -- Row 12 -----------------------------------
+  Name = site
+  Type = token
+  Path = Media.bodySite
+
+ -- Row 13 -----------------------------------
+  Name = device
+  Type = reference
+  Path = Media.device
 
 === Sheet Profiles =====================================
 

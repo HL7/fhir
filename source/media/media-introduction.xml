@@ -7,19 +7,21 @@
 The Media resource contains photos, videos, and audio recordings. It is used with media acquired or used as part of the healthcare process. Here are some typical usages:
 </p>
 <ul>
- <li>Photos of patients and staff for identification purposes</li>
  <li>Photos and videos of diagnostic or care provision procedures for recording purposes </li>
- <li>Storing scans and faxes of paper documents where not enough metadata exists to create a <a href="documentreference.html">DocumentReference</a></li>
  <li>Images on diagnostic reports</li> 
 </ul>
-
-
 </div>
 
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 
+<p>
+This resource captures a specific type of Observation - an <a href="observation.html">Observation</a> whose value is audio, video or image data.  
+This resource is the preferred representation of such forms of information as it exposes the metadata relevant for 
+interpreting the information.  However, in some legacy environments, media information may occasionally appear in 
+Observation instead.  Systems should be aware of this possibility.
+</p>
 <p>
 The Media resource is able to contain medical images in a DICOM format. These images may also be made accessible 
 through an <a href="imagingstudy.html">ImagingStudy</a> resource, which provides a direct reference to the

@@ -23,7 +23,9 @@
     <reference value="Practitioner/xcda-author"/>
   </operator>
   
-  <deviceName value="Acme Camera"/>
+  <device>
+    <display value="Acme Camera"/>
+  </device>
   <height value="145"/>
   <width value="126"/>
   <!-- frames - 1 is the default value, but it can still be specified -->

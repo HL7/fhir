@@ -75,7 +75,9 @@
   </subject>
  
   
-  <deviceName value="G.E. Medical Systems"/>
+  <device> 
+    <display value="G.E. Medical Systems"/>
+  </device>
   <height value="480"/>
   <width value="640"/>
   

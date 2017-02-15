@@ -125,7 +125,7 @@ public class ValidationPresenter extends TranslatingUtilities implements Compara
       " <p>Generated $time$. FHIR version $version$</p>\r\n"+
       " <table class=\"grid\">\r\n"+
       "   <tr>\r\n"+
-      "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Hints &amp; Warnings</b></td>\r\n"+
+      "     <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Information messages &amp; Warnings</b></td>\r\n"+
       "   </tr>\r\n";
   
   private final String summaryTemplate = 

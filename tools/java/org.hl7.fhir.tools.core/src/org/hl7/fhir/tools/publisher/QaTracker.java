@@ -68,8 +68,8 @@ public class QaTracker {
     s.append(" <tr><td>packs</td><td>"+Integer.toString(current.packs)+"</td></tr>\r\n");
     s.append(" <tr><td>paths</td><td>"+Integer.toString(current.paths)+"</td></tr>\r\n");
     s.append(" <tr><td>valuesets</td><td>"+Integer.toString(current.valuesets)+"</td></tr>\r\n");
-    s.append(" <tr><td>hints</td><td>"+Integer.toString(current.hints)+"</td></tr>\r\n");
     s.append(" <tr><td>warnings</td><td>"+Integer.toString(current.warnings)+"</td></tr>\r\n");
+    s.append(" <tr><td>information messages</td><td>"+Integer.toString(current.hints)+"</td></tr>\r\n");
     s.append("</table>\r\n");
     
     String xslt = Utilities.path(page.getFolders().rootDir, "implementations", "xmltools", "WarningsToQA.xslt");
@@ -92,7 +92,7 @@ public class QaTracker {
     ini.setIntegerProperty("profiles", n, current.packs, null); // need to maintain the old word here   
     ini.setIntegerProperty("paths", n, current.paths, null);   
     ini.setIntegerProperty("valuesets", n, current.valuesets, null);   
-    ini.setIntegerProperty("hints", n, current.hints, null);   
+    ini.setIntegerProperty("information messages", n, current.hints, null);   
     ini.setIntegerProperty("warnings", n, current.warnings, null);   
     ini.save();
   }

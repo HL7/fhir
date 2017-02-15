@@ -27,7 +27,7 @@ public class ValidationEngineTests {
     int w = warnings(op);
     int h = hints(op);
     if (!TestingUtilities.silent)
-      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
     Assert.assertTrue(e == 0);
     Assert.assertTrue(w == 2);
     Assert.assertTrue(h == 0);
@@ -47,7 +47,7 @@ public class ValidationEngineTests {
     Assert.assertTrue(w == 2);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
   @Test
@@ -69,7 +69,7 @@ public class ValidationEngineTests {
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
   @Test
@@ -86,7 +86,7 @@ public class ValidationEngineTests {
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
   @Test
@@ -103,7 +103,7 @@ public class ValidationEngineTests {
     Assert.assertTrue(w == 1);
     Assert.assertTrue(h == 0);
     if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
   @Test
@@ -133,7 +133,7 @@ public class ValidationEngineTests {
     Assert.assertTrue(w == 0);
     Assert.assertTrue(h == 1);
     if (!TestingUtilities.silent)
-    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+    System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
   @Test
@@ -179,7 +179,7 @@ public class ValidationEngineTests {
 //    Assert.assertTrue(w == 0);
 //    Assert.assertTrue(h == 3);
 //    if (!TestingUtilities.silent)
-//      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" hints");
+//      System.out.println("  .. done: "+Integer.toString(e)+" errors, "+Integer.toString(w)+" warnings, "+Integer.toString(h)+" information messages");
   }
 
 

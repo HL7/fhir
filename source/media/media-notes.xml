@@ -3,7 +3,17 @@
 <!-- insert xhtml content here -->
 <h3>Implementation Notes</h3>
 <p>
-Note that the date of creation of the recording of the Media is found in <a href="datatypes-definitions.html#Attachment.creation">Media.content.creation</a>
+The media resource contains several date/times:
 </p>
+<ul>
+ <li><code>Media.occurence[x]</code> - The date(/time) of collection, or the period over which collection occured</li>
+ <li><code>Media.duration</code> - The duration of the media. The duration might differ from occurencePeriod if recording was paused</li>
+ <li><code><a href="datatypes-definitions.html#Attachment.creation">Media.content.creation</a></code> - This should be consistent with the Media.occurence[x] but might be different due to partial / edited recordings</li>
+</ul>
 
+<p>
+This resource can embed the image information directly through the attachment.data element.  
+However, good practice is generally to use attachment.url to point to a Binary resource.  
+Servers will frequently be able to persist Binaries in purpose-dedicated repositories more suitable to potentially large artifacts.
+</p>
 </div>

@@ -373,7 +373,7 @@ public class ExampleInspector {
   }
 
   public void summarise() throws EValidationFailed {
-    logger.log("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Hints="+Integer.toString(informationCount), LogMessageType.Error);
+    logger.log("Summary: Errors="+Integer.toString(errorCount)+", Warnings="+Integer.toString(warningCount)+", Information messages="+Integer.toString(informationCount), LogMessageType.Error);
     if (errorCount > 0)
       throw new EValidationFailed("Resource Examples failed instance validation");
   }
