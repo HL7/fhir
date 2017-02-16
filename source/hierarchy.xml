@@ -113,6 +113,7 @@ signatures.html
         <page title="Search" filename="search.html"/>
         <page title="_filter Parameter" filename="search_filter.html"/>
         <page title="Search Parameter Registry" filename="searchparameter-registry.html"/>
+        <page title="FHIRPath Patch" filename="fhirpatch.html"/>
       </page>
       <page title="Operations" filename="operations.html">
         <page title="Example" filename="op-example-request.html"/>

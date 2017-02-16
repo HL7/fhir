@@ -595,6 +595,7 @@ The body of a PATCH operation SHALL be either:
 <ul>
  <li>a <a href="http://jsonpatch.com/">JSON Patch</a> document with a content type of <code>application/json-patch+json</code></li>
  <li>an <a href="http://tools.ietf.org/html/rfc5261">XML Patch</a> document with a content type of <code>application/xml-patch+xml</code></li>
+ <li>a <a href="fhirpatch.html">FHIRPath Patch</a> parameters resource with <a href="#mime-type">FHIR Content Type</a></li>
 </ul>
 <p>
 In either case, the server SHALL process it's own copy of the resource in the format indicated, applying
@@ -628,8 +629,7 @@ for FHIR (<code>http://hl7.org/fhir</code>) and XHTML (<code>http://www.w3.org/1
 For PATCH Examples, see (link todo).
 </p>
 <p>
-Note: There is, as yet, no support for preforming patch operations as part of Batch or Transaction
-Operations. This may be addressed in a future version of the specification.
+Patch operations may be performed as part of Batch or Transaction Operations using the FHIRPath Patch format.
 </p>
 
 <a name="delete"> </a>

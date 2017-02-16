@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+
+[%settitle FHIRPath Patch%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<h2>FHIRPath Patch</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">STU 3</a></td></tr></table>
+
+<p>
+This page documents how the <a href="parameters.html">Parameters</a> resource is used to define a set of <a href="http://hl7.org/fhirpath">FHIRPath</a> based patch operations. 
+</p>
+
+<a name="concept"> </a>
+<h3>Conceptual FHIRPath Operations</h3>
+
+<p>
+This table documents the FHIRPath operations that may be used to specify changes to a resource:
+</p>
+
+<table class="grid">
+ <tr>
+  <td><b>Type</b></td>
+  <td><b>Path</b></td>
+  <td><b>Name</b></td>
+  <td><b>Value</b></td>
+  <td><b>Index</b></td>
+  <td><b>source</b></td>
+  <td><b>destination</b></td>
+  <td><b>Details</b></td>
+ </tr>
+ <tr>
+  <td>add</td>
+  <td>Path at which to add the content</td>
+  <td>Name of the property to add</td>
+  <td>Data type to add at nominated place</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>The content will be appended to the element identified in the path, using the name specified</td>
+ </tr>
+ <tr>
+  <td>insert</td>
+  <td>Path of the collection in which to insert the content</td>
+  <td></td>
+  <td>value (Data type) to add at nominated place</td>
+  <td>index at which to insert</td>
+  <td></td>
+  <td></td>
+  <td>The content will be inserted into the nominated list at the index specified (0 based). The index must be equal or less than the number of elements in the list</td>
+ </tr>
+ <tr>
+  <td>delete</td>
+  <td>Path of the element to delete</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>Only a single element can be deleted</td>
+ </tr>
+ <tr>
+  <td>replace</td>
+  <td>Path of the element to replace</td>
+  <td></td>
+  <td>value (Data type) to replace it with</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>move</td>
+  <td>Path of the collection in which to move the content</td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td>list index to move from</td>
+  <td>list index to move to</td>
+  <td>Move an element within a single list</td>
+ </tr>
+</table>
+<p>
+There are a few base rules that apply for all operations:
+</p>
+<ul>
+ <li>The FHIRPath statement must return elements from the resource being modified.
+     e.g. a FHIRPath could cross resources like <code>Observation.subject.resolve().identifier</code>. 
+     Servers SHALL not allow patch operations to alter other resources than the nominated target, and SHOULD return an error if the patch operation tries</li>
+ <li>The type of the value must be correct for the place at which it will be added/inserted. Servers SHALL return an error if the type is wrong</li>
+ <li>Servers SHALL return an error if the outcome of the patch operation is a not a valid resource</li>
+</ul>
+
+
+<a name="format"> </a>
+<h3>Parameters Format</h3>
+
+<p>
+The FHIRPath patch operations are encoded in a <a href="parameters.html">Parameters</a> resource as follows:
+</p>
+<ul>
+ <li>Each operation is a Parameter named "operation"</li>
+ <li>Each operation has a series of parts, using the following paramter names from the table above with these types:</li>
+</ul>
+
+<table class="grid">
+ <tr>
+  <td>Parameter</td>
+  <td>Type</td>
+ </tr>
+ <tr>
+  <td>Type</td>
+  <td>code</td>
+ </tr>
+ <tr>
+  <td>Path</td>
+  <td>string</td>
+ </tr>
+ <tr>
+  <td>Name</td>
+  <td>string</td>
+ </tr>
+ <tr>
+  <td>Value</td>
+  <td><a href="datatypes.html#open">*</a></td>
+ </tr>
+ <tr>
+  <td>index</td>
+  <td>integer</td>
+ </tr>
+ <tr>
+  <td>source</td>
+  <td>integer</td>
+ </tr>
+ <tr>
+  <td>destination</td>
+  <td>integer</td>
+ </tr>
+</table>
+
+<p>
+Here is an example of adding an element:
+</p>
+<div class="example">
+<pre class="xml">
+&lt;Parameters xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;operation&quot;/&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;type&quot;/&gt;
+      &lt;valueCode value=&quot;add&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;path&quot;/&gt;
+      &lt;valueString value=&quot;Patient&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;name&quot;/&gt;
+      &lt;valueString value=&quot;birthDate&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;value&quot;/&gt;
+      &lt;valueDate value=&quot;1930-01-01&quot;/&gt;
+    &lt;/part&gt;
+  &lt;/parameter&gt;
+&lt;/Parameters&gt;	  
+</pre>
+</div>
+
+<a name="anonymous"> </a>
+<h4>Anonymous Types</h4>
+<p>
+Only some named data types (see <a href="datatypes.html#open">the list</a>) are allowed to be used
+directly in parameters. In order to add or insert other kinds of types - including anonymous
+elements (e.g. Observation.component, Timing.repeat), the content is defined by defining 
+the name as described above, and instead of providing a value, a set of parts that are values 
+are provided. Here is an example:
+</p>
+<div class="example">
+<pre class="xml">
+&lt;Parameters xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;parameter&gt;
+    &lt;name value=&quot;operation&quot;/&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;type&quot;/&gt;
+      &lt;valueCode value=&quot;add&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;path&quot;/&gt;
+      &lt;valueString value=&quot;Patient&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;name&quot;/&gt;
+      &lt;valueString value=&quot;contact&quot;/&gt;
+    &lt;/part&gt;
+    &lt;part&gt;
+      &lt;name value=&quot;value&quot;/&gt;
+      &lt;part&gt;
+        &lt;name value=&quot;name&quot;/&gt;
+        &lt;valueHumanName&gt;
+          &lt;text value=&quot;a name&quot;/&gt;
+        &lt;/valueHumanName&gt;
+      &lt;/part&gt;
+    &lt;/part&gt;
+  &lt;/parameter&gt;
+&lt;/Parameters&gt;	  
+</pre>
+</div>
+
+<p>
+This pattern repeats as deep as necessary.
+</p>
+
+<p>
+There is a set of test cases for implementers as part of the <a href="downloads.html">Test Case Downloads</a>.
+</p>
+
+</div>
+
+[%file newfooter%]
+
+
+</body>
+</html>
