@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
+// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -1258,6 +1258,10 @@ public class JsonParser extends JsonParserBase {
       res.setMeaningWhenMissingElement(parseMarkdown(json.get("meaningWhenMissing").getAsString()));
     if (json.has("_meaningWhenMissing"))
       parseElementProperties(json.getAsJsonObject("_meaningWhenMissing"), res.getMeaningWhenMissingElement());
+    if (json.has("orderMeaning"))
+      res.setOrderMeaningElement(parseString(json.get("orderMeaning").getAsString()));
+    if (json.has("_orderMeaning"))
+      parseElementProperties(json.getAsJsonObject("_orderMeaning"), res.getOrderMeaningElement());
     Type fixed = parseType("fixed", json);
     if (fixed != null)
       res.setFixed(fixed);
@@ -11874,6 +11878,12 @@ public class JsonParser extends JsonParserBase {
         res.getIdentifier().add(parseIdentifier(array.get(i).getAsJsonObject()));
       }
     };
+    if (json.has("basedOn")) {
+      JsonArray array = json.getAsJsonArray("basedOn");
+      for (int i = 0; i < array.size(); i++) {
+        res.getBasedOn().add(parseReference(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("type"))
       res.setTypeElement(parseEnumeration(json.get("type").getAsString(), Media.DigitalMediaType.NULL, new Media.DigitalMediaTypeEnumFactory()));
     if (json.has("_type"))
@@ -11884,12 +11894,23 @@ public class JsonParser extends JsonParserBase {
       res.setView(parseCodeableConcept(json.getAsJsonObject("view")));
     if (json.has("subject"))
       res.setSubject(parseReference(json.getAsJsonObject("subject")));
+    if (json.has("context"))
+      res.setContext(parseReference(json.getAsJsonObject("context")));
+    Type occurrence = parseType("occurrence", json);
+    if (occurrence != null)
+      res.setOccurrence(occurrence);
     if (json.has("operator"))
       res.setOperator(parseReference(json.getAsJsonObject("operator")));
-    if (json.has("deviceName"))
-      res.setDeviceNameElement(parseString(json.get("deviceName").getAsString()));
-    if (json.has("_deviceName"))
-      parseElementProperties(json.getAsJsonObject("_deviceName"), res.getDeviceNameElement());
+    if (json.has("reasonCode")) {
+      JsonArray array = json.getAsJsonArray("reasonCode");
+      for (int i = 0; i < array.size(); i++) {
+        res.getReasonCode().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
+    if (json.has("bodySite"))
+      res.setBodySite(parseCodeableConcept(json.getAsJsonObject("bodySite")));
+    if (json.has("device"))
+      res.setDevice(parseReference(json.getAsJsonObject("device")));
     if (json.has("height"))
       res.setHeightElement(parsePositiveInt(json.get("height").getAsString()));
     if (json.has("_height"))
@@ -11908,6 +11929,12 @@ public class JsonParser extends JsonParserBase {
       parseElementProperties(json.getAsJsonObject("_duration"), res.getDurationElement());
     if (json.has("content"))
       res.setContent(parseAttachment(json.getAsJsonObject("content")));
+    if (json.has("note")) {
+      JsonArray array = json.getAsJsonArray("note");
+      for (int i = 0; i < array.size(); i++) {
+        res.getNote().add(parseAnnotation(array.get(i).getAsJsonObject()));
+      }
+    };
   }
 
   protected Medication parseMedication(JsonObject json) throws IOException, FHIRFormatError {
@@ -21737,6 +21764,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasMeaningWhenMissingElement()) {
         composeMarkdownCore("meaningWhenMissing", element.getMeaningWhenMissingElement(), false);
         composeMarkdownExtras("meaningWhenMissing", element.getMeaningWhenMissingElement(), false);
+      }
+      if (element.hasOrderMeaningElement()) {
+        composeStringCore("orderMeaning", element.getOrderMeaningElement(), false);
+        composeStringExtras("orderMeaning", element.getOrderMeaningElement(), false);
       }
       if (element.hasFixed()) {
         composeType("fixed", element.getFixed());
@@ -33288,6 +33319,12 @@ public class JsonParser extends JsonParserBase {
           composeIdentifier(null, e);
         closeArray();
       };
+      if (element.hasBasedOn()) {
+        openArray("basedOn");
+        for (Reference e : element.getBasedOn()) 
+          composeReference(null, e);
+        closeArray();
+      };
       if (element.hasTypeElement()) {
         composeEnumerationCore("type", element.getTypeElement(), new Media.DigitalMediaTypeEnumFactory(), false);
         composeEnumerationExtras("type", element.getTypeElement(), new Media.DigitalMediaTypeEnumFactory(), false);
@@ -33301,12 +33338,26 @@ public class JsonParser extends JsonParserBase {
       if (element.hasSubject()) {
         composeReference("subject", element.getSubject());
       }
+      if (element.hasContext()) {
+        composeReference("context", element.getContext());
+      }
+      if (element.hasOccurrence()) {
+        composeType("occurrence", element.getOccurrence());
+      }
       if (element.hasOperator()) {
         composeReference("operator", element.getOperator());
       }
-      if (element.hasDeviceNameElement()) {
-        composeStringCore("deviceName", element.getDeviceNameElement(), false);
-        composeStringExtras("deviceName", element.getDeviceNameElement(), false);
+      if (element.hasReasonCode()) {
+        openArray("reasonCode");
+        for (CodeableConcept e : element.getReasonCode()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
+      if (element.hasBodySite()) {
+        composeCodeableConcept("bodySite", element.getBodySite());
+      }
+      if (element.hasDevice()) {
+        composeReference("device", element.getDevice());
       }
       if (element.hasHeightElement()) {
         composePositiveIntCore("height", element.getHeightElement(), false);
@@ -33327,6 +33378,12 @@ public class JsonParser extends JsonParserBase {
       if (element.hasContent()) {
         composeAttachment("content", element.getContent());
       }
+      if (element.hasNote()) {
+        openArray("note");
+        for (Annotation e : element.getNote()) 
+          composeAnnotation(null, e);
+        closeArray();
+      };
   }
 
   protected void composeMedication(String name, Medication element) throws IOException {

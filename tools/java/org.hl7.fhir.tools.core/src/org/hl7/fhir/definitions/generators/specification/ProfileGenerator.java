@@ -1321,6 +1321,8 @@ public class ProfileGenerator {
       addMapping(p, ce, "http://hl7.org/fhir/w5", e.getW5(), ap);
     if (e.isTranslatable())
       ce.addExtension("http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable", new BooleanType(true));
+    if (!Utilities.noString(e.getOrderMeaning()))
+        ce.setOrderMeaning(e.getOrderMeaning());
     
     if (e.hasBinding()) {
       ce.setBinding(generateBinding(e.getBinding()));

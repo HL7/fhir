@@ -29,12 +29,11 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
+// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingDiscriminatorComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.*;
 import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.ChildOrder;
@@ -203,10 +202,13 @@ public class ElementDefinition extends Type implements ICompositeType {
          */
         PATTERN, 
         /**
+         * The slices are differentiated by type of the nominated element to a specifed profile
+         */
+        TYPE, 
+        /**
          * The slices are differentiated by conformance of the nominated element to a specifed profile
          */
         PROFILE, 
-        TYPE,
         /**
          * added to help the parsers with the generic types
          */
@@ -220,6 +222,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return EXISTS;
         if ("pattern".equals(codeString))
           return PATTERN;
+        if ("type".equals(codeString))
+          return TYPE;
         if ("profile".equals(codeString))
           return PROFILE;
         if (Configuration.isAcceptInvalidEnums())
@@ -232,6 +236,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case VALUE: return "value";
             case EXISTS: return "exists";
             case PATTERN: return "pattern";
+            case TYPE: return "type";
             case PROFILE: return "profile";
             default: return "?";
           }
@@ -241,6 +246,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case VALUE: return "http://hl7.org/fhir/discriminator-type";
             case EXISTS: return "http://hl7.org/fhir/discriminator-type";
             case PATTERN: return "http://hl7.org/fhir/discriminator-type";
+            case TYPE: return "http://hl7.org/fhir/discriminator-type";
             case PROFILE: return "http://hl7.org/fhir/discriminator-type";
             default: return "?";
           }
@@ -250,6 +256,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case VALUE: return "The slices have different values in the nominated element";
             case EXISTS: return "The slices are differentiated by the presence or absence of the nominated element";
             case PATTERN: return "The slices have different values in the nominated element, as determined by testing them against the applicable ElementDefinition.pattern[x]";
+            case TYPE: return "The slices are differentiated by type of the nominated element to a specifed profile";
             case PROFILE: return "The slices are differentiated by conformance of the nominated element to a specifed profile";
             default: return "?";
           }
@@ -259,6 +266,7 @@ public class ElementDefinition extends Type implements ICompositeType {
             case VALUE: return "Value";
             case EXISTS: return "Exists";
             case PATTERN: return "Pattern";
+            case TYPE: return "Type";
             case PROFILE: return "Profile";
             default: return "?";
           }
@@ -276,6 +284,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return DiscriminatorType.EXISTS;
         if ("pattern".equals(codeString))
           return DiscriminatorType.PATTERN;
+        if ("type".equals(codeString))
+          return DiscriminatorType.TYPE;
         if ("profile".equals(codeString))
           return DiscriminatorType.PROFILE;
         throw new IllegalArgumentException("Unknown DiscriminatorType code '"+codeString+"'");
@@ -294,6 +304,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return new Enumeration<DiscriminatorType>(this, DiscriminatorType.EXISTS);
         if ("pattern".equals(codeString))
           return new Enumeration<DiscriminatorType>(this, DiscriminatorType.PATTERN);
+        if ("type".equals(codeString))
+          return new Enumeration<DiscriminatorType>(this, DiscriminatorType.TYPE);
         if ("profile".equals(codeString))
           return new Enumeration<DiscriminatorType>(this, DiscriminatorType.PROFILE);
         throw new FHIRException("Unknown DiscriminatorType code '"+codeString+"'");
@@ -305,6 +317,8 @@ public class ElementDefinition extends Type implements ICompositeType {
         return "exists";
       if (code == DiscriminatorType.PATTERN)
         return "pattern";
+      if (code == DiscriminatorType.TYPE)
+        return "type";
       if (code == DiscriminatorType.PROFILE)
         return "profile";
       return "?";
@@ -1123,7 +1137,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          * How the element value is interpreted when discrimination is evaluated.
          */
         @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="value | exists | pattern | profile", formalDefinition="How the element value is interpreted when discrimination is evaluated." )
+        @Description(shortDefinition="value | exists | pattern | type | profile", formalDefinition="How the element value is interpreted when discrimination is evaluated." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/discriminator-type")
         protected Enumeration<DiscriminatorType> type;
 
@@ -1353,6 +1367,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     return "ElementDefinition.slicing.discriminator";
 
   }
+
   }
 
     @Block()
@@ -3703,10 +3718,10 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected StringType sliceName;
 
     /**
-     * The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
+     * A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
      */
     @Child(name = "label", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name for element to display with or prompt for element", formalDefinition="The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form." )
+    @Description(shortDefinition="Name for element to display with or prompt for element", formalDefinition="A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form." )
     protected StringType label;
 
     /**
@@ -3809,97 +3824,104 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected MarkdownType meaningWhenMissing;
 
     /**
+     * If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.
+     */
+    @Child(name = "orderMeaning", type = {StringType.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="What the order of the elements means", formalDefinition="If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning." )
+    protected StringType orderMeaning;
+
+    /**
      * Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.
      */
-    @Child(name = "fixed", type = {}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "fixed", type = {}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Value must be exactly this", formalDefinition="Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing." )
     protected org.hl7.fhir.dstu3.model.Type fixed;
 
     /**
      * Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).
      */
-    @Child(name = "pattern", type = {}, order=19, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "pattern", type = {}, order=20, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Value must have at least these property values", formalDefinition="Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.)." )
     protected org.hl7.fhir.dstu3.model.Type pattern;
 
     /**
      * A sample value for this element demonstrating the type of information that would typically be found in the element.
      */
-    @Child(name = "example", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "example", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Example value (as defined for type)", formalDefinition="A sample value for this element demonstrating the type of information that would typically be found in the element." )
     protected List<ElementDefinitionExampleComponent> example;
 
     /**
      * The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
      */
-    @Child(name = "minValue", type = {DateType.class, DateTimeType.class, InstantType.class, TimeType.class, DecimalType.class, IntegerType.class, PositiveIntType.class, UnsignedIntType.class, Quantity.class}, order=21, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "minValue", type = {DateType.class, DateTimeType.class, InstantType.class, TimeType.class, DecimalType.class, IntegerType.class, PositiveIntType.class, UnsignedIntType.class, Quantity.class}, order=22, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Minimum Allowed Value (for some types)", formalDefinition="The minimum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity." )
     protected Type minValue;
 
     /**
      * The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity.
      */
-    @Child(name = "maxValue", type = {DateType.class, DateTimeType.class, InstantType.class, TimeType.class, DecimalType.class, IntegerType.class, PositiveIntType.class, UnsignedIntType.class, Quantity.class}, order=22, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "maxValue", type = {DateType.class, DateTimeType.class, InstantType.class, TimeType.class, DecimalType.class, IntegerType.class, PositiveIntType.class, UnsignedIntType.class, Quantity.class}, order=23, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Maximum Allowed Value (for some types)", formalDefinition="The maximum allowed value for the element. The value is inclusive. This is allowed for the types date, dateTime, instant, time, decimal, integer, and Quantity." )
     protected Type maxValue;
 
     /**
      * Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element.
      */
-    @Child(name = "maxLength", type = {IntegerType.class}, order=23, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "maxLength", type = {IntegerType.class}, order=24, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Max length for strings", formalDefinition="Indicates the maximum length in characters that is permitted to be present in conformant instances and which is expected to be supported by conformant consumers that support the element." )
     protected IntegerType maxLength;
 
     /**
      * A reference to an invariant that may make additional statements about the cardinality or value in the instance.
      */
-    @Child(name = "condition", type = {IdType.class}, order=24, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "condition", type = {IdType.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reference to invariant about presence", formalDefinition="A reference to an invariant that may make additional statements about the cardinality or value in the instance." )
     protected List<IdType> condition;
 
     /**
      * Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance.
      */
-    @Child(name = "constraint", type = {}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "constraint", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Condition that must evaluate to true", formalDefinition="Formal constraints such as co-occurrence and other constraints that can be computationally evaluated within the context of the instance." )
     protected List<ElementDefinitionConstraintComponent> constraint;
 
     /**
      * If true, implementations that produce or consume resources SHALL provide "support" for the element in some meaningful way.  If false, the element may be ignored and not supported.
      */
-    @Child(name = "mustSupport", type = {BooleanType.class}, order=26, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "mustSupport", type = {BooleanType.class}, order=27, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="If the element must supported", formalDefinition="If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported." )
     protected BooleanType mustSupport;
 
     /**
      * If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.
      */
-    @Child(name = "isModifier", type = {BooleanType.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "isModifier", type = {BooleanType.class}, order=28, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="If this modifies the meaning of other elements", formalDefinition="If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system." )
     protected BooleanType isModifier;
 
     /**
      * Whether the element should be included if a client requests a search with the parameter _summary=true.
      */
-    @Child(name = "isSummary", type = {BooleanType.class}, order=28, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "isSummary", type = {BooleanType.class}, order=29, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Include when _summary = true?", formalDefinition="Whether the element should be included if a client requests a search with the parameter _summary=true." )
     protected BooleanType isSummary;
 
     /**
      * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
      */
-    @Child(name = "binding", type = {}, order=29, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "binding", type = {}, order=30, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept)." )
     protected ElementDefinitionBindingComponent binding;
 
     /**
      * Identifies a concept from an external specification that roughly corresponds to this element.
      */
-    @Child(name = "mapping", type = {}, order=30, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "mapping", type = {}, order=31, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Map element to another set of definitions", formalDefinition="Identifies a concept from an external specification that roughly corresponds to this element." )
     protected List<ElementDefinitionMappingComponent> mapping;
 
-    private static final long serialVersionUID = -976239057L;
+    private static final long serialVersionUID = -1086797131L;
 
   /**
    * Constructor
@@ -4072,7 +4094,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #label} (The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
+     * @return {@link #label} (A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
     public StringType getLabelElement() { 
       if (this.label == null)
@@ -4092,7 +4114,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #label} (The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
+     * @param value {@link #label} (A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
      */
     public ElementDefinition setLabelElement(StringType value) { 
       this.label = value;
@@ -4100,14 +4122,14 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
+     * @return A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
      */
     public String getLabel() { 
       return this.label == null ? null : this.label.getValue();
     }
 
     /**
-     * @param value The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
+     * @param value A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.
      */
     public ElementDefinition setLabel(String value) { 
       if (Utilities.noString(value))
@@ -4738,6 +4760,55 @@ public class ElementDefinition extends Type implements ICompositeType {
         if (this.meaningWhenMissing == null)
           this.meaningWhenMissing = new MarkdownType();
         this.meaningWhenMissing.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #orderMeaning} (If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.). This is the underlying object with id, value and extensions. The accessor "getOrderMeaning" gives direct access to the value
+     */
+    public StringType getOrderMeaningElement() { 
+      if (this.orderMeaning == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ElementDefinition.orderMeaning");
+        else if (Configuration.doAutoCreate())
+          this.orderMeaning = new StringType(); // bb
+      return this.orderMeaning;
+    }
+
+    public boolean hasOrderMeaningElement() { 
+      return this.orderMeaning != null && !this.orderMeaning.isEmpty();
+    }
+
+    public boolean hasOrderMeaning() { 
+      return this.orderMeaning != null && !this.orderMeaning.isEmpty();
+    }
+
+    /**
+     * @param value {@link #orderMeaning} (If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.). This is the underlying object with id, value and extensions. The accessor "getOrderMeaning" gives direct access to the value
+     */
+    public ElementDefinition setOrderMeaningElement(StringType value) { 
+      this.orderMeaning = value;
+      return this;
+    }
+
+    /**
+     * @return If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.
+     */
+    public String getOrderMeaning() { 
+      return this.orderMeaning == null ? null : this.orderMeaning.getValue();
+    }
+
+    /**
+     * @param value If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.
+     */
+    public ElementDefinition setOrderMeaning(String value) { 
+      if (Utilities.noString(value))
+        this.orderMeaning = null;
+      else {
+        if (this.orderMeaning == null)
+          this.orderMeaning = new StringType();
+        this.orderMeaning.setValue(value);
       }
       return this;
     }
@@ -5481,7 +5552,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("path", "string", "The path identifies the element and is expressed as a \".\"-separated list of ancestor elements, beginning with the name of the resource or extension.", 0, java.lang.Integer.MAX_VALUE, path));
         childrenList.add(new Property("representation", "code", "Codes that define how this element is represented in instances, when the deviation varies from the normal case.", 0, java.lang.Integer.MAX_VALUE, representation));
         childrenList.add(new Property("sliceName", "string", "The name of this element definition slice, when slicing is working. The name must be a token with no dots or spaces. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element.", 0, java.lang.Integer.MAX_VALUE, sliceName));
-        childrenList.add(new Property("label", "string", "The text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.", 0, java.lang.Integer.MAX_VALUE, label));
+        childrenList.add(new Property("label", "string", "A single preferred label which is the text to display beside the element indicating its meaning or to use to prompt for the element in a user display or form.", 0, java.lang.Integer.MAX_VALUE, label));
         childrenList.add(new Property("code", "Coding", "A code that provides the meaning for the element according to a particular terminology.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("slicing", "", "Indicates that the element is sliced into a set of alternative definitions (i.e. in a structure definition, there are multiple different constraints on a single element in the base resource). Slicing can be used in any resource that has cardinality ..* on the base resource, or any resource with a choice of types. The set of slices is any elements that come after this in the element sequence that have the same path, until a shorter path occurs (the shorter path terminates the set).", 0, java.lang.Integer.MAX_VALUE, slicing));
         childrenList.add(new Property("short", "string", "A concise description of what this element means (e.g. for use in autogenerated summaries).", 0, java.lang.Integer.MAX_VALUE, short_));
@@ -5496,6 +5567,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, java.lang.Integer.MAX_VALUE, defaultValue));
         childrenList.add(new Property("meaningWhenMissing", "markdown", "The Implicit meaning that is to be understood when this element is missing (e.g. 'when this element is missing, the period is ongoing'.", 0, java.lang.Integer.MAX_VALUE, meaningWhenMissing));
+        childrenList.add(new Property("orderMeaning", "string", "If present, indicates that the order of the repeating element has meaning and describes what that meaning is.  If absent, it means that the order of the element has no meaning.", 0, java.lang.Integer.MAX_VALUE, orderMeaning));
         childrenList.add(new Property("fixed[x]", "*", "Specifies a value that SHALL be exactly the value  for this element in the instance. For purposes of comparison, non-significant whitespace is ignored, and all values must be an exact match (case and accent sensitive). Missing elements/attributes must also be missing.", 0, java.lang.Integer.MAX_VALUE, fixed));
         childrenList.add(new Property("pattern[x]", "*", "Specifies a value that the value in the instance SHALL follow - that is, any value in the pattern must be found in the instance. Other additional values may be found too. This is effectively constraint by example.  The values of elements present in the pattern must match exactly (case-sensitive, accent-sensitive, etc.).", 0, java.lang.Integer.MAX_VALUE, pattern));
         childrenList.add(new Property("example", "", "A sample value for this element demonstrating the type of information that would typically be found in the element.", 0, java.lang.Integer.MAX_VALUE, example));
@@ -5532,6 +5604,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 3575610: /*type*/ return this.type == null ? new Base[0] : this.type.toArray(new Base[this.type.size()]); // TypeRefComponent
         case -659125328: /*defaultValue*/ return this.defaultValue == null ? new Base[0] : new Base[] {this.defaultValue}; // org.hl7.fhir.dstu3.model.Type
         case 1857257103: /*meaningWhenMissing*/ return this.meaningWhenMissing == null ? new Base[0] : new Base[] {this.meaningWhenMissing}; // MarkdownType
+        case 1828196047: /*orderMeaning*/ return this.orderMeaning == null ? new Base[0] : new Base[] {this.orderMeaning}; // StringType
         case 97445748: /*fixed*/ return this.fixed == null ? new Base[0] : new Base[] {this.fixed}; // org.hl7.fhir.dstu3.model.Type
         case -791090288: /*pattern*/ return this.pattern == null ? new Base[0] : new Base[] {this.pattern}; // org.hl7.fhir.dstu3.model.Type
         case -1322970774: /*example*/ return this.example == null ? new Base[0] : this.example.toArray(new Base[this.example.size()]); // ElementDefinitionExampleComponent
@@ -5607,6 +5680,9 @@ public class ElementDefinition extends Type implements ICompositeType {
           return value;
         case 1857257103: // meaningWhenMissing
           this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
+          return value;
+        case 1828196047: // orderMeaning
+          this.orderMeaning = castToString(value); // StringType
           return value;
         case 97445748: // fixed
           this.fixed = castToType(value); // org.hl7.fhir.dstu3.model.Type
@@ -5691,6 +5767,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.defaultValue = castToType(value); // org.hl7.fhir.dstu3.model.Type
         } else if (name.equals("meaningWhenMissing")) {
           this.meaningWhenMissing = castToMarkdown(value); // MarkdownType
+        } else if (name.equals("orderMeaning")) {
+          this.orderMeaning = castToString(value); // StringType
         } else if (name.equals("fixed[x]")) {
           this.fixed = castToType(value); // org.hl7.fhir.dstu3.model.Type
         } else if (name.equals("pattern[x]")) {
@@ -5744,6 +5822,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 587922128:  return getDefaultValue(); 
         case -659125328:  return getDefaultValue(); 
         case 1857257103:  return getMeaningWhenMissingElement();
+        case 1828196047:  return getOrderMeaningElement();
         case -391522164:  return getFixed(); 
         case 97445748:  return getFixed(); 
         case -885125392:  return getPattern(); 
@@ -5787,6 +5866,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         case 3575610: /*type*/ return new String[] {};
         case -659125328: /*defaultValue*/ return new String[] {"*"};
         case 1857257103: /*meaningWhenMissing*/ return new String[] {"markdown"};
+        case 1828196047: /*orderMeaning*/ return new String[] {"string"};
         case 97445748: /*fixed*/ return new String[] {"*"};
         case -791090288: /*pattern*/ return new String[] {"*"};
         case -1322970774: /*example*/ return new String[] {};
@@ -5991,6 +6071,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("meaningWhenMissing")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.meaningWhenMissing");
+        }
+        else if (name.equals("orderMeaning")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.orderMeaning");
         }
         else if (name.equals("fixedBoolean")) {
           this.fixed = new BooleanType();
@@ -6402,6 +6485,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         };
         dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
         dst.meaningWhenMissing = meaningWhenMissing == null ? null : meaningWhenMissing.copy();
+        dst.orderMeaning = orderMeaning == null ? null : orderMeaning.copy();
         dst.fixed = fixed == null ? null : fixed.copy();
         dst.pattern = pattern == null ? null : pattern.copy();
         if (example != null) {
@@ -6451,11 +6535,12 @@ public class ElementDefinition extends Type implements ICompositeType {
            && compareDeep(requirements, o.requirements, true) && compareDeep(alias, o.alias, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(base, o.base, true) && compareDeep(contentReference, o.contentReference, true)
            && compareDeep(type, o.type, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(meaningWhenMissing, o.meaningWhenMissing, true)
-           && compareDeep(fixed, o.fixed, true) && compareDeep(pattern, o.pattern, true) && compareDeep(example, o.example, true)
-           && compareDeep(minValue, o.minValue, true) && compareDeep(maxValue, o.maxValue, true) && compareDeep(maxLength, o.maxLength, true)
-           && compareDeep(condition, o.condition, true) && compareDeep(constraint, o.constraint, true) && compareDeep(mustSupport, o.mustSupport, true)
-           && compareDeep(isModifier, o.isModifier, true) && compareDeep(isSummary, o.isSummary, true) && compareDeep(binding, o.binding, true)
-           && compareDeep(mapping, o.mapping, true);
+           && compareDeep(orderMeaning, o.orderMeaning, true) && compareDeep(fixed, o.fixed, true) && compareDeep(pattern, o.pattern, true)
+           && compareDeep(example, o.example, true) && compareDeep(minValue, o.minValue, true) && compareDeep(maxValue, o.maxValue, true)
+           && compareDeep(maxLength, o.maxLength, true) && compareDeep(condition, o.condition, true) && compareDeep(constraint, o.constraint, true)
+           && compareDeep(mustSupport, o.mustSupport, true) && compareDeep(isModifier, o.isModifier, true)
+           && compareDeep(isSummary, o.isSummary, true) && compareDeep(binding, o.binding, true) && compareDeep(mapping, o.mapping, true)
+          ;
       }
 
       @Override
@@ -6469,17 +6554,17 @@ public class ElementDefinition extends Type implements ICompositeType {
            && compareValues(label, o.label, true) && compareValues(short_, o.short_, true) && compareValues(definition, o.definition, true)
            && compareValues(comments, o.comments, true) && compareValues(requirements, o.requirements, true) && compareValues(alias, o.alias, true)
            && compareValues(min, o.min, true) && compareValues(max, o.max, true) && compareValues(contentReference, o.contentReference, true)
-           && compareValues(meaningWhenMissing, o.meaningWhenMissing, true) && compareValues(maxLength, o.maxLength, true)
-           && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true) && compareValues(isModifier, o.isModifier, true)
-           && compareValues(isSummary, o.isSummary, true);
+           && compareValues(meaningWhenMissing, o.meaningWhenMissing, true) && compareValues(orderMeaning, o.orderMeaning, true)
+           && compareValues(maxLength, o.maxLength, true) && compareValues(condition, o.condition, true) && compareValues(mustSupport, o.mustSupport, true)
+           && compareValues(isModifier, o.isModifier, true) && compareValues(isSummary, o.isSummary, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(path, representation, sliceName
           , label, code, slicing, short_, definition, comments, requirements, alias, min
-          , max, base, contentReference, type, defaultValue, meaningWhenMissing, fixed, pattern
-          , example, minValue, maxValue, maxLength, condition, constraint, mustSupport, isModifier
-          , isSummary, binding, mapping);
+          , max, base, contentReference, type, defaultValue, meaningWhenMissing, orderMeaning
+          , fixed, pattern, example, minValue, maxValue, maxLength, condition, constraint
+          , mustSupport, isModifier, isSummary, binding, mapping);
       }
 
 // added from java-adornments.txt:

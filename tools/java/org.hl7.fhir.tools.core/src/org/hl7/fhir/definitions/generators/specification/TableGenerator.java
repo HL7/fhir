@@ -150,6 +150,16 @@ public class TableGenerator extends BaseGenerator {
       cc.addPiece(gen.new Piece("br"));
       cc.getPieces().add(gen.new Piece(null, inv.getEnglish(), inv.getId()).setStyle("font-style: italic"));
     }
+    if (e.unbounded()) {
+      if (cc.getPieces().size() > 0)
+        cc.addPiece(gen.new Piece("br"));
+      if (Utilities.noString(e.getOrderMeaning())) {
+        cc.getPieces().add(gen.new Piece(null, "This repeating element has no defined order", null));
+      } else {
+        cc.getPieces().add(gen.new Piece(null, "This repeating element order: "+e.getOrderMeaning(), null));
+      }
+      
+    }
 
     if (mode == RenderMode.LOGICAL) {
       String logical = e.getMappings().get("http://hl7.org/fhir/logical");

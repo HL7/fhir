@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Feb 15, 2017 17:00+1100 for FHIR v1.9.0
+// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
 
 import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DateTimeType;
@@ -934,6 +934,8 @@ public class RdfParser extends RdfParserBase {
       composeType(t, "ElementDefinition", "defaultValue", element.getDefaultValue(), -1);
     if (element.hasMeaningWhenMissingElement())
       composeMarkdown(t, "ElementDefinition", "meaningWhenMissing", element.getMeaningWhenMissingElement(), -1);
+    if (element.hasOrderMeaningElement())
+      composeString(t, "ElementDefinition", "orderMeaning", element.getOrderMeaningElement(), -1);
     if (element.hasFixed())
       composeType(t, "ElementDefinition", "fixed", element.getFixed(), -1);
     if (element.hasPattern())
@@ -7953,6 +7955,8 @@ public class RdfParser extends RdfParserBase {
     composeDomainResource(t, "Media", name, element, index);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "Media", "identifier", element.getIdentifier().get(i), i);
+    for (int i = 0; i < element.getBasedOn().size(); i++)
+      composeReference(t, "Media", "basedOn", element.getBasedOn().get(i), i);
     if (element.hasTypeElement())
       composeEnum(t, "Media", "type", element.getTypeElement(), -1);
     if (element.hasSubtype())
@@ -7961,10 +7965,18 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "Media", "view", element.getView(), -1);
     if (element.hasSubject())
       composeReference(t, "Media", "subject", element.getSubject(), -1);
+    if (element.hasContext())
+      composeReference(t, "Media", "context", element.getContext(), -1);
+    if (element.hasOccurrence())
+      composeType(t, "Media", "occurrence", element.getOccurrence(), -1);
     if (element.hasOperator())
       composeReference(t, "Media", "operator", element.getOperator(), -1);
-    if (element.hasDeviceNameElement())
-      composeString(t, "Media", "deviceName", element.getDeviceNameElement(), -1);
+    for (int i = 0; i < element.getReasonCode().size(); i++)
+      composeCodeableConcept(t, "Media", "reasonCode", element.getReasonCode().get(i), i);
+    if (element.hasBodySite())
+      composeCodeableConcept(t, "Media", "bodySite", element.getBodySite(), -1);
+    if (element.hasDevice())
+      composeReference(t, "Media", "device", element.getDevice(), -1);
     if (element.hasHeightElement())
       composePositiveInt(t, "Media", "height", element.getHeightElement(), -1);
     if (element.hasWidthElement())
@@ -7975,6 +7987,8 @@ public class RdfParser extends RdfParserBase {
       composeUnsignedInt(t, "Media", "duration", element.getDurationElement(), -1);
     if (element.hasContent())
       composeAttachment(t, "Media", "content", element.getContent(), -1);
+    for (int i = 0; i < element.getNote().size(); i++)
+      composeAnnotation(t, "Media", "note", element.getNote().get(i), i);
   }
 
   protected void composeMedication(Complex parent, String parentType, String name, Medication element, int index) {

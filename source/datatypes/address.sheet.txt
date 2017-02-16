@@ -144,6 +144,7 @@
   vCard Mapping = street
   ServD Mapping = ./StreetAddress (newline delimitted)
   Example = 137 Nowhere Street
+  Translatable = The order in which lines should appear in an address label
 
  -- Row 6 -----------------------------------
   Element = Address.city

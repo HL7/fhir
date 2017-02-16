@@ -201,6 +201,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRow("Max Length", null, !d.hasMaxLengthElement() ? null : Integer.toString(d.getMaxLength()));
     tableRowNE("Default Value", null, encodeValue(d.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, d.getMeaningWhenMissing());
+    tableRowNE("Element Order Meaning", null, d.getOrderMeaning());
     tableRowNE("Fixed Value", null, encodeValue(d.getFixed()));
     tableRowNE("Pattern Value", null, encodeValue(d.getPattern()));
     tableRowNE("Example", null, encodeValues(d.getExample()));
@@ -461,8 +462,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		tableRow("Is Modifier", "conformance-rules.html#ismodifier", displayBoolean(e.isModifier()));
     tableRowNE("Default Value", null, encodeValue(e.getDefaultValue()));
     tableRowNE("Meaning if Missing", null, e.getMeaningWhenMissing());
+    tableRowNE("Element Order Meaning", null, e.getOrderMeaning());
 
-		tableRowNE("Requirements", null, page.processMarkdown(path, e.getRequirements(), prefix));
+    tableRowNE("Requirements", null, page.processMarkdown(path, e.getRequirements(), prefix));
 		tableRowHint("Alternate Names", "Other names by which this resource/element may be known", null, toSeperatedString(e.getAliases()));
     if (e.hasSummaryItem())
       tableRow("Summary", "search.html#summary", Boolean.toString(e.isSummaryItem()));

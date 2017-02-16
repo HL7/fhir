@@ -1690,6 +1690,7 @@ public class SpreadsheetParser {
       tabfmt.column("Missing Meaning");
       tabfmt.column("w5");
       tabfmt.column("Translatable");
+      tabfmt.column("Order Meaning");
 		}
 		
     tabfmt.row();
@@ -1728,7 +1729,7 @@ public class SpreadsheetParser {
     tabfmt.cell(sheet.getColumn(row, "Default Value"));
     tabfmt.cell(sheet.getColumn(row, "Missing Meaning"));
     tabfmt.cell(sheet.getColumn(row, "w5"));
-    tabfmt.cell(sheet.getColumn(row, "Translatable"));
+    tabfmt.cell(sheet.getColumn(row, "Order Meaning"));
 	
 		if (path.startsWith("!"))
 		  return null;
@@ -1934,6 +1935,8 @@ public class SpreadsheetParser {
       e.setW5(checkW5(sheet.getColumn(row, "w5"), path));
     if (sheet.hasColumn(row, "Translatable"))
       e.setTranslatable(parseBoolean(sheet.getColumn(row, "Translatable"), row, false));
+    if (sheet.hasColumn(row, "Order Meaning"))
+      e.setOrderMeaning(sheet.getColumn(row, "Order Meaning"));
 		return e;
 	}
 

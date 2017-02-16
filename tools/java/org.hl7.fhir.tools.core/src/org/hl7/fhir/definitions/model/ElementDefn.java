@@ -91,6 +91,7 @@ public class ElementDefn {
 	private String w5;
 	private boolean noBindingAllowed; // note to validator 
 	private boolean translatable;
+	private String orderMeaning;
 	
 	public ElementDefn() {
 		super();
@@ -951,6 +952,14 @@ public class ElementDefn {
 
   public void setTranslatable(boolean translatable) {
     this.translatable = translatable;
+  }
+
+  public String getOrderMeaning() {
+    return orderMeaning;
+  }
+
+  public void setOrderMeaning(String orderMeaning) {
+    this.orderMeaning = orderMeaning;
   }	
   
 }

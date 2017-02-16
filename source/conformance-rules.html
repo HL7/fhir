@@ -115,13 +115,20 @@ particular situations. Similar profiles are published by jurisdictions, vendors,
 <p>
 For elements that have cardinality &gt; 1, the order in which they appear may have meaning.
 Unless the element definition (either in this specification or the extension) defines a meaning
-to the order explicitly, the meaning of the order is not defined, and implementations are allowed
-to reorder the elements. Note that it is not possible to define a meaning for the order of the elements in
+to the order explicitly (using <a href="elementdefinition.html">ElementDefinition.orderMeaning</a>, 
+the meaning of the order is not defined, and implementations are allowed to reorder the elements. 
+Note that it is not possible to define a meaning for the order of the elements in
 a <a href="profiling.html">profile</a> using a <a href="structuredefinition.html">StructureDefinition</a>.
 When there is no definition of the meaning of the order, implementations that need to choose a
 single element from a list of elements for some use SHALL do so based on the semantics
 of the content of the elements that repeats. Profiles and Implementation guides may often make
 rules about this selection process.
+</p>
+<p>
+Clients should not depend on servers maintaining ordering of elements, unless the retrieved 
+resource conforms to a profile which mandates maintenance of ordering. If a server cannot 
+maintain ordering, it must must strip off known profile tags which require maintenance of 
+ordering, and strip off unknown profiles (since they might require maintenance of ordering).
 </p>
 
 

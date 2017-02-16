@@ -98,7 +98,7 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = deReference
+  Name = !deReference
   Type = token
   Description = A data element referenced by one of the questions in the questionnaire
   Path = #deReference

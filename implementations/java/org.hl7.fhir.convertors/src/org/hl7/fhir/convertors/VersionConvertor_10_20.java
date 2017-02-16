@@ -7978,7 +7978,7 @@ public class VersionConvertor_10_20 {
     tgt.setView(convertCodeableConcept(src.getView()));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setOperator(convertReference(src.getOperator()));
-    tgt.setDeviceName(src.getDeviceName());
+    tgt.getDevice().setDisplay(src.getDeviceName());
     tgt.setHeight(src.getHeight());
     tgt.setWidth(src.getWidth());
     tgt.setFrames(src.getFrames());
@@ -7999,7 +7999,7 @@ public class VersionConvertor_10_20 {
     tgt.setView(convertCodeableConcept(src.getView()));
     tgt.setSubject(convertReference(src.getSubject()));
     tgt.setOperator(convertReference(src.getOperator()));
-    tgt.setDeviceName(src.getDeviceName());
+    tgt.setDeviceName(src.getDevice().getDisplay());
     tgt.setHeight(src.getHeight());
     tgt.setWidth(src.getWidth());
     tgt.setFrames(src.getFrames());
