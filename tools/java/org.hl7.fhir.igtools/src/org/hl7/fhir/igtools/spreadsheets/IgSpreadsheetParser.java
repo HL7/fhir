@@ -1041,8 +1041,8 @@ public class IgSpreadsheetParser {
       String cc = sheet.getColumn(row, "Context");
       if (!Utilities.noString(cc))
         for (String c : cc.split("\\;")) {
-          checkContextValid(ex.getContextType(), c, this.name);
-          ex.addContext(c);
+          checkContextValid(ex.getContextType(), c.trim(), this.name);
+          ex.addContext(c.trim());
         }
     }
     ex.setTitle(sheet.getColumn(row, "Display"));

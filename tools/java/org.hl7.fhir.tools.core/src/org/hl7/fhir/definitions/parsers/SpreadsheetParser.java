@@ -312,7 +312,8 @@ public class SpreadsheetParser {
 		if( bindings != null)
 			resource.getRoot().getNestedBindings().putAll(bindings);
 		
-		scanNestedTypes(resource, resource.getRoot(), resource.getName());
+    scanNestedTypes(resource, resource.getRoot(), resource.getName());
+    resolveElementReferences(resource, resource.getRoot());
     tabfmt.close();
 
 		return resource;
@@ -397,9 +398,7 @@ public class SpreadsheetParser {
 				element.setDeclaredTypeName(newCompositeType.getName());
 				
 				scanNestedTypes( parent, element, nestedTypeName);
-			}
-			
-			resolveElementReferences(parent, element);
+			}			
 		}
 	}
 	
@@ -420,6 +419,9 @@ public class SpreadsheetParser {
 				ref.setResolvedTypeName(referredElement.getDeclaredTypeName());
 			}
 		}
+    for( ElementDefn element : root.getElements() ) {
+      resolveElementReferences(parent, element);
+    }
 	}
 	
 	
@@ -2513,6 +2515,7 @@ public class SpreadsheetParser {
       resource.getRoot().getNestedBindings().putAll(bindings);
     
     scanNestedTypes(resource, resource.getRoot(), resource.getName());
+    resolveElementReferences(resource, resource.getRoot());
     
     LogicalModel lm = new LogicalModel();
     lm.setResource(resource);
