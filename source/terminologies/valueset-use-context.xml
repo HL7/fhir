@@ -12,21 +12,35 @@
     </telecom>
   </contact>
   <description value="This value set defines a base set of codes that can be used to indicate that the content in a resource was developed with a focus and intent of supporting use within particular contexts."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
   <compose>
+    <!--   states   -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/usps-state"/>
     </include>
-  <!--   states   -->
+
+  <!--  Practitioner Speciality -->
     <include>
       <valueSet value="http://hl7.org/fhir/ValueSet/practitioner-specialty"/>
     </include>
-  <!--   specialties, assuming this will get fixed up   -->
+    
+  <!--   clinical domains -->
     <include>
-    <!--   ISO 2 letter country codes   -->
+      <system value="http://snomed.info/sct"/>
+      <filter>
+        <property value="concept"/>
+        <op value="is-a"/>
+        <value value="394733009"/>
+      </filter>
+    </include>
+    
+  <!--   ISO 2 letter country codes   -->
+    <include>
       <system value="urn:iso:std:iso:3166"/>
     </include>
+
+  <!--   ISO region codes   -->
     <include>
-    <!--   ISO region codes   -->
       <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
     </include>
   </compose>
