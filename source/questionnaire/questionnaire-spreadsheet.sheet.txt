@@ -29,6 +29,13 @@
   Definition = Allowed values to answer questions.
   Conformance = example
 
+ -- Row 5 -----------------------------------
+  Binding Name = QuestionnaireQuestionOption2
+  Binding = value set
+  Reference = valueset-questionnaire-answers
+  Definition = Allowed values to answer questions.
+  Conformance = example
+
 === Sheet questionnaire-status =====================================
 
  -- Row 1 -----------------------------------
@@ -477,6 +484,7 @@
   Card. = 0..1
   Inv. = 7
   Type = boolean | decimal | integer | date | dateTime | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Binding = QuestionnaireQuestionOption2
   Short Name = Value question must have
   Definition = If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer
   Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
@@ -561,6 +569,7 @@
   Card. = 0..1
   Inv. = 8
   Type = boolean | decimal | integer | date | dateTime | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Binding = QuestionnaireQuestionOption2
   Short Name = Default value when item is first rendered
   Definition = The value that should be defaulted when rendering the questionnaire for user input
   Requirements = In some workflows, having defaults saves time.
