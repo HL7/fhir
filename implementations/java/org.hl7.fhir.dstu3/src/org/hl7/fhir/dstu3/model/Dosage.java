@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -42,10 +42,10 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * Indicates how the medication is to be used by the patient.
+ * Indicates how the medication is/was taken or should be taken by the patient.
  */
-@DatatypeDef(name="DosageInstruction")
-public class DosageInstruction extends Type implements ICompositeType {
+@DatatypeDef(name="Dosage")
+public class Dosage extends Type implements ICompositeType {
 
     /**
      * Indicates the order in which the dosage instructions should be applied or interpreted.
@@ -155,7 +155,7 @@ public class DosageInstruction extends Type implements ICompositeType {
   /**
    * Constructor
    */
-    public DosageInstruction() {
+    public Dosage() {
       super();
     }
 
@@ -165,7 +165,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public IntegerType getSequenceElement() { 
       if (this.sequence == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.sequence");
+          throw new Error("Attempt to auto-create Dosage.sequence");
         else if (Configuration.doAutoCreate())
           this.sequence = new IntegerType(); // bb
       return this.sequence;
@@ -182,7 +182,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #sequence} (Indicates the order in which the dosage instructions should be applied or interpreted.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
      */
-    public DosageInstruction setSequenceElement(IntegerType value) { 
+    public Dosage setSequenceElement(IntegerType value) { 
       this.sequence = value;
       return this;
     }
@@ -197,7 +197,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value Indicates the order in which the dosage instructions should be applied or interpreted.
      */
-    public DosageInstruction setSequence(int value) { 
+    public Dosage setSequence(int value) { 
         if (this.sequence == null)
           this.sequence = new IntegerType();
         this.sequence.setValue(value);
@@ -210,7 +210,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public StringType getTextElement() { 
       if (this.text == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.text");
+          throw new Error("Attempt to auto-create Dosage.text");
         else if (Configuration.doAutoCreate())
           this.text = new StringType(); // bb
       return this.text;
@@ -227,7 +227,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #text} (Free text dosage instructions e.g. SIG.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public DosageInstruction setTextElement(StringType value) { 
+    public Dosage setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -242,7 +242,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value Free text dosage instructions e.g. SIG.
      */
-    public DosageInstruction setText(String value) { 
+    public Dosage setText(String value) { 
       if (Utilities.noString(value))
         this.text = null;
       else {
@@ -265,7 +265,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public DosageInstruction setAdditionalInstruction(List<CodeableConcept> theAdditionalInstruction) { 
+    public Dosage setAdditionalInstruction(List<CodeableConcept> theAdditionalInstruction) { 
       this.additionalInstruction = theAdditionalInstruction;
       return this;
     }
@@ -287,7 +287,7 @@ public class DosageInstruction extends Type implements ICompositeType {
       return t;
     }
 
-    public DosageInstruction addAdditionalInstruction(CodeableConcept t) { //3
+    public Dosage addAdditionalInstruction(CodeableConcept t) { //3
       if (t == null)
         return this;
       if (this.additionalInstruction == null)
@@ -312,7 +312,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public StringType getPatientInstructionElement() { 
       if (this.patientInstruction == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.patientInstruction");
+          throw new Error("Attempt to auto-create Dosage.patientInstruction");
         else if (Configuration.doAutoCreate())
           this.patientInstruction = new StringType(); // bb
       return this.patientInstruction;
@@ -329,7 +329,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #patientInstruction} (Instructions in terms that are understood by the patient or consumer.). This is the underlying object with id, value and extensions. The accessor "getPatientInstruction" gives direct access to the value
      */
-    public DosageInstruction setPatientInstructionElement(StringType value) { 
+    public Dosage setPatientInstructionElement(StringType value) { 
       this.patientInstruction = value;
       return this;
     }
@@ -344,7 +344,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value Instructions in terms that are understood by the patient or consumer.
      */
-    public DosageInstruction setPatientInstruction(String value) { 
+    public Dosage setPatientInstruction(String value) { 
       if (Utilities.noString(value))
         this.patientInstruction = null;
       else {
@@ -361,7 +361,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public Timing getTiming() { 
       if (this.timing == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.timing");
+          throw new Error("Attempt to auto-create Dosage.timing");
         else if (Configuration.doAutoCreate())
           this.timing = new Timing(); // cc
       return this.timing;
@@ -374,7 +374,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #timing} (When medication should be administered.)
      */
-    public DosageInstruction setTiming(Timing value) { 
+    public Dosage setTiming(Timing value) { 
       this.timing = value;
       return this;
     }
@@ -419,7 +419,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #asNeeded} (Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).)
      */
-    public DosageInstruction setAsNeeded(Type value) { 
+    public Dosage setAsNeeded(Type value) { 
       this.asNeeded = value;
       return this;
     }
@@ -430,7 +430,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public CodeableConcept getSite() { 
       if (this.site == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.site");
+          throw new Error("Attempt to auto-create Dosage.site");
         else if (Configuration.doAutoCreate())
           this.site = new CodeableConcept(); // cc
       return this.site;
@@ -443,7 +443,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #site} (Body site to administer to.)
      */
-    public DosageInstruction setSite(CodeableConcept value) { 
+    public Dosage setSite(CodeableConcept value) { 
       this.site = value;
       return this;
     }
@@ -454,7 +454,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public CodeableConcept getRoute() { 
       if (this.route == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.route");
+          throw new Error("Attempt to auto-create Dosage.route");
         else if (Configuration.doAutoCreate())
           this.route = new CodeableConcept(); // cc
       return this.route;
@@ -467,7 +467,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #route} (How drug should enter body.)
      */
-    public DosageInstruction setRoute(CodeableConcept value) { 
+    public Dosage setRoute(CodeableConcept value) { 
       this.route = value;
       return this;
     }
@@ -478,7 +478,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public CodeableConcept getMethod() { 
       if (this.method == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.method");
+          throw new Error("Attempt to auto-create Dosage.method");
         else if (Configuration.doAutoCreate())
           this.method = new CodeableConcept(); // cc
       return this.method;
@@ -491,7 +491,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #method} (Technique for administering medication.)
      */
-    public DosageInstruction setMethod(CodeableConcept value) { 
+    public Dosage setMethod(CodeableConcept value) { 
       this.method = value;
       return this;
     }
@@ -536,7 +536,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #dose} (Amount of medication per dose.)
      */
-    public DosageInstruction setDose(Type value) { 
+    public Dosage setDose(Type value) { 
       this.dose = value;
       return this;
     }
@@ -547,7 +547,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public Ratio getMaxDosePerPeriod() { 
       if (this.maxDosePerPeriod == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.maxDosePerPeriod");
+          throw new Error("Attempt to auto-create Dosage.maxDosePerPeriod");
         else if (Configuration.doAutoCreate())
           this.maxDosePerPeriod = new Ratio(); // cc
       return this.maxDosePerPeriod;
@@ -560,7 +560,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #maxDosePerPeriod} (Upper limit on medication per unit of time.)
      */
-    public DosageInstruction setMaxDosePerPeriod(Ratio value) { 
+    public Dosage setMaxDosePerPeriod(Ratio value) { 
       this.maxDosePerPeriod = value;
       return this;
     }
@@ -571,7 +571,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public SimpleQuantity getMaxDosePerAdministration() { 
       if (this.maxDosePerAdministration == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.maxDosePerAdministration");
+          throw new Error("Attempt to auto-create Dosage.maxDosePerAdministration");
         else if (Configuration.doAutoCreate())
           this.maxDosePerAdministration = new SimpleQuantity(); // cc
       return this.maxDosePerAdministration;
@@ -584,7 +584,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #maxDosePerAdministration} (Upper limit on medication per administration.)
      */
-    public DosageInstruction setMaxDosePerAdministration(SimpleQuantity value) { 
+    public Dosage setMaxDosePerAdministration(SimpleQuantity value) { 
       this.maxDosePerAdministration = value;
       return this;
     }
@@ -595,7 +595,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     public SimpleQuantity getMaxDosePerLifetime() { 
       if (this.maxDosePerLifetime == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create DosageInstruction.maxDosePerLifetime");
+          throw new Error("Attempt to auto-create Dosage.maxDosePerLifetime");
         else if (Configuration.doAutoCreate())
           this.maxDosePerLifetime = new SimpleQuantity(); // cc
       return this.maxDosePerLifetime;
@@ -608,7 +608,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #maxDosePerLifetime} (Upper limit on medication per lifetime of the patient.)
      */
-    public DosageInstruction setMaxDosePerLifetime(SimpleQuantity value) { 
+    public Dosage setMaxDosePerLifetime(SimpleQuantity value) { 
       this.maxDosePerLifetime = value;
       return this;
     }
@@ -666,7 +666,7 @@ public class DosageInstruction extends Type implements ICompositeType {
     /**
      * @param value {@link #rate} (Amount of medication per unit of time.)
      */
-    public DosageInstruction setRate(Type value) { 
+    public Dosage setRate(Type value) { 
       this.rate = value;
       return this;
     }
@@ -846,16 +846,16 @@ public class DosageInstruction extends Type implements ICompositeType {
       @Override
       public Base addChild(String name) throws FHIRException {
         if (name.equals("sequence")) {
-          throw new FHIRException("Cannot call addChild on a primitive type DosageInstruction.sequence");
+          throw new FHIRException("Cannot call addChild on a primitive type Dosage.sequence");
         }
         else if (name.equals("text")) {
-          throw new FHIRException("Cannot call addChild on a primitive type DosageInstruction.text");
+          throw new FHIRException("Cannot call addChild on a primitive type Dosage.text");
         }
         else if (name.equals("additionalInstruction")) {
           return addAdditionalInstruction();
         }
         else if (name.equals("patientInstruction")) {
-          throw new FHIRException("Cannot call addChild on a primitive type DosageInstruction.patientInstruction");
+          throw new FHIRException("Cannot call addChild on a primitive type Dosage.patientInstruction");
         }
         else if (name.equals("timing")) {
           this.timing = new Timing();
@@ -918,12 +918,12 @@ public class DosageInstruction extends Type implements ICompositeType {
       }
 
   public String fhirType() {
-    return "DosageInstruction";
+    return "Dosage";
 
   }
 
-      public DosageInstruction copy() {
-        DosageInstruction dst = new DosageInstruction();
+      public Dosage copy() {
+        Dosage dst = new Dosage();
         copyValues(dst);
         dst.sequence = sequence == null ? null : sequence.copy();
         dst.text = text == null ? null : text.copy();
@@ -946,7 +946,7 @@ public class DosageInstruction extends Type implements ICompositeType {
         return dst;
       }
 
-      protected DosageInstruction typedCopy() {
+      protected Dosage typedCopy() {
         return copy();
       }
 
@@ -954,9 +954,9 @@ public class DosageInstruction extends Type implements ICompositeType {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof DosageInstruction))
+        if (!(other instanceof Dosage))
           return false;
-        DosageInstruction o = (DosageInstruction) other;
+        Dosage o = (Dosage) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(text, o.text, true) && compareDeep(additionalInstruction, o.additionalInstruction, true)
            && compareDeep(patientInstruction, o.patientInstruction, true) && compareDeep(timing, o.timing, true)
            && compareDeep(asNeeded, o.asNeeded, true) && compareDeep(site, o.site, true) && compareDeep(route, o.route, true)
@@ -969,9 +969,9 @@ public class DosageInstruction extends Type implements ICompositeType {
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof DosageInstruction))
+        if (!(other instanceof Dosage))
           return false;
-        DosageInstruction o = (DosageInstruction) other;
+        Dosage o = (Dosage) other;
         return compareValues(sequence, o.sequence, true) && compareValues(text, o.text, true) && compareValues(patientInstruction, o.patientInstruction, true)
           ;
       }
