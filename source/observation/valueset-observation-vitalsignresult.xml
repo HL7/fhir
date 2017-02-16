@@ -21,7 +21,7 @@
 		<include>
 			<system value="http://loinc.org"/>
 			<concept>
-				<code value="8716-3"/>
+				<code value="85353-1"/>
 			</concept>
 			<concept>
 				<code value="9279-1"/>
