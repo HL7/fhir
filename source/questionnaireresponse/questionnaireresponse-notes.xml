@@ -11,6 +11,7 @@ purpose of a patient may be about the patient's relatives (e.g. in family anamne
 the subject and the source of information.</li>
 <li>A QuestionnaireResponse may be stand-alone or may point to the form that defines the questions in <a href="questionnaire.html">Questionnaire</a>.  In
 this second case, the linkage between the questions and groups in the two resources is established using the <code>linkId</code> element.</li>
+<li>If a QuestionnaireResponse references a Questionnaire, then the QuestionnaireResponse structure must be consistent with the Questionnaire (i.e. questions must be organized into the same groups, nested questions must still be nested, etc.)</li>
 <li>Because of the lack of explicit support for Questionnaires in <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a>, 
 <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> Documents frequently used named sections with
 Observations to model questionnaires. Such use cases should now utilize the QuestionnaireResponse resource instead.</li>
