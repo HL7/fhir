@@ -185,7 +185,7 @@
  -- Row 13 -----------------------------------
   Element = Observation.related
   Must Support = Y
-  Short Name = Used when reporting systolic and diastolic blood pressure.
+  Short Name = Used when reporting vital signs panel components
 
  -- Row 14 -----------------------------------
   Element = Observation.related.type

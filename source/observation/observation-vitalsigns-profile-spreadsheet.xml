@@ -1168,7 +1168,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">summary-VitalsPanel</Data></Cell>
-    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#10;####Complete Summary of the Mandatory Requirements&#10;&#10;1.  One code in `Observation.code` which must have&#10;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#10;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#10;    -   Other additional codes are allowed - e.g. more specific LOINC&#10;        Codes, SNOMED CT concepts, system specific codes. All codes&#10;        SHALL have an system value&#10;1.  No value in `Observation.value[x]`&#10;1.  At Least one Vitals Sign Observation reference in `Observation.related`</Data></Cell>
+    <Cell ss:StyleID="s84"><Data ss:Type="String">####Complete Summary of the Mandatory Requirements&#10;&#10;1.  One code in `Observation.code` which must have&#10;    -   a fixed `Observation.code.coding.system`=**'http ://loinc.org'**&#10;    -   a fixed  `Observation.code.coding.code`= **'85353-1'**&#10;    -   Other additional codes are allowed - e.g. more specific LOINC&#10;        Codes, SNOMED CT concepts, system specific codes. All codes&#10;        SHALL have an system value&#10;1.  No value in `Observation.value[x]`&#10;1.  At Least one Vitals Sign Observation reference in `Observation.related`</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1204,7 +1204,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>34</ActiveRow>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -1739,7 +1740,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Used when reporting systolic and diastolic blood pressure.</Data><NamedCell
+    <Cell ss:StyleID="s108"><Data ss:Type="String">Used when reporting vital signs panel components</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3901,7 +3902,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3916,7 +3917,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

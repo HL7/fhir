@@ -433,7 +433,7 @@
   Card. = 0..1
   Aliases = occurance
   Summary = Y
-  Type = dateTime | Period | Timing
+  Type = dateTime | Period
   Short Name = Clinically relevant time/time-period for observation
   Definition = The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself
   Requirements = Knowing when an observation was deemed true is important to its relevance as well as determining trends
