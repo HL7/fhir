@@ -386,7 +386,7 @@
   Element = MedicationStatement.dosage
   Card. = 0..*
   UML = right
-  Type = DosageInstruction
+  Type = Dosage
   Short Name = Details of how medication was taken
   Definition = Indicates how the medication is/was used by the patient
   Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.

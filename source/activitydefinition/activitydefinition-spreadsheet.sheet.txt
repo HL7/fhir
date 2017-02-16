@@ -291,7 +291,7 @@
  -- Row 32 -----------------------------------
   Element = ActivityDefinition.dosageInstruction
   Card. = 0..*
-  Type = DosageInstruction
+  Type = Dosage
   Short Name = Detailed dosage instructions
   Definition = Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources
   Comments = If a dosage instruction is used, the definition should not specify timing or quantity

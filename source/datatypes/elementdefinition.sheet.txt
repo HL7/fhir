@@ -361,6 +361,7 @@
   Comments = See also the extension (http://hl7.org/fhir/StructureDefinition/elementdefinition-question)[extension-elementdefinition-question.html]
   RIM Mapping = ./code/display
   11179 Mapping = n/a
+  Translatable = y
 
  -- Row 6 -----------------------------------
   Element = ElementDefinition.code
@@ -422,6 +423,7 @@
   Definition = A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated
   Comments = If it\'s really not possible to differentiate them, the design should be re-evaluated to make the content usable.
   RIM Mapping = N/A
+  Translatable = y
 
  -- Row 12 -----------------------------------
   Element = ElementDefinition.slicing.ordered
@@ -454,6 +456,7 @@
   Comments = May change the term to provide language more appropriate to the context of the profile or to reflect slicing
   RIM Mapping = N/A
   11179 Mapping = N/A
+  Translatable = y
 
  -- Row 15 -----------------------------------
   Element = ElementDefinition.definition
@@ -468,6 +471,7 @@
   RIM Mapping = ./text
   11179 Mapping = (Designatable_Item).definition.text  acceptability=preferred in default context
   LOINC Code = TERM DEFINITION/DESCRIPTION(S)
+  Translatable = y
 
  -- Row 16 -----------------------------------
   Element = ElementDefinition.comments
@@ -480,6 +484,7 @@
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Administered_Item).explanatory_comment
   LOINC Code = COMMENTS
+  Translatable = y
 
  -- Row 17 -----------------------------------
   Element = ElementDefinition.requirements
@@ -491,6 +496,7 @@
   RIM Mapping = ./inboundRelationship[typeCode=META]/source[classCode=ACT, moodCode=EVN, isCriterionInd=true]/reasonCode/originalText
   11179 Mapping = (Registered_item).document_reference[document_type=requirements].notation
   LOINC Code = R/O/C
+  Translatable = y
 
  -- Row 18 -----------------------------------
   Element = ElementDefinition.alias
@@ -504,6 +510,7 @@
   RIM Mapping = Not currently expressible
   11179 Mapping = (Designatable_Item).designation.sign  acceptability!=preferred or context is other than default
   LOINC Code = RELATED NAMES (only some of these apply)
+  Translatable = y
 
  -- Row 19 -----------------------------------
   Element = ElementDefinition.min
@@ -661,6 +668,7 @@
   Definition = The Implicit meaning that is to be understood when this element is missing (e.g. \'when this element is missing, the period is ongoing\'
   Comments = Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope
   RIM Mapping = N/A (MIF territory)
+  Translatable = y
 
  -- Row 34 -----------------------------------
   Element = ElementDefinition.orderMeaning
@@ -707,6 +715,7 @@
   Short Name = Describes the purpose of this example
   Definition = Describes the purpose of this example amoung the set of examples
   RIM Mapping = N/A (MIF territory)
+  Translatable = y
 
  -- Row 39 -----------------------------------
   Element = ElementDefinition.example.value[x]
@@ -795,6 +804,7 @@
   Short Name = Human description of constraint
   Definition = Text that can be used to describe the constraint in messages identifying that the constraint has been violated
   Comments = Should be expressed in business terms as much as possible
+  Translatable = y
 
  -- Row 49 -----------------------------------
   Element = ElementDefinition.constraint.expression
@@ -889,6 +899,7 @@
   Definition = Describes the intended use of this particular set of codes
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.description
+  Translatable = y
 
  -- Row 58 -----------------------------------
   Element = ElementDefinition.binding.valueSet[x]

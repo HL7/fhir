@@ -1,0 +1,196 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = AdditionalInstruction
+  Binding = value set
+  Reference = valueset-additional-instruction-codes
+  Definition = A coded concept identifying additional instructions such as \"take with water\" or \"avoid operating heavy machinery\".
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = MedicationAsNeededReason
+  Binding = value set
+  Reference = valueset-medication-as-needed-reason
+  Definition = A coded concept identifying the precondition that should be met or evaluated prior to consuming or administering a medication dose.  For example \"pain\", \"30 minutes prior to sexual intercourse\", \"on flare-up\" etc.
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = MedicationAdministrationSite
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/approach-site-codes
+  Definition = A coded concept describing the site location the medicine enters into or onto the body.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = MedicationAdministrationMethod
+  Binding = value set
+  Reference = valueset-administration-method-codes
+  Definition = A coded concept describing the technique by which the medicine is administered.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = RouteOfAdministration
+  Binding = value set
+  Reference = valueset-route-codes
+  Definition = A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+  Conformance = example
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Dosage
+  Type = Structure
+  Short Name = How the medication is/was taken or should be taken
+  Definition = Indicates how the medication is/was taken or should be taken by the patient.
+  RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
+
+ -- Row 2 -----------------------------------
+  Element = Dosage.sequence
+  Card. = 0..1
+  Type = integer
+  Short Name = The order of the dosage instructions
+  Definition = Indicates the order in which the dosage instructions should be applied or interpreted
+  Requirements = If the sequence number of multiple Dosages is the same, then it is implied that the instructions are to be treated as concurrent.  If the sequence number is different, then the Dosages are intended to be sequential.
+  RIM Mapping = .text
+  Committee Notes = Need to add an invariant - once you have a Dosage with asequence, all Dosages mut have a sequence.
+
+ -- Row 3 -----------------------------------
+  Element = Dosage.text
+  Card. = 0..1
+  Type = string
+  Short Name = Free text dosage instructions e.g. SIG
+  Definition = Free text dosage instructions e.g. SIG
+  Requirements = Free text dosage instructions can be used for cases where the instructions are too complex to code.  The content of this attribute does not include the name or description of the medication. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication. It is expected that the text instructions will always be populated.  If the dosage.timing attribute is also populated, then the dosage.text should reflect the same information as the timing.
+  RIM Mapping = .text
+
+ -- Row 4 -----------------------------------
+  Element = Dosage.additionalInstruction
+  Card. = 0..*
+  UML = //element(*,SIGType)/Timing
+  Type = CodeableConcept
+  Binding = AdditionalInstruction
+  Short Name = Supplemental instruction - e.g. \"with meals\"
+  Definition = Supplemental instruction - e.g. \"with meals\"
+  Requirements = Additional instruction such as \"Swallow with plenty of water\" which may or may not be coded.
+  RIM Mapping = .text
+
+ -- Row 5 -----------------------------------
+  Element = Dosage.patientInstruction
+  Card. = 0..1
+  Type = string
+  Short Name = Patient or consumer oriented instructions
+  Definition = Instructions in terms that are understood by the patient or consumer
+  RIM Mapping = .text
+
+ -- Row 6 -----------------------------------
+  Element = Dosage.timing
+  Card. = 0..1
+  UML = //element(*,SIGType)/SiteofAdministration
+  Type = Timing
+  Short Name = When medication should be administered
+  Definition = When medication should be administered
+  Requirements = The timing schedule for giving the medication to the patient. The Schedule data type allows many different expressions. For example: \"Every 8 hours\"; \"Three times a day\"; \"1/2 an hour before breakfast for 10 days from 23-Dec 2011:\"; \"15 Oct 2013, 17 Oct 2013 and 1 Nov 2013\".  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
+  Comments = This attribute may not always be populated while the Dosage.text is expected to be populated.  If both are populated, then the Dosage.text should reflect the content of the Dosage.timing.
+  RIM Mapping = .effectiveTime
+
+ -- Row 7 -----------------------------------
+  Element = Dosage.asNeeded[x]
+  Card. = 0..1
+  UML = Message/Body/NewRx/MedicationPrescribed/StructuredSIG/SiteofAdministration
+  Type = boolean | CodeableConcept
+  Binding = MedicationAsNeededReason
+  Short Name = Take \"as needed\" (for x)
+  Definition = Indicates whether the Medication is only taken when needed within a specific dosing schedule (Boolean option), or it indicates the precondition for taking the Medication (CodeableConcept).
+  Comments = Can express \"as needed\" without a reason by setting the Boolean = True.  In this case the CodeableConcept is not populated.  Or you can express \"as needed\" with a reason by including the CodeableConcept.  In this case the Boolean is assumed to be True.  If you set the Boolean to False, then the dose is given according to the schedule and is not \"prn\" or \"as needed\"
+  RIM Mapping = .outboundRelationship[typeCode=PRCN].target[classCode=OBS, moodCode=EVN, code=\"as needed\"].value=boolean or codable concept
+
+ -- Row 8 -----------------------------------
+  Element = Dosage.site
+  Card. = 0..1
+  UML = //element(*,SIGType)/RouteofAdministration
+  Type = CodeableConcept
+  Binding = MedicationAdministrationSite
+  Short Name = Body site to administer to
+  Definition = Body site to administer to
+  Requirements = A coded specification of the anatomic site where the medication first enters the body
+  Comments = If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension [body-site-instance](extension-body-site-instance.html).  May be a summary code, or a reference to a very precise definition of the location, or both
+  RIM Mapping = .approachSiteCode
+
+ -- Row 9 -----------------------------------
+  Element = Dosage.route
+  Card. = 0..1
+  UML = //element(*,SIGType)/Dose/DoseDeliveryMethodCode
+  Type = CodeableConcept
+  Binding = RouteOfAdministration
+  Short Name = How drug should enter body
+  Definition = How drug should enter body
+  Requirements = A code specifying the route or physiological path of administration of a therapeutic agent into or onto a patient\'s body.
+  RIM Mapping = .routeCode
+
+ -- Row 10 -----------------------------------
+  Element = Dosage.method
+  Card. = 0..1
+  UML = //element(*,SIGType)/Dose
+  Type = CodeableConcept
+  Binding = MedicationAdministrationMethod
+  Short Name = Technique for administering medication
+  Definition = Technique for administering medication
+  Requirements = A coded value indicating the method by which the medication is introduced into or onto the body. Most commonly used for injections.  For examples, Slow Push; Deep IV.
+  Comments = Terminologies used often pre-coordinate this term with the route and or form of administration.
+  RIM Mapping = .doseQuantity
+
+ -- Row 11 -----------------------------------
+  Element = Dosage.dose[x]
+  Card. = 0..1
+  UML = //element(*,SIGType)/MaximumDoseRestriction
+  Type = Range | SimpleQuantity
+  Short Name = Amount of medication per dose
+  Definition = Amount of medication per dose
+  Requirements = The amount of therapeutic or other substance given at one administration event.
+  Comments = Note that this specifies the quantity of the specified medication, not the quantity for each active ingredient(s). Each ingredient amount can be communicated in the Medication resource. For example, if one wants to communicate that a tablet was 375 mg, where the dose was one tablet, you can use the Medication resource to document that the tablet was comprised of 375 mg of drug XYZ. Alternatively if the dose was 375 mg, then you may only need to use the Medication resource to indicate this was a tablet. If the example were an IV such as dopamine and you wanted to communicate that 400mg of dopamine was mixed in 500 ml of some IV solution, then this would all be communicated in the Medication resource. If the administration is not intended to be instantaneous (rate is present or timing has a duration), this can be specified to convey the total amount to be administered over the period of time as indicated by the schedule e.g. 500 ml in dose, with timing used to convey that this should be done over 4 hours.
+  RIM Mapping = .doseQuantity
+
+ -- Row 12 -----------------------------------
+  Element = Dosage.maxDosePerPeriod
+  Card. = 0..1
+  UML = //element(*,SIGType)/MaximumDoseRestriction
+  Type = Ratio
+  Short Name = Upper limit on medication per unit of time
+  Definition = Upper limit on medication per unit of time
+  Requirements = The maximum total quantity of a therapeutic substance that may be administered to a subject over the period of time.  For example, 1000mg in 24 hours.
+  Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example \"2 tablets every 4 hours to a maximum of 8/day\"
+  RIM Mapping = .maxDoseQuantity
+
+ -- Row 13 -----------------------------------
+  Element = Dosage.maxDosePerAdministration
+  Card. = 0..1
+  UML = //element(*,SIGType)/MaximumDoseRestriction
+  Type = SimpleQuantity
+  Short Name = Upper limit on medication per administration
+  Definition = Upper limit on medication per administration
+  Requirements = The maximum total quantity of a therapeutic substance that may be administered to a subject per administration.
+  Comments = This is intended for use as an adjunct to the dosage when there is an upper cap.  For example, a body surface area related dose with a maximum amount, such as 1.5 mg/m2 (maximum 2 mg) IV over 5 – 10 minutes would have doseQuantity of 1.5 mg/m2 and maxDosePerAdministration of 2 mg.
+  RIM Mapping = not supported
+
+ -- Row 14 -----------------------------------
+  Element = Dosage.maxDosePerLifetime
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Name = Upper limit on medication per lifetime of the patient
+  Definition = Upper limit on medication per lifetime of the patient
+  Requirements = The maximum total quantity of a therapeutic substance that may be administered per lifetime of the subject.
+  RIM Mapping = not supported
+
+ -- Row 15 -----------------------------------
+  Element = Dosage.rate[x]
+  Card. = 0..1
+  UML = no mapping
+  Type = Ratio|Range | SimpleQuantity
+  Short Name = Amount of medication per unit of time
+  Definition = Amount of medication per unit of time
+  Requirements = Identifies the speed with which the medication was or will be introduced into the patient. Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.   Other examples: 200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.  Sometimes, a rate can imply duration when expressed as total volume / duration (e.g.  500mL/2 hours implies a duration of 2 hours).  However, when rate doesn\'t imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.
+  Comments = It is possible to supply both a rate and a doseQuantity to provide full details about how the medication is to be administered and supplied. If the rate is intended to change over time, depending on local rules/regulations, each change should be captured as a new version of the MedicationRequest with an updated rate, or captured with a new MedicationRequest with the new rate.
+  RIM Mapping = .rateQuantity
