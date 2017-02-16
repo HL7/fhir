@@ -1,1507 +1,1515 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="languages"/>
-  <meta>
-    <lastUpdated value="2016-08-22T09:53:05.364+00:00"/>
-    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-  </meta>
-
-  <url value="http://hl7.org/fhir/ValueSet/languages"/>
-  <identifier>
-    <system value="urn:ietf:rfc:3986"/>
-    <value value="urn:oid:2.16.840.1.113883.4.642.2.languages"/>
-  </identifier>
-  <version value="1.9.0"/>
-  <name value="Common Languages"/>
-  <status value="draft"/>
-  <experimental value="true"/>
-  <publisher value="HL7 International - FHIR-Infrastructure"/>
-  <contact>
-    <telecom>
-      <system value="url"/>
-      <value value="http://hl7.org/fhir"/>
-    </telecom>
-  </contact>
-  <date value="2016-08-22T09:53:05+00:00"/>
-  <description value="This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)"/>
-  <compose>
-    <include>
-      <system value="urn:ietf:bcp:47"/>
-      <concept>
-        <code value="ar"/>
-        <display value="Arabic"/>
-        <designation>
-          <language value="da"/>
-          <value value="Arabisk"/>
-        </designation>
-        <designation>
-          <language value="en"/>
-          <value value="Arabic"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="bn"/>
-        <display value="Bengali"/>
-        <designation>
-          <language value="en"/>
-          <value value="Bengali"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Bengaals"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Бенгальский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="孟加拉语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Bengalisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Bengalsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="cs"/>
-        <display value="Czech"/>
-        <designation>
-          <language value="en"/>
-          <value value="Czech"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Tsjechisch"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Чешский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="捷克语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Tschechisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Tjekkisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="da"/>
-        <display value="Danish"/>
-        <designation>
-          <language value="en"/>
-          <value value="Danish"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Deens"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Датский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="丹麦语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Dänisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Dansk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="de"/>
-        <display value="German"/>
-        <designation>
-          <language value="en"/>
-          <value value="German"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Duits"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Немецкий"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="德语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Deutsch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Tysk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="de-AT"/>
-        <display value="German (Austria)"/>
-        <designation>
-          <language value="en"/>
-          <value value="German (Austria)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Duits (Oostenrijk)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Немецкий (Австрия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="德语 （奥地利）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Deutsch (Österreich)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Tysk (Østrig"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="de-CH"/>
-        <display value="German (Switzerland)"/>
-        <designation>
-          <language value="en"/>
-          <value value="German (Switzerland)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Duits (Zwitserland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Немецкий (Швейцария)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="德语 （瑞士）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Deutsch (Schweiz)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Tysk (Schweiz)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="de-DE"/>
-        <display value="German (Germany)"/>
-        <designation>
-          <language value="en"/>
-          <value value="German (Germany)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Duits (Duitsland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Немецкий (Германия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="德语 （德国）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Deutsch (Deutschland)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Tysk (Tyskland)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="el"/>
-        <display value="Greek"/>
-        <designation>
-          <language value="en"/>
-          <value value="Greek"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Grieks"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Греческий"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="希腊语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Griechisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Græsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en"/>
-        <display value="English"/>
-        <designation>
-          <language value="en"/>
-          <value value="English"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-AU"/>
-        <display value="English (Australia)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (Australia)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Australië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Австралия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （澳大利亚）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Australien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Australien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-CA"/>
-        <display value="English (Canada)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (Canada)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Canada)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Канада)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （加拿大）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Kanada)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Canada)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-GB"/>
-        <display value="English (Great Britain)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (Great Britain)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Groot Brittannië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Великобритания)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （英国）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Großbritannien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Storbritannien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-IN"/>
-        <display value="English (India)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (India)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (India)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Индия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （印度）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Indien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Indien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-NZ"/>
-        <display value="English (New Zeland)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (New Zeland)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Nieuw Zeeland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Новая Зеландия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （新西兰）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Neuseeland)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (New Zeeland)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-SG"/>
-        <display value="English (Singapore)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (Singapore)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Singapore)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (Сингапур)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （新加坡）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (Singapur)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Singapore)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="en-US"/>
-        <display value="English (United States)"/>
-        <designation>
-          <language value="en"/>
-          <value value="English (United States)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Engels (Verenigde Staten)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Английский (США)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="英语 （美国）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Englisch (USA)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Engelsk (Amerikansk)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="es"/>
-        <display value="Spanish"/>
-        <designation>
-          <language value="en"/>
-          <value value="Spanish"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Spaans"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Испанский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="西班牙语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Spanisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Spansk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="es-AR"/>
-        <display value="Spanish (Argentina)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Spanish (Argentina)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Spaans (Argentinië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Испанский (Аргентина)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="西班牙语 （阿根廷）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Spanisch (Argentinien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Spansk (Argentina)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="es-ES"/>
-        <display value="Spanish (Spain)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Spanish (Spain)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Spaans (Spanje)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Испанский (Испания)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="西班牙语 （西班牙）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Spanisch (Spanien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Spansk (Spanien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="es-UY"/>
-        <display value="Spanish (Uruguay)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Spanish (Uruguay)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Spaans (Uruguay)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Испанский (Уругвай)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="西班牙语 （乌拉圭）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Spanisch (Uruguay)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Spansk (Uruguay)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fi"/>
-        <display value="Finnish"/>
-        <designation>
-          <language value="en"/>
-          <value value="Finnish"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Fins"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Финский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="芬兰语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Finnisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Finsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fr"/>
-        <display value="French"/>
-        <designation>
-          <language value="en"/>
-          <value value="French"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Frans"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Французский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="法语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Französisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Fransk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fr-BE"/>
-        <display value="French (Belgium)"/>
-        <designation>
-          <language value="en"/>
-          <value value="French (Belgium)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Frans (België)"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Französisch (Belgien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Finsk (Belgien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fr-CH"/>
-        <display value="French (Switzerland)"/>
-        <designation>
-          <language value="en"/>
-          <value value="French (Switzerland)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Frans (Zwitserland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Французский (Швейцария)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="法语 （比利时）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Französisch (Schweiz)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Fransk (Schweiz)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fr-FR"/>
-        <display value="French (France)"/>
-        <designation>
-          <language value="en"/>
-          <value value="French (France)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Frans (Frankrijk)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Французский (Франция)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="法语 （瑞士）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Französisch (Frankreich)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Fransk (Frankrig)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fy"/>
-        <display value="Frysian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Frysian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Fries"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="弗里士兰语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Friesisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Frisisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="fy-NL"/>
-        <display value="Frysian (Netherlands)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Frysian (Netherlands)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Fries (Nederland)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="弗里士兰语（荷兰）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Friesisch (Niederlande)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Frisisk (Holland)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="hi"/>
-        <display value="Hindi"/>
-        <designation>
-          <language value="da"/>
-          <value value="Hindi"/>
-        </designation>
-        <designation>
-          <language value="en"/>
-          <value value="Hindi"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="hr"/>
-        <display value="Croatian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Croatian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Kroatisch"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Хорватский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="克罗地亚语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Kroatisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kroatisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="it"/>
-        <display value="Italian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Italian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Italiaans"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Итальянский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="意大利语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Italienisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Italiensk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="it-CH"/>
-        <display value="Italian (Switzerland)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Italian (Switzerland)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Italiaans (Zwitserland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Итальянский (Швейцария)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="意大利语 （瑞士）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Italienisch (Schweiz)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Italiensk (Schweiz)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="it-IT"/>
-        <display value="Italian (Italy)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Italian (Italy)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Italiaans (Italië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Итальянский (Италия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="意大利语 （意大利）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Italienisch (Italien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Italiensk (Italien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="ja"/>
-        <display value="Japanese"/>
-        <designation>
-          <language value="en"/>
-          <value value="Japanese"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Japans"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Японский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="日语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Japanisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Japansk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="ko"/>
-        <display value="Korean"/>
-        <designation>
-          <language value="en"/>
-          <value value="Korean"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Koreaans"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Корейский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="朝鲜语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Koreanisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Koreansk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="nl"/>
-        <display value="Dutch"/>
-        <designation>
-          <language value="en"/>
-          <value value="Dutch"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Nederlands"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Нидерландский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="荷兰语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Niederländisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Hollandsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="nl-BE"/>
-        <display value="Dutch (Belgium)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Dutch (Belgium)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Nederlands (België)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="荷兰语 （比利时）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Niederländisch (Belgien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Hollandsk (Belgien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="nl-NL"/>
-        <display value="Dutch (Netherlands)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Dutch (Netherlands)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Nederlands (Nederland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Нидерландский (Нидерланды)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="荷兰语 （荷兰）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Niederländisch (Niederlande)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Hollandsk (Holland)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="no"/>
-        <display value="Norwegian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Norwegian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Noors"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Норвежский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="挪威语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Norwegisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Norsk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="no-NO"/>
-        <display value="Norwegian (Norway)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Norwegian (Norway)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Noors (Noorwegen)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Норвежский (Норвегия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="挪威语 （挪威）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Norwegisch (Norwegen)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Norsk (Norge)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="pa"/>
-        <display value="Punjabi"/>
-        <designation>
-          <language value="da"/>
-          <value value="Punjabi"/>
-        </designation>
-        <designation>
-          <language value="en"/>
-          <value value="Punjabi"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="pt"/>
-        <display value="Portuguese"/>
-        <designation>
-          <language value="en"/>
-          <value value="Portuguese"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Portugees"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Португальский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="葡萄牙语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Portugiesisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Portugisisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="pt-BR"/>
-        <display value="Portuguese (Brazil)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Portuguese (Brazil)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Portugees (Brazilië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Португальский (Бразилия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="葡萄牙语 （巴西）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Portugiesisch (Brasilien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Portugisisk (Brasilien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="ru"/>
-        <display value="Russian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Russian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Russisch"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Русский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="俄语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Russisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Russisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="ru-RU"/>
-        <display value="Russian (Russia)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Russian (Russia)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Russisch (Rusland)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Русский (Россия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="俄语 （俄罗斯）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Russisch (Russland)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Russisk (Rusland)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="sr"/>
-        <display value="Serbian"/>
-        <designation>
-          <language value="en"/>
-          <value value="Serbian"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Servisch"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Сербский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="塞尔维亚语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Serbisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Serbisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="sr-SP"/>
-        <display value="Serbian (Serbia)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Serbian (Serbia)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Servisch (Servië)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Сербский (Сербия)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="塞尔维亚语 （塞尔维亚）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Serbisch (Serbien)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Serbisk (Serbien)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="sv"/>
-        <display value="Swedish"/>
-        <designation>
-          <language value="en"/>
-          <value value="Swedish"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Zweeds"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Шведский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="瑞典语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Schwedisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Svensk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="sv-SE"/>
-        <display value="Swedish (Sweden)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Swedish (Sweden)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Zweeds (Zweden)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Шведский (Швеция)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="瑞典语 （瑞典）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Schwedisch (Schweden)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Svensk (Sverige)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="te"/>
-        <display value="Telegu"/>
-        <designation>
-          <language value="en"/>
-          <value value="Telegu"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Teloegoe"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Телугу"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="泰卢固语"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Telugu"/>
-        </designation>
-
-
-        <designation>
-          <language value="da"/>
-          <value value="Telugu"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="zh"/>
-        <display value="Chinese"/>
-        <designation>
-          <language value="en"/>
-          <value value="Chinese"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Chinees"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Kитайский"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="中文"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Chinesisch"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kinesisk"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="zh-CN"/>
-        <display value="Chinese (China)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Chinese (China)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Chinees (China)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Kитайский (Китай)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="中文 （中国）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Chinesisch (China)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kinesisk (Kina)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="zh-HK"/>
-        <display value="Chinese (Hong Kong)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Chinese (Hong Kong)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Chinees (Hong Kong)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Kитайский (Гонконг)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="中文 （香港特别行政区）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Chinesisch (Hong Kong)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kinesisk (Hong Kong)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="zh-SG"/>
-        <display value="Chinese (Singapore)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Chinese (Singapore)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Chinees (Singapore)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Kитайский (Сингапур)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="中文 （新加坡）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Chinesisch (Singapur)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kinesisk (Singapore)"/>
-        </designation>
-      </concept>
-      <concept>
-        <code value="zh-TW"/>
-        <display value="Chinese (Taiwan)"/>
-        <designation>
-          <language value="en"/>
-          <value value="Chinese (Taiwan)"/>
-        </designation>
-        <designation>
-          <language value="nl"/>
-          <value value="Chinees (Taiwan)"/>
-        </designation>
-        <designation>
-          <language value="ru"/>
-          <value value="Kитайский (Тайвань)"/>
-        </designation>
-        <designation>
-          <language value="zh"/>
-          <value value="中文 （台湾）"/>
-        </designation>
-        <designation>
-          <language value="de"/>
-          <value value="Chinesisch (Taiwan)"/>
-        </designation>
-        <designation>
-          <language value="da"/>
-          <value value="Kinesisk (Taiwan)"/>
-        </designation>
-      </concept>
-    </include>
-  </compose>
+    <id value="languages"/>
+    <meta>
+        <lastUpdated value="2016-08-22T09:53:05.364+00:00"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+    </meta>
+    <url value="http://hl7.org/fhir/ValueSet/languages"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.4.642.2.languages"/>
+    </identifier>
+    <version value="1.9.0"/>
+    <name value="Common Languages"/>
+    <status value="draft"/>
+    <experimental value="true"/>
+    <publisher value="HL7 International - FHIR-Infrastructure"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://hl7.org/fhir"/>
+        </telecom>
+    </contact>
+    <date value="2016-08-22T09:53:05+00:00"/>
+    <description value="This value set includes common codes from BCP-47 (http://tools.ietf.org/html/bcp47)"/>
+    <compose>
+        <include>
+            <system value="urn:ietf:bcp:47"/>
+            <concept>
+                <code value="ar"/>
+                <display value="Arabic"/>
+                <designation>
+                    <language value="da"/>
+                    <value value="Arabisk"/>
+                </designation>
+                <designation>
+                    <language value="en"/>
+                    <value value="Arabic"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Arabisch"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="bn"/>
+                <display value="Bengali"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Bengali"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Bengaals"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Бенгальский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="孟加拉语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Bengalisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Bengalsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="cs"/>
+                <display value="Czech"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Czech"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Tsjechisch"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Чешский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="捷克语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Tschechisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Tjekkisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="da"/>
+                <display value="Danish"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Danish"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Deens"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Датский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="丹麦语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Dänisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Dansk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="de"/>
+                <display value="German"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="German"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Duits"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Немецкий"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="德语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Deutsch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Tysk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="de-AT"/>
+                <display value="German (Austria)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="German (Austria)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Duits (Oostenrijk)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Немецкий (Австрия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="德语 （奥地利）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Deutsch (Österreich)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Tysk (Østrig"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="de-CH"/>
+                <display value="German (Switzerland)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="German (Switzerland)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Duits (Zwitserland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Немецкий (Швейцария)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="德语 （瑞士）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Deutsch (Schweiz)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Tysk (Schweiz)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="de-DE"/>
+                <display value="German (Germany)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="German (Germany)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Duits (Duitsland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Немецкий (Германия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="德语 （德国）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Deutsch (Deutschland)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Tysk (Tyskland)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="el"/>
+                <display value="Greek"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Greek"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Grieks"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Греческий"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="希腊语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Griechisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Græsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en"/>
+                <display value="English"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-AU"/>
+                <display value="English (Australia)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (Australia)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Australië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Австралия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （澳大利亚）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Australien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Australien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-CA"/>
+                <display value="English (Canada)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (Canada)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Canada)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Канада)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （加拿大）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Kanada)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Canada)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-GB"/>
+                <display value="English (Great Britain)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (Great Britain)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Groot Brittannië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Великобритания)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （英国）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Großbritannien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Storbritannien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-IN"/>
+                <display value="English (India)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (India)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (India)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Индия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （印度）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Indien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Indien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-NZ"/>
+                <display value="English (New Zeland)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (New Zeland)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Nieuw Zeeland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Новая Зеландия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （新西兰）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Neuseeland)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (New Zeeland)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-SG"/>
+                <display value="English (Singapore)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (Singapore)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Singapore)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (Сингапур)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （新加坡）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (Singapur)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Singapore)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="en-US"/>
+                <display value="English (United States)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="English (United States)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Engels (Verenigde Staten)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Английский (США)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="英语 （美国）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Englisch (USA)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Engelsk (Amerikansk)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="es"/>
+                <display value="Spanish"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Spanish"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Spaans"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Испанский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="西班牙语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Spanisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Spansk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="es-AR"/>
+                <display value="Spanish (Argentina)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Spanish (Argentina)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Spaans (Argentinië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Испанский (Аргентина)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="西班牙语 （阿根廷）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Spanisch (Argentinien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Spansk (Argentina)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="es-ES"/>
+                <display value="Spanish (Spain)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Spanish (Spain)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Spaans (Spanje)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Испанский (Испания)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="西班牙语 （西班牙）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Spanisch (Spanien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Spansk (Spanien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="es-UY"/>
+                <display value="Spanish (Uruguay)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Spanish (Uruguay)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Spaans (Uruguay)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Испанский (Уругвай)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="西班牙语 （乌拉圭）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Spanisch (Uruguay)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Spansk (Uruguay)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fi"/>
+                <display value="Finnish"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Finnish"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Fins"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Финский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="芬兰语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Finnisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Finsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fr"/>
+                <display value="French"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="French"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Frans"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Французский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="法语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Französisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Fransk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fr-BE"/>
+                <display value="French (Belgium)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="French (Belgium)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Frans (België)"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Französisch (Belgien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Finsk (Belgien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fr-CH"/>
+                <display value="French (Switzerland)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="French (Switzerland)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Frans (Zwitserland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Французский (Швейцария)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="法语 （比利时）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Französisch (Schweiz)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Fransk (Schweiz)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fr-FR"/>
+                <display value="French (France)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="French (France)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Frans (Frankrijk)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Французский (Франция)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="法语 （瑞士）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Französisch (Frankreich)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Fransk (Frankrig)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fy"/>
+                <display value="Frysian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Frysian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Fries"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="弗里士兰语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Friesisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Frisisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="fy-NL"/>
+                <display value="Frysian (Netherlands)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Frysian (Netherlands)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Fries (Nederland)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="弗里士兰语（荷兰）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Friesisch (Niederlande)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Frisisk (Holland)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="hi"/>
+                <display value="Hindi"/>
+                <designation>
+                    <language value="da"/>
+                    <value value="Hindi"/>
+                </designation>
+                <designation>
+                    <language value="en"/>
+                    <value value="Hindi"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Hindi"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="hr"/>
+                <display value="Croatian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Croatian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Kroatisch"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Хорватский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="克罗地亚语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Kroatisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kroatisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="it"/>
+                <display value="Italian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Italian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Italiaans"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Итальянский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="意大利语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Italienisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Italiensk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="it-CH"/>
+                <display value="Italian (Switzerland)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Italian (Switzerland)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Italiaans (Zwitserland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Итальянский (Швейцария)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="意大利语 （瑞士）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Italienisch (Schweiz)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Italiensk (Schweiz)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="it-IT"/>
+                <display value="Italian (Italy)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Italian (Italy)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Italiaans (Italië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Итальянский (Италия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="意大利语 （意大利）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Italienisch (Italien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Italiensk (Italien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="ja"/>
+                <display value="Japanese"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Japanese"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Japans"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Японский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="日语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Japanisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Japansk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="ko"/>
+                <display value="Korean"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Korean"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Koreaans"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Корейский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="朝鲜语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Koreanisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Koreansk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="nl"/>
+                <display value="Dutch"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Dutch"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Nederlands"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Нидерландский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="荷兰语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Niederländisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Hollandsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="nl-BE"/>
+                <display value="Dutch (Belgium)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Dutch (Belgium)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Nederlands (België)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="荷兰语 （比利时）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Niederländisch (Belgien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Hollandsk (Belgien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="nl-NL"/>
+                <display value="Dutch (Netherlands)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Dutch (Netherlands)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Nederlands (Nederland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Нидерландский (Нидерланды)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="荷兰语 （荷兰）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Niederländisch (Niederlande)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Hollandsk (Holland)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="no"/>
+                <display value="Norwegian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Norwegian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Noors"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Норвежский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="挪威语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Norwegisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Norsk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="no-NO"/>
+                <display value="Norwegian (Norway)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Norwegian (Norway)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Noors (Noorwegen)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Норвежский (Норвегия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="挪威语 （挪威）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Norwegisch (Norwegen)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Norsk (Norge)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="pa"/>
+                <display value="Punjabi"/>
+                <designation>
+                    <language value="da"/>
+                    <value value="Punjabi"/>
+                </designation>
+                <designation>
+                    <language value="en"/>
+                    <value value="Punjabi"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Punjabi"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="pt"/>
+                <display value="Portuguese"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Portuguese"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Portugees"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Португальский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="葡萄牙语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Portugiesisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Portugisisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="pt-BR"/>
+                <display value="Portuguese (Brazil)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Portuguese (Brazil)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Portugees (Brazilië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Португальский (Бразилия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="葡萄牙语 （巴西）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Portugiesisch (Brasilien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Portugisisk (Brasilien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="ru"/>
+                <display value="Russian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Russian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Russisch"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Русский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="俄语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Russisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Russisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="ru-RU"/>
+                <display value="Russian (Russia)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Russian (Russia)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Russisch (Rusland)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Русский (Россия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="俄语 （俄罗斯）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Russisch (Russland)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Russisk (Rusland)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="sr"/>
+                <display value="Serbian"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Serbian"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Servisch"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Сербский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="塞尔维亚语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Serbisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Serbisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="sr-SP"/>
+                <display value="Serbian (Serbia)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Serbian (Serbia)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Servisch (Servië)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Сербский (Сербия)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="塞尔维亚语 （塞尔维亚）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Serbisch (Serbien)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Serbisk (Serbien)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="sv"/>
+                <display value="Swedish"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Swedish"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Zweeds"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Шведский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="瑞典语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Schwedisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Svensk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="sv-SE"/>
+                <display value="Swedish (Sweden)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Swedish (Sweden)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Zweeds (Zweden)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Шведский (Швеция)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="瑞典语 （瑞典）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Schwedisch (Schweden)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Svensk (Sverige)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="te"/>
+                <display value="Telegu"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Telegu"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Teloegoe"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Телугу"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="泰卢固语"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Telugu"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Telugu"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="zh"/>
+                <display value="Chinese"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Chinese"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Chinees"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Kитайский"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="中文"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Chinesisch"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kinesisk"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="zh-CN"/>
+                <display value="Chinese (China)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Chinese (China)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Chinees (China)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Kитайский (Китай)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="中文 （中国）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Chinesisch (China)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kinesisk (Kina)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="zh-HK"/>
+                <display value="Chinese (Hong Kong)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Chinese (Hong Kong)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Chinees (Hong Kong)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Kитайский (Гонконг)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="中文 （香港特别行政区）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Chinesisch (Hong Kong)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kinesisk (Hong Kong)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="zh-SG"/>
+                <display value="Chinese (Singapore)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Chinese (Singapore)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Chinees (Singapore)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Kитайский (Сингапур)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="中文 （新加坡）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Chinesisch (Singapur)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kinesisk (Singapore)"/>
+                </designation>
+            </concept>
+            <concept>
+                <code value="zh-TW"/>
+                <display value="Chinese (Taiwan)"/>
+                <designation>
+                    <language value="en"/>
+                    <value value="Chinese (Taiwan)"/>
+                </designation>
+                <designation>
+                    <language value="nl"/>
+                    <value value="Chinees (Taiwan)"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Kитайский (Тайвань)"/>
+                </designation>
+                <designation>
+                    <language value="zh"/>
+                    <value value="中文 （台湾）"/>
+                </designation>
+                <designation>
+                    <language value="de"/>
+                    <value value="Chinesisch (Taiwan)"/>
+                </designation>
+                <designation>
+                    <language value="da"/>
+                    <value value="Kinesisk (Taiwan)"/>
+                </designation>
+            </concept>
+        </include>
+    </compose>
 </ValueSet>
