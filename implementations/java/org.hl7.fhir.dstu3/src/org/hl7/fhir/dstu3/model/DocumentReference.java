@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -44,10 +44,134 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
- * A reference to a document .
+ * A reference to a document.
  */
 @ResourceDef(name="DocumentReference", profile="http://hl7.org/fhir/Profile/DocumentReference")
 public class DocumentReference extends DomainResource {
+
+    public enum ReferredDocumentStatus {
+        /**
+         * This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.
+         */
+        PRELIMINARY, 
+        /**
+         * This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.
+         */
+        FINAL, 
+        /**
+         * The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as "final" and the composition is complete and verified by an authorized person.
+         */
+        AMENDED, 
+        /**
+         * The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.
+         */
+        ENTEREDINERROR, 
+        /**
+         * added to help the parsers with the generic types
+         */
+        NULL;
+        public static ReferredDocumentStatus fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("preliminary".equals(codeString))
+          return PRELIMINARY;
+        if ("final".equals(codeString))
+          return FINAL;
+        if ("amended".equals(codeString))
+          return AMENDED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
+        if (Configuration.isAcceptInvalidEnums())
+          return null;
+        else
+          throw new FHIRException("Unknown ReferredDocumentStatus code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PRELIMINARY: return "preliminary";
+            case FINAL: return "final";
+            case AMENDED: return "amended";
+            case ENTEREDINERROR: return "entered-in-error";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PRELIMINARY: return "http://hl7.org/fhir/composition-status";
+            case FINAL: return "http://hl7.org/fhir/composition-status";
+            case AMENDED: return "http://hl7.org/fhir/composition-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/composition-status";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PRELIMINARY: return "This is a preliminary composition or document (also known as initial or interim). The content may be incomplete or unverified.";
+            case FINAL: return "This version of the composition is complete and verified by an appropriate person and no further work is planned. Any subsequent updates would be on a new version of the composition.";
+            case AMENDED: return "The composition content or the referenced resources have been modified (edited or added to) subsequent to being released as \"final\" and the composition is complete and verified by an authorized person.";
+            case ENTEREDINERROR: return "The composition or document was originally created/issued in error, and this is an amendment that marks that the entire series should not be considered as valid.";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PRELIMINARY: return "Preliminary";
+            case FINAL: return "Final";
+            case AMENDED: return "Amended";
+            case ENTEREDINERROR: return "Entered in Error";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ReferredDocumentStatusEnumFactory implements EnumFactory<ReferredDocumentStatus> {
+    public ReferredDocumentStatus fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("preliminary".equals(codeString))
+          return ReferredDocumentStatus.PRELIMINARY;
+        if ("final".equals(codeString))
+          return ReferredDocumentStatus.FINAL;
+        if ("amended".equals(codeString))
+          return ReferredDocumentStatus.AMENDED;
+        if ("entered-in-error".equals(codeString))
+          return ReferredDocumentStatus.ENTEREDINERROR;
+        throw new IllegalArgumentException("Unknown ReferredDocumentStatus code '"+codeString+"'");
+        }
+        public Enumeration<ReferredDocumentStatus> fromType(Base code) throws FHIRException {
+          if (code == null)
+            return null;
+          if (code.isEmpty())
+            return new Enumeration<ReferredDocumentStatus>(this);
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("preliminary".equals(codeString))
+          return new Enumeration<ReferredDocumentStatus>(this, ReferredDocumentStatus.PRELIMINARY);
+        if ("final".equals(codeString))
+          return new Enumeration<ReferredDocumentStatus>(this, ReferredDocumentStatus.FINAL);
+        if ("amended".equals(codeString))
+          return new Enumeration<ReferredDocumentStatus>(this, ReferredDocumentStatus.AMENDED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<ReferredDocumentStatus>(this, ReferredDocumentStatus.ENTEREDINERROR);
+        throw new FHIRException("Unknown ReferredDocumentStatus code '"+codeString+"'");
+        }
+    public String toCode(ReferredDocumentStatus code) {
+      if (code == ReferredDocumentStatus.PRELIMINARY)
+        return "preliminary";
+      if (code == ReferredDocumentStatus.FINAL)
+        return "final";
+      if (code == ReferredDocumentStatus.AMENDED)
+        return "amended";
+      if (code == ReferredDocumentStatus.ENTEREDINERROR)
+        return "entered-in-error";
+      return "?";
+      }
+    public String toSystem(ReferredDocumentStatus code) {
+      return code.getSystem();
+      }
+    }
 
     public enum DocumentRelationshipType {
         /**
@@ -429,12 +553,12 @@ public class DocumentReference extends DomainResource {
         /**
          * An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
          */
-        @Child(name = "format", type = {Coding.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "format", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Format/content rules for the document", formalDefinition="An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType." )
         @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/formatcodes")
-        protected List<Coding> format;
+        protected Coding format;
 
-        private static final long serialVersionUID = -1412643085L;
+        private static final long serialVersionUID = -1313860217L;
 
     /**
      * Constructor
@@ -478,54 +602,25 @@ public class DocumentReference extends DomainResource {
         /**
          * @return {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
          */
-        public List<Coding> getFormat() { 
+        public Coding getFormat() { 
           if (this.format == null)
-            this.format = new ArrayList<Coding>();
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create DocumentReferenceContentComponent.format");
+            else if (Configuration.doAutoCreate())
+              this.format = new Coding(); // cc
           return this.format;
         }
 
-        /**
-         * @return Returns a reference to <code>this</code> for easy method chaining
-         */
-        public DocumentReferenceContentComponent setFormat(List<Coding> theFormat) { 
-          this.format = theFormat;
-          return this;
-        }
-
         public boolean hasFormat() { 
-          if (this.format == null)
-            return false;
-          for (Coding item : this.format)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        public Coding addFormat() { //3
-          Coding t = new Coding();
-          if (this.format == null)
-            this.format = new ArrayList<Coding>();
-          this.format.add(t);
-          return t;
-        }
-
-        public DocumentReferenceContentComponent addFormat(Coding t) { //3
-          if (t == null)
-            return this;
-          if (this.format == null)
-            this.format = new ArrayList<Coding>();
-          this.format.add(t);
-          return this;
+          return this.format != null && !this.format.isEmpty();
         }
 
         /**
-         * @return The first repetition of repeating field {@link #format}, creating it if it does not already exist
+         * @param value {@link #format} (An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.)
          */
-        public Coding getFormatFirstRep() { 
-          if (getFormat().isEmpty()) {
-            addFormat();
-          }
-          return getFormat().get(0);
+        public DocumentReferenceContentComponent setFormat(Coding value) { 
+          this.format = value;
+          return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -538,7 +633,7 @@ public class DocumentReference extends DomainResource {
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
         case -1963501277: /*attachment*/ return this.attachment == null ? new Base[0] : new Base[] {this.attachment}; // Attachment
-        case -1268779017: /*format*/ return this.format == null ? new Base[0] : this.format.toArray(new Base[this.format.size()]); // Coding
+        case -1268779017: /*format*/ return this.format == null ? new Base[0] : new Base[] {this.format}; // Coding
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -551,7 +646,7 @@ public class DocumentReference extends DomainResource {
           this.attachment = castToAttachment(value); // Attachment
           return value;
         case -1268779017: // format
-          this.getFormat().add(castToCoding(value)); // Coding
+          this.format = castToCoding(value); // Coding
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -563,7 +658,7 @@ public class DocumentReference extends DomainResource {
         if (name.equals("attachment")) {
           this.attachment = castToAttachment(value); // Attachment
         } else if (name.equals("format")) {
-          this.getFormat().add(castToCoding(value));
+          this.format = castToCoding(value); // Coding
         } else
           return super.setProperty(name, value);
         return value;
@@ -573,7 +668,7 @@ public class DocumentReference extends DomainResource {
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
         case -1963501277:  return getAttachment(); 
-        case -1268779017:  return addFormat(); 
+        case -1268779017:  return getFormat(); 
         default: return super.makeProperty(hash, name);
         }
 
@@ -596,7 +691,8 @@ public class DocumentReference extends DomainResource {
           return this.attachment;
         }
         else if (name.equals("format")) {
-          return addFormat();
+          this.format = new Coding();
+          return this.format;
         }
         else
           return super.addChild(name);
@@ -606,11 +702,7 @@ public class DocumentReference extends DomainResource {
         DocumentReferenceContentComponent dst = new DocumentReferenceContentComponent();
         copyValues(dst);
         dst.attachment = attachment == null ? null : attachment.copy();
-        if (format != null) {
-          dst.format = new ArrayList<Coding>();
-          for (Coding i : format)
-            dst.format.add(i.copy());
-        };
+        dst.format = format == null ? null : format.copy();
         return dst;
       }
 
@@ -1488,10 +1580,10 @@ public class DocumentReference extends DomainResource {
     /**
      * The status of the underlying document.
      */
-    @Child(name = "docStatus", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "docStatus", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="preliminary | final | appended | amended | entered-in-error", formalDefinition="The status of the underlying document." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/composition-status")
-    protected CodeableConcept docStatus;
+    protected Enumeration<ReferredDocumentStatus> docStatus;
 
     /**
      * Relationships that this document has with other document references that already exist.
@@ -1529,7 +1621,7 @@ public class DocumentReference extends DomainResource {
     @Description(shortDefinition="Clinical context of document", formalDefinition="The clinical context in which the document was prepared." )
     protected DocumentReferenceContextComponent context;
 
-    private static final long serialVersionUID = -1009325322L;
+    private static final long serialVersionUID = 1571007456L;
 
   /**
    * Constructor
@@ -1998,15 +2090,19 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @return {@link #docStatus} (The status of the underlying document.)
+     * @return {@link #docStatus} (The status of the underlying document.). This is the underlying object with id, value and extensions. The accessor "getDocStatus" gives direct access to the value
      */
-    public CodeableConcept getDocStatus() { 
+    public Enumeration<ReferredDocumentStatus> getDocStatusElement() { 
       if (this.docStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentReference.docStatus");
         else if (Configuration.doAutoCreate())
-          this.docStatus = new CodeableConcept(); // cc
+          this.docStatus = new Enumeration<ReferredDocumentStatus>(new ReferredDocumentStatusEnumFactory()); // bb
       return this.docStatus;
+    }
+
+    public boolean hasDocStatusElement() { 
+      return this.docStatus != null && !this.docStatus.isEmpty();
     }
 
     public boolean hasDocStatus() { 
@@ -2014,10 +2110,31 @@ public class DocumentReference extends DomainResource {
     }
 
     /**
-     * @param value {@link #docStatus} (The status of the underlying document.)
+     * @param value {@link #docStatus} (The status of the underlying document.). This is the underlying object with id, value and extensions. The accessor "getDocStatus" gives direct access to the value
      */
-    public DocumentReference setDocStatus(CodeableConcept value) { 
+    public DocumentReference setDocStatusElement(Enumeration<ReferredDocumentStatus> value) { 
       this.docStatus = value;
+      return this;
+    }
+
+    /**
+     * @return The status of the underlying document.
+     */
+    public ReferredDocumentStatus getDocStatus() { 
+      return this.docStatus == null ? null : this.docStatus.getValue();
+    }
+
+    /**
+     * @param value The status of the underlying document.
+     */
+    public DocumentReference setDocStatus(ReferredDocumentStatus value) { 
+      if (value == null)
+        this.docStatus = null;
+      else {
+        if (this.docStatus == null)
+          this.docStatus = new Enumeration<ReferredDocumentStatus>(new ReferredDocumentStatusEnumFactory());
+        this.docStatus.setValue(value);
+      }
       return this;
     }
 
@@ -2266,7 +2383,7 @@ public class DocumentReference extends DomainResource {
         childrenList.add(new Property("created", "dateTime", "When the document was created.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("indexed", "instant", "When the document reference was created.", 0, java.lang.Integer.MAX_VALUE, indexed));
         childrenList.add(new Property("status", "code", "The status of this document reference.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("docStatus", "CodeableConcept", "The status of the underlying document.", 0, java.lang.Integer.MAX_VALUE, docStatus));
+        childrenList.add(new Property("docStatus", "code", "The status of the underlying document.", 0, java.lang.Integer.MAX_VALUE, docStatus));
         childrenList.add(new Property("relatesTo", "", "Relationships that this document has with other document references that already exist.", 0, java.lang.Integer.MAX_VALUE, relatesTo));
         childrenList.add(new Property("description", "string", "Human-readable description of the source document. This is sometimes known as the \"title\".", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("securityLabel", "CodeableConcept", "A set of Security-Tag codes specifying the level of privacy/security of the Document. Note that DocumentReference.meta.security contains the security labels of the \"reference\" to the document, while DocumentReference.securityLabel contains a snapshot of the security labels on the document the reference refers to.", 0, java.lang.Integer.MAX_VALUE, securityLabel));
@@ -2288,7 +2405,7 @@ public class DocumentReference extends DomainResource {
         case 1028554472: /*created*/ return this.created == null ? new Base[0] : new Base[] {this.created}; // DateTimeType
         case 1943292145: /*indexed*/ return this.indexed == null ? new Base[0] : new Base[] {this.indexed}; // InstantType
         case -892481550: /*status*/ return this.status == null ? new Base[0] : new Base[] {this.status}; // Enumeration<DocumentReferenceStatus>
-        case -23496886: /*docStatus*/ return this.docStatus == null ? new Base[0] : new Base[] {this.docStatus}; // CodeableConcept
+        case -23496886: /*docStatus*/ return this.docStatus == null ? new Base[0] : new Base[] {this.docStatus}; // Enumeration<ReferredDocumentStatus>
         case -7765931: /*relatesTo*/ return this.relatesTo == null ? new Base[0] : this.relatesTo.toArray(new Base[this.relatesTo.size()]); // DocumentReferenceRelatesToComponent
         case -1724546052: /*description*/ return this.description == null ? new Base[0] : new Base[] {this.description}; // StringType
         case -722296940: /*securityLabel*/ return this.securityLabel == null ? new Base[0] : this.securityLabel.toArray(new Base[this.securityLabel.size()]); // CodeableConcept
@@ -2337,7 +2454,8 @@ public class DocumentReference extends DomainResource {
           this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
           return value;
         case -23496886: // docStatus
-          this.docStatus = castToCodeableConcept(value); // CodeableConcept
+          value = new ReferredDocumentStatusEnumFactory().fromType(castToCode(value));
+          this.docStatus = (Enumeration) value; // Enumeration<ReferredDocumentStatus>
           return value;
         case -7765931: // relatesTo
           this.getRelatesTo().add((DocumentReferenceRelatesToComponent) value); // DocumentReferenceRelatesToComponent
@@ -2385,7 +2503,8 @@ public class DocumentReference extends DomainResource {
           value = new DocumentReferenceStatusEnumFactory().fromType(castToCode(value));
           this.status = (Enumeration) value; // Enumeration<DocumentReferenceStatus>
         } else if (name.equals("docStatus")) {
-          this.docStatus = castToCodeableConcept(value); // CodeableConcept
+          value = new ReferredDocumentStatusEnumFactory().fromType(castToCode(value));
+          this.docStatus = (Enumeration) value; // Enumeration<ReferredDocumentStatus>
         } else if (name.equals("relatesTo")) {
           this.getRelatesTo().add((DocumentReferenceRelatesToComponent) value);
         } else if (name.equals("description")) {
@@ -2415,7 +2534,7 @@ public class DocumentReference extends DomainResource {
         case 1028554472:  return getCreatedElement();
         case 1943292145:  return getIndexedElement();
         case -892481550:  return getStatusElement();
-        case -23496886:  return getDocStatus(); 
+        case -23496886:  return getDocStatusElement();
         case -7765931:  return addRelatesTo(); 
         case -1724546052:  return getDescriptionElement();
         case -722296940:  return addSecurityLabel(); 
@@ -2440,7 +2559,7 @@ public class DocumentReference extends DomainResource {
         case 1028554472: /*created*/ return new String[] {"dateTime"};
         case 1943292145: /*indexed*/ return new String[] {"instant"};
         case -892481550: /*status*/ return new String[] {"code"};
-        case -23496886: /*docStatus*/ return new String[] {"CodeableConcept"};
+        case -23496886: /*docStatus*/ return new String[] {"code"};
         case -7765931: /*relatesTo*/ return new String[] {};
         case -1724546052: /*description*/ return new String[] {"string"};
         case -722296940: /*securityLabel*/ return new String[] {"CodeableConcept"};
@@ -2493,8 +2612,7 @@ public class DocumentReference extends DomainResource {
           throw new FHIRException("Cannot call addChild on a primitive type DocumentReference.status");
         }
         else if (name.equals("docStatus")) {
-          this.docStatus = new CodeableConcept();
-          return this.docStatus;
+          throw new FHIRException("Cannot call addChild on a primitive type DocumentReference.docStatus");
         }
         else if (name.equals("relatesTo")) {
           return addRelatesTo();
@@ -2592,7 +2710,7 @@ public class DocumentReference extends DomainResource {
           return false;
         DocumentReference o = (DocumentReference) other;
         return compareValues(created, o.created, true) && compareValues(indexed, o.indexed, true) && compareValues(status, o.status, true)
-           && compareValues(description, o.description, true);
+           && compareValues(docStatus, o.docStatus, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
@@ -3044,7 +3162,7 @@ public class DocumentReference extends DomainResource {
    * Path: <b>DocumentReference.context.encounter</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference", target={Encounter.class } )
+  @SearchParamDefinition(name="encounter", path="DocumentReference.context.encounter", description="Context of the document  content", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Encounter") }, target={Encounter.class } )
   public static final String SP_ENCOUNTER = "encounter";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>encounter</b>

@@ -591,7 +591,7 @@
  -- Row 3 -----------------------------------
   Name = SC Injection
   Identity = meddisp0302
-  Description = Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text
+  Description = Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  Dosage includes additionalInstructions as text
   Filename = medicationdispense0302.xml
 
  -- Row 4 -----------------------------------
@@ -609,7 +609,7 @@
  -- Row 6 -----------------------------------
   Name = Tapering Dose
   Identity = meddisp0305
-  Description = Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements
+  Description = Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple Dosage lines that include coded additionalInstructions and multiple EventHistory elements
   Filename = medicationdispense0305.xml
 
  -- Row 7 -----------------------------------

@@ -90,7 +90,7 @@ import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DiagnosticReport;
 import org.hl7.fhir.dstu3.model.DomainResource;
-import org.hl7.fhir.dstu3.model.DosageInstruction;
+import org.hl7.fhir.dstu3.model.Dosage;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
@@ -1388,7 +1388,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       return false;
     } else if (e instanceof Meta) {
       return false;
-    } else if (e instanceof DosageInstruction) {
+    } else if (e instanceof Dosage) {
       return false;
     } else if (e instanceof Signature) {
       return false;

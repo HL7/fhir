@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -207,17 +207,9 @@ public class MedicationDispense extends DomainResource {
     @Block()
     public static class MedicationDispensePerformerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).
-         */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="What type of role the performer fulfilled", formalDefinition="Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
-        protected CodeableConcept role;
-
-        /**
          * The device, practitioner, etc. who performed the action.
          */
-        @Child(name = "actor", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "actor", type = {Practitioner.class, Organization.class, Patient.class, Device.class, RelatedPerson.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Individual who was performing", formalDefinition="The device, practitioner, etc. who performed the action." )
         protected Reference actor;
 
@@ -229,7 +221,7 @@ public class MedicationDispense extends DomainResource {
         /**
          * The organization the device or practitioner was acting on behalf of.
          */
-        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
         protected Reference onBehalfOf;
 
@@ -238,7 +230,7 @@ public class MedicationDispense extends DomainResource {
          */
         protected Organization onBehalfOfTarget;
 
-        private static final long serialVersionUID = 213950062L;
+        private static final long serialVersionUID = -488386403L;
 
     /**
      * Constructor
@@ -254,30 +246,6 @@ public class MedicationDispense extends DomainResource {
         super();
         this.actor = actor;
       }
-
-        /**
-         * @return {@link #role} (Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).)
-         */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationDispensePerformerComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
-        }
-
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
-        }
-
-        /**
-         * @param value {@link #role} (Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).)
-         */
-        public MedicationDispensePerformerComponent setRole(CodeableConcept value) { 
-          this.role = value;
-          return this;
-        }
 
         /**
          * @return {@link #actor} (The device, practitioner, etc. who performed the action.)
@@ -364,7 +332,6 @@ public class MedicationDispense extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.).", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("actor", "Reference(Practitioner|Organization|Patient|Device|RelatedPerson)", "The device, practitioner, etc. who performed the action.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
@@ -372,7 +339,6 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -383,9 +349,6 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: // role
-          this.role = castToCodeableConcept(value); // CodeableConcept
-          return value;
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
           return value;
@@ -399,9 +362,7 @@ public class MedicationDispense extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("actor")) {
+        if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
         } else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = castToReference(value); // Reference
@@ -413,7 +374,6 @@ public class MedicationDispense extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); 
         case 92645877:  return getActor(); 
         case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
@@ -424,7 +384,6 @@ public class MedicationDispense extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
         case 92645877: /*actor*/ return new String[] {"Reference"};
         case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
@@ -434,11 +393,7 @@ public class MedicationDispense extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = new CodeableConcept();
-          return this.role;
-        }
-        else if (name.equals("actor")) {
+        if (name.equals("actor")) {
           this.actor = new Reference();
           return this.actor;
         }
@@ -453,7 +408,6 @@ public class MedicationDispense extends DomainResource {
       public MedicationDispensePerformerComponent copy() {
         MedicationDispensePerformerComponent dst = new MedicationDispensePerformerComponent();
         copyValues(dst);
-        dst.role = role == null ? null : role.copy();
         dst.actor = actor == null ? null : actor.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         return dst;
@@ -466,8 +420,7 @@ public class MedicationDispense extends DomainResource {
         if (!(other instanceof MedicationDispensePerformerComponent))
           return false;
         MedicationDispensePerformerComponent o = (MedicationDispensePerformerComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
-          ;
+        return compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
       }
 
       @Override
@@ -481,8 +434,7 @@ public class MedicationDispense extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, onBehalfOf);
       }
 
   public String fhirType() {
@@ -1060,9 +1012,9 @@ public class MedicationDispense extends DomainResource {
     /**
      * Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
      */
-    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {Dosage.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Medicine administration instructions to the patient/caregiver", formalDefinition="Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed." )
-    protected List<DosageInstruction> dosageInstruction;
+    protected List<Dosage> dosageInstruction;
 
     /**
      * Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.
@@ -1109,7 +1061,7 @@ public class MedicationDispense extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -254310555L;
+    private static final long serialVersionUID = 1951426869L;
 
   /**
    * Constructor
@@ -1974,16 +1926,16 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.)
      */
-    public List<DosageInstruction> getDosageInstruction() { 
+    public List<Dosage> getDosageInstruction() { 
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       return this.dosageInstruction;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationDispense setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+    public MedicationDispense setDosageInstruction(List<Dosage> theDosageInstruction) { 
       this.dosageInstruction = theDosageInstruction;
       return this;
     }
@@ -1991,25 +1943,25 @@ public class MedicationDispense extends DomainResource {
     public boolean hasDosageInstruction() { 
       if (this.dosageInstruction == null)
         return false;
-      for (DosageInstruction item : this.dosageInstruction)
+      for (Dosage item : this.dosageInstruction)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DosageInstruction addDosageInstruction() { //3
-      DosageInstruction t = new DosageInstruction();
+    public Dosage addDosageInstruction() { //3
+      Dosage t = new Dosage();
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return t;
     }
 
-    public MedicationDispense addDosageInstruction(DosageInstruction t) { //3
+    public MedicationDispense addDosageInstruction(Dosage t) { //3
       if (t == null)
         return this;
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return this;
     }
@@ -2017,7 +1969,7 @@ public class MedicationDispense extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
      */
-    public DosageInstruction getDosageInstructionFirstRep() { 
+    public Dosage getDosageInstructionFirstRep() { 
       if (getDosageInstruction().isEmpty()) {
         addDosageInstruction();
       }
@@ -2308,7 +2260,7 @@ public class MedicationDispense extends DomainResource {
         childrenList.add(new Property("destination", "Reference(Location)", "Identification of the facility/location where the medication was shipped to, as part of the dispense event.", 0, java.lang.Integer.MAX_VALUE, destination));
         childrenList.add(new Property("receiver", "Reference(Patient|Practitioner)", "Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.", 0, java.lang.Integer.MAX_VALUE, receiver));
         childrenList.add(new Property("note", "Annotation", "Extra information about the dispense that could not be conveyed in the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
+        childrenList.add(new Property("dosageInstruction", "Dosage", "Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("detectedIssue", "Reference(DetectedIssue)", "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, duplicate therapy, dosage alert etc.", 0, java.lang.Integer.MAX_VALUE, detectedIssue));
         childrenList.add(new Property("notDone", "boolean", "True if the dispense was not peformed for some reason.", 0, java.lang.Integer.MAX_VALUE, notDone));
@@ -2337,7 +2289,7 @@ public class MedicationDispense extends DomainResource {
         case -1429847026: /*destination*/ return this.destination == null ? new Base[0] : new Base[] {this.destination}; // Reference
         case -808719889: /*receiver*/ return this.receiver == null ? new Base[0] : this.receiver.toArray(new Base[this.receiver.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
+        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // Dosage
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationDispenseSubstitutionComponent
         case 51602295: /*detectedIssue*/ return this.detectedIssue == null ? new Base[0] : this.detectedIssue.toArray(new Base[this.detectedIssue.size()]); // Reference
         case 2128257269: /*notDone*/ return this.notDone == null ? new Base[0] : new Base[] {this.notDone}; // BooleanType
@@ -2407,7 +2359,7 @@ public class MedicationDispense extends DomainResource {
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -1201373865: // dosageInstruction
-          this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
+          this.getDosageInstruction().add(castToDosage(value)); // Dosage
           return value;
         case 826147581: // substitution
           this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
@@ -2469,7 +2421,7 @@ public class MedicationDispense extends DomainResource {
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("dosageInstruction")) {
-          this.getDosageInstruction().add(castToDosageInstruction(value));
+          this.getDosageInstruction().add(castToDosage(value));
         } else if (name.equals("substitution")) {
           this.substitution = (MedicationDispenseSubstitutionComponent) value; // MedicationDispenseSubstitutionComponent
         } else if (name.equals("detectedIssue")) {
@@ -2540,7 +2492,7 @@ public class MedicationDispense extends DomainResource {
         case -1429847026: /*destination*/ return new String[] {"Reference"};
         case -808719889: /*receiver*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case -1201373865: /*dosageInstruction*/ return new String[] {"DosageInstruction"};
+        case -1201373865: /*dosageInstruction*/ return new String[] {"Dosage"};
         case 826147581: /*substitution*/ return new String[] {};
         case 51602295: /*detectedIssue*/ return new String[] {"Reference"};
         case 2128257269: /*notDone*/ return new String[] {"boolean"};
@@ -2702,8 +2654,8 @@ public class MedicationDispense extends DomainResource {
             dst.note.add(i.copy());
         };
         if (dosageInstruction != null) {
-          dst.dosageInstruction = new ArrayList<DosageInstruction>();
-          for (DosageInstruction i : dosageInstruction)
+          dst.dosageInstruction = new ArrayList<Dosage>();
+          for (Dosage i : dosageInstruction)
             dst.dosageInstruction.add(i.copy());
         };
         dst.substitution = substitution == null ? null : substitution.copy();

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -603,6 +603,7 @@ Any information provided in these elements overrides the information from the de
          */
         @Child(name = "initial", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=14, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Default value when item is first rendered", formalDefinition="The value that should be defaulted when rendering the questionnaire for user input." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers")
         protected Type initial;
 
         /**
@@ -1891,6 +1892,7 @@ Any information provided in these elements overrides the information from the de
          */
         @Child(name = "answer", type = {BooleanType.class, DecimalType.class, IntegerType.class, DateType.class, DateTimeType.class, TimeType.class, StringType.class, UriType.class, Attachment.class, Coding.class, Quantity.class, Reference.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value question must have", formalDefinition="If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer." )
+        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/questionnaire-answers")
         protected Type answer;
 
         private static final long serialVersionUID = -300241115L;

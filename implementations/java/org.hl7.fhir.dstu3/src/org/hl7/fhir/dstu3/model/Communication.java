@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -572,10 +572,10 @@ public class Communication extends DomainResource {
     /**
      * The reason or justification for the communication.
      */
-    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Indication for message", formalDefinition="The reason or justification for the communication." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
-    protected List<CodeableConcept> reasonCodeableConcept;
+    protected List<CodeableConcept> reasonCode;
 
     /**
      * Indicates another resource whose existence justifies this communication.
@@ -603,7 +603,7 @@ public class Communication extends DomainResource {
     @Description(shortDefinition="Comments made about the communication", formalDefinition="Additional notes or commentary about the communication by the sender, receiver or other interested parties." )
     protected List<Annotation> note;
 
-    private static final long serialVersionUID = 1375008084L;
+    private static final long serialVersionUID = -1362735590L;
 
   /**
    * Constructor
@@ -1424,56 +1424,56 @@ public class Communication extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonCodeableConcept} (The reason or justification for the communication.)
+     * @return {@link #reasonCode} (The reason or justification for the communication.)
      */
-    public List<CodeableConcept> getReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonCodeableConcept;
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Communication setReasonCodeableConcept(List<CodeableConcept> theReasonCodeableConcept) { 
-      this.reasonCodeableConcept = theReasonCodeableConcept;
+    public Communication setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
     }
 
-    public boolean hasReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
         return false;
-      for (CodeableConcept item : this.reasonCodeableConcept)
+      for (CodeableConcept item : this.reasonCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addReasonCodeableConcept() { //3
+    public CodeableConcept addReasonCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return t;
     }
 
-    public Communication addReasonCodeableConcept(CodeableConcept t) { //3
+    public Communication addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonCodeableConcept}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
      */
-    public CodeableConcept getReasonCodeableConceptFirstRep() { 
-      if (getReasonCodeableConcept().isEmpty()) {
-        addReasonCodeableConcept();
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
       }
-      return getReasonCodeableConcept().get(0);
+      return getReasonCode().get(0);
     }
 
     /**
@@ -1663,7 +1663,7 @@ public class Communication extends DomainResource {
         childrenList.add(new Property("sent", "dateTime", "The time when this communication was sent.", 0, java.lang.Integer.MAX_VALUE, sent));
         childrenList.add(new Property("received", "dateTime", "The time when this communication arrived at the destination.", 0, java.lang.Integer.MAX_VALUE, received));
         childrenList.add(new Property("sender", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The entity (e.g. person, organization, clinical information system, or device) which was the source of the communication.", 0, java.lang.Integer.MAX_VALUE, sender));
-        childrenList.add(new Property("reasonCodeableConcept", "CodeableConcept", "The reason or justification for the communication.", 0, java.lang.Integer.MAX_VALUE, reasonCodeableConcept));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "The reason or justification for the communication.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Indicates another resource whose existence justifies this communication.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("payload", "", "Text, attachment(s), or resource(s) that was communicated to the recipient.", 0, java.lang.Integer.MAX_VALUE, payload));
         childrenList.add(new Property("note", "Annotation", "Additional notes or commentary about the communication by the sender, receiver or other interested parties.", 0, java.lang.Integer.MAX_VALUE, note));
@@ -1688,7 +1688,7 @@ public class Communication extends DomainResource {
         case 3526552: /*sent*/ return this.sent == null ? new Base[0] : new Base[] {this.sent}; // DateTimeType
         case -808719903: /*received*/ return this.received == null ? new Base[0] : new Base[] {this.received}; // DateTimeType
         case -905962955: /*sender*/ return this.sender == null ? new Base[0] : new Base[] {this.sender}; // Reference
-        case -610155331: /*reasonCodeableConcept*/ return this.reasonCodeableConcept == null ? new Base[0] : this.reasonCodeableConcept.toArray(new Base[this.reasonCodeableConcept.size()]); // CodeableConcept
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case -786701938: /*payload*/ return this.payload == null ? new Base[0] : this.payload.toArray(new Base[this.payload.size()]); // CommunicationPayloadComponent
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
@@ -1749,8 +1749,8 @@ public class Communication extends DomainResource {
         case -905962955: // sender
           this.sender = castToReference(value); // Reference
           return value;
-        case -610155331: // reasonCodeableConcept
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
@@ -1801,8 +1801,8 @@ public class Communication extends DomainResource {
           this.received = castToDateTime(value); // DateTimeType
         } else if (name.equals("sender")) {
           this.sender = castToReference(value); // Reference
-        } else if (name.equals("reasonCodeableConcept")) {
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("payload")) {
@@ -1833,7 +1833,7 @@ public class Communication extends DomainResource {
         case 3526552:  return getSentElement();
         case -808719903:  return getReceivedElement();
         case -905962955:  return getSender(); 
-        case -610155331:  return addReasonCodeableConcept(); 
+        case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
         case -786701938:  return addPayload(); 
         case 3387378:  return addNote(); 
@@ -1861,7 +1861,7 @@ public class Communication extends DomainResource {
         case 3526552: /*sent*/ return new String[] {"dateTime"};
         case -808719903: /*received*/ return new String[] {"dateTime"};
         case -905962955: /*sender*/ return new String[] {"Reference"};
-        case -610155331: /*reasonCodeableConcept*/ return new String[] {"CodeableConcept"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case -786701938: /*payload*/ return new String[] {};
         case 3387378: /*note*/ return new String[] {"Annotation"};
@@ -1924,8 +1924,8 @@ public class Communication extends DomainResource {
           this.sender = new Reference();
           return this.sender;
         }
-        else if (name.equals("reasonCodeableConcept")) {
-          return addReasonCodeableConcept();
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
@@ -1996,10 +1996,10 @@ public class Communication extends DomainResource {
         dst.sent = sent == null ? null : sent.copy();
         dst.received = received == null ? null : received.copy();
         dst.sender = sender == null ? null : sender.copy();
-        if (reasonCodeableConcept != null) {
-          dst.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonCodeableConcept)
-            dst.reasonCodeableConcept.add(i.copy());
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
         };
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
@@ -2035,7 +2035,7 @@ public class Communication extends DomainResource {
            && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true) && compareDeep(category, o.category, true)
            && compareDeep(medium, o.medium, true) && compareDeep(subject, o.subject, true) && compareDeep(recipient, o.recipient, true)
            && compareDeep(topic, o.topic, true) && compareDeep(context, o.context, true) && compareDeep(sent, o.sent, true)
-           && compareDeep(received, o.received, true) && compareDeep(sender, o.sender, true) && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true)
+           && compareDeep(received, o.received, true) && compareDeep(sender, o.sender, true) && compareDeep(reasonCode, o.reasonCode, true)
            && compareDeep(reasonReference, o.reasonReference, true) && compareDeep(payload, o.payload, true)
            && compareDeep(note, o.note, true);
       }
@@ -2054,8 +2054,8 @@ public class Communication extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
           , partOf, status, notDone, notDoneReason, category, medium, subject, recipient
-          , topic, context, sent, received, sender, reasonCodeableConcept, reasonReference
-          , payload, note);
+          , topic, context, sent, received, sender, reasonCode, reasonReference, payload
+          , note);
       }
 
   @Override

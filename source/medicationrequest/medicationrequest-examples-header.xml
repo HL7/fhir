@@ -42,7 +42,7 @@
         <li><a href="medicationrequest0317.html">Order for Intravenous Chemotherapy (inpatient order) - Alemtuzumab - completed with multiple dosageInstruction lines</a></li>
         <li><a href="medicationrequest0318.html">Order for Intravenous Antibiotic - Vancomycin - active - with link to encounter, reasonCode, and note</a></li>
         <li><a href="medicationrequest0319.html">Order for Intravenous Antibiotic with a Dosage Rate - Piperacillin - completed with reason code</a></li>
-        <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  DosageInstruction includes additionalInstructions as text</a></li>
+        <li><a href="medicationrequest0321.html">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</a></li>
     </ul>
     <p>The following examples of MedicationRequest resources for Injectable Dosage Forms that include a Medication Code:
     </p>

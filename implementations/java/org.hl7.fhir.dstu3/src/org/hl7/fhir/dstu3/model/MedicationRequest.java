@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -1480,9 +1480,9 @@ public class MedicationRequest extends DomainResource {
     /**
      * Indicates how the medication is to be used by the patient.
      */
-    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {Dosage.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="How the medication should be taken", formalDefinition="Indicates how the medication is to be used by the patient." )
-    protected List<DosageInstruction> dosageInstruction;
+    protected List<Dosage> dosageInstruction;
 
     /**
      * Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.
@@ -1534,7 +1534,7 @@ public class MedicationRequest extends DomainResource {
     protected List<Provenance> eventHistoryTarget;
 
 
-    private static final long serialVersionUID = -2460608L;
+    private static final long serialVersionUID = 299392400L;
 
   /**
    * Constructor
@@ -2398,16 +2398,16 @@ public class MedicationRequest extends DomainResource {
     /**
      * @return {@link #dosageInstruction} (Indicates how the medication is to be used by the patient.)
      */
-    public List<DosageInstruction> getDosageInstruction() { 
+    public List<Dosage> getDosageInstruction() { 
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       return this.dosageInstruction;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationRequest setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+    public MedicationRequest setDosageInstruction(List<Dosage> theDosageInstruction) { 
       this.dosageInstruction = theDosageInstruction;
       return this;
     }
@@ -2415,25 +2415,25 @@ public class MedicationRequest extends DomainResource {
     public boolean hasDosageInstruction() { 
       if (this.dosageInstruction == null)
         return false;
-      for (DosageInstruction item : this.dosageInstruction)
+      for (Dosage item : this.dosageInstruction)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DosageInstruction addDosageInstruction() { //3
-      DosageInstruction t = new DosageInstruction();
+    public Dosage addDosageInstruction() { //3
+      Dosage t = new Dosage();
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return t;
     }
 
-    public MedicationRequest addDosageInstruction(DosageInstruction t) { //3
+    public MedicationRequest addDosageInstruction(Dosage t) { //3
       if (t == null)
         return this;
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return this;
     }
@@ -2441,7 +2441,7 @@ public class MedicationRequest extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
      */
-    public DosageInstruction getDosageInstructionFirstRep() { 
+    public Dosage getDosageInstructionFirstRep() { 
       if (getDosageInstruction().isEmpty()) {
         addDosageInstruction();
       }
@@ -2710,7 +2710,7 @@ public class MedicationRequest extends DomainResource {
         childrenList.add(new Property("reasonCode", "CodeableConcept", "The reason or the indication for ordering the medication.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication was ordered.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("note", "Annotation", "Extra information about the prescription that could not be conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
+        childrenList.add(new Property("dosageInstruction", "Dosage", "Indicates how the medication is to be used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("dispenseRequest", "", "Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is NOT always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.", 0, java.lang.Integer.MAX_VALUE, dispenseRequest));
         childrenList.add(new Property("substitution", "", "Indicates whether or not substitution can or should be part of the dispense. In some cases substitution must happen, in other cases substitution must not happen, and in others it does not matter. This block explains the prescriber's intent. If nothing is specified substitution may be done.", 0, java.lang.Integer.MAX_VALUE, substitution));
         childrenList.add(new Property("priorPrescription", "Reference(MedicationRequest)", "A link to a resource representing an earlier order related order or prescription.", 0, java.lang.Integer.MAX_VALUE, priorPrescription));
@@ -2739,7 +2739,7 @@ public class MedicationRequest extends DomainResource {
         case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
+        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // Dosage
         case 824620658: /*dispenseRequest*/ return this.dispenseRequest == null ? new Base[0] : new Base[] {this.dispenseRequest}; // MedicationRequestDispenseRequestComponent
         case 826147581: /*substitution*/ return this.substitution == null ? new Base[0] : new Base[] {this.substitution}; // MedicationRequestSubstitutionComponent
         case -486355964: /*priorPrescription*/ return this.priorPrescription == null ? new Base[0] : new Base[] {this.priorPrescription}; // Reference
@@ -2811,7 +2811,7 @@ public class MedicationRequest extends DomainResource {
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -1201373865: // dosageInstruction
-          this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
+          this.getDosageInstruction().add(castToDosage(value)); // Dosage
           return value;
         case 824620658: // dispenseRequest
           this.dispenseRequest = (MedicationRequestDispenseRequestComponent) value; // MedicationRequestDispenseRequestComponent
@@ -2875,7 +2875,7 @@ public class MedicationRequest extends DomainResource {
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("dosageInstruction")) {
-          this.getDosageInstruction().add(castToDosageInstruction(value));
+          this.getDosageInstruction().add(castToDosage(value));
         } else if (name.equals("dispenseRequest")) {
           this.dispenseRequest = (MedicationRequestDispenseRequestComponent) value; // MedicationRequestDispenseRequestComponent
         } else if (name.equals("substitution")) {
@@ -2945,7 +2945,7 @@ public class MedicationRequest extends DomainResource {
         case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case -1201373865: /*dosageInstruction*/ return new String[] {"DosageInstruction"};
+        case -1201373865: /*dosageInstruction*/ return new String[] {"Dosage"};
         case 824620658: /*dispenseRequest*/ return new String[] {};
         case 826147581: /*substitution*/ return new String[] {};
         case -486355964: /*priorPrescription*/ return new String[] {"Reference"};
@@ -3103,8 +3103,8 @@ public class MedicationRequest extends DomainResource {
             dst.note.add(i.copy());
         };
         if (dosageInstruction != null) {
-          dst.dosageInstruction = new ArrayList<DosageInstruction>();
-          for (DosageInstruction i : dosageInstruction)
+          dst.dosageInstruction = new ArrayList<Dosage>();
+          for (Dosage i : dosageInstruction)
             dst.dosageInstruction.add(i.copy());
         };
         dst.dispenseRequest = dispenseRequest == null ? null : dispenseRequest.copy();

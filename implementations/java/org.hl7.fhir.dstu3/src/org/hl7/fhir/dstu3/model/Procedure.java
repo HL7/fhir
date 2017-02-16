@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -864,10 +864,10 @@ public class Procedure extends DomainResource {
     /**
      * The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.
      */
-    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Coded reason procedure performed", formalDefinition="The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-reason")
-    protected List<CodeableConcept> reasonCodeableConcept;
+    protected List<CodeableConcept> reasonCode;
 
     /**
      * The condition that is the reason why the procedure was performed.
@@ -971,7 +971,7 @@ public class Procedure extends DomainResource {
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/device-kind")
     protected List<CodeableConcept> usedCode;
 
-    private static final long serialVersionUID = 2061593566L;
+    private static final long serialVersionUID = 7729906L;
 
   /**
    * Constructor
@@ -1627,56 +1627,56 @@ public class Procedure extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonCodeableConcept} (The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.)
+     * @return {@link #reasonCode} (The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.)
      */
-    public List<CodeableConcept> getReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonCodeableConcept;
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public Procedure setReasonCodeableConcept(List<CodeableConcept> theReasonCodeableConcept) { 
-      this.reasonCodeableConcept = theReasonCodeableConcept;
+    public Procedure setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
     }
 
-    public boolean hasReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
         return false;
-      for (CodeableConcept item : this.reasonCodeableConcept)
+      for (CodeableConcept item : this.reasonCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addReasonCodeableConcept() { //3
+    public CodeableConcept addReasonCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return t;
     }
 
-    public Procedure addReasonCodeableConcept(CodeableConcept t) { //3
+    public Procedure addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonCodeableConcept}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
      */
-    public CodeableConcept getReasonCodeableConceptFirstRep() { 
-      if (getReasonCodeableConcept().isEmpty()) {
-        addReasonCodeableConcept();
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
       }
-      return getReasonCodeableConcept().get(0);
+      return getReasonCode().get(0);
     }
 
     /**
@@ -2313,7 +2313,7 @@ public class Procedure extends DomainResource {
         childrenList.add(new Property("performed[x]", "dateTime|Period|Timing", "The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.", 0, java.lang.Integer.MAX_VALUE, performed));
         childrenList.add(new Property("performer", "", "Limited to 'real' people rather than equipment.", 0, java.lang.Integer.MAX_VALUE, performer));
         childrenList.add(new Property("location", "Reference(Location)", "The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.", 0, java.lang.Integer.MAX_VALUE, location));
-        childrenList.add(new Property("reasonCodeableConcept", "CodeableConcept", "The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, reasonCodeableConcept));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation)", "The condition that is the reason why the procedure was performed.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("outcome", "CodeableConcept", "The outcome of the procedure - did it resolve reasons for the procedure being performed?", 0, java.lang.Integer.MAX_VALUE, outcome));
@@ -2344,7 +2344,7 @@ public class Procedure extends DomainResource {
         case 481140672: /*performed*/ return this.performed == null ? new Base[0] : new Base[] {this.performed}; // Type
         case 481140686: /*performer*/ return this.performer == null ? new Base[0] : this.performer.toArray(new Base[this.performer.size()]); // ProcedurePerformerComponent
         case 1901043637: /*location*/ return this.location == null ? new Base[0] : new Base[] {this.location}; // Reference
-        case -610155331: /*reasonCodeableConcept*/ return this.reasonCodeableConcept == null ? new Base[0] : this.reasonCodeableConcept.toArray(new Base[this.reasonCodeableConcept.size()]); // CodeableConcept
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case -1106507950: /*outcome*/ return this.outcome == null ? new Base[0] : new Base[] {this.outcome}; // CodeableConcept
@@ -2407,8 +2407,8 @@ public class Procedure extends DomainResource {
         case 1901043637: // location
           this.location = castToReference(value); // Reference
           return value;
-        case -610155331: // reasonCodeableConcept
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
@@ -2479,8 +2479,8 @@ public class Procedure extends DomainResource {
           this.getPerformer().add((ProcedurePerformerComponent) value);
         } else if (name.equals("location")) {
           this.location = castToReference(value); // Reference
-        } else if (name.equals("reasonCodeableConcept")) {
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("bodySite")) {
@@ -2526,7 +2526,7 @@ public class Procedure extends DomainResource {
         case 481140672:  return getPerformed(); 
         case 481140686:  return addPerformer(); 
         case 1901043637:  return getLocation(); 
-        case -610155331:  return addReasonCodeableConcept(); 
+        case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
         case 1702620169:  return addBodySite(); 
         case -1106507950:  return getOutcome(); 
@@ -2560,7 +2560,7 @@ public class Procedure extends DomainResource {
         case 481140672: /*performed*/ return new String[] {"dateTime", "Period", "Timing"};
         case 481140686: /*performer*/ return new String[] {};
         case 1901043637: /*location*/ return new String[] {"Reference"};
-        case -610155331: /*reasonCodeableConcept*/ return new String[] {"CodeableConcept"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case -1106507950: /*outcome*/ return new String[] {"CodeableConcept"};
@@ -2636,8 +2636,8 @@ public class Procedure extends DomainResource {
           this.location = new Reference();
           return this.location;
         }
-        else if (name.equals("reasonCodeableConcept")) {
-          return addReasonCodeableConcept();
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
@@ -2719,10 +2719,10 @@ public class Procedure extends DomainResource {
             dst.performer.add(i.copy());
         };
         dst.location = location == null ? null : location.copy();
-        if (reasonCodeableConcept != null) {
-          dst.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonCodeableConcept)
-            dst.reasonCodeableConcept.add(i.copy());
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
         };
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
@@ -2794,7 +2794,7 @@ public class Procedure extends DomainResource {
            && compareDeep(notDone, o.notDone, true) && compareDeep(notDoneReason, o.notDoneReason, true) && compareDeep(category, o.category, true)
            && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true)
            && compareDeep(performed, o.performed, true) && compareDeep(performer, o.performer, true) && compareDeep(location, o.location, true)
-           && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(bodySite, o.bodySite, true) && compareDeep(outcome, o.outcome, true) && compareDeep(report, o.report, true)
            && compareDeep(complication, o.complication, true) && compareDeep(complicationDetail, o.complicationDetail, true)
            && compareDeep(followUp, o.followUp, true) && compareDeep(note, o.note, true) && compareDeep(focalDevice, o.focalDevice, true)
@@ -2815,9 +2815,9 @@ public class Procedure extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
           , partOf, status, notDone, notDoneReason, category, code, subject, context, performed
-          , performer, location, reasonCodeableConcept, reasonReference, bodySite, outcome
-          , report, complication, complicationDetail, followUp, note, focalDevice, usedReference
-          , usedCode);
+          , performer, location, reasonCode, reasonReference, bodySite, outcome, report
+          , complication, complicationDetail, followUp, note, focalDevice, usedReference, usedCode
+          );
       }
 
   @Override

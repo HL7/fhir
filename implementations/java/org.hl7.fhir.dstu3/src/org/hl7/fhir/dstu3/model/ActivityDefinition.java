@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -47,7 +47,7 @@ import org.hl7.fhir.exceptions.FHIRException;
  * This resource allows for the definition of some activity to be performed, independent of a particular patient, practitioner, or other performance context.
  */
 @ResourceDef(name="ActivityDefinition", profile="http://hl7.org/fhir/Profile/ActivityDefinition")
-@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "category", "kind", "code", "timing[x]", "location", "participantType", "product[x]", "quantity", "dosageInstruction", "bodySite", "transform", "dynamicValue"})
+@ChildOrder(names={"url", "identifier", "version", "name", "title", "status", "experimental", "date", "description", "purpose", "usage", "approvalDate", "lastReviewDate", "effectivePeriod", "useContext", "jurisdiction", "topic", "contributor", "publisher", "contact", "copyright", "relatedArtifact", "library", "kind", "code", "timing[x]", "location", "participantType", "product[x]", "quantity", "dosageInstruction", "bodySite", "transform", "dynamicValue"})
 public class ActivityDefinition extends MetadataResource {
 
     public enum ActivityDefinitionKind {
@@ -206,7 +206,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document .
+         * A reference to a document.
          */
         DOCUMENTREFERENCE, 
         /**
@@ -1075,7 +1075,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document .";
+            case DOCUMENTREFERENCE: return "A reference to a document.";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
@@ -2559,10 +2559,11 @@ The catalog does not replicate the content of the item, since that is expected t
     protected Period effectivePeriod;
 
     /**
-     * Clinical topics related to the content of the asset.
+     * Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.
      */
     @Child(name = "topic", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Descriptional topics for the asset", formalDefinition="Clinical topics related to the content of the asset." )
+    @Description(shortDefinition="E.g. Education, Treatment, Assessment, etc", formalDefinition="Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/definition-topic")
     protected List<CodeableConcept> topic;
 
     /**
@@ -2599,17 +2600,9 @@ The catalog does not replicate the content of the item, since that is expected t
 
 
     /**
-     * High-level categorization of the type of activity that can be useful for filtering and searching.
-     */
-    @Child(name = "category", type = {CodeableConcept.class}, order=11, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="E.g. Education, Assessment, Treatment, etc", formalDefinition="High-level categorization of the type of activity that can be useful for filtering and searching." )
-    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/activity-definition-category")
-    protected CodeableConcept category;
-
-    /**
      * A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.
      */
-    @Child(name = "kind", type = {CodeType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "kind", type = {CodeType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Kind of resource", formalDefinition="A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/resource-types")
     protected Enumeration<ActivityDefinitionKind> kind;
@@ -2617,7 +2610,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
      */
-    @Child(name = "code", type = {CodeableConcept.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "code", type = {CodeableConcept.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Detail type of activity", formalDefinition="Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/procedure-code")
     protected CodeableConcept code;
@@ -2625,7 +2618,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * The period, timing or frequency upon which the described activity is to occur.
      */
-    @Child(name = "timing", type = {CodeableConcept.class, Timing.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "timing", type = {CodeableConcept.class, Timing.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="When activity is to occur", formalDefinition="The period, timing or frequency upon which the described activity is to occur." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/timing-abbreviation")
     protected Type timing;
@@ -2633,7 +2626,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
      */
-    @Child(name = "location", type = {Location.class}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "location", type = {Location.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Where it should happen", formalDefinition="Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc." )
     protected Reference location;
 
@@ -2645,7 +2638,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * The type of participant in the action.
      */
-    @Child(name = "participantType", type = {CodeType.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "participantType", type = {CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/action-participant-type")
     protected List<Enumeration<ActivityParticipantType>> participantType;
@@ -2653,7 +2646,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Identifies the food, drug or other product being consumed or supplied in the activity.
      */
-    @Child(name = "product", type = {Medication.class, Substance.class, CodeableConcept.class}, order=17, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "product", type = {Medication.class, Substance.class, CodeableConcept.class}, order=16, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="What's administered/supplied", formalDefinition="Identifies the food, drug or other product being consumed or supplied in the activity." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/medication-codes")
     protected Type product;
@@ -2661,21 +2654,21 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).
      */
-    @Child(name = "quantity", type = {SimpleQuantity.class}, order=18, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "quantity", type = {SimpleQuantity.class}, order=17, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="How much is administered/consumed/supplied", formalDefinition="Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)." )
     protected SimpleQuantity quantity;
 
     /**
      * Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.
      */
-    @Child(name = "dosageInstruction", type = {DosageInstruction.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosageInstruction", type = {Dosage.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Detailed dosage instructions", formalDefinition="Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources." )
-    protected List<DosageInstruction> dosageInstruction;
+    protected List<Dosage> dosageInstruction;
 
     /**
      * Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).
      */
-    @Child(name = "bodySite", type = {CodeableConcept.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "bodySite", type = {CodeableConcept.class}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="What part of body to perform on", formalDefinition="Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites)." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/body-site")
     protected List<CodeableConcept> bodySite;
@@ -2683,7 +2676,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.
      */
-    @Child(name = "transform", type = {StructureMap.class}, order=21, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "transform", type = {StructureMap.class}, order=20, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Transform to apply the template", formalDefinition="A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input." )
     protected Reference transform;
 
@@ -2695,11 +2688,11 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.
      */
-    @Child(name = "dynamicValue", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dynamicValue", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result." )
     protected List<ActivityDefinitionDynamicValueComponent> dynamicValue;
 
-    private static final long serialVersionUID = 446122558L;
+    private static final long serialVersionUID = 663160319L;
 
   /**
    * Constructor
@@ -3480,7 +3473,7 @@ The catalog does not replicate the content of the item, since that is expected t
     }
 
     /**
-     * @return {@link #topic} (Clinical topics related to the content of the asset.)
+     * @return {@link #topic} (Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.)
      */
     public List<CodeableConcept> getTopic() { 
       if (this.topic == null)
@@ -3865,30 +3858,6 @@ The catalog does not replicate the content of the item, since that is expected t
     }
 
     /**
-     * @return {@link #category} (High-level categorization of the type of activity that can be useful for filtering and searching.)
-     */
-    public CodeableConcept getCategory() { 
-      if (this.category == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActivityDefinition.category");
-        else if (Configuration.doAutoCreate())
-          this.category = new CodeableConcept(); // cc
-      return this.category;
-    }
-
-    public boolean hasCategory() { 
-      return this.category != null && !this.category.isEmpty();
-    }
-
-    /**
-     * @param value {@link #category} (High-level categorization of the type of activity that can be useful for filtering and searching.)
-     */
-    public ActivityDefinition setCategory(CodeableConcept value) { 
-      this.category = value;
-      return this;
-    }
-
-    /**
      * @return {@link #kind} (A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
     public Enumeration<ActivityDefinitionKind> getKindElement() { 
@@ -4183,16 +4152,16 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * @return {@link #dosageInstruction} (Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.)
      */
-    public List<DosageInstruction> getDosageInstruction() { 
+    public List<Dosage> getDosageInstruction() { 
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       return this.dosageInstruction;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public ActivityDefinition setDosageInstruction(List<DosageInstruction> theDosageInstruction) { 
+    public ActivityDefinition setDosageInstruction(List<Dosage> theDosageInstruction) { 
       this.dosageInstruction = theDosageInstruction;
       return this;
     }
@@ -4200,25 +4169,25 @@ The catalog does not replicate the content of the item, since that is expected t
     public boolean hasDosageInstruction() { 
       if (this.dosageInstruction == null)
         return false;
-      for (DosageInstruction item : this.dosageInstruction)
+      for (Dosage item : this.dosageInstruction)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DosageInstruction addDosageInstruction() { //3
-      DosageInstruction t = new DosageInstruction();
+    public Dosage addDosageInstruction() { //3
+      Dosage t = new Dosage();
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return t;
     }
 
-    public ActivityDefinition addDosageInstruction(DosageInstruction t) { //3
+    public ActivityDefinition addDosageInstruction(Dosage t) { //3
       if (t == null)
         return this;
       if (this.dosageInstruction == null)
-        this.dosageInstruction = new ArrayList<DosageInstruction>();
+        this.dosageInstruction = new ArrayList<Dosage>();
       this.dosageInstruction.add(t);
       return this;
     }
@@ -4226,7 +4195,7 @@ The catalog does not replicate the content of the item, since that is expected t
     /**
      * @return The first repetition of repeating field {@link #dosageInstruction}, creating it if it does not already exist
      */
-    public DosageInstruction getDosageInstructionFirstRep() { 
+    public Dosage getDosageInstructionFirstRep() { 
       if (getDosageInstruction().isEmpty()) {
         addDosageInstruction();
       }
@@ -4401,14 +4370,13 @@ The catalog does not replicate the content of the item, since that is expected t
         childrenList.add(new Property("effectivePeriod", "Period", "The period during which the activity definition content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
         childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the activity definition is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        childrenList.add(new Property("topic", "CodeableConcept", "Clinical topics related to the content of the asset.", 0, java.lang.Integer.MAX_VALUE, topic));
+        childrenList.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the activity. Topics provide a high-level categorization of the activity that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the asset, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the activity definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("copyright", "markdown", "A copyright statement relating to the activity definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the activity definition.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("relatedArtifact", "RelatedArtifact", "Related artifacts such as additional documentation, justification, or bibliographic references.", 0, java.lang.Integer.MAX_VALUE, relatedArtifact));
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the asset.", 0, java.lang.Integer.MAX_VALUE, library));
-        childrenList.add(new Property("category", "CodeableConcept", "High-level categorization of the type of activity that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, category));
         childrenList.add(new Property("kind", "code", "A description of the kind of resource the activity definition is representing. For example, a MedicationRequest, a ProcedureRequest, or a CommunicationRequest. Typically, but not always, this is a Request resource.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("code", "CodeableConcept", "Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("timing[x]", "CodeableConcept|Timing", "The period, timing or frequency upon which the described activity is to occur.", 0, java.lang.Integer.MAX_VALUE, timing));
@@ -4416,7 +4384,7 @@ The catalog does not replicate the content of the item, since that is expected t
         childrenList.add(new Property("participantType", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, participantType));
         childrenList.add(new Property("product[x]", "Reference(Medication|Substance)|CodeableConcept", "Identifies the food, drug or other product being consumed or supplied in the activity.", 0, java.lang.Integer.MAX_VALUE, product));
         childrenList.add(new Property("quantity", "SimpleQuantity", "Identifies the quantity expected to be consumed at once (per dose, per meal, etc.).", 0, java.lang.Integer.MAX_VALUE, quantity));
-        childrenList.add(new Property("dosageInstruction", "DosageInstruction", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
+        childrenList.add(new Property("dosageInstruction", "Dosage", "Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources.", 0, java.lang.Integer.MAX_VALUE, dosageInstruction));
         childrenList.add(new Property("bodySite", "CodeableConcept", "Indicates the sites on the subject's body where the procedure should be performed (I.e. the target sites).", 0, java.lang.Integer.MAX_VALUE, bodySite));
         childrenList.add(new Property("transform", "Reference(StructureMap)", "A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input.", 0, java.lang.Integer.MAX_VALUE, transform));
         childrenList.add(new Property("dynamicValue", "", "Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient's weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, dynamicValue));
@@ -4448,7 +4416,6 @@ The catalog does not replicate the content of the item, since that is expected t
         case 1522889671: /*copyright*/ return this.copyright == null ? new Base[0] : new Base[] {this.copyright}; // MarkdownType
         case 666807069: /*relatedArtifact*/ return this.relatedArtifact == null ? new Base[0] : this.relatedArtifact.toArray(new Base[this.relatedArtifact.size()]); // RelatedArtifact
         case 166208699: /*library*/ return this.library == null ? new Base[0] : this.library.toArray(new Base[this.library.size()]); // Reference
-        case 50511102: /*category*/ return this.category == null ? new Base[0] : new Base[] {this.category}; // CodeableConcept
         case 3292052: /*kind*/ return this.kind == null ? new Base[0] : new Base[] {this.kind}; // Enumeration<ActivityDefinitionKind>
         case 3059181: /*code*/ return this.code == null ? new Base[0] : new Base[] {this.code}; // CodeableConcept
         case -873664438: /*timing*/ return this.timing == null ? new Base[0] : new Base[] {this.timing}; // Type
@@ -4456,7 +4423,7 @@ The catalog does not replicate the content of the item, since that is expected t
         case 841294093: /*participantType*/ return this.participantType == null ? new Base[0] : this.participantType.toArray(new Base[this.participantType.size()]); // Enumeration<ActivityParticipantType>
         case -309474065: /*product*/ return this.product == null ? new Base[0] : new Base[] {this.product}; // Type
         case -1285004149: /*quantity*/ return this.quantity == null ? new Base[0] : new Base[] {this.quantity}; // SimpleQuantity
-        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // DosageInstruction
+        case -1201373865: /*dosageInstruction*/ return this.dosageInstruction == null ? new Base[0] : this.dosageInstruction.toArray(new Base[this.dosageInstruction.size()]); // Dosage
         case 1702620169: /*bodySite*/ return this.bodySite == null ? new Base[0] : this.bodySite.toArray(new Base[this.bodySite.size()]); // CodeableConcept
         case 1052666732: /*transform*/ return this.transform == null ? new Base[0] : new Base[] {this.transform}; // Reference
         case 572625010: /*dynamicValue*/ return this.dynamicValue == null ? new Base[0] : this.dynamicValue.toArray(new Base[this.dynamicValue.size()]); // ActivityDefinitionDynamicValueComponent
@@ -4538,9 +4505,6 @@ The catalog does not replicate the content of the item, since that is expected t
         case 166208699: // library
           this.getLibrary().add(castToReference(value)); // Reference
           return value;
-        case 50511102: // category
-          this.category = castToCodeableConcept(value); // CodeableConcept
-          return value;
         case 3292052: // kind
           value = new ActivityDefinitionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActivityDefinitionKind>
@@ -4565,7 +4529,7 @@ The catalog does not replicate the content of the item, since that is expected t
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
           return value;
         case -1201373865: // dosageInstruction
-          this.getDosageInstruction().add(castToDosageInstruction(value)); // DosageInstruction
+          this.getDosageInstruction().add(castToDosage(value)); // Dosage
           return value;
         case 1702620169: // bodySite
           this.getBodySite().add(castToCodeableConcept(value)); // CodeableConcept
@@ -4630,8 +4594,6 @@ The catalog does not replicate the content of the item, since that is expected t
           this.getRelatedArtifact().add(castToRelatedArtifact(value));
         } else if (name.equals("library")) {
           this.getLibrary().add(castToReference(value));
-        } else if (name.equals("category")) {
-          this.category = castToCodeableConcept(value); // CodeableConcept
         } else if (name.equals("kind")) {
           value = new ActivityDefinitionKindEnumFactory().fromType(castToCode(value));
           this.kind = (Enumeration) value; // Enumeration<ActivityDefinitionKind>
@@ -4649,7 +4611,7 @@ The catalog does not replicate the content of the item, since that is expected t
         } else if (name.equals("quantity")) {
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         } else if (name.equals("dosageInstruction")) {
-          this.getDosageInstruction().add(castToDosageInstruction(value));
+          this.getDosageInstruction().add(castToDosage(value));
         } else if (name.equals("bodySite")) {
           this.getBodySite().add(castToCodeableConcept(value));
         } else if (name.equals("transform")) {
@@ -4687,7 +4649,6 @@ The catalog does not replicate the content of the item, since that is expected t
         case 1522889671:  return getCopyrightElement();
         case 666807069:  return addRelatedArtifact(); 
         case 166208699:  return addLibrary(); 
-        case 50511102:  return getCategory(); 
         case 3292052:  return getKindElement();
         case 3059181:  return getCode(); 
         case 164632566:  return getTiming(); 
@@ -4732,7 +4693,6 @@ The catalog does not replicate the content of the item, since that is expected t
         case 1522889671: /*copyright*/ return new String[] {"markdown"};
         case 666807069: /*relatedArtifact*/ return new String[] {"RelatedArtifact"};
         case 166208699: /*library*/ return new String[] {"Reference"};
-        case 50511102: /*category*/ return new String[] {"CodeableConcept"};
         case 3292052: /*kind*/ return new String[] {"code"};
         case 3059181: /*code*/ return new String[] {"CodeableConcept"};
         case -873664438: /*timing*/ return new String[] {"CodeableConcept", "Timing"};
@@ -4740,7 +4700,7 @@ The catalog does not replicate the content of the item, since that is expected t
         case 841294093: /*participantType*/ return new String[] {"code"};
         case -309474065: /*product*/ return new String[] {"Reference", "CodeableConcept"};
         case -1285004149: /*quantity*/ return new String[] {"SimpleQuantity"};
-        case -1201373865: /*dosageInstruction*/ return new String[] {"DosageInstruction"};
+        case -1201373865: /*dosageInstruction*/ return new String[] {"Dosage"};
         case 1702620169: /*bodySite*/ return new String[] {"CodeableConcept"};
         case 1052666732: /*transform*/ return new String[] {"Reference"};
         case 572625010: /*dynamicValue*/ return new String[] {};
@@ -4820,10 +4780,6 @@ The catalog does not replicate the content of the item, since that is expected t
         }
         else if (name.equals("library")) {
           return addLibrary();
-        }
-        else if (name.equals("category")) {
-          this.category = new CodeableConcept();
-          return this.category;
         }
         else if (name.equals("kind")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActivityDefinition.kind");
@@ -4939,7 +4895,6 @@ The catalog does not replicate the content of the item, since that is expected t
           for (Reference i : library)
             dst.library.add(i.copy());
         };
-        dst.category = category == null ? null : category.copy();
         dst.kind = kind == null ? null : kind.copy();
         dst.code = code == null ? null : code.copy();
         dst.timing = timing == null ? null : timing.copy();
@@ -4952,8 +4907,8 @@ The catalog does not replicate the content of the item, since that is expected t
         dst.product = product == null ? null : product.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         if (dosageInstruction != null) {
-          dst.dosageInstruction = new ArrayList<DosageInstruction>();
-          for (DosageInstruction i : dosageInstruction)
+          dst.dosageInstruction = new ArrayList<Dosage>();
+          for (Dosage i : dosageInstruction)
             dst.dosageInstruction.add(i.copy());
         };
         if (bodySite != null) {
@@ -4985,10 +4940,9 @@ The catalog does not replicate the content of the item, since that is expected t
            && compareDeep(approvalDate, o.approvalDate, true) && compareDeep(lastReviewDate, o.lastReviewDate, true)
            && compareDeep(effectivePeriod, o.effectivePeriod, true) && compareDeep(topic, o.topic, true) && compareDeep(contributor, o.contributor, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(relatedArtifact, o.relatedArtifact, true)
-           && compareDeep(library, o.library, true) && compareDeep(category, o.category, true) && compareDeep(kind, o.kind, true)
-           && compareDeep(code, o.code, true) && compareDeep(timing, o.timing, true) && compareDeep(location, o.location, true)
-           && compareDeep(participantType, o.participantType, true) && compareDeep(product, o.product, true)
-           && compareDeep(quantity, o.quantity, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
+           && compareDeep(library, o.library, true) && compareDeep(kind, o.kind, true) && compareDeep(code, o.code, true)
+           && compareDeep(timing, o.timing, true) && compareDeep(location, o.location, true) && compareDeep(participantType, o.participantType, true)
+           && compareDeep(product, o.product, true) && compareDeep(quantity, o.quantity, true) && compareDeep(dosageInstruction, o.dosageInstruction, true)
            && compareDeep(bodySite, o.bodySite, true) && compareDeep(transform, o.transform, true) && compareDeep(dynamicValue, o.dynamicValue, true)
           ;
       }
@@ -5008,8 +4962,8 @@ The catalog does not replicate the content of the item, since that is expected t
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, purpose, usage
           , approvalDate, lastReviewDate, effectivePeriod, topic, contributor, copyright, relatedArtifact
-          , library, category, kind, code, timing, location, participantType, product
-          , quantity, dosageInstruction, bodySite, transform, dynamicValue);
+          , library, kind, code, timing, location, participantType, product, quantity
+          , dosageInstruction, bodySite, transform, dynamicValue);
       }
 
   @Override

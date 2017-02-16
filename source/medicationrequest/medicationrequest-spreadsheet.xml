@@ -6512,7 +6512,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s150"><Data ss:Type="String">SC Injection</Data></Cell>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"><Data ss:Type="String">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  DosageInstruction includes additionalInstructions as text</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">medrx0321</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">medicationrequest0321.xml</Data></Cell>
     <Cell ss:StyleID="s135"/>

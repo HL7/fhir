@@ -572,6 +572,15 @@
   11179 Mapping = n/a
 
  -- Row 25 -----------------------------------
+  Element = !ElementDefinition.base.binding
+  Card. = 0..*
+  Type = @ElementDefinition.binding
+  Short Name = Parent bindings for reference
+  Definition = List of bindings in parent elements
+  Comments = These are provided for the usecase where extensible bindings need information about bindings in the parent to correctly decide whether a concept is already present in the ancestry of bindings
+  RIM Mapping = N/A
+
+ -- Row 26 -----------------------------------
   Element = ElementDefinition.contentReference
   Card. = 0..1
   Inv. = 5
@@ -580,7 +589,7 @@
   Definition = Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element
   RIM Mapping = N/A
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ElementDefinition.type
   Card. = 0..*
   UML = 0;490
@@ -595,7 +604,7 @@
   11179 Mapping = .domain.data+Q14type
   LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ElementDefinition.type.code
   Card. = 1..1
   Type = uri
@@ -608,7 +617,7 @@
   11179 Mapping = .domain.data+Q14type
   LOINC Code = HL7_V2_DATATYPE (translation required), HL7_V3_DATATYPE (translation required)
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ElementDefinition.type.profile
   Card. = 0..1
   Type = uri
@@ -617,7 +626,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ElementDefinition.type.targetProfile
   Card. = 0..1
   Type = uri
@@ -627,7 +636,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ElementDefinition.type.aggregation
   Card. = 0..*
   Inv. = 4
@@ -638,7 +647,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ElementDefinition.type.versioning
   Card. = 0..1
   Type = code
@@ -649,7 +658,7 @@
   RIM Mapping = N/A (MIF territory)
   Default Value = either
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ElementDefinition.defaultValue[x]
   Card. = 0..1
   Inv. = 15
@@ -659,7 +668,7 @@
   Comments = Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
   RIM Mapping = N/A (MIF territory)
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ElementDefinition.meaningWhenMissing
   Card. = 0..1
   Inv. = 15
@@ -670,7 +679,7 @@
   RIM Mapping = N/A (MIF territory)
   Translatable = y
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ElementDefinition.orderMeaning
   Card. = 0..1
   Type = string
@@ -679,7 +688,7 @@
   Comments = This element can only be asserted on repeating elements and can only be introduced when defining resources or data types.  It can be further refined profiled elements but if absent in the base type, a profile cannot assert meaning
   RIM Mapping = N/A (MIF territory)
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ElementDefinition.fixed[x]
   Card. = 0..1
   Inv. = 5,6,8
@@ -690,7 +699,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = N/A (only relevant when constraining, which 11179 doesn\'t do)
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ElementDefinition.pattern[x]
   Card. = 0..1
   Inv. = 5,7,8
@@ -700,7 +709,7 @@
   Comments = Mostly used for fixing values of CodeableConcept. At present, pattern[x] is not recommended as a basis for slicing while issues related to this are investigated during the STU period
   RIM Mapping = N/A (MIF territory)
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ElementDefinition.example
   Card. = 0..*
   Short Name = Example value (as defined for type)
@@ -708,7 +717,7 @@
   Comments = Examples will most commonly be present for data where it\'s not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
   RIM Mapping = N/A (MIF territory)
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ElementDefinition.example.label
   Card. = 1..1
   Type = string
@@ -717,7 +726,7 @@
   RIM Mapping = N/A (MIF territory)
   Translatable = y
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ElementDefinition.example.value[x]
   Card. = 1..1
   Type = *
@@ -727,7 +736,7 @@
   11179 Mapping = .example
   LOINC Code = EXMPL_ANSWERS
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ElementDefinition.minValue[x]
   Card. = 0..1
   Type = date | dateTime | instant | time | decimal | integer | positiveInt | unsignedInt | Quantity
@@ -736,7 +745,7 @@
   Comments = Except for date/date/instant, the type of the minValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of minValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is subtracted from the current clock to determine the minimum allowable value.   A minimum value for a Quantity is interpreted as an canonical minimum - e.g. you cannot provide 100mg if the minimum value is 10g.
   RIM Mapping = N/A (MIF territory)
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = ElementDefinition.maxValue[x]
   Card. = 0..1
   Type = date | dateTime | instant | time | decimal | integer | positiveInt | unsignedInt | Quantity
@@ -745,7 +754,7 @@
   Comments = Except for date/date/instant, the type of the maxValue[x] SHALL be the same as the specified type of the element. For the date/dateTime/instant values, the type of maxValue[x] SHALL be either the same, or a a [Duration](datatypes.html#duration) which specifies a relative time limit to the current time. The duration value is positive, and is added to the current clock to determine the maximum allowable value.   A maximum value for a Quantity is interpreted as an canonical maximum - e.g. you cannot provide 10g if the maximum value is 50mg.
   RIM Mapping = N/A (MIF territory)
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = ElementDefinition.maxLength
   Card. = 0..1
   Type = integer
@@ -756,14 +765,14 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.maximum_character_quantity
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = ElementDefinition.condition
   Card. = 0..*
   Type = id
   Short Name = Reference to invariant about presence
   Definition = A reference to an invariant that may make additional statements about the cardinality or value in the instance
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = ElementDefinition.constraint
   Card. = 0..*
   UML = 0;330
@@ -772,7 +781,7 @@
   Comments = Constraints should be declared on the \"context\" element - the lowest element in the hierarchy that is common to all nodes referenced by the constraint
   11179 Mapping = ??
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = ElementDefinition.constraint.key
   Card. = 1..1
   Inv. = 14
@@ -780,7 +789,7 @@
   Short Name = Target of \'condition\' reference above
   Definition = Allows identification of which elements have their cardinalities impacted by the constraint.  Will not be referenced for constraints that do not affect cardinality
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = ElementDefinition.constraint.requirements
   Card. = 0..1
   Type = string
@@ -788,7 +797,7 @@
   Definition = Description of why this constraint is necessary or appropriate
   Comments = To be used if the reason for the constraint may not be intuitive to all implementers
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ElementDefinition.constraint.severity
   Card. = 1..1
   Type = code
@@ -797,7 +806,7 @@
   Definition = Identifies the impact constraint violation has on the conformance of the instance
   Comments = This allows constraints to be asserted as \"shall\" (error) and \"should\" (warning)
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ElementDefinition.constraint.human
   Card. = 1..1
   Type = string
@@ -806,7 +815,7 @@
   Comments = Should be expressed in business terms as much as possible
   Translatable = y
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = ElementDefinition.constraint.expression
   Card. = 1..1
   Type = string
@@ -814,7 +823,7 @@
   Definition = A [FHIRPath](http://hl7.org/fluentpath) expression of constraint that can be executed to see if this constraint is met
   Requirements = Used by validation tooling tests of the validity of the resource
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = ElementDefinition.constraint.xpath
   Card. = 0..1
   Type = string
@@ -823,7 +832,7 @@
   Requirements = Used in Schematron tests of the validity of the resource
   Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes. \n\nNote: we are considering deprecating the xpath element. Implementer feedback is welcome
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ElementDefinition.constraint.source
   Card. = 0..1
   Type = uri
@@ -831,7 +840,7 @@
   Definition = A reference to the original source of the constraint, for traceability purposes
   Comments = This is used when, e.g. rendering, where it is not useful to present inherited constraints when rendering the snapshot
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ElementDefinition.mustSupport
   Card. = 0..1
   Type = boolean
@@ -842,7 +851,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ElementDefinition.isModifier
   Card. = 0..1
   Type = boolean
@@ -853,7 +862,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ElementDefinition.isSummary
   Card. = 0..1
   Type = boolean
@@ -864,20 +873,21 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = ElementDefinition.binding
   Card. = 0..1
   UML = 480;390
   Inv. = 11
+  Type = =ElementDefinitionBinding
   Short Name = ValueSet details if this is coded
-  Definition = Binds to a value set if this element is coded (code, Coding, CodeableConcept)
+  Definition = Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri)
   Comments = For a CodeableConcept, when no codes are allowed - only text, use a binding of strength \"required\" with a description explaining that no coded values are allowed and what sort of information to put in the \"text\" element.
   v2 Mapping = OM3, OMC.11
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain
   LOINC Code = ANSWER LIST, NORMATIVE ANSWER LIST
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = ElementDefinition.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -890,7 +900,7 @@
   RIM Mapping = N/A (MIF territory)
   LOINC Code = N/A
 
- -- Row 57 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = ElementDefinition.binding.description
   Card. = 0..1
   Inv. = 10
@@ -901,7 +911,7 @@
   11179 Mapping = .domain.description
   Translatable = y
 
- -- Row 58 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = ElementDefinition.binding.valueSet[x]
   Card. = 0..1
   Inv. = 10,12
@@ -914,7 +924,7 @@
   11179 Mapping = points to explicit list or expression that evaluates to list of (Enumerated_Value_Domain).member
   LOINC Code = CODE_TABLE
 
- -- Row 59 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = ElementDefinition.mapping
   Card. = 0..*
   UML = 480;540
@@ -926,7 +936,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = Registered_item).document_reference[document_type=mapping]  Also, .meaning linkage to Data_Element_Concept is done as a mapping to a reference model.  (Data_Element_Concepts are all defined in some sort of reference model, be that Object_Class and Property or some other mechanism)
 
- -- Row 60 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = ElementDefinition.mapping.identity
   Card. = 1..1
   Type = id
@@ -934,7 +944,7 @@
   Definition = An internal reference to the definition of a mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 61 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = ElementDefinition.mapping.language
   Card. = 0..1
   Type = code
@@ -944,7 +954,7 @@
   Comments = If omitted, then there can be no expectation of computational interpretation of the mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 62 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = ElementDefinition.mapping.map
   Card. = 1..1
   Type = string

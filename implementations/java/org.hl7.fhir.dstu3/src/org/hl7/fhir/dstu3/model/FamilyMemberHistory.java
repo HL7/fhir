@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -669,10 +669,10 @@ public class FamilyMemberHistory extends DomainResource {
     /**
      * Describes why the family member history occurred in coded or textual form.
      */
-    @Child(name = "reasonCodeableConcept", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reasonCode", type = {CodeableConcept.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Why was family member history performed?", formalDefinition="Describes why the family member history occurred in coded or textual form." )
     @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/clinical-findings")
-    protected List<CodeableConcept> reasonCodeableConcept;
+    protected List<CodeableConcept> reasonCode;
 
     /**
      * Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.
@@ -700,7 +700,7 @@ public class FamilyMemberHistory extends DomainResource {
     @Description(shortDefinition="Condition that the related person had", formalDefinition="The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition." )
     protected List<FamilyMemberHistoryConditionComponent> condition;
 
-    private static final long serialVersionUID = 1562383141L;
+    private static final long serialVersionUID = 388742645L;
 
   /**
    * Constructor
@@ -1410,56 +1410,56 @@ public class FamilyMemberHistory extends DomainResource {
     }
 
     /**
-     * @return {@link #reasonCodeableConcept} (Describes why the family member history occurred in coded or textual form.)
+     * @return {@link #reasonCode} (Describes why the family member history occurred in coded or textual form.)
      */
-    public List<CodeableConcept> getReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      return this.reasonCodeableConcept;
+    public List<CodeableConcept> getReasonCode() { 
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      return this.reasonCode;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public FamilyMemberHistory setReasonCodeableConcept(List<CodeableConcept> theReasonCodeableConcept) { 
-      this.reasonCodeableConcept = theReasonCodeableConcept;
+    public FamilyMemberHistory setReasonCode(List<CodeableConcept> theReasonCode) { 
+      this.reasonCode = theReasonCode;
       return this;
     }
 
-    public boolean hasReasonCodeableConcept() { 
-      if (this.reasonCodeableConcept == null)
+    public boolean hasReasonCode() { 
+      if (this.reasonCode == null)
         return false;
-      for (CodeableConcept item : this.reasonCodeableConcept)
+      for (CodeableConcept item : this.reasonCode)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public CodeableConcept addReasonCodeableConcept() { //3
+    public CodeableConcept addReasonCode() { //3
       CodeableConcept t = new CodeableConcept();
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return t;
     }
 
-    public FamilyMemberHistory addReasonCodeableConcept(CodeableConcept t) { //3
+    public FamilyMemberHistory addReasonCode(CodeableConcept t) { //3
       if (t == null)
         return this;
-      if (this.reasonCodeableConcept == null)
-        this.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-      this.reasonCodeableConcept.add(t);
+      if (this.reasonCode == null)
+        this.reasonCode = new ArrayList<CodeableConcept>();
+      this.reasonCode.add(t);
       return this;
     }
 
     /**
-     * @return The first repetition of repeating field {@link #reasonCodeableConcept}, creating it if it does not already exist
+     * @return The first repetition of repeating field {@link #reasonCode}, creating it if it does not already exist
      */
-    public CodeableConcept getReasonCodeableConceptFirstRep() { 
-      if (getReasonCodeableConcept().isEmpty()) {
-        addReasonCodeableConcept();
+    public CodeableConcept getReasonCodeFirstRep() { 
+      if (getReasonCode().isEmpty()) {
+        addReasonCode();
       }
-      return getReasonCodeableConcept().get(0);
+      return getReasonCode().get(0);
     }
 
     /**
@@ -1647,7 +1647,7 @@ public class FamilyMemberHistory extends DomainResource {
         childrenList.add(new Property("age[x]", "Age|Range|string", "The age of the relative at the time the family member history is recorded.", 0, java.lang.Integer.MAX_VALUE, age));
         childrenList.add(new Property("estimatedAge", "boolean", "If true, indicates that the age value specified is an estimated value.", 0, java.lang.Integer.MAX_VALUE, estimatedAge));
         childrenList.add(new Property("deceased[x]", "boolean|Age|Range|date|string", "Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.", 0, java.lang.Integer.MAX_VALUE, deceased));
-        childrenList.add(new Property("reasonCodeableConcept", "CodeableConcept", "Describes why the family member history occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCodeableConcept));
+        childrenList.add(new Property("reasonCode", "CodeableConcept", "Describes why the family member history occurred in coded or textual form.", 0, java.lang.Integer.MAX_VALUE, reasonCode));
         childrenList.add(new Property("reasonReference", "Reference(Condition|Observation|AllergyIntolerance|QuestionnaireResponse)", "Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.", 0, java.lang.Integer.MAX_VALUE, reasonReference));
         childrenList.add(new Property("note", "Annotation", "This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("condition", "", "The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.", 0, java.lang.Integer.MAX_VALUE, condition));
@@ -1670,7 +1670,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 96511: /*age*/ return this.age == null ? new Base[0] : new Base[] {this.age}; // Type
         case 2130167587: /*estimatedAge*/ return this.estimatedAge == null ? new Base[0] : new Base[] {this.estimatedAge}; // BooleanType
         case 561497972: /*deceased*/ return this.deceased == null ? new Base[0] : new Base[] {this.deceased}; // Type
-        case -610155331: /*reasonCodeableConcept*/ return this.reasonCodeableConcept == null ? new Base[0] : this.reasonCodeableConcept.toArray(new Base[this.reasonCodeableConcept.size()]); // CodeableConcept
+        case 722137681: /*reasonCode*/ return this.reasonCode == null ? new Base[0] : this.reasonCode.toArray(new Base[this.reasonCode.size()]); // CodeableConcept
         case -1146218137: /*reasonReference*/ return this.reasonReference == null ? new Base[0] : this.reasonReference.toArray(new Base[this.reasonReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
         case -861311717: /*condition*/ return this.condition == null ? new Base[0] : this.condition.toArray(new Base[this.condition.size()]); // FamilyMemberHistoryConditionComponent
@@ -1726,8 +1726,8 @@ public class FamilyMemberHistory extends DomainResource {
         case 561497972: // deceased
           this.deceased = castToType(value); // Type
           return value;
-        case -610155331: // reasonCodeableConcept
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value)); // CodeableConcept
+        case 722137681: // reasonCode
+          this.getReasonCode().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
         case -1146218137: // reasonReference
           this.getReasonReference().add(castToReference(value)); // Reference
@@ -1775,8 +1775,8 @@ public class FamilyMemberHistory extends DomainResource {
           this.estimatedAge = castToBoolean(value); // BooleanType
         } else if (name.equals("deceased[x]")) {
           this.deceased = castToType(value); // Type
-        } else if (name.equals("reasonCodeableConcept")) {
-          this.getReasonCodeableConcept().add(castToCodeableConcept(value));
+        } else if (name.equals("reasonCode")) {
+          this.getReasonCode().add(castToCodeableConcept(value));
         } else if (name.equals("reasonReference")) {
           this.getReasonReference().add(castToReference(value));
         } else if (name.equals("note")) {
@@ -1808,7 +1808,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 2130167587:  return getEstimatedAgeElement();
         case -1311442804:  return getDeceased(); 
         case 561497972:  return getDeceased(); 
-        case -610155331:  return addReasonCodeableConcept(); 
+        case 722137681:  return addReasonCode(); 
         case -1146218137:  return addReasonReference(); 
         case 3387378:  return addNote(); 
         case -861311717:  return addCondition(); 
@@ -1834,7 +1834,7 @@ public class FamilyMemberHistory extends DomainResource {
         case 96511: /*age*/ return new String[] {"Age", "Range", "string"};
         case 2130167587: /*estimatedAge*/ return new String[] {"boolean"};
         case 561497972: /*deceased*/ return new String[] {"boolean", "Age", "Range", "date", "string"};
-        case -610155331: /*reasonCodeableConcept*/ return new String[] {"CodeableConcept"};
+        case 722137681: /*reasonCode*/ return new String[] {"CodeableConcept"};
         case -1146218137: /*reasonReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
         case -861311717: /*condition*/ return new String[] {};
@@ -1925,8 +1925,8 @@ public class FamilyMemberHistory extends DomainResource {
           this.deceased = new StringType();
           return this.deceased;
         }
-        else if (name.equals("reasonCodeableConcept")) {
-          return addReasonCodeableConcept();
+        else if (name.equals("reasonCode")) {
+          return addReasonCode();
         }
         else if (name.equals("reasonReference")) {
           return addReasonReference();
@@ -1971,10 +1971,10 @@ public class FamilyMemberHistory extends DomainResource {
         dst.age = age == null ? null : age.copy();
         dst.estimatedAge = estimatedAge == null ? null : estimatedAge.copy();
         dst.deceased = deceased == null ? null : deceased.copy();
-        if (reasonCodeableConcept != null) {
-          dst.reasonCodeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reasonCodeableConcept)
-            dst.reasonCodeableConcept.add(i.copy());
+        if (reasonCode != null) {
+          dst.reasonCode = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : reasonCode)
+            dst.reasonCode.add(i.copy());
         };
         if (reasonReference != null) {
           dst.reasonReference = new ArrayList<Reference>();
@@ -2010,7 +2010,7 @@ public class FamilyMemberHistory extends DomainResource {
            && compareDeep(patient, o.patient, true) && compareDeep(date, o.date, true) && compareDeep(name, o.name, true)
            && compareDeep(relationship, o.relationship, true) && compareDeep(gender, o.gender, true) && compareDeep(born, o.born, true)
            && compareDeep(age, o.age, true) && compareDeep(estimatedAge, o.estimatedAge, true) && compareDeep(deceased, o.deceased, true)
-           && compareDeep(reasonCodeableConcept, o.reasonCodeableConcept, true) && compareDeep(reasonReference, o.reasonReference, true)
+           && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(note, o.note, true) && compareDeep(condition, o.condition, true);
       }
 
@@ -2029,8 +2029,7 @@ public class FamilyMemberHistory extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, status
           , notDone, notDoneReason, patient, date, name, relationship, gender, born, age
-          , estimatedAge, deceased, reasonCodeableConcept, reasonReference, note, condition
-          );
+          , estimatedAge, deceased, reasonCode, reasonReference, note, condition);
       }
 
   @Override

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -2316,10 +2316,11 @@ public class Measure extends MetadataResource {
     protected Period effectivePeriod;
 
     /**
-     * Clinical topics related to the content of the measure.
+     * Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.
      */
     @Child(name = "topic", type = {CodeableConcept.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Descriptional topics for the measure", formalDefinition="Clinical topics related to the content of the measure." )
+    @Description(shortDefinition="E.g. Education, Treatment, Assessment, etc", formalDefinition="Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching." )
+    @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/definition-topic")
     protected List<CodeableConcept> topic;
 
     /**
@@ -3237,7 +3238,7 @@ public class Measure extends MetadataResource {
     }
 
     /**
-     * @return {@link #topic} (Clinical topics related to the content of the measure.)
+     * @return {@link #topic} (Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.)
      */
     public List<CodeableConcept> getTopic() { 
       if (this.topic == null)
@@ -4345,7 +4346,7 @@ public class Measure extends MetadataResource {
         childrenList.add(new Property("effectivePeriod", "Period", "The period during which the measure content was or is planned to be effective.", 0, java.lang.Integer.MAX_VALUE, effectivePeriod));
         childrenList.add(new Property("useContext", "UsageContext", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("jurisdiction", "CodeableConcept", "A jurisdiction in which the measure is intended to be used.", 0, java.lang.Integer.MAX_VALUE, jurisdiction));
-        childrenList.add(new Property("topic", "CodeableConcept", "Clinical topics related to the content of the measure.", 0, java.lang.Integer.MAX_VALUE, topic));
+        childrenList.add(new Property("topic", "CodeableConcept", "Descriptive topics related to the content of the measure. Topics provide a high-level categorization of the type of the measure that can be useful for filtering and searching.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("contributor", "Contributor", "A contributor to the content of the measure, including authors, editors, reviewers, and endorsers.", 0, java.lang.Integer.MAX_VALUE, contributor));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the measure.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "ContactDetail", "Contact details to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));

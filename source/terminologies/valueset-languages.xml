@@ -32,6 +32,10 @@
         <code value="ar"/>
         <display value="Arabic"/>
         <designation>
+          <language value="da"/>
+          <value value="Arabisk"/>
+        </designation>
+        <designation>
           <language value="en"/>
           <value value="Arabic"/>
         </designation>
@@ -780,6 +784,10 @@
         <code value="hi"/>
         <display value="Hindi"/>
         <designation>
+          <language value="da"/>
+          <value value="Hindi"/>
+        </designation>
+        <designation>
           <language value="en"/>
           <value value="Hindi"/>
         </designation>
@@ -1091,6 +1099,10 @@
       <concept>
         <code value="pa"/>
         <display value="Punjabi"/>
+        <designation>
+          <language value="da"/>
+          <value value="Punjabi"/>
+        </designation>
         <designation>
           <language value="en"/>
           <value value="Punjabi"/>

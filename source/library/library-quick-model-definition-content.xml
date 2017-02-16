@@ -256,7 +256,7 @@
         <ns4:element name="identifier" type="System.String"/>
         <ns4:element name="type" type="QUICK.AuditEventParticipantNetworkType"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.MedicationDispense.DosageInstruction" baseType="QUICK.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.MedicationDispense.Dosage" baseType="QUICK.BackboneElement">
         <ns4:element name="additionalInstructions" type="System.Concept"/>
         <ns4:element name="scheduleDateTime" type="System.DateTime"/>
         <ns4:element name="schedulePeriod" type="interval&lt;System.DateTime&gt;"/>
@@ -731,7 +731,7 @@
         <ns4:element name="destination" type="System.Any"/>
         <ns4:element name="receiver" type="list&lt;System.Any&gt;"/>
         <ns4:element name="note" type="System.String"/>
-        <ns4:element name="dosageInstruction" type="list&lt;QUICK.MedicationDispense.DosageInstruction&gt;"/>
+        <ns4:element name="dosageInstruction" type="list&lt;QUICK.MedicationDispense.Dosage&gt;"/>
         <ns4:element name="substitution" type="QUICK.MedicationDispense.Substitution"/>
     </ns4:typeInfo>
     <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.ReferralRequest" baseType="QUICK.DomainResource"
@@ -2896,7 +2896,7 @@
         <ns4:element name="target" type="list&lt;System.String&gt;"/>
         <ns4:element name="chain" type="list&lt;System.String&gt;"/>
     </ns4:typeInfo>
-    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.MedicationPrescription.DosageInstruction" baseType="QUICK.BackboneElement">
+    <ns4:typeInfo xsi:type="ns4:ClassInfo" name="QUICK.MedicationPrescription.Dosage" baseType="QUICK.BackboneElement">
         <ns4:element name="text" type="System.String"/>
         <ns4:element name="additionalInstructions" type="System.Concept"/>
         <ns4:element name="scheduledDateTime" type="System.DateTime"/>
@@ -3266,7 +3266,7 @@
         <ns4:element name="reasonReference" type="System.Any"/>
         <ns4:element name="note" type="System.String"/>
         <ns4:element name="medication" type="System.Any"/>
-        <ns4:element name="dosageInstruction" type="list&lt;QUICK.MedicationPrescription.DosageInstruction&gt;"/>
+        <ns4:element name="dosageInstruction" type="list&lt;QUICK.MedicationPrescription.Dosage&gt;"/>
         <ns4:element name="dispense" type="QUICK.MedicationPrescription.Dispense"/>
         <ns4:element name="substitution" type="QUICK.MedicationPrescription.Substitution"/>
     </ns4:typeInfo>

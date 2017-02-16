@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -1029,9 +1029,9 @@ public class Enumerations {
          */
         DISTANCE, 
         /**
-         * Indicates how the medication is to be used by the patient.
+         * Indicates how the medication is/was taken or should be taken by the patient.
          */
-        DOSAGEINSTRUCTION, 
+        DOSAGE, 
         /**
          * A length of time.
          */
@@ -1225,8 +1225,8 @@ public class Enumerations {
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return DOSAGE;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -1324,7 +1324,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -1383,7 +1383,7 @@ public class Enumerations {
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
-            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
+            case DOSAGE: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -1442,7 +1442,7 @@ public class Enumerations {
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
-            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
+            case DOSAGE: return "Indicates how the medication is/was taken or should be taken by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -1501,7 +1501,7 @@ public class Enumerations {
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -1578,8 +1578,8 @@ public class Enumerations {
           return DataType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DataType.DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return DataType.DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return DataType.DOSAGE;
         if ("Duration".equals(codeString))
           return DataType.DURATION;
         if ("Element".equals(codeString))
@@ -1696,8 +1696,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<DataType>(this, DataType.DISTANCE);
-        if ("DosageInstruction".equals(codeString))
-          return new Enumeration<DataType>(this, DataType.DOSAGEINSTRUCTION);
+        if ("Dosage".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.DOSAGE);
         if ("Duration".equals(codeString))
           return new Enumeration<DataType>(this, DataType.DURATION);
         if ("Element".equals(codeString))
@@ -1807,8 +1807,8 @@ public class Enumerations {
         return "DataRequirement";
       if (code == DataType.DISTANCE)
         return "Distance";
-      if (code == DataType.DOSAGEINSTRUCTION)
-        return "DosageInstruction";
+      if (code == DataType.DOSAGE)
+        return "Dosage";
       if (code == DataType.DURATION)
         return "Duration";
       if (code == DataType.ELEMENT)
@@ -2055,9 +2055,9 @@ public class Enumerations {
          */
         DISTANCE, 
         /**
-         * Indicates how the medication is to be used by the patient.
+         * Indicates how the medication is/was taken or should be taken by the patient.
          */
-        DOSAGEINSTRUCTION, 
+        DOSAGE, 
         /**
          * A length of time.
          */
@@ -2373,7 +2373,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document .
+         * A reference to a document.
          */
         DOCUMENTREFERENCE, 
         /**
@@ -2741,8 +2741,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return DOSAGE;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -3084,7 +3084,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -3265,7 +3265,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
-            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
+            case DOSAGE: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -3446,7 +3446,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
-            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
+            case DOSAGE: return "Indicates how the medication is/was taken or should be taken by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -3525,7 +3525,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document .";
+            case DOCUMENTREFERENCE: return "A reference to a document.";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
@@ -3627,7 +3627,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -3826,8 +3826,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRAllTypes.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return FHIRAllTypes.DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return FHIRAllTypes.DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return FHIRAllTypes.DOSAGE;
         if ("Duration".equals(codeString))
           return FHIRAllTypes.DURATION;
         if ("Element".equals(codeString))
@@ -4188,8 +4188,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DISTANCE);
-        if ("DosageInstruction".equals(codeString))
-          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DOSAGEINSTRUCTION);
+        if ("Dosage".equals(codeString))
+          return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DOSAGE);
         if ("Duration".equals(codeString))
           return new Enumeration<FHIRAllTypes>(this, FHIRAllTypes.DURATION);
         if ("Element".equals(codeString))
@@ -4543,8 +4543,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "DataRequirement";
       if (code == FHIRAllTypes.DISTANCE)
         return "Distance";
-      if (code == FHIRAllTypes.DOSAGEINSTRUCTION)
-        return "DosageInstruction";
+      if (code == FHIRAllTypes.DOSAGE)
+        return "Dosage";
       if (code == FHIRAllTypes.DURATION)
         return "Duration";
       if (code == FHIRAllTypes.ELEMENT)
@@ -4930,9 +4930,9 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DISTANCE, 
         /**
-         * Indicates how the medication is to be used by the patient.
+         * Indicates how the medication is/was taken or should be taken by the patient.
          */
-        DOSAGEINSTRUCTION, 
+        DOSAGE, 
         /**
          * A length of time.
          */
@@ -5248,7 +5248,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document .
+         * A reference to a document.
          */
         DOCUMENTREFERENCE, 
         /**
@@ -5608,8 +5608,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return DOSAGE;
         if ("Duration".equals(codeString))
           return DURATION;
         if ("Element".equals(codeString))
@@ -5947,7 +5947,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -6126,7 +6126,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "http://hl7.org/fhir/data-types";
             case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
-            case DOSAGEINSTRUCTION: return "http://hl7.org/fhir/data-types";
+            case DOSAGE: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
             case ELEMENTDEFINITION: return "http://hl7.org/fhir/data-types";
@@ -6305,7 +6305,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "A length - a value with a unit that is a physical distance.";
-            case DOSAGEINSTRUCTION: return "Indicates how the medication is to be used by the patient.";
+            case DOSAGE: return "Indicates how the medication is/was taken or should be taken by the patient.";
             case DURATION: return "A length of time.";
             case ELEMENT: return "Base definition for all elements in a resource.";
             case ELEMENTDEFINITION: return "Captures constraints on each element within the resource, profile, or extension.";
@@ -6384,7 +6384,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document .";
+            case DOCUMENTREFERENCE: return "A reference to a document.";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";
@@ -6484,7 +6484,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case COUNT: return "Count";
             case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
-            case DOSAGEINSTRUCTION: return "DosageInstruction";
+            case DOSAGE: return "Dosage";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
             case ELEMENTDEFINITION: return "ElementDefinition";
@@ -6681,8 +6681,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return FHIRDefinedType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return FHIRDefinedType.DISTANCE;
-        if ("DosageInstruction".equals(codeString))
-          return FHIRDefinedType.DOSAGEINSTRUCTION;
+        if ("Dosage".equals(codeString))
+          return FHIRDefinedType.DOSAGE;
         if ("Duration".equals(codeString))
           return FHIRDefinedType.DURATION;
         if ("Element".equals(codeString))
@@ -7039,8 +7039,8 @@ The catalog does not replicate the content of the item, since that is expected t
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DISTANCE);
-        if ("DosageInstruction".equals(codeString))
-          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DOSAGEINSTRUCTION);
+        if ("Dosage".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DOSAGE);
         if ("Duration".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DURATION);
         if ("Element".equals(codeString))
@@ -7390,8 +7390,8 @@ The catalog does not replicate the content of the item, since that is expected t
         return "DataRequirement";
       if (code == FHIRDefinedType.DISTANCE)
         return "Distance";
-      if (code == FHIRDefinedType.DOSAGEINSTRUCTION)
-        return "DosageInstruction";
+      if (code == FHIRDefinedType.DOSAGE)
+        return "Dosage";
       if (code == FHIRDefinedType.DURATION)
         return "Duration";
       if (code == FHIRDefinedType.ELEMENT)
@@ -8439,7 +8439,7 @@ The catalog does not replicate the content of the item, since that is expected t
          */
         DOCUMENTMANIFEST, 
         /**
-         * A reference to a document .
+         * A reference to a document.
          */
         DOCUMENTREFERENCE, 
         /**
@@ -9305,7 +9305,7 @@ The catalog does not replicate the content of the item, since that is expected t
             case DEVICEUSESTATEMENT: return "A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.";
             case DIAGNOSTICREPORT: return "The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.";
             case DOCUMENTMANIFEST: return "A manifest that defines a set of documents.";
-            case DOCUMENTREFERENCE: return "A reference to a document .";
+            case DOCUMENTREFERENCE: return "A reference to a document.";
             case DOMAINRESOURCE: return "A resource that includes narrative, extensions, and contained resources.";
             case ELIGIBILITYREQUEST: return "The EligibilityRequest provides patient and insurance coverage information to an insurer for them to respond, in the form of an EligibilityResponse, with information regarding whether the stated coverage is valid and in-force and optionally to provide the insurance details of the policy.";
             case ELIGIBILITYRESPONSE: return "This resource provides eligibility and plan details from the processing of an Eligibility resource.";

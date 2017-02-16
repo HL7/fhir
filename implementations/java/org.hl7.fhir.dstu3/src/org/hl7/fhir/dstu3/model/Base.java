@@ -393,11 +393,10 @@ private Map<String, Object> userData;
       throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an Annotation");
   }
   
-  public DosageInstruction castToDosageInstruction(Base b) throws FHIRException {
-    if (b instanceof DosageInstruction)
-      return (DosageInstruction) b;
-    else
-      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an DosageInstruction");
+  public Dosage castToDosage(Base b) throws FHIRException {
+    if (b instanceof Dosage)
+      return (Dosage) b;
+    else      throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to an DosageInstruction");
   }
   
 	

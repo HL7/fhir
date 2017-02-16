@@ -838,7 +838,7 @@
  -- Row 22 -----------------------------------
   Name = SC Injection
   Identity = medrx0321
-  Description = Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  DosageInstruction includes additionalInstructions as text
+  Description = Order for Subcutaneous injection with multiple dosage lines - Insulin - Novolog - active - includes reasonCode and note.  Dosage includes additionalInstructions as text
   Filename = medicationrequest0321.xml
 
  -- Row 23 -----------------------------------

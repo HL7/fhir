@@ -5,7 +5,7 @@
     <ul>
         <li><a href="medicationdispenseexample8.html">Dispense for Oral Chemotherapy - Capecitabine (RxNorm code)</a></li>
         <li><a href="medicationdispense0303.html">Dispense for Oxycodone (RxNorm code) - PRN dose with dose range, coded additional instructions and PRN coded pre-condition</a></li>
-        <li><a href="medicationdispense0305.html">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements</a></li>
+        <li><a href="medicationdispense0305.html">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple Dosage lines that include coded additionalInstructions and multiple EventHistory elements</a></li>
         <li><a href="medicationdispense0310.html">Dispense for Percocet (NDC Code) - in-progress with additionalInstructions, and as needed dosage with condition</a></li>
         <li><a href="medicationdispense0312.html">Dispense for Over the Counter medication - Tylenol PM (NDC code) - on hold with  as needed dosage with a condition, a dose Range and an Event History</a></li>
         <li><a href="medicationdispense0315.html">Dispense for Alprazolam (Rx Norm code) - in progress</a></li>
@@ -27,7 +27,7 @@
     </p>
     <ul>
         <li><a href="medicationdispense0301.html">Dispense for IV Antibiotic - in progress - Vancomycin IV (NDC Code) - in-progress</a></li>
-        <li><a href="medicationdispense0302.html">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text</a></li>
+        <li><a href="medicationdispense0302.html">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  Dosage includes additionalInstructions as text</a></li>
         <li><a href="medicationdispense0304.html">Dispense for Intravenous Antibiotic with a Dosage Rate - Piperacillin (NDC code) - completed with a coded site and route of administration and a rate expressed as a ratio</a></li>
         <li><a href="medicationdispense0306.html">Dispense for Intravenous Chemotherapy (inpatient order) - Alemtuzumab (RxNorm Code) - completed with multiple dosageInstruction lines</a></li>
         <li><a href="medicationdispense0314.html">Dispense for Lorazepam (Rx norm code) - completed with rate range</a></li>

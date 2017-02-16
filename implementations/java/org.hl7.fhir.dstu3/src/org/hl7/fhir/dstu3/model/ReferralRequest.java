@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -808,13 +808,13 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * Completed or terminated request(s) whose function is taken by this new request.
      */
-    @Child(name = "replaces", type = {Reference.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "replaces", type = {ReferralRequest.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Request(s) replaced by this request", formalDefinition="Completed or terminated request(s) whose function is taken by this new request." )
     protected List<Reference> replaces;
     /**
      * The actual objects that are the target of the reference (Completed or terminated request(s) whose function is taken by this new request.)
      */
-    protected List<Resource> replacesTarget;
+    protected List<ReferralRequest> replacesTarget;
 
 
     /**
@@ -867,14 +867,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     /**
      * The patient who is the subject of a referral or transfer of care request.
      */
-    @Child(name = "patient", type = {Patient.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "subject", type = {Patient.class, Group.class}, order=10, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Patient referred to care or transfer", formalDefinition="The patient who is the subject of a referral or transfer of care request." )
-    protected Reference patient;
+    protected Reference subject;
 
     /**
      * The actual object that is the target of the reference (The patient who is the subject of a referral or transfer of care request.)
      */
-    protected Patient patientTarget;
+    protected Resource subjectTarget;
 
     /**
      * The encounter at which the request for referral or transfer of care is initiated.
@@ -892,7 +892,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * The period of time within which the services identified in the referral/transfer of care is specified or required to occur.
      */
     @Child(name = "occurrence", type = {DateTimeType.class, Period.class}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Requested service(s) fulfillment time", formalDefinition="The period of time within which the services identified in the referral/transfer of care is specified or required to occur." )
+    @Description(shortDefinition="When the service(s) requested in the referral should occur", formalDefinition="The period of time within which the services identified in the referral/transfer of care is specified or required to occur." )
     protected Type occurrence;
 
     /**
@@ -987,7 +987,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     protected List<Provenance> relevantHistoryTarget;
 
 
-    private static final long serialVersionUID = -414588692L;
+    private static final long serialVersionUID = -404424161L;
 
   /**
    * Constructor
@@ -999,10 +999,11 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   /**
    * Constructor
    */
-    public ReferralRequest(Enumeration<ReferralRequestStatus> status, Enumeration<ReferralCategory> intent) {
+    public ReferralRequest(Enumeration<ReferralRequestStatus> status, Enumeration<ReferralCategory> intent, Reference subject) {
       super();
       this.status = status;
       this.intent = intent;
+      this.subject = subject;
     }
 
     /**
@@ -1241,10 +1242,22 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
      * @deprecated Use Reference#setResource(IBaseResource) instead
      */
     @Deprecated
-    public List<Resource> getReplacesTarget() { 
+    public List<ReferralRequest> getReplacesTarget() { 
       if (this.replacesTarget == null)
-        this.replacesTarget = new ArrayList<Resource>();
+        this.replacesTarget = new ArrayList<ReferralRequest>();
       return this.replacesTarget;
+    }
+
+    /**
+     * @deprecated Use Reference#setResource(IBaseResource) instead
+     */
+    @Deprecated
+    public ReferralRequest addReplacesTarget() { 
+      ReferralRequest r = new ReferralRequest();
+      if (this.replacesTarget == null)
+        this.replacesTarget = new ArrayList<ReferralRequest>();
+      this.replacesTarget.add(r);
+      return r;
     }
 
     /**
@@ -1488,46 +1501,41 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
     }
 
     /**
-     * @return {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
+     * @return {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Reference getPatient() { 
-      if (this.patient == null)
+    public Reference getSubject() { 
+      if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ReferralRequest.patient");
+          throw new Error("Attempt to auto-create ReferralRequest.subject");
         else if (Configuration.doAutoCreate())
-          this.patient = new Reference(); // cc
-      return this.patient;
+          this.subject = new Reference(); // cc
+      return this.subject;
     }
 
-    public boolean hasPatient() { 
-      return this.patient != null && !this.patient.isEmpty();
+    public boolean hasSubject() { 
+      return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
-     * @param value {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
+     * @param value {@link #subject} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setPatient(Reference value) { 
-      this.patient = value;
+    public ReferralRequest setSubject(Reference value) { 
+      this.subject = value;
       return this;
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Patient getPatientTarget() { 
-      if (this.patientTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ReferralRequest.patient");
-        else if (Configuration.doAutoCreate())
-          this.patientTarget = new Patient(); // aa
-      return this.patientTarget;
+    public Resource getSubjectTarget() { 
+      return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setPatientTarget(Patient value) { 
-      this.patientTarget = value;
+    public ReferralRequest setSubjectTarget(Resource value) { 
+      this.subjectTarget = value;
       return this;
     }
 
@@ -2136,14 +2144,14 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         childrenList.add(new Property("identifier", "Identifier", "Business identifier that uniquely identifies the referral/care transfer request instance.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("definition", "Reference(ActivityDefinition|PlanDefinition|HealthcareService)", "A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request.", 0, java.lang.Integer.MAX_VALUE, definition));
         childrenList.add(new Property("basedOn", "Reference(ReferralRequest|CarePlan|ProcedureRequest)", "Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.", 0, java.lang.Integer.MAX_VALUE, basedOn));
-        childrenList.add(new Property("replaces", "Reference(Any)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces));
+        childrenList.add(new Property("replaces", "Reference(ReferralRequest)", "Completed or terminated request(s) whose function is taken by this new request.", 0, java.lang.Integer.MAX_VALUE, replaces));
         childrenList.add(new Property("groupIdentifier", "Identifier", "The business identifier of the logical \"grouping\" request/order that this referral is a part of.", 0, java.lang.Integer.MAX_VALUE, groupIdentifier));
         childrenList.add(new Property("status", "code", "The status of the authorization/intention reflected by the referral request record.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("intent", "code", "Distinguishes the \"level\" of authorization/demand implicit in this request.", 0, java.lang.Integer.MAX_VALUE, intent));
         childrenList.add(new Property("type", "CodeableConcept", "An indication of the type of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("priority", "code", "An indication of the urgency of referral (or where applicable the type of transfer of care) request.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("serviceRequested", "CodeableConcept", "The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion.", 0, java.lang.Integer.MAX_VALUE, serviceRequested));
-        childrenList.add(new Property("patient", "Reference(Patient)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("subject", "Reference(Patient|Group)", "The patient who is the subject of a referral or transfer of care request.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("context", "Reference(Encounter|EpisodeOfCare)", "The encounter at which the request for referral or transfer of care is initiated.", 0, java.lang.Integer.MAX_VALUE, context));
         childrenList.add(new Property("occurrence[x]", "dateTime|Period", "The period of time within which the services identified in the referral/transfer of care is specified or required to occur.", 0, java.lang.Integer.MAX_VALUE, occurrence));
         childrenList.add(new Property("authoredOn", "dateTime", "Date/DateTime of creation for draft requests and date of activation for active requests.", 0, java.lang.Integer.MAX_VALUE, authoredOn));
@@ -2171,7 +2179,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3575610: /*type*/ return this.type == null ? new Base[0] : new Base[] {this.type}; // CodeableConcept
         case -1165461084: /*priority*/ return this.priority == null ? new Base[0] : new Base[] {this.priority}; // Enumeration<ReferralPriority>
         case 190229561: /*serviceRequested*/ return this.serviceRequested == null ? new Base[0] : this.serviceRequested.toArray(new Base[this.serviceRequested.size()]); // CodeableConcept
-        case -791418107: /*patient*/ return this.patient == null ? new Base[0] : new Base[] {this.patient}; // Reference
+        case -1867885268: /*subject*/ return this.subject == null ? new Base[0] : new Base[] {this.subject}; // Reference
         case 951530927: /*context*/ return this.context == null ? new Base[0] : new Base[] {this.context}; // Reference
         case 1687874001: /*occurrence*/ return this.occurrence == null ? new Base[0] : new Base[] {this.occurrence}; // Type
         case -1500852503: /*authoredOn*/ return this.authoredOn == null ? new Base[0] : new Base[] {this.authoredOn}; // DateTimeType
@@ -2225,8 +2233,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 190229561: // serviceRequested
           this.getServiceRequested().add(castToCodeableConcept(value)); // CodeableConcept
           return value;
-        case -791418107: // patient
-          this.patient = castToReference(value); // Reference
+        case -1867885268: // subject
+          this.subject = castToReference(value); // Reference
           return value;
         case 951530927: // context
           this.context = castToReference(value); // Reference
@@ -2294,8 +2302,8 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           this.priority = (Enumeration) value; // Enumeration<ReferralPriority>
         } else if (name.equals("serviceRequested")) {
           this.getServiceRequested().add(castToCodeableConcept(value));
-        } else if (name.equals("patient")) {
-          this.patient = castToReference(value); // Reference
+        } else if (name.equals("subject")) {
+          this.subject = castToReference(value); // Reference
         } else if (name.equals("context")) {
           this.context = castToReference(value); // Reference
         } else if (name.equals("occurrence[x]")) {
@@ -2338,7 +2346,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3575610:  return getType(); 
         case -1165461084:  return getPriorityElement();
         case 190229561:  return addServiceRequested(); 
-        case -791418107:  return getPatient(); 
+        case -1867885268:  return getSubject(); 
         case 951530927:  return getContext(); 
         case -2022646513:  return getOccurrence(); 
         case 1687874001:  return getOccurrence(); 
@@ -2370,7 +2378,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         case 3575610: /*type*/ return new String[] {"CodeableConcept"};
         case -1165461084: /*priority*/ return new String[] {"code"};
         case 190229561: /*serviceRequested*/ return new String[] {"CodeableConcept"};
-        case -791418107: /*patient*/ return new String[] {"Reference"};
+        case -1867885268: /*subject*/ return new String[] {"Reference"};
         case 951530927: /*context*/ return new String[] {"Reference"};
         case 1687874001: /*occurrence*/ return new String[] {"dateTime", "Period"};
         case -1500852503: /*authoredOn*/ return new String[] {"dateTime"};
@@ -2422,9 +2430,9 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
         else if (name.equals("serviceRequested")) {
           return addServiceRequested();
         }
-        else if (name.equals("patient")) {
-          this.patient = new Reference();
-          return this.patient;
+        else if (name.equals("subject")) {
+          this.subject = new Reference();
+          return this.subject;
         }
         else if (name.equals("context")) {
           this.context = new Reference();
@@ -2512,7 +2520,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
           for (CodeableConcept i : serviceRequested)
             dst.serviceRequested.add(i.copy());
         };
-        dst.patient = patient == null ? null : patient.copy();
+        dst.subject = subject == null ? null : subject.copy();
         dst.context = context == null ? null : context.copy();
         dst.occurrence = occurrence == null ? null : occurrence.copy();
         dst.authoredOn = authoredOn == null ? null : authoredOn.copy();
@@ -2567,7 +2575,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
            && compareDeep(basedOn, o.basedOn, true) && compareDeep(replaces, o.replaces, true) && compareDeep(groupIdentifier, o.groupIdentifier, true)
            && compareDeep(status, o.status, true) && compareDeep(intent, o.intent, true) && compareDeep(type, o.type, true)
            && compareDeep(priority, o.priority, true) && compareDeep(serviceRequested, o.serviceRequested, true)
-           && compareDeep(patient, o.patient, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
+           && compareDeep(subject, o.subject, true) && compareDeep(context, o.context, true) && compareDeep(occurrence, o.occurrence, true)
            && compareDeep(authoredOn, o.authoredOn, true) && compareDeep(requester, o.requester, true) && compareDeep(specialty, o.specialty, true)
            && compareDeep(recipient, o.recipient, true) && compareDeep(reasonCode, o.reasonCode, true) && compareDeep(reasonReference, o.reasonReference, true)
            && compareDeep(description, o.description, true) && compareDeep(supportingInfo, o.supportingInfo, true)
@@ -2589,7 +2597,7 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
       public boolean isEmpty() {
         return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(identifier, definition, basedOn
           , replaces, groupIdentifier, status, intent, type, priority, serviceRequested
-          , patient, context, occurrence, authoredOn, requester, specialty, recipient, reasonCode
+          , subject, context, occurrence, authoredOn, requester, specialty, recipient, reasonCode
           , reasonReference, description, supportingInfo, note, relevantHistory);
       }
 
@@ -2685,6 +2693,58 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
 
  /**
+   * Search parameter: <b>replaces</b>
+   * <p>
+   * Description: <b>Request(s) replaced by this request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.replaces</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="replaces", path="ReferralRequest.replaces", description="Request(s) replaced by this request", type="reference", target={ReferralRequest.class } )
+  public static final String SP_REPLACES = "replaces";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>replaces</b>
+   * <p>
+   * Description: <b>Request(s) replaced by this request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.replaces</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REPLACES = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REPLACES);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ReferralRequest:replaces</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_REPLACES = new ca.uhn.fhir.model.api.Include("ReferralRequest:replaces").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Patient referred to care or transfer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="ReferralRequest.subject", description="Patient referred to care or transfer", type="reference", target={Group.class, Patient.class } )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Patient referred to care or transfer</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ReferralRequest:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("ReferralRequest:subject").toLocked();
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>The type of the referral</b><br>
@@ -2723,6 +2783,26 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>authored-on</b>
+   * <p>
+   * Description: <b>Date of creation/activation</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.authoredOn</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authored-on", path="ReferralRequest.authoredOn", description="Date of creation/activation", type="date" )
+  public static final String SP_AUTHORED_ON = "authored-on";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authored-on</b>
+   * <p>
+   * Description: <b>Date of creation/activation</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.authoredOn</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam AUTHORED_ON = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_AUTHORED_ON);
 
  /**
    * Search parameter: <b>intent</b>
@@ -2795,17 +2875,17 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * <p>
    * Description: <b>Who the referral is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.patient</b><br>
+   * Path: <b>ReferralRequest.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="ReferralRequest.patient", description="Who the referral is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Patient.class } )
+  @SearchParamDefinition(name="patient", path="ReferralRequest.subject", description="Who the referral is about", type="reference", providesMembershipIn={ @ca.uhn.fhir.model.api.annotation.Compartment(name="Patient") }, target={Group.class, Patient.class } )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
    * Description: <b>Who the referral is about</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>ReferralRequest.patient</b><br>
+   * Path: <b>ReferralRequest.subject</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
@@ -2815,6 +2895,46 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>ReferralRequest:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ReferralRequest:patient").toLocked();
+
+ /**
+   * Search parameter: <b>service</b>
+   * <p>
+   * Description: <b>Actions requested as part of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.serviceRequested</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="service", path="ReferralRequest.serviceRequested", description="Actions requested as part of the referral", type="token" )
+  public static final String SP_SERVICE = "service";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>service</b>
+   * <p>
+   * Description: <b>Actions requested as part of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.serviceRequested</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SERVICE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SERVICE);
+
+ /**
+   * Search parameter: <b>occurrence-date</b>
+   * <p>
+   * Description: <b>When the service(s) requested in the referral should occur</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.occurrence[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="occurrence-date", path="ReferralRequest.occurrence", description="When the service(s) requested in the referral should occur", type="date" )
+  public static final String SP_OCCURRENCE_DATE = "occurrence-date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>occurrence-date</b>
+   * <p>
+   * Description: <b>When the service(s) requested in the referral should occur</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.occurrence[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam OCCURRENCE_DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_OCCURRENCE_DATE);
 
  /**
    * Search parameter: <b>recipient</b>
@@ -2867,6 +2987,32 @@ Refer to [[[RequestGroup]]] for additional information on how this status is use
    * the path value of "<b>ReferralRequest:context</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONTEXT = new ca.uhn.fhir.model.api.Include("ReferralRequest:context").toLocked();
+
+ /**
+   * Search parameter: <b>definition</b>
+   * <p>
+   * Description: <b>Instantiates protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.definition</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="definition", path="ReferralRequest.definition", description="Instantiates protocol or definition", type="reference", target={ActivityDefinition.class, HealthcareService.class, PlanDefinition.class } )
+  public static final String SP_DEFINITION = "definition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>definition</b>
+   * <p>
+   * Description: <b>Instantiates protocol or definition</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ReferralRequest.definition</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DEFINITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DEFINITION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ReferralRequest:definition</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DEFINITION = new ca.uhn.fhir.model.api.Include("ReferralRequest:definition").toLocked();
 
  /**
    * Search parameter: <b>status</b>

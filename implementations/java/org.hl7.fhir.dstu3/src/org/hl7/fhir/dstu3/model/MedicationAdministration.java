@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -207,17 +207,9 @@ public class MedicationAdministration extends DomainResource {
     @Block()
     public static class MedicationAdministrationPerformerComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Describes the type of performer of the administration (e.g. nurse, physician, etc).
-         */
-        @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Type of performer", formalDefinition="Describes the type of performer of the administration (e.g. nurse, physician, etc)." )
-        @ca.uhn.fhir.model.api.annotation.Binding(valueSet="http://hl7.org/fhir/ValueSet/performer-role")
-        protected CodeableConcept role;
-
-        /**
          * The device, practitioner, etc. who performed the action.
          */
-        @Child(name = "actor", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "actor", type = {Practitioner.class, Patient.class, RelatedPerson.class, Device.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Individual who was performing", formalDefinition="The device, practitioner, etc. who performed the action." )
         protected Reference actor;
 
@@ -229,7 +221,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * The organization the device or practitioner was acting on behalf of.
          */
-        @Child(name = "onBehalfOf", type = {Organization.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "onBehalfOf", type = {Organization.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Organization organization was acting for", formalDefinition="The organization the device or practitioner was acting on behalf of." )
         protected Reference onBehalfOf;
 
@@ -238,7 +230,7 @@ public class MedicationAdministration extends DomainResource {
          */
         protected Organization onBehalfOfTarget;
 
-        private static final long serialVersionUID = 213950062L;
+        private static final long serialVersionUID = -488386403L;
 
     /**
      * Constructor
@@ -254,30 +246,6 @@ public class MedicationAdministration extends DomainResource {
         super();
         this.actor = actor;
       }
-
-        /**
-         * @return {@link #role} (Describes the type of performer of the administration (e.g. nurse, physician, etc).)
-         */
-        public CodeableConcept getRole() { 
-          if (this.role == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MedicationAdministrationPerformerComponent.role");
-            else if (Configuration.doAutoCreate())
-              this.role = new CodeableConcept(); // cc
-          return this.role;
-        }
-
-        public boolean hasRole() { 
-          return this.role != null && !this.role.isEmpty();
-        }
-
-        /**
-         * @param value {@link #role} (Describes the type of performer of the administration (e.g. nurse, physician, etc).)
-         */
-        public MedicationAdministrationPerformerComponent setRole(CodeableConcept value) { 
-          this.role = value;
-          return this;
-        }
 
         /**
          * @return {@link #actor} (The device, practitioner, etc. who performed the action.)
@@ -364,7 +332,6 @@ public class MedicationAdministration extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "Describes the type of performer of the administration (e.g. nurse, physician, etc).", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("actor", "Reference(Practitioner|Patient|RelatedPerson|Device)", "The device, practitioner, etc. who performed the action.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("onBehalfOf", "Reference(Organization)", "The organization the device or practitioner was acting on behalf of.", 0, java.lang.Integer.MAX_VALUE, onBehalfOf));
         }
@@ -372,7 +339,6 @@ public class MedicationAdministration extends DomainResource {
       @Override
       public Base[] getProperty(int hash, String name, boolean checkValid) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return this.role == null ? new Base[0] : new Base[] {this.role}; // CodeableConcept
         case 92645877: /*actor*/ return this.actor == null ? new Base[0] : new Base[] {this.actor}; // Reference
         case -14402964: /*onBehalfOf*/ return this.onBehalfOf == null ? new Base[0] : new Base[] {this.onBehalfOf}; // Reference
         default: return super.getProperty(hash, name, checkValid);
@@ -383,9 +349,6 @@ public class MedicationAdministration extends DomainResource {
       @Override
       public Base setProperty(int hash, String name, Base value) throws FHIRException {
         switch (hash) {
-        case 3506294: // role
-          this.role = castToCodeableConcept(value); // CodeableConcept
-          return value;
         case 92645877: // actor
           this.actor = castToReference(value); // Reference
           return value;
@@ -399,9 +362,7 @@ public class MedicationAdministration extends DomainResource {
 
       @Override
       public Base setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = castToCodeableConcept(value); // CodeableConcept
-        } else if (name.equals("actor")) {
+        if (name.equals("actor")) {
           this.actor = castToReference(value); // Reference
         } else if (name.equals("onBehalfOf")) {
           this.onBehalfOf = castToReference(value); // Reference
@@ -413,7 +374,6 @@ public class MedicationAdministration extends DomainResource {
       @Override
       public Base makeProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294:  return getRole(); 
         case 92645877:  return getActor(); 
         case -14402964:  return getOnBehalfOf(); 
         default: return super.makeProperty(hash, name);
@@ -424,7 +384,6 @@ public class MedicationAdministration extends DomainResource {
       @Override
       public String[] getTypesForProperty(int hash, String name) throws FHIRException {
         switch (hash) {
-        case 3506294: /*role*/ return new String[] {"CodeableConcept"};
         case 92645877: /*actor*/ return new String[] {"Reference"};
         case -14402964: /*onBehalfOf*/ return new String[] {"Reference"};
         default: return super.getTypesForProperty(hash, name);
@@ -434,11 +393,7 @@ public class MedicationAdministration extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("role")) {
-          this.role = new CodeableConcept();
-          return this.role;
-        }
-        else if (name.equals("actor")) {
+        if (name.equals("actor")) {
           this.actor = new Reference();
           return this.actor;
         }
@@ -453,7 +408,6 @@ public class MedicationAdministration extends DomainResource {
       public MedicationAdministrationPerformerComponent copy() {
         MedicationAdministrationPerformerComponent dst = new MedicationAdministrationPerformerComponent();
         copyValues(dst);
-        dst.role = role == null ? null : role.copy();
         dst.actor = actor == null ? null : actor.copy();
         dst.onBehalfOf = onBehalfOf == null ? null : onBehalfOf.copy();
         return dst;
@@ -466,8 +420,7 @@ public class MedicationAdministration extends DomainResource {
         if (!(other instanceof MedicationAdministrationPerformerComponent))
           return false;
         MedicationAdministrationPerformerComponent o = (MedicationAdministrationPerformerComponent) other;
-        return compareDeep(role, o.role, true) && compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true)
-          ;
+        return compareDeep(actor, o.actor, true) && compareDeep(onBehalfOf, o.onBehalfOf, true);
       }
 
       @Override
@@ -481,8 +434,7 @@ public class MedicationAdministration extends DomainResource {
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(role, actor, onBehalfOf
-          );
+        return super.isEmpty() && ca.uhn.fhir.util.ElementUtil.isEmpty(actor, onBehalfOf);
       }
 
   public String fhirType() {

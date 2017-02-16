@@ -33,7 +33,7 @@ import org.hl7.fhir.dstu3.model.DocumentReference;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContentComponent;
 import org.hl7.fhir.dstu3.model.DocumentReference.DocumentReferenceContextComponent;
 import org.hl7.fhir.dstu3.model.DomainResource;
-import org.hl7.fhir.dstu3.model.DosageInstruction;
+import org.hl7.fhir.dstu3.model.Dosage;
 import org.hl7.fhir.dstu3.model.Encounter;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterHospitalizationComponent;
 import org.hl7.fhir.dstu3.model.Encounter.EncounterStatus;
@@ -1118,7 +1118,7 @@ public class ArgonautConverter extends ConverterBase {
 				med.setId("med");
 				med.setCode(inspectCode(convert.makeCodeableConceptFromCD(cda.getChild(mm, "code")), null));
 				ms.getContained().add(med);
-				DosageInstruction dosage = ms.addDosage();
+				Dosage dosage = ms.addDosage();
 				Element qty = cda.getChild(sa, "doseQuantity"); // allergy observation
 				try {
 					if (cda.getChild(qty, "low") != null) {

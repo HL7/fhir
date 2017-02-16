@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -3908,10 +3908,10 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected BooleanType isSummary;
 
     /**
-     * Binds to a value set if this element is coded (code, Coding, CodeableConcept).
+     * Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).
      */
     @Child(name = "binding", type = {}, order=30, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept)." )
+    @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri)." )
     protected ElementDefinitionBindingComponent binding;
 
     /**
@@ -5471,7 +5471,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
+     * @return {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).)
      */
     public ElementDefinitionBindingComponent getBinding() { 
       if (this.binding == null)
@@ -5487,7 +5487,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept).)
+     * @param value {@link #binding} (Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).)
      */
     public ElementDefinition setBinding(ElementDefinitionBindingComponent value) { 
       this.binding = value;
@@ -5579,7 +5579,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("mustSupport", "boolean", "If true, implementations that produce or consume resources SHALL provide \"support\" for the element in some meaningful way.  If false, the element may be ignored and not supported.", 0, java.lang.Integer.MAX_VALUE, mustSupport));
         childrenList.add(new Property("isModifier", "boolean", "If true, the value of this element affects the interpretation of the element or resource that contains it, and the value of the element cannot be ignored. Typically, this is used for status, negation and qualification codes. The effect of this is that the element cannot be ignored by systems: they SHALL either recognize the element and process it, and/or a pre-determination has been made that it is not relevant to their particular system.", 0, java.lang.Integer.MAX_VALUE, isModifier));
         childrenList.add(new Property("isSummary", "boolean", "Whether the element should be included if a client requests a search with the parameter _summary=true.", 0, java.lang.Integer.MAX_VALUE, isSummary));
-        childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
+        childrenList.add(new Property("binding", "", "Binds to a value set if this element is coded (code, Coding, CodeableConcept, Quantity), or the data types (string, uri).", 0, java.lang.Integer.MAX_VALUE, binding));
         childrenList.add(new Property("mapping", "", "Identifies a concept from an external specification that roughly corresponds to this element.", 0, java.lang.Integer.MAX_VALUE, mapping));
       }
 

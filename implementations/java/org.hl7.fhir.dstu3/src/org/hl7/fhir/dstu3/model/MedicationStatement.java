@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 16, 2017 09:50+1100 for FHIR v1.9.0
+// Generated on Fri, Feb 17, 2017 05:32+1100 for FHIR v1.9.0
 
 import java.util.*;
 
@@ -491,11 +491,11 @@ public class MedicationStatement extends DomainResource {
     /**
      * Indicates how the medication is/was used by the patient.
      */
-    @Child(name = "dosage", type = {DosageInstruction.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "dosage", type = {Dosage.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Indicates how the medication is/was used by the patient." )
-    protected List<DosageInstruction> dosage;
+    protected List<Dosage> dosage;
 
-    private static final long serialVersionUID = 1911647047L;
+    private static final long serialVersionUID = 34936969L;
 
   /**
    * Constructor
@@ -1352,16 +1352,16 @@ public class MedicationStatement extends DomainResource {
     /**
      * @return {@link #dosage} (Indicates how the medication is/was used by the patient.)
      */
-    public List<DosageInstruction> getDosage() { 
+    public List<Dosage> getDosage() { 
       if (this.dosage == null)
-        this.dosage = new ArrayList<DosageInstruction>();
+        this.dosage = new ArrayList<Dosage>();
       return this.dosage;
     }
 
     /**
      * @return Returns a reference to <code>this</code> for easy method chaining
      */
-    public MedicationStatement setDosage(List<DosageInstruction> theDosage) { 
+    public MedicationStatement setDosage(List<Dosage> theDosage) { 
       this.dosage = theDosage;
       return this;
     }
@@ -1369,25 +1369,25 @@ public class MedicationStatement extends DomainResource {
     public boolean hasDosage() { 
       if (this.dosage == null)
         return false;
-      for (DosageInstruction item : this.dosage)
+      for (Dosage item : this.dosage)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
-    public DosageInstruction addDosage() { //3
-      DosageInstruction t = new DosageInstruction();
+    public Dosage addDosage() { //3
+      Dosage t = new Dosage();
       if (this.dosage == null)
-        this.dosage = new ArrayList<DosageInstruction>();
+        this.dosage = new ArrayList<Dosage>();
       this.dosage.add(t);
       return t;
     }
 
-    public MedicationStatement addDosage(DosageInstruction t) { //3
+    public MedicationStatement addDosage(Dosage t) { //3
       if (t == null)
         return this;
       if (this.dosage == null)
-        this.dosage = new ArrayList<DosageInstruction>();
+        this.dosage = new ArrayList<Dosage>();
       this.dosage.add(t);
       return this;
     }
@@ -1395,7 +1395,7 @@ public class MedicationStatement extends DomainResource {
     /**
      * @return The first repetition of repeating field {@link #dosage}, creating it if it does not already exist
      */
-    public DosageInstruction getDosageFirstRep() { 
+    public Dosage getDosageFirstRep() { 
       if (getDosage().isEmpty()) {
         addDosage();
       }
@@ -1421,7 +1421,7 @@ public class MedicationStatement extends DomainResource {
         childrenList.add(new Property("reasonForUseCodeableConcept", "CodeableConcept", "A reason for why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseCodeableConcept));
         childrenList.add(new Property("reasonForUseReference", "Reference(Condition|Observation)", "Condition or observation that supports why the medication is being/was taken.", 0, java.lang.Integer.MAX_VALUE, reasonForUseReference));
         childrenList.add(new Property("note", "Annotation", "Provides extra information about the medication statement that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
-        childrenList.add(new Property("dosage", "DosageInstruction", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
+        childrenList.add(new Property("dosage", "Dosage", "Indicates how the medication is/was used by the patient.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
       @Override
@@ -1444,7 +1444,7 @@ public class MedicationStatement extends DomainResource {
         case 909630431: /*reasonForUseCodeableConcept*/ return this.reasonForUseCodeableConcept == null ? new Base[0] : this.reasonForUseCodeableConcept.toArray(new Base[this.reasonForUseCodeableConcept.size()]); // CodeableConcept
         case -370888183: /*reasonForUseReference*/ return this.reasonForUseReference == null ? new Base[0] : this.reasonForUseReference.toArray(new Base[this.reasonForUseReference.size()]); // Reference
         case 3387378: /*note*/ return this.note == null ? new Base[0] : this.note.toArray(new Base[this.note.size()]); // Annotation
-        case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // DosageInstruction
+        case -1326018889: /*dosage*/ return this.dosage == null ? new Base[0] : this.dosage.toArray(new Base[this.dosage.size()]); // Dosage
         default: return super.getProperty(hash, name, checkValid);
         }
 
@@ -1507,7 +1507,7 @@ public class MedicationStatement extends DomainResource {
           this.getNote().add(castToAnnotation(value)); // Annotation
           return value;
         case -1326018889: // dosage
-          this.getDosage().add(castToDosageInstruction(value)); // DosageInstruction
+          this.getDosage().add(castToDosage(value)); // Dosage
           return value;
         default: return super.setProperty(hash, name, value);
         }
@@ -1553,7 +1553,7 @@ public class MedicationStatement extends DomainResource {
         } else if (name.equals("note")) {
           this.getNote().add(castToAnnotation(value));
         } else if (name.equals("dosage")) {
-          this.getDosage().add(castToDosageInstruction(value));
+          this.getDosage().add(castToDosage(value));
         } else
           return super.setProperty(name, value);
         return value;
@@ -1607,7 +1607,7 @@ public class MedicationStatement extends DomainResource {
         case 909630431: /*reasonForUseCodeableConcept*/ return new String[] {"CodeableConcept"};
         case -370888183: /*reasonForUseReference*/ return new String[] {"Reference"};
         case 3387378: /*note*/ return new String[] {"Annotation"};
-        case -1326018889: /*dosage*/ return new String[] {"DosageInstruction"};
+        case -1326018889: /*dosage*/ return new String[] {"Dosage"};
         default: return super.getTypesForProperty(hash, name);
         }
 
@@ -1745,8 +1745,8 @@ public class MedicationStatement extends DomainResource {
             dst.note.add(i.copy());
         };
         if (dosage != null) {
-          dst.dosage = new ArrayList<DosageInstruction>();
-          for (DosageInstruction i : dosage)
+          dst.dosage = new ArrayList<Dosage>();
+          for (Dosage i : dosage)
             dst.dosage.add(i.copy());
         };
         return dst;

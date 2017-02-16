@@ -3137,7 +3137,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
   private String diHeader(String mode) {
     StringBuilder b = new StringBuilder();
     b.append("<ul class=\"nav nav-tabs\">");
-    b.append(makeHeaderTab("Dosage Instruction Detail", "dosageinstruction.html", mode==null || "base".equals(mode)));
+    b.append(makeHeaderTab("Dosage Instruction Detail", "dosage.html", mode==null || "base".equals(mode)));
     b.append(makeHeaderTab("Examples", "dosage-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "dosage-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "dosage-mappings.html", mode==null || "mappings".equals(mode)));

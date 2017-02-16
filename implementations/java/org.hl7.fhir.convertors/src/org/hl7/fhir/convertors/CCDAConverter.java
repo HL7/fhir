@@ -550,7 +550,7 @@ public class CCDAConverter {
 				p.getExtension().add(n);
 			} else if (cda.hasTemplateId(a, "2.16.840.1.113883.10.20.22.4.19")) {
 				// MAY contain zero or more [0..*] entryRelationship (CONF:7779) such that it SHALL contain exactly one [1..1] Indication (templateId:2.16.840.1.113883.10.20.22.4.19) (CONF:7781).
-				p.addReasonCodeableConcept(processIndication(a));
+				p.addReasonCode(processIndication(a));
 			} else if (cda.hasTemplateId(cda.getlastChild(e), "2.16.840.1.113883.10.20.22.4.16")) {
 				//  MAY contain zero or one [0..1] entryRelationship (CONF:7886) such that it SHALL contain exactly one [1..1] Medication Activity (templateId:2.16.840.1.113883.10.20.22.4.16) (CONF:7888).
 				// todo

@@ -6339,7 +6339,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s160"><Data ss:Type="String">SC Injection</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  DosageInstruction includes additionalInstructions as text</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Dispense for Subcutaneous injection with multiple dosage lines - Insulin - Novolog (NDC Code) - active - includes Destination, Receiver, note.  Dosage includes additionalInstructions as text</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">meddisp0302</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">medicationdispense0302.xml</Data></Cell>
     <Cell ss:StyleID="s157"/>
@@ -6366,7 +6366,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s160"><Data ss:Type="String">Tapering Dose</Data></Cell>
     <Cell ss:StyleID="s121"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple DosageInstruction lines that include coded additionalInstructions and multiple EventHistory elements</Data></Cell>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">Dispense for Prednisone (RxNorm code) Tapering Dose - entered-in-error with multiple Dosage lines that include coded additionalInstructions and multiple EventHistory elements</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">meddisp0305</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">medicationdispense0305.xml</Data></Cell>
     <Cell ss:StyleID="s157"/>
