@@ -41,6 +41,10 @@
                     <language value="nl"/>
                     <value value="Arabisch"/>
                 </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Арабский"/>
+                </designation>
             </concept>
             <concept>
                 <code value="bn"/>
@@ -677,6 +681,10 @@
                     <language value="da"/>
                     <value value="Finsk (Belgien)"/>
                 </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Французский (Бельгия)"/>
+                </designation>
             </concept>
             <concept>
                 <code value="fr-CH"/>
@@ -757,6 +765,10 @@
                     <language value="da"/>
                     <value value="Frisisk"/>
                 </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Фризский"/>
+                </designation>
             </concept>
             <concept>
                 <code value="fy-NL"/>
@@ -781,6 +793,10 @@
                     <language value="da"/>
                     <value value="Frisisk (Holland)"/>
                 </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Фризский (Нидерланды)"/>
+                </designation>
             </concept>
             <concept>
                 <code value="hi"/>
@@ -796,6 +812,10 @@
                 <designation>
                     <language value="nl"/>
                     <value value="Hindi"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Хинди"/>
                 </designation>
             </concept>
             <concept>
@@ -1017,6 +1037,10 @@
                     <language value="da"/>
                     <value value="Hollandsk (Belgien)"/>
                 </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Нидерландский (Бельгия)"/>
+                </designation>
             </concept>
             <concept>
                 <code value="nl-NL"/>
@@ -1116,6 +1140,10 @@
                 <designation>
                     <language value="nl"/>
                     <value value="Punjabi"/>
+                </designation>
+                <designation>
+                    <language value="ru"/>
+                    <value value="Пенджабский"/>
                 </designation>
             </concept>
             <concept>
