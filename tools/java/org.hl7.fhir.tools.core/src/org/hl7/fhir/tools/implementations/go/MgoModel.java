@@ -559,6 +559,7 @@ public class MgoModel {
           imports.add("fmt");
         }
 
+        // For custom SetBSON implementation needed to properly umarshal embedded resources.
         if (name.equals("Bundle") || name.equals("Parameters")) {
             imports.add("gopkg.in/mgo.v2/bson");
         }
@@ -620,18 +621,6 @@ public class MgoModel {
       }
 
       return false;
-    }
-
-    // Check to see if this resource is a DomainResource
-    private boolean isDomainResource(String rName) {
-        if (definitions.getResources().get(rName) != null) {
-            for (TypeRef ref: getRootDefinition().getTypes()) {
-                if (ref.getName().equals("DomainResource") && !rName.equals("DomainResource")) {
-                    return true;
-                }
-            }
-        }
-        return false;
     }
 
     private static final String COPYRIGHT =
