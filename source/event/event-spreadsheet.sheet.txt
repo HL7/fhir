@@ -257,6 +257,7 @@
   Binding = EventPerformerRole
   Short Name = What type of performance was done
   Definition = Describes the type of performance (e.g. primary surgeon, anaesthesiologiest, etc.)
+  Comments = [Adjust vocabulary to be appropriate to your domain - generally should reflect what the performer does, not who they are]
   v2 Mapping = Varies by domain
   RIM Mapping = .participation.functionCode
 
@@ -282,14 +283,14 @@
   RIM Mapping = .scoper
 
  -- Row 17 -----------------------------------
-  Element = Event.reasonCodeableConcept
+  Element = Event.reasonCode
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = EventReason
   Short Name = Why was event performed?
   Definition = Describes why the event occurred in coded or textual form.
-  Comments = Textual reasons can be caprued using reasonCode.text
+  Comments = Textual reasons can be captured using reasonCode.text
   v2 Mapping = EVN.4 or by domain
   RIM Mapping = .reasonCode
   w5 = why

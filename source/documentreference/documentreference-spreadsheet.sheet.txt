@@ -255,7 +255,7 @@
  -- Row 15 -----------------------------------
   Element = DocumentReference.docStatus
   Card. = 0..1
-  Type = CodeableConcept
+  Type = code
   Binding = ReferredDocumentStatus
   Short Name = preliminary | final | appended | amended | entered-in-error
   Definition = The status of the underlying document
