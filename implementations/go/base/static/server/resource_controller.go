@@ -292,7 +292,7 @@ func (u CustomJSONRenderer) Render(w http.ResponseWriter) (err error) {
 	data = bytes.Replace(data, []byte("\\u0026"), []byte("&"), -1)
 
 	// Convert "_id" to "id"
-	data = bytes.Replace(data, []byte("_id"), []byte("id"), -1)
+	data = bytes.Replace(data, []byte("\"_id\":"), []byte("\"id\":"), -1)
 
 	writeContentType(w, fhirJSONContentType)
 	_, err = w.Write(data)
