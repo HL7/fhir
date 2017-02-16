@@ -20,8 +20,13 @@
 	<compose>
 		<include>
 			<system value="http://loinc.org"/>
+<!--  newly assigned code - will replace 8716-3, but not in the code system yet, so will keep 8716-3 and comment out this one for the moment
 			<concept>
 				<code value="85353-1"/>
+			</concept> 
+-->
+			<concept>
+				<code value="8716-3"/>
 			</concept>
 			<concept>
 				<code value="9279-1"/>
