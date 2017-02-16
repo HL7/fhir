@@ -1334,9 +1334,11 @@ parameters are repeated for each different include criteria.
 <p>
 For each returned resource, the server identifies the resources that meet
 the criteria expressed in the join, and adds to the results,
-with the <a href="bundle-definitions.html#Bundle.entry.status">entry.status</a>
+with the <a href="bundle-definitions.html#Bundle.entry.search.mode">entry.search.mode</a>
 set to "include" (in some searches, it is not obvious which resources are
-matches, and which are includes).
+matches, and which are includes). If there is no reference, or no matching resource, the resource 
+cannot be retrieved (e.g. on a different server), then the resource is omitted, and no
+error is returned.
 </p>
 <p>
 The inclusion process can be recursive, if the modifier <code>:recurse</code> is included.
@@ -1363,7 +1365,7 @@ GET [base]/Observation?_include:recurse=Observation:related-target&amp;criteria.
 <p>
 Both <code>_include</code> and <code>_revInclude</code> use the wild card "*" for the search parameter
 name, indicating that any search parameter of type=reference be included.  Though
-though both clients and servers need to take care not to request or return too many resources
+both clients and servers need to take care not to request or return too many resources
 when doing this. Most notably, using recursive inclusions might lead to the retrieval of the
 full patient's record, or even more: resources are organized into an interlinked network
 and broad <code>_include</code> paths may eventually traverse all possible paths on the server. For
