@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8685</WindowHeight>
+  <WindowWidth>21525</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
@@ -930,7 +930,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.messaging.event;CapabilityStatement.document;CapabilityStatement.rest.interaction</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">CapabilityStatement.rest.resource.interaction;CapabilityStatement.rest.resource.searchParam;CapabilityStatement.rest.operation;CapabilityStatement.messaging.event;CapabilityStatement.document;CapabilityStatement.rest.interaction;CapabilityStatement.rest.resource.searchInclude ;CapabilityStatement.rest.resource.searchRevInclude;</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">Conformance expectation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2006,8 +2006,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>8</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
