@@ -8,7 +8,7 @@
   Context = Duration
   English = There SHALL be a code if there is a value and it SHALL be an expression of time.  If system is present, it SHALL be UCUM.
   XPath = (f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value=\'http://unitsofmeasure.org\')
-  Expression = (code or value.empty()) and (system.empty() or system = %ucum)
+  Expression = code.exists() implies ((system = %ucum) and value.exists())
 
 === Sheet Data Elements =====================================
 
