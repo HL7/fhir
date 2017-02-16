@@ -2160,8 +2160,8 @@ public class SpreadsheetParser {
       if (!Utilities.noString(cc))
         for (String c : cc.split("\\;")) {
           if (definitions != null) // igtodo: what to do about this?
-            definitions.checkContextValid(ex.getContextType(), c, this.name);
-          ex.addContext(c);
+            definitions.checkContextValid(ex.getContextType(), c.trim(), this.name);
+          ex.addContext(c.trim());
         }
 	  }
 	  ex.setTitle(sheet.getColumn(row, "Display"));
