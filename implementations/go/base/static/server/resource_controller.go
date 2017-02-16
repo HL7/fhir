@@ -38,11 +38,11 @@ func (rc *ResourceController) IndexHandler(c *gin.Context) {
 		if r := recover(); r != nil {
 			switch x := r.(type) {
 			case *search.Error:
-				c.Render(x.HTTPStatus, UnescapedJSONRenderer{x.OperationOutcome})
+				c.Render(x.HTTPStatus, CustomJSONRenderer{x.OperationOutcome})
 				return
 			default:
 				outcome := models.NewOperationOutcome("fatal", "exception", "")
-				c.Render(http.StatusInternalServerError, UnescapedJSONRenderer{outcome})
+				c.Render(http.StatusInternalServerError, CustomJSONRenderer{outcome})
 				return
 			}
 		}
@@ -60,7 +60,7 @@ func (rc *ResourceController) IndexHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "search")
 
-	c.Render(http.StatusOK, UnescapedJSONRenderer{bundle})
+	c.Render(http.StatusOK, CustomJSONRenderer{bundle})
 }
 
 // LoadResource uses the resource id in the request to get a resource from the DataAccessLayer and store it in the
@@ -89,7 +89,7 @@ func (rc *ResourceController) ShowHandler(c *gin.Context) {
 		c.Status(http.StatusNotFound)
 		return
 	}
-	c.Render(http.StatusOK, UnescapedJSONRenderer{resource})
+	c.Render(http.StatusOK, CustomJSONRenderer{resource})
 }
 
 // EverythingHandler handles requests for everything related to a Patient or Encounter resource.
@@ -98,11 +98,11 @@ func (rc *ResourceController) EverythingHandler(c *gin.Context) {
 		if r := recover(); r != nil {
 			switch x := r.(type) {
 			case *search.Error:
-				c.Render(x.HTTPStatus, UnescapedJSONRenderer{x.OperationOutcome})
+				c.Render(x.HTTPStatus, CustomJSONRenderer{x.OperationOutcome})
 				return
 			default:
 				outcome := models.NewOperationOutcome("fatal", "exception", "")
-				c.Render(http.StatusInternalServerError, UnescapedJSONRenderer{outcome})
+				c.Render(http.StatusInternalServerError, CustomJSONRenderer{outcome})
 				return
 			}
 		}
@@ -123,7 +123,7 @@ func (rc *ResourceController) EverythingHandler(c *gin.Context) {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "search")
 
-	c.Render(http.StatusOK, UnescapedJSONRenderer{bundle})
+	c.Render(http.StatusOK, CustomJSONRenderer{bundle})
 }
 
 // CreateHandler handles requests to create a new resource instance, assigning it a new ID.
@@ -132,7 +132,7 @@ func (rc *ResourceController) CreateHandler(c *gin.Context) {
 	err := FHIRBind(c, resource)
 	if err != nil {
 		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
-		c.Render(http.StatusBadRequest, UnescapedJSONRenderer{oo})
+		c.Render(http.StatusBadRequest, CustomJSONRenderer{oo})
 		return
 	}
 
@@ -147,7 +147,7 @@ func (rc *ResourceController) CreateHandler(c *gin.Context) {
 	c.Set("Action", "create")
 
 	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, id).String())
-	c.Render(http.StatusCreated, UnescapedJSONRenderer{resource})
+	c.Render(http.StatusCreated, CustomJSONRenderer{resource})
 }
 
 // UpdateHandler handles requests to update a resource having a given ID.  If the resource with that ID does not
@@ -157,7 +157,7 @@ func (rc *ResourceController) UpdateHandler(c *gin.Context) {
 	err := FHIRBind(c, resource)
 	if err != nil {
 		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
-		c.Render(http.StatusBadRequest, UnescapedJSONRenderer{oo})
+		c.Render(http.StatusBadRequest, CustomJSONRenderer{oo})
 		return
 	}
 
@@ -173,10 +173,10 @@ func (rc *ResourceController) UpdateHandler(c *gin.Context) {
 	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, c.Param("id")).String())
 	if createdNew {
 		c.Set("Action", "create")
-		c.Render(http.StatusCreated, UnescapedJSONRenderer{resource})
+		c.Render(http.StatusCreated, CustomJSONRenderer{resource})
 	} else {
 		c.Set("Action", "update")
-		c.Render(http.StatusOK, UnescapedJSONRenderer{resource})
+		c.Render(http.StatusOK, CustomJSONRenderer{resource})
 	}
 }
 
@@ -189,7 +189,7 @@ func (rc *ResourceController) ConditionalUpdateHandler(c *gin.Context) {
 	err := FHIRBind(c, resource)
 	if err != nil {
 		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
-		c.Render(http.StatusBadRequest, UnescapedJSONRenderer{oo})
+		c.Render(http.StatusBadRequest, CustomJSONRenderer{oo})
 		return
 	}
 
@@ -208,10 +208,10 @@ func (rc *ResourceController) ConditionalUpdateHandler(c *gin.Context) {
 	c.Header("Location", responseURL(c.Request, rc.Config, rc.Name, id).String())
 	if createdNew {
 		c.Set("Action", "create")
-		c.Render(http.StatusCreated, UnescapedJSONRenderer{resource})
+		c.Render(http.StatusCreated, CustomJSONRenderer{resource})
 	} else {
 		c.Set("Action", "update")
-		c.Render(http.StatusOK, UnescapedJSONRenderer{resource})
+		c.Render(http.StatusOK, CustomJSONRenderer{resource})
 	}
 }
 
@@ -271,15 +271,16 @@ func responseURL(r *http.Request, config Config, paths ...string) *url.URL {
 	return &responseURL
 }
 
-// UnescapedJSONRenderer replaces gin's default JSON renderer and ensures
+// CustomJSONRenderer replaces gin's default JSON renderer and ensures
 // that the special characters "<", ">", and "&" are not escaped after the
 // the JSON is marshaled. Escaping these special HTML characters is the default
-// behavior of Go's json.Marshal().
-type UnescapedJSONRenderer struct {
+// behavior of Go's json.Marshal(). It also ensures that the improperly unmarshaled
+// "_id" field in contained resources gets converted correctly to "id".
+type CustomJSONRenderer struct {
 	obj interface{}
 }
 
-func (u UnescapedJSONRenderer) Render(w http.ResponseWriter) (err error) {
+func (u CustomJSONRenderer) Render(w http.ResponseWriter) (err error) {
 	data, err := json.Marshal(&u.obj)
 	if err != nil {
 		return
@@ -289,6 +290,9 @@ func (u UnescapedJSONRenderer) Render(w http.ResponseWriter) (err error) {
 	data = bytes.Replace(data, []byte("\\u003c"), []byte("<"), -1)
 	data = bytes.Replace(data, []byte("\\u003e"), []byte(">"), -1)
 	data = bytes.Replace(data, []byte("\\u0026"), []byte("&"), -1)
+
+	// Convert "_id" to "id"
+	data = bytes.Replace(data, []byte("_id"), []byte("id"), -1)
 
 	writeContentType(w, fhirJSONContentType)
 	_, err = w.Write(data)
