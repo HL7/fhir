@@ -33,13 +33,13 @@
       <display value="Patrick Pump"/>
     </actor>
  </performer>
-  <reasonGivenCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="266599000"/>
       <display value="Dysmenorrhea"/>
     </coding>
-  </reasonGivenCodeableConcept>
+  </reasonCode>
   <prescription>
     <reference value="MedicationRequest/medrx0305"/>
   </prescription>

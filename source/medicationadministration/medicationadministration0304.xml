@@ -37,9 +37,9 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <reasonGivenReference>
+  <reasonReference>
     <reference value="Condition/f202"></reference>
-  </reasonGivenReference>
+  </reasonReference>
   <prescription>
     <reference value="MedicationRequest/medrx0319"/>
   </prescription>

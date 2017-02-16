@@ -386,9 +386,9 @@
   Card. = 0..*
   UML = right
   Type = Dosage
-  Short Name = Medicine administration instructions to the patient/caregiver
-  Definition = Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
-  Comments = When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.
+  Short Name = How the medication is to be used by the patient or administered by the caregiver
+  Definition = Indicates how the medication is to be used by the patient.
+  Comments = When the dose or rate is intended to change over the entire administration period (e.g. Tapering dose prescriptions), multiple instances of dosage instructions will need to be supplied to convey the different doses/rates.\rThe pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=SBADM, moodCode=INT]
   Committee Notes = The RMIM has priority code on the act relationship.  How do we handle this?
 

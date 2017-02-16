@@ -151,8 +151,8 @@
   Id = 3
   Context = MedicationAdministration
   English = Reason given is only permitted if NotGiven is false
-  XPath = not(exists(f:reasonGivenCodeableConcept) and f:notGiven/@value=true())
-  Expression = reasonGivenCodeableConcept.empty() or notGiven.empty() or notGiven = \'false\'
+  XPath = not(exists(f:reasonCode) and f:notGiven/@value=true())
+  Expression = reasonCode.empty() or notGiven.empty() or notGiven = \'false\'
 
 === Sheet Data Elements =====================================
 
@@ -334,19 +334,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not given\"].value
 
  -- Row 17 -----------------------------------
-  Element = MedicationAdministration.reasonGivenReference
-  Card. = 0..*
-  Type = Reference(Condition |Observation)
-  Short Name = Condition or Observation that supports why the medication was administered
-  Definition = Condition or observation that supports why the medication was administered
-  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
-  Workflow Mapping = …reasonReference
-  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use ASSERTION\"].value
-  Prov Mapping = no mapping
-  w5 = why
-
- -- Row 18 -----------------------------------
-  Element = MedicationAdministration.reasonGivenCodeableConcept
+  Element = MedicationAdministration.reasonCode
   Card. = 0..*
   Inv. = 3
   Type = CodeableConcept
@@ -356,6 +344,18 @@
   Workflow Mapping = …reasonGivenCodeableConcept
   v2 Mapping = RXE-27 Give Indication
   RIM Mapping = .reasonCode
+
+ -- Row 18 -----------------------------------
+  Element = MedicationAdministration.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition |Observation)
+  Short Name = Condition or Observation that supports why the medication was administered
+  Definition = Condition or observation that supports why the medication was administered
+  Comments = This is a reference to a condition that is the reason for the medication request.  If only a code exists, use reasonCode.
+  Workflow Mapping = …reasonReference
+  RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason for use ASSERTION\"].value
+  Prov Mapping = no mapping
+  w5 = why
 
  -- Row 19 -----------------------------------
   Element = MedicationAdministration.prescription
@@ -535,7 +535,7 @@
   Name = reason-given
   Type = token
   Description = Reasons for administering the medication
-  Path = MedicationAdministration.reasonGivenCodeableConcept
+  Path = MedicationAdministration.reasonCode
 
  -- Row 13 -----------------------------------
   Name = reason-not-given

@@ -281,7 +281,7 @@
   Card. = 0..1
   Summary = y
   Type = dateTime | Period
-  Short Name = Over what period was medication consumed?
+  Short Name = The date/time or interval when the medication was taken
   Definition = The interval of time during which it is being asserted that the patient was taking the medication (or was not taking, when the wasNotGiven element is true).
   Comments = This attribute reflects the period over which the patient consumed the medication and is expected to be populated on the majority of Medication Statements. If the medication is still being taken at the time the statement is recorded, the \"end\" date will be omitted.
   Workflow Mapping = …occurrence[x]
@@ -351,7 +351,7 @@
   RIM Mapping = .outboundRelationship[typeCode=RSON]/target[classCode=OBS,moodCode=EVN, code=\"reason not taken\"].value
 
  -- Row 16 -----------------------------------
-  Element = MedicationStatement.reasonForUseCodeableConcept
+  Element = MedicationStatement.reasonCode
   Card. = 0..*
   Type = CodeableConcept
   Binding = MedicationReason
@@ -363,7 +363,7 @@
   w5 = why
 
  -- Row 17 -----------------------------------
-  Element = MedicationStatement.reasonForUseReference
+  Element = MedicationStatement.reasonReference
   Card. = 0..*
   Type = Reference(Condition | Observation)
   Short Name = Condition or observation that supports why the medication is being/was taken
@@ -387,8 +387,8 @@
   Card. = 0..*
   UML = right
   Type = Dosage
-  Short Name = Details of how medication was taken
-  Definition = Indicates how the medication is/was used by the patient
+  Short Name = Details of how medication is/was taken or should be taken
+  Definition = Indicates how the medication is/was or should be taken by the patient
   Comments = The dates included in the dosage on a Medication Statement reflect the dates for a given dose.  For example, \"from November 1, 2016 to November 3, 2016, take one tablet daily and from November 4, 2016 to November 7, 2016, take two tablets daily.\"  It is expected that this specificity may only be populated where the patient brings in their labelled container or where the Medication Statement is derived from a MedicationRequest.
   RIM Mapping = refer dosageInstruction mapping
 

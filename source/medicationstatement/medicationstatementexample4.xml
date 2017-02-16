@@ -26,13 +26,13 @@
     <display value="Donald Duck"/> 
   </subject>
   <taken value="y"/>
-  <reasonForUseCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="65363002"/>
       <display value="Otitis Media"/>
     </coding>
-  </reasonForUseCodeableConcept>
+  </reasonCode>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>

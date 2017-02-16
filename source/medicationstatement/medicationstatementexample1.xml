@@ -104,13 +104,13 @@
   </derivedFrom>
 
   <taken value="n"/>
-  <reasonForUseCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="32914008"/>
       <display value="Restless Legs"/>
     </coding>
-  </reasonForUseCodeableConcept>
+  </reasonCode>
   <note>
     <text value="Patient indicates they miss the occasional dose" />
   </note>

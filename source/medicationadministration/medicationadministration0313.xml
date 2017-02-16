@@ -25,13 +25,13 @@
       <display value="Patrick Pump"/>
     </actor>
   </performer>
-  <reasonGivenCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://hl7.org/fhir/reason-medication-given"/>
       <code value="c"/>
       <display value="Emergency"/>
     </coding>
-  </reasonGivenCodeableConcept>
+  </reasonCode>
   <prescription>
     <reference value="MedicationRequest/medrx0324"/>
   </prescription>

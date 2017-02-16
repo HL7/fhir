@@ -96,13 +96,13 @@
       <reference value="Organization/f002"></reference>
     </onBehalfOf>
   </performer>
-  <reasonGivenCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://hl7.org/fhir/reason-medication-given"/>
       <code value="b"/>
       <display value="Given as Ordered"/>
     </coding>
-  </reasonGivenCodeableConcept>
+  </reasonCode>
   <prescription>
     <reference value="MedicationRequest/medrx0322"/>
   </prescription>
