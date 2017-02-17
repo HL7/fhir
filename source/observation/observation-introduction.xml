@@ -52,5 +52,9 @@ provides a clinical or workflow context for a set of observations and the Observ
 <p>
 The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions.  There are other resources that can be considered "specializations" of the Observation resource and should be used for those specific contexts and use cases.  They include <a href="allergyintolerance.html">AllergyIntolerance</a> resource, <a href="familymemberhistory.html"> FamilyMemberHistory</a> resource, <a href="procedure.html">Procedure</a> resource, and <a href="questionnaire.html">Questionnaire</a> resource.
  In some cases, such as when source data is coming from an <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2</a> feed, a system may not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from lab, vital sign and other observation types intended to be conveyed with this resource.  In those circumstances, such specialized observations may also appear using this resource.</p>
+
+ <p>
+  The <a href="media.html">Media</a> resource captures a specific type of observation whose value is audio, video or image data. This resource is the preferred representation of such forms of information as it exposes the metadata relevant for interpreting the information. However, in some implementations, media information may occasionally appear in Observation as a result value using the <code>valueAttachment</code> element and systems should be aware of this possibility.
+ </p>
 </div>
 </div>
