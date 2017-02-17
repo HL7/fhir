@@ -54,11 +54,11 @@
   Short Name = Tracks balance, charges, for patient or cost center
   Definition = A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centers, etc.
   RIM Mapping = Account
-  w5 = financial.support
 
  -- Row 2 -----------------------------------
   Element = Account.identifier
   Card. = 0..*
+  Summary = y
   Type = Identifier
   Short Name = Account number
   Definition = Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number)
@@ -69,14 +69,17 @@
   Element = Account.name
   Card. = 0..1
   Aliases = Title
+  Summary = y
   Type = string
   Short Name = Human-readable label
   Definition = Name used for the account when displaying it to humans in reports, etc.
   RIM Mapping = .title
+  w5 = what
 
  -- Row 4 -----------------------------------
   Element = Account.type
   Card. = 0..1
+  Summary = y
   Type = CodeableConcept
   Binding = AccountType
   Short Name = E.g. patient, expense, depreciation
@@ -85,18 +88,45 @@
   w5 = class
 
  -- Row 5 -----------------------------------
+  Element = Account.subject
+  Card. = 0..1
+  Aliases = target
+  Summary = y
+  Type = Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)
+  Short Name = What is account tied to?
+  Definition = Identifies the patient, device, practitioner, location or other object the account is associated with
+  Comments = Accounts can be applied to non patients for tracking other non patient related activities, such as group services (patients not tracked, and costs charged to another body), or may not be allocated.
+  RIM Mapping = .subject
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
   Element = Account.status
   Card. = 0..1
   Is Modifier = Y
+  Summary = y
   Type = code
   Binding = AccountStatus
   Short Name = active | inactive | entered-in-error
   Definition = Indicates whether the account is presently used/useable or not
   RIM Mapping = .statusCode
+  w5 = status
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
+  Element = Account.period
+  Card. = 0..1
+  Summary = y
+  Type = Period
+  Short Name = Transaction window
+  Definition = Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.
+  Comments = It is possible for transactions relevant to a coverage period to be posted to the account before or after the coverage period, however the services that are being charged for must be within this period.
+  RIM Mapping = .coverage.insurancePolicy.effectiveTime
+  Committee Notes = Name was coveragePeriod, have renamed simply to period
+  w5 = when.done
+
+ -- Row 8 -----------------------------------
   Element = Account.active
   Card. = 0..1
+  Summary = y
   Type = Period
   Short Name = Time window that transactions may be posted to this account
   Definition = Indicates the period of time over which the account is allowed to have transactions posted to it.\nThis period may be different to the coveragePeriod which is the duration of time that services may occur.
@@ -104,7 +134,7 @@
   RIM Mapping = .effectiveTime
   w5 = when.recorded
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Account.currency
   Card. = 0..1
   Type = Coding
@@ -115,7 +145,7 @@
   RIM Mapping = .currencyCode
   To Do = Is this in the 80%?
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Account.balance
   Card. = 0..1
   Type = Money
@@ -123,75 +153,72 @@
   Definition = Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.
   RIM Mapping = .balanceAmt
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Account.coverage
   Card. = 0..*
+  Summary = y
+  Type = =Coverage
+  Short Name = The party(s) that are responsible for covering the payment of this account, and what order should they be applied to the account
+  Comments = Typically this may be some form of insurance, internal charges, or self-pay.\n\nLocal or jurisdicational business rules may determine which coverage covers which types of billable items charged to the account, and in which order.\nWhere the order is important, a local/jurisdicational extension may be defined to specify the order for the type of charge.
+
+ -- Row 12 -----------------------------------
+  Element = Account.coverage.coverage
+  Card. = 1..1
+  Summary = y
   Type = Reference(Coverage)
   Short Name = The party(s) that are responsible for covering the payment of this account
   Definition = The party(s) that are responsible for payment (or part of) of charges applied to this account (including self-pay).\n\nA coverage may only be resposible for specific types of charges, and the sequence of the coverages in the account could be important when processing billing.
-  Comments = Typically this may be some form of insurance, internal charges, or self-pay.\n\nLocal or jurisdicational business rules may determine which coverage covers which types of billable items charged to the account, and in which order.\nWhere the order is important, a local/jurisdicational extension may be defined to specify the order for the type of charge.
   RIM Mapping = .coverage.insurancePolicy.author
 
- -- Row 10 -----------------------------------
-  Element = Account.coveragePeriod
+ -- Row 13 -----------------------------------
+  Element = Account.coverage.priority
   Card. = 0..1
-  Type = Period
-  Short Name = Transaction window
-  Definition = Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.
-  Comments = It is possible for transactions relevant to a coverage period to be posted to the account before or after the coverage period, however the services that are being charged for must be within this period.
-  RIM Mapping = .coverage.insurancePolicy.effectiveTime
-  To Do = Better name?
-  w5 = when.done
+  Aliases = coordination of benefit priority
+  Summary = y
+  Type = positiveInt
+  Short Name = The priority of the coverage in the context of this account
+  Comments = It is common in some jurisdictions for there to be multiple coverages allocated to an account, and a sequence is required to order the settling of the account (often with insurance claiming)
 
- -- Row 11 -----------------------------------
-  Element = Account.subject
-  Card. = 0..1
-  Aliases = target
-  Type = Reference(Patient|Device|Practitioner|Location|HealthcareService|Organization)
-  Short Name = What is account tied to?
-  Definition = Identifies the patient, device, practitioner, location or other object the account is associated with
-  RIM Mapping = .subject
-  To Do = Is there a use-case for 0..*?  Would this be in the 80%?
-  w5 = who.focus
-
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Account.owner
   Card. = 0..1
+  Summary = y
   Type = Reference(Organization)
   Short Name = Who is responsible?
   Definition = Indicates the organization, department, etc. with responsibility for the account.
   RIM Mapping = .holder
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Account.description
   Card. = 0..1
+  Summary = y
   Type = string
   Short Name = Explanation of purpose/use
   Definition = Provides additional information about what the account tracks and how it is used
   RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Account.guarantor
   Card. = 0..*
   Type = =Guarantor
   Short Name = Responsible for the account
   Definition = Parties financially responsible for the account.
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Account.guarantor.party
   Card. = 1..1
   Type = Reference(Patient|RelatedPerson|Organization)
   Short Name = Responsible entity
   Definition = The entity who is responsible.
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Account.guarantor.onHold
   Card. = 0..1
   Type = boolean
   Short Name = Credit or other hold applied
   Definition = A guarantor may be placed on credit hold or otherwise have their role temporarily suspended.
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Account.guarantor.period
   Card. = 0..1
   Type = Period
@@ -228,7 +255,7 @@
  -- Row 6 -----------------------------------
   Name = period
   Type = date
-  Path = Account.coveragePeriod
+  Path = Account.period
 
  -- Row 7 -----------------------------------
   Name = subject
@@ -256,6 +283,13 @@
   Identity = example
   Description = General Account example
   Filename = account-example.xml
+  Type = xml
+
+ -- Row 2 -----------------------------------
+  Name = Guarantor
+  Identity = ewg
+  Description = Example with a Guarantor
+  Filename = account-example-with-guarantor.xml
   Type = xml
 
 === Sheet Examples =====================================

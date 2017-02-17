@@ -15,8 +15,16 @@
     <type>
         <text value="patient"/>
     </type>
+  <subject>
+    <reference value="Patient/example"/>
+    <display value="Peter James Chalmers"/>
+  </subject>
     <status value="active"/>
-    <active>
+  <period>
+    <start value="2016-01-01"/>
+    <end value="2016-06-30"/>
+  </period>
+  <active>
         <start value="2016-01-01"/>
         <end value="2016-06-30"/>
     </active>
@@ -33,16 +41,11 @@
         <code value="USD"/>
     </balance>
     <coverage>
-        <reference value="Coverage/9876B1"/>
+      <coverage>
+        <reference value="Coverage/7546D"/>
+      </coverage>
+      <priority value="1"/>
     </coverage>
-    <coveragePeriod>
-        <start value="2016-01-01"/>
-        <end value="2016-06-30"/>
-    </coveragePeriod>
-    <subject>
-        <reference value="Patient/example"/>
-        <display value="Peter James Chalmers"/>
-    </subject>
     <owner>
         <reference value="Organization/hl7"/>
     </owner>
