@@ -251,7 +251,7 @@
   Aliases = encounter
   Summary = y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Name = The encounter associated with the procedure
+  Short Name = Encounter or episode associated with the procedure
   Definition = The encounter during which the procedure was performed
   v2 Mapping = PV1-19
   RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
@@ -520,6 +520,7 @@
  -- Row 6 -----------------------------------
   Name = encounter
   Type = reference
+  Description = Search by encounter
   Path = Procedure.context
   Target Types = Encounter
 

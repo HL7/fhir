@@ -281,7 +281,7 @@
   Aliases = encounter
   Summary = Y
   Type = Reference(Encounter|EpisodeOfCare)
-  Short Name = Encounter when condition first asserted
+  Short Name = Encounter or episode when condition first asserted
   Definition = Encounter during which the condition was first asserted
   Comments = This record indicates the encounter this particular record is associated with.  In the case of a \"new\" diagnosis reflecting ongoing/revised information about the condition, this might be distinct from the first encounter in which the underlying condition was first \"known\".
   v2 Mapping = PV1-19 (+PV1-54)
@@ -536,6 +536,7 @@
  -- Row 23 -----------------------------------
   Name = encounter
   Type = reference
+  Description = Encounter when condition first asserted
   Path = Condition.context
   Target Types = Encounter
 

@@ -362,7 +362,7 @@
   Path = ReferralRequest.status
 
  -- Row 2 -----------------------------------
-  Name = date
+  Name = authored-on
   Type = date
   Description = Creation or activation date
   Path = ReferralRequest.authoredOn
@@ -396,6 +396,7 @@
   Type = reference
   Description = Who the referral is about
   Path = ReferralRequest.subject
+  Target Types = Patient
 
  -- Row 8 -----------------------------------
   Name = requester
@@ -447,21 +448,16 @@
   Path = ReferralRequest.subject
 
  -- Row 17 -----------------------------------
-  Name = authored-on
-  Type = date
-  Path = ReferralRequest.authoredOn
-
- -- Row 18 -----------------------------------
   Name = service
   Type = token
   Path = ReferralRequest.serviceRequested
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = occurrence-date
   Type = date
   Path = ReferralRequest.occurrence[x]
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Name = encounter
   Type = reference
   Path = ReferralRequest.context

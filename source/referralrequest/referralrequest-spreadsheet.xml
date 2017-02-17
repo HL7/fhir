@@ -24,13 +24,12 @@
    <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9510</WindowHeight>
+  <WindowHeight>9210</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>819</TabRatio>
   <ActiveSheet>3</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -4771,7 +4770,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="25" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="24" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s118" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s118" ss:AutoFitWidth="0" ss:Width="118.5"/>
@@ -4808,7 +4807,7 @@
     <Cell ss:StyleID="s122"><Data ss:Type="String">The status of the referral</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">date</Data></Cell>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">authored-on</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">ReferralRequest.authoredOn</Data></Cell>
@@ -4845,7 +4844,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s123"><Data ss:Type="String">patient</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Patient</Data></Cell>
     <Cell ss:StyleID="s124"><Data ss:Type="String">ReferralRequest.subject</Data></Cell>
     <Cell ss:StyleID="s125"><Data ss:Type="String">Who the referral is about</Data></Cell>
    </Row>
@@ -4910,13 +4909,6 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s124"><Data ss:Type="String">ReferralRequest.subject</Data></Cell>
-    <Cell ss:StyleID="s125"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"><Data ss:Type="String">authored-on</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">date</Data></Cell>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ReferralRequest.authoredOn</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4995,8 +4987,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5004,7 +4996,7 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R13C2,R23C2:R25C2,R15C2:R18C2,R20C2</Range>
+   <Range>R13C2,R22C2:R24C2,R15C2:R17C2,R19C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>

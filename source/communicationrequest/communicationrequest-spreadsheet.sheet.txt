@@ -342,7 +342,7 @@
   Path = CommunicationRequest.context
 
  -- Row 9 -----------------------------------
-  Name = time
+  Name = occurrence
   Type = date
   Path = CommunicationRequest.occurrenceDateTime
 
@@ -385,6 +385,7 @@
  -- Row 17 -----------------------------------
   Name = encounter
   Type = reference
+  Description = Encounter leading to message
   Path = CommunicationRequest.context
   Target Types = Encounter
 

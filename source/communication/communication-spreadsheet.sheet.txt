@@ -400,6 +400,7 @@
  -- Row 15 -----------------------------------
   Name = encounter
   Type = reference
+  Description = Encounter leading to message
   Path = Communication.context
   Target Types = Encounter
 
