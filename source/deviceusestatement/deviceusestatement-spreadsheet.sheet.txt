@@ -9,6 +9,13 @@
   Description = SNOMED CT Body site concepts
   Conformance = example
 
+ -- Row 2 -----------------------------------
+  Binding Name = indication
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/condition-code
+  Definition = A coded concept indicating why the device was ordered.
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================

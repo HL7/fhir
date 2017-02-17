@@ -1054,14 +1054,14 @@
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.uid</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">ImagingManifest.identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">SOPInstanceUID</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s81"><Data ss:Type="String">oid</Data><NamedCell
+    <Cell ss:StyleID="s81"><Data ss:Type="String">Identifier</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s81"><Data ss:Type="String">y</Data><NamedCell
@@ -3807,7 +3807,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4371,9 +4372,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="Default"><Data ss:Type="String">identifier</Data></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">uri</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s83"/>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.uid</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">ImagingManifest.identifier</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4592,8 +4593,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

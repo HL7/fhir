@@ -128,11 +128,11 @@
   w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
-  Element = ImagingManifest.uid
+  Element = ImagingManifest.identifier
   Card. = 0..1
   Aliases = SOPInstanceUID
   Summary = y
-  Type = oid
+  Type = Identifier
   Short Name = SOP Instance UID
   Definition = Unique identifier of the the DICOM Key Object Selection (KOS) that this resource represents
   Requirements = DICOM SOP Instance is always assigned with a unique identifier (UID).
@@ -377,9 +377,9 @@
 
  -- Row 1 -----------------------------------
   Name = identifier
-  Type = uri
+  Type = token
   Description = UID of the ImagingManifest (or a DICOM Key Object Selection which it represents)
-  Path = ImagingManifest.uid
+  Path = ImagingManifest.identifier
 
  -- Row 2 -----------------------------------
   Name = author
