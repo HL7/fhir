@@ -51,6 +51,11 @@
   Binding = unbound
   Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Identified issues\", \"Preliminary results\", \"Filler order\", \"Final results\", etc.
 
+ -- Row 9 -----------------------------------
+  Binding Name = TaskCode
+  Binding = unbound
+  Definition = Codes to identify what the task involves.  These will typically be specific to a particular workflow.
+
 === Sheet task-performer-type =====================================
 
  -- Row 1 -----------------------------------
@@ -304,6 +309,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
+  Binding = TaskCode
   Short Name = Task Type
   Definition = A name or code (or both) briefly describing what the task involves.
   Comments = The title (eg \"My Tasks\", \"Outstanding Tasks for Patient X\") should go into the code.
@@ -444,7 +450,7 @@
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
   Short Name = Task Owner
-  Definition = The owner of this task.  The participant who can execute this task.
+  Definition = Individual organization or Device currently responsible for task execution.
   Requirements = Identifies who is expected to perform this task.
   Comments = Tasks may be created with an owner not yet identified
   Workflow Mapping = Event.performer.actor, Request.performer
@@ -518,7 +524,6 @@
   Short Name = For whom is fulfillment sought?
   Definition = For requests that are targeted to more than on potential recipient/target, for whom is fulfillment sought?
   RIM Mapping = .participation[typeCode=SBJ].role
-  To Do = Is this in the 80%?
 
  -- Row 32 -----------------------------------
   Element = Task.input
@@ -590,7 +595,7 @@
   Path = Task.identifier
 
  -- Row 2 -----------------------------------
-  Name = definition-ref
+  Name = !definition-ref
   Type = reference
   Description = Search by task definition as a Reference
   Path = Task.definitionReference
@@ -681,7 +686,7 @@
   Path = Task.performerType
 
  -- Row 17 -----------------------------------
-  Name = statusreason
+  Name = !statusreason
   Type = token
   Description = Search by status reason
   Path = Task.statusReason
@@ -741,14 +746,14 @@
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
-  Name = reserve
+  Name = !reserve
   Use = Instance
   Documentation = Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Ready state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.
   Type = operation
   Title = Reserve Task
 
  -- Row 2 -----------------------------------
-  Name = reserve.owner
+  Name = !reserve.owner
   Use = in
   Documentation = The entity who is to be assigned ownership of this task.
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
@@ -756,14 +761,14 @@
   Max = 1
 
  -- Row 3 -----------------------------------
-  Name = start
+  Name = !start
   Use = Instance
   Documentation = Start this task by the specified entity (or if none specified, by the present task owner).  If an owner is specified, that owner is assigned as the task owner.  The task is transitioned to the In Progress state.
   Type = operation
   Title = Start Task
 
  -- Row 4 -----------------------------------
-  Name = start.owner
+  Name = !start.owner
   Use = in
   Documentation = The entity who is to be assigned ownership of this task.  If no entity is provided, the ownership of the task remains unchanged.
   Type = Reference(Device|Organization|Patient|Practitioner|RelatedPerson)
@@ -771,21 +776,21 @@
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = finish
+  Name = !finish
   Use = Instance
   Documentation = Finish this task.  The task is transitioned to the completed state.
   Type = operation
   Title = Finish Task
 
  -- Row 6 -----------------------------------
-  Name = fail
+  Name = !fail
   Use = Instance
   Documentation = Fail this task.  The task is transitioned to the failed state.
   Type = operation
   Title = Fail Task
 
  -- Row 7 -----------------------------------
-  Name = fail.reason
+  Name = !fail.reason
   Use = in
   Documentation = The reason for failure.  If present, this is assigned to the failureReason property of the task.
   Type = CodeableConcept
@@ -793,91 +798,91 @@
   Max = 1
 
  -- Row 8 -----------------------------------
-  Name = release
+  Name = !release
   Use = Instance
   Documentation = Release a previously reserved task.  The task owner is cleared and the task is transitioned to the Ready state.
   Type = operation
   Title = Release Task
 
  -- Row 9 -----------------------------------
-  Name = suspend
+  Name = !suspend
   Use = Instance
   Documentation = Place a hold on any activity for this task until it is subsequently resumed.  The task remains in  its current state but is marked as being suspended, indicating that no additional activity should b performed.  If the task has subtasks, these are also suspended.
   Type = operation
   Title = Suspend Task
 
  -- Row 10 -----------------------------------
-  Name = resume
+  Name = !resume
   Use = Instance
   Documentation = Indicate that activity on this task can now be resumed.  Removes the mark that the task is suspended, and propgates the resume to any child tasks.
   Type = operation
   Title = Resume Task
 
  -- Row 11 -----------------------------------
-  Name = cancel
+  Name = !cancel
   Use = Instance
   Documentation = Cancel the task.  Set the status of the task to cancelled.
   Type = operation
   Title = Cancel Task
 
  -- Row 12 -----------------------------------
-  Name = stop
+  Name = !stop
   Use = Instance
   Documentation = Stop processing the task.  The task is returned to the ready state.
   Type = operation
   Title = Stop Task
 
  -- Row 13 -----------------------------------
-  Name = set-input
+  Name = !set-input
   Use = Instance
   Documentation = Set one of the inputs for a task.
   Type = operation
   Title = Set Task Input
 
  -- Row 14 -----------------------------------
-  Name = set-input.input
+  Name = !set-input.input
   Use = in
   Type = Tuple
   Min = 1
   Max = *
 
  -- Row 15 -----------------------------------
-  Name = set-input.input.name
+  Name = !set-input.input.name
   Documentation = The name of the input to add or update.
   Type = string
   Min = 1
   Max = 1
 
  -- Row 16 -----------------------------------
-  Name = set-input.input.value[x]
+  Name = !set-input.input.value[x]
   Documentation = If no value is provided, any current input with that name is removed from the resource.
   Type = *
   Min = 0
   Max = 1
 
  -- Row 17 -----------------------------------
-  Name = set-output
+  Name = !set-output
   Use = Instance
   Documentation = Set one of the outputs of a task.
   Type = operation
   Title = Set Task Output
 
  -- Row 18 -----------------------------------
-  Name = set-output.output
+  Name = !set-output.output
   Use = out
   Type = Tuple
   Min = 1
   Max = *
 
  -- Row 19 -----------------------------------
-  Name = set-output.output.name
+  Name = !set-output.output.name
   Documentation = The name of the output to add or update.
   Type = string
   Min = 1
   Max = 1
 
  -- Row 20 -----------------------------------
-  Name = set-output.output.value[x]
+  Name = !set-output.output.value[x]
   Documentation = If no value is provided, any current output with that name is removed from the resource.
   Type = *
   Min = 0

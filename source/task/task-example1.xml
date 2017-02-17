@@ -7,7 +7,7 @@
 		<Provenance>
 			<id value="signature"/>
 			<target>
-				<reference value="ProcedureRequest/physiotherapy"/>
+				<reference value="ProcedureRequest/physiotherapy/_history/1"/>
 			</target>
 			<recorded value="2016-10-31T08:25:05+10:00"/>
 			<agent>
@@ -63,7 +63,7 @@
 		<reference value="ProcedureRequest/lipid"/>
 		<display value="Lipid Panel Request"/>
 	</focus>
-	<!--	who the task is for 
+	<!--	who the task is for
 -->
 	<for>
 		<reference value="Patient/example"/>
@@ -109,7 +109,7 @@
 	<note>
 		<text value="This is an example to demonstrate using task for actioning a procedurerequest and to illustrate how to populate many of the task elements - this is the parent task that will be broken into subtask to grab the specimen and a sendout lab test "/>
 	</note>
-	<!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource 
+	<!--	add the link to the signature on the task to show how this element is usedemonstrating in this example the relevant history element using a contained resource for the purpose of this example only typically would reference an external resource
 
 -->
 	<relevantHistory>
