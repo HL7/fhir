@@ -24,7 +24,7 @@
   <category>
     <coding>
       <system value="http://hl7.org/fhir/consentcategorycodes"/>
-      <code value="hipaa"/>
+      <code value="HIPAA-Auth"/>
     </coding>
   </category>
   <patient>
