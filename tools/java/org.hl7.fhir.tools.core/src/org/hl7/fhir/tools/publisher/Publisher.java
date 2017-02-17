@@ -264,6 +264,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     private String type;
     private String xml;
     private String page;
+    private String id;
     private boolean json;
 
     public String getType() {
@@ -296,6 +297,10 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     public void setJson(boolean json) {
       this.json = json;
+    }
+
+    public void setId(String id2) {
+      this.id = id2;      
     }
 
   }
@@ -3521,7 +3526,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           }
         }
       } catch (Exception e) {
-        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() + ": " + e.getMessage(), IssueSeverity.ERROR));
+        page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() +(f.id != null ? "#"+f.id : "") + ": " + e.getMessage(), IssueSeverity.ERROR));
       }
     }
   }
@@ -5186,14 +5191,14 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void scanForFragments(String filename, XhtmlNode node) throws Exception {
     if (node != null && (node.getNodeType() == NodeType.Element || node.getNodeType() == NodeType.Document)) {
       if (node.getNodeType() == NodeType.Element && node.getName().equals("pre") && node.getAttribute("fragment") != null) {
-        processFragment(filename, node, node.getAttribute("fragment"), node.getAttribute("class"));
+        processFragment(filename, node, node.getAttribute("fragment"), node.getAttribute("class"), node.getAttribute("id"));
       }
       for (XhtmlNode child : node.getChildNodes())
         scanForFragments(filename, child);
     }
   }
 
-  private void processFragment(String filename, XhtmlNode node, String type, String clss) throws Exception {
+  private void processFragment(String filename, XhtmlNode node, String type, String clss, String id) throws Exception {
     if ("xml".equals(clss)) {
       String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
       Fragment f = new Fragment();
@@ -5201,6 +5206,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       f.setXml(Utilities.unescapeXml(xml));
       f.setPage(filename);
       f.setJson(false);
+      f.setId(id);
       fragments.add(f);
     }
     if ("json".equals(clss)) {
@@ -5209,6 +5215,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       f.setType(type);
       f.setXml(xml);
       f.setPage(filename);
+      f.setId(id);
       f.setJson(true);
       fragments.add(f);
     }
