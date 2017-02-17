@@ -1,16 +1,12 @@
---------------------------------------
-// SNOMED Composition - provide 3 properties, and ask for a single code for the whole: 417163006 (Traumatic AND/OR non-traumatic injury) + 246112005 (Severity) = 24484000 (Severe)+ 363698007 (Finding site) = 40983000 (Upper arm structure)
-
-POST [base]/CodeSystem/$compose
-[other headers]
-
 <Parameters xmlns="http://hl7.org/fhir">
-  <!-- use SNOMED CT rules -->
   <parameter>
     <name value="system"/>
     <valueUri value="http://snomed.info/sct"/>
   </parameter>
-  <!-- Traumatic injury -->
+  <parameter>
+    <name value="exact"/>
+    <valueBoolean value="true"/>
+  </parameter>
   <parameter>
     <name value="property"/>
     <part>
@@ -19,37 +15,21 @@ POST [base]/CodeSystem/$compose
     </part>
     <part>
       <name value="value"/>
-      <valueCode value="417163006"/>
+      <!-- Measurement finding -->
+      <valueCode value="118245000"/>
     </part>
   </parameter>
-  <!-- Finding site: upper arm -->
   <parameter>
     <name value="property"/>
     <part>
       <name value="code"/>
-      <valueCode value="363698007"/>
+      <!-- Interprets -->
+      <valueCode value="363714003"/>
     </part>
     <part>
       <name value="value"/>
-      <valueCode value="40983000"/>
+      <!-- Bilirubin -->
+      <valueCode value="302787001"/>
     </part>
-  </parameter>
-  <!-- Severity = severe -->
-  <parameter>
-    <name value="property"/>
-    <part>
-      <name value="code"/>
-      <valueCode value="246112005"/>
-    </part>
-    <part>
-      <name value="value"/>
-      <valueCode value="24484000"/>
-    </part>
-  </parameter>
-  <!-- complete and partial matches only (nothing fuzzy/indeterminate) -->
-  <parameter>
-    <name value="exact"/>
-    <valueCode value="true"/>
   </parameter>
 </Parameters>
-

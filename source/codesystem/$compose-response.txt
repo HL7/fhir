@@ -1,23 +1,19 @@
-// SNOMED Composition - provide 3 properties, and ask for a single code for the whole (210528007: Severe multi tissue damage upper arm)
+// SNOMED Composition - provide 2 properties, and ask for a single code for the whole 
 
 
 HTTP/1.1 200 OK
 [other headers]
 
 <Parameters xmlns="http://hl7.org/fhir">
-  <parameter>
-    <name value="match"/>
-    <part>
-      <name value="code"/>
-      <valueCoding>
-        <system value="http://snomed.info/sct"/>
-        <code value="210528007"/>
-        <display value="Severe multi tissue damage upper arm">
-      </valueCoding>
-    <part>
-    <part>
-      <name value="comment"/>
-      <valueCode value="Complete Match"/>
-    <part>
-  </parameter>
+    <parameter>
+        <name value="match" />
+        <part>
+            <name value="code" />
+            <valueCoding>
+                <system value="http://snomed.info/sct" />
+                <code value="365786009" />
+                <display value="Bilirubin level - finding" />
+            </valueCoding>
+        </part>
+    </parameter>
 </Parameters>
