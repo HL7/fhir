@@ -797,6 +797,12 @@
   Type = reference
   Path = CarePlan.context
 
+ -- Row 20 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = CarePlan.context
+  Target Types = Encounter
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

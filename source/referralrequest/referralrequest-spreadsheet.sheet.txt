@@ -84,7 +84,7 @@
   Element = ReferralRequest.definition
   Card. = 0..*
   Summary = Y
-  Type = Reference(ActivityDefinition|PlanDefinition|HealthcareService)
+  Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Instantiates protocol or definition
   Definition = A protocol, guideline, orderset or other definition that is adhered to in whole or in part by this request
   RIM Mapping = .outboundRelationship[typeCode=DEFN].target
@@ -280,7 +280,7 @@
   Card. = 0..*
   Is Modifier = N
   Summary = Y
-  Type = Reference(Practitioner | Organization)
+  Type = Reference(Practitioner | Organization | HealthcareService)
   Short Name = Receiver of referral / transfer of care request
   Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
   Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organizations
@@ -460,6 +460,12 @@
   Name = occurrence-date
   Type = date
   Path = ReferralRequest.occurrence[x]
+
+ -- Row 20 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = ReferralRequest.context
+  Target Types = Encounter
 
 === Sheet Profiles =====================================
 

@@ -26,12 +26,14 @@
        <code value="encounter"/>
      </coding>
   </category>
-  <name value="Peter James Charlmers Care Plan for Encounter 123"/>
+  <name value="Peter James Charlmers Care Plan for Inpatient Encounter"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-
+  <context>
+	<reference value="Encounter/example"/>
+  </context>
   <period>
     <end value="2013-01-01"/>
   </period>

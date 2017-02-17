@@ -16,12 +16,13 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9180</WindowHeight>
-  <WindowWidth>15330</WindowWidth>
+  <WindowHeight>9510</WindowHeight>
+  <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>763</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -3843,7 +3844,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4392,7 +4392,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C6"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="23" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="24" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="114"/>
@@ -4599,6 +4599,12 @@
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">encounter</Data></Cell>
+    <Cell><Data ss:Type="String">reference</Data></Cell>
+    <Cell><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell><Data ss:Type="String">Condition.context</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -4612,10 +4618,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>8</TopRowBottomPane>
+   <TopRowBottomPane>20</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4632,8 +4639,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>31</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

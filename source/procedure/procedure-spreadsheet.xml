@@ -23,6 +23,7 @@
   <TabRatio>759</TabRatio>
   <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1418,12 +1419,11 @@
    <Row ss:AutoFitHeight="0" ss:Height="105">
     <Cell ss:StyleID="s87"><Data ss:Type="String">Procedure.performed[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">timing</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">dateTime | Period | Timing</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">dateTime | Period</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">y</Data><NamedCell
@@ -4201,7 +4201,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>9</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4218,7 +4218,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
+     <ActiveRow>13</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -4844,7 +4844,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"><Data ss:Type="String">encounter</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
-    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Encounter</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Procedure.context</Data></Cell>
     <Cell ss:StyleID="s120"/>
    </Row>
@@ -4994,8 +4994,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

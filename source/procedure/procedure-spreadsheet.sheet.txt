@@ -260,9 +260,8 @@
  -- Row 13 -----------------------------------
   Element = Procedure.performed[x]
   Card. = 0..1
-  Aliases = timing
   Summary = y
-  Type = dateTime | Period | Timing
+  Type = dateTime | Period
   Short Name = Date/Period the procedure was performed
   Definition = The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.
   v2 Mapping = OBR-7
@@ -522,6 +521,7 @@
   Name = encounter
   Type = reference
   Path = Procedure.context
+  Target Types = Encounter
 
  -- Row 7 -----------------------------------
   Name = subject

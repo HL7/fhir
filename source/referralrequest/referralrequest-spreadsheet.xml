@@ -24,12 +24,13 @@
    <Path>\\ERICS-AIR-2\ehaas\work\subversion\fhir\build\source\colorectal\Archive\Invariants</Path>
    <SheetName>Invariants</SheetName>
   </SupBook>
-  <WindowHeight>9210</WindowHeight>
+  <WindowHeight>9510</WindowHeight>
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>819</TabRatio>
   <ActiveSheet>3</ActiveSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1125,7 +1126,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(ActivityDefinition|PlanDefinition|HealthcareService)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(ActivityDefinition|PlanDefinition)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
@@ -1725,7 +1726,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Practitioner | Organization)</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Reference(Practitioner | Organization | HealthcareService)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">N</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4104,7 +4105,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>17</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4121,8 +4122,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>15</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4932,10 +4933,10 @@
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s123"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s124"/>
+    <Cell ss:StyleID="s123"><Data ss:Type="String">encounter</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell ss:StyleID="s124"><Data ss:Type="String">ReferralRequest.context</Data></Cell>
     <Cell ss:StyleID="s125"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4994,8 +4995,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>20</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5003,7 +5004,7 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
   <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R13C2,R20C2:R21C2,R15C2:R18C2,R23C2:R25C2</Range>
+   <Range>R13C2,R23C2:R25C2,R15C2:R18C2,R20C2</Range>
    <Type>List</Type>
    <CellRangeList/>
    <Value>&quot;number,date,string,token,reference,composite,quantity&quot;</Value>

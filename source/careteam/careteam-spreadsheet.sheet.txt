@@ -22,6 +22,13 @@
   Definition = Indicates the type of care team.
   Conformance = example
 
+ -- Row 4 -----------------------------------
+  Binding Name = CareTeamReason
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/clinical-findings
+  Definition = Indicates the reason for the care team.
+  Conformance = example
+
 === Sheet care-team-status =====================================
 
  -- Row 1 -----------------------------------
@@ -66,7 +73,7 @@
   Id = 2
   Code = encounter
   Display = Encounter
-  Definition = This type of patient-specific team focuses on one specific encounter. The encounter is determined by the context of use.  For example, during an inpatient encounter, the nutrition support care team
+  Definition = This type of team focuses on one specific encounter. The encounter is determined by the context of use.  For example, during an inpatient encounter, the nutrition support care team
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -76,16 +83,15 @@
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = care-coordination
-  Display = Care Coordination
-  Definition = This type of team focuses on overall care coordination managing one or more conditions across a continuum of care ensuring there is a smooth transition of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person’s enrollment in a particular program.   For example, disease management team or patient centered medical home team.
+  Code = longitudinal
+  Display = Longitudinal Care Coordination
+  Definition = This type of team focuses on overall care coordination managing one or more conditions across the continuum of care ensuring there are smooth transitions of care. The members of the team are determined or selected by an individual or organization. When determined by an organization, the team may be assigned or based on the person’s enrollment in a particular program. For example, disease management team or patient centered medical home team.
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = condition
   Display = Condition
   Definition = This type of team focuses on one specific condition. The condition is determined by the context of use.  For example, a disease management team focused on one condition (e.g. diabetes).
-  Parent = care-coordination
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -157,6 +163,7 @@
  -- Row 6 -----------------------------------
   Element = CareTeam.subject
   Card. = 0..1
+  Aliases = patient
   Summary = Y
   Type = Reference(Patient | Group)
   Short Name = Who care team is for
@@ -165,6 +172,17 @@
   w5 = who.focus
 
  -- Row 7 -----------------------------------
+  Element = CareTeam.context
+  Card. = 0..1
+  Aliases = encounter
+  Summary = Y
+  Type = Reference(Encounter|EpisodeOfCare)
+  Short Name = Encounter or episode associated with CareTeam
+  Definition = The encounter or episode of care that establishes the context for this care team.
+  Committee Notes = GF#12367
+  w5 = context
+
+ -- Row 8 -----------------------------------
   Element = CareTeam.period
   Card. = 0..1
   Summary = Y
@@ -174,7 +192,7 @@
   Requirements = Allows tracking what team(s) are in effect at a particular time.
   w5 = when.init
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = CareTeam.participant
   Card. = 0..*
   Inv. = 1
@@ -183,7 +201,7 @@
   v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
   RIM Mapping = .participation[typeCode=PRF]
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CareTeam.participant.role
   Card. = 0..1
   Summary = Y
@@ -195,7 +213,7 @@
   v2 Mapping = REL.2 (or PRT-4?)
   RIM Mapping = .functionCode
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = CareTeam.participant.member
   Card. = 0..1
   Summary = Y
@@ -207,7 +225,7 @@
   RIM Mapping = .role
   w5 = who.actor
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = CareTeam.participant.onBehalfOf
   Card. = 0..1
   Summary = Y
@@ -216,14 +234,33 @@
   Definition = The organization of the practitioner
   Requirements = Practitioners can be associated with multiple organizations.  This element indicates which organization they were acting on behalf of
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = CareTeam.participant.period
   Card. = 0..1
   Type = Period
   Short Name = Time period of participant
   Definition = Indicates when the specific member or organization did (or is intended to) come into effect and end.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
+  Element = CareTeam.reasonCode
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = CareTeamReason
+  Short Name = Why the care team exists
+  Definition = Describes why the care team exists
+  Committee Notes = GF#12367
+  w5 = why
+
+ -- Row 15 -----------------------------------
+  Element = CareTeam.reasonReference
+  Card. = 0..*
+  Type = Reference(Condition)
+  Short Name = Why the care team exists
+  Definition = Condition(s) that this care team addresses
+  Committee Notes = GF#12367
+  w5 = why
+
+ -- Row 16 -----------------------------------
   Element = CareTeam.managingOrganization
   Card. = 0..*
   Summary = Y
@@ -233,7 +270,7 @@
   Requirements = Allows for multiple organizations to collaboratively manage cross-organizational, longitudinal care plan
   Committee Notes = GF#11335
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = CareTeam.note
   Card. = 0..*
   Type = Annotation
@@ -277,6 +314,17 @@
   Name = identifier
   Type = token
   Path = CareTeam.identifier
+
+ -- Row 8 -----------------------------------
+  Name = context
+  Type = reference
+  Path = CareTeam.context
+
+ -- Row 9 -----------------------------------
+  Name = encounter
+  Type = reference
+  Path = CareTeam.context
+  Target Types = Encounter
 
 === Sheet Profiles =====================================
 
