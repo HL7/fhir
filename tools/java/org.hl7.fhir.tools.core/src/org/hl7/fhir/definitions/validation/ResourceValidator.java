@@ -582,7 +582,7 @@ public class ResourceValidator extends BaseValidator {
 		  rule(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type code must have a binding");
 		}
     if ((e.usesType("Coding") && !parentName.equals("CodeableConcept")) || (e.usesType("CodeableConcept") && !(e.usesType("Reference") || e.usesType("Quantity") || e.usesType("SimpleQuantity")))) {
-      warning(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
+      hint(errors, IssueType.STRUCTURE, path, e.hasBinding(), "An element of type CodeableConcept or Coding must have a binding");
     }
     if (e.getTypes().size() > 1) {
       Set<String> types = new HashSet<String>();
