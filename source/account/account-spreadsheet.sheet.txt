@@ -67,15 +67,16 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Account.name
+  Element = Account.status
   Card. = 0..1
-  Aliases = Title
+  Is Modifier = Y
   Summary = y
-  Type = string
-  Short Name = Human-readable label
-  Definition = Name used for the account when displaying it to humans in reports, etc.
-  RIM Mapping = .title
-  w5 = what
+  Type = code
+  Binding = AccountStatus
+  Short Name = active | inactive | entered-in-error
+  Definition = Indicates whether the account is presently used/useable or not
+  RIM Mapping = .statusCode
+  w5 = status
 
  -- Row 4 -----------------------------------
   Element = Account.type
@@ -89,6 +90,17 @@
   w5 = class
 
  -- Row 5 -----------------------------------
+  Element = Account.name
+  Card. = 0..1
+  Aliases = Title
+  Summary = y
+  Type = string
+  Short Name = Human-readable label
+  Definition = Name used for the account when displaying it to humans in reports, etc.
+  RIM Mapping = .title
+  w5 = what
+
+ -- Row 6 -----------------------------------
   Element = Account.subject
   Card. = 0..1
   Aliases = target
@@ -99,18 +111,6 @@
   Comments = Accounts can be applied to non patients for tracking other non patient related activities, such as group services (patients not tracked, and costs charged to another body), or may not be allocated.
   RIM Mapping = .subject
   w5 = who.focus
-
- -- Row 6 -----------------------------------
-  Element = Account.status
-  Card. = 0..1
-  Is Modifier = Y
-  Summary = y
-  Type = code
-  Binding = AccountStatus
-  Short Name = active | inactive | entered-in-error
-  Definition = Indicates whether the account is presently used/useable or not
-  RIM Mapping = .statusCode
-  w5 = status
 
  -- Row 7 -----------------------------------
   Element = Account.period

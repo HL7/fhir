@@ -10,16 +10,15 @@
         <system value="urn:oid:0.1.2.3.4.5.6.7"/>
         <value value="654321"/>
     </identifier>
-    <!-- insert contents here -->
-    <name value="HACC Funded Billing for Peter James Chalmers"/>
-    <type>
-        <text value="patient"/>
-    </type>
+  <status value="active"/>
+  <type>
+    <text value="patient"/>
+  </type>
+  <name value="HACC Funded Billing for Peter James Chalmers"/>
   <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-    <status value="active"/>
   <period>
     <start value="2016-01-01"/>
     <end value="2016-06-30"/>
