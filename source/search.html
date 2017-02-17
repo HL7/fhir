@@ -1013,35 +1013,33 @@ Examples of using composite parameters:
 Consider the case of searching for all AllergyIntolerance resources:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?category=medication
+GET [base]/AllergyIntolerance?clinical-status=active
 </pre>
 <p>
-This search will only return resources the have a value for category:
+This search will only return resources the have a value for clinicalStatus:
 </p>
 <pre class="json" fragment="AllergyIntolerance">
 {
   "resourceType" : "AllergyIntolerance",
-  "category" : "medication"
+  "clinicalStatus" : "active"
 }
 </pre>
 <p>
-Resources missing a category of 'medication' will not be returned. (Aside: this may not be safe behaviour.
-Note that this particular example - AllergyIntolerance.cateogry - is semantically problematic; 
-classification is often inconsistent between institutions, so using it at all may present 
-a safety risk.) But assuming that it's reliable, it still might be unsafe to only return resources
-with an explicit category. It might be desired to return AllergyIntolerance resources
-with either an explicit value for category, or none:
+Resources missing a clinicalStatus will not be returned. This is probably unsafe - it would not usually
+be appropriate to ignore AllergyIntolerance warnings with an unknown clinical status, and 
+only return resources with an explicit clinicalStatus. Instead, it might be desired to return 
+AllergyIntolerance resources with either an explicit value for clinicalStatus, or none:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?category=medication
-GET [base]/AllergyIntolerance?category:exists=false
+GET [base]/AllergyIntolerance?clinical-status=active
+GET [base]/AllergyIntolerance?clinical-status:exists=false
 </pre>
 <p>
 Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>, 
 but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
 </p>
 <pre>
-GET [base]/AllergyIntolerance?category=medication&amp;category:exists=false
+GET [base]/AllergyIntolerance?clinical-status=active&amp;clinical-status:exists=false
 </pre>
 <p>
 There is no way to use the :exists modifier and mix with a value using the 
