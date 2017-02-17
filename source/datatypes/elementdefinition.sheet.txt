@@ -26,7 +26,7 @@
   Binding Name = PropertyRepresentation
   Binding = code list
   Reference = #property-representation
-  Definition = How a property is represented on the wire.
+  Definition = How a property is represented when serialized.
   Conformance = required
 
  -- Row 5 -----------------------------------
@@ -335,7 +335,7 @@
   Binding = PropertyRepresentation
   Short Name = xmlAttr | xmlText | typeAttr | cdaText | xhtml
   Definition = Codes that define how this element is represented in instances, when the deviation varies from the normal case
-  Comments = In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific wire format (e.g. CDA, v2 etc)
+  Comments = In resources, this is rarely used except for special cases where the representation deviates from the normal, and can only be done in the base standard (and profiles must reproduce what the base standard does). This element is used quite commonly in Logical models when the logical models represent a specific serialization format (e.g. CDA, v2 etc)
   v2 Mapping = N/A
   RIM Mapping = N/A
   11179 Mapping = n/a
@@ -560,7 +560,7 @@
   Type = string
   Short Name = Max cardinality of the base element
   Definition = Maximum cardinality of the base element identified by the path
-  Comments = This is provided to code generation, since the wire representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ
+  Comments = This is provided to code generation, since the serialization representation in JSON differs depending on whether the base element has max > 1. Also, some forms of code generation may differ.
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 

@@ -179,7 +179,7 @@
   Binding = PayloadType
   Short Name = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
   Definition = The payload type describes the acceptable content that can be communicated on the endpoint
-  Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
+  Comments = The payloadFormat describes the serialization format of the data, where the payloadType indicates the specific document/schema that is being transferred; e.g. DischargeSummary or CarePlan.
   RIM Mapping = n/a
 
  -- Row 12 -----------------------------------

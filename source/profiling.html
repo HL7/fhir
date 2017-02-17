@@ -67,9 +67,9 @@ FHIR defines a cascade of artifacts for this purpose:
  </tr>
 </table>
 <p>
-The term "profile" is a general one that is used about either a "package" or an "item". 
+The term "profile" is a general one that is used about either a "package" or an "item".
 "Profiling" is a general term that describes the process of creating an implementation guide,
-or any of the conformance resources found in one. 
+or any of the conformance resources found in one.
 </p>
 
 <a name="conf-res"> </a>
@@ -106,14 +106,14 @@ For implementer convenience, the specification itself publishes its base definit
 <h3>Two uses of Profiles</h3>
 <p>
 The <a href="capabilitystatement.html">CapabilityStatement</a> resource describes two different uses for profiles on resources:
-Resource Profiles and System Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element 
-and System Profiles are specified using the <i>CapabilityStatement.profile</i> element. 
+Resource Profiles and System Profiles. Resource Profiles are specified using the <i>CapabilityStatement.rest.resource.profile</i> element
+and System Profiles are specified using the <i>CapabilityStatement.profile</i> element.
 </p>
 <h4>CapabilityStatement.rest.resource.profile</h4>
 <p>
-These profiles describe the general features that are supported by the system for each kind of 
-resource. Typically, this is the superset of all the different use-cases implemented by the system. 
-This is a resource-level perspective of a system's functionality. 
+These profiles describe the general features that are supported by the system for each kind of
+resource. Typically, this is the superset of all the different use-cases implemented by the system.
+This is a resource-level perspective of a system's functionality.
 </p>
 <h4>CapabilityStatement.profile</h4>
 <p>
@@ -124,9 +124,9 @@ Some examples of the uses for these kind of profiles:
  <li>A Laboratory service producing a set of different reports - general chemistry, blood count, etc. Typical labs would support several hundred different reports</li>
  <li>A care manager which handles a set of different types of care plans and associated clinical resources</li>
  <li>A medications formulary that handles several different levels of sophistication in its medication representations</li>
-</ul> 
+</ul>
 <p>
-Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling 
+Typically, these profiles are a series of variations on the same set of resources - different use cases leading to handling
 the resources that represent them differently. These usecases described above all pertain to system that produce and publish
 data, but the same concept applies to systems that consume data. For instance:
 </p>
@@ -134,29 +134,29 @@ data, but the same concept applies to systems that consume data. For instance:
  <li>An expert service that provides analysis on several different sets of data conforming to a particular pattern - tests x,y and z with particular codes and units</li>
 </ul>
 <p>
-For producer and a consumer systems to exchange data successfully based on 
+For producer and a consumer systems to exchange data successfully based on
 one of these system supported profiles, it's not enough to know that the
-systems happen to have system profiles that overlap for the use case 
+systems happen to have system profiles that overlap for the use case
 of interest; the consumer must be able to filter the total set of resources
 made available by the producer system and deal only with the ones relevant
-to the use case. 
+to the use case.
 </p>
 <p>
-As an example consider a laboratory system generating thousands of reports 
-a day. 1% of those reports are a particular endocrine report that a 
-decision support system knows how to process. Both systems declare that 
+As an example consider a laboratory system generating thousands of reports
+a day. 1% of those reports are a particular endocrine report that a
+decision support system knows how to process. Both systems declare that
 they support the particular endocrine report profile, but how does the expert
-system actually find the endocrine reports that it knows how to process? 
+system actually find the endocrine reports that it knows how to process?
 </p>
 <p>
-One possible option is for the expert system to receive every single 
-report coming from the lab system, check whether it conforms to the 
+One possible option is for the expert system to receive every single
+report coming from the lab system, check whether it conforms to the
 profile or not, and then decide whether to process it. Checking whether
-a resource conforms to a particular profile or not is a straight 
+a resource conforms to a particular profile or not is a straight
 forward operation (one option is to use the <a href="downloads.html">provided tools for this</a>),
-but this is very inefficient way - the expert system has to receive 
-and process 100 times many resources as it uses. To help a consumer 
-find the correct set of reports for a use-case, a producer of  
+but this is very inefficient way - the expert system has to receive
+and process 100 times many resources as it uses. To help a consumer
+find the correct set of reports for a use-case, a producer of
 resources also SHALL, for any profile declared in Conformance.profile:
 </p>
 <ol>
@@ -165,13 +165,13 @@ resources also SHALL, for any profile declared in Conformance.profile:
 </ol>
 <p>
 Beyond these requirements, a producer of resources SHOULD ensure that any resource instance that would reasonably be expected
-to conform to the declared profiles SHOULD be published in this form. 
+to conform to the declared profiles SHOULD be published in this form.
 </p>
 
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>STU Note:</b> there are many uninvestigated issues associated with this use of profiles. 
+<b>STU Note:</b> there are many uninvestigated issues associated with this use of profiles.
 HL7 is actively seeking feedback from users who experiment in this area, and users
 should be prepared for changes to features and obligations in this area in the future.
 </p>
@@ -183,32 +183,32 @@ Feedback <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedbac
 <a name="api"> </a>
 <h3>Extending and Restricting the API</h3>
 <p>
-A CapabilityStatement resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with 
+A CapabilityStatement resource lists the REST interactions (read, update, search, etc.) that a server provides or that a client uses, along with
 some supporting information for each. It can also be used to define a set of desired behavior (e.g. as part of a specification or
 a Request for Proposal).  The only interaction that servers are required to support is the <a href="http.html#capabilities">capabilities</a>
 interaction itself - to retrieve the server's CapabilityStatement. Beyond that, servers and clients support and use whichever
 API calls are relevant to their use case.
 </p>
 <p>
-In addition to the operations that FHIR provides, servers may provide additional 
-operations that are not part of the FHIR specification. Implementers can safely do this 
+In addition to the operations that FHIR provides, servers may provide additional
+operations that are not part of the FHIR specification. Implementers can safely do this
 by appending a custom operation name prefixed with '$' to an existing FHIR URL, as the <a href="operations.html">Operations
 framework</a> does. The Conformance resource supports defining what OperationDefinitions make use of particular
 names on an end-point.  If services are defined that are not declared using OperationDefinition, it may be
 appropriate to use longer names, reducing the chance of collision (and confusion) with services declared by
-other interfaces.  The base specification will never define operation names with a "." in them, so 
+other interfaces.  The base specification will never define operation names with a "." in them, so
 implementers are recommended to use some appropriate prefix for their names (such as "ihe.someService")
-to reduce the likelihood of name conflicts. 
+to reduce the likelihood of name conflicts.
 </p>
 <p>
 Implementations are encouraged, but not required, to define operations using the standard
 FHIR operations framework - that is, to declare the operations using the OperationDefinition
-resource, but some operations may involve formats that can't be described that way. 
+resource, but some operations may involve formats that can't be described that way.
 </p>
 <p>
-Implementations are also able to extend the FHIR API using additional content types. 
-For instance, it might be useful to <a href="http.html#read">read</a> or <a href="http.html#update">update</a> 
-the appointment resources using a vCard based format. vCard defines its own mime type, and these additional mime types can 
+Implementations are also able to extend the FHIR API using additional content types.
+For instance, it might be useful to <a href="http.html#read">read</a> or <a href="http.html#update">update</a>
+the appointment resources using a vCard based format. vCard defines its own mime type, and these additional mime types can
 safely be used in addition to those defined in this specification.
 </p>
 
@@ -216,7 +216,7 @@ safely be used in addition to those defined in this specification.
 <h3>Extending and Restricting Resources</h3>
 
 <p>
-Extending and restricting resources (collectively known as 'profiling a resource') is done with a 
+Extending and restricting resources (collectively known as 'profiling a resource') is done with a
 "StructureDefinition" resource, which is a statement of rules about
 how the elements in a resource are used, and where extensions are used in a resource.
 </p>
@@ -237,7 +237,7 @@ it is constraining. This table summarizes what types of restrictions are allowed
  <tr><td>1..*</td>   <td>no</td>                      <td>no</td>                              <td>no</td>                            <td>yes</td>                    <td>yes</td>                     </tr>
 </table>
 <p>
-When a profile is constraining another profile where there are more cardinality options (e.g. low is not just 0 or 1, and high is not just 1 or *), the same 
+When a profile is constraining another profile where there are more cardinality options (e.g. low is not just 0 or 1, and high is not just 1 or *), the same
 principles still apply: the constraining profile can only allow what the base profile allows.
 </p>
 
@@ -253,18 +253,18 @@ What Structure Definitions can do when they are constraining existing resources 
 </ul>
 <p>
 The consequence of this is that if a profile mandates extended behavior that cannot
-be ignored, it must also mandate the use of a <a href="extensibility.html#modifiers">modifier extension</a>. 
+be ignored, it must also mandate the use of a <a href="extensibility.html#modifiers">modifier extension</a>.
 Another way of saying this is that knowledge must be explicit in
-the instance, not implicit in the profile. 
+the instance, not implicit in the profile.
 </p>
 <p>
 As an example, if a profile wished to describe that a <a href="procedure.html">Procedure</a>
-resource was being negated (e.g. asserting that it never happened), it could not simply say 
-in the profile itself that this is what the resource means; instead, the profile must 
-say that the resource must have an extension that represents this knowledge. 
+resource was being negated (e.g. asserting that it never happened), it could not simply say
+in the profile itself that this is what the resource means; instead, the profile must
+say that the resource must have an extension that represents this knowledge.
 </p>
 <p>
-There is a facility to mark resources to indicate that they can only be safely understood by 
+There is a facility to mark resources to indicate that they can only be safely understood by
 a process that is aware of and understands a set of published rules. For more information,
 see <a href="resource.html#implicitRules">Restricted Understanding of Resources</a>.
 </p>
@@ -275,7 +275,7 @@ see <a href="resource.html#implicitRules">Restricted Understanding of Resources<
 A "constraint" Structure Definition specifies a set of restrictions on the content of a FHIR resource or data type,
 or an additional set of constraints on an existing profile.
 A given structure definition is identified by its canonical URL, which SHOULD be the URL at which it
-is published. The following kinds of statements can be made about how an element is used, using a 
+is published. The following kinds of statements can be made about how an element is used, using a
 series of <a href="elementdefinition.html">Element Definitions</a>:
 </p>
 <ul>
@@ -292,12 +292,12 @@ series of <a href="elementdefinition.html">Element Definitions</a>:
 </ul>
 <p>
 Any changed definitions SHALL be restrictions that are consistent with the
-rules defined in the resource in the FHIR Specification from which the profile is derived. Note that some of 
-these restrictions can be enforced by tooling (and are by the FHIR tooling), but 
+rules defined in the resource in the FHIR Specification from which the profile is derived. Note that some of
+these restrictions can be enforced by tooling (and are by the FHIR tooling), but
 others (e.g. alignment of changes to descriptive text) cannot be automatically enforced.
 </p>
 <p>
-Note that structure definitions cannot 'remove' mappings and constraints that are defined in the base structure, 
+Note that structure definitions cannot 'remove' mappings and constraints that are defined in the base structure,
 but for purposes of clarity, they can refrain from repeating them.
 </p>
 <p>
@@ -345,16 +345,16 @@ with the path of the element being made mandatory, and a cardinality statement.
 Nothing else is stated - all the rest of the structural information is implied (note:
 this means that a differential profile can be sparse and only
 mention the elements that are changed, without having to list the
-full structure. This rule includes the root element - it is not needed in 
+full structure. This rule includes the root element - it is not needed in
 a sparse differential).
 </p>
 <p>
-Note that a differential can choose not to constrain elements. 
+Note that a differential can choose not to constrain elements.
 Doing so means that the profile will be more flexible in terms of compatibility
 with other profiles, but will require more work to support from implementing
-systems. Alternatively, a profile can constrain all optional elements to be not 
-present (max cardinality = 0) - this closes the content, which makes 
-implementation easier, but also reduces its usefulness. 
+systems. Alternatively, a profile can constrain all optional elements to be not
+present (max cardinality = 0) - this closes the content, which makes
+implementation easier, but also reduces its usefulness.
 </p>
 <p>
 In order to properly understand a differential structure, it must be
@@ -364,7 +364,7 @@ impossible if the base structure is not available), a StructureDefinition
 can also carry a "snapshot" - a fully calculated form of the
 structure that is not dependent on any other structure. The FHIR
 project provides tools for the common platforms that can populate
-a snapshot from a differential (note that the tools generate complete 
+a snapshot from a differential (note that the tools generate complete
 verbose snapshots; they do not support suppressing mappings or constraints).
 </p>
 <p>
@@ -378,7 +378,7 @@ systems should always have the snapshot view populated.
 <a name="slicing"> </a>
 <h3>Slicing</h3>
 <p>
-One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list), 
+One common feature of constraining Structure Definitions is to take an element that may occur more than once (e.g. in a list),
 and split the list into a series of sublists, each with different restrictions on the elements in the sublist with associated
 additional meaning. In FHIR, this operation is known as "Slicing" a list. It is common to
 "slice" a list into sub-lists each containing just one element, effectively putting constraints on each element in the list.
@@ -389,14 +389,14 @@ Here is an example to illustrate the process:
 </p>
 <img alt="Slicing diagram" src="slicing.png" width="461" height="353"/>
 <p>
-In this example, the base structure definition for the resource <a href="observation.html">Observation</a> defines 
-the "component" element which contains a nested code and a value for observations that 
-have multiple values. A classic example of this kind of observation is a blood pressure 
-measurement - it contains 2 values, one for systolic, and one for diastolic (<a href="observation-example-bloodpressure.html">example</a>). 
+In this example, the base structure definition for the resource <a href="observation.html">Observation</a> defines
+the "component" element which contains a nested code and a value for observations that
+have multiple values. A classic example of this kind of observation is a blood pressure
+measurement - it contains 2 values, one for systolic, and one for diastolic (<a href="observation-example-bloodpressure.html">example</a>).
 </p>
 <p>
-This diagram shows the conceptual process of 'slicing' the component list into 
-systolic and diastolic slices (note: to avoid clutter, the "name" attribute of Observation 
+This diagram shows the conceptual process of 'slicing' the component list into
+systolic and diastolic slices (note: to avoid clutter, the "name" attribute of Observation
 is shown as just a code not a full CodeableConcept).
 </p>
 <p>
@@ -407,7 +407,7 @@ the name), and both have a value of type Quantity. This process
 is known as "slicing" and the Systolic and Diastolic elements are called "slices".
 </p>
 <p>
-Note that when the resource is exchanged, the wire format that is exchanged is not
+Note that when the resource is exchanged, the serialization format that is exchanged is not
 altered by the constraining definition. This means that the item profile names defined in the
 structure definition ("systolic", etc. in this example) are never exchanged. A resource
 instance looks like this:
@@ -417,7 +417,7 @@ instance looks like this:
    ...
    &lt;component&gt;
      &lt;code {LOINC=&quot;8480-6&quot;}/&gt;
-     &lt;value ...&gt; 
+     &lt;value ...&gt;
    &lt;/component&gt;
    &lt;component&gt;
      &lt;code {LOINC=&quot;8462-4&quot;}/&gt;
@@ -429,7 +429,7 @@ instance looks like this:
 In order to determine that the first related item corresponds to "Systolic" in
 the structure definition, so that it can determine to which additional constraints for a sub-list the item conforms,
 the system checks the values of the elements. In this case, the "code" element
-in the target resource can be used to determine which slice that target refers to. 
+in the target resource can be used to determine which slice that target refers to.
 This element is called the "discriminator".
 </p>
 
@@ -443,18 +443,18 @@ for the slice.
 This would require a processor to be able to check all the rules
 applied in the slice and to do so speculatively in a depth-first
 fashion. Both of these requirements are inappropriately difficult for an operational system,
-and particularly for generated code (e.g. software that is automatically produced based on 
-the StructureDefinition). Thus, to provide a better way to distinguish 
+and particularly for generated code (e.g. software that is automatically produced based on
+the StructureDefinition). Thus, to provide a better way to distinguish
 slices, a sliced element can designate a field or set of fields that act as a "discriminator" - they
-are used to tell the slices apart. 
+are used to tell the slices apart.
 </p>
 <p>
-When a discriminator is provided, the composite of the values of 
+When a discriminator is provided, the composite of the values of
 the elements designated in the discriminator is unique and distinct
 for each possible slice and applications can easily determine
-which slice an item in a list is. The intention is that 
-this can be done in generated code, e.g. using a switch/case 
-statement. 
+which slice an item in a list is. The intention is that
+this can be done in generated code, e.g. using a switch/case
+statement.
 </p>
 <p>
 When a constraining structure designates one or more discriminators, it SHALL
@@ -462,9 +462,9 @@ ensure that the possible values for each slice are different and non-overlapping
 so that the slices can easily be distinguished.
 </p>
 <p>
-Each discriminator is a pair of values: a type that indicates how the field is 
+Each discriminator is a pair of values: a type that indicates how the field is
 processed when evaluating the discriminator, and a <a href="http://hl7.org/fhirpath">FHIRPath</a>
-expression that identifies the element in which the discriminator is found. There are 
+expression that identifies the element in which the discriminator is found. There are
 five different processing types for discriminators:
 </p>
 <%linkcodelist http://hl7.org/fhir/discriminator-type%>
@@ -478,19 +478,19 @@ discriminator is based is a restricted FHIRPath statement that is allowed to inc
  <li>The function <code>resolve()</code> to allow slicing to across resource boundaries</li>
 </ul>
 <p>
-Each slice must use the <a href="elementdefinition.html">element definition</a> for the 
+Each slice must use the <a href="elementdefinition.html">element definition</a> for the
 element in the descriminator(s) to ensure that the slices are clearly differentiated (by
-assigning a fixed value, a specific type, or a profile, depending on the discriminator 
-type. If the type is 'value', then the element definition must use either 
-<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>), 
-or if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a> 
+assigning a fixed value, a specific type, or a profile, depending on the discriminator
+type. If the type is 'value', then the element definition must use either
+<a href="elementdefinition-definitions.html#ElementDefinition.fixed_x_">ElementDefinition.fixed[x]</a>),
+or if the element has a terminology binding, a required binding with a <a href="valueset.html#required">Value Set</a>
 that enumerates the list of possible codes in the value set ("extensional definition").
 </p>
 <p>
-It is the composite (combined) values of the discriminators 
+It is the composite (combined) values of the discriminators
 that are unique, not each discriminator alone. For example,
-a slice on a list of items that are references to other 
-resources could designate fields from different resources, 
+a slice on a list of items that are references to other
+resources could designate fields from different resources,
 where each resource only has one of the designated elements,
 as long as they are distinct across slices.
 </p>
@@ -506,7 +506,7 @@ entries that share a <i>path</i> but have distinct <i>name</i>s.
 These entries together form a "slice group" that is:
 </p>
 <ol>
-       
+
 	<li><b>Initiated by a "slicing entry"</b> That is, the first
 		<i>element</i> in a slice group must contain a
 		<i>slicing</i> property that defines the
@@ -515,11 +515,11 @@ These entries together form a "slice group" that is:
 	<li><b>Mutually exclusive</b>. This means that each
 		<i>element</i> in a slice group SHALL describe a
 		distinct set of  values for the group's
-		<i>discriminators</i>.  Because of this constraint, an 
+		<i>discriminators</i>.  Because of this constraint, an
 	        element in a resource <b>instance</b> will never match more
-		than one <i>element</i> in a given slice group. If no discriminators are named, 
-    it SHOULD still be possible to differentiate the slices based 
-    on their properties, though it may be substantially harder to 
+		than one <i>element</i> in a given slice group. If no discriminators are named,
+    it SHOULD still be possible to differentiate the slices based
+    on their properties, though it may be substantially harder to
     do so.</li>
 
 	<li><b>Serialized as a group</b>. The entries in a slice
@@ -548,7 +548,7 @@ Some examples of descriminators:
  <tr>  <td>Observation.value[x]</td> <td>type</td> <td>$this</td> <td>Different constraints (e.g. "must support", usage notes, vocabulary bindings, etc.) are asserted for different supported types for the multi-typed element Observation.value[x]</td> </tr>
 </table>
 <p>
-Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g. 
+Note that discriminator types of type and profile can also be used where a repeating element contains a resource directly (e.g.
 <a href="domainresource-definitions.html#DomainResource.contained">DomainResource.contained</a>, <a href="bundle-definitions.html#Bundle.entry">Bundle.entry</a>, <a href="parameters-definitions.html#Parameters.parameter.resource">Parameters.parameter.resource</a>).
 </p>
 <p>
@@ -572,10 +572,10 @@ content that is not in one of the defined slices. Some rules about the default s
  <li>Default slices can be re-sliced in dependent profiles</li>
 </ul>
 <p>
-One use of a default slice would be the case where the profile slices 
-an identifier element to require a set of known identifiers, where 
+One use of a default slice would be the case where the profile slices
+an identifier element to require a set of known identifiers, where
 the <code>type</code> element is prohibited (since they are known identifiers) but requires
-<code>type</code> on all other identifiers if any are present. In this case, the 
+<code>type</code> on all other identifiers if any are present. In this case, the
 default slice makes no rules about the identiifer.system (which is the slicing discriminator),
 but fixes the cardinality of type to 1..1 in the @default slice.
 </p>
@@ -612,7 +612,7 @@ Note: it is possible for Profile C to make rules that are incompatible with prof
 </p>
 <p>
 In addition to the above, there are times when Profile C will need to further slice a slice defined in B.  In this case, there's a need to reference both the name of the original
-slice from Profile B as well as to define a name for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and 
+slice from Profile B as well as to define a name for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and
 profile C defines the slice "example/example1", then this is deemed to be "example1" slice of the example slice.  This process can continue indefinitely by separating each layer of slicing names with the "/" character.
 This pattern applies to @default too: @default/@default.
 </p>
@@ -621,37 +621,37 @@ This pattern applies to @default too: @default/@default.
 <h3>Extension Definitions</h3>
 <p>
 An extension definition defines the URL that identifies the extension
-and which is used to refer to the extension definition when it is used 
+and which is used to refer to the extension definition when it is used
 in a resource.
 </p>
 <p>
 The extension definition also defines the context where the extension can be used (usually
-a particular path or a data type) and then defines the extension element using the same details used to 
-profile the structural elements that are part of resources. This means that a single extension 
-can be defined once and used on different Resource and/or datatypes, e.g. one would only have to 
+a particular path or a data type) and then defines the extension element using the same details used to
+profile the structural elements that are part of resources. This means that a single extension
+can be defined once and used on different Resource and/or datatypes, e.g. one would only have to
 define an extension for "hair color" once, and then specify that it can be used on both Patient and Practitioner.
 </p>
 <p>
-For further discussion of defining and using extensions, along with some examples, 
-see <a href="extensibility.html">Extensibility</a>. 
+For further discussion of defining and using extensions, along with some examples,
+see <a href="extensibility.html">Extensibility</a>.
 </p>
 
 <h4>Using Extensions in Profiles</h4>
 <p>
-Once defined, an extension can be used in an instance of a resource 
-without any Profile declaring that it can, should or must be, but 
+Once defined, an extension can be used in an instance of a resource
+without any Profile declaring that it can, should or must be, but
 Profiles can be used to describe how an extension is used.
 </p>
 <p>
-To actually prescribe the use of an extension in an instance, the extension list 
-on the resource needs to be sliced. This is shown in <a href="extensibility-examples.html#sliceextensions">the extensibility 
+To actually prescribe the use of an extension in an instance, the extension list
+on the resource needs to be sliced. This is shown in <a href="extensibility-examples.html#sliceextensions">the extensibility
 examples</a></p>
 <p>
 Note that the minimum cardinality of an extension SHALL be a valid restriction
 on the minimum cardinality in the definition of the extension. if the minimum
 cardinality of the extension is 1 when it is defined, it can only be mandatory
 when it is added to a profile. This is not recommended - the minimum cardinality
-of an extension should usually be 0. 
+of an extension should usually be 0.
 </p>
 
 
@@ -659,30 +659,30 @@ of an extension should usually be 0.
 <h3>Binding Definitions</h3>
 
 <p>
-Coded elements have bindings that link from the element to a definition of the 
-set of possible codes the element may contain. The binding identifies the 
+Coded elements have bindings that link from the element to a definition of the
+set of possible codes the element may contain. The binding identifies the
 definition of the set of possible codes and controls how tightly the set of the possible codes is interpreted.
 </p>
 <p>
-The set of possible codes is either a formal reference to a <a href="valueset.html">ValueSet</a> 
-resource, which may be version specific, or a general reference to some web content that defines a set of 
-codes. The second is most appropriate where a set of values is defined by 
+The set of possible codes is either a formal reference to a <a href="valueset.html">ValueSet</a>
+resource, which may be version specific, or a general reference to some web content that defines a set of
+codes. The second is most appropriate where a set of values is defined by
 some external standard (such as mime types). Alternatively, where the binding
-is incomplete (e.g. under development) just a text description of the 
-possible codes can be provided. 
+is incomplete (e.g. under development) just a text description of the
+possible codes can be provided.
 </p>
-<p> 
-Bindings have a property that defines how the strongly implementations are required to use the 
+<p>
+Bindings have a property that defines how the strongly implementations are required to use the
 set of codes. See <a href="terminologies.html#strength">Binding Strength</a>.
 </p>
 
 <a name="tx"> </a>
 <h3>Mixing Custom and Standard Terminologies</h3>
 <p>
-<a href="codesystem.html">CodeSystem</a> resources can be used to carry definitions of local 
-codes (<a href="codesystem-example.html">Example</a>) and <a href="valueset.html">ValueSets</a> 
+<a href="codesystem.html">CodeSystem</a> resources can be used to carry definitions of local
+codes (<a href="codesystem-example.html">Example</a>) and <a href="valueset.html">ValueSets</a>
 can mix a combination of local codes and standard codes (e.g. LOINC, SNOMED), or just
-to choose a particular set of standard codes (examples: LOINC, SNOMED, RxNorm). 
+to choose a particular set of standard codes (examples: LOINC, SNOMED, RxNorm).
 Profiles can bind to these value sets instead of the ones defined in the base
 specification, following these rules:
 </p>
@@ -690,9 +690,9 @@ specification, following these rules:
  <tr> <td><b><a href="terminologies.html#binding">Binding Strength</a> in base specification</b></td> <td><b>Customization Rules in Profiles</b></td> </tr>
  <tr> <td>required</td> <td>The value set can only contain codes contained in the value set specified by the FHIR specification</td> </tr>
  <tr> <td>extensible</td>  <td>The value set can contain codes not found in the base value set. These additional codes SHOULD NOT have the same meaning as existing codes in the base value set</td> </tr>
- <tr> <td>preferred</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr> 
- <tr> <td>example</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr> 
-</table> 
+ <tr> <td>preferred</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr>
+ <tr> <td>example</td>  <td>The value set can contain whatever is appropriate for local use</td> </tr>
+</table>
 <p>
 Note that local codes are not as interoperable as standard published code systems (e.g. LOINC, SNOMED CT, so it is preferable to use standard code systems.
 </p>
@@ -713,7 +713,7 @@ it is constraining. This table summarizes the changes that can be made to the bi
  <tr><td>example</td>                <td>yes</td>                      <td>yes</td>                              <td>yes</td>       <td>yes</td>            </tr>
 </table>
 <p>
-Note that a constraining profile may leave the binding strength the same and change the value set instead. Whatever the 
+Note that a constraining profile may leave the binding strength the same and change the value set instead. Whatever the
 constraining profile does, it cannot make codes valid that are invalid in the base structure/profile.
 </p>
 
@@ -727,7 +727,7 @@ This is distinct from cardinality.  It is possible to have an element with a min
 to support the element.
 </p>
 <p>
-The meaning of "support" is not defined by the base FHIR specification, but can be set to 
+The meaning of "support" is not defined by the base FHIR specification, but can be set to
 true in a profile. When a profile does this, it SHALL also make clear
 exactly what kind of "support" is required. Examples might include:
 </p>
@@ -739,20 +739,20 @@ exactly what kind of "support" is required. Examples might include:
   <li>etc.</li>
 </ul>
 <p>
-The specific meaning of "Must Support" for the purposes of a particular profile SHALL be described in the <code>element.definition</code>, 
+The specific meaning of "Must Support" for the purposes of a particular profile SHALL be described in the <code>element.definition</code>,
 the general <code>StructureDefinition.description</code> or in other documentation for the implementation guide the profile is part of.
 </p>
 <p>
 If creating a profile based on another profile, Must Support can be changed from false to true, but cannot be changed from true to false.
-Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of 
-the important elements to make use of the resource), nor is it automatically mustSupport - however both 
+Note that an element that has the property IsModifier is not necessarily a "key" element (e.g. one of
+the important elements to make use of the resource), nor is it automatically mustSupport - however both
 of these things are more likely to be true for IsModifier elements than for other elements.
 </p>
 
 <a name="search"> </a>
 <h3>Search Criteria</h3>
 <p>
-The final thing implementations can do is to define search criteria in addition to those defined in the specification itself.  
+The final thing implementations can do is to define search criteria in addition to those defined in the specification itself.
 Search criteria fall into one of four categories:
 </p>
 <ol>
@@ -798,29 +798,29 @@ When this specification describes a profile, the profile is presented in 5 diffe
 <h3>Supporting Multiple Profiles</h3>
 
 <p>
-Applications may be required to support more than one profile at a time. 
+Applications may be required to support more than one profile at a time.
 A typical example might be an EHR application that is required to support
 a general purpose data sharing profile (such as <a href="http://hl7.org/fhir/daf">DAF</a>),
-and also must support specific profiles for decision support using the same 
-interface. 
+and also must support specific profiles for decision support using the same
+interface.
 </p>
 <p>
 The impact of supporting two sets of profiles depends on whether resources
-are being created or consumed. When an application is creating content, it 
-has to create content that conforms to both sets of profiles - that is, the 
+are being created or consumed. When an application is creating content, it
+has to create content that conforms to both sets of profiles - that is, the
 intersection of the profiles. When an application is consuming information,
-then it must be able to consume content that conforms to either set of 
-profiles - that is, the union of the profiles. 
+then it must be able to consume content that conforms to either set of
+profiles - that is, the union of the profiles.
 </p>
 <p>
 Since applications generally consume and produce resources at the same time,
 conforming to more than one profile may not be possible, unless the profiles
 are designed to make statements at different levels - and the case above
-is one such case, where one profile is focused on data access, provenance, 
+is one such case, where one profile is focused on data access, provenance,
 and availability, the other profile is focused on clinical content.
 </p>
 <p>
-Accordingly, profiles can relate to each other in four different ways. 
+Accordingly, profiles can relate to each other in four different ways.
 Each profile can be thought of in terms of the set of instances that conform to the profile:
 </p>
 <ol>
@@ -830,10 +830,10 @@ Each profile can be thought of in terms of the set of instances that conform to 
  <li>identical sets: all resources that conform to A also conform to B and any resources that don't conform to B, don't conform to A</li>
 </ol>
 <p>
-Profiles can be compared to determine their compatibility. 
-One such comparison can be found (no - todo: bring this into the build) 
-between <a href="http://hl7.org/fhir/daf">DAF</a> and <a href="http://hl7.org/fhir/qicore">QICore</a>. 
-Note that this comparison is generated by tooling under ongoing development, and is purely draft 
+Profiles can be compared to determine their compatibility.
+One such comparison can be found (no - todo: bring this into the build)
+between <a href="http://hl7.org/fhir/daf">DAF</a> and <a href="http://hl7.org/fhir/qicore">QICore</a>.
+Note that this comparison is generated by tooling under ongoing development, and is purely draft
 content to demonstrate the idea of profile comparison.
 </p>
 
