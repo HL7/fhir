@@ -16,7 +16,7 @@
   Conformance = example
 
  -- Row 3 -----------------------------------
-  Binding Name = Exception
+  Binding Name = !Exception
   Binding = value set
   Reference = valueset-claim-exception
   Definition = The eligibility exception codes.
@@ -1147,9 +1147,16 @@
   Definition = A region or surface of the site, eg. limb region or tooth surface(s).
 
  -- Row 102 -----------------------------------
-  Element = !Additional Charges (lab, expense, materials, components, tax)
+  Element = Claim.item.encounter
+  Card. = 0..*
+  Type = Reference(Encounter)
+  Short Name = Encounters related to this billed item
+  Definition = A billed item may include goods or services provided in multiple encounters.
 
  -- Row 103 -----------------------------------
+  Element = !Additional Charges (lab, expense, materials, components, tax)
+
+ -- Row 104 -----------------------------------
   Element = Claim.item.detail
   Card. = 0..*
   UML = 740;500
@@ -1157,14 +1164,14 @@
   Short Name = Additional items
   Definition = Second tier of goods and services
 
- -- Row 104 -----------------------------------
+ -- Row 105 -----------------------------------
   Element = Claim.item.detail.sequence
   Card. = 1..1
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
 
- -- Row 105 -----------------------------------
+ -- Row 106 -----------------------------------
   Element = Claim.item.detail.revenue
   Card. = 0..1
   Type = CodeableConcept
@@ -1172,7 +1179,7 @@
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
 
- -- Row 106 -----------------------------------
+ -- Row 107 -----------------------------------
   Element = Claim.item.detail.category
   Card. = 0..1
   Type = CodeableConcept
@@ -1180,7 +1187,7 @@
   Short Name = Type of service or product
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
 
- -- Row 107 -----------------------------------
+ -- Row 108 -----------------------------------
   Element = Claim.item.detail.service
   Card. = 0..1
   Type = CodeableConcept
@@ -1188,7 +1195,7 @@
   Short Name = Billing Code
   Definition = If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. \'glasses\' or \'compound\'.
 
- -- Row 108 -----------------------------------
+ -- Row 109 -----------------------------------
   Element = Claim.item.detail.modifier
   Card. = 0..*
   Type = CodeableConcept
@@ -1197,7 +1204,7 @@
   Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
   Requirements = May impact on adjudication.
 
- -- Row 109 -----------------------------------
+ -- Row 110 -----------------------------------
   Element = Claim.item.detail.programCode
   Card. = 0..*
   Type = CodeableConcept
@@ -1205,14 +1212,14 @@
   Short Name = Program specific reason for item inclusion
   Definition = For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
 
- -- Row 110 -----------------------------------
+ -- Row 111 -----------------------------------
   Element = Claim.item.detail.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Name = Count of Products or Services
   Definition = The number of repetitions of a service or product.
 
- -- Row 111 -----------------------------------
+ -- Row 112 -----------------------------------
   Element = Claim.item.detail.unitPrice
   Card. = 0..1
   Type = Money
@@ -1220,7 +1227,7 @@
   Definition = If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 112 -----------------------------------
+ -- Row 113 -----------------------------------
   Element = Claim.item.detail.factor
   Card. = 0..1
   Type = decimal
@@ -1228,7 +1235,7 @@
   Definition = A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 113 -----------------------------------
+ -- Row 114 -----------------------------------
   Element = !Claim.item.detail.points
   Card. = 0..1
   Type = decimal
@@ -1236,7 +1243,7 @@
   Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 114 -----------------------------------
+ -- Row 115 -----------------------------------
   Element = Claim.item.detail.net
   Card. = 0..1
   Type = Money
@@ -1244,7 +1251,7 @@
   Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 115 -----------------------------------
+ -- Row 116 -----------------------------------
   Element = Claim.item.detail.udi
   Card. = 0..*
   Type = Reference(Device)
@@ -1252,10 +1259,10 @@
   Definition = List of Unique Device Identifiers associated with this line item.
   Requirements = The UDI code and issuer if applicable for the supplied product.
 
- -- Row 116 -----------------------------------
+ -- Row 117 -----------------------------------
   Element = !Additional Charges (lab, expense, materials, components, tax)
 
- -- Row 117 -----------------------------------
+ -- Row 118 -----------------------------------
   Element = Claim.item.detail.subDetail
   Card. = 0..*
   UML = 740;740
@@ -1263,14 +1270,14 @@
   Short Name = Additional items
   Definition = Third tier of goods and services
 
- -- Row 118 -----------------------------------
+ -- Row 119 -----------------------------------
   Element = Claim.item.detail.subDetail.sequence
   Card. = 1..1
   Type = positiveInt
   Short Name = Service instance
   Definition = A service line number.
 
- -- Row 119 -----------------------------------
+ -- Row 120 -----------------------------------
   Element = Claim.item.detail.subDetail.revenue
   Card. = 0..1
   Type = CodeableConcept
@@ -1278,7 +1285,7 @@
   Short Name = Revenue or cost center code
   Definition = The type of reveneu or cost center providing the product and/or service.
 
- -- Row 120 -----------------------------------
+ -- Row 121 -----------------------------------
   Element = Claim.item.detail.subDetail.category
   Card. = 0..1
   Type = CodeableConcept
@@ -1286,7 +1293,7 @@
   Short Name = Type of service or product
   Definition = Health Care Service Type Codes  to identify the classification of service or benefits.
 
- -- Row 121 -----------------------------------
+ -- Row 122 -----------------------------------
   Element = Claim.item.detail.subDetail.service
   Card. = 0..1
   Type = CodeableConcept
@@ -1294,7 +1301,7 @@
   Short Name = Billing Code
   Definition = A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
 
- -- Row 122 -----------------------------------
+ -- Row 123 -----------------------------------
   Element = Claim.item.detail.subDetail.modifier
   Card. = 0..*
   Type = CodeableConcept
@@ -1303,7 +1310,7 @@
   Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
   Requirements = May impact on adjudication.
 
- -- Row 123 -----------------------------------
+ -- Row 124 -----------------------------------
   Element = Claim.item.detail.subDetail.programCode
   Card. = 0..*
   Type = CodeableConcept
@@ -1311,14 +1318,14 @@
   Short Name = Program specific reason for item inclusion
   Definition = For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
 
- -- Row 124 -----------------------------------
+ -- Row 125 -----------------------------------
   Element = Claim.item.detail.subDetail.quantity
   Card. = 0..1
   Type = SimpleQuantity
   Short Name = Count of Products or Services
   Definition = The number of repetitions of a service or product.
 
- -- Row 125 -----------------------------------
+ -- Row 126 -----------------------------------
   Element = Claim.item.detail.subDetail.unitPrice
   Card. = 0..1
   Type = Money
@@ -1326,7 +1333,7 @@
   Definition = The fee for an addittional service or product or charge.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 126 -----------------------------------
+ -- Row 127 -----------------------------------
   Element = Claim.item.detail.subDetail.factor
   Card. = 0..1
   Type = decimal
@@ -1334,7 +1341,7 @@
   Definition = A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 127 -----------------------------------
+ -- Row 128 -----------------------------------
   Element = !Claim.item.detail.subDetail.points
   Card. = 0..1
   Type = decimal
@@ -1342,7 +1349,7 @@
   Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 128 -----------------------------------
+ -- Row 129 -----------------------------------
   Element = Claim.item.detail.subDetail.net
   Card. = 0..1
   Type = Money
@@ -1350,7 +1357,7 @@
   Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   Requirements = If a fee is present the associated product/service code must be present
 
- -- Row 129 -----------------------------------
+ -- Row 130 -----------------------------------
   Element = Claim.item.detail.subDetail.udi
   Card. = 0..*
   Type = Reference(Device)
@@ -1358,17 +1365,17 @@
   Definition = List of Unique Device Identifiers associated with this line item.
   Requirements = The UDI code and issuer if applicable for the supplied product.
 
- -- Row 130 -----------------------------------
+ -- Row 131 -----------------------------------
   Element = Claim.total
   Card. = 0..1
   Type = Money
   Short Name = Total claim cost
   Definition = The total value of the claim.
 
- -- Row 131 -----------------------------------
+ -- Row 132 -----------------------------------
   Element = !Oral Health Specific Item Elements
 
- -- Row 132 -----------------------------------
+ -- Row 133 -----------------------------------
   Element = !Claim.item.prosthesis
   Card. = 0..1
   UML = 0;650
@@ -1377,7 +1384,7 @@
   Definition = The materials and placement date of prior fixed prosthesis.
   Committee Notes = 380;750
 
- -- Row 133 -----------------------------------
+ -- Row 134 -----------------------------------
   Element = !Claim.item.prosthesis.initial
   Card. = 0..1
   Type = boolean
@@ -1385,7 +1392,7 @@
   Definition = Indicates whether this is the initial placement of a fixed prosthesis.
   Requirements = May impact on adjudication.
 
- -- Row 134 -----------------------------------
+ -- Row 135 -----------------------------------
   Element = !Claim.item.prosthesis.priorDate
   Card. = 0..1
   Type = date
@@ -1393,7 +1400,7 @@
   Definition = Date of the initial placement.
   Requirements = May impact on adjudication.
 
- -- Row 135 -----------------------------------
+ -- Row 136 -----------------------------------
   Element = !Claim.item.prosthesis.priorMaterial
   Card. = 0..1
   Type = CodeableConcept
@@ -1402,13 +1409,13 @@
   Definition = Material of the prior denture or bridge prosthesis. (Oral)
   Requirements = May impact on adjudication.
 
- -- Row 136 -----------------------------------
+ -- Row 137 -----------------------------------
   Element = !Additional Materials
 
- -- Row 137 -----------------------------------
+ -- Row 138 -----------------------------------
   Element = !Oral Health Specific
 
- -- Row 138 -----------------------------------
+ -- Row 139 -----------------------------------
   Element = !Claim.missingTeeth
   Card. = 0..*
   UML = 0;360
@@ -1417,7 +1424,7 @@
   Definition = A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
   Requirements = The list of missing teeth may influence the adjudication of services for example with Bridges.
 
- -- Row 139 -----------------------------------
+ -- Row 140 -----------------------------------
   Element = !Claim.missingTeeth.tooth
   Card. = 1..1
   Type = Coding
@@ -1426,7 +1433,7 @@
   Definition = The code identifying which tooth is missing.
   Requirements = Provides the tooth number of the missing tooth.
 
- -- Row 140 -----------------------------------
+ -- Row 141 -----------------------------------
   Element = !Claim.missingTeeth.reason
   Card. = 0..1
   Type = Coding
@@ -1435,7 +1442,7 @@
   Definition = Missing reason may be: E-extraction, O-other
   Requirements = Provides the reason for the missing tooth.
 
- -- Row 141 -----------------------------------
+ -- Row 142 -----------------------------------
   Element = !Claim.missingTeeth.extractionDate
   Card. = 0..1
   Type = date
