@@ -672,6 +672,7 @@ public class SourceParser {
     vs.setUserData("path", "valueset-"+vs.getId()+".html");
     vs.setUserData("filename", "valueset-"+vs.getId());
     definitions.getExtraValuesets().put(n, vs);
+    definitions.getExtraValuesets().put(vs.getUrl(), vs);
   }
 
   private void loadConformancePackages(String n, List<ValidationMessage> issues) throws Exception {

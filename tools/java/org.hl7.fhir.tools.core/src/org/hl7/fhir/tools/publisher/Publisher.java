@@ -1102,6 +1102,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         // we expect to be able to resolve this
         ValueSet vs = page.getDefinitions().getValuesets().get(ref);
         if (vs == null)
+          vs = page.getDefinitions().getExtraValuesets().get(ref);
+        if (vs == null)
           vs = page.getWorkerContext().getValueSets().get(ref);
         if (vs == null) {
           if (page.getDefinitions().getBoundValueSets().containsKey(ref))
@@ -5504,8 +5506,12 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
       generateValueSetPart2(vs);
     }
-    for (ValueSet vs : page.getDefinitions().getExtraValuesets().values())
-      generateValueSetPart2(vs);
+    for (String s : page.getDefinitions().getExtraValuesets().keySet()) {
+      if (!s.startsWith("http:")) {
+        ValueSet vs = page.getDefinitions().getExtraValuesets().get(s);
+        generateValueSetPart2(vs);
+      }
+    }
   }
 
 

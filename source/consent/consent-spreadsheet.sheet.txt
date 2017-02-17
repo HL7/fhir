@@ -32,7 +32,7 @@
  -- Row 5 -----------------------------------
   Binding Name = ConsentActorRole
   Binding = value set
-  Reference = valueset-consent-actor-role
+  Reference = http://hl7.org/fhir/ValueSet/security-role-type
   Definition = How an actor is involved in the consent considerations
   Conformance = extensible
 
