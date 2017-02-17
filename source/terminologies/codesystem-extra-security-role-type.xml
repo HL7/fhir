@@ -1,0 +1,47 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="extra-security-role-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/codesystem-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"> </div>
+  </text>
+  <url value="http://hl7.org/fhir/extra-security-role-type"/>
+  <version value="1.9.0"/>
+  <name value="SecurityRoleType"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <publisher value="HL7 International"/>
+  <contact>
+    <name value="FHIR project team"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <date value="2017-02-13"/>
+  <description value="This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="authserver"/>
+    <display value="authorization server"/>
+    <definition value="An entity providing authorization services to enable the electronic sharing of health-related information based on resource owner's preapproved permissions. For example, an UMA Authorization Server[UMA]"/>
+  </concept>
+  <concept>
+    <code value="datacollector"/>
+    <display value="data collector"/>
+    <definition value="An entity that collects information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data collectors, including the right to access, retrieve, distribute, or delete that information. "/>
+  </concept>
+  <concept>
+    <code value="dataprocessor"/>
+    <display value="data processor"/>
+    <definition value="An entity that processes collected information over which the data subject may have certain rights under policy or law to control that information's management and distribution by data processors, including the right to access, retrieve, distribute, or delete that information."/>
+  </concept>
+  <concept>
+    <code value="datasubject"/>
+    <display value="data subject"/>
+    <definition value="A person whose personal information is collected or processed, and who may have certain rights under policy or law to control that information's management and distribution by data collectors or processors, including the right to access, retrieve, distribute, or delete that information."/>
+  </concept>
+</CodeSystem>
