@@ -19,13 +19,13 @@
 <p>
 The following rules will apply to resources, profiles and other content within the specification
 once those portions of the specification reach <a href="timelines.html#normative">full normative status</a>.
-These rules ensure that implementations may exercise FHIR interfaces and process the content 
+These rules ensure that implementations may exercise FHIR interfaces and process the content
 of FHIR resources safely while exchanging data between applications using different
 versions of FHIR.
 </p>
 <p>
 During the period of trial use of the specification (and once normative status is reached for elements that
-remain at draft or trial use status), changes may occur based on issues identified during early implementation of the 
+remain at draft or trial use status), changes may occur based on issues identified during early implementation of the
 specification.  These changes do not need to adhere to the rules listed below.
 </p>
 </blockquote>
@@ -45,7 +45,7 @@ which version of FHIR an implementation is using to aid in validation.
 
 <h3>Change frequency</h3>
 <p>
-New versions of the FHIR specification will be produced regularly in accordance with the 
+New versions of the FHIR specification will be produced regularly in accordance with the
 <a href="timelines.html">FHIR publication timeline</a>.  New versions of the specification will include
 additional draft and trial use content as well as promotion of previous trial use content to normative.
 Once content reaches normative, changes are expected to be infrequent.  This is for two reasons:
@@ -62,11 +62,11 @@ Once content reaches normative, changes are expected to be infrequent.  This is 
 
 <h3>Forward compatible behavior</h3>
 <p>
-In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements 
+In a typical scenario, mixed versions may need to exist, so applications SHOULD ignore elements
 that they do not recognize unless they are modifierExtensions.
-However, in a healthcare context, many application vendors are unwilling to 
-consider this approach because of concerns about clinical risk or 
-technical limitations in their software (e.g. schema based processing). 
+However, in a healthcare context, many application vendors are unwilling to
+consider this approach because of concerns about clinical risk or
+technical limitations in their software (e.g. schema based processing).
 Applications are not required to ignore unknown elements, but SHALL
 declare whether they will do so in their <a href="capabilitystatement.html">Capability Statements</a>.
 </p>
@@ -81,6 +81,13 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
 </p>
 <!-- Todo - behavior for operations -->
 
+<h3>Backward compatible behavior</h3>
+<p>
+Until the FHIR specification reaches normative status, systems may not make any assumptions about backward compability.
+Backward compatibility rules do not kick in until resources are normative and ignoring unexpected elements is unsafe until then.
+Implementers are encouraged to use a strategy of using distinct endpoints for different versions until all relevant resources and data types are normative.
+Once normative, the specification will follow the Permitted changes for normative content.
+</p>
 
 <h3>Permitted changes for normative content</h3>
 <table>
@@ -91,9 +98,9 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
     <tr>
       <td>Elements</td>
       <td>
-      Once normative, subsequent versions of 
+      Once normative, subsequent versions of
       this specification may introduce new elements and/or content (e.g. XML attributes, etc.)
-      at any location in the bundle, resource and/or data type structures.  However, the names, path 
+      at any location in the bundle, resource and/or data type structures.  However, the names, path
       and meaning of previously existing data elements will not be changed.
       This includes no change to resource names and no changes to names assigned to slices and
       other elements within profiles.
@@ -111,12 +118,12 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
     <tr>
       <td>Descriptions</td>
       <td>
-      Descriptive information about a resource - short labels, definitions, usage notes, aliases, examples, rationale, 
+      Descriptive information about a resource - short labels, definitions, usage notes, aliases, examples, rationale,
       mappings, etc. may be
       updated or revised to provide additional clarity or guidance, but not in such a manner as to invalidate a
       reasonable interpretation of the previously documented use of an element.  (This does not preclude fixing
       obvious errors.)
-      </td>  
+      </td>
     </tr>
     <tr>
       <td>Value Sets</td>
@@ -135,7 +142,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
           <li>Value sets making use of filters may have filters loosened or tightened to accommodate changes to
           underlying code systems.  StableDates and referenced code system and value set versions may be adjusted
           to point to newer versions.</li>
-          <li>Definitions and display values for codes may change, but only in a manner that would not change 
+          <li>Definitions and display values for codes may change, but only in a manner that would not change
           the reasonable interpretation of data captured using the previous definitions or names.</li>
           <li>Abstract codes may be made concrete.  Concrete codes will not be made abstract.</li>
         </ul>
@@ -163,7 +170,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
     <tr>
       <td>Value Constraints</td>
       <td>
-      The allowed list of Data types will not be added, removed or changed. Invariants, regular expressions, fixed values and patterns will not be added, removed or changed.      
+      The allowed list of Data types will not be added, removed or changed. Invariants, regular expressions, fixed values and patterns will not be added, removed or changed.
       </td>
     </tr>
     <tr>
@@ -185,7 +192,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
       correcting obvious errors).</td>
     </tr>
     <tr>
-      <td>Operations</td>    
+      <td>Operations</td>
       <td>
       New operations may be defined but operations may not be removed or renamed.  Existing parameters will not be removed or renamed, nor may their type
       or lower cardinality be changed.  Upper cardinality may be changed from 1 to *.  (Systems should ignore unexpected repetitions.)
@@ -202,7 +209,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
     <tr>
       <td>Profiles and extension definitions</td>
       <td>
-      Profile structure, extension definitions and search criteria definitions will not be removed or have their 
+      Profile structure, extension definitions and search criteria definitions will not be removed or have their
       URIs changed.  New profile structures, extension definitions and search criteria definitions may be
       introduced.  Profiles may have their statuses changed to "retired".  Profiles referenced by data elements
       for structures or data types may be replaced
@@ -216,7 +223,7 @@ error code.  <!-- TODO: Grahame - should this be more explicit? -->
 &nbsp;
 </p>
 <p>
-Additional discussion on inter-versioning issues can be found here: 
+Additional discussion on inter-versioning issues can be found here:
 <a href="http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility">http://wiki.hl7.org/index.php?title=FHIR_interversion_compatibility</a>.
 </p>
 
