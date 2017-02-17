@@ -9,6 +9,18 @@
   Description = Derived from from both HL7 v3 and SNOMED CT code systems
   Conformance = example
 
+ -- Row 2 -----------------------------------
+  Binding Name = EventCode
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v3-TimingEvent
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = OffsetUnit
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/units-of-time
+  Conformance = required
+
 === Sheet Extensions-Inv =====================================
 
 === Sheet Search =====================================
