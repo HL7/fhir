@@ -398,9 +398,9 @@
   Inv. = 11
   Type = uri
   Short Name = ElementDefinition - details for the item
-  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements overrides the information from the definition
+  Definition = A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: \n\n* code (ElementDefinition.code)\n* type (ElementDefinition.type)\n* required (ElementDefinition.min)\n* repeats (ElementDefinition.max)\n* maxLength (ElementDefinition.maxLength)\n* options (ElementDefinition.binding)\n\nAny information provided in these elements on a Questionnaire Item overrides the information from the definition
   Requirements = A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition
-  Comments = The ElementDefinition must be in a [[[StructureDefinition]]] or a [[[DataElement]]], and must have a fragment identifier that identifies the specific data element by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
+  Comments = The url refers to a an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\\\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources
   RIM Mapping = Not supported
 
  -- Row 16 -----------------------------------
@@ -410,8 +410,8 @@
   Inv. = 3
   Type = Coding
   Binding = QuestionnaireConcept
-  Short Name = Concept that represents this item within in a questionnaire
-  Definition = Terminology code that corresponds to this group or question (e.g. LOINC)
+  Short Name = Corresponding Concept for this item in a terminology
+  Definition = A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)
   Requirements = Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole. Value may come from the ElementDefinition referred to by .definition
   RIM Mapping = .code

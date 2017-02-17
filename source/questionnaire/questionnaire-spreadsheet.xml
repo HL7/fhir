@@ -21,7 +21,7 @@
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>613</TabRatio>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1543,11 +1543,11 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ElementDefinition - details for the item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: &#10;&#10;* code (ElementDefinition.code)&#10;* type (ElementDefinition.type)&#10;* required (ElementDefinition.min)&#10;* repeats (ElementDefinition.max)&#10;* maxLength (ElementDefinition.maxLength)&#10;* options (ElementDefinition.binding)&#10;&#10;Any information provided in these elements overrides the information from the definition</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A reference to an [[[ElementDefinition]]] that provides the details for the item. If a definition is provided, then the following element values can be inferred from the definition: &#10;&#10;* code (ElementDefinition.code)&#10;* type (ElementDefinition.type)&#10;* required (ElementDefinition.min)&#10;* repeats (ElementDefinition.max)&#10;* maxLength (ElementDefinition.maxLength)&#10;* options (ElementDefinition.binding)&#10;&#10;Any information provided in these elements on a Questionnaire Item overrides the information from the definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A common pattern is to define a set of data elements, and then build multiple different questionnaires for different circumstances to gather the data. This element provides traceability to the common definition, and allows the content for the question to come from the underlying definition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">The ElementDefinition must be in a [[[StructureDefinition]]] or a [[[DataElement]]], and must have a fragment identifier that identifies the specific data element by it\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">The url refers to a an ElementDefinition in either a [[[StructureDefinition]]] or a [[[DataElement]]], and always starts with the canonical URL for the target resource. When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it\'s id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence of a fragment identifier, the first/root element definition in the target is the matching element definition. Note that [LOINC codes](loinc.html#dataelements) implicitly define DataElement resources</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Not supported</Data><NamedCell
@@ -1579,9 +1579,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Concept that represents this item within in a questionnaire</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Corresponding Concept for this item in a terminology</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Terminology code that corresponds to this group or question (e.g. LOINC)</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">A Terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Allows linking of groups of questions (and complete Questionnaire resources) to formal terminologies</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4181,10 +4181,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>23</TopRowBottomPane>
+   <TopRowBottomPane>14</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4201,8 +4202,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7178,7 +7179,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

@@ -110,9 +110,14 @@ which provides details for the item. If a definition is provided, then the follo
 </ul>
 <p>
 Any information provided in these elements overrides the information from the definition.
-The ElementDefinition must be in a <a href="structuredefinition.html">StructureDefinition</a> or a <a href="dataelement.html">DataElement</a>, 
-and must have a fragment identifier that identifies the specific data element by it's id (<a href="element.html">Element</a>.id). 
-E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]
+The url refers to a an ElementDefinition in either a <a href="structuredefinition.html">StructureDefinition</a> or 
+a <a href="dataelement.html">DataElement</a>, and always starts with the canonical URL for the target resource. 
+When referring to a StructureDefinition, a fragment identifier is used to specify the element definition by it's 
+id (Element.id). E.g. http://hl7.org/fhir/StructureDefinition/Observation#Observation.value[x]. In the absence 
+of a fragment identifier, the first/root element definition in the target is the matching element definition. 
+</p>
+<p>
+Note that <a href="loinc.html#dataelements">LOINC codes</a> implicitly define DataElement resources.
 </p>
 <p>
 The definitions may also be used to automatically pre-populate answers, or extract data from a corresponding <a href="questionnaireresponse.html">QuestionnaireResponse</a> resource.

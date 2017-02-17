@@ -2171,6 +2171,7 @@ public class SpreadsheetParser {
 	  
 	  ElementDefn exu = new ElementDefn();
 	  exu.setName("url");
+	  exu.setXmlAttribute(true);
 	  exe.getElements().add(exu);
 	  exu.setFixed(new UriType(ex.getUrl()));
 	  exu.getTypes().add(new TypeRef().setName("uri"));

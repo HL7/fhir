@@ -29,6 +29,10 @@
  <tr><td>Filter Properties</td><td>Several properties are defined as described below</td></tr>
 </table>
 
+<p>
+Logically, LOINC codes and question codes correspond to <a href="dataelement.html">Data Elements</a>. See <a href="#dataelements">below</a> for further information.
+</p>
+
 <h3>Copyright Issues</h3>
 
 <p>
@@ -189,7 +193,7 @@ LOINC answer lists are value sets. The value set identifier "http://loinc.org/vs
 identifies a value set that contains a set of LOINC codes. For instance, the value
 set identifier http://loinc.org/vs/LL715-4 has the following definition for LOINC 2.52:
 </p>
-<pre>
+<pre class="xml" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -198,7 +202,7 @@ set identifier http://loinc.org/vs/LL715-4 has the following definition for LOIN
       includes all LOINC codes in this answer list]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
+  &lt;url value=&quot;http://loinc.org/vs/LL715-4&quot;/&gt;
   &lt;version value=&quot;2.52&quot;/&gt;
   &lt;name value=&quot;Platelet morph&quot;/&gt;
   &lt;description value=&quot;LOINC Answer List for Platelet morph&quot;/&gt;
@@ -248,7 +252,7 @@ set identifier http://loinc.org/vs/LL715-4 has the following definition for LOIN
 Here is an example of a LOINC Answer list used in a Questionnaire
 question:
 </p>
-<pre>
+<pre class="xml">
 &lt;question&gt;
   &lt;concept&gt;
     &lt;system value=&quot;http://loinc.org&quot;/&gt;
@@ -271,7 +275,7 @@ A value set with an identifier of "http://loinc.org/vs/[partcode]" must
 conform to this template, where [partcode] is a part code from the 
 multi-axial hierarchy:
 </p>
-<pre>
+<pre class="xml" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -281,7 +285,7 @@ multi-axial hierarchy:
       Multi-Axial Hierarchy Part Code]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;http://loinc.org/vs/[partcode]&quot;/&gt;
+  &lt;url value=&quot;http://loinc.org/vs/[partcode]&quot;/&gt;
   &lt;version value=&quot;[optional - but strongly recommended - LOINC version]&quot;/&gt;
   &lt;name value=&quot;LOINC Value Set from Multi-Axial Hierarchy code [partcode]&quot;/&gt;
   &lt;description value=&quot;All LOINC codes for [partcode or name]&quot;/&gt;
@@ -300,6 +304,98 @@ multi-axial hierarchy:
 &lt;/ValueSet&gt;
 </pre>
 
+<a name="dataelements"> </a>
+<h4>LOINC and Data Elements</h4>
+
+<p>
+LOINC codes and their properties are describing a data element that can have a value. Functionally, 
+this overlaps with the <a href="dataelement.html">Data Element</a> resource, and, in fact, a
+DataElement can be created for each LOINC code based on their properties:
+</p>
+<pre class="xml" fragment="DataElement">
+&lt;DataElement xmlns=&quot;http://hl7.org/fhir&quot;&gt; 
+  &lt;id value=&quot;[LOINC code]&quot;/&gt;
+  &lt;url value=&quot;http://loinc.org/fhir/DataElement/[LOINC code]&quot;/&gt;
+  &lt;version value=&quot;{LOINC version number]&quot;/&gt;  &lt;!-- though this is not required --&gt;
+  &lt;status value=&quot;[derived from STATUS]&quot;/&gt;
+  &lt;experimental value=&quot;false&quot;/&gt;
+  &lt;date value=&quot;[last changed date]&quot;/&gt;
+  &lt;publisher value=&quot;http://loinc.org&quot;/&gt;
+  &lt;title value=&quot;[display]&quot;/&gt;
+  &lt;copyright value=&quot;This content LOINC® is copyright © 1995 Regenstrief Institute, Inc.
+      and the LOINC Committee, and available at no cost under the license at 
+      http://loinc.org/terms-of-use&quot;/&gt;
+  &lt;stringency value=&quot;comparable&quot;/&gt;
+  &lt;element&gt;
+    &lt;!-- if type is Qn or OrdQn --&gt;
+    &lt;extension url=&quot;http://hl7.org/fhir/StructureDefinition/elementdefinition-allowedUnits&quot;&gt;
+      &lt;valueCodeableConcept&gt;
+        &lt;coding&gt;
+          &lt;system value=&quot;http://unitsofmeasure.org&quot;/&gt;
+          &lt;!-- ? just example?- need a canonical extension? --&gt;
+          &lt;code value=&quot;[EXAMPLE_UCUM_UNITS]&quot;/&gt;
+        &lt;/coding&gt;
+      &lt;/valueCodeableConcept&gt;
+    &lt;/extension&gt;
+    &lt;path value=&quot;[LOINC code]&quot;/&gt;
+    &lt;short value=&quot;[display]&quot;/&gt;
+    &lt;definition value=&quot;[definition]&quot;/&gt;
+    &lt;min value=&quot;0&quot;/&gt;
+    &lt;max value=&quot;1&quot;/&gt;
+    &lt;type&gt;
+      &lt;code value=&quot;[mapped type - see below]&quot;/&gt;
+    &lt;/type&gt;
+    &lt;!-- if this is a LOINC question with linked answers --&gt;
+    &lt;binding&gt;
+      &lt;strength value=&quot;required&quot;/&gt;
+      &lt;valueSetUri value=&quot;http://loinc.org/vs/[linked answer list code]&quot;/&gt;
+    &lt;/binding&gt;
+  &lt;/element&gt;
+&lt;/DataElement&gt;
+</pre>
+
+<p>
+The canonical URL <code>http://loinc.org/fhir/DataElement/[LOINC code]</code> can be used to refer to Data Elements 
+defined by LOINC such as e.g. in <a href="questionnaire.html">Questionnaire.item.definition</a>.
+</p>
+<p>
+The appropriate type is determined by mapping from the LOINC specified SCALE_TYP for v3 to FHIR
+using this table:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>SCALE_TYP</b></td>
+  <td><b>FHIR data type</b></td>
+ </tr>
+ <tr>
+  <td>Qn</td>
+  <td>Quantity</td>
+ </tr>
+ <tr>
+  <td>Ord</td>
+  <td>CodeableConcept</td>
+ </tr>
+ <tr>
+  <td>OrdQn</td>
+  <td>Quantity and CodeableConcept (e.g. both in the data element; either is allowed)</td>
+ </tr>
+ <tr>
+  <td>Nom</td>
+  <td>CodeableConcept (and string?) </td>
+ </tr>
+ <tr>
+  <td>Nar</td>
+  <td>markdown (?)</td>
+ </tr>
+ <tr>
+  <td>Multi</td>
+  <td>Attachment</td>
+ </tr>
+ <tr>
+  <td>Doc</td>
+  <td>Attachment</td>
+ </tr>
+</table>
 
 </div>
 

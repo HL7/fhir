@@ -5179,7 +5179,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       // book.getPages().put(filename, src);
       page.getHTMLChecker().registerFile(filename, title, HTMLLinkChecker.XHTML_TYPE, includeInBook);
     } catch (Exception e) {
-      throw new Exception("error parsing page " + filename + ": " + e.getMessage() + " in source\r\n" + source);
+      throw new Exception("error parsing page " + filename + ": " + e.getMessage() + " in source\r\n" + source, e);
     }
   }
 
@@ -5194,7 +5194,7 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void processFragment(String filename, XhtmlNode node, String type, String clss) throws Exception {
-    if (clss.equals("xml")) {
+    if ("xml".equals(clss)) {
       String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
       Fragment f = new Fragment();
       f.setType(type);
@@ -5203,7 +5203,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       f.setJson(false);
       fragments.add(f);
     }
-    if (clss.equals("json")) {
+    if ("json".equals(clss)) {
       String xml = new XhtmlComposer().setXmlOnly(true).compose(node);
       Fragment f = new Fragment();
       f.setType(type);
