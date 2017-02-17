@@ -6,7 +6,7 @@
 		<Provenance>
 			<id value="signature"/>
 			<target>
-				<reference value="ProcedureRequest/physiotherapy"/>
+				<reference value="ProcedureRequest/physiotherapy/_history/1"/>
 			</target>
 			<recorded value="2017-02-01T17:23:07Z"/>
 			<agent>
@@ -85,7 +85,7 @@
 	<basedOn>
 		<reference value="CarePlan/gpvisit"/>
 	</basedOn>
-	<status value="active"/>
+	<status value="completed"/>
 	<intent value="order"/>
 	<!-- Physiotherapy or home excercises would be a common use case for as needed. E.g. exercises for cystic fibrosis - "Chest therapy 1-4 times per day as needed to clear mucus" -->
 	<code>

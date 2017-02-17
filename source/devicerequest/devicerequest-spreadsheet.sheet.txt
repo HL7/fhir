@@ -74,7 +74,7 @@
   Element = DeviceRequest.definition
   Card. = 0..*
   Summary = Y
-  Type = Reference(Any)
+  Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request. For example: The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.
   v2 Mapping = Varies by domain
@@ -266,7 +266,7 @@
   Element = DeviceRequest.performer
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner | Organization | Patient | Device | RelatedPerson)
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
   Short Name = Requested Filler
   Definition = The desired perfomer for doing the diagnostic testing.
   v2 Mapping = PRT

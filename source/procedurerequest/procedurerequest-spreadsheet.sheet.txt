@@ -102,7 +102,7 @@
   Card. = 0..*
   Aliases = protocol
   Summary = Y
-  Type = Reference(ActivityDefinition|PlanDefinition|HealthcareService)
+  Type = Reference(ActivityDefinition|PlanDefinition)
   Short Name = Protocol or definition
   Definition = Protocol or definition followed by this request
   Workflow Mapping = Request.definition
@@ -368,7 +368,7 @@
   Element = ProcedureRequest.performer
   Card. = 0..1
   Summary = Y
-  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson)
+  Type = Reference(Practitioner|Organization|Patient|Device|RelatedPerson|HealthcareService)
   Short Name = Requested perfomer
   Definition = The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.
   Comments = If needed, use an [extension](extensibility.html) for listing alternative alternative performers and/or roles and/or preference.
