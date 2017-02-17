@@ -4,7 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-The FHIR terminology specification is based two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
+The FHIR terminology specification is based on two key concepts, originally defined in <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a>:
 </p>
 <ul>
 <li> <code><a href="codesystem.html">CodeSystem</a></code> - defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology) - e.g. define which codes (symbols and/or expressions) exist, and how they are understood</li>
