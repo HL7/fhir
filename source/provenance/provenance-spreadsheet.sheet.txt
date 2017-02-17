@@ -217,6 +217,7 @@
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Name = Who participated
   Definition = The individual, device or organization that participated in the event
+  RIM Mapping = .id
   w5 = who.actor
 
  -- Row 12 -----------------------------------
@@ -225,6 +226,7 @@
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Name = Who the agent is representing
   Definition = The individual, device, or organization for whom the change was made
+  RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
 
  -- Row 13 -----------------------------------
   Element = Provenance.agent.relatedAgentType
@@ -264,7 +266,7 @@
   UML = 420;200
   Short Name = Track delegation between agents
   Definition = A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another\'s behest
-  RIM Mapping = .rolelink
+  RIM Mapping = ./rolelink
   Prov Mapping = Agent.actedOnBehalfOf
 
  -- Row 17 -----------------------------------
@@ -274,7 +276,7 @@
   Short Name = Reference to other agent in this resource by identifier
   Definition = An internal reference to another agent listed in this provenance by its identifier
   Comments = The uri has the form #[id] where [id] is on another Provenance.agent in this same resource
-  RIM Mapping = .target
+  RIM Mapping = ./target
   Prov Mapping = responsible
 
  -- Row 18 -----------------------------------

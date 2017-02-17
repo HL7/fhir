@@ -124,6 +124,7 @@
   Type = DomainResource
   Short Name = Key Object Selection
   Definition = A text description of the DICOM SOP instances selected in the ImagingManifest; or the reason for, or significance of, the selection.
+  RIM Mapping = Act[classCode=COMPOSITION, moodCode=EVN]
   DICOM Mapping = Key Object Selection SOP Class (1.2.840.10008.5.1.4.1.1.88.59)
   w5 = clinical.diagnostics
 
