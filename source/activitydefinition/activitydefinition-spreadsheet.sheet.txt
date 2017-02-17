@@ -57,6 +57,13 @@
   Definition = High-level categorization of the definition, used for searching, sorting, and filtering
   Conformance = example
 
+ -- Row 9 -----------------------------------
+  Binding Name = ActivityParticipantRole
+  Binding = value set
+  Reference = valueset-action-participant-role
+  Definition = Defines roles played by participants for the action
+  Conformance = example
+
 === Sheet activity-definition-category =====================================
 
  -- Row 1 -----------------------------------
@@ -265,14 +272,28 @@
   Comments = May reference a specific clinical location or may just identify a type of location.
 
  -- Row 29 -----------------------------------
-  Element = ActivityDefinition.participantType
+  Element = ActivityDefinition.participant
   Card. = 0..*
+  Short Name = Who should participate in the action
+  Definition = Indicates who should participate in performing the action described
+
+ -- Row 30 -----------------------------------
+  Element = ActivityDefinition.participant.type
+  Card. = 1..1
   Type = code
   Binding = ActivityParticipantType
   Short Name = patient | practitioner | related-person
   Definition = The type of participant in the action
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
+  Element = ActivityDefinition.participant.role
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ActivityParticipantRole
+  Short Name = E.g. Nurse, Surgeon, Parent, etc
+  Definition = The role the participant should play in performing the described action
+
+ -- Row 32 -----------------------------------
   Element = ActivityDefinition.product[x]
   Card. = 0..1
   Type = Reference(Medication|Substance)|CodeableConcept
@@ -280,7 +301,7 @@
   Short Name = What\'s administered/supplied
   Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
 
- -- Row 31 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ActivityDefinition.quantity
   Card. = 0..1
   Aliases = dose
@@ -288,15 +309,15 @@
   Short Name = How much is administered/consumed/supplied
   Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
 
- -- Row 32 -----------------------------------
-  Element = ActivityDefinition.dosageInstruction
+ -- Row 34 -----------------------------------
+  Element = ActivityDefinition.dosage
   Card. = 0..*
   Type = Dosage
   Short Name = Detailed dosage instructions
   Definition = Provides detailed dosage instructions in the same way that they are described for MedicationRequest resources
   Comments = If a dosage instruction is used, the definition should not specify timing or quantity
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ActivityDefinition.bodySite
   Card. = 0..*
   Type = CodeableConcept
@@ -308,48 +329,48 @@
   Workflow Mapping = Procedure.targetBodySite
   RIM Mapping = targetSiteCode
 
- -- Row 34 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = !ActivityDefinition.description
   Card. = 0..1
   Type = string
   Short Name = Extra info on activity occurrence
   Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
 
- -- Row 35 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ActivityDefinition.transform
   Card. = 0..1
   Type = Reference(StructureMap)
   Short Name = Transform to apply the template
   Definition = A reference to a StructureMap resource that defines a transform that can be executed to produce the intent resource using the ActivityDefinition instance as the input
 
- -- Row 36 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ActivityDefinition.dynamicValue
   Card. = 0..*
   Short Name = Dynamic aspects of the definition
   Definition = Dynamic values that will be evaluated to produce values for elements of the resulting resource. For example, if the dosage of a medication must be computed based on the patient\'s weight, a dynamic value would be used to specify an expression that calculated the weight, and the path on the intent resource that would contain the result
 
- -- Row 37 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ActivityDefinition.dynamicValue.description
   Card. = 0..1
   Type = string
   Short Name = Natural language description of the dynamic value
   Definition = A brief, natural language description of the intended semantics of the dynamic value
 
- -- Row 38 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ActivityDefinition.dynamicValue.path
   Card. = 0..1
   Type = string
   Short Name = The path to the element to be set dynamically
   Definition = The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression
 
- -- Row 39 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ActivityDefinition.dynamicValue.language
   Card. = 0..1
   Type = string
   Short Name = Language of the expression
   Definition = The media type of the language for the expression
 
- -- Row 40 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = ActivityDefinition.dynamicValue.expression
   Card. = 0..1
   Type = string

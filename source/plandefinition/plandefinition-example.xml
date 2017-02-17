@@ -9,26 +9,28 @@
   <contained>
     <ActivityDefinition>
       <id value="referralToMentalHealthCare"/>
-	  <status value="draft"/>
-	  <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
-	  <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
-	  <kind value="ReferralRequest"/>
-	  <code>
-		<coding>
-		  <system value="http://snomed.info/sct"/>
-		  <code value="306206005"/>
-		</coding>
-		<text value="Referral to service (procedure)"/>
-	  </code>
-	  <timingTiming>
-		<event>
-		  <!-- The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start -->
-		  <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
-			<valueString value="Now()"/>
-		  </extension>
-		</event>
-	  </timingTiming>
-	  <participantType value="practitioner"/>
+  	  <status value="draft"/>
+	    <description value="refer to primary care mental-health integrated care program for evaluation and treatment of mental health conditions now"/>
+	    <!-- Kind indicates the type of resource that is defined by this activity, a ReferralRequest in this case -->
+	    <kind value="ReferralRequest"/>
+  	  <code>
+    		<coding>
+		      <system value="http://snomed.info/sct"/>
+    		  <code value="306206005"/>
+		    </coding>
+    		<text value="Referral to service (procedure)"/>
+	    </code>
+  	  <timingTiming>
+  		  <event>
+	    	  <!-- The expression here specifies the value for the timing of the resulting resource. In this case, referralRequest.fulfillmentTime.start -->
+		      <extension url="http://hl7.org/fhir/StructureDefinition/cqif-cqlExpression">
+	  		    <valueString value="Now()"/>
+    		  </extension>
+    		</event>
+	    </timingTiming>
+      <participant>
+        <type value="practitioner"/>
+	    </participant>
     </ActivityDefinition>
   </contained>
   <contained>
@@ -39,7 +41,7 @@
       <productReference>
         <reference value="#citalopramMedication"/>
       </productReference>
-      <dosageInstruction>
+      <dosage>
         <text value="1 tablet oral 1 time daily"/>
         <timing>
           <repeat>
@@ -59,7 +61,7 @@
           <value value="1"/>
           <unit value="{tbl}"/>
         </doseQuantity>
-      </dosageInstruction>
+      </dosage>
       <dynamicValue>
         <path value="dispenseRequest.numberOfRepeatsAllowed"/>
         <expression value="3"/>
@@ -103,7 +105,6 @@
             </denominator>
           </amount>
         </ingredient>
-
     </Medication>
   </contained>
   <contained>

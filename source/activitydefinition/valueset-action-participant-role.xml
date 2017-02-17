@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="action-participant-role"/>
+  <meta>
+    <lastUpdated value="2017-02-15T16:33:00.000-07:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>Action Participant Role</h2>
+      <p>Either a practitioner role or a relationship type.</p>
+      <p>This value set includes codes from the following value sets:</p>
+      <ul>
+        <li>Include all codes defined in
+          <a href="valueset-practitioner-role.html">http://hl7.org/fhir/ValueSet/practitioner-role</a>
+        </li>
+        <li>Include all codes defined in
+          <a href="valueset-relatedperson-relationshiptype.html">http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype</a>
+        </li>
+      </ul>
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/ValueSet/action-participant-role"/>
+  <name value="ActionParticipantRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <date value="2017-02-15T16:33:00.000-07:00"/>
+  <description value="Either a practitioner role or a relationship type."/>
+  <compose>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/practitioner-role"/>
+      <valueSet value="http://hl7.org/fhir/ValueSet/relatedperson-relationshiptype"/>
+    </include>
+  </compose>
+</ValueSet>

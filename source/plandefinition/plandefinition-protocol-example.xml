@@ -45,7 +45,9 @@
       <!-- Where should it occur
       <location></location>-->
       <!--Who should do this-->
-      <participantType value="practitioner"/>
+      <participant>
+        <type value="practitioner"/>
+      </participant>
       <!-- To specify context-specific information, use dynamicValue elements -->
       <!--performer>
         <display value="Nurse Ratched"/>

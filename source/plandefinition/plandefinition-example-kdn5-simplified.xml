@@ -80,7 +80,7 @@
         </coding>
         <text value="gemcitabine" />
       </productCodeableConcept>
-      <dosageInstruction>
+      <dosage>
         <text value="1250 mg/m² IV over 30 minutes on days 1 and 8" />
         <timing>
           <extension url="http://example.org/fhir/daysOfCycle">
@@ -103,7 +103,7 @@
           <value value="1250" />
           <unit value="mg/m²" />
         </doseQuantity>
-      </dosageInstruction>
+      </dosage>
     </ActivityDefinition>
   </contained>
   <contained>
@@ -118,7 +118,7 @@
         </coding>
         <text value="CARBOplatin" />
       </productCodeableConcept>
-      <dosageInstruction>
+      <dosage>
         <text value="AUC 5 IV over 30 minutes on Day 1" />
         <timing>
           <extension url="http://example.org/fhir/daysOfCycle">
@@ -144,7 +144,7 @@
           <system value="http://snomed.info/sct" />
           <code value="413573002" /> -->
         </doseQuantity>
-      </dosageInstruction>
+      </dosage>
     </ActivityDefinition>
   </contained>
 

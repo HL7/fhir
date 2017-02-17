@@ -56,7 +56,7 @@
 	<productReference>
 		<reference value="#citalopramMedication"/>
 	</productReference>
-	<dosageInstruction>
+	<dosage>
 		<text value="1 tablet oral 1 time daily"/>
 		<timing>
 			<repeat>
@@ -76,7 +76,7 @@
 			<value value="1"/>
 			<unit value="{tbl}"/>
 		</doseQuantity>
-	</dosageInstruction>
+	</dosage>
 	<dynamicValue>
 		<path value="dispenseRequest.numberOfRepeatsAllowed"/>
 		<expression value="3"/>

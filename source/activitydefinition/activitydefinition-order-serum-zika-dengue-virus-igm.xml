@@ -25,5 +25,7 @@
       </extension>
     </event>
   </timingTiming>
-  <participantType value="practitioner"/>
+	<participant>
+		<type value="practitioner"/>
+  </participant>
 </ActivityDefinition>
