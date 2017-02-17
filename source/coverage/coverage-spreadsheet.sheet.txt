@@ -16,7 +16,7 @@
   Conformance = preferred
 
  -- Row 3 -----------------------------------
-  Binding Name = Exception
+  Binding Name = !Exception
   Binding = value set
   Reference = valueset-coverage-exception
   Definition = The eligibility exception codes.
