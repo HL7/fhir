@@ -14,7 +14,7 @@
   Binding = reference
   Reference = http://hl7.org/fhir/ValueSet/measure-population
   Definition = The type of population (e.g. initial, numerator, denominator, etc.)
-  Conformance = required
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = MeasureReportType
@@ -157,15 +157,23 @@
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
 
  -- Row 12 -----------------------------------
-  Element = MeasureReport.group.population.type
-  Card. = 1..1
-  Summary = N
-  Type = code
+  Element = MeasureReport.group.population.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Identifier of the population being reported
+  Definition = The identifier of the population being reported, as defined by the population element of the measure
+
+ -- Row 13 -----------------------------------
+  Element = MeasureReport.group.population.code
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
   Binding = MeasurePopulation
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MeasureReport.group.population.count
   Card. = 0..1
   Summary = N
@@ -173,7 +181,7 @@
   Short Name = Size of the population
   Definition = The number of members of the population
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MeasureReport.group.population.patients
   Card. = 0..1
   Summary = N
@@ -181,7 +189,7 @@
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MeasureReport.group.measureScore
   Card. = 0..1
   Summary = N
@@ -189,7 +197,7 @@
   Short Name = The measure score
   Definition = The measure score
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MeasureReport.group.stratifier
   Card. = 0..*
   Summary = N
@@ -197,16 +205,16 @@
   Short Name = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MeasureReport.group.stratifier.identifier
-  Card. = 1..1
+  Card. = 0..1
   Summary = N
   Type = Identifier
   Short Name = Identifier of the stratifier
   Definition = The identifier of this stratifier, as defined in the measure definition
 
- -- Row 18 -----------------------------------
-  Element = MeasureReport.group.stratifier.group
+ -- Row 19 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum
   Card. = 0..*
   Summary = N
   UML = down
@@ -214,16 +222,16 @@
   Short Name = Stratum results, one for each unique value in the stratifier
   Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
 
- -- Row 19 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.value
+ -- Row 20 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.value
   Card. = 1..1
   Summary = N
   Type = string
   Short Name = The stratum value, e.g. male
   Definition = The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
 
- -- Row 20 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.population
+ -- Row 21 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population
   Card. = 0..*
   Summary = N
   UML = left
@@ -231,89 +239,48 @@
   Short Name = Population results in this stratum
   Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
 
- -- Row 21 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.population.type
-  Card. = 1..1
-  Summary = N
-  Type = code
+ -- Row 22 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population.identifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Name = Identifier of the population
+  Definition = The identifier of the population being reported, as defined by the population element of the measure
+
+ -- Row 23 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population.code
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
   Binding = MeasurePopulation
   Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 22 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.population.count
+ -- Row 24 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population.count
   Card. = 0..1
   Summary = N
   Type = integer
   Short Name = Size of the population
   Definition = The number of members of the population in this stratum
 
- -- Row 23 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.population.patients
+ -- Row 25 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.population.patients
   Card. = 0..1
   Summary = N
   Type = Reference(List)
   Short Name = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
 
- -- Row 24 -----------------------------------
-  Element = MeasureReport.group.stratifier.group.measureScore
+ -- Row 26 -----------------------------------
+  Element = MeasureReport.group.stratifier.stratum.measureScore
   Card. = 0..1
   Summary = N
   Type = decimal
   Short Name = The measure score
   Definition = The measure score for this stratum
 
- -- Row 25 -----------------------------------
-  Element = MeasureReport.group.supplementalData
-  Card. = 0..*
-  Summary = N
-  UML = left
-  Short Name = Supplemental data elements for the measure
-  Definition = Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations
-
- -- Row 26 -----------------------------------
-  Element = MeasureReport.group.supplementalData.identifier
-  Card. = 1..1
-  Summary = N
-  Type = Identifier
-  Short Name = Identifier of the supplemental data element
-  Definition = The identifier of the supplemental data element as defined in the measure
-
  -- Row 27 -----------------------------------
-  Element = MeasureReport.group.supplementalData.group
-  Card. = 0..*
-  Summary = N
-  UML = down
-  Type = =SupplementalDataGroup
-  Short Name = Supplemental data results, one for each unique supplemental data value
-  Definition = This element contains the results for a single value within the supplemental data. For example, when reporting supplemental data for administrative gender, there will be four groups, one for each possible gender value
-
- -- Row 28 -----------------------------------
-  Element = MeasureReport.group.supplementalData.group.value
-  Card. = 1..1
-  Summary = N
-  Type = string
-  Short Name = The data value, e.g. male
-  Definition = The value for this supplemental data element, expressed as a string.  When defining supplemental data  on complex values, the value must be rendered such that the value for each group within the supplemental data element is unique
-
- -- Row 29 -----------------------------------
-  Element = MeasureReport.group.supplementalData.group.count
-  Card. = 0..1
-  Summary = N
-  Type = integer
-  Short Name = Number of members in the group
-  Definition = The number of members in the supplemental data group
-
- -- Row 30 -----------------------------------
-  Element = MeasureReport.group.supplementalData.group.patients
-  Card. = 0..1
-  Summary = N
-  Type = Reference(List)
-  Short Name = For patient-list reports, the patients in this population
-  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
-
- -- Row 31 -----------------------------------
   Element = MeasureReport.evaluatedResources
   Card. = 0..1
   Summary = N

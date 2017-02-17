@@ -34,28 +34,28 @@
   <library>
     <reference value="Library/library-cms146-example"/>
   </library>
-  <scoring value="proportion"/>
-  <type value="process"/>
+  <scoring><coding><code value="proportion"/></coding></scoring>
+  <type><coding><code value="process"/></coding></type>
   <group>
     <identifier><value value="CMS146-group-1"/></identifier>
     <population>
-      <type value="initial-population"/>
       <identifier><value value="initial-population-identifier"/></identifier>
+      <code><coding><code value="initial-population"/></coding></code>
       <criteria value="CMS146.InInitialPopulation"/>
     </population>
     <population>
-      <type value="numerator"/>
       <identifier><value value="numerator-identifier"/></identifier>
+      <code><coding><code value="numerator"/></coding></code>
       <criteria value="CMS146.InNumerator"/>
     </population>
     <population>
-      <type value="denominator"/>
       <identifier><value value="denominator-identifier"/></identifier>
+      <code><coding><code value="denominator"/></coding></code>
       <criteria value="CMS146.InDenominator"/>
     </population>
     <population>
-      <type value="denominator-exclusion"/>
       <identifier><value value="denominator-exclusions-identifier"/></identifier>
+      <code><coding><code value="denominator-exclusion"/></coding></code>
       <criteria value="CMS146.InDenominatorExclusions"/>
     </population>
     <stratifier>

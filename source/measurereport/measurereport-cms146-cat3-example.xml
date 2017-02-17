@@ -37,211 +37,181 @@
   <group>
     <identifier><value value="CMS146-group-1"/></identifier>
     <population>
-      <type value="initial-population"/>
+      <code><coding><code value="initial-population"/></coding></code>
       <count value="500"/>
     </population>
     <population>
-      <type value="numerator"/>
+      <code><coding><code value="numerator"/></coding></code>
       <count value="200"/>
     </population>
     <population>
-      <type value="denominator"/>
+      <code><coding><code value="denominator"/></coding></code>
       <count value="500"/>
     </population>
     <population>
-      <type value="denominator-exclusion"/>
+      <code><coding><code value="denominator-exclusion"/></coding></code>
       <count value="100"/>
     </population>
     <stratifier>
       <identifier><value value="stratifier-ages-up-to-9"/></identifier>
-      <group>
+      <stratum>
         <value value="true"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
-      <group>
+      </stratum>
+      <stratum>
         <value value="false"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
+      </stratum>
     </stratifier>
     <stratifier>
       <identifier><value value="stratifier-ages-10-plus"/></identifier>
-      <group>
+      <stratum>
         <value value="true"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
-      <group>
+      </stratum>
+      <stratum>
         <value value="false"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
+      </stratum>
     </stratifier>
     <stratifier>
       <identifier><value value="stratifier-gender"/></identifier>
-      <group>
+      <stratum>
         <value value="male"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
-      <group>
+      </stratum>
+      <stratum>
         <value value="female"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="100"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="250"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="50"/>
         </population>
-      </group>
-      <group>
+      </stratum>
+      <stratum>
         <value value="other"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="0"/>
         </population>
-      </group>
-      <group>
+      </stratum>
+      <stratum>
         <value value="unknown"/>
         <population>
-          <type value="initial-population"/>
+          <code><coding><code value="initial-population"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="numerator"/>
+          <code><coding><code value="numerator"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="denominator"/>
+          <code><coding><code value="denominator"/></coding></code>
           <count value="0"/>
         </population>
         <population>
-          <type value="denominator-exclusion"/>
+          <code><coding><code value="denominator-exclusion"/></coding></code>
           <count value="0"/>
         </population>
-      </group>
+      </stratum>
     </stratifier>
-    <supplementalData>
-      <identifier><value value="supplemental-data-gender"/></identifier>
-      <group>
-        <value value="male"/>
-        <count value="250"/>
-      </group>
-      <group>
-        <value value="female"/>
-        <count value="250"/>
-      </group>
-      <group>
-        <value value="other"/>
-        <count value="0"/>
-      </group>
-      <group>
-        <value value="unknown"/>
-        <count value="0"/>
-      </group>
-    </supplementalData>
-    <supplementalData>
-      <identifier><value value="supplemental-data-deceased"/></identifier>
-      <group>
-        <value value="true"/>
-        <count value="0"/>
-      </group>
-      <group>
-        <value value="false"/>
-        <count value="500"/>
-      </group>
-    </supplementalData>
   </group>
 </MeasureReport>

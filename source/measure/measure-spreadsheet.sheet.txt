@@ -6,35 +6,35 @@
   Binding = code list
   Reference = #measure-population
   Definition = The type of population
-  Conformance = required
+  Conformance = extensible
 
  -- Row 2 -----------------------------------
   Binding Name = MeasureScoring
   Binding = code list
   Reference = #measure-scoring
   Definition = The scoring type of the measure
-  Conformance = required
+  Conformance = extensible
 
  -- Row 3 -----------------------------------
   Binding Name = MeasureType
   Binding = code list
   Reference = #measure-type
   Definition = The type of measure (includes codes from 2.16.840.1.113883.1.11.20368)
-  Conformance = required
+  Conformance = extensible
 
  -- Row 4 -----------------------------------
   Binding Name = MeasureDataUsage
   Binding = code list
   Reference = #measure-data-usage
   Definition = The intended usage for supplemental data elements in the measure
-  Conformance = required
+  Conformance = extensible
 
  -- Row 5 -----------------------------------
   Binding Name = CompositeMeasureScoring
   Binding = code list
   Reference = #composite-measure-scoring
   Definition = The composite scoring method of the measure
-  Conformance = required
+  Conformance = extensible
 
  -- Row 6 -----------------------------------
   Binding Name = DefinitionTopic
@@ -49,55 +49,55 @@
   Id = 1
   Code = initial-population
   Display = Initial Population
-  Definition = The initial population for the measure
+  Definition = The initial population refers to all patients or events to be evaluated by a quality measure involving patients who share a common set of specified characterstics. All patients or events counted (for example, as numerator, as denominator) are drawn from the initial population
 
  -- Row 2 -----------------------------------
   Id = 2
   Code = numerator
   Display = Numerator
-  Definition = The numerator for the measure
+  Definition = The upper portion of a fraction used to calculate a rate, proportion, or ratio. Also called the measure focus, it is the target process, condition, event, or outcome. Numerator criteria are the processes or outcomes expected for each patient, or event defined in the denominator. A numerator statement describes the clinical action that satisfies the conditions of the measure
 
  -- Row 3 -----------------------------------
   Id = 3
   Code = numerator-exclusion
   Display = Numerator Exclusion
-  Definition = The numerator exclusion for the measure
+  Definition = Numerator exclusion criteria define patients or events to be removed from the numerator. Numerator exclusions are used in proportion and ratio measures to help narrow the numerator (for inverted measures)
 
  -- Row 4 -----------------------------------
   Id = 4
   Code = denominator
   Display = Denominator
-  Definition = The denominator for the measure
+  Definition = The lower portion of a fraction used to calculate a rate, proportion, or ratio. The denominator can be the same as the initial population, or a subset of the initial population to further constrain the population for the purpose of the measure
 
  -- Row 5 -----------------------------------
   Id = 5
   Code = denominator-exclusion
   Display = Denominator Exclusion
-  Definition = The denominator exclusion for the measure
+  Definition = Denominator exclusion criteria define patients or events that should be removed from the denominator before determining if numerator criteria are met. Denominator exclusions are used in proportion and ratio measures to help narrow the denominator. For example, patients with bilateral lower extremity amputations would be listed as a denominator exclusion for a measure requiring foot exams
 
  -- Row 6 -----------------------------------
   Id = 6
   Code = denominator-exception
   Display = Denominator Exception
-  Definition = The denominator exception for the measure
+  Definition = Denominator exceptions are conditions that should remove a patient or event from the denominator of a measure only if the numerator criteria are not met. Denominator exception allows for adjustment of the calculated score for those providers with higher risk populations. Denominator exception criteria are only used in proportion measures
 
  -- Row 7 -----------------------------------
   Id = 7
   Code = measure-population
   Display = Measure Population
-  Definition = The measure population for the measure
+  Definition = Measure population criteria define the patients or events for which the individual observation for the measure should be taken. Measure populations are used for continuous variable measures rather than numerator and denominator criteria
 
  -- Row 8 -----------------------------------
   Id = 8
   Code = measure-population-exclusion
   Display = Measure Population Exclusion
-  Definition = The measure population exclusion for the measure
+  Definition = Measure population criteria define the patients or events that should be removed from the measure population before determining the outcome of one or more continuous variables defined for the measure observation. Measure population exclusion criteria are used within continuous variable measures to help narrow the measure population
 
  -- Row 9 -----------------------------------
   Id = 9
   Code = measure-observation
   Display = Measure Observation
-  Definition = The measure observation for the measure
+  Definition = Defines the individual observation to be performed for each patient or event in the measure population. Measure observations for each case in the population are aggregated to determine the overall measure score for the population
 
 === Sheet measure-scoring =====================================
 
@@ -313,22 +313,23 @@
   Summary = Y
   Type = markdown
   Short Name = Disclaimer for the measure
-  Definition = A disclaimer for the use of the measure
+  Definition = Notices and disclaimers regarding the use of the measure, or related to intellectual property (such as code systems) referenced by the measure
+  Requirements = Some organizations require that notices and disclosures be included when publishing measures that reference their intellecutal property
 
  -- Row 26 -----------------------------------
   Element = Measure.scoring
   Card. = 0..1
   Summary = Y
-  Type = code
+  Type = CodeableConcept
   Binding = MeasureScoring
   Short Name = proportion | ratio | continuous-variable | cohort
-  Definition = The measure scoring type, e.g. proportion, CV
+  Definition = Indicates how the calculation is performed for the measure, including proportion, ratio, continuous variable, and cohort. The value set is extensible, allowing additional measure scoring types to be represented
 
  -- Row 27 -----------------------------------
   Element = Measure.compositeScoring
   Card. = 0..1
   Summary = Y
-  Type = code
+  Type = CodeableConcept
   Binding = CompositeMeasureScoring
   Short Name = opportunity | all-or-nothing | linear | weighted
   Definition = If this is a composite measure, the scoring method used to combine the component measures to determine the composite score
@@ -337,10 +338,10 @@
   Element = Measure.type
   Card. = 0..*
   Summary = Y
-  Type = code
+  Type = CodeableConcept
   Binding = MeasureType
   Short Name = process | outcome | structure | patient-reported-outcome | composite
-  Definition = The measure type, e.g. process, outcome
+  Definition = Indicates whether the measure is used to examine a process, an outcome over time, a patient-reported outcome, or a structure measure such as utilization
 
  -- Row 29 -----------------------------------
   Element = Measure.riskAdjustment
@@ -349,6 +350,7 @@
   Type = string
   Short Name = How is risk adjustment applied for this measure
   Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
+  Comments = Describes the method of adjusting for clinical severity and conditions present at the start of care that can influence patient outcomes for making valid comparisons of outcome measures across providers. Indicates whether an eMeasure is subject to the statistical process for reducing, removing, or clarifying the influences of confounding factors to allow more useful comparisons
 
  -- Row 30 -----------------------------------
   Element = Measure.rateAggregation
@@ -356,7 +358,8 @@
   Summary = Y
   Type = string
   Short Name = How is rate aggregation performed for this measure
-  Definition = A description of the rate aggregation for the measure
+  Definition = Describes how to combine the information calculated, based on logic in each of several populations, into one summarized result
+  Comments = The measure rate for an organization or clinician is based upon the entities’ aggregate data and summarizes the performance of the entity over a given time period (e.g., monthly, quarterly, yearly). The aggregated data are derived from the results of a specific measure algorithm and, if appropriate, the application of specific risk adjustment models.  Can also be used to describe how to risk adjust the data based on supplemental data elements described in the eMeasure (e.g., pneumonia hospital measures antibiotic selection in the ICU versus non-ICU and then the roll-up of the two). This could be applied to aggregated cohort measure definitions (e.g., CDC\'s aggregate reporting for TB at the state level)
 
  -- Row 31 -----------------------------------
   Element = Measure.rationale
@@ -364,7 +367,7 @@
   Summary = Y
   Type = markdown
   Short Name = Why does this measure exist
-  Definition = The rationale for the measure
+  Definition = Provides a succint statement of the need for the measure. Usually includes statements pertaining to importance criterion: impact, gap in care, and evidence
 
  -- Row 32 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
@@ -372,7 +375,7 @@
   Summary = Y
   Type = markdown
   Short Name = Clinical recommendation
-  Definition = The clinical recommendation statement for the measure
+  Definition = Provides a summary of relevant clinical guidelines or other clinical recommendations supporting the measure
 
  -- Row 33 -----------------------------------
   Element = Measure.improvementNotation
@@ -380,15 +383,17 @@
   Summary = Y
   Type = string
   Short Name = Improvement notation for the measure, e.g. higher score indicates better quality
-  Definition = Improvement notation for the measure, e.g. higher score indicates better quality
+  Definition = Information on whether an increase or decrease in score is the preferred result (e.g., a higher score indicates better quality OR a lower score indicates better quality OR quality is whthin a range)
+  Requirements = Measure consumers and implementers must be able to determine how to interpret a measure score
 
  -- Row 34 -----------------------------------
   Element = Measure.definition
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = markdown
-  Short Name = A natural language definition of the measure
-  Definition = A narrative description of the complete measure calculation
+  Short Name = Defined terms used in the measure documentation
+  Definition = Provides a description of an individual term used within the measure
+  Requirements = Measure developers must be able to provide precise definitions of terms used within measure descriptions and guidance to help communicate the intent of the measure
 
  -- Row 35 -----------------------------------
   Element = Measure.guidance
@@ -397,6 +402,7 @@
   Type = markdown
   Short Name = The guidance for the measure
   Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
+  Requirements = Measure developers must be able to provide additional guidance for implementers to understand the intent with greater specificity than that provided in the logic of the measure
 
  -- Row 36 -----------------------------------
   Element = Measure.set
@@ -442,19 +448,19 @@
   Definition = A population criteria for the measure
 
  -- Row 42 -----------------------------------
-  Element = Measure.group.population.type
-  Card. = 1..1
-  Type = code
-  Binding = MeasurePopulationType
-  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
-  Definition = The type of population criteria
-
- -- Row 43 -----------------------------------
   Element = Measure.group.population.identifier
-  Card. = 1..1
+  Card. = 0..1
   Type = Identifier
   Short Name = Unique identifier
   Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
+
+ -- Row 43 -----------------------------------
+  Element = Measure.group.population.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = MeasurePopulationType
+  Short Name = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-observation
+  Definition = The type of population criteria
 
  -- Row 44 -----------------------------------
   Element = Measure.group.population.name
@@ -476,6 +482,7 @@
   Type = string
   Short Name = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
+  Comments = In the case of a continuous variable or ratio measure, this may be the name of a function that calculates the value of the individual observation for each patient or event in the population. For these types of measures, individual observations are reported as observation resources included in the evaluatedResources bundle for each patient. See the MeasureReport resource or the Quality Reporting topic for more information
 
  -- Row 47 -----------------------------------
   Element = Measure.group.stratifier
@@ -486,7 +493,7 @@
 
  -- Row 48 -----------------------------------
   Element = Measure.group.stratifier.identifier
-  Card. = 1..1
+  Card. = 0..1
   Type = Identifier
   Short Name = The identifier for the stratifier used to coordinate the reported data back to this stratifier
   Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
@@ -511,10 +518,11 @@
   UML = right
   Short Name = Supplemental data
   Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
+  Comments = Note that supplemental data are reported as observations for each patient and included in the evaluatedResources bundle. See the MeasureReport resource or the Quality Reporting topic for more information
 
  -- Row 52 -----------------------------------
   Element = Measure.supplementalData.identifier
-  Card. = 1..1
+  Card. = 0..1
   Type = Identifier
   Short Name = Identifier, unique within the measure
   Definition = An identifier for the supplemental data
@@ -522,7 +530,7 @@
  -- Row 53 -----------------------------------
   Element = Measure.supplementalData.usage
   Card. = 0..*
-  Type = code
+  Type = CodeableConcept
   Binding = MeasureDataUsage
   Short Name = supplemental-data | risk-adjustment-factor
   Definition = An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation
