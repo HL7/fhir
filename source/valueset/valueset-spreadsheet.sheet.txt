@@ -376,8 +376,8 @@
   Summary = Y
   Type = code
   Binding = !
-  Short Name = Code from the system, or regex criteria
-  Definition = The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value
+  Short Name = Code from the system, or regex criteria, or boolean value for exists
+  Definition = The match value may be either a code defined by the system, or a string value, which is a regex match on the literal string of the property value when the operation is \'regex\', or one of the values (true and false), when the operation is \'exists\'
   Comments = Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example
   RIM Mapping = N/A
 
