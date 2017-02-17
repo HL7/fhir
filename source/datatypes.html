@@ -1145,14 +1145,15 @@ Timing
 See also <a href="datatypes-examples.html#Timing">Examples</a>, <a href="datatypes-definitions.html#Timing">Detailed Descriptions</a>, <a href="datatypes-mappings.html#Timing">Mappings</a> and <a href="datatypes-version-maps.html#Timing">R2 Conversions</a>.
 </p>
 <p>
-Specifies an event that may occur multiple times. Timing schedules are not used for recording when things did happen, but when they are expected or requested to occur.
-A Timing schedule can be a list of events and/or criteria for when the event is to happen, which can be expressed in a structured form and/or as a code.
-When both event and a repeating specification are provided, the list of events should be understood as an interpretation of the information in the repeat structure.
+Specifies an event that may occur multiple times. Timing schedules are used for specifying when events are expected or requested to occur, and may 
+also be used to represent a schedule that was followed for past events. A Timing schedule can be a list of events and/or criteria for when the event happens, 
+which can be expressed in a structured form and/or as a code. When both event and a repeating specification are provided, the list of events should be 
+understood as an interpretation of the information in the repeat structure.
 </p>
 [%dt Timing 13%]
 <p>
 If the timing schedule has repeating criteria, the repeat can occur a given number of times per
-the specified duration or in relation to some real world event. If no end condition is specified,
+the specified duration or in relation to some repeating real world event. If no end condition is specified,
 the schedule will terminate on some criteria that are expressed elsewhere.
 </p>
 <p>
@@ -1183,7 +1184,8 @@ Many systems avoid the complexity of the Timing structure by using a text field 
 Those systems do not use the Timing data type. Other systems use a set of 'common' codes - including, but usually
 not limited to, widely understood acronyms such as "BID". If a <code>code</code> is
 provided, the code is understood to be a complete statement of whatever is specified in the structured timing
-data, and either the code or the data may be used to interpret the <code>Timing</code>. A structured timing specification SHOULD be provided whenever
+data (except for <code>Timing.repeat.bounds</code>, which applies to the code), and either the code or the 
+data may be used to interpret the <code>Timing</code>. A structured timing specification SHOULD be provided whenever
 possible, unless the code is BID, TID, QID, AM or PM, which have a ubiquitous meaning.
 </p>
 <p>
@@ -1205,7 +1207,8 @@ part of the base specification</a>, and the structured data portions of the Timi
 <p>
 These codes SHALL be understood as having the formal meanings documented in this table. Note that BID etc are defined as 'at institutionally specified times'.
 For example, an institution may choose that BID is "always at 7am and 6pm".  If it is inappropriate for this choice to be made, the code BID
-should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured representation should be used (in this case, <code>timeOfDay</code>).
+should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured 
+representation should be used (in this case, <code>timeOfDay</code>).
 </p>
 
 <div class="use">
