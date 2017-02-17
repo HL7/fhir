@@ -121,7 +121,7 @@
   Card. = 0..*
   Type = string
   Short Name = A list of alternate names that the organization is known as, or was known as in the past
-  Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the location was known by can be very useful.
+  Requirements = Over time locations and organizations go through many changes and can be known by different names.\n\nFor searching knowing previous names that the organization was known by can be very useful.
   Comments = There are no dates associated with the alias/historic names, as this is not intended to track when names were used, but to assist in searching so that older names can still result in identifying the organization
   RIM Mapping = .name
   Committee Notes = This is used in many registries, and is often very important in searching
@@ -297,7 +297,7 @@
  -- Row 1 -----------------------------------
   Name = name
   Type = string
-  Description = A portion of the organization\'s name, or alias
+  Description = A portion of the organization\'s name or alias
   Path = Organization.name | Organization.alias
 
  -- Row 2 -----------------------------------
@@ -328,7 +328,7 @@
  -- Row 6 -----------------------------------
   Name = partof
   Type = reference
-  Description = Search all organizations that are part of the given organization
+  Description = An organization of which this organization forms a part
   Path = Organization.partOf
 
  -- Row 7 -----------------------------------
@@ -340,7 +340,7 @@
  -- Row 8 -----------------------------------
   Name = address
   Type = string
-  Description = A (part of the) address of the Organization
+  Description = A (part of the) address of the organization
   Path = Organization.address
 
  -- Row 9 -----------------------------------

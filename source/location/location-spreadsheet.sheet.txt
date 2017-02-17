@@ -246,12 +246,13 @@
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
+  Description = An identifier for the location
   Path = Location.identifier
 
  -- Row 2 -----------------------------------
   Name = name
   Type = string
-  Description = A (portion of the) name of the location or alias
+  Description = A portion of the location\'s name or alias
   Path = Location.name | Location.alias
 
  -- Row 3 -----------------------------------
@@ -305,20 +306,20 @@
  -- Row 11 -----------------------------------
   Name = partof
   Type = reference
-  Description = The location of which this location is a part
+  Description = A location of which this location is a part
   Path = Location.partOf
 
  -- Row 12 -----------------------------------
   Name = near
   Type = token
-  Description = The coordinates expressed as [latitude]:[longitude] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency). \n\nRequires the near-distance parameter to be provided also
+  Description = The coordinates expressed as [latitude]:[longitude] (using the WGS84 datum, see notes) to find locations near to (servers may search using a square rather than a circle for efficiency)\n\nRequires the near-distance parameter to be provided also
   Path = Location.position
   Path Usage = nearby
 
  -- Row 13 -----------------------------------
   Name = near-distance
   Type = quantity
-  Description = A distance quantity to limit the near search to locations within a specific distance\n\nRequires the near parameter to be included also
+  Description = A distance quantity to limit the near search to locations within a specific distance\n\nRequires the near parameter to also be included
   Path = Location.position
   Path Usage = distance
 
