@@ -558,6 +558,30 @@ The <a href="profiling-examples.html">examples of slicing and discriminators</a>
 Note that extensions are always sliced by the <code>url</code> element, though they may be resliced on additional elements where required.
 </p>
 
+<a name="default-slice"> </a>
+<h3>Default Slice</h3>
+<p>
+There is a special slice, called the default slice. This allows
+a profile to describe a set if specific slices, and then make a set of rules that apply to all the remaining
+content that is not in one of the defined slices. Some rules about the default slice:
+</p>
+<ul>
+ <li>It is identified because the name of the slice is <code>@default</code>. The sliceName '@default' is reserved and cannot be used in any other context</li>
+ <li>Default slices are only allowed when the slicing rule = closed</li>
+ <li>Default slices must not fix the value of the discriminator elements</li>
+ <li>Default slices can be re-sliced in dependent profiles</li>
+</ul>
+<p>
+One use of a default slice would be the case where the profile slices 
+an identifier element to require a set of known identifiers, where 
+the <code>type</code> element is prohibited (since they are known identifiers) but requires
+<code>type</code> on all other identifiers if any are present. In this case, the 
+default slice makes no rules about the identiifer.system (which is the slicing discriminator),
+but fixes the cardinality of type to 1..1 in the @default slice.
+</p>
+
+
+allowed when the slicing rule = closed
 
 <a name="reslicing"> </a>
 <h3>Re-slicing</h3>
@@ -588,7 +612,9 @@ Note: it is possible for Profile C to make rules that are incompatible with prof
 </p>
 <p>
 In addition to the above, there are times when Profile C will need to further slice a slice defined in B.  In this case, there's a need to reference both the name of the original
-slice from Profile B as well as to define a name for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and profile C defines the slice "example/example1", then this is deemed to be "example1" slice of the example slice.  This process can continue indefinitely by separating each layer of slicing names with the "/" character.
+slice from Profile B as well as to define a name for the slice defined within Profile C.  This is done by separating the names using "/".  For example, if Profile B defines the slice "example", and 
+profile C defines the slice "example/example1", then this is deemed to be "example1" slice of the example slice.  This process can continue indefinitely by separating each layer of slicing names with the "/" character.
+This pattern applies to @default too: @default/@default.
 </p>
 
 <a name="extensions"> </a>

@@ -242,7 +242,7 @@ For the second part of the URL (the query part), the 4 possible values are:
 <p>
 A value set with a URL that follows the pattern "[edition/version]?fhir_vs=isa/[sctid]" follows this template:
 </p>
-<pre class="xml" fragment="ValueSet">
+<pre class="xml" id="e1" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -272,7 +272,7 @@ A value set with a URL that follows the pattern "[edition/version]?fhir_vs=isa/[
 <p>
 The value set with a url that follows the pattern "[edition/version]?fhir_vs=refset" follows this template:
 </p>
-<pre class="xml" fragment="ValueSet">
+<pre class="xml" id="e2" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -305,7 +305,7 @@ contained code that contains the concept id.
 <p>
 A value set with a url that follows the pattern "[edition/version]?fhir_vs=refset/[conceptid]" follows this template:
 </p>
-<pre class="xml" fragment="ValueSet">
+<pre class="xml" id="e3" fragment="ValueSet">
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
@@ -385,7 +385,7 @@ For the second part of the URL (the query part), there is only one possible valu
 <p>
 A concept map with a URL that follows the pattern "[edition/version]?fhir_cm=[sctid]" follows this template, where [name], [sctid] and [relationship] are taken from the table above:
 </p>
-<pre class="xml" fragment="ConceptMap">
+<pre class="xml" id="e4" fragment="ConceptMap">
 &lt;ConceptMap xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;text&gt;
     &lt;status value=&quot;generated&quot;/&gt;
