@@ -321,7 +321,7 @@
   Comments = The title (eg \"My Tasks\", \"Outstanding Tasks for Patient X\") should go into the code.
   Workflow Mapping = Request.code, Event.code
   RIM Mapping = .code
-  w5 = class
+  w5 = what
 
  -- Row 13 -----------------------------------
   Element = Task.description

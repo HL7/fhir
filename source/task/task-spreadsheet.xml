@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-17T04:36:04Z</LastSaved>
+  <LastSaved>2017-02-17T08:02:43Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -817,17 +817,17 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s153" ss:Parent="s62">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s154">
+  <Style ss:ID="s153">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders>
     <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s154" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
    <Interior/>
   </Style>
   <Style ss:ID="s155">
@@ -877,6 +877,9 @@
     <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
    </Borders>
    <Interior/>
+  </Style>
+  <Style ss:ID="s162">
+   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>
   </Style>
  </Styles>
  <Names>
@@ -1443,7 +1446,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">TaskCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">class</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">what</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4376,7 +4379,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>21</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4394,8 +4397,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>25</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7073,11 +7076,11 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="42.9375">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskIntent</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskIntent</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Distinguishes whether the task is a proposal, plan or full order</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/ValueSet/request-intent"><Data
+    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/ValueSet/request-intent"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/request-intent</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7089,7 +7092,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskOutputParameterType</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskOutputParameterType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -7104,7 +7107,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskPerformerType</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskPerformerType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type(s) of task performers allowed</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">preferred</Data></Cell>
@@ -7119,11 +7122,11 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskPriority</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskPriority</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The task's priority</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/ValueSet/request-priority"><Data
+    <Cell ss:StyleID="s154" ss:HRef="http://hl7.org/fhir/ValueSet/request-priority"><Data
       ss:Type="String">http://hl7.org/fhir/ValueSet/request-priority</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">The priority of a task (may affect service level applied to the task).</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -7135,7 +7138,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskReason</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital. </Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
@@ -7150,7 +7153,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="71.25">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskStatus</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">TaskStatus</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The current status of the task.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
@@ -7180,7 +7183,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7195,7 +7198,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7210,7 +7213,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7225,7 +7228,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7240,7 +7243,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7255,7 +7258,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7270,7 +7273,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7285,7 +7288,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7300,7 +7303,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7315,7 +7318,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7330,7 +7333,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7345,7 +7348,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7360,7 +7363,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7375,7 +7378,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7390,7 +7393,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7405,7 +7408,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7420,7 +7423,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7435,7 +7438,7 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s154"/>
+    <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -8828,5 +8831,79 @@
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet12">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="13" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="189.75"/>
+   <Column ss:Width="153.75"/>
+   <Row>
+    <Cell><Data ss:Type="String">' but the actual order is '[identifier(=id)</Data></Cell>
+    <Cell><Data ss:Type="String">[identifier(=id)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> status(=status)</Data></Cell>
+    <Cell><Data ss:Type="String"> status(=status)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> intent(=class)</Data></Cell>
+    <Cell><Data ss:Type="String"> intent(=class)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s162"><Data ss:Type="String"> priority(=grade)</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String"> code(=class)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s162"><Data ss:Type="String"> code(=class)</Data></Cell>
+    <Cell ss:StyleID="s162"><Data ss:Type="String"> priority(=grade)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> focus(=what)</Data></Cell>
+    <Cell><Data ss:Type="String"> focus(=what)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> for(=who.focus)</Data></Cell>
+    <Cell><Data ss:Type="String"> for(=who.focus)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> context(=context)</Data></Cell>
+    <Cell><Data ss:Type="String"> context(=context)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> executionPeriod(=when.done)</Data></Cell>
+    <Cell><Data ss:Type="String"> executionPeriod(=when.done)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> authoredOn(=when.recorded)</Data></Cell>
+    <Cell><Data ss:Type="String"> authoredOn(=when.recorded)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> performerType(=who.actor)</Data></Cell>
+    <Cell><Data ss:Type="String"> performerType(=who.actor)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> owner(=who.actor)</Data></Cell>
+    <Cell><Data ss:Type="String"> owner(=who.actor)</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String"> reason(=why)]'</Data></Cell>
+    <Cell><Data ss:Type="String"> reason(=why)]</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
  </Worksheet>
 </Workbook>
