@@ -1007,6 +1007,50 @@ Examples of using composite parameters:
  <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td><td>Search for all groups that have a characteristic "gender" with a text value of "mixed"</td></tr>
 </table>
 
+<a name="missing"> </a>
+<h4>Handling Missing Data</h4>
+<p>
+Consider the case of searching for all AllergyIntolerance resources:
+</p>
+<pre>
+GET [base]/AllergyIntolerance?category=medication
+</pre>
+<p>
+This search will only return resources the have a value for category:
+</p>
+<pre class="json" fragment="AllergyIntolerance">
+{
+  "resourceType" : "AllergyIntolerance",
+  "category" : "medication"
+}
+</pre>
+<p>
+Resources missing a category of 'medication' will not be returned. (Aside: this may not be safe behaviour.
+Note that this particular example - AllergyIntolerance.cateogry - is semantically problematic; 
+classification is often inconsistent between institutions, so using it at all may present 
+a safety risk.) But assuming that it's reliable, it still might be unsafe to only return resources
+with an explicit category. It might be desired to return AllergyIntolerance resources
+with either an explicit value for category, or none:
+</p>
+<pre>
+GET [base]/AllergyIntolerance?category=medication
+GET [base]/AllergyIntolerance?category:exists=false
+</pre>
+<p>
+Note that this is 2 separate queries. They can be <a href="http.html#transaction">combined in a batch</a>, 
+but not in a single operation. This query will always return an empty list, as no resource can satisfy both criteria at once:
+</p>
+<pre>
+GET [base]/AllergyIntolerance?category=medication&amp;category:exists=false
+</pre>
+<p>
+There is no way to use the :exists modifier and mix with a value using the 
+comma syntax documented above for for composite search parameters). 
+</p>
+<p>
+An alternative approach is to use the <a href="#filter"><code>_filter</code></a> parameter,
+for servers that support this parameter.
+</p>
 
 <a name="escaping"> </a>
 <h4>Escaping Search Parameters</h4>
