@@ -13,6 +13,10 @@
   </identifier>
 
   <status value="active"/>
+  
+  <patient>
+    <reference value="Patient/1"/>
+  </patient>
 
   <created value="2014-08-16"/>
 
