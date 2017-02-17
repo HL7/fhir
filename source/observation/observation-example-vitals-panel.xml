@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
+<Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://build.fhir.org/device.xsd">
 	<id value="vitals-panel"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+	</meta>
 	<status value="final"/>
 	<category>
 		<coding>
@@ -11,12 +14,19 @@
 		<text value="Vital Signs"/>
 	</category>
 	<code>
-		<coding>
+		<coding> <!-- Deprecated LOINC -replaced for this profile-->
 			<system value="http://loinc.org"/>
 			<code value="8716-3"/>
 			<display value="Vital signs"/>
 		</coding>
-		<text value="Vital signs"/>
+<!--	new LOINC codes	
+				<coding>
+			<system value="http://loinc.org"/>
+			<code value="85353-1"/>
+			<display value="Vital signs, weight, height, head circumference, oxygen saturation and BMI panel"/>
+		</coding>
+		
+-->		<text value="Vital signs Panel"/>
 	</code>
 	<subject>
 		<reference value="Patient/example"/>

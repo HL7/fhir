@@ -56,7 +56,7 @@
   Binding = value set
   Reference = valueset-observation-category
   Definition = Codes for high level observation categories .
-  Conformance = example
+  Conformance = preferred
 
  -- Row 9 -----------------------------------
   Binding Name = BodySite

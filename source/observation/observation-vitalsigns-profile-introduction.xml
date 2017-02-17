@@ -38,11 +38,19 @@ profile:</p>
 				</ul>
 			</li>
 		</ol>
-		<p>
-			<strong>Profile specific implementation guidance:</strong>
-		</p>
+</div>
+<div>
+<a name="vitals-table"> </a>
+<h2>Formal View of Profile Content</h2>
+
+<p>
+	<a href="vitalsigns.html">Vital Signs Profile</a> : Link to the formal  definition views for the vital signs listed in this table.
+</p>
+
+
 		<ul>
-			<li>This table represents a minimum set of vital sign concepts , the required codes ("magic values"), and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The table below represents a minimum set of vital sign concepts , the required codes ("magic values"), and UCUM units of measure codes used for representing vitals signs observations. These are <a href="terminologies.html#extensible">extensible</a> bindings and require that when a system supports of any of these vital signs concepts, they must represent them using these codes. In addition, if you have a blood pressure observation, you must have both a systolic and a diastolic component, though one or both may have dataAbsentReason instead of a value.</li>
+			<li>The first column of this table links to the formal views of the individual profile for each vital sign.</li>
 			<li>
 				 If a more specific code or another code system is recorded or required, implementers must support both the values (LOINC) listed below and the translated code - e.g. method specific LOINC Codes, SNOMED CT concepts, system specific (local) codes.
 			 </li>
@@ -52,7 +60,9 @@ profile:</p>
 				Other profiles may make rules about which vital sign must be present or must be present as part of a panel or expand the list to include other vital sign. For implementers using LOINC, optional qualifier codes are provided in the notes below.
 			</li>
 		</ul>
+<p></p>
 		<table class="grid">
+
 			<thead>
 				<tr>
 					<th>Profile Name</th>
@@ -235,6 +245,7 @@ profile:</p>
 				</tr>
 -->			</tbody>
 		</table>
+		<p></p>
 	</div>
 	<div>
 		<a name="Quick_Start"> </a>

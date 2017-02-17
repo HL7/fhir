@@ -4,6 +4,9 @@
  -->
 <Observation xmlns="http://hl7.org/fhir">
 	<id value="satO2"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+	</meta>
 	<identifier>
 		<system value="http://goodcare.org/observation/id"/>
 		<value value="o1223435-10"/>

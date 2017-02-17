@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="body-length"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+	</meta>
 	<status value="final"/>
 	<category>
 		<coding>

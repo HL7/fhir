@@ -26,7 +26,7 @@
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/observation.xsd">
 	<id value="blood-pressure-cancel"/>
 	<meta>
-		<lastUpdated value="2014-01-30T22:35:23+11:00"/>
+		<profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
 	</meta>
 	<!--	EH  Narrative created by build
 	<text>
@@ -39,6 +39,13 @@
 		<value value="urn:uuid:187e0c12-8dd2-67e2-99b2-bf273c878281"/>
 	</identifier>
 	<status value="cancelled"/>
+	<category>
+		<coding>
+			<system value="http://hl7.org/fhir/observation-category"/>
+			<code value="vital-signs"/>
+			<display value="Vital Signs"/>
+		</coding>
+	</category>
 	<code>
 		<coding>
 			<system value="http://loinc.org"/>
@@ -61,7 +68,7 @@
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0078"/>
 			<code value="L"/>
-		  <display value="low"/>
+			<display value="low"/>
 		</coding>
 		<text value="Below low normal"/>
 	</interpretation>
@@ -81,7 +88,6 @@
            - snomed provides a clinically relevant code that is usually less granular than LOINC
            - the source system provides its own code, which may be less or more granular than LOINC
 	 this instance shows the concept. The other codes only have a LOINC code -->
-       
 		<code>
 			<!-- LOINC - always recommended to have a LOINC code -->
 			<coding>
