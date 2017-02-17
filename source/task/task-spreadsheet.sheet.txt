@@ -2,6 +2,33 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
+  Binding Name = TaskBusinessStatus
+  Binding = unbound
+  Definition = The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.
+
+ -- Row 2 -----------------------------------
+  Binding Name = TaskCode
+  Binding = unbound
+  Definition = Codes to identify what the task involves.  These will typically be specific to a particular workflow.
+
+ -- Row 3 -----------------------------------
+  Binding Name = TaskInputParameterType
+  Binding = unbound
+  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Comparison source\", \"Applicable consent\", \"Concommitent Medications\", etc.
+
+ -- Row 4 -----------------------------------
+  Binding Name = TaskIntent
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/request-intent
+  Definition = Distinguishes whether the task is a proposal, plan or full order
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = TaskOutputParameterType
+  Binding = unbound
+  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Identified issues\", \"Preliminary results\", \"Filler order\", \"Final results\", etc.
+
+ -- Row 6 -----------------------------------
   Binding Name = TaskPerformerType
   Binding = code list
   Reference = #task-performer-type
@@ -9,7 +36,7 @@
   Description = A code describing the kind of performer that will act on this task.
   Conformance = preferred
 
- -- Row 2 -----------------------------------
+ -- Row 7 -----------------------------------
   Binding Name = TaskPriority
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/request-priority
@@ -17,44 +44,22 @@
   Description = The priority of a task (may affect service level applied to the task).
   Conformance = required
 
- -- Row 3 -----------------------------------
+ -- Row 8 -----------------------------------
+  Binding Name = TaskReason
+  Binding = unbound
+  Definition = Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital.
+
+ -- Row 9 -----------------------------------
   Binding Name = TaskStatus
   Binding = code list
   Reference = #task-status
   Definition = The current status of the task.
   Conformance = required
 
- -- Row 4 -----------------------------------
-  Binding Name = TaskBusinessStatus
+ -- Row 10 -----------------------------------
+  Binding Name = TaskStatusReason
   Binding = unbound
-  Definition = The domain-specific business-contextual sub-state of the task.  For example: \"Blood drawn\", \"IV inserted\", \"Awaiting physician signature\", etc.
-
- -- Row 5 -----------------------------------
-  Binding Name = TaskIntent
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/request-intent
-  Definition = Distinguishes whether the task is a proposal, plan or full order
-  Conformance = required
-
- -- Row 6 -----------------------------------
-  Binding Name = TaskReason
-  Binding = unbound
-  Definition = Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital.
-
- -- Row 7 -----------------------------------
-  Binding Name = TaskInputParameterType
-  Binding = unbound
-  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Comparison source\", \"Applicable consent\", \"Concommitent Medications\", etc.
-
- -- Row 8 -----------------------------------
-  Binding Name = TaskOutputParameterType
-  Binding = unbound
-  Definition = Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. \"Identified issues\", \"Preliminary results\", \"Filler order\", \"Final results\", etc.
-
- -- Row 9 -----------------------------------
-  Binding Name = TaskCode
-  Binding = unbound
-  Definition = Codes to identify what the task involves.  These will typically be specific to a particular workflow.
+  Definition = Codes to identify the reason for current status.  These will typically be specific to a particular workflow.
 
 === Sheet task-performer-type =====================================
 
@@ -262,6 +267,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
+  Binding = TaskStatusReason
   Short Name = Reason for current status
   Definition = An explanation as to why this task is held, failed, was refused, etc.
   Comments = This applies to the current status.  Look at the history of the task to see reasons for past statuses
@@ -449,7 +455,7 @@
   Aliases = Performer; Executer
   Summary = Y
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
-  Short Name = Task Owner
+  Short Name = Responsible individual
   Definition = Individual organization or Device currently responsible for task execution.
   Requirements = Identifies who is expected to perform this task.
   Comments = Tasks may be created with an owner not yet identified
@@ -722,6 +728,12 @@
   Path = Task.requester.onBehalfOf
 
 === Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Task Extensions
+  IG Name = core
+  Filename = task-extensions.xml
+  Type = spreadsheet
 
 === Sheet Examples =====================================
 

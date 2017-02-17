@@ -9,17 +9,17 @@
   <Author>Grahame</Author>
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2017-02-17T02:27:43Z</LastSaved>
+  <LastSaved>2017-02-17T04:36:04Z</LastSaved>
   <Version>12.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5925</WindowHeight>
-  <WindowWidth>19260</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>5880</WindowTopY>
+  <WindowHeight>10125</WindowHeight>
+  <WindowWidth>21810</WindowWidth>
+  <WindowTopX>2910</WindowTopX>
+  <WindowTopY>285</WindowTopY>
   <TabRatio>670</TabRatio>
   <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
@@ -910,7 +910,7 @@
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
@@ -1297,7 +1297,8 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskStatusReason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1872,7 +1873,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Task Owner</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Responsible individual</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Individual organization or Device currently responsible for task execution.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4375,9 +4376,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>16</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4393,8 +4394,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>20</ActiveCol>
+     <ActiveRow>25</ActiveRow>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6200,7 +6201,7 @@
   <Names>
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Profiles!R1C1:R2C4"/>
   </Names>
-  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="41" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="41" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="114"/>
@@ -6224,12 +6225,18 @@
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
         x:Family="Swiss" html:Size="8" html:Color="#000000">Type of source (spreadsheet or profile XML file).  Default is spreadsheet</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">IG Name</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Task Extensions</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">task-extensions.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">task-extensions-spreadsheet.xml</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">spreadsheet</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">core</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
@@ -6487,7 +6494,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+     <RangeSelection>R7C3:R8C3</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6954,7 +6963,7 @@
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:Width="125.25"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="275.25"/>
-   <Column ss:StyleID="s114" ss:Width="51"/>
+   <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="81.75"/>
    <Column ss:StyleID="s114" ss:Width="48.75"/>
    <Column ss:StyleID="s114" ss:Width="146.25"/>
    <Column ss:StyleID="s114" ss:Width="173.25"/>
@@ -7019,12 +7028,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskPerformerType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The type(s) of task performers allowed</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">#task-performer-type</Data></Cell>
-    <Cell ss:StyleID="s129"><Data ss:Type="String">A code describing the kind of performer that will act on this task.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskBusinessStatus</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
     <Cell ss:StyleID="s129"/>
@@ -7034,39 +7043,8 @@
     <Cell ss:StyleID="s118"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskPriority</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The task's priority</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/ValueSet/request-priority"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/request-priority</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">The priority of a task (may affect service level applied to the task).</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The current status of the task.</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">#task-status</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="42.9375">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskBusinessStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The domain-specific business-contextual sub-state of the task.  For example: &quot;Blood drawn&quot;, &quot;IV inserted&quot;, &quot;Awaiting physician signature&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskCode</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify what the task involves.  These will typically be specific to a particular workflow.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7079,7 +7057,22 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s120"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskInputParameterType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concommitent Medications&quot;, etc.</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="42.9375">
     <Cell ss:StyleID="s154"><Data ss:Type="String">TaskIntent</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Distinguishes whether the task is a proposal, plan or full order</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
@@ -7096,36 +7089,6 @@
     <Cell ss:StyleID="s120"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="27.9375">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskReason</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital. </Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskInputParameterType</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Comparison source&quot;, &quot;Applicable consent&quot;, &quot;Concommitent Medications&quot;, etc.</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s120"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="57">
     <Cell ss:StyleID="s154"><Data ss:Type="String">TaskOutputParameterType</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify types of input parameters.  These will typically be specific to a particular workflow.  E.g. &quot;Identified issues&quot;, &quot;Preliminary results&quot;, &quot;Filler order&quot;, &quot;Final results&quot;, etc.</Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
@@ -7140,9 +7103,40 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s120"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="71.25">
-    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskCode</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify what the task involves.  These will typically be specific to a particular workflow.</Data></Cell>
+   <Row ss:AutoFitHeight="0" ss:Height="27.9375">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskPerformerType</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The type(s) of task performers allowed</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">preferred</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">#task-performer-type</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">A code describing the kind of performer that will act on this task.</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskPriority</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The task's priority</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s153" ss:HRef="http://hl7.org/fhir/ValueSet/request-priority"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/request-priority</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">The priority of a task (may affect service level applied to the task).</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="57">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskReason</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Indicates why the task is needed.  E.g. Suspended because patient admitted to hospital. </Data></Cell>
     <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
@@ -7155,10 +7149,25 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s120"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"/>
-    <Cell ss:StyleID="s87"/>
+   <Row ss:AutoFitHeight="0" ss:Height="71.25">
+    <Cell ss:StyleID="s154"><Data ss:Type="String">TaskStatus</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">The current status of the task.</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">code list</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">#task-status</Data></Cell>
     <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s120"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TaskStatusReason</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Codes to identify the reason for current status.  These will typically be specific to a particular workflow.</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">unbound</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"/>
