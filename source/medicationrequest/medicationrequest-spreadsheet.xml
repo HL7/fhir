@@ -907,6 +907,11 @@
   <Style ss:ID="s168">
    <Font ss:FontName="Verdana" ss:Size="12" ss:Color="#333333"/>
   </Style>
+  <Style ss:ID="s169">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -2319,7 +2324,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">Links to Provenance records for past versions of this resource or fulfilling request or event resources that identify key state transitions or updates that are likely to be relevant to a user looking at the current version of the resource.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">See usage notes in Request pattern in request history</Data><NamedCell
+    <Cell ss:StyleID="s169"><Data ss:Type="String">This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">.inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]</Data><NamedCell
@@ -4049,7 +4054,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>31</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4066,7 +4071,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>34</ActiveRow>
+     <ActiveCol>16</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4649,39 +4655,39 @@
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C3,R2C5:R2C7</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048555]C1=&quot;&quot;,Invariants!R[1048555]C&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048554]C1=&quot;&quot;,Invariants!R[1048554]C&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C2,R2C7,R2C5</Range>
    <Condition>
-    <Value1>(Invariants!R[1048555]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048555]C[16363]&lt;&gt;&quot;&quot;)</Value1>
+    <Value1>(Invariants!R[1048554]C1&lt;&gt;&quot;&quot;)&lt;&gt;(Invariants!R[1048554]C[16362]&lt;&gt;&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1:R2C7</Range>
    <Condition>
-    <Value1>LEFT(Invariants!R[1048555]C1,1)=&quot;!&quot;</Value1>
+    <Value1>LEFT(Invariants!R[1048554]C1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C4</Range>
    <Condition>
-    <Value1>Invariants!R[1048555]C3=&quot;0..0&quot;</Value1>
+    <Value1>Invariants!R[1048554]C3=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
    </Condition>
    <Condition>
-    <Value1>AND(Invariants!R[1048555]C[16321]&lt;&gt;&quot;&quot;,Invariants!R[1048555]C1=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048554]C[16318]&lt;&gt;&quot;&quot;,Invariants!R[1048554]C1=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
    <Range>R2C1,R2C4</Range>
    <Condition>
-    <Value1>AND(Invariants!R[1048555]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
+    <Value1>AND(Invariants!R[1048554]C&lt;&gt;&quot;&quot;,Invariants!#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
@@ -7964,6 +7970,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8677,6 +8684,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
   <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
@@ -8794,6 +8802,7 @@
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
+   <x:Print>    </x:Print>
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="medication-request-priority">
@@ -8880,6 +8889,7 @@
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
+   <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>
    <x:Print>    </x:Print>

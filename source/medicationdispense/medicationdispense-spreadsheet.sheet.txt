@@ -470,7 +470,7 @@
   Type = Reference(Provenance)
   Short Name = A list of events of interest in the lifecycle
   Definition = A summary of the events of interest that have occurred, such as when the dispense was verified.
-  Comments = See usage notes in Request pattern in request history
+  Comments = This may not include provenances for all versions of the request – only those deemed “relevant” or important. This SHALL NOT include the Provenance associated with this current version of the resource. (If that provenance is deemed to be a “relevant” change, it will need to be added as part of a later update. Until then, it can be queried directly as the Provenance that points to this version using _revinclude All Provenances should have some historical version of this Request as their subject.
   RIM Mapping = .inboundRelationship(typeCode=SUBJ].source[classCode=CACT, moodCode=EVN]
 
 === Sheet Search =====================================
