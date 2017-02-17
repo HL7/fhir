@@ -6,18 +6,40 @@
   </meta>
   <name value="Consent Category Codes"/>
   <status value="draft"/>
-  <publisher value="CBCC"/>
+  <publisher value="FHIR Project (CBCC)"/>
   <contact>
     <telecom>
       <system value="url"/>
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <description value="This value set includes sample Consent Category codes."/>
-  <copyright value="This is an example set."/>
+  <description value="This value set includes sample Consent Directive Type codes, including several consent directive related LOINC codes; HL7 VALUE SET: ActConsentType(2.16.840.1.113883.1.11.19897); examples of US realm consent directive legal descriptions and references to online and/or downloadable forms such as the SSA-827 Authorization to Disclose Information to the Social Security Administration; and other anticipated consent directives related to participation in a clinical trial, medical procedures, reproductive procedures; health care directive (Living Will); advance directive, do not resuscitate (DNR); Physician Orders for Life-Sustaining Treatment (POLST)"/>
+  <copyright value="This value set includes content from LOINC® which is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use"/>  
   <compose>
     <include>
       <system value="http://hl7.org/fhir/consentcategorycodes"/>
+    </include>
+    <include>
+      <valueSet value="http://hl7.org/fhir/ValueSet/v3-ActConsentType"/>
+    </include>
+    <include>
+      <system value="http://loinc.org"/>
+      <concept>
+        <code value="59284-0"/>
+        <display value="Patient Consent "/>
+      </concept>
+      <concept>
+        <code value="57016-8"/>
+        <display value="Privacy policy acknowledgement Document"/>
+      </concept>
+      <concept>
+        <code value="57017-6"/>
+        <display value="Privacy policy Organization Document "/>
+      </concept>
+      <concept>
+        <code value="64292-6"/>
+        <display value="Release of information consent "/>
+      </concept>
     </include>
   </compose>
 </ValueSet>

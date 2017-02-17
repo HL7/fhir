@@ -361,17 +361,16 @@
   Comments = See also the extension (http://hl7.org/fhir/StructureDefinition/elementdefinition-question)[extension-elementdefinition-question.html]
   RIM Mapping = ./code/display
   11179 Mapping = n/a
-  Translatable = y
 
  -- Row 6 -----------------------------------
   Element = ElementDefinition.code
   Card. = 0..*
   Type = Coding
   Binding = ElementDefinitionCode
-  Short Name = Defining code
-  Definition = A code that provides the meaning for the element according to a particular terminology.
-  Requirements = Links the meaning of an element to an external terminology
-  Comments = The data element definition and other constraints SHALL be a proper constraint on the meaning (as defined in the code system, including relationships) of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself.
+  Short Name = Corresponding codes in terminologies
+  Definition = A code that has the same meaning as the element in a particular terminology.
+  Requirements = Links the meaning of an element to an external terminology, and is very useful for searching and indexing
+  Comments = The concept SHALL be properly aligned with the data element definition and other constraints, as defined in the code system, including relationships, of any code listed here.  Where multiple codes exist in a terminology that could correspond to the data element, the most granular code(s) should be selected, so long as they are not more restrictive than the data element itself. The mappings may be used to provide more or less granular or structured equivalences in the code system
   v2 Mapping = OM1.7
   RIM Mapping = ./code (root or translation)
   11179 Mapping = (Data_Element).data_element_concept.identifier
@@ -423,7 +422,6 @@
   Definition = A human-readable text description of how the slicing works. If there is no discriminator, this is required to be present to provide whatever information is possible about how the slices can be differentiated
   Comments = If it\'s really not possible to differentiate them, the design should be re-evaluated to make the content usable.
   RIM Mapping = N/A
-  Translatable = y
 
  -- Row 12 -----------------------------------
   Element = ElementDefinition.slicing.ordered
@@ -456,7 +454,6 @@
   Comments = May change the term to provide language more appropriate to the context of the profile or to reflect slicing
   RIM Mapping = N/A
   11179 Mapping = N/A
-  Translatable = y
 
  -- Row 15 -----------------------------------
   Element = ElementDefinition.definition
@@ -471,7 +468,6 @@
   RIM Mapping = ./text
   11179 Mapping = (Designatable_Item).definition.text  acceptability=preferred in default context
   LOINC Code = TERM DEFINITION/DESCRIPTION(S)
-  Translatable = y
 
  -- Row 16 -----------------------------------
   Element = ElementDefinition.comments
@@ -484,7 +480,6 @@
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Administered_Item).explanatory_comment
   LOINC Code = COMMENTS
-  Translatable = y
 
  -- Row 17 -----------------------------------
   Element = ElementDefinition.requirements
@@ -496,7 +491,6 @@
   RIM Mapping = ./inboundRelationship[typeCode=META]/source[classCode=ACT, moodCode=EVN, isCriterionInd=true]/reasonCode/originalText
   11179 Mapping = (Registered_item).document_reference[document_type=requirements].notation
   LOINC Code = R/O/C
-  Translatable = y
 
  -- Row 18 -----------------------------------
   Element = ElementDefinition.alias
@@ -510,7 +504,6 @@
   RIM Mapping = Not currently expressible
   11179 Mapping = (Designatable_Item).designation.sign  acceptability!=preferred or context is other than default
   LOINC Code = RELATED NAMES (only some of these apply)
-  Translatable = y
 
  -- Row 19 -----------------------------------
   Element = ElementDefinition.min
@@ -677,7 +670,6 @@
   Definition = The Implicit meaning that is to be understood when this element is missing (e.g. \'when this element is missing, the period is ongoing\'
   Comments = Implicit meanings for missing values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. An implicit meaning for a missing value can never be changed, and specifying one has the consequence that constraining its use in profiles eliminates use cases as possibilities, not merely moving them out of scope
   RIM Mapping = N/A (MIF territory)
-  Translatable = y
 
  -- Row 35 -----------------------------------
   Element = ElementDefinition.orderMeaning
@@ -724,7 +716,6 @@
   Short Name = Describes the purpose of this example
   Definition = Describes the purpose of this example amoung the set of examples
   RIM Mapping = N/A (MIF territory)
-  Translatable = y
 
  -- Row 40 -----------------------------------
   Element = ElementDefinition.example.value[x]
@@ -813,7 +804,6 @@
   Short Name = Human description of constraint
   Definition = Text that can be used to describe the constraint in messages identifying that the constraint has been violated
   Comments = Should be expressed in business terms as much as possible
-  Translatable = y
 
  -- Row 50 -----------------------------------
   Element = ElementDefinition.constraint.expression
@@ -909,7 +899,6 @@
   Definition = Describes the intended use of this particular set of codes
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.description
-  Translatable = y
 
  -- Row 59 -----------------------------------
   Element = ElementDefinition.binding.valueSet[x]
