@@ -72,6 +72,7 @@ import org.hl7.fhir.dstu3.model.DataElement.DataElementStringency;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.AggregationMode;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
+import org.hl7.fhir.dstu3.model.ElementDefinition.DiscriminatorType;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBaseComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionConstraintComponent;
@@ -1223,6 +1224,9 @@ public class ProfileGenerator {
       }
     }
 
+    if (Utilities.existsInList(ce.getPath(), "Element.extension", "DomainResource.extension", "DomainResource.modifierExtension") && !ce.hasSlicing() && !ce.hasSliceName()) {
+      ce.getSlicing().setDescription("Extensions are always sliced by (at least) url").setRules(SlicingRules.OPEN).addDiscriminator().setType(DiscriminatorType.VALUE).setPath("url");
+    }
     if (!Utilities.noString(inheritedType) && snapshot != SnapShotMode.None) {
       ElementDefn inh = definitions.getElementDefn(inheritedType);
       buildDefinitionFromElement(path, ce, inh, ap, p, inheritedType);
@@ -1747,6 +1751,7 @@ public class ProfileGenerator {
               if (child.getElements().size() == 0 || !child.getElements().get(0).getName().equals("url")) {
                 ElementDefn childUrl = new ElementDefn();
                 childUrl.setName("url");
+                childUrl.setXmlAttribute(true);
                 childUrl.getTypes().add(new TypeRef("uri"));
                 childUrl.setFixed(new UriType(child.getName()));
                 child.getElements().add(0, childUrl);
