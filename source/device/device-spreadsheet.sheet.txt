@@ -34,8 +34,8 @@
 
  -- Row 5 -----------------------------------
   Binding Name = DeviceSafety
-  Binding = code list
-  Reference = #device-safety
+  Binding = value set
+  Reference = valueset-device-safety
   Definition = Codes used to identify medical devices safety characterics. These codes are derived in part from the [United States Food and Drug Administration recommendations](http://www.fda.gov/downloads/medicaldevices/deviceregulationandguidance/guidancedocuments/ucm107708.pdf) and are provided here as a suggestive example.
   Conformance = example
 
@@ -102,50 +102,6 @@
   Code = unknown
   Display = Unknown
   Definition = The method of data capture has not been determined
-
-=== Sheet device-safety =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = contains-latex
-  Display = Contains Latex
-  Definition = Indicates that the device or packaging contains natural rubber that contacts humans
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = latex-free
-  Display = Latex Free
-  Definition = Indicates that natural rubber latex was not used as materials in the manufacture of the medical product and container and the device labeling contains this information.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = latex-unknown
-  Display = Latex Unknown
-  Definition = Indicates that whether the device or packaging contains natural rubber that contacts humans is not indicated on the label Not all medical products that are NOT made with natural rubber latex will be marked
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = mr-safe
-  Display = MR Safe
-  Definition = The device, when used in the MRI environment, has been demonstrated to present no additional risk to the patient or other individual, but may affect the quality of the diagnostic information. The MRI conditions in which the device was tested should be specified in conjunction with the term MR safe since a device which is safe under one set of conditions may not be found to be so under more extreme MRI conditions.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = mr-unsafe
-  Display = MR Unsafe
-  Definition = An item that is known to pose hazards in all MRI environments. MR Unsafe items include magnetic items such as a pair of ferromagnetic scissors.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = mr-conditional
-  Display = MR Conditional
-  Definition = An item that has been demonstrated to pose no known hazards in a specified MRI environment with specified conditions of use. Field conditions that define the MRI environment include, for instance, static magnetic field or specific absorption rate (SAR).
-
- -- Row 7 -----------------------------------
-  Id = 7
-  Code = mr-unknown
-  Display = MR Unknown
-  Definition = Labeling does not contain MRI Safety information
 
 === Sheet Invariants =====================================
 
