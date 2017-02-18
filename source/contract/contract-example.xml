@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
-  <id value="C-123"/>
+<Contract xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://hl7.org/fhir ../../schema/coverage.xsd">
+   <id value="C-123"/>
 
-  <text>
-    <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the contract</div>
-  </text>
-<!--
+   <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the contract</div>
+   </text>
+   
+   <identifier>
+      <system value="http://happyvalley.com/contract"/>
+      <value value="12347"/>
+   </identifier>
+   
+   <!--
   <issued value="2014-08-17"/>
  
   <subject>
@@ -26,5 +33,5 @@
 	   <code value="disclosure-US"/>
 	 </coding>
   </subtype>
- --> 
+ -->
 </Contract>

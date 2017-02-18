@@ -60,7 +60,7 @@
  -- Row 9 -----------------------------------
   Binding Name = ContractStatus
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/fm-status
+  Reference = valueset-contract-status
   Definition = A code specifying the state of the resource instance.
   Conformance = required
 
@@ -72,7 +72,7 @@
   Element = Contract
   UML = 220;0
   Type = DomainResource
-  Short Name = Contract
+  Short Name = Legal Agreement
   Definition = A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
   RIM Mapping = FinancialContract
   w5 = financial.other
@@ -82,7 +82,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Contract identifier
+  Short Name = Contract number
   Definition = Unique identifier for this Contract.
   RIM Mapping = FinancialContract id
 
@@ -94,7 +94,7 @@
   UML = status
   Type = code
   Binding = ContractStatus
-  Short Name = active | cancelled | draft | entered-in-error
+  Short Name = amended | appended | cancelled | disputed | entered-in-error | executable | executed | negotiable | offered | policy | rejected | renewed | revoked | resolved | terminated
   Definition = The status of the resource instance.
 
  -- Row 4 -----------------------------------
@@ -124,7 +124,7 @@
   Short Name = Contract Target Entity
   Definition = The target entity impacted by or of interest to parties to the agreement.
   Requirements = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason.  In many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
-  Comments = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. \nIn many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
+  Comments = The Contract.subject is an entity that has some role with respect to the Contract.topic and Contract.topic.term, which is of focal interest to the parties to the contract and likely impacted in a significant way by the Contract.action/Contract.action.reason and the Contract.term.action/Contract.action.reason. \rIn many cases, the Contract.subject is a Contract.signer if the subject is an adult; has a legal interest in the contract; and incompetent to participate in the contract agreement.
   RIM Mapping = Role
 
  -- Row 7 -----------------------------------
@@ -134,8 +134,8 @@
   Type = Reference(Any)
   Short Name = Context of the Contract
   Definition = The matter of concern in the context of this agreement.
-  Requirements = In the context of a contract, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the contract. \nGiven the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. \nThe same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. \nOne way to determine the Contract.topic is to answer the question: “What is the object of negotiation?”\nAnswer: The Contract.topic, which may be described with more detail in the [0..*]Contract.valuedItem @ [0..1] Contract.valuedItem.entity[x] Definition: Specific type of Contract Valued Item that may be priced. CodeableConcept|Reference(Any)\nContract.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. \nContract.topic is “the what” to which any Contract.action is being applied for any stipulated Contract.action.reason. \nAContract.topic is “the what” governed by the execution of the contract to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.
-  Comments = The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. \nThe Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. \nHowever, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.\nIf the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
+  Requirements = In the context of a contract, the topic is the matter under consideration in regards to which specific rights, privileges, obligations, restrictions, and prohibitions are binding on any grantor and grantee parties upon the execution of the contract. \rGiven the wide range of contract topics, implementers need to be cognizant of the business use case for which they are designing a FHIR Contract, and narrowly specify the topic being represented with respect to the Contract.type and any specializing Contract.subtype. \rThe same topic, e.g., an asset such as a good or service, such as a real property, medical supply, insurance, information, a procedure or employment, or a manner of conduct, such adherence to a privacy, trust, or security policy, may be the topic of multiple types of contracts. \rOne way to determine the Contract.topic is to answer the question: “What is the object of negotiation?”\rAnswer: The Contract.topic, which may be described with more detail in the [0..*]Contract.valuedItem @ [0..1] Contract.valuedItem.entity[x] Definition: Specific type of Contract Valued Item that may be priced. CodeableConcept|Reference(Any)\rContract.topic is “the what” that a grantor is exchanging with a grantee in return for some benefit. \rContract.topic is “the what” to which any Contract.action is being applied for any stipulated Contract.action.reason. \rAContract.topic is “the what” governed by the execution of the contract to which any party’s rights, privileges, obligations, restrictions, and prohibitions apply.
+  Comments = The Contract.topic may be an application for or offer of a policy or service (e.g., uri to a consent directive form or a health insurance policy), which becomes the Contract once accepted by both the grantor and grantee. \rThe Contract Resource may function simply as the computable representation of the executed contract, which may be the attached to the Contract Resource as the “binding” or as the “friendly” electronic form.  For example, a Contract Resource may be automatically populated with the values expressed in a related QuestionnaireResponse. \rHowever, the Contract Resource may be considered the legally binding contract if it is the only “executed” form of this contract, and includes the signatures as *The Contract Resource may function as the computable representation of an application or offer in a pre-executed Contract if the grantor has not entered any values.  In this case, it is populated with values in a “legal” form of the application or offer or by the values in an associated Questionnaire.  If the grantor has filled in the legal form or the associated Questionnaire Response, then these values are used to populate a pre-executed Contract Resource.\rIf the Contract.topic is considered an application or offer, then the policy is often required to be attached as the “legal” basis for the application to ensure “informed consent” to the contract, and that any discrepancy between the application and the policy are interpreted against the policy.  Implementers should check organizational and jurisdictional policies to determine the relationship among multiple representations of a contract pre- and post-execution.
   RIM Mapping = Role
 
  -- Row 8 -----------------------------------
@@ -160,7 +160,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ContractType
-  Short Name = Contract Type
+  Short Name = Type or form
   Definition = Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.
   RIM Mapping = CNTRCT
 
@@ -170,7 +170,7 @@
   Summary = Y
   Type = CodeableConcept
   Binding = ContractSubtype
-  Short Name = Contract Subtype
+  Short Name = Subtype within the context of type
   Definition = More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.
   RIM Mapping = e.g. RECOV
 
@@ -200,7 +200,7 @@
   Short Name = Entity being ascribed responsibility
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
-  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\rFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
  -- Row 15 -----------------------------------
   Element = Contract.agent.actor
@@ -222,17 +222,17 @@
   Card. = 0..*
   UML = 530;260
   Type = =Signatory
-  Short Name = Contract Signer
+  Short Name = Contract Signatory
   Definition = Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
   Requirements = The Contract.signer applies a signature to the Contract.binding referenced resource, which is the documentation that is the legal \"source of truth\". The Contract.signer may delegate, such as a legally recognized personal representative, or have a delegate assigned e.g., by a court of law, to actually sign the Contract, such as a trustee in the case of incompetence.
-  Comments = Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.\nFor example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
+  Comments = Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.\rFor example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
 
  -- Row 18 -----------------------------------
   Element = Contract.signer.type
   Card. = 1..1
   Type = Coding
   Binding = ContractSignerType
-  Short Name = Contract Signer Type
+  Short Name = Contract Signatory Role
   Definition = Role of this Contract signer, e.g. notary, grantee.
 
  -- Row 19 -----------------------------------
@@ -254,7 +254,7 @@
   Card. = 0..*
   UML = 530;80
   Type = =ValuedItem
-  Short Name = Contract Valued Item
+  Short Name = Contract Valued Item List
   Definition = Contract Valued Item List
   RIM Mapping = COCT_RM440000UV09 ValuedItem classCode INVE
 
@@ -270,7 +270,7 @@
   Element = Contract.valuedItem.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = Contract Valued Item Identifier
+  Short Name = Contract Valued Item Number
   Definition = Identifies a Contract Valued Item instance.
   RIM Mapping = COCT_RM440000UV09 ValuedItem id
 
@@ -335,7 +335,7 @@
   Card. = 0..1
   Summary = Y
   Type = Identifier
-  Short Name = Contract Term identifier
+  Short Name = Contract Term Number
   Definition = Unique identifier for this particular Contract Provision.
 
  -- Row 32 -----------------------------------
@@ -359,7 +359,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ContractTermType
-  Short Name = Contract Term Type
+  Short Name = Contract Term Type or Form
   Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
  -- Row 35 -----------------------------------
@@ -367,7 +367,7 @@
   Card. = 0..1
   Type = CodeableConcept
   Binding = ContractTermSubType
-  Short Name = Contract Term Subtype
+  Short Name = Contract Term Type specific classification
   Definition = Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
 
  -- Row 36 -----------------------------------
@@ -377,7 +377,7 @@
   Type = Reference(Any)
   Short Name = Context of the Contract term
   Definition = The matter of concern in the context of this provision of the agrement.
-  Requirements = A contract term topic is typically about a portion of the contract topic which has additional or specialized rights, privileges, obligations, restrictions, and prohibitions that are binding on any grantor and grantee parties upon the execution of the contract. \nContract.term.topic may be described in more detail in the [0..*] Contract.term.valuedItem @[0..1] Contract.term.valuedItem [x] Definition: Specific type of Contract Provision Valued Item that may be priced. CodeableConcept|Reference(Any) [See Contract.topic Requirements for further elaboration on this requirement.]
+  Requirements = A contract term topic is typically about a portion of the contract topic which has additional or specialized rights, privileges, obligations, restrictions, and prohibitions that are binding on any grantor and grantee parties upon the execution of the contract. \rContract.term.topic may be described in more detail in the [0..*] Contract.term.valuedItem @[0..1] Contract.term.valuedItem [x] Definition: Specific type of Contract Provision Valued Item that may be priced. CodeableConcept|Reference(Any) [See Contract.topic Requirements for further elaboration on this requirement.]
   Comments = The Contract.term.topic, as a Contract Resource subpart, is handled in the same manner as the Contract Resource as discussed above.
   RIM Mapping = Role
 
@@ -393,7 +393,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractAction
-  Short Name = Contract Term Action
+  Short Name = Contract Term Activity
   Definition = Action stipulated by this Contract Provision.
 
  -- Row 39 -----------------------------------
@@ -401,7 +401,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractActionReason
-  Short Name = Contract Term Action Reason
+  Short Name = Purpose for the Contract Term Action
   Definition = Reason or purpose for the action stipulated by this Contract Provision.
 
  -- Row 40 -----------------------------------
@@ -412,13 +412,13 @@
   Short Name = Contract Term Agent List
   Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
-  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\rFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
  -- Row 41 -----------------------------------
   Element = Contract.term.agent.actor
   Card. = 1..1
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
-  Short Name = Contract Term Agent List
+  Short Name = Contract Term Agent Subject
   Definition = The agent assigned a role in this Contract Provision.
 
  -- Row 42 -----------------------------------
@@ -426,7 +426,7 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = ContractActorRole
-  Short Name = Contract Term Agent Role
+  Short Name = Type of the Contract Term Agent
   Definition = Role played by the agent assigned this role in the execution of this Contract Provision.
 
  -- Row 43 -----------------------------------
@@ -441,7 +441,7 @@
   Card. = 0..*
   UML = -20;460
   Type = =TermValuedItem
-  Short Name = Contract Term Valued Item
+  Short Name = Contract Term Valued Item List
   Definition = Contract Provision Valued Item List
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem classCode INVE
 
@@ -457,7 +457,7 @@
   Element = Contract.term.valuedItem.identifier
   Card. = 0..1
   Type = Identifier
-  Short Name = Contract Term Valued Item Identifier
+  Short Name = Contract Term Valued Item Number
   Definition = Identifies a Contract Provision Valued Item instance.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem id
 
@@ -598,7 +598,7 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = topic
+  Name = !topic
   Type = reference
   Description = The identity of the topic of the contract
   Path = Contract.topic
