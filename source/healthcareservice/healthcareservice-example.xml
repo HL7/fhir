@@ -20,21 +20,29 @@
 			</physicalType>
 		</Location>
 	</contained>
+  <identifier>
+    <system value="http://example.org/shared-ids"/>
+    <value value="HS-12" />
+  </identifier>
 	<active value="true"/>
-	<serviceType>
+  <providedBy>
+    <reference value="Organization/f001"/>
+    <display value="Burgers University Medical Center"/>
+  </providedBy>
+	<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="394913002"/>
 				<display value="Psychotherapy"/>
 			</coding>
-	</serviceType>
-	<serviceType>
+	</type>
+	<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="394587001"/>
 				<display value="Psychiatry"/>
 			</coding>
-	</serviceType>
+	</type>
 		<specialty>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -45,7 +53,7 @@
 	<location>
 		<reference value="Location/1"/>
 	</location>
-	<serviceName value="Consulting psychologists and/or psychology services"/>
+	<name value="Consulting psychologists and/or psychology services"/>
 	<comment value="Providing Specialist psychology services to the greater Den Burg area, many years of experience dealing with PTSD issues" />
 	<extraDetails value="Several assessments are required for these specialist services, and the waiting times can be greater than 3 months at times. Existing patients are prioritized when requesting appointments on the schedule."/>
 	<telecom>
@@ -98,12 +106,15 @@
 			<display value="Secure Email" />
 		</coding>
 	</referralMethod>
-	<publicKey value="*** Base64 public key goes here to be used for secure messaging ***"/>
 	<appointmentRequired value="false"/>
+	<availableTime>
+    <!-- This is a 24 hour service on wednesdays (due to weekly local service needs) -->
+		<daysOfWeek value="wed" />
+    <allDay value="true"/>
+	</availableTime>
 	<availableTime>
 		<daysOfWeek value="mon" />
 		<daysOfWeek value="tue" />
-		<daysOfWeek value="wed" />
 		<daysOfWeek value="thu" />
 		<daysOfWeek value="fri" />
 		<availableStartTime value="08:30:00"/>
@@ -130,4 +141,8 @@
 		</during>
 	</notAvailable>
 	<availabilityExceptions value="Reduced capacity is available during the Christmas period"/>
+  <endpoint>
+    <!--   Endpoint that handles the v2 messaging for the external organization   -->
+    <reference value="Endpoint/example"/>
+  </endpoint>
 </HealthcareService>

@@ -196,8 +196,9 @@
   Committee Notes = Most questions on this resource have been about who is the organization that provides this service. So the inclusion of this property removes this ambiguity (especially with the removal of locations on the Organization)
 
  -- Row 5 -----------------------------------
-  Element = HealthcareService.serviceCategory
+  Element = HealthcareService.category
   Card. = 0..1
+  Aliases = service category
   Summary = Y
   Type = CodeableConcept
   Binding = service-category
@@ -218,8 +219,9 @@
   RIM Mapping = .actrelationship[typeCode=COMP.act[classCode=ACT][moodCode=DEF].code
 
  -- Row 7 -----------------------------------
-  Element = HealthcareService.serviceType
+  Element = HealthcareService.type
   Card. = 0..*
+  Aliases = service type
   Summary = Y
   Type = CodeableConcept
   Binding = service-type
@@ -248,7 +250,7 @@
   w5 = where
 
  -- Row 10 -----------------------------------
-  Element = HealthcareService.serviceName
+  Element = HealthcareService.name
   Card. = 0..1
   Summary = Y
   Type = string
@@ -358,13 +360,14 @@
   RIM Mapping = .actrelationship[typeCode=PERT].observation
 
  -- Row 22 -----------------------------------
-  Element = HealthcareService.publicKey
+  Element = !HealthcareService.publicKey
   Card. = 0..1
   Type = string
   Short Name = PKI Public keys to support secure communications
   Definition = The public part of the \'keys\' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available
   Comments = Note: This is a base64 encoded digital certificate.
   RIM Mapping = .certificateText
+  Committee Notes = The Public Key has been commented out and left for extensions in STU3, to be consistent with the Endpoint resource that also had this property.
 
  -- Row 23 -----------------------------------
   Element = HealthcareService.appointmentRequired
@@ -507,16 +510,16 @@
   Path = HealthcareService.identifier
 
  -- Row 2 -----------------------------------
-  Name = servicecategory
+  Name = category
   Type = token
   Description = Service Category of the Healthcare Service
-  Path = HealthcareService.serviceCategory
+  Path = HealthcareService.category
 
  -- Row 3 -----------------------------------
-  Name = servicetype
+  Name = type
   Type = token
   Description = The type of service provided by this healthcare service
-  Path = HealthcareService.serviceType
+  Path = HealthcareService.type
 
  -- Row 4 -----------------------------------
   Name = !availability
@@ -528,7 +531,7 @@
   Name = name
   Type = string
   Description = A portion of the Healthcare service name
-  Path = HealthcareService.serviceName
+  Path = HealthcareService.name
 
  -- Row 6 -----------------------------------
   Name = location
