@@ -29,6 +29,14 @@
     <reference value="Organization/f001"/>
     <display value="Burgers University Medical Center"/>
   </providedBy>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/service-category"/>
+      <code value="8"/>
+      <display value="Counselling"/>
+    </coding>
+    <text value="Counselling"/>
+  </category>
 	<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -70,6 +78,13 @@
 		<reference value="#DenBurg"/>
 		<display value="Greater Denburg area" />
 	</coverageArea>
+  <serviceProvisionCode>
+    <coding>
+      <system value="http://hl7.org/fhir/service-provision-conditions"/>
+      <code value="cost"/>
+      <display value="Fees apply" />
+    </coding>
+  </serviceProvisionCode>
 	<eligibility>
 		<coding>
 			<display value="DVA Required"/>

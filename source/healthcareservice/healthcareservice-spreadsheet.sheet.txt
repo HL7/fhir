@@ -312,6 +312,7 @@
   Definition = The code(s) that detail the conditions under which the healthcare service is available/offered
   Comments = The provision means being commissioned by, contractually obliged or financially sourced. Types of costings that may apply to this healthcare service, such if the service may be available for free, some discounts available, or fees apply.
   RIM Mapping = .actrelationship[typeCode=PRCN].observation[moodCode=EVN.CRT]
+  Committee Notes = The name \"Service Provision Code\" is how this is known and should be permitted to have the name overlap (Provision Code doesn\'t have the same meaning) - This was the same in Australia and the UK
 
  -- Row 17 -----------------------------------
   Element = HealthcareService.eligibility

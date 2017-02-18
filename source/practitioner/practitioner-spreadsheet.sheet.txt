@@ -18,7 +18,7 @@
  -- Row 3 -----------------------------------
   Binding Name = Qualification
   Binding = value set
-  Reference = valueset-anzsco-occupations
+  Reference = http://hl7.org/fhir/ValueSet/v2-2.7-0360
   Definition = Specific qualification the practitioner has to provide a service
   Conformance = example
 

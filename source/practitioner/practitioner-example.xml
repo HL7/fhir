@@ -34,6 +34,11 @@
 			<value value="12345"/>
 		</identifier>
 		<code>
+      <coding>
+        <system value="http://hl7.org/fhir/v2/0360/2.7"/>
+        <code value="BS"/>
+        <display value="Bachelor of Science"/>
+      </coding>
 			<text value="Bachelor of Science"/>
 		</code>
 		<period>
