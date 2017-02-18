@@ -770,12 +770,12 @@
   <useContext>
     <code>
       <system value="http://hl7.org/fhir/usage-context-type"/>
-      <code value="gender"/>
+      <code value="age"/>
     </code>
     <valueCodeableConcept>
       <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="133936004"/>
+        <system value="https://meshb.nlm.nih.gov"/>
+        <code value="D000328"/>
         <display value="Adult"/>
       </coding>
     </valueCodeableConcept>
