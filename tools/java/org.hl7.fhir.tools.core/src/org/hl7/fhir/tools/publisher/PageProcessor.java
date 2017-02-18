@@ -747,6 +747,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
         src = s1+profileHeader(((StructureDefinition) resource).getId().toLowerCase(), com[1], hasExamples((StructureDefinition) resource, ig))+s3;
       } else if (com[0].equals("resource-table")) {
         src = s1+genResourceTable(definitions.getResourceByName(com[1]), genlevel(level))+s3;
+      } else if (com[0].equals("dtextras")) {
+        src = s1+produceDataTypeExtras(com[1])+s3;
       } else if (com[0].equals("extension-diff")) {
         StructureDefinition ed = workerContext.getExtensionDefinitions().get(com[1]);
         src = s1+generateExtensionTable(ed, "extension-"+com[1], "false", genlevel(level))+s3;
@@ -3096,6 +3098,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     b.append(makeHeaderTab("Examples", "datatypes-examples.html", mode==null || "examples".equals(mode)));
     b.append(makeHeaderTab("Detailed Descriptions", "datatypes-definitions.html", mode==null || "definitions".equals(mode)));
     b.append(makeHeaderTab("Mappings", "datatypes-mappings.html", mode==null || "mappings".equals(mode)));
+    b.append(makeHeaderTab("Profiles and Extensions", "datatypes-extras.html", mode==null || "extras".equals(mode)));
     b.append(makeHeaderTab("R2 Conversions", "datatypes-version-maps.html", mode==null || "conversions".equals(mode)));
     b.append("</ul>\r\n");
     return b.toString();
@@ -4572,6 +4575,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
           src = s1+igRegistryList(com[1], com[2])+s3;        
       } else if (com[0].equals("ig.registry")) {
         src = s1+buildIgRegistry(ig, com[1])+s3;
+      } else if (com[0].equals("dtextras")) {
+        src = s1+produceDataTypeExtras(com[1])+s3;
       } else if (com[0].equals("resource-table")) {
         src = s1+genResourceTable(definitions.getResourceByName(com[1]), genlevel(level))+s3;
       } else if (com[0].equals("profile-diff")) {
@@ -5837,6 +5842,83 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
     
     return b.toString();
   }
+
+  private String produceDataTypeExtras(String tn) {
+    int count = 0;
+    Map<String, StructureDefinition> map = new HashMap<String, StructureDefinition>();
+    for (StructureDefinition sd : workerContext.getExtensionDefinitions().values()) {
+      if (sd.getContextType() == ExtensionContext.DATATYPE) {
+        boolean inc = false;
+        for (StringType s : sd.getContext()) {
+          inc = inc || matchesType(tn, s.getValue());
+        }
+        if (inc)
+          map.put(sd.getId(), sd);
+      }
+    }
+    
+    StringBuilder b = new StringBuilder();
+    b.append("  <tr><td colspan=\"3\"><b>Extensions</b></td></tr>\r\n");
+    for (String s : sorted(map.keySet())) {
+      StructureDefinition cs = map.get(s);
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = cs.getUserString("path");
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.getId())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.getName())).append("</td>\r\n");
+      Profile ap = (Profile) cs.getUserData("profile");
+      if (ap == null)
+        b.append("    <td></td>\r\n");
+      else {
+        ImplementationGuideDefn ig = definitions.getIgs().get(ap.getCategory());
+        b.append("    <td>for <a href=\""+ig.getPrefix()+ ap.getId()+".html\">"+Utilities.escapeXml(ap.getTitle())+"</a></td>\r\n");
+      }
+      b.append(" </tr>\r\n");
+    }
+    if (count == 0)
+      b.append("<tr><td>No Extensions defined for "+(tn.equals("primitives")? "primitive types" : "this type")+"</td></tr>");
+    
+    count = 0;
+    Map<String, CSPair> pmap = new HashMap<String, CSPair>();
+    for (Profile ap: definitions.getPackList()) {
+      for (ConstraintStructure cs : ap.getProfiles()) {
+        if (coversType(cs, tn))
+          pmap.put(cs.getTitle(), new CSPair(ap, cs));
+      }
+    }
+    
+    b.append("  <tr><td colspan=\"3\"><b>Profiles</b></td></tr>\r\n");
+    for (String s : sorted(pmap.keySet())) {
+      CSPair cs = pmap.get(s);
+      ImplementationGuideDefn ig = definitions.getIgs().get(cs.p.getCategory());
+      count++;
+      b.append("  <tr>\r\n");
+      String ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.cs.getId()+".html";
+      b.append("    <td><a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.cs.getTitle())).append("</a></td>\r\n");
+      b.append("    <td>").append(Utilities.escapeXml(cs.p.getDescription())).append("</td>\r\n");
+      ref = (ig.isCore() ? "" : ig.getCode()+File.separator)+cs.p.getId().toLowerCase()+".html";
+      b.append("    <td>for <a href=\"").append(ref).append("\">").append(Utilities.escapeXml(cs.p.getTitle())).append("</a></td>\r\n");
+      b.append(" </tr>\r\n");
+    }
+    if (count == 0)
+      b.append("<tr><td>No Profiles defined for for "+(tn.equals("primitives")? "primitive types" : "this type")+"</td></tr>");
+    return b.toString();
+  }
+
+  private boolean matchesType(String tn, String context) {
+    if (tn.equals("primitives")) {
+      for (String n : definitions.getPrimitives().keySet())
+        if (context.equals(n) || context.startsWith(n+"."))
+          return true;
+      return false;
+    } else
+      return context.equals(tn) || context.startsWith(tn+".");
+  }
+
+  private boolean coversType(ConstraintStructure item, String tn) {
+    return matchesType(tn, item.getResource().getType());
+}
+
 
   private String produceSearchExtensions(ResourceDefn resource) {
     int count = 0;

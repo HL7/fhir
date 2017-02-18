@@ -1,0 +1,30 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/jurisdiction",
+  "outcomes": [
+    {
+      "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|840|United States of America",
+      "severity": "error",
+      "message": "not done yet"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
+      "severity": "error",
+      "message": "not done yet"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
+      "severity": "error",
+      "message": "not done yet"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
+      "severity": "error",
+      "message": "not done yet"
+    },
+    {
+      "hash": "#|urn:iso:std:iso:3166|null|US|null",
+      "severity": "error",
+      "message": "not done yet"
+    }
+  ]
+}
