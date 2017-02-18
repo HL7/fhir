@@ -259,7 +259,7 @@
 
  -- Row 8 -----------------------------------
   Element = Appointment.reason
-  Card. = 0..1
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = ApptReason
@@ -269,6 +269,13 @@
   RIM Mapping = (encounter appointment).reason
 
  -- Row 9 -----------------------------------
+  Element = Appointment.indication
+  Card. = 0..*
+  Type = Reference(Condition|Procedure)
+  Short Name = Reason the appointment is to takes place (resource)
+  Definition = Reason the appointment has been scheduled to take place, as specified using information from another resource. When the patient arrives and the encounter begins it may be used as the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure
+
+ -- Row 10 -----------------------------------
   Element = Appointment.priority
   Card. = 0..1
   Type = unsignedInt
@@ -280,7 +287,7 @@
   iCal Mapping = PRIORITY
   w5 = class
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Appointment.description
   Card. = 0..1
   Type = string
@@ -290,7 +297,7 @@
   RIM Mapping = .text
   iCal Mapping = DESCRIPTION
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Appointment.start
   Card. = 0..1
   Summary = Y
@@ -301,7 +308,7 @@
   RIM Mapping = .effectiveTime.low
   w5 = when.init
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Appointment.end
   Card. = 0..1
   Summary = Y
@@ -312,7 +319,7 @@
   RIM Mapping = .effectiveTime.high
   w5 = when.done
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Appointment.minutesDuration
   Card. = 0..1
   Type = positiveInt
@@ -321,7 +328,7 @@
   RIM Mapping = .effectiveTime.width
   Committee Notes = Removed when taking out the recurrence fields
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !Appointment.recurrence
   Card. = 0..1
   Type = Schedule
@@ -329,7 +336,7 @@
   Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
   RIM Mapping = .effectiveTime[@xsi:type=(\'PIVL_TS\', \'SXPR_TS\')]
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = !Appointment.timezone
   Card. = 0..1
   Type = string
@@ -338,7 +345,7 @@
   Comments = The timezone should be a value referenced from a timezone database
   RIM Mapping = .effectiveTime
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Appointment.slot
   Card. = 0..*
   Type = Reference(Slot)
@@ -346,7 +353,7 @@
   Definition = The slots from the participants\' schedules that will be filled by the appointment
   RIM Mapping = Schedule-Slot (classCode=ACT, moodCode = SLOT)
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Appointment.created
   Card. = 0..1
   Type = dateTime
@@ -355,7 +362,7 @@
   Comments = This property is required for many use cases where the age of an appointment is considered in processing workflows for scheduling and billing of appointments.
   RIM Mapping = .author.time
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = !Appointment.location
   Card. = 0..1
   Type = Reference(Location)
@@ -364,7 +371,7 @@
   RIM Mapping = .location
   w5 = where
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Appointment.comment
   Card. = 0..1
   Type = string
@@ -375,7 +382,7 @@
   RIM Mapping = .subjectOf.observationEvent[code=\"annotation\"].value
   iCal Mapping = COMMENT
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = !Appointment.order
   Card. = 0..1
   Type = Reference(Order)
@@ -385,7 +392,23 @@
   RIM Mapping = .referencedOrder
   Committee Notes = The Supply Order from the HL7 v3 DMIM was discussed and decided outside 80%, permit via extensions where required
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
+  Element = Appointment.incomingReferral
+  Card. = 0..*
+  Type = Reference(ReferralRequest)
+  Short Name = The ReferralRequest provided as information to allocate to the Encounter
+  Definition = The referral request this appointment is allocated to assess (incoming referral)
+  RIM Mapping = .reason.ClinicalDocument
+
+ -- Row 23 -----------------------------------
+  Element = Appointment.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Name = Additional information to support the appointment
+  Definition = Additional information to support the appointment provided when making the appointment
+  w5 = context
+
+ -- Row 24 -----------------------------------
   Element = Appointment.participant
   Card. = 1..*
   UML = right
@@ -395,7 +418,7 @@
   RIM Mapping = performer | reusableDevice | subject | location
   iCal Mapping = ATTENDEE component to be created
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Appointment.participant.type
   Card. = 0..*
   Summary = Y
@@ -408,7 +431,7 @@
   RIM Mapping = .@typeCode
   iCal Mapping = n/a
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Appointment.participant.actor
   Card. = 0..1
   Summary = Y
@@ -420,7 +443,7 @@
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   w5 = who
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Appointment.participant.required
   Card. = 0..1
   Summary = Y
@@ -431,7 +454,7 @@
   RIM Mapping = performer.performInd
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
 
- -- Row 25 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Appointment.participant.status
   Card. = 1..1
   Type = code
@@ -442,7 +465,7 @@
   RIM Mapping = n/a
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
- -- Row 26 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = !Appointment.participant.observation
   Card. = 0..*
   Type = Reference(Observation)
@@ -450,7 +473,7 @@
   Comments = PA discussed, concerms that this was part of HL7 v2 and v3, but not sure that is should be in 80%
   v2 Mapping = OBX-21-Observation Instance Identifier (Subject to Ch7 caveats)
 
- -- Row 27 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Appointment.requestedPeriod
   Card. = 0..*
   Type = Period
@@ -528,6 +551,12 @@
   Name = service-type
   Type = token
   Path = Appointment.serviceType
+
+ -- Row 12 -----------------------------------
+  Name = incomingreferral
+  Type = reference
+  Path = Appointment.incomingReferral
+  Target Types = ReferralRequest
 
 === Sheet Profiles =====================================
 

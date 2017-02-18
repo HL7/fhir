@@ -77,7 +77,7 @@
   Binding = value set
   Reference = valueset-encounter-reason
   Definition = Reason why the encounter takes place.
-  Conformance = example
+  Conformance = preferred
 
  -- Row 12 -----------------------------------
   Binding Name = EncounterLocationStatus
@@ -256,6 +256,7 @@
   Type = =ClassHistory
   Short Name = List of past encounter classes
   Definition = The class history permits the tracking of the encounters transitions without needing to go  through the resource history.\n\nThis would be used for a case where an admission starts of as an emergency encounter, then transisions into an inpatient scenario. Doing this and not restarting a new encounter ensures that any lab/diagnostic results can more easily follow the patient and not require re-processing and not get lost or cancelled during a kindof discharge from emergency to inpatient.
+  RIM Mapping = n/a
 
  -- Row 9 -----------------------------------
   Element = Encounter.classHistory.class
@@ -263,12 +264,14 @@
   Type = Coding
   Binding = EncounterClass
   Short Name = inpatient | outpatient | ambulatory | emergency +
+  RIM Mapping = n/a
 
  -- Row 10 -----------------------------------
   Element = Encounter.classHistory.period
   Card. = 1..1
   Type = Period
   Short Name = The time that the episode was in the specified class
+  RIM Mapping = n/a
 
  -- Row 11 -----------------------------------
   Element = Encounter.type
