@@ -4,11 +4,1530 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      Calculated Patient-List Report for CMS146:
-      Percentage of children 2-18 years of age who were diagnosed with
-      pharyngitis, ordered an antibiotic and received a group A streptococcus
-      (strep) test for the episode.
-    </div>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Id: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">MeasureReport/measurereport-cms146-cat2-example</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Measure: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-right: 25px;">
+                  <span style="padding-left: 25px;">
+                     <b>reference: </b>
+                     <span>Measure/CMS146</span>
+                     <br/>
+                  </span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Type: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">patient-list</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Period: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>start: </b>
+                  <span>Wed Jan 01 00:00:00 MST 2014</span>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>end: </b>
+                  <span>Mon Mar 31 00:00:00 MDT 2014</span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Status: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">complete</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Reporting Organization: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-bottom: 5px;">
+                     <span>
+                        <b>name: </b>
+                        <span>Good Health Hospital</span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Group:</b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px;">
+                  <p style="margin-bottom: 5px;">
+                     <b>value: </b>
+                     <span>CMS146-group-1</span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px;">
+                  <b>Population:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>initial-population</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>count: </b>
+                     <span>500</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>patients: </b>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>reference: </b>
+                           <span>List/CMS146-initial-population</span>
+                           <br/>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px;">
+                  <b>Population:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>numerator</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>count: </b>
+                     <span>200</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>patients: </b>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>reference: </b>
+                           <span>List/CMS146-numerator</span>
+                           <br/>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px;">
+                  <b>Population:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>denominator</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>count: </b>
+                     <span>500</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>patients: </b>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>reference: </b>
+                           <span>List/CMS146-denominator</span>
+                           <br/>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px;">
+                  <b>Population:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>denominator-exclusion</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>count: </b>
+                     <span>100</span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>patients: </b>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>reference: </b>
+                           <span>List/CMS146-denominator-exclusions</span>
+                           <br/>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>Stratifier:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <span>
+                        <b>value: </b>
+                        <span>CMS146-group-1</span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>true</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-true-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-true-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-true-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-true-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>false</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-false-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-false-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-false-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-up-to-9-false-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>Stratifier:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <span>
+                        <b>value: </b>
+                        <span>CMS146-group-1</span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>true</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-true-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-true-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-true-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-true-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>false</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-false-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-false-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-false-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-ages-10-plus-false-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>Stratifier:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <span>
+                        <b>value: </b>
+                        <span>CMS146-group-1</span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>male</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-male-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-male-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-male-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-male-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>female</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-female-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>100</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-female-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>250</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-female-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>50</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-female-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>other</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-other-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-other-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-other-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-other-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>unknown</span>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>initial-population</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-unknown-initial-population</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>numerator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-unknown-numerator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-unknown-denominator</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>Population:</b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 50px;">
+                           <b>type: </b>
+                        </span>
+                        <span>denominator-exclusion</span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>count: </b>
+                           </span>
+                           <span>0</span>
+                        </span>
+                        <span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <b>patients: </b>
+                           </span>
+                           <br/>
+                           <span style="padding-left: 50px;">
+                              <span style="padding-left: 25px;">
+                                 <b>reference: </b>
+                                 <span>List/CMS146-stratifier-gender-unknown-denominator-exclusions</span>
+                                 <br/>
+                              </span>
+                           </span>
+                        </span>
+                        <br/>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>Supplemental:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <span>
+                        <b>value: </b>
+                        <span>supplemental-data-gender</span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>male</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>250</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-gender-male</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>female</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>250</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-gender-female</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>other</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>0</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-gender-other</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>unknown</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>0</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-gender-unknown</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>Supplemental:</b>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <span>
+                        <b>value: </b>
+                        <span>supplemental-data-deceased</span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>true</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>0</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-deceased-true</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+                  <p style="padding-left: 25px; margin-bottom: 5px;">
+                     <b>Group:</b>
+                     <br/>
+                     <span style="padding-left: 25px;">
+                        <b>value: </b>
+                     </span>
+                     <span>false</span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>count: </b>
+                        </span>
+                        <span>500</span>
+                     </span>
+                     <span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>patients: </b>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <span style="padding-left: 25px;">
+                              <b>reference: </b>
+                              <span>List/CMS146-supplemental-data-deceased-false</span>
+                              <br/>
+                           </span>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
   </text>
   <!--code>
     <coding>

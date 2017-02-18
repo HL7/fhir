@@ -3,9 +3,502 @@
   <id value="library-cms146-example"/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">CMS 146 Logic</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Id: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Library/library-cms146-example</td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Identifier: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <b>value: </b>
+                  <span>CMS146</span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Version: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">2.0.0</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Title: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Appropriate Testing for Children with Pharyngitis</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Type: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-right: 25px;">
+                  <span>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>code: </b>
+                           <span>logic-library</span>
+                        </span>
+                     </span>
+                  </span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Status: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">draft</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Description: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Logic for CMS 146: Appropriate Testing for Children with Pharyngitis</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Related: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>depends-on</span>
+                  </p>
+                  <p style="margin-bottom: 5px;">
+                     <b>Resource: </b>
+                     <br/>
+                     <span>
+                        <span style="padding-left: 25px;">
+                           <b>reference: </b>
+                           <span>Library/library-quick-model-definition</span>
+                        </span>
+                     </span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Condition</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>Other Female Reproductive Conditions</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Patient</span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Condition</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>category</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>diagnosis</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>clinicalStatus</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>confirmed</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.102.12.1011</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Condition</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>category</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>diagnosis</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>clinicalStatus</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>confirmed</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.102.12.1012</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Encounter</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>status</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>finished</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>class</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>ambulatory</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>type</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.101.12.1061</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>DiagnosticReport</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>diagnosis</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.198.12.1012</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>Medication</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.196.12.1001</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>MedicationRequest</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>status</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>active</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>medication.code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.196.12.1001</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Data Requirements: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <div>
+                     <p style="margin-bottom: 5px;">
+                        <b>type: </b>
+                        <span>MedicationStatement</span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>status</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>code:</b>
+                           <span>completed</span>
+                        </span>
+                     </p>
+                     <p style="margin-bottom: 5px;">
+                        <b>code filter:</b>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>path: </b>
+                           <span>medication.code</span>
+                        </span>
+                        <br/>
+                        <span style="padding-left: 25px;">
+                           <b>valueset: </b>
+                           <span>2.16.840.1.113883.3.464.1003.196.12.1001</span>
+                        </span>
+                     </p>
+                  </div>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Content: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-bottom: 5px;">
+                     <b>type: </b>
+                     <span>text/cql</span>
+                  </p>
+                  <p style="margin-bottom: 5px;">
+                     <b>url: </b>
+                     <span>http://cqlrepository.org/CMS146.cql</span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+      </div>
   </text>
-  
   <identifier>
     <use value="official"/>
     <value value="CMS146"/>
@@ -20,7 +513,6 @@
   <status value="draft"/>
   <date value="2015-07-22"/>
   <description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
-
   <relatedArtifact>
     <type value="depends-on"/>
     <resource>

@@ -4,7 +4,126 @@
   <id value="provide-mosquito-prevention-advice"/>
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">Provide Mosquito Prevention Advice</div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Id: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">ActivityDefinition/provide-mosquito-prevention-advice</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Status: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">draft</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Description: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">Provide mosquito prevention advice</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Related: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-top: 5px;">
+                     <b>type: </b>
+                     <span>documentation</span>
+                  </p>
+                  <p style="margin-top: 5px;">
+                     <b>display: </b>
+                     <span>Advice for patients about how to avoid Mosquito bites.</span>
+                  </p>
+                  <p style="margin-top: 5px;">
+                     <b>url: </b>
+                     <span>http://www.cdc.gov/zika/prevention/index.html</span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Related: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">
+                  <p style="margin-top: 5px;">
+                     <b>type: </b>
+                     <span>documentation</span>
+                  </p>
+                  <p style="margin-top: 5px;">
+                     <b>display: </b>
+                     <span>Advice for patients about which mosquito repellents are effective and safe to use in pregnancy. [DEET, IF3535 and Picardin are safe during]</span>
+                  </p>
+                  <p style="margin-top: 5px;">
+                     <b>url: </b>
+                     <span>https://www.epa.gov/insect-repellents/find-insect-repellent-right-you</span>
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Category: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-left: 25px; padding-right: 25px;">communication</td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Code: </b>
+               </td>
+            </tr>
+            <tr>
+               <td style="padding-right: 25px;">
+                  <span style="padding-left: 25px;">
+                     <b>text: </b>
+                     <span>Provide Mosquito Prevention Advice</span>
+                     <br/>
+                  </span>
+               </td>
+            </tr>
+         </table>
+         <p/>
+         <table class="grid dict">
+            <tr>
+               <td>
+                  <b>Participant: </b>
+               </td>
+            </tr>
+            <tr style="vertical-align: top;">
+               <td style="padding-left: 25px; padding-right: 25px;">practitioner</td>
+            </tr>
+         </table>
+      </div>
   </text>
   <url value="http://example.org/ActivityDefinition/provide-mosquito-prevention-advice"/>
   <status value="draft"/>
