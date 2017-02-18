@@ -270,8 +270,8 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConsentActorRole
-  Short Name = How the actor is/was involved
-  Definition = How the individual is or was involved in the resources content that is described in the consent
+  Short Name = How the actor is involved
+  Definition = How the individual is involved in the resources content that is described in the consent
 
  -- Row 12 -----------------------------------
   Element = Consent.actor.reference
@@ -440,8 +440,8 @@
   Card. = 1..1
   Type = CodeableConcept
   Binding = ConsentActorRole
-  Short Name = How the actor is/was involved
-  Definition = How the individual is or was involved in the resourcescontent that is described in the exception
+  Short Name = How the actor is involved
+  Definition = How the individual is involved in the resources content that is described in the exception
 
  -- Row 31 -----------------------------------
   Element = Consent.except.actor.reference

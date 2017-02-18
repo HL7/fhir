@@ -214,6 +214,7 @@
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the study level provide a means of retrieving the entire study.
   Comments = Study component represents the study level identity and locator information of the DICOM SOP instances in the selection. It is the top level identity of the hierachical identification of the instances.
+  RIM Mapping = Act[classCode=COMPOSITION, moodCode=EVN]
 
  -- Row 9 -----------------------------------
   Element = ImagingManifest.study.uid
@@ -285,6 +286,7 @@
   Definition = Series identity and locating information of the DICOM SOP instances in the selection
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series
   Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
+  RIM Mapping = n/a
 
  -- Row 16 -----------------------------------
   Element = ImagingManifest.study.series.uid
@@ -345,6 +347,7 @@
   Definition = Identity and locating information of the selected DICOM SOP instances
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.
   Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.
+  RIM Mapping = n/a
 
  -- Row 22 -----------------------------------
   Element = ImagingManifest.study.series.instance.sopClass

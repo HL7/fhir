@@ -278,7 +278,31 @@
     <include>
       <system value="http://hl7.org/fhir/extra-security-role-type"/>
     </include>
-  </compose>
+
+    <include>
+	<!-- DICOM codes for AuditEvent agent role -->
+      <system value="http://nema.org/dicom/dicm"/>
+      <concept>
+        <code value="110150"/>
+      </concept>
+      <concept>
+        <code value="110151"/>
+      </concept>
+      <concept>
+        <code value="110152"/>
+      </concept>
+      <concept>
+        <code value="110153"/>
+      </concept>
+      <concept>
+        <code value="110154"/>
+      </concept>
+      <concept>
+        <code value="110155"/>
+      </concept>
+    </include>
+
+	</compose>
 
   <!--    
          

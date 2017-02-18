@@ -84,7 +84,7 @@
   Conformance = extensible
 
  -- Row 10 -----------------------------------
-  Binding Name = DICOMRoleId
+  Binding Name = !DICOMRoleId
   Binding = value set
   Reference = valueset-dicm-402-roleid
   Definition = How the agent participated in the event.
@@ -128,6 +128,13 @@
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
   Definition = The reason the activity took place.
+  Conformance = extensible
+
+ -- Row 17 -----------------------------------
+  Binding Name = AuditAgentRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/security-role-type
+  Definition = What security role enabled the agent to participate in the event
   Conformance = extensible
 
 === Sheet audit-event-action =====================================
@@ -641,21 +648,33 @@
   w5 = who
 
  -- Row 11 -----------------------------------
+  Element = !AuditEvent.agent.type
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = DICOMRoleId
+  Short Name = How agent participated
+  Definition = Specification of the participation type the user plays when performing the event.
+  RIM Mapping = .typeCode and/or .functionCode
+  DICOM Mapping = RoleIdCode
+  Prov Mapping = Agent.Attribution
+  w5 = who
+
+ -- Row 12 -----------------------------------
   Element = AuditEvent.agent.role
   Card. = 0..*
   Type = CodeableConcept
-  Binding = DICOMRoleId
+  Binding = AuditAgentRole
   Short Name = Agent role in the event
-  Definition = Specification of the role(s) the user plays when performing the event. Additional may contain security role codes that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
+  Definition = The security role that the user was acting under, that come from local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
   Requirements = This value ties an audited event to a user\'s role(s). It is an optional value that might be used to group events for analysis by user functional role categories
   Comments = should be roles relevant to the event. Should  not be an exhaustive list of roles.
-  RIM Mapping = .typeCode and/or .functionCode
+  RIM Mapping = .role and/or .typeCode and/or .functionCode
   DICOM Mapping = RoleIdCode
   Prov Mapping = Agent.Attribution
   Provenance Mapping = Provenance.agent.role
   w5 = who
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = AuditEvent.agent.reference
   Card. = 0..1
   Summary = Y
@@ -663,12 +682,12 @@
   Short Name = Direct reference to resource
   Definition = Direct reference to a resource that identifies the agent
   Requirements = This field ties an audit event to a specific resource
-  RIM Mapping = .role
+  RIM Mapping = .id
   Prov Mapping = Agent.Identity
   Provenance Mapping = Provenance.agent.actor
   w5 = who
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = AuditEvent.agent.userId
   Card. = 0..1
   Summary = Y
@@ -683,7 +702,7 @@
   Provenance Mapping = Provenance.agent.userId
   w5 = who
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = AuditEvent.agent.altId
   Card. = 0..1
   Type = string
@@ -695,7 +714,7 @@
   Prov Mapping = Agent.Identity
   w5 = who
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = AuditEvent.agent.name
   Card. = 0..1
   Type = string
@@ -707,7 +726,7 @@
   Prov Mapping = Agent.Identity
   w5 = who
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = AuditEvent.agent.requestor
   Card. = 1..1
   Type = boolean
@@ -719,7 +738,7 @@
   DICOM Mapping = UserIsRequestor
   w5 = who
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = AuditEvent.agent.location
   Card. = 0..1
   Type = Reference(Location)
@@ -730,7 +749,7 @@
   Provenance Mapping = Provenance.location
   w5 = where
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = AuditEvent.agent.policy
   Card. = 0..*
   Type = uri
@@ -743,7 +762,7 @@
   Provenance Mapping = Provenance.policy
   w5 = why
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = AuditEvent.agent.media
   Card. = 0..1
   Type = Coding
@@ -755,7 +774,7 @@
   DICOM Mapping = MediaType
   w5 = where
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = AuditEvent.agent.network
   Card. = 0..1
   UML = right
@@ -764,7 +783,7 @@
   RIM Mapping = .player.description.reference
   w5 = where
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = AuditEvent.agent.network.address
   Card. = 0..1
   Type = string
@@ -777,7 +796,7 @@
   Prov Mapping = Agent.Location
   w5 = where
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = AuditEvent.agent.network.type
   Card. = 0..1
   Type = code
@@ -789,7 +808,7 @@
   DICOM Mapping = NetworkAccessPointTypeCode
   w5 = where
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = AuditEvent.agent.purposeOfUse
   Card. = 0..*
   Type = CodeableConcept
@@ -801,7 +820,7 @@
   Prov Mapping = Agent.Activity
   w5 = why
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = AuditEvent.source
   Card. = 1..1
   UML = up
@@ -813,7 +832,7 @@
   DICOM Mapping = AuditSourceIdentification
   w5 = who.witness
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = !AuditEvent.source.code
   Card. = 1..1
   Type = Coding
@@ -821,7 +840,7 @@
   RIM Mapping = N/A
   DICOM Mapping = code
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = AuditEvent.source.site
   Card. = 0..1
   Type = string
@@ -832,7 +851,7 @@
   DICOM Mapping = AuditEnterpriseSiteId
   w5 = who.witness
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = AuditEvent.source.identifier
   Card. = 1..1
   Summary = Y
@@ -844,7 +863,7 @@
   DICOM Mapping = AuditSourceId
   w5 = who.witness
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = AuditEvent.source.type
   Card. = 0..*
   Type = Coding
@@ -856,7 +875,7 @@
   DICOM Mapping = AuditSourceTypeCode
   w5 = who.witness
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = AuditEvent.entity
   Card. = 0..*
   Aliases = ParticipantObject
@@ -871,7 +890,7 @@
   Provenance Mapping = Provenance.target, Provenance.entity
   w5 = what
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = AuditEvent.entity.identifier
   Card. = 0..1
   Summary = Y
@@ -883,7 +902,7 @@
   DICOM Mapping = ParticipantObjectID and ParticipantObjectIDTypeCode
   w5 = what
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = AuditEvent.entity.reference
   Card. = 0..1
   Summary = Y
@@ -895,7 +914,7 @@
   Provenance Mapping = Provenance.target, Provenance.entity.reference
   w5 = what
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = !AuditEvent.entity.idType
   Card. = 1..1
   Type = Coding
@@ -905,7 +924,7 @@
   RIM Mapping = Mapped from .id.root
   DICOM Mapping = ParticipantObjectIDTypeCode
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = AuditEvent.entity.type
   Card. = 0..1
   Type = Coding
@@ -920,7 +939,7 @@
   Provenance Mapping = Provenance.entity.type
   w5 = what
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = AuditEvent.entity.role
   Card. = 0..1
   Type = Coding
@@ -933,7 +952,7 @@
   Prov Mapping = Entity.role
   w5 = context
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = AuditEvent.entity.lifecycle
   Card. = 0..1
   Type = Coding
@@ -948,7 +967,7 @@
   Provenance Mapping = Provenance.entity.role
   w5 = context
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = AuditEvent.entity.securityLabel
   Card. = 0..*
   Type = Coding
@@ -961,7 +980,7 @@
   DICOM Mapping = ParticipantObjectSensitivity
   w5 = context
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = AuditEvent.entity.name
   Card. = 0..1
   Summary = Y
@@ -976,7 +995,7 @@
   Prov Mapping = Entity.Label
   w5 = context
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = AuditEvent.entity.description
   Card. = 0..1
   Type = string
@@ -987,7 +1006,7 @@
   DICOM Mapping = ParticipantObjectDescription
   w5 = context
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = AuditEvent.entity.query
   Card. = 0..1
   Summary = Y
@@ -1000,7 +1019,7 @@
   DICOM Mapping = ParticipantObjectQuery
   w5 = context
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = AuditEvent.entity.detail
   Card. = 0..*
   UML = down
@@ -1009,7 +1028,7 @@
   DICOM Mapping = ParticipantObjectDetail
   w5 = context
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = AuditEvent.entity.detail.type
   Card. = 1..1
   Type = string
@@ -1018,7 +1037,7 @@
   DICOM Mapping = ParticipantObjectDetail.type
   w5 = context
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = AuditEvent.entity.detail.value
   Card. = 1..1
   Type = base64Binary
@@ -1121,9 +1140,14 @@
   Path = AuditEvent.outcome
 
  -- Row 19 -----------------------------------
-  Name = role
+  Name = entity-role
   Type = token
   Path = AuditEvent.entity.role
+
+ -- Row 20 -----------------------------------
+  Name = agent-role
+  Type = token
+  Path = AuditEvent.agent.role
 
 === Sheet Profiles =====================================
 

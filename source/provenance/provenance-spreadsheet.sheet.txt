@@ -4,45 +4,31 @@
  -- Row 1 -----------------------------------
   Binding Name = ProvenanceAgentRole
   Binding = value set
-  Reference = valueset-provenance-agent-role
+  Reference = http://hl7.org/fhir/ValueSet/security-role-type
   Definition = The role that a provenance agent played with respect to the activity.
   Conformance = extensible
 
  -- Row 2 -----------------------------------
-  Binding Name = ProvenanceAgentType
-  Binding = value set
-  Reference = valueset-provenance-agent-type
-  Definition = The type of a provenance agent.
-  Conformance = extensible
-
- -- Row 3 -----------------------------------
   Binding Name = ProvenanceEntityRole
   Binding = code list
   Reference = #provenance-entity-role
   Definition = How an entity was used in an activity.
 
- -- Row 4 -----------------------------------
-  Binding Name = ProvenanceEntityType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/resource-types
-  Definition = The type of an entity used in an activity.
-  Conformance = extensible
-
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = ProvenanceReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-PurposeOfUse
   Definition = The reason the activity took place.
   Conformance = extensible
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = ProvenanceActivity
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-ProvenanceEventCurrentState
   Definition = The activity that took place.
   Conformance = extensible
 
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = RelatedAgentType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/v3-RoleLinkType
@@ -199,14 +185,14 @@
 
  -- Row 10 -----------------------------------
   Element = Provenance.agent.role
-  Card. = 1..1
+  Card. = 0..*
   Summary = y
-  Type = Coding
+  Type = CodeableConcept
   Binding = ProvenanceAgentRole
-  Short Name = What the agents involvement was
-  Definition = The function of the agent with respect to the activity.
-  Comments = For example, author, performer, enterer, attester, etc.
-  RIM Mapping = attester: .[self::participation]/typeCode=\'RESP\' author: .[self::participation]/typeCode=\'AUT\' cc: .[self::participation]/typeCode=\'IRCP\' enterer:  .[self::participation]/typeCode=\'ENT\' informant: .[self::participation]/typeCode=\'INF\' performer: .[self::participation]/typeCode=\'PRF\' verifier: .[self::participation]/typeCode=\'VRF\' source: .[self::outboundRelationship]/typeCode=\'\'
+  Short Name = What the agents role was
+  Definition = The function of the agent with respect to the activity. The security role enabling the agent with respect to the activity.
+  Comments = For example: author, performer, enterer, attester, doctor, nurse, clerk, etc
+  RIM Mapping = .role and/or .typecode
   Auditevent Mapping = AuditEvent.agent.role
   Prov Mapping = Agent.Attribution
 
@@ -239,47 +225,6 @@
   Prov Mapping = type
 
  -- Row 14 -----------------------------------
-  Element = !Provenance.agent.actor
-  Card. = 0..1
-  Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
-  Short Name = Individual, device or organization playing role
-  Definition = The individual, device or organization that participated in the event
-  RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
-  Auditevent Mapping = AuditEvent.agent.reference
-  Prov Mapping = Agent.Identity
-  w5 = who.actor
-
- -- Row 15 -----------------------------------
-  Element = !Provenance.agent.userId
-  Card. = 0..1
-  Type = Identifier
-  Short Name = Authorization-system identifier for the agent
-  Definition = The identity of the agent as known by the authorization system
-  RIM Mapping = person: .plays:Role(classCode=\'IDENT\').id\npractitioner: ./id
-  Auditevent Mapping = AuditEvent.agent.userId
-  Prov Mapping = Agent.Identity
-  w5 = who.actor
-
- -- Row 16 -----------------------------------
-  Element = !Provenance.agent.relatedAgent
-  Card. = 0..*
-  UML = 420;200
-  Short Name = Track delegation between agents
-  Definition = A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another\'s behest
-  RIM Mapping = ./rolelink
-  Prov Mapping = Agent.actedOnBehalfOf
-
- -- Row 17 -----------------------------------
-  Element = !Provenance.agent.relatedAgent.target
-  Card. = 1..1
-  Type = uri
-  Short Name = Reference to other agent in this resource by identifier
-  Definition = An internal reference to another agent listed in this provenance by its identifier
-  Comments = The uri has the form #[id] where [id] is on another Provenance.agent in this same resource
-  RIM Mapping = ./target
-  Prov Mapping = responsible
-
- -- Row 18 -----------------------------------
   Element = Provenance.entity
   Card. = 0..*
   UML = 440;30
@@ -290,7 +235,7 @@
   Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
 
- -- Row 19 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Provenance.entity.role
   Card. = 1..1
   Summary = y
@@ -303,19 +248,7 @@
   Prov Mapping = Entity.role
   Committee Notes = No uses cases have been identified for extensibility for this role
 
- -- Row 20 -----------------------------------
-  Element = !Provenance.entity.type
-  Card. = 1..1
-  Type = Coding
-  Binding = ProvenanceEntityType
-  Short Name = The kind of resource in this entity
-  Definition = The type of the entity. If the entity is a resource, then this is a resource type
-  Requirements = If the type is \"resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
-  RIM Mapping = ./target
-  Auditevent Mapping = AuditEvent.entity.type
-  Prov Mapping = Entity.type
-
- -- Row 21 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Provenance.entity.what[x]
   Card. = 1..1
   Summary = y
@@ -327,17 +260,7 @@
   Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
 
- -- Row 22 -----------------------------------
-  Element = !Provenance.entity.display
-  Card. = 0..1
-  Type = string
-  Short Name = Human description of entity
-  Definition = Human-readable description of the entity
-  RIM Mapping = ./title
-  Auditevent Mapping = AuditEvent.entity.description
-  Prov Mapping = Entity.Label
-
- -- Row 23 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Provenance.entity.agent
   Card. = 0..*
   Type = @Provenance.agent
@@ -346,7 +269,7 @@
   Comments = A usecase where one Provenance.entity.agent is used where the Entity that was used in the creation/updating of the Target, is not in the context of the same custodianship as the Target, and thus the meaning of Provenance.entity.agent is to say that the entity referenced is managed elsewhere and that this Agent provided access to it.  This would be similar to where the Entity being referenced is managed outside FHIR, such as through HL7 v2, v3, or XDS. This might be where the Entity being referenced is managed in another FHIR resource server. Thus it explains the Provenance of that Entity\'s use in the context of this Provenance activity.
   RIM Mapping = ./author/role
 
- -- Row 24 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Provenance.signature
   Card. = 0..*
   Type = Signature
@@ -416,6 +339,16 @@
   Name = entity-id
   Type = token
   Path = Provenance.entity.whatIdentifier
+
+ -- Row 13 -----------------------------------
+  Name = !agent-type
+  Type = token
+  Path = Provenance.agent.type
+
+ -- Row 14 -----------------------------------
+  Name = agent-role
+  Type = token
+  Path = Provenance.agent.role
 
 === Sheet Profiles =====================================
 
