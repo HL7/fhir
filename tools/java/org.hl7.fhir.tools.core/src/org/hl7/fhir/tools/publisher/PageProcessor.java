@@ -7562,6 +7562,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider, IReferen
       } else { 
         if (ref.startsWith("http://hl7.org/fhir/ValueSet/")) {
           ValueSet vs = definitions.getValuesets().get(ref);
+          if (vs == null)
+            vs = definitions.getExtraValuesets().get(ref);
           if (vs != null) { 
             br.url = (String) vs.getUserData("path");
             if (Utilities.noString(br.url))
