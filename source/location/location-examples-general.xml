@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="3ad0687e-f477-468c-afd5-fcc2bf897819"/>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Location/2"/>
+    <resource>
+      <Location>
+        <id value="2"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">USS Enterprise</div>
+        </text>
+        <status value="active"/>
+        <name value="USSS Enterprise-D"/>
+        <mode value="instance"/>
+      </Location>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Location/3"/>
+    <resource>
+      <Location>
+        <id value="3"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">USSS Enterprise-D Sickbay</div>
+        </text>
+        <status value="active"/>
+        <name value="USSS Enterprise-D Sickbay"/>
+        <mode value="instance"/>
+        <partOf>
+          <reference value="Location/2"/>
+          <display value="USS Enterprise"/>
+        </partOf>
+      </Location>
+    </resource>
+  </entry>
+</Bundle>

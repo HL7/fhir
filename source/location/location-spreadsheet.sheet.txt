@@ -386,4 +386,10 @@
   Description = HL7 HQ Location
   Filename = location-example-hl7hq.xml
 
+ -- Row 7 -----------------------------------
+  Name = USSS Enterprise-D Sickbay
+  Identity = 3ad0687e-f477-468c-afd5-fcc2bf897819
+  Description = General location examples
+  Filename = location-examples-general.xml
+
 === Sheet Examples =====================================

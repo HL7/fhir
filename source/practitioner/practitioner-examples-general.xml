@@ -7,6 +7,24 @@
   </meta>
   <type value="collection"/>
   <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/1"/>
+    <resource>
+      <Practitioner>
+        <id value="1"/>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Dr. Beverly Crusher</div>
+        </text>
+        <name>
+          <family value="Beverly"/>
+          <given value="Crusher"/>
+          <prefix value="Dr"/>
+        </name>
+        <gender value="female"/>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
     <fullUrl value="http://hl7.org/fhir/Practitioner/13"/>
     <resource>
       <Practitioner>
