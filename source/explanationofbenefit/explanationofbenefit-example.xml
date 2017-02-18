@@ -25,10 +25,18 @@
   </patient>
 
   <created value="2014-08-16"/>
+  
+  <provider>
+    <reference value="Practitioner/1"/>
+  </provider>
 
   <organization>
     <reference value="Organization/2"/>
   </organization>
+  
+  <facility>
+    <reference value="Location/1"/>
+  </facility>
 
   <claim>
     <reference value="Claim/100150"/>
