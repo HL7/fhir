@@ -199,11 +199,11 @@ profile:</p>
 				</tr>
 				<tr>
 					<td>
-						<a href="bp.html">Blood pressure systolic and diastolic</a>
+						<a href="bp.html">Blood pressure panel systolic and diastolic</a>
 					</td>
-					<td>55284-4</td>
+					<td>85354-9</td>
 					<td>
-						<em>Blood pressure systolic and diastolic</em> - This is component observation.  It has no value in Observation.valueQuantity and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional observations.</td>
+						<em>Blood pressure panel with all children optional</em> - This is a component observation.  It has no value in Observation.valueQuantity and  contains at least one component (systolic and/or diastolic).  To supplement this vital sign observation, 8478-0  - <em>Mean blood pressure</em>, 8357-6 - <em>Blood pressure method</em>, 41904-4 - <em>Blood pressure measurement site</em>, 8358-4 - <em>Blood pressure device cuff size</em>, 41901-0 - <em>Type of blood pressure device</em>  MAY be used as additional observations.</td>
 					<td>-</td>
 					<td>
 						<a href="observation-example-bloodpressure.html">Vital Signs Blood Pressure Example</a>,  <a href="observation-example-bloodpressure-dar.html">Vital Signs Blood Pressure Example with missing Diastolic measurement</a>
