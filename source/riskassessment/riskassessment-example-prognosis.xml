@@ -21,12 +21,12 @@
       </coding>
       <text value="permanent weakness of the left arm"/>
     </outcome>
-    <probabilityCodeableConcept>
+    <qualitativeRisk>
       <coding>
         <system value="http://hl7.org/fhir/risk-probability"/>
         <code value="moderate"/>
         <display value="moderate likelihood"/>
       </coding>
-    </probabilityCodeableConcept>
+    </qualitativeRisk>
   </prediction>
 </RiskAssessment>

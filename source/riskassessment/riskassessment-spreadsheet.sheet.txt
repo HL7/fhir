@@ -202,8 +202,7 @@
  -- Row 17 -----------------------------------
   Element = RiskAssessment.prediction.probability[x]
   Card. = 0..1
-  Type = decimal | Range | CodeableConcept
-  Binding = RiskAssessmentProbability
+  Type = decimal | Range
   Short Name = Likelihood of specified outcome
   Definition = How likely is the outcome (in the specified timeframe)
   Comments = If range is used, it represents the lower and upper bounds of certainty; e.g. 40-60%  Decimal values are expressed as percentages as well (max = 100)
@@ -211,6 +210,14 @@
   OpenEHR mapping = Category
 
  -- Row 18 -----------------------------------
+  Element = RiskAssessment.prediction.qualitativeRisk
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = RiskAssessmentProbability
+  Short Name = Likelihood of specified outcome as a qualitative value
+  Definition = How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high)
+
+ -- Row 19 -----------------------------------
   Element = RiskAssessment.prediction.relativeRisk
   Card. = 0..1
   Type = decimal
@@ -220,7 +227,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"relative risk\"].value
   To Do = Is this in the 80%?
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = RiskAssessment.prediction.when[x]
   Card. = 0..1
   Type = Period | Range
@@ -229,7 +236,7 @@
   Comments = If not specified, the risk applies \"over the subject\'s lifespan\"
   RIM Mapping = .effectiveTime or .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"age\"].value
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = RiskAssessment.prediction.rationale
   Card. = 0..1
   Type = string
@@ -238,7 +245,7 @@
   RIM Mapping = .reasonCode.text
   OpenEHR mapping = Rationale
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = RiskAssessment.mitigation
   Card. = 0..1
   Type = string
@@ -247,7 +254,7 @@
   Requirements = One of the main reasons for assessing risks is to identify whether interventional steps are needed to reduce risk
   RIM Mapping = .outboundRelationship[typeCode=MTGT].target[classCode=ACT, moodCode=EVN].text
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = RiskAssessment.note
   Card. = 0..1
   Type = Annotation
