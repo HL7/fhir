@@ -113,6 +113,7 @@
   Binding = OperationalStatus
   Short Name = The Operational status of the location (typically only for a bed/room)
   Definition = The Operational status covers operation values most relevant to beds (but can also apply to rooms/units/chair/etc such as an isolation unit/dialisys chair). This typically covers concepts such as contamination, housekeeping and other activities like maintenance.
+  RIM Mapping = participation.status or Role.status
   w5 = status
 
  -- Row 5 -----------------------------------
