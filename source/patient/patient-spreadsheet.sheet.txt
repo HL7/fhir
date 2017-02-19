@@ -527,7 +527,7 @@
   Summary = y
   Type = code
   Binding = LinkType
-  Short Name = replace | refer | seealso - type of link
+  Short Name = replaced-by | replaces | refer | seealso - type of link
   Definition = The type of link between this patient resource and another patient resource.
   RIM Mapping = typeCode
   CDA Mapping = n/a
