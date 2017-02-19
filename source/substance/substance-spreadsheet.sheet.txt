@@ -76,6 +76,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Substance.status
+  Card. = 0..1
+  Summary = Y
+  Type = code
+  Binding = FHIR Substance Status
+  Short Name = active | inactive | entered-in-error
+  Definition = A code to indicate if the substance is actively used
+  RIM Mapping = .statusCode
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = Substance.category
   Card. = 0..*
   Summary = Y
@@ -88,7 +99,7 @@
   Committee Notes = #7962
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Substance.code
   Card. = 1..1
   Summary = Y
@@ -101,17 +112,6 @@
   ORIM Mapping = fhir:Substance.code rdfs:subPropertyOf rim:Entity.code
   Committee Notes = #7961
   w5 = what
-
- -- Row 5 -----------------------------------
-  Element = Substance.status
-  Card. = 0..1
-  Summary = y
-  Type = code
-  Binding = FHIR Substance Status
-  Short Name = active | inactive | entered-in-error
-  Definition = A code to indicate if the substance is actively used
-  RIM Mapping = .statusCode
-  w5 = status
 
  -- Row 6 -----------------------------------
   Element = Substance.description

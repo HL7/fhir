@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SupplyRequest xmlns="http://hl7.org/fhir">
+<SupplyRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICS-AIR-2/ehaas/Documents/FHIR/build/schema/supplyrequest.xsd">
 	<id value="simpleorder"/>
 	<identifier>
 		<value value="Order10284"/>
@@ -7,8 +7,8 @@
 	<status value="active"/>
 	<category>
 		<coding>
-			<code value='central'/>
-			<display value='Central Stock Resupply'/>
+			<code value="central"/>
+			<display value="Central Stock Resupply"/>
 		</coding>
 	</category>
 	<priority value="asap"/>
@@ -18,11 +18,13 @@
 		</quantity>
 		<itemCodeableConcept>
 			<coding>
-				<code value='BlueTubes'/>
-				<display value='Blood collect tubes blue cap'/>
+				<code value="BlueTubes"/>
+				<display value="Blood collect tubes blue cap"/>
 			</coding>
 		</itemCodeableConcept>
 	</orderedItem>
+	<occurrenceDateTime value="2016-12-31"/>
+	<authoredOn value="2016-12-31"/>
 	<requester>
 		<reference>
 			<display value="Purchasing Dept"/>
@@ -35,12 +37,12 @@
 	</supplier>
 	<reasonCodeableConcept>
 		<coding>
-			<code value='stock_low'/>
-			<display value='Refill due to low stock'/>
+			<code value="stock_low"/>
+			<display value="Refill due to low stock"/>
 		</coding>
 	</reasonCodeableConcept>
 	<occurrenceDateTime value="2016-12-31"/>
-	<authoredOn value='2016-12-31'/>
+	<authoredOn value="2016-12-31"/>
 	<from>
 		<reference>
 			<display value="Location 1"/>

@@ -491,7 +491,7 @@
   Target Types = Encounter
 
  -- Row 16 -----------------------------------
-  Name = contenxt
+  Name = context
   Type = reference
   Description = Healthcare event (Episode of Care or Encounter) related to the report
   Path = DiagnosticReport.context

@@ -119,7 +119,8 @@
   Short Name = Request for a medication, substance or device
   Definition = A record of a request for a medication, substance or device used in the healthcare setting.
   Workflow Mapping = Request
-  RIM Mapping = Supply[moodCode=RQO]
+  v2 Mapping = ORC
+  RIM Mapping = Act[moodCode<=INT]
   w5 = workflow.order
 
  -- Row 2 -----------------------------------
@@ -131,7 +132,8 @@
   Definition = Unique identifier for this supply request
   Comments = This is assigned by the requester, and used to refer to this order in other external standards
   Workflow Mapping = Request.identifier
-  RIM Mapping = .id
+  v2 Mapping = ORC.2, ORC.3
+  RIM Mapping = .identifier
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -144,7 +146,8 @@
   Short Name = draft | active | suspended +
   Definition = Status of the supply request
   Workflow Mapping = Request.status
-  RIM Mapping = .statusCode, also existence of fulfillment events
+  v2 Mapping = ORC.5
+  RIM Mapping = .status
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -155,6 +158,7 @@
   Binding = SupplyRequestKind
   Short Name = The kind of supply (central, non-stock, etc.)
   Definition = Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process
+  v2 Mapping = N/A
   RIM Mapping = .code
   Committee Notes = [3417]
   w5 = class
@@ -178,6 +182,8 @@
   Card. = 0..1
   Short Name = The item being requested
   Workflow Mapping = Request.code
+  v2 Mapping = Varies by domain
+  RIM Mapping = .code
   w5 = what
 
  -- Row 7 -----------------------------------
@@ -195,9 +201,34 @@
   Short Name = Medication, Substance, or Device requested to be supplied
   Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
-  RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 9 -----------------------------------
+  Element = SupplyRequest.occurrence[x]
+  Card. = 0..1
+  Aliases = when, timing
+  UML = 400;30
+  Type = dateTime|Period|Timing
+  Short Name = When the request should be fulfilled
+  Definition = When the request should be fulfilled
+  Workflow Mapping = Request.occurrence.occurrenceTiming
+  v2 Mapping = Accompanying TQ1/TQ2 segments
+  RIM Mapping = .effectiveTime
+  w5 = when.planned
+
+ -- Row 10 -----------------------------------
+  Element = SupplyRequest.authoredOn
+  Card. = 0..1
+  Aliases = date, createdOn, signedOn
+  Summary = Y
+  Type = dateTime
+  Short Name = When the request was made
+  Definition = When the request was made
+  Workflow Mapping = Request.authoredOn
+  v2 Mapping = ORC.9
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 11 -----------------------------------
   Element = SupplyRequest.requester
   Card. = 0..1
   Aliases = author,source
@@ -207,8 +238,9 @@
   Workflow Mapping = Request.requester
   v2 Mapping = ORC.12
   RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = SupplyRequest.requester.agent
   Card. = 1..1
   Summary = Y
@@ -218,9 +250,8 @@
   Workflow Mapping = Request.requester.agent
   v2 Mapping = ORC.12
   RIM Mapping = .player
-  w5 = who.author
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = SupplyRequest.requester.onBehalfOf
   Card. = 0..1
   Summary = Y
@@ -232,7 +263,7 @@
   v2 Mapping = N/A
   RIM Mapping = .scoper
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = SupplyRequest.supplier
   Card. = 0..*
   Aliases = performer
@@ -240,9 +271,11 @@
   Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
   Workflow Mapping = Request.performer
+  v2 Mapping = PRT
+  RIM Mapping = .participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]
   w5 = who.actor
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = SupplyRequest.reason[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
@@ -250,29 +283,9 @@
   Short Name = Why the supply item was requested
   Definition = Why the supply item was requested
   Workflow Mapping = Request.reasonCode, Request.reasonReference
+  v2 Mapping = ORC.16
+  RIM Mapping = .reasonCode, .outboundRelationship[typeCode=RSON].target
   w5 = why
-
- -- Row 14 -----------------------------------
-  Element = SupplyRequest.occurrence[x]
-  Card. = 0..1
-  Aliases = when, timing
-  UML = 400;30
-  Type = dateTime|Period|Timing
-  Short Name = When the request should be fulfilled
-  Definition = When the request should be fulfilled
-  Workflow Mapping = Request.occurrence.occurrenceTiming
-  w5 = when.planned
-
- -- Row 15 -----------------------------------
-  Element = SupplyRequest.authoredOn
-  Card. = 0..1
-  Aliases = date, createdOn, signedOn
-  Summary = Y
-  Type = dateTime
-  Short Name = When the request was made
-  Definition = When the request was made
-  Workflow Mapping = Request.authoredOn
-  w5 = when.recorded
 
  -- Row 16 -----------------------------------
   Element = SupplyRequest.from
@@ -280,6 +293,8 @@
   Type = Reference(Organization|Location)
   Short Name = The origin of the supply
   Definition = Where the supply is expected to come from
+  v2 Mapping = PRT
+  RIM Mapping = .participation
 
  -- Row 17 -----------------------------------
   Element = SupplyRequest.to
@@ -287,6 +302,8 @@
   Type = Reference(Organization|Location|Patient)
   Short Name = The destination of the supply
   Definition = Where the supply is destined to go
+  v2 Mapping = PRT
+  RIM Mapping = .participation
 
 === Sheet Search =====================================
 
@@ -319,11 +336,6 @@
   Name = supplier
   Type = reference
   Path = SupplyRequest.supplier
-
- -- Row 7 -----------------------------------
-  Name = encounter
-  Type = reference
-  Path = SupplyRequest.reasonReference
 
 === Sheet Profiles =====================================
 

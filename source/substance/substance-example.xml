@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Substance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/observation.xsd">
- <id value="example"/>
- <!--
+	<id value="example"/>
+	<!--
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Apitoxin (known as Honey Bee Venom)</div>
   </text>
 -->
-  <identifier>
+	<identifier>
 		<system value="http://acme.org/identifiers/substances"/>
 		<value value="1463"/>
 	</identifier>
+	<status value="active"/>
 	<category>
 		<coding>
 			<system value="http://hl7.org.fhir/substance-category"/>
@@ -18,8 +19,7 @@
 			<display value="Allergen"/>
 		</coding>
 	</category>
-  <code>
-    <text value="apitoxin (Honey Bee Venom)"/>
-  </code>
-  <status value="active"/>
+	<code>
+		<text value="apitoxin (Honey Bee Venom)"/>
+	</code>
 </Substance>
