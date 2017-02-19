@@ -72,6 +72,13 @@
   Definition = What order applies to the items in the entry.
   Conformance = preferred
 
+ -- Row 11 -----------------------------------
+  Binding Name = DocumentRelationshipType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/document-relationship-type
+  Definition = The type of relationship between documents.
+  Conformance = required
+
 === Sheet composition-attestation-mode =====================================
 
  -- Row 1 -----------------------------------
@@ -370,6 +377,38 @@
   CDA Mapping = .custodian.assignedCustodian
 
  -- Row 19 -----------------------------------
+  Element = Composition.relatesTo
+  Card. = 0..*
+  Summary = y
+  Short Name = Relationships to other compositions/documents
+  Definition = Relationships that this composition has with other compositions or documents that already exist
+  Comments = A document is a version specific composition
+  RIM Mapping = .outboundRelationship
+  CDA Mapping = .relatedDocument
+
+ -- Row 20 -----------------------------------
+  Element = Composition.relatesTo.code
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = DocumentRelationshipType
+  Short Name = replaces | transforms | signs | appends
+  Definition = The type of relationship that this composition has with anther composition or document
+  Comments = If this document appends another document, then the document cannot be fully understood without also accessing the referenced document
+  RIM Mapping = .outboundRelationship.typeCode
+  CDA Mapping = .relatedDocument.typeCode
+
+ -- Row 21 -----------------------------------
+  Element = Composition.relatesTo.target[x]
+  Card. = 1..1
+  Summary = y
+  Type = Identifier | Reference(Composition)
+  Short Name = Target of the relationship
+  Definition = The target composition/document of this relationship
+  RIM Mapping = .target[classCode=\"DOC\", moodCode=\"EVN\"].id
+  CDA Mapping = .relatedDocument.id
+
+ -- Row 22 -----------------------------------
   Element = Composition.event
   Card. = 0..*
   Summary = y
@@ -381,7 +420,7 @@
   RIM Mapping = outboundRelationship[typeCode=\"SUBJ\"].target[classCode<\'ACT\']
   CDA Mapping = .documentationOf.serviceEvent
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Composition.event.code
   Card. = 0..*
   Summary = y
@@ -393,7 +432,7 @@
   RIM Mapping = .code
   CDA Mapping = .code
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Composition.event.period
   Card. = 0..1
   Summary = y
@@ -403,7 +442,7 @@
   RIM Mapping = .effectiveTime
   CDA Mapping = .effectiveTime
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Composition.event.detail
   Card. = 0..*
   Summary = y
@@ -413,7 +452,7 @@
   RIM Mapping = .outboundRelationship[typeCode=\"SUBJ\"].target
   CDA Mapping = n/a
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Composition.section
   Card. = 0..*
   UML = right
@@ -423,7 +462,7 @@
   RIM Mapping = ./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode=\"DOCSECT\" and isNormalAct]
   CDA Mapping = .component.structuredBody.component.section
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Composition.section.title
   Card. = 0..1
   Aliases = header, label, caption
@@ -435,7 +474,7 @@
   RIM Mapping = ./title
   CDA Mapping = .title
 
- -- Row 25 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Composition.section.code
   Card. = 0..1
   Type = CodeableConcept
@@ -447,7 +486,7 @@
   RIM Mapping = ./code
   CDA Mapping = .code
 
- -- Row 26 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = !Composition.section.content
   Card. = 0..1
   Inv. = 1
@@ -458,7 +497,7 @@
   RIM Mapping = unique(./outboundRelationship[typeCode=\"COMP\" and isNormalActRelationship()]/target[moodCode=\"EVN\" and classCode!=\"DOCSECT\" and isNormalAct])
   CDA Mapping = n/a
 
- -- Row 27 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Composition.section.text
   Card. = 0..1
   Inv. = 1
@@ -469,7 +508,7 @@
   RIM Mapping = .text
   CDA Mapping = .text
 
- -- Row 28 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Composition.section.mode
   Card. = 0..1
   Is Modifier = y
@@ -483,7 +522,7 @@
   CDA Mapping = n/a
   w5 = class
 
- -- Row 29 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Composition.section.orderedBy
   Card. = 0..1
   Type = CodeableConcept
@@ -495,7 +534,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP].sequenceNumber > 1
   CDA Mapping = n/a
 
- -- Row 30 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Composition.section.entry
   Card. = 0..*
   Inv. = 2
@@ -506,7 +545,7 @@
   RIM Mapping = .outboundRelationship[typeCode=COMP] or  .participation[typeCode=SBJ]
   CDA Mapping = .entry
 
- -- Row 31 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Composition.section.emptyReason
   Card. = 0..1
   Inv. = 2
@@ -519,7 +558,7 @@
   RIM Mapping = .inboundRelationship[typeCode=SUBJ,code<{ListEmptyReason}].value[type=CD]
   CDA Mapping = n/a
 
- -- Row 32 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Composition.section.section
   Card. = 0..*
   UML = right
@@ -613,6 +652,16 @@
   Name = encounter
   Type = reference
   Path = Composition.encounter
+
+ -- Row 17 -----------------------------------
+  Name = related-ref
+  Type = reference
+  Path = Composition.relatesTo.targetReference
+
+ -- Row 18 -----------------------------------
+  Name = related-id
+  Type = reference
+  Path = Composition.relatesTo.targetIdentifier
 
 === Sheet Profiles =====================================
 

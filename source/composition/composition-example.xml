@@ -53,6 +53,13 @@
 		<reference value="Organization/2.16.840.1.113883.19.5"/>
 		<display value="Good Health Clinic"/>
 	</custodian>
+  <relatesTo>
+    <code value="replaces"/>
+    <targetIdentifier>
+      <system value="urn:oid:2.16.840.1.113883.19.4"/>
+      <value value="c266"/>
+    </targetIdentifier>
+  </relatesTo>
 	<event>
 		<code>
 			<coding>
