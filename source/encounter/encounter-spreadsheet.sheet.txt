@@ -418,6 +418,7 @@
   Summary = y
   Type = =Diagnosis
   Short Name = The list of diagnosis relevant to this encounter
+  RIM Mapping = .outboundRelationship[typeCode=RSON]
 
  -- Row 25 -----------------------------------
   Element = Encounter.diagnosis.condition
@@ -437,12 +438,14 @@
   Type = CodeableConcept
   Binding = DiagnosisRole
   Short Name = Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …)
+  RIM Mapping = n/a
 
  -- Row 27 -----------------------------------
   Element = Encounter.diagnosis.rank
   Card. = 0..1
   Type = positiveInt
   Short Name = Ranking of the diagnosis (for each role type)
+  RIM Mapping = .outboundRelationship[typeCode=RSON].priority
 
  -- Row 28 -----------------------------------
   Element = Encounter.account
