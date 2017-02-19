@@ -1265,7 +1265,7 @@ public class FHIRPathEngine {
       return doEquals(left, right);
     if (left.hasType("boolean") && right.hasType("boolean"))
       return doEquals(left, right);
-    if (left.hasType("integer", "decimal") && right.hasType("integer", "decimal"))
+    if (left.hasType("integer", "decimal", "unsignedInt", "positiveInt") && right.hasType("integer", "decimal", "unsignedInt", "positiveInt"))
       return Utilities.equivalentNumber(left.primitiveValue(), right.primitiveValue());
     if (left.hasType("date", "dateTime", "time", "instant") && right.hasType("date", "dateTime", "time", "instant"))
       return Utilities.equivalentNumber(left.primitiveValue(), right.primitiveValue());
@@ -1347,7 +1347,7 @@ public class FHIRPathEngine {
       Base r = right.get(0);
       if (l.hasType("string") && r.hasType("string")) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) > 0);
-      else if ((l.hasType("integer", "decimal")) && (r.hasType("integer", "decimal"))) 
+      else if ((l.hasType("integer", "decimal", "unsignedInt", "positiveInt")) && (r.hasType("integer", "decimal", "unsignedInt", "positiveInt"))) 
         return makeBoolean(new Double(l.primitiveValue()) > new Double(r.primitiveValue()));
       else if ((l.hasType("date", "dateTime", "instant")) && (r.hasType("date", "dateTime", "instant"))) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) > 0);
@@ -1371,7 +1371,7 @@ public class FHIRPathEngine {
       Base r = right.get(0);
       if (l.hasType("string") && r.hasType("string")) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) <= 0);
-      else if ((l.hasType("integer", "decimal")) && (r.hasType("integer", "decimal"))) 
+      else if ((l.hasType("integer", "decimal", "unsignedInt", "positiveInt")) && (r.hasType("integer", "decimal", "unsignedInt", "positiveInt"))) 
         return makeBoolean(new Double(l.primitiveValue()) <= new Double(r.primitiveValue()));
       else if ((l.hasType("date", "dateTime", "instant")) && (r.hasType("date", "dateTime", "instant"))) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) <= 0);
@@ -1397,7 +1397,7 @@ public class FHIRPathEngine {
       Base r = right.get(0);
       if (l.hasType("string") && r.hasType("string")) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) >= 0);
-      else if ((l.hasType("integer", "decimal")) && (r.hasType("integer", "decimal"))) 
+      else if ((l.hasType("integer", "decimal", "unsignedInt", "positiveInt")) && (r.hasType("integer", "decimal", "unsignedInt", "positiveInt"))) 
         return makeBoolean(new Double(l.primitiveValue()) >= new Double(r.primitiveValue()));
       else if ((l.hasType("date", "dateTime", "instant")) && (r.hasType("date", "dateTime", "instant"))) 
         return makeBoolean(l.primitiveValue().compareTo(r.primitiveValue()) >= 0);
@@ -1621,7 +1621,7 @@ public class FHIRPathEngine {
     Base l = left.get(0);
     Base r = right.get(0);
 
-    if (l.hasType("integer", "decimal") && r.hasType("integer", "decimal")) {
+    if (l.hasType("integer", "decimal", "unsignedInt", "positiveInt") && r.hasType("integer", "decimal", "unsignedInt", "positiveInt")) {
       Decimal d1;
       try {
         d1 = new Decimal(l.primitiveValue());
