@@ -5,7 +5,7 @@
   <name value="Diet"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate dietary preferences or restrictions a patient may have."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

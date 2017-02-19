@@ -66,7 +66,32 @@
     <reason>
         <text value="The patient seems to suffer from bilateral pneumonia and renal insufficiency, most likely due to chemotherapy."/>
     </reason>
-    <account>
+    <diagnosis>
+      <condition>
+          <reference value="Condition/stroke"/>
+      </condition>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/encounter-diagnosis-role"/>
+          <code value="AD"/>
+          <display value="Admission diagnosis"/>
+        </coding>
+      </role>
+      <rank value="1"/>
+    </diagnosis>
+    <diagnosis>
+      <condition>
+          <reference value="Condition/f201"/>
+      </condition>
+      <role>
+        <coding>
+          <system value="http://hl7.org/fhir/encounter-diagnosis-role"/>
+          <code value="DD"/>
+          <display value="Discharge diagnosis"/>
+        </coding>
+      </role>
+    </diagnosis>
+<account>
         <reference value="Account/example"></reference>
     </account>
     <!--No indication, because no referral took place-->
@@ -81,9 +106,6 @@
                 <display value="Clinical Oncology Department"/>
             </coding>
         </admitSource>
-        <admittingDiagnosis>
-            <reference value="Condition/stroke"/>
-        </admittingDiagnosis>
         <reAdmission>
             <coding>
                 <display value="readmitted"/>
@@ -115,9 +137,6 @@
             <!--Fictive-->
             <reference value="Location/2"/>
         </destination>
-        <dischargeDiagnosis>
-            <reference value="Condition/f201"/>
-        </dischargeDiagnosis>
     </hospitalization>
     <serviceProvider>
         <reference value="Organization/2"/>

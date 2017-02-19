@@ -5,7 +5,7 @@
   <name value="DischargeDisposition"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set defines a set of codes that can be used to where the patient left the hospital."/>
+  <description value="This codesystem defines a set of codes that can be used to where the patient left the hospital."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

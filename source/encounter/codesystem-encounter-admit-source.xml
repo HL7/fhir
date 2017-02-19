@@ -5,7 +5,7 @@
   <name value="AdmitSource"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set defines a set of codes that can be used to indicate from where the patient came in."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate from where the patient came in."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

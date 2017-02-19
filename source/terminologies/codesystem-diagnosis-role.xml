@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/diagnosis-role"/>
+  <name value="DiagnosisRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This example codesystem defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="AD"/>
+    <display value="Admission diagnosis"/>
+  </concept>
+  <concept>
+    <code value="DD"/>
+    <display value="Discharge diagnosis"/>
+  </concept>
+  <concept>
+    <code value="CC"/>
+    <display value="Chief complaint"/>
+  </concept>
+  <concept>
+    <code value="CM"/>
+    <display value="Comorbidity diagnosis"/>
+  </concept>
+  <concept>
+    <code value="pre-op"/>
+    <display value="pre-op diagnosis"/>
+  </concept>
+  <concept>
+    <code value="post-op"/>
+    <display value="post-op diagnosis"/>
+  </concept>
+  <concept>
+    <code value="billing"/>
+    <display value="Billing"/>
+  </concept>
+</CodeSystem>

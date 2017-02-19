@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="DiagnosisRole"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/diagnosis-role"/>
+    </include>
+  </compose>
+</ValueSet>

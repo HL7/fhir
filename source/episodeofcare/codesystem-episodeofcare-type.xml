@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/episodeofcare-type"/>
+  <name value="EpisodeOfCareType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This incomplete example codesystem defines a set of codes that can be used to express the usage type of an EpisodeOfCare record."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="hacc"/>
+    <display value="Home and Community Care"/>
+  </concept>
+  <concept>
+    <code value="pac"/>
+    <display value="Post Acute Care"/>
+  </concept>
+  <concept>
+    <code value="diab"/>
+    <display value="Post co-ordinated diabetes program"/>
+  </concept>
+  <concept>
+    <code value="da"/>
+    <display value="Drug and alcohol rehabilitation"/>
+  </concept>
+  <concept>
+    <code value="cacp"/>
+    <display value="Community-based aged care"/>
+  </concept>
+</CodeSystem>

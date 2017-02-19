@@ -5,7 +5,7 @@
   <name value="ParticipantType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate how an individual participates in an encounter."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

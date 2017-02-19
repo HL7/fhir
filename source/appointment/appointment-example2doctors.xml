@@ -35,6 +35,9 @@
 	</appointmentType>
 	<priority value="5" />
 	<description value="Discussion about Peter Chalmers MRI results" />
+  <supportingInformation>
+    <reference value="DiagnosticReport/ultrasound"/>
+  </supportingInformation>
 	<start value="2013-12-09T09:00:00Z" />
 	<end value="2013-12-09T11:00:00Z" />
 	<comment value="Clarify the results of the MRI to ensure context of test was correct" />

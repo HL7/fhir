@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <name value="EpisodeOfCareType"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This example value set defines a set of codes that can be used to express the usage type of an EpisodeOfCare record."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/episodeofcare-type"/>
+    </include>
+  </compose>
+</ValueSet>

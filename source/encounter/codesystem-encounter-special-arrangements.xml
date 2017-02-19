@@ -5,7 +5,7 @@
   <name value="SpecialArrangements"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit."/>
+  <description value="This codesystem defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>

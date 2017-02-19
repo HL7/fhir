@@ -5,7 +5,7 @@
   <name value="EncounterType"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This example value set defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided."/>
+  <description value="This example codesystem defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
