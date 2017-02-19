@@ -4692,7 +4692,7 @@
     <Cell ss:StyleID="s119"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">qualitativeRisk</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">risk</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">RiskAssessment.prediction.qualitativeRisk</Data></Cell>
@@ -4868,6 +4868,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

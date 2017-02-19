@@ -311,7 +311,7 @@
   Path = RiskAssessment.prediction.probability[x]
 
  -- Row 10 -----------------------------------
-  Name = qualitativeRisk
+  Name = risk
   Type = token
   Path = RiskAssessment.prediction.qualitativeRisk
 
