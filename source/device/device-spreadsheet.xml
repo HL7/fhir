@@ -1619,7 +1619,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s166"><Data ss:Type="String">FHIR Device Status</Data><NamedCell
+    <Cell ss:StyleID="s166"><Data ss:Type="String">FHIRDeviceStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6947,7 +6947,7 @@
     <Cell ss:StyleID="s165"><Data ss:Type="String">[#5453]&#160;#7590</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s166"><Data ss:Type="String">FHIR Device Status</Data></Cell>
+    <Cell ss:StyleID="s166"><Data ss:Type="String">FHIRDeviceStatus</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The availability status of the device.</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s126"><Data ss:Type="String">required</Data></Cell>

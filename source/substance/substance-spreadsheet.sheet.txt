@@ -9,7 +9,7 @@
   Conformance = example
 
  -- Row 2 -----------------------------------
-  Binding Name = FHIR Substance Status
+  Binding Name = FHIRSubstanceStatus
   Binding = code list
   Reference = #substance-status
   Definition = A code to indicate if the substance is actively used
@@ -80,7 +80,7 @@
   Card. = 0..1
   Summary = Y
   Type = code
-  Binding = FHIR Substance Status
+  Binding = FHIRSubstanceStatus
   Short Name = active | inactive | entered-in-error
   Definition = A code to indicate if the substance is actively used
   RIM Mapping = .statusCode

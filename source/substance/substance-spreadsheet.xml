@@ -1079,7 +1079,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">FHIR Substance Status</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">FHIRSubstanceStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6523,7 +6523,7 @@
     <Cell ss:StyleID="s117"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s148"><Data ss:Type="String">FHIR Substance Status</Data></Cell>
+    <Cell ss:StyleID="s148"><Data ss:Type="String">FHIRSubstanceStatus</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A code to indicate if the substance is actively used</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">required</Data></Cell>

@@ -274,7 +274,7 @@
   Definition = Indicates who or what participated in producing the report.
   Workflow Mapping = Event.performer
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  RIM Mapping = .participation[typeCode=PRF]
   Committee Notes = 12/22/2016 EH: 8936,11428
   w5 = who.witness
 
@@ -288,7 +288,7 @@
   Definition = Describes the type of participation (e.g.  a responsible party, author, or verifier).
   Workflow Mapping = Event.performer.role
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  RIM Mapping = .functionCode
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.performer.actor
@@ -301,7 +301,7 @@
   Comments = This is not necessarily the source of the atomic data items. It is the entity that takes responsibility for the clinical report.
   Workflow Mapping = Event.performer.actor
   v2 Mapping = PRT-8 (where this PRT-4-Participation = \"PO\")
-  RIM Mapping = participation[typeCode=AUT].role[classCode=ASSIGN].scoper
+  RIM Mapping = .role
 
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.specimen

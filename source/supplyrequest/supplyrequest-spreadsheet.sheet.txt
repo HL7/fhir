@@ -154,6 +154,7 @@
   Element = SupplyRequest.category
   Card. = 0..1
   Aliases = kind
+  Summary = Y
   Type = CodeableConcept
   Binding = SupplyRequestKind
   Short Name = The kind of supply (central, non-stock, etc.)
@@ -180,6 +181,7 @@
  -- Row 6 -----------------------------------
   Element = SupplyRequest.orderedItem
   Card. = 0..1
+  Summary = Y
   Short Name = The item being requested
   Workflow Mapping = Request.code
   v2 Mapping = Varies by domain
@@ -189,23 +191,28 @@
  -- Row 7 -----------------------------------
   Element = SupplyRequest.orderedItem.quantity
   Card. = 1..1
+  Summary = Y
   Type = Quantity
   Short Name = The requested amount of the item indicated
   Definition = The amount that is being ordered of the indicated item
+  RIM Mapping = .quantity
 
  -- Row 8 -----------------------------------
   Element = SupplyRequest.orderedItem.item[x]
   Card. = 0..1
+  Summary = Y
   Type = CodeableConcept|Reference(Medication|Substance|Device)
   Binding = SupplyRequestItem
   Short Name = Medication, Substance, or Device requested to be supplied
   Definition = The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
   Comments = Note that there\'s a difference between a prescription - an instruction to take a medication, along with a (sometimes) implicit supply, and an explicit request to supply, with no explicit instructions.
+  RIM Mapping = .code
 
  -- Row 9 -----------------------------------
   Element = SupplyRequest.occurrence[x]
   Card. = 0..1
   Aliases = when, timing
+  Summary = Y
   UML = 400;30
   Type = dateTime|Period|Timing
   Short Name = When the request should be fulfilled
@@ -254,7 +261,6 @@
  -- Row 13 -----------------------------------
   Element = SupplyRequest.requester.onBehalfOf
   Card. = 0..1
-  Summary = Y
   Type = Reference(Organization)
   Short Name = Organization agent is acting for
   Definition = The organization the device or practitioner was acting on behalf of
@@ -267,6 +273,7 @@
   Element = SupplyRequest.supplier
   Card. = 0..*
   Aliases = performer
+  Summary = Y
   Type = Reference(Organization)
   Short Name = Who is intended to fulfill the request
   Definition = Who is intended to fulfill the request
@@ -288,7 +295,7 @@
   w5 = why
 
  -- Row 16 -----------------------------------
-  Element = SupplyRequest.from
+  Element = SupplyRequest.deliverFrom
   Card. = 0..1
   Type = Reference(Organization|Location)
   Short Name = The origin of the supply
@@ -297,7 +304,7 @@
   RIM Mapping = .participation
 
  -- Row 17 -----------------------------------
-  Element = SupplyRequest.to
+  Element = SupplyRequest.deliverTo
   Card. = 0..1
   Type = Reference(Organization|Location|Patient)
   Short Name = The destination of the supply
@@ -354,7 +361,7 @@
   Filename = supplyrequest-example.xml
 
  -- Row 2 -----------------------------------
-  Name = !Simple Order
+  Name = Simple Order
   Identity = simpleorder
   Description = Simple order for resupply
   Filename = supplyrequest-example-simpleorder.xml

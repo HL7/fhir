@@ -26,14 +26,12 @@
 	<occurrenceDateTime value="2016-12-31"/>
 	<authoredOn value="2016-12-31"/>
 	<requester>
-		<reference>
+		<agent>
 			<display value="Purchasing Dept"/>
-		</reference>
+		</agent>
 	</requester>
 	<supplier>
-		<reference>
-			<display value="Vendor1"/>
-		</reference>
+		<display value="Vendor1"/>
 	</supplier>
 	<reasonCodeableConcept>
 		<coding>
@@ -41,16 +39,10 @@
 			<display value="Refill due to low stock"/>
 		</coding>
 	</reasonCodeableConcept>
-	<occurrenceDateTime value="2016-12-31"/>
-	<authoredOn value="2016-12-31"/>
-	<from>
-		<reference>
-			<display value="Location 1"/>
-		</reference>
-	</from>
-	<to>
-		<reference>
-			<display value="GoodHealth Clinic Receiving"/>
-		</reference>
-	</to>
+	<deliverFrom>
+		<display value="Location 1"/>
+	</deliverFrom>
+	<deliverTo>
+		<display value="GoodHealth Clinic Receiving"/>
+	</deliverTo>
 </SupplyRequest>

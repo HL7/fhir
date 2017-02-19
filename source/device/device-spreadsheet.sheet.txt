@@ -19,7 +19,7 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 3 -----------------------------------
-  Binding Name = FHIR Device Status
+  Binding Name = FHIRDeviceStatus
   Binding = code list
   Reference = #device-status
   Definition = The availability status of the device.
@@ -236,7 +236,7 @@
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = FHIR Device Status
+  Binding = FHIRDeviceStatus
   Short Name = active | inactive | entered-in-error | unknown
   Definition = Status of the Device availability.
   RIM Mapping = .statusCode
