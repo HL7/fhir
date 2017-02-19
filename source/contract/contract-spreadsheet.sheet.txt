@@ -193,6 +193,15 @@
   RIM Mapping = e.g. QUALIMP
 
  -- Row 14 -----------------------------------
+  Element = Contract.securityLabel
+  Card. = 0..*
+  Summary = Y
+  Type = Coding
+  Binding = SecurityLabels
+  Short Name = Security Labels that define affected resources
+  Definition = A set of security labels that define which resources are controlled by this consent. If more than one label is specified, all resources must have all the specified labels
+
+ -- Row 15 -----------------------------------
   Element = Contract.agent
   Card. = 0..*
   UML = 530;-20
@@ -202,14 +211,14 @@
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
   Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\rFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Contract.agent.actor
   Card. = 1..1
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
   Short Name = Contract Agent Type
   Definition = Who or what parties are assigned roles in this Contract.
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Contract.agent.role
   Card. = 0..*
   Type = CodeableConcept
@@ -217,7 +226,7 @@
   Short Name = Role type of the agent
   Definition = Role type of agent assigned roles in this Contract.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Contract.signer
   Card. = 0..*
   UML = 530;260
@@ -227,7 +236,7 @@
   Requirements = The Contract.signer applies a signature to the Contract.binding referenced resource, which is the documentation that is the legal \"source of truth\". The Contract.signer may delegate, such as a legally recognized personal representative, or have a delegate assigned e.g., by a court of law, to actually sign the Contract, such as a trustee in the case of incompetence.
   Comments = Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.\rFor example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Contract.signer.type
   Card. = 1..1
   Type = Coding
@@ -235,21 +244,21 @@
   Short Name = Contract Signatory Role
   Definition = Role of this Contract signer, e.g. notary, grantee.
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Contract.signer.party
   Card. = 1..1
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
   Short Name = Contract Signatory Party
   Definition = Party which is a signator to this Contract.
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Contract.signer.signature
   Card. = 1..*
   Type = Signature
   Short Name = Contract Documentation Signature
   Definition = Legally binding Contract DSIG signature contents in Base64.
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Contract.valuedItem
   Card. = 0..*
   UML = 530;80
@@ -258,7 +267,7 @@
   Definition = Contract Valued Item List
   RIM Mapping = COCT_RM440000UV09 ValuedItem classCode INVE
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Contract.valuedItem.entity[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
@@ -266,7 +275,7 @@
   Definition = Specific type of Contract Valued Item that may be priced.
   RIM Mapping = COCT_RM440000UV09 ValuedItem code
 
- -- Row 23 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Contract.valuedItem.identifier
   Card. = 0..1
   Type = Identifier
@@ -274,7 +283,7 @@
   Definition = Identifies a Contract Valued Item instance.
   RIM Mapping = COCT_RM440000UV09 ValuedItem id
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Contract.valuedItem.effectiveTime
   Card. = 0..1
   Type = dateTime
@@ -282,7 +291,7 @@
   Definition = Indicates the time during which this Contract ValuedItem information is effective.
   RIM Mapping = COCT_RM440000UV09 ValuedItem                effectiveTime
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Contract.valuedItem.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -290,7 +299,7 @@
   Definition = Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances.
   RIM Mapping = COCT_RM440000UV09 ValuedItem unitQuantity
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Contract.valuedItem.unitPrice
   Card. = 0..1
   Type = Money
@@ -298,7 +307,7 @@
   Definition = A Contract Valued Item unit valuation measure.
   RIM Mapping = COCT_RM440000UV09 ValuedItem unitPriceAmt
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Contract.valuedItem.factor
   Card. = 0..1
   Type = decimal
@@ -306,7 +315,7 @@
   Definition = A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
   RIM Mapping = COCT_RM440000UV09 ValuedItem factorNumber
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Contract.valuedItem.points
   Card. = 0..1
   Type = decimal
@@ -314,7 +323,7 @@
   Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
   RIM Mapping = COCT_RM440000UV09 ValuedItem pointNumber
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Contract.valuedItem.net
   Card. = 0..1
   Type = Money
@@ -322,7 +331,7 @@
   Definition = Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
   RIM Mapping = COCT_RM440000UV09 ValuedItem netAmt
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Contract.term
   Card. = 0..*
   UML = 250;300
@@ -330,7 +339,7 @@
   Short Name = Contract Term List
   Definition = One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = Contract.term.identifier
   Card. = 0..1
   Summary = Y
@@ -338,7 +347,7 @@
   Short Name = Contract Term Number
   Definition = Unique identifier for this particular Contract Provision.
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = Contract.term.issued
   Card. = 0..1
   Summary = Y
@@ -346,7 +355,7 @@
   Short Name = Contract Term Issue Date Time
   Definition = When this Contract Provision was issued.
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = Contract.term.applies
   Card. = 0..1
   Summary = Y
@@ -354,7 +363,7 @@
   Short Name = Contract Term Effective Time
   Definition = Relevant time or time-period when this Contract Provision is applicable.
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Contract.term.type
   Card. = 0..1
   Type = CodeableConcept
@@ -362,7 +371,7 @@
   Short Name = Contract Term Type or Form
   Definition = Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Contract.term.subType
   Card. = 0..1
   Type = CodeableConcept
@@ -370,7 +379,7 @@
   Short Name = Contract Term Type specific classification
   Definition = Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Contract.term.topic
   Card. = 0..*
   Summary = Y
@@ -381,14 +390,14 @@
   Comments = The Contract.term.topic, as a Contract Resource subpart, is handled in the same manner as the Contract Resource as discussed above.
   RIM Mapping = Role
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = !Contract.term.subject
   Card. = 0..1
   Type = Reference(Any)
   Short Name = Subject of this Contract Term
   Definition = Who or what this Contract Provision is about.
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = Contract.term.action
   Card. = 0..*
   Type = CodeableConcept
@@ -396,7 +405,7 @@
   Short Name = Contract Term Activity
   Definition = Action stipulated by this Contract Provision.
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = Contract.term.actionReason
   Card. = 0..*
   Type = CodeableConcept
@@ -404,7 +413,7 @@
   Short Name = Purpose for the Contract Term Action
   Definition = Reason or purpose for the action stipulated by this Contract Provision.
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Contract.term.agent
   Card. = 0..*
   UML = -20;320
@@ -414,14 +423,14 @@
   Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
   Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\rFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Contract.term.agent.actor
   Card. = 1..1
   Type = Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)
   Short Name = Contract Term Agent Subject
   Definition = The agent assigned a role in this Contract Provision.
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Contract.term.agent.role
   Card. = 0..*
   Type = CodeableConcept
@@ -429,14 +438,14 @@
   Short Name = Type of the Contract Term Agent
   Definition = Role played by the agent assigned this role in the execution of this Contract Provision.
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Contract.term.text
   Card. = 0..1
   Type = string
   Short Name = Human readable Contract term text
   Definition = Human readable form of this Contract Provision.
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Contract.term.valuedItem
   Card. = 0..*
   UML = -20;460
@@ -445,7 +454,7 @@
   Definition = Contract Provision Valued Item List
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem classCode INVE
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = Contract.term.valuedItem.entity[x]
   Card. = 0..1
   Type = CodeableConcept|Reference(Any)
@@ -453,7 +462,7 @@
   Definition = Specific type of Contract Provision Valued Item that may be priced.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem code
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = Contract.term.valuedItem.identifier
   Card. = 0..1
   Type = Identifier
@@ -461,7 +470,7 @@
   Definition = Identifies a Contract Provision Valued Item instance.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem id
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = Contract.term.valuedItem.effectiveTime
   Card. = 0..1
   Type = dateTime
@@ -469,7 +478,7 @@
   Definition = Indicates the time during which this Contract Term ValuedItem information is effective.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem effectiveTime
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = Contract.term.valuedItem.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -477,7 +486,7 @@
   Definition = Specifies the units by which the Contract Provision Valued Item is measured or counted, and quantifies the countable or measurable Contract Term Valued Item instances.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem unitQuantity
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = Contract.term.valuedItem.unitPrice
   Card. = 0..1
   Type = Money
@@ -485,7 +494,7 @@
   Definition = A Contract Provision Valued Item unit valuation measure.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem unitPriceAmt
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = Contract.term.valuedItem.factor
   Card. = 0..1
   Type = decimal
@@ -493,7 +502,7 @@
   Definition = A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem factorNumber
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = Contract.term.valuedItem.points
   Card. = 0..1
   Type = decimal
@@ -501,35 +510,35 @@
   Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.
   RIM Mapping = COCT_RM440000UV09 ValuedUnitItem pointNumber
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = Contract.term.valuedItem.net
   Card. = 0..1
   Type = Money
   Short Name = Total Contract Term Valued Item Value
   Definition = Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = Contract.term.group
   Card. = 0..*
   Type = @Contract.term
   Short Name = Nested Contract Term Group
   Definition = Nested group of Contract Provisions.
 
- -- Row 54 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = Contract.binding[x]
   Card. = 0..1
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Binding Contract
   Definition = Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.
 
- -- Row 55 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = !Contract.bindingDateTime
   Card. = 0..1
   Type = dateTime
   Short Name = Binding Contract legally effective date time
   Definition = Date and time at which the legally binding Contract became effective.
 
- -- Row 56 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = Contract.friendly
   Card. = 0..*
   UML = -20;0
@@ -537,21 +546,21 @@
   Short Name = Contract Friendly Language
   Definition = The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.
 
- -- Row 57 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = Contract.friendly.content[x]
   Card. = 1..1
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Easily comprehended representation of this Contract
   Definition = Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.
 
- -- Row 58 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = !Contract.friendly.dateTime
   Card. = 1..1
   Type = dateTime
   Short Name = Easily comprehended representation of this Contract creation date/time
   Definition = Creation date and time of the human readable rendering of this Consent Directive in a format and representation intended to enhance comprehension and ensure understandability.
 
- -- Row 59 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = Contract.legal
   Card. = 0..*
   UML = -20;120
@@ -559,21 +568,21 @@
   Short Name = Contract Legal Language
   Definition = List of Legal expressions or representations of this Contract.
 
- -- Row 60 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = Contract.legal.content[x]
   Card. = 1..1
   Type = Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)
   Short Name = Contract Legal Text
   Definition = Contract legal text in human renderable form.
 
- -- Row 61 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = !Contract.legal.dateTime
   Card. = 1..1
   Type = dateTime
   Short Name = Contract Legal Text creation date time
   Definition = Creation date and time of this Contract  legal text in human renderable form.
 
- -- Row 62 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = Contract.rule
   Card. = 0..*
   UML = -20;230
@@ -581,14 +590,14 @@
   Short Name = Computable Contract Language
   Definition = List of Computable Policy Rule Language Representations of this Contract.
 
- -- Row 63 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = Contract.rule.content[x]
   Card. = 1..1
   Type = Attachment|Reference(DocumentReference)
   Short Name = Computable Contract Rules
   Definition = Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).
 
- -- Row 64 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = !Contract.rule.dateTime
   Card. = 1..1
   Type = dateTime

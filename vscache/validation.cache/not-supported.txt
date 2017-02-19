@@ -50,7 +50,6 @@ http://hl7.org/fhir/ValueSet/v3-ActCoverageTypeCode
 http://hl7.org/fhir/paymenttype
 http://hl7.org/fhir/audit-event-sub-type
 https://github.com/common-workflow-language/workflows
-urn:iso:std:iso:4217
 http://www.ihe.net/xds/connectathon/practiceSettingCodes
 http://hl7.org/fhir/ValueSet/adverse-event-seriousness
 http://acme.lab
